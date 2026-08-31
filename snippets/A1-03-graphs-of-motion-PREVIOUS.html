@@ -1,0 +1,687 @@
+      <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function(){ return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<style>
+:root {
+  --text:#1a1a1a; --text-2:#374151; --text-muted:#6b7280;
+  --surface:#ffffff; --surface2:#f9fafb; --surface3:#f3f4f6;
+  --border:#e5e7eb; --border-2:#d1d5db;
+  --accent:#4f46e5; --accent-dim:#eef2ff;
+  --gold:#d97706; --gold-dim:#fffbeb;
+  --green:#059669; --green-dim:#ecfdf5;
+  --red:#dc2626; --red-dim:#fef2f2;
+  --radius:10px;
+  --font-sans:system-ui,-apple-system,sans-serif;
+  --font-serif:Georgia,'Times New Roman',serif;
+  --font-mono:'Menlo','Courier New',monospace;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --text:#f3f4f6; --text-2:#d1d5db; --text-muted:#9ca3af;
+    --surface:#1f2937; --surface2:#111827; --surface3:#0f172a;
+    --border:#374151; --border-2:#4b5563;
+    --accent:#818cf8; --accent-dim:#1e1b4b;
+    --gold:#fbbf24; --gold-dim:#1c1506;
+    --green:#34d399; --green-dim:#022c22;
+    --red:#f87171; --red-dim:#1f0909;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--text);background:var(--surface);padding:1.5rem;max-width:780px}
+.lc-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
+.lc-badge span{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700}
+.lc-title{font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px}
+.lc-sub{font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem}
+.lc-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem}
+.lc-card h3{font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans)}
+.lc-card p{font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem}
+.lc-card p:last-child{margin-bottom:0}
+.lc-table{width:100%;border-collapse:collapse;font-size:0.84rem}
+.lc-table th{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left}
+.lc-table td{padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem}
+.lc-table td:first-child{font-weight:600;color:var(--accent);white-space:nowrap}
+.lc-table tr:last-child td{border-bottom:none}
+.lc-formula{background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.lc-formula .lc-formula-label{display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans)}
+.lc-graph-wrap{background:var(--surface3);border:1px solid var(--border);border-radius:var(--radius);padding:0.85rem;margin:0.85rem 0}
+.lc-graph-wrap .lc-cap{font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5;text-align:center}
+.lc-graph-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:0.85rem 0}
+@media(max-width:600px){.lc-graph-row{grid-template-columns:1fr}}
+.lc-kp{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem}
+.lc-kp span{font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent)}
+.lc-section{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px}
+.lc-section::after{content:'';flex:1;height:1px;background:var(--border)}
+.lc-info{background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:0.88rem;color:var(--text-2);margin:0.6rem 0;line-height:1.65}
+.lc-warn{background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:0.88rem;color:var(--text-2);margin:0.6rem 0;line-height:1.65}
+.lc-success{background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:0.88rem;color:var(--text-2);margin:0.6rem 0;line-height:1.65}
+.lc-two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+@media(max-width:600px){.lc-two-col{grid-template-columns:1fr}}
+.lc-step{display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border)}
+.lc-step:last-child{border-bottom:none}
+.lc-step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px}
+.lc-step-body{flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7}
+.lc-step-body strong{color:var(--text)}
+.lc-mcq-q{font-size:0.93rem;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55}
+.lc-opts{display:flex;flex-direction:column;gap:0.4rem}
+.lc-opt{display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:0.88rem;color:var(--text-2);transition:all 0.15s;background:var(--surface)}
+.lc-opt:hover{background:var(--accent-dim);border-color:var(--border-2)}
+.lc-opt.correct{background:var(--green-dim);border-color:var(--green);color:var(--green)}
+.lc-opt.wrong{background:var(--red-dim);border-color:var(--red);color:var(--red)}
+.lc-opt.disabled{cursor:default;pointer-events:none}
+.lc-opt-l{font-weight:700;min-width:18px;flex-shrink:0}
+.lc-fb{font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none}
+.lc-fb.show{display:block}
+.lc-fb.correct{background:var(--green-dim);color:var(--green)}
+.lc-fb.wrong{background:var(--red-dim);color:var(--red)}
+.lc-fitb{font-size:0.93rem;line-height:2.6;color:var(--text-2)}
+.lc-fitb-input{border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:0.93rem;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans)}
+.lc-fitb-input.correct{border-bottom-color:var(--green);color:var(--green)}
+.lc-fitb-input.wrong{border-bottom-color:var(--red);color:var(--red)}
+.lc-check-btn{display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s}
+.lc-check-btn:hover{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+.lc-exam{background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem}
+.lc-exam-tag{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem}
+.lc-exam-q{font-size:0.88rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem}
+.lc-exam-input{width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:0.88rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s}
+.lc-exam-input:focus{border-color:var(--accent)}
+.lc-reveal-btn{margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s}
+.lc-reveal-btn:hover{background:var(--accent-dim);color:var(--accent);border-color:var(--accent)}
+.lc-model{margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:0.84rem;color:var(--text-2);line-height:1.7;display:none}
+.lc-model.show{display:block}
+.lc-score{display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted)}
+.lc-score strong{color:var(--accent)}
+canvas{display:block;width:100%!important}
+</style>
+
+<!-- SECTION A — HEADER -->
+<div class="lc-badge"><span>1</span> Lesson 1 of 4 · A.1 Kinematics</div>
+<div class="lc-title">Graphs of Motion</div>
+<div class="lc-sub">Master displacement–time, velocity–time, and acceleration–time graphs — the visual language that unlocks every kinematics problem in IB Physics.</div>
+
+<!-- SECTION B — HOOK -->
+<div class="lc-card">
+  <h3>🎯 Hook – The crash that tells a story</h3>
+  <p>During a controlled crash test, engineers don't just watch the collision — they <strong>read</strong> it from a graph. A velocity–time graph of the impact shows the car accelerating on the test track, travelling at constant speed, then in just 80 milliseconds, velocity plunging to zero. Hidden inside that graph is the displacement, the deceleration force, and the exact moment the airbag must fire. <strong>Every detail of the crash is encoded in the shape, gradient, and area of a single graph.</strong></p>
+  <div class="lc-graph-wrap">
+    <div style="position:relative;height:200px"><canvas id="hookChart" role="img" aria-label="Velocity-time graph of a crash test: acceleration phase, constant speed phase, then sudden deceleration to zero"></canvas></div>
+    <div class="lc-cap">Fig 1 — Velocity–time graph of a crash-test vehicle. Phase A (rising): constant acceleration on the track. Phase B (flat): constant speed approach. Phase C (steep drop): violent deceleration on impact. The area of each phase = displacement for that phase.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think first — answer below)</strong> — Looking at Phase C on the graph above, the line is nearly vertical (extremely steep negative gradient). What does this tell you about the acceleration during the crash? <em>Answer: a very large negative acceleration (deceleration). Gradient = Δv/Δt — a near-vertical line means a huge change in velocity in a tiny time interval, i.e. enormous deceleration force.</em></div>
+</div>
+
+<!-- SECTION C — CORE KNOWLEDGE 1: s–t graphs -->
+<div class="lc-card">
+  <h3>📐 Displacement–time (s–t) graphs</h3>
+  <p>A <strong>displacement–time graph</strong> plots position \(s\) (metres) on the vertical axis against time \(t\) (seconds) on the horizontal. It records <em>where</em> the object is at every moment.</p>
+  <p>The <strong>gradient</strong> of an s–t graph equals the velocity. For a straight-line segment the velocity is constant; for a curved section, draw a <strong>tangent</strong> at the point of interest — its gradient gives the <strong>instantaneous velocity</strong> (key HL skill).</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Velocity from an s–t graph</span>
+    $$v = \frac{\Delta s}{\Delta t} = \text{gradient of the } s\text{–}t \text{ graph}$$
+  </div>
+  <div class="lc-graph-row">
+    <div class="lc-graph-wrap">
+      <div style="position:relative;height:180px"><canvas id="stLine" role="img" aria-label="Straight-line s-t graph showing constant velocity"></canvas></div>
+      <div class="lc-cap">Fig 2 — Straight line → constant velocity. Steeper = faster. Negative slope = moving in −ve direction. Horizontal = stationary (v = 0).</div>
+    </div>
+    <div class="lc-graph-wrap">
+      <div style="position:relative;height:180px"><canvas id="stCurve" role="img" aria-label="Curved s-t graph showing acceleration then deceleration to rest"></canvas></div>
+      <div class="lc-cap">Fig 3 — Curved s–t graph. Steepening curve = speeding up. Flattening curve = slowing down. Horizontal end = object has stopped.</div>
+    </div>
+  </div>
+  <div class="lc-info">💡 <strong>Key rule:</strong> On an s–t graph the <em>y-value</em> tells you position; the <em>gradient</em> tells you velocity. A steep graph ≠ large acceleration — it means large speed. Acceleration requires a <em>change</em> in gradient (a curve).</div>
+</div>
+
+<!-- SECTION C — CORE KNOWLEDGE 2: v–t graphs -->
+<div class="lc-card">
+  <h3>📐 Velocity–time (v–t) graphs</h3>
+  <p>The <strong>velocity–time graph</strong> is the most information-rich motion graph. From it you can extract both <strong>acceleration</strong> (gradient) and <strong>displacement</strong> (area).</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Acceleration from a v–t graph</span>
+    $$a = \frac{\Delta v}{\Delta t} = \text{gradient of the } v\text{–}t \text{ graph}$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Displacement from a v–t graph</span>
+    $$s = \text{area between graph line and time axis}$$
+  </div>
+  <p>Area <strong>above</strong> the time axis = positive displacement. Area <strong>below</strong> the time axis = negative displacement (object moving in reverse). The line <strong>crossing the axis</strong> means the object momentarily has zero velocity and is reversing direction.</p>
+  <div class="lc-graph-wrap">
+    <div style="position:relative;height:220px"><canvas id="vtComposite" role="img" aria-label="Composite v-t graph with acceleration, constant velocity, and deceleration phases with shaded areas"></canvas></div>
+    <div class="lc-cap">Fig 4 — Composite v–t graph. Rising segment (gradient = +a): acceleration. Flat segment (gradient = 0): constant velocity. Falling segment (gradient = −a): deceleration. Each shaded area = displacement for that phase. Sum all three areas for total displacement.</div>
+  </div>
+  <div class="lc-warn">⚠️ <strong>Area trap:</strong> When the v–t line crosses the x-axis, split the total area at the crossing point. The area above = positive displacement; the area below = negative displacement. Adding both as positive values gives total <em>distance</em>, not net displacement.</div>
+</div>
+
+<!-- SECTION C — CORE KNOWLEDGE 3: a–t graphs -->
+<div class="lc-card">
+  <h3>📐 Acceleration–time (a–t) graphs</h3>
+  <p>An <strong>acceleration–time graph</strong> plots \(a\) (m s\(^{-2}\)) against time. Its defining property: the <strong>area</strong> under the graph equals the <strong>change in velocity</strong>.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Change in velocity from an a–t graph</span>
+    $$\Delta v = \text{area between the } a\text{–}t \text{ graph and the time axis}$$
+  </div>
+  <div class="lc-graph-row">
+    <div class="lc-graph-wrap">
+      <div style="position:relative;height:180px"><canvas id="atConst" role="img" aria-label="Constant acceleration on an a-t graph shown as a horizontal line with shaded area"></canvas></div>
+      <div class="lc-cap">Fig 5 — Constant acceleration: horizontal line. Shaded area = Δv gained. If starting from rest, final velocity = area.</div>
+    </div>
+    <div class="lc-graph-wrap">
+      <div style="position:relative;height:180px"><canvas id="atLinked" role="img" aria-label="Three linked graphs showing the same motion on s-t, v-t and a-t graphs"></canvas></div>
+      <div class="lc-cap">Fig 6 — Linked graphs for uniform acceleration: s–t parabola (blue), v–t straight line (purple). The gradient chain connects them: grad(s–t) → v–t; grad(v–t) → a–t.</div>
+    </div>
+  </div>
+  <div class="lc-success">✓ <strong>The gradient–area chain (HL essential):</strong> grad(s–t) = v · grad(v–t) = a · area(v–t) = s · area(a–t) = Δv. This chain underpins every kinematics calculation in IB Physics.</div>
+</div>
+
+<!-- SECTION D — GRAPH MASTERY TABLE -->
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X → Y)</th><th>Key shape</th><th>What to extract</th></tr></thead>
+    <tbody>
+      <tr><td>s–t</td><td>t (s) → s (m)</td><td>Straight line = const. v; curve = changing v; horizontal = stationary</td><td>Gradient = velocity; tangent gradient = instantaneous v</td></tr>
+      <tr><td>v–t</td><td>t (s) → v (m s⁻¹)</td><td>Straight line = const. a; horizontal = const. v; crosses axis = reversal</td><td>Gradient = acceleration; area = displacement; signed area = net displacement</td></tr>
+      <tr><td>a–t</td><td>t (s) → a (m s⁻²)</td><td>Horizontal line = uniform a; on x-axis = zero a (constant v)</td><td>Area = Δv; does NOT directly give displacement</td></tr>
+      <tr><td>v–t (free fall)</td><td>t (s) → v (m s⁻¹)</td><td>Straight line, gradient = −g ≈ −9.81 m s⁻²</td><td>Gradient = −g; triangular area = height fallen; x-axis crossing = peak</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-graph-row">
+    <div class="lc-graph-wrap">
+      <div style="position:relative;height:180px"><canvas id="freeFallVT" role="img" aria-label="v-t graph for a ball thrown upward, showing a straight line crossing zero and gradient equal to negative g"></canvas></div>
+      <div class="lc-cap">Fig 7 — v–t for a ball thrown upward. Straight line, gradient = −g. Crosses zero at peak height. Area of upper triangle = max displacement upward.</div>
+    </div>
+    <div class="lc-graph-wrap">
+      <div style="position:relative;height:180px"><canvas id="parabolicST" role="img" aria-label="Parabolic s-t graph for uniform acceleration from rest"></canvas></div>
+      <div class="lc-cap">Fig 8 — Parabolic s–t graph for uniform acceleration from rest \((s = \frac{1}{2}at^2)\). The curve steepens because velocity increases. Tangent at any point gives instantaneous v.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION E — WORKED EXAMPLE -->
+<div class="lc-card">
+  <h3>✍️ Worked example – Reading a composite v–t graph</h3>
+  <p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:0.75rem">A car starts from rest. It accelerates uniformly to 24 m s⁻¹ in 6 s, travels at constant velocity for 4 s, then decelerates uniformly to rest in 3 s. Calculate (a) the acceleration in phase 1, (b) the deceleration in phase 3, (c) the total displacement.</p>
+  <div class="lc-step">
+    <div class="lc-step-num">1</div>
+    <div class="lc-step-body"><strong>Identify:</strong> Three-phase v–t graph. Acceleration = gradient of each phase. Displacement = area under each phase (triangles and rectangle). We need gradient of phase 1, gradient of phase 3, and sum of all three areas.</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">2</div>
+    <div class="lc-step-body"><strong>Data:</strong> Phase 1: \(u = 0\), \(v = 24\) m s⁻¹, \(\Delta t = 6\) s. Phase 2: \(v = 24\) m s⁻¹ (constant), \(\Delta t = 4\) s. Phase 3: \(u = 24\) m s⁻¹, \(v = 0\), \(\Delta t = 3\) s.</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">3</div>
+    <div class="lc-step-body"><strong>Equations and substitution:</strong><br>
+      (a) \(\;a_1 = \dfrac{\Delta v}{\Delta t} = \dfrac{24-0}{6} = +4\) m s\(^{-2}\)<br><br>
+      (b) \(\;a_3 = \dfrac{0-24}{3} = -8\) m s\(^{-2}\) (deceleration magnitude: 8 m s\(^{-2}\))<br><br>
+      (c) \(\;s = \tfrac{1}{2}(6)(24) + (4)(24) + \tfrac{1}{2}(3)(24) = 72 + 96 + 36 = 204\) m
+    </div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">4</div>
+    <div class="lc-step-body"><strong>Answer:</strong> Acceleration = \(+4\) m s\(^{-2}\); deceleration magnitude = \(8\) m s\(^{-2}\); total displacement = <strong>204 m</strong>. The steeper phase-3 gradient (magnitude) confirms a larger deceleration — the same speed change occurs in half the time.</div>
+  </div>
+  <div class="lc-graph-wrap">
+    <div style="position:relative;height:220px"><canvas id="workedVT" role="img" aria-label="v-t graph for the worked example showing three phases with shaded areas labelled 72m, 96m and 36m"></canvas></div>
+    <div class="lc-cap">Fig 9 — v–t graph for the worked example. Phase 1 triangle (area = 72 m), phase 2 rectangle (area = 96 m), phase 3 triangle (area = 36 m). Total shaded area = 204 m. Note phase 3 has a steeper slope than phase 1 — larger deceleration magnitude.</div>
+  </div>
+</div>
+
+<!-- SECTION F — REAL WORLD + HL -->
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🚗 Real-world: Airbag deployment timing</h3>
+    <p>Airbag control units use an accelerometer to record the vehicle's deceleration as an a–t signal. The processor continuously integrates this signal (computing the area under the a–t graph) to find \(\Delta v\). When \(\Delta v\) exceeds a threshold in under 15 ms — a tiny rectangular area on the a–t graph — the airbag ignites. Engineers design for decelerations of 30–50 g over ≈ 6 ms. A v–t graph of the crash shows the velocity collapsing from ≈ 50 km h⁻¹ to zero in that 6 ms window.</p>
+    <div class="lc-success">✓ <strong>Examiner tip:</strong> When asked to "determine the change in velocity from an a–t graph," always state the geometric shape (rectangle, triangle, or trapezium), write out the area calculation explicitly, and include units (m s⁻¹). Each of these steps earns a mark.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – Instantaneous values from curved graphs</h3>
+    <p>At HL, v–t graphs can be curved (non-uniform acceleration). The <strong>instantaneous acceleration</strong> equals the gradient of the <em>tangent</em> to the curve. Similarly, displacement from a curved v–t graph is estimated by counting grid squares under the curve.</p>
+    <p>The kinematic equations \(v = u + at\), \(s = ut + \tfrac{1}{2}at^2\) etc. are valid <em>only for uniform acceleration</em> (straight-line v–t). For a curved v–t you must use graphical methods.</p>
+    <p><strong>Challenge:</strong> A v–t graph is a straight line from \((0,\,0)\) to \((T,\,v_0)\). Show that the area formula gives \(s = \tfrac{1}{2}v_0 T\) and identify which kinematic equation this corresponds to. <em>(Answer: area of triangle = \(\tfrac{1}{2}(u+v)t = \tfrac{1}{2}(0+v_0)T\) — this IS the kinematic equation \(s = \tfrac{1}{2}(u+v)t\).)</em></p>
+  </div>
+</div>
+
+<!-- SECTION G — MISCONCEPTIONS -->
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"Steep s–t graph = large acceleration"</td><td>Steep s–t gradient = large velocity. Acceleration requires a <em>change</em> in gradient — only a curve on the s–t graph shows acceleration.</td></tr>
+      <tr><td>"Gradient of v–t = displacement"</td><td>Gradient of v–t = acceleration. Area under v–t = displacement. These are completely different operations.</td></tr>
+      <tr><td>"When v = 0, acceleration = 0"</td><td>At the peak of a throw, v = 0 but a = −g ≠ 0. Velocity and acceleration are independent quantities.</td></tr>
+      <tr><td>"Area under v–t always = distance"</td><td>Area below the x-axis counts as negative displacement. For net displacement use signed areas; for total distance take all areas as positive.</td></tr>
+      <tr><td>"Horizontal a–t line means object is stopped"</td><td>A horizontal a–t line at a = 0 means constant velocity — the object could be moving fast. It is stopped only if v = 0 as well.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ <strong>Most common exam slip:</strong> Swapping gradient and area on a v–t graph — writing "area = acceleration" or "gradient = displacement." This single error loses marks on both Paper 1 MCQs and Paper 2 data questions. Always ask yourself: <em>Is the question asking about the gradient or the area?</em></div>
+</div>
+
+<!-- SECTION H — KEY POINTS PILLS -->
+<div class="lc-kp">
+  <span>grad(s–t) = v</span>
+  <span>grad(v–t) = a</span>
+  <span>area(v–t) = s</span>
+  <span>area(a–t) = Δv</span>
+  <span>tangent → instantaneous value</span>
+  <span>area below axis = −ve displacement</span>
+</div>
+
+<!-- SECTION I — MCQ PRACTICE -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A displacement–time graph shows a straight line with a negative gradient. Which statement correctly describes the motion?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> The object is decelerating.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> The object is stationary.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> The object moves with constant velocity in the negative direction.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> The object is accelerating towards the origin.</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A v–t graph shows a straight line from \((0,\;0)\) to \((5\text{ s},\;20\text{ m s}^{-1})\). What is the displacement over this 5 s interval?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 20 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 50 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 100 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 4 m s⁻²</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. At the highest point of a ball thrown vertically upward, which statement is true?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> Both velocity and acceleration are zero.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> Velocity is non-zero; acceleration is zero.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> Velocity is positive; acceleration is positive.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> Velocity is zero; acceleration equals \(-g\).</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. An a–t graph shows a horizontal line at \(a = 6\text{ m s}^{-2}\) from \(t = 0\) to \(t = 4\text{ s}\). The object starts from rest. What is the velocity at \(t = 4\text{ s}\)?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 6 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> 1.5 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> 24 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> 48 m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A v–t graph line rises above the x-axis then crosses it and descends below. The <em>net displacement</em> is best found by:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> Calculating the gradient at the crossing point.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> Calculating signed areas above and below the x-axis separately, then summing.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> Multiplying average speed by total time.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> Adding both areas as positive values.</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<!-- SECTION J — FILL IN THE BLANKS -->
+<div class="lc-section">Practice check — fill in the blanks</div>
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The gradient of a displacement–time graph gives the object's <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px">.
+    The area under a velocity–time graph gives the object's <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px">.
+    When a v–t line crosses the time axis, the object's <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:100px"> is zero and it is about to reverse direction.
+    A horizontal line on an a–t graph sitting on the x-axis means the object has <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:150px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- SECTION K — EXAM QUESTIONS -->
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State and Explain</div>
+  <div class="lc-exam-q">(a) State what is represented by the gradient of a velocity–time graph. [1]<br>(b) A v–t graph shows a straight line of negative gradient that does not cross the time axis. Explain what this tells us about the object's motion. [2]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    (a) ✓ The gradient of a v–t graph equals the acceleration of the object (m s⁻²).<br><br>
+    (b) ✓ The object has a constant (uniform) deceleration / constant negative acceleration.<br>
+    ✓ The object continues to move in the positive direction throughout (v remains positive, never reaching zero), but its speed decreases at a constant rate.
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">A cyclist starts from rest and accelerates uniformly for 8 s reaching 12 m s⁻¹. She cycles at this constant speed for 15 s, then decelerates uniformly to rest in 6 s.<br><br>(a) Calculate her acceleration during the first phase. [1]<br>(b) Calculate the total distance travelled. [3]<br>(c) Sketch and label the corresponding acceleration–time graph for the entire journey. [3]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…" style="min-height:100px"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    (a) ✓ \(a = \Delta v/\Delta t = 12/8 = 1.5\) m s⁻²<br><br>
+    (b) ✓ Phase 1 (triangle): \(s_1 = \tfrac{1}{2} \times 8 \times 12 = 48\) m<br>
+    ✓ Phase 2 (rectangle): \(s_2 = 15 \times 12 = 180\) m<br>
+    ✓ Phase 3 (triangle): \(s_3 = \tfrac{1}{2} \times 6 \times 12 = 36\) m · Total = 264 m<br><br>
+    (c) ✓ Horizontal line at +1.5 m s⁻² from t = 0 to t = 8 s.<br>
+    ✓ Horizontal line at a = 0 from t = 8 s to t = 23 s.<br>
+    ✓ Horizontal line at −2 m s⁻² from t = 23 s to t = 29 s; both axes correctly labelled with values.
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain and Calculate (HL)</div>
+  <div class="lc-exam-q">The s–t graph for an object is a smooth curve that becomes progressively less steep, eventually becoming horizontal.<br><br>(a) Describe the motion. [2]<br>(b) Sketch the corresponding v–t graph and explain its shape with reference to the s–t graph. [3]<br>(c) A tangent to the s–t curve at t = 4 s has gradient 3.2 m s⁻¹; at t = 6 s its gradient is 1.4 m s⁻¹. Estimate the average acceleration between t = 4 s and t = 6 s. [2]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…" style="min-height:100px"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    (a) ✓ The object moves in the positive direction (displacement increasing) but decelerates (curve flattening).<br>
+    ✓ It eventually comes to rest (horizontal section → v = 0).<br><br>
+    (b) ✓ v–t graph starts at a positive value, slopes downward (decelerating), and reaches zero.<br>
+    ✓ Shape is a curve (not a straight line) because the gradient of the s–t graph changes non-linearly.<br>
+    ✓ The gradient of the s–t graph at each instant equals the y-value of the v–t graph at the same instant.<br><br>
+    (c) ✓ \(\bar{a} = \Delta v / \Delta t = (1.4 - 3.2)/(6 - 4) = -1.8/2\)<br>
+    ✓ \(\bar{a} = -0.9\) m s⁻² (negative → decelerating; accept 0.9 m s⁻² if direction stated separately)
+  </div>
+</div>
+
+<!-- SECTION L — SCORE -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<!-- SECTION M — JAVASCRIPT -->
+<script>
+(function(){
+  /* ── Quiz logic ── */
+  var lcScore = 0;
+  var lcAnswered = {};
+  var lcFeedback = {
+    mcq1:{C:'A straight line on an s–t graph means constant velocity (no acceleration). A negative gradient means motion in the negative direction. Deceleration would require a changing gradient — i.e. a curve.'},
+    mcq2:{B:'Displacement = area under v–t graph = area of triangle = ½ × 5 × 20 = 50 m. The gradient gives acceleration (= 20/5 = 4 m s⁻²), not displacement.'},
+    mcq3:{D:'At the highest point v = 0 instantaneously, but gravity still acts so a = −g = −9.81 m s⁻² ≠ 0. This is one of the most tested conceptual points in IB kinematics.'},
+    mcq4:{C:'Area under a–t graph = Δv = 6 × 4 = 24 m s⁻¹. Starting from rest, final v = 24 m s⁻¹. Never confuse the area (Δv) with the gradient (which would be Δa/Δt — meaningless here).'},
+    mcq5:{B:'When the v–t line crosses the x-axis, the area above = positive displacement and the area below = negative displacement. Summing with signs gives net displacement. Option D gives total distance, not net displacement.'}
+  };
+  window.lcMCQ = function(id,el,chosen,correct){
+    if(lcAnswered[id])return;
+    lcAnswered[id]=true;
+    var block=document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(function(o){o.classList.add('disabled');});
+    var fb=document.getElementById(id+'-fb');
+    if(chosen===correct){
+      el.classList.add('correct');
+      fb.textContent='✓ '+lcFeedback[id][correct];
+      fb.className='lc-fb show correct';
+      lcScore+=2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(function(o){
+        if(o.querySelector('.lc-opt-l').textContent.trim()===correct) o.classList.add('correct');
+      });
+      fb.textContent='✗ Incorrect. Correct: '+correct+'. '+lcFeedback[id][correct];
+      fb.className='lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent=lcScore;
+  };
+  window.lcFITB = function(){
+    var ans={lf1:'velocity',lf2:'displacement',lf3:'velocity',lf4:'constant velocity'};
+    var correct=0,total=Object.keys(ans).length;
+    Object.keys(ans).forEach(function(id){
+      var el=document.getElementById(id);
+      var val=el.value.trim().toLowerCase();
+      var ok=val===ans[id]||val.includes(ans[id]);
+      el.classList.toggle('correct',ok);
+      el.classList.toggle('wrong',!ok);
+      if(ok)correct++;
+    });
+    var res=document.getElementById('lc-fitb-result');
+    res.style.display='block';
+    if(correct===total){
+      res.style.color='var(--green)';
+      res.textContent='✓ All correct! (+2 pts)';
+      lcScore+=2;
+      document.getElementById('lc-score-display').textContent=lcScore;
+    } else {
+      res.style.color='var(--red)';
+      res.textContent=correct+'/'+total+' correct. Answers: velocity · displacement · velocity · constant velocity';
+    }
+  };
+  window.lcToggleModel = function(btn){
+    var ma=btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent=ma.classList.contains('show')?'Hide model answer':'Show model answer';
+  };
+
+  /* ── Chart.js graphs ── */
+  var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches;
+  var gridC = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.07)';
+  var tickC  = isDark ? '#9ca3af' : '#6b7280';
+  var zeroC  = isDark ? 'rgba(255,255,255,0.25)' : 'rgba(0,0,0,0.20)';
+
+  function baseOpts(xl,yl,yMin,yMax){
+    return {
+      responsive:true, maintainAspectRatio:false, animation:{duration:0},
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{title:{display:true,text:xl,color:tickC,font:{size:11}},
+           grid:{color:gridC},ticks:{color:tickC,font:{size:10}},
+           border:{color:zeroC}},
+        y:{title:{display:true,text:yl,color:tickC,font:{size:11}},
+           grid:{color:gridC},ticks:{color:tickC,font:{size:10}},
+           border:{color:zeroC},
+           min:yMin!==undefined?yMin:undefined,
+           max:yMax!==undefined?yMax:undefined}
+      }
+    };
+  }
+
+  function mkLine(id,labels,datasets,xl,yl,yMin,yMax){
+    var ctx=document.getElementById(id);
+    if(!ctx)return;
+    new Chart(ctx,{
+      type:'line',
+      data:{labels:labels,datasets:datasets},
+      options:baseOpts(xl,yl,yMin,yMax)
+    });
+  }
+
+  function range(start,end,step){
+    var a=[]; for(var i=start;i<=end+0.001;i+=step)a.push(Math.round(i*100)/100); return a;
+  }
+
+  /* Hook chart — crash test v–t */
+  (function(){
+    var t=[0,1,2,3,4,5,6,6.08,6.1];
+    var v=[0,5,10,15,20,20,20,0,0];
+    var ctx=document.getElementById('hookChart');
+    if(!ctx)return;
+    new Chart(ctx,{type:'line',data:{
+      labels:t,
+      datasets:[{
+        data:v, borderColor:'#4f46e5', borderWidth:2.5,
+        backgroundColor:'rgba(79,70,229,0.08)', fill:true,
+        tension:0, pointRadius:[0,0,0,0,0,0,0,0,0]
+      }]
+    },options:{
+      responsive:true,maintainAspectRatio:false,animation:{duration:0},
+      plugins:{legend:{display:false},
+        annotation:{annotations:{
+          labelA:{type:'label',xValue:1.5,yValue:18,content:'A: Accelerating',color:tickC,font:{size:10}},
+          labelB:{type:'label',xValue:4.5,yValue:22,content:'B: Constant speed',color:tickC,font:{size:10}},
+          labelC:{type:'label',xValue:6.04,yValue:15,content:'C: Crash!',color:'#dc2626',font:{size:10,weight:'bold'}}
+        }}
+      },
+      scales:{
+        x:{title:{display:true,text:'Time (s)',color:tickC,font:{size:11}},grid:{color:gridC},ticks:{color:tickC,font:{size:10}},border:{color:zeroC}},
+        y:{title:{display:true,text:'Velocity (m s⁻¹)',color:tickC,font:{size:11}},grid:{color:gridC},ticks:{color:tickC,font:{size:10}},border:{color:zeroC},min:0,max:28}
+      }
+    }});
+  })();
+
+  /* s–t straight line */
+  (function(){
+    var t=range(0,5,1);
+    var s1=t.map(function(x){return 4*x;});
+    var s2=t.map(function(x){return x>2?20:4*x;});
+    mkLine('stLine',t,[
+      {data:s1,borderColor:'#4f46e5',borderWidth:2,tension:0,pointRadius:0,backgroundColor:'rgba(79,70,229,0.07)',fill:true,label:'Const v'},
+      {data:s2,borderColor:'#059669',borderWidth:2,tension:0,pointRadius:0,borderDash:[5,4],backgroundColor:'transparent',label:'Stops at t=2'}
+    ],'Time t (s)','Displacement s (m)',0,22);
+  })();
+
+  /* s–t curve (deceleration to stop) */
+  (function(){
+    var t=range(0,5,0.2);
+    var s=t.map(function(x){
+      if(x<=3) return 10*x - (10/6)*x*x;
+      return 15;
+    });
+    mkLine('stCurve',t,[
+      {data:s,borderColor:'#d97706',borderWidth:2.5,tension:0.35,pointRadius:0,backgroundColor:'rgba(217,119,6,0.08)',fill:true}
+    ],'Time t (s)','Displacement s (m)',0,18);
+  })();
+
+  /* v–t composite with filled areas */
+  (function(){
+    var ctx=document.getElementById('vtComposite');
+    if(!ctx)return;
+    var labels=[0,2,4,6,8,10,12,14,15];
+    var data=  [0,8,16,20,20,20,20,10,0];
+    new Chart(ctx,{type:'line',data:{
+      labels:labels,
+      datasets:[
+        {data:data,borderColor:'#4f46e5',borderWidth:2.5,tension:0,pointRadius:0,
+         backgroundColor:'rgba(79,70,229,0.12)',fill:true}
+      ]
+    },options:{
+      responsive:true,maintainAspectRatio:false,animation:{duration:0},
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{title:{display:true,text:'Time t (s)',color:tickC,font:{size:11}},grid:{color:gridC},ticks:{color:tickC,font:{size:10}},border:{color:zeroC}},
+        y:{title:{display:true,text:'Velocity v (m s⁻¹)',color:tickC,font:{size:11}},grid:{color:gridC},ticks:{color:tickC,font:{size:10}},border:{color:zeroC},min:0,max:26}
+      }
+    }});
+  })();
+
+  /* a–t constant */
+  (function(){
+    var ctx=document.getElementById('atConst');
+    if(!ctx)return;
+    var labels=[0,1,2,3,4,5,5,6,7];
+    var data=  [3,3,3,3,3,3,0,0,0];
+    new Chart(ctx,{type:'line',data:{
+      labels:labels,
+      datasets:[{
+        data:data,borderColor:'#d97706',borderWidth:2.5,tension:0,
+        pointRadius:0,stepped:true,
+        backgroundColor:'rgba(217,119,6,0.10)',fill:true
+      }]
+    },options:{
+      responsive:true,maintainAspectRatio:false,animation:{duration:0},
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{title:{display:true,text:'Time t (s)',color:tickC,font:{size:11}},grid:{color:gridC},ticks:{color:tickC,font:{size:10}},border:{color:zeroC}},
+        y:{title:{display:true,text:'Acceleration a (m s⁻²)',color:tickC,font:{size:11}},grid:{color:gridC},ticks:{color:tickC,font:{size:10}},border:{color:zeroC},min:0,max:5}
+      }
+    }});
+  })();
+
+  /* Linked s–t and v–t for uniform a */
+  (function(){
+    var ctx=document.getElementById('atLinked');
+    if(!ctx)return;
+    var t=range(0,5,0.5);
+    var s=t.map(function(x){return 0.5*2*x*x;});
+    var v=t.map(function(x){return 2*x;});
+    new Chart(ctx,{type:'line',data:{
+      labels:t,
+      datasets:[
+        {data:s,borderColor:'#4f46e5',borderWidth:2,tension:0.3,pointRadius:0,backgroundColor:'rgba(79,70,229,0.07)',fill:false,label:'s–t (parabola)'},
+        {data:v,borderColor:'#059669',borderWidth:2,tension:0,pointRadius:0,backgroundColor:'transparent',fill:false,borderDash:[5,3],label:'v–t (line)'}
+      ]
+    },options:{
+      responsive:true,maintainAspectRatio:false,animation:{duration:0},
+      plugins:{legend:{display:true,labels:{color:tickC,font:{size:10},boxWidth:12,padding:8}}},
+      scales:{
+        x:{title:{display:true,text:'Time t (s)',color:tickC,font:{size:11}},grid:{color:gridC},ticks:{color:tickC,font:{size:10}},border:{color:zeroC}},
+        y:{title:{display:true,text:'s (m) / v (m s⁻¹)',color:tickC,font:{size:11}},grid:{color:gridC},ticks:{color:tickC,font:{size:10}},border:{color:zeroC},min:0}
+      }
+    }});
+  })();
+
+  /* Free-fall v–t */
+  (function(){
+    var u=15, g=9.81;
+    var t=range(0,3.06,0.2);
+    var v=t.map(function(x){return Math.round((u-g*x)*100)/100;});
+    mkLine('freeFallVT',t,[
+      {data:v,borderColor:'#dc2626',borderWidth:2.5,tension:0,pointRadius:0,
+       backgroundColor:'rgba(220,38,38,0.07)',fill:'origin'}
+    ],'Time t (s)','Velocity v (m s⁻¹)',-17,18);
+  })();
+
+  /* Parabolic s–t */
+  (function(){
+    var a=3;
+    var t=range(0,5,0.2);
+    var s=t.map(function(x){return Math.round(0.5*a*x*x*100)/100;});
+    mkLine('parabolicST',t,[
+      {data:s,borderColor:'#7c3aed',borderWidth:2.5,tension:0.3,pointRadius:0,
+       backgroundColor:'rgba(124,58,237,0.08)',fill:true}
+    ],'Time t (s)','Displacement s (m)',0);
+  })();
+
+  /* Worked example v–t */
+  (function(){
+    var ctx=document.getElementById('workedVT');
+    if(!ctx)return;
+    var labels=[0,6,10,13];
+    var data=[0,24,24,0];
+    new Chart(ctx,{type:'line',data:{
+      labels:labels,
+      datasets:[{
+        data:data,borderColor:'#059669',borderWidth:2.5,tension:0,
+        pointRadius:4,pointBackgroundColor:'#059669',
+        backgroundColor:'rgba(5,150,105,0.10)',fill:true
+      }]
+    },options:{
+      responsive:true,maintainAspectRatio:false,animation:{duration:0},
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{title:{display:true,text:'Time t (s)',color:tickC,font:{size:11}},grid:{color:gridC},ticks:{color:tickC,font:{size:10}},border:{color:zeroC},
+           afterBuildTicks:function(ax){ax.ticks=[{value:0},{value:6},{value:10},{value:13}];}
+        },
+        y:{title:{display:true,text:'Velocity v (m s⁻¹)',color:tickC,font:{size:11}},grid:{color:gridC},ticks:{color:tickC,font:{size:10}},border:{color:zeroC},min:0,max:30}
+      }
+    }});
+  })();
+
+})();
+</script>
+      </div>
+      </div>
+

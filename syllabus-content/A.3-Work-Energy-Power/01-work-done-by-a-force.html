@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Done by a Force — A.3 Work, Energy and Power — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A3">A.3 Work, Energy and Power</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Work Done by a Force</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.3
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 1 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Work Done by a Force</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.3 Work, Energy and Power</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.3 overview
+      </a>
+      <div class="sidebar-title">A.3 Concepts</div>
+      <a href="01-work-done-by-a-force.html" class="sidebar-link active">
+          <span class="sidebar-num">01</span>
+          <span>Work Done by a Force</span>
+        </a>
+      <a href="02-kinetic-and-gravitational-potential-energy.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Kinetic and Gravitational Potential Energy</span>
+        </a>
+      <a href="03-conservation-of-mechanical-energy.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Conservation of Mechanical Energy</span>
+        </a>
+      <a href="04-power-and-efficiency.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Power and Efficiency</span>
+        </a>
+      <a href="05-elastic-and-inelastic-collisions.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Elastic and Inelastic Collisions</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 5 · A.3 Work, Energy and Power</div>
+<div class="lc-title">Work Done by a Force</div>
+<div class="lc-sub">A weightlifter holding 200 kg overhead is doing no work at all. Physics uses the word far more narrowly than everyday speech does.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the weightlifter who does nothing</h3>
+  <p>A weightlifter holds a loaded barbell motionless above their head. Their muscles burn, they are exhausted, and by any everyday measure they are working extremely hard. In physics, the mechanical work done on the barbell is exactly <strong>zero</strong> — because the barbell does not move.</p>
+  <p>The Moon is a stranger case. Gravity pulls on it constantly and it moves constantly, yet gravity does no work on it either, because the pull is always perpendicular to the motion. This is why a satellite needs no engine to stay in orbit.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-01-work-done-by-a-force-01.png" alt="A weightlifter holding a barbell overhead with a large upward force arrow and a zero displacement label, beside the Moon orbiting Earth with the gravitational force perpendicular to its motion">
+    <div class="lc-cap">Fig 1 — Two ways to get zero work: no displacement, or force perpendicular to displacement.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — You carry a heavy suitcase horizontally along a level corridor at steady speed. How much work do you do <em>against gravity</em>? <em>None. The upward force you exert is perpendicular to the horizontal displacement.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Defining work</h3>
+  <p><strong>Work</strong> is the energy transfer that occurs when a force moves an object. We say work is done <em>on</em> the object <em>by</em> the force. Only the component of the force along the line of displacement counts, so the general definition includes the angle \(\theta\) between the force and the direction of motion.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Work done by a constant force</span>
+    $$W = Fs\cos\theta \qquad \text{SI unit: joule, J}$$
+  </div>
+  <p>One <strong>joule</strong> is the work done when a force of 1 N moves through a distance of 1 m, so 1 J = 1 N m. Because work is a transfer of energy, it is measured in the same unit as energy, and <strong>energy</strong> itself is defined as the ability to do work.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-01-work-done-by-a-force-02.png" alt="A block on a surface pulled by a force F at angle theta to the horizontal, with the horizontal component F cos theta and displacement s labelled">
+    <div class="lc-cap">Fig 2 — \(\theta\) is the angle between the force and the direction of motion. Only \(F\cos\theta\) does work.</div>
+  </div>
+  <p>When the force acts in the same direction as the motion, \(\theta = 0\) and \(\cos\theta = 1\), so the equation reduces to the familiar \(W = Fs\).</p>
+  <table class="lc-table">
+    <thead><tr><th>Angle \(\theta\)</th><th>\(\cos\theta\)</th><th>Work done</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>0°</td><td>+1</td><td>Maximum positive, \(W = Fs\)</td><td>Pushing a trolley forwards</td></tr>
+      <tr><td>Between 0° and 90°</td><td>Between 0 and 1</td><td>Positive but reduced</td><td>Pulling a box by a sloping rope</td></tr>
+      <tr><td>90°</td><td>0</td><td>Zero</td><td>Gravity on an orbiting Moon; carrying a case on the level</td></tr>
+      <tr><td>180°</td><td>−1</td><td>Negative, \(W = -Fs\)</td><td>Friction on a sliding block; braking</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-success">✓ Examiner tip: negative work means energy is being taken <em>out</em> of the object's motion. Friction and air resistance always do negative work on a moving body.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – dragging a box at an angle</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> A 150 kg box is pulled 2.27 m across horizontal ground by a 248 N force. Find the work done (a) when the force is horizontal, and (b) when the same 248 N acts at 20.0° above the horizontal.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(F = 248\ \text{N}\), \(s = 2.27\ \text{m}\), \(\theta = 0\) then \(\theta = 20.0°\). The mass is not needed — work depends on the force applied, not on the mass being moved.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> (a) \(W = Fs = 248 \times 2.27\). (b) \(W = Fs\cos\theta = 248 \times \cos 20.0° \times 2.27 = 248 \times 0.940 \times 2.27\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(W = 563\ \text{J}\). (b) \(W = 529\ \text{J}\) — less work, because only the horizontal component contributes.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-01-work-done-by-a-force-03.png" alt="A 150 kg box on horizontal ground pulled by a 248 N force at 20 degrees above the horizontal, with the displacement of 2.27 metres marked">
+    <div class="lc-cap">Fig 3 — Tilting the rope up does less work over the same distance, yet it may still be the easier way to move the box.</div>
+  </div>
+  <div class="lc-info">💡 Why pull at an angle at all? The vertical component reduces the normal contact force, which reduces friction — so the box may slide more easily even though the applied force does less work per metre.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Work done by varying forces</h3>
+  <p>The equation \(W = Fs\cos\theta\) assumes a single constant force, but real forces rarely stay constant. For a varying force the work done is found from a <strong>force–distance graph</strong>:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Varying force</span>
+    $$W = \text{area under the force–distance graph}$$
+  </div>
+  <p>In practice you estimate the average force by eye — draw a horizontal line so that the area of the rectangle beneath it matches the area under the curve. Then \(W = F_{\text{avg}}s\).</p>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Force–distance</td><td>Distance \(s\), force \(F\)</td><td>Any curve</td><td><strong>Area under the graph = work done</strong></td></tr>
+      <tr><td>Average force line</td><td>Distance \(s\), force \(F\)</td><td>Horizontal line of equal area</td><td>Its height is \(F_{\text{avg}}\); \(W = F_{\text{avg}}s\)</td></tr>
+      <tr><td>Force–extension (Hooke's law spring)</td><td>Extension \(x\), force \(F\)</td><td>Straight line through the origin</td><td>Triangular area, \(W = \tfrac{1}{2}Fx\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-01-work-done-by-a-force-04.png" alt="Force against distance graph with a curved decreasing line, the area under it shaded, and a dotted horizontal average force line"><div class="lc-cap">Fig 4 — The dotted line is the average force, judged so the rectangle matches the shaded area.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-01-work-done-by-a-force-05.png" alt="Force against extension graph for a rubber band, a curved blue line to 60 newtons at 0.40 metres with a straight red equal-area line"><div class="lc-cap">Fig 5 — Rubber under tension. The straight line has the same area, giving \(W = \tfrac12 \times 50 \times 0.40 = 10\) J.</div></div>
+  </div>
+  <div class="lc-success">✓ For a spring obeying Hooke's law the graph is a straight line, so the average force is simply half the final force — no eye-judgement needed.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔬 Nature of science: same words, different meanings</h3>
+    <p>Physics terms have precise meanings that often clash with everyday usage. "Work", "energy", "power", "momentum", "heat", "efficiency" and "interference" all mean something narrower in physics than in conversation.</p>
+    <p>There is no connection between \(W = Fs\cos\theta\) and "I have a lot of homework tonight". Recognising which sense of a word a question is using is part of learning the subject.</p>
+  </div>
+  <div class="lc-card">
+    <h3>💪 Where does the effort go?</h3>
+    <p>The weightlifter is not cheating thermodynamics. No work is done on the barbell, but work <em>is</em> done inside their muscles, where fibres repeatedly contract and relax to hold position. That energy leaves the body as thermal energy.</p>
+    <div class="lc-warn">⚠️ Be precise in exam answers: say "no work is done <em>on the weights</em>", not "no work is done".</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>If you exert a force you must be doing work</td><td>Work needs displacement. A stationary object has zero work done on it however large the force.</td></tr>
+      <tr><td>\(\theta\) is the angle between the force and the horizontal</td><td>\(\theta\) is the angle between the force and the <em>direction of motion</em>. These coincide only when the motion is horizontal.</td></tr>
+      <tr><td>Work is always positive</td><td>A force opposing the motion does negative work. Friction removes energy from the moving object.</td></tr>
+      <tr><td>Use the total distance travelled</td><td>Use the displacement in the direction of the force. A body returning to its starting point has zero net work done by a constant force.</td></tr>
+      <tr><td>The gradient of a force–distance graph gives the work</td><td>The <em>area</em> gives the work. The gradient has no standard meaning here.</td></tr>
+      <tr><td>Heavier objects always need more work to move</td><td>Work is force × displacement. On a friction-free horizontal surface, mass does not appear in the calculation at all.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: using \(\sin\theta\) instead of \(\cos\theta\), which happens whenever the angle is measured from the wrong reference line. Sketch the force and the displacement before substituting.</div>
+</div>
+
+<div class="lc-kp">
+  <span>W = Fs cos θ</span>
+  <span>1 J = 1 N m</span>
+  <span>θ = 90° ⟹ W = 0</span>
+  <span>friction does negative work</span>
+  <span>area under F–s graph = W</span>
+  <span>spring: W = ½Fx</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A force of 30 N pulls a crate 4.0 m along the floor at 60° to the horizontal direction of motion. The work done by the force is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> 0 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> 60 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> 104 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> 120 J</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A satellite travels in a circular orbit at constant speed. The work done on it by the gravitational force during one complete orbit is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','A')"><span class="lc-opt-l">A</span> zero, because the force is always perpendicular to the motion</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','A')"><span class="lc-opt-l">B</span> zero, because gravity is too weak at that distance</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','A')"><span class="lc-opt-l">C</span> positive, because the satellite keeps moving</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','A')"><span class="lc-opt-l">D</span> negative, because the satellite is pulled inwards</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A spring obeying Hooke's law is stretched by a force rising steadily from 0 to 24 N, extending 12 cm. The work done on the spring is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> 0.72 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> 1.4 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> 2.9 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> 288 J</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Which situation involves negative work being done on the object?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> A crane lifting a girder upwards</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> A waiter carrying a tray horizontally at steady speed</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> Friction acting on a book sliding across a table</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> Gravity acting on a falling apple</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Work done equals the force multiplied by the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:150px"> in the direction of the force. Its SI unit is the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px">, equal to one newton <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:100px">. If the force is perpendicular to the motion the work done is <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:90px">. For a varying force, the work done is given by the <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:100px"> under a force–distance graph.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Define / Calculate</div>
+  <div class="lc-exam-q">(a) Define the work done by a force. [2]<br>(b) Calculate the work done in lifting an 18 kg suitcase through a vertical height of 1.05 m at constant speed. [2]<br>(c) Calculate the work done in pushing the same suitcase 1.05 m horizontally against an average frictional force of 37 N. [1]</div>
+  <div class="lc-exam-marks">5 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ The product of the force and the displacement moved ✓ in the direction of the force (\(W = Fs\cos\theta\)).<br>(b) ✓ At constant speed the lifting force equals the weight, \(F = mg = 18 \times 9.8 = 176\ \text{N}\). ✓ \(W = 176 \times 1.05 = 185\ \text{J}\).<br>(c) ✓ \(W = 37 \times 1.05 = 39\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q">A gardener pushes a lawnmower at a constant speed of 0.85 m s⁻¹ with a force of 70 N directed at 40° to the ground.<br>(a) Calculate the component of the force in the direction of motion. [1]<br>(b) State the magnitude of the frictional force, and explain your reasoning. [2]<br>(c) Determine the work done in moving the lawnmower for 3.0 s. [3]</div>
+  <div class="lc-exam-marks">6 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ \(F\cos 40° = 70 \times 0.766 = 54\ \text{N}\).<br>(b) ✓ 54 N. ✓ The speed is constant, so the resultant horizontal force is zero and friction must balance the horizontal component of the push.<br>(c) ✓ \(s = vt = 0.85 \times 3.0 = 2.55\ \text{m}\). ✓ \(W = Fs\cos\theta = 54 \times 2.55\). ✓ \(W = 137 \approx 1.4 \times 10^{2}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain / Graph</div>
+  <div class="lc-exam-q">(a) A weightlifter holds a 180 kg barbell motionless above their head for 4.0 s. Explain why no work is done on the barbell, and why the weightlifter nevertheless becomes tired. [3]<br>(b) A car of mass 1200 kg travels at constant speed for 1.4 km, during which 2.3 × 10⁶ J of work is done against resistive forces. Calculate the average resistive force. [2]</div>
+  <div class="lc-exam-marks">5 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Work requires a displacement in the direction of the force; the barbell does not move, so \(s = 0\) and \(W = 0\). ✓ Muscle fibres repeatedly contract and relax to maintain the position. ✓ Work is done internally in the muscles and the energy is transferred as thermal energy, so the lifter tires.<br>(b) ✓ \(F = W/s = 2.3\times10^{6} / 1400\). ✓ \(F = 1.6\times10^{3}\ \text{N}\).</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { B: 'W = Fs cos\u03b8 = 30 \u00d7 4.0 \u00d7 cos 60\u00b0 = 30 \u00d7 4.0 \u00d7 0.500 = 60 J.' },
+    mcq2: { A: 'Gravity provides the centripetal force, always perpendicular to the velocity, so cos 90\u00b0 = 0 and no work is done. This is why satellites need no engine.' },
+    mcq3: { B: 'Straight-line graph, so the average force is 12 N: W = 12 \u00d7 0.12 = 1.4 J. Equivalently the triangular area \u00bd \u00d7 24 \u00d7 0.12.' },
+    mcq4: { C: 'Friction acts opposite to the motion, so \u03b8 = 180\u00b0 and cos\u03b8 = \u22121. Energy is removed from the book.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '\u2713 ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '\u2717 Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'displacement', lf2:'joule', lf3:'metre', lf4:'zero', lf5:'area' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || val.includes(ans[id]) || (id==='lf3' && val.includes('meter'));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '\u2713 All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' \u00b7 ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+</div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="../A.2-Forces-and-Momentum/index.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Forces and Momentum</div>
+          </div>
+        </a>
+        <a href="02-kinetic-and-gravitational-potential-energy.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Kinetic and Gravitational Potential Energy</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orbital Mechanics — D.1 Gravitational Fields — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#D1">D.1 Gravitational Fields</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Orbital Mechanics</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#F5A623;background:#F5A62318;padding:0.2rem 0.6rem;border-radius:6px">D.1</span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 4 of 5</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Orbital Mechanics</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">D.1 Gravitational Fields</strong> · Unit D — IB Physics 2023</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">← Back to D.1 overview</a>
+      <div class="sidebar-title">D.1 Concepts</div>
+      <a href="01-newton-s-law-of-gravitation.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Newton's Law of Gravitation</span>
+        </a>
+      <a href="02-gravitational-field-strength.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Gravitational Field Strength</span>
+        </a>
+      <a href="03-gravitational-potential.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Gravitational Potential</span>
+        </a>
+      <a href="04-orbital-mechanics.html" class="sidebar-link active">
+          <span class="sidebar-num">04</span>
+          <span>Orbital Mechanics</span>
+        </a>
+      <a href="05-kepler-s-laws.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Kepler's Laws</span>
+        </a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+        <div class="content-placeholder">
+          <div class="placeholder-icon">📝</div>
+          <h3 style="margin-bottom:0.5rem;color:var(--text)">Orbital Mechanics</h3>
+          <p style="max-width:380px;margin-bottom:1.5rem">Lesson content coming soon.</p>
+          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
+            <a href="../../practice.html?topic=D1" class="btn btn-ghost btn-sm">Practice questions →</a>
+            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">Formula sheet</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="lesson-nav">
+        <a href="03-gravitational-potential.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Gravitational Potential</div>
+          </div>
+        </a>
+        <a href="05-kepler-s-laws.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Kepler's Laws</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

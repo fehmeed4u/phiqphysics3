@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>φQ Physics — Five Brand Kits</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0A0F1A;color:#E8E4DB;font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#4F9DFF}a:hover{color:#7FB8FF}
+.wrap{max-width:1180px;margin:0 auto;padding:64px 40px 96px}
+.lede{max-width:760px;margin-bottom:56px}
+h1{font-family:'Playfair Display',Georgia,serif;font-size:52px;line-height:1.08;font-weight:700;letter-spacing:-.02em;margin-bottom:18px}
+.lede p{color:#B4AEA4;font-size:17px;text-wrap:pretty}
+.lede p+p{margin-top:12px}
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4F9DFF;background:rgba(79,157,255,.12);padding:6px 14px;border-radius:6px;margin-bottom:20px}
+.const{border:1px solid rgba(79,157,255,.16);background:#0D1221;border-radius:14px;padding:28px 32px;margin-bottom:64px}
+.const h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;margin-bottom:6px}
+.const>p{color:#8E97A8;font-size:14px;margin-bottom:20px}
+.const dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px 32px}
+.const dt{font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#7A8699;margin-bottom:5px}
+.const dd{font-size:15px;color:#D8D2C8}
+.const dd code{font-family:'JetBrains Mono',monospace;font-size:13px;color:#4F9DFF}
+.kit{border-radius:18px;overflow:hidden;margin-bottom:44px;border:1px solid rgba(255,255,255,.07)}
+.kit-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding:26px 34px 22px}
+.kit-num{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.1em;opacity:.55}
+.kit-name{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;letter-spacing:-.01em;line-height:1.1}
+.kit-note{font-size:14px;opacity:.72;margin-left:auto;max-width:420px;text-align:right}
+.kit-body{display:grid;grid-template-columns:1fr 400px;gap:0;border-top:1px solid rgba(255,255,255,.07)}
+@media(max-width:900px){.kit-body{grid-template-columns:1fr}}
+.kit-left{padding:28px 34px 34px}
+.sect{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;opacity:.5;margin:0 0 12px}
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px;margin-bottom:26px}
+.sw div{border-radius:10px;padding:10px 12px 12px;min-height:88px;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid rgba(255,255,255,.1)}
+.sw b{display:block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.8;margin-bottom:2px}
+.sw span{font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.75;letter-spacing:.02em}
+.spec{border-radius:12px;padding:22px 26px;border:1px solid rgba(255,255,255,.1)}
+.spec .h{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;line-height:1.12;letter-spacing:-.015em;margin-bottom:8px}
+.spec .b{font-size:15px;line-height:1.6;margin-bottom:14px}
+.spec .m{font-family:'JetBrains Mono',monospace;font-size:14px;display:inline-block;padding:6px 14px;border-radius:100px}
+.kit-right{padding:28px 34px 34px;border-left:1px solid rgba(255,255,255,.07)}
+@media(max-width:900px){.kit-right{border-left:none;border-top:1px solid rgba(255,255,255,.07)}}
+.mini{border-radius:12px;padding:20px 22px;border:1px solid rgba(255,255,255,.1);margin-bottom:18px}
+.mini .e{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.55;margin-bottom:8px}
+.mini .t{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;line-height:1.15;margin-bottom:10px}
+.mini .f{border-radius:0 8px 8px 0;padding:10px 14px;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;text-align:center;margin-bottom:10px}
+.mini .p{font-size:12px;line-height:1.55;opacity:.8}
+pre{font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.75;white-space:pre-wrap;word-break:break-word;border-radius:10px;padding:16px 18px;border:1px solid rgba(255,255,255,.1);opacity:.9}
+.foot{border-top:1px solid rgba(79,157,255,.16);padding-top:32px;color:#8E97A8;font-size:14px;max-width:820px}
+.foot strong{color:#D8D2C8}
+.foot ul{margin:12px 0 0 20px}
+.foot li{margin-bottom:7px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="lede">
+<span class="tag">Brand kit reference · φQ Physics</span>
+<h1>Five brand kits<br>for the physics site</h1>
+<p>All five share one type system, one spacing rhythm and one structural vocabulary, so slides built in any of them read as the same product. The variation is in colour temperature and mood only.</p>
+<p>Kit 01 is the site's current dark theme and Kit 02 its light counterpart, so either can be used without re-skinning anything. Kits 03–05 are drop-in alternatives on the same skeleton — useful for separating topics, or for a deck that needs to sit apart from the site without leaving the family.</p>
+</div>
+
+<div class="const">
+<h2>Constant across all five kits</h2>
+<p>Do not vary these between kits — they are what makes the set read as one brand.</p>
+<dl>
+<div><dt>Display / headings</dt><dd>Playfair Display <code>600, 700</code></dd></div>
+<div><dt>Body / UI</dt><dd>Inter <code>400, 500, 600, 700</code></dd></div>
+<div><dt>Equations, codes, data</dt><dd>JetBrains Mono <code>500, 700</code></dd></div>
+<div><dt>Heading treatment</dt><dd>Serif, tight leading <code>1.05–1.15</code>, letter-spacing <code>−0.015em</code></dd></div>
+<div><dt>Eyebrow labels</dt><dd>Inter 600, 11–26px, uppercase, <code>letter-spacing .13em</code></dd></div>
+<div><dt>Equation blocks</dt><dd>Left rule <code>6–7px</code> in the primary accent, tinted fill, radius on the right only</dd></div>
+<div><dt>Callouts</dt><dd>Same left-rule pattern: accent = note, warn = trap, success = examiner tip</dd></div>
+<div><dt>Figure frames</dt><dd>Surface card, 1px border, caption in muted at <code>0.7×</code> body size</dd></div>
+<div><dt>Slide geometry</dt><dd>1920 × 1080, margins <code>84px</code> top / <code>110px</code> sides</dd></div>
+<div><dt>Minimum type size</dt><dd><code>24px</code> on slides — body copy at <code>29–31px</code></dd></div>
+</dl>
+</div>
+
+<!-- KIT 1 -->
+<div class="kit" style="background:#070B14;color:#E8E4DB">
+<div class="kit-head"><span class="kit-num">KIT 01</span><span class="kit-name">Deep Field</span><span class="kit-note">The site's current dark theme. Cool navy, blue-forward, warm off-white text. The default — use it unless there's a reason not to.</span></div>
+<div class="kit-body">
+<div class="kit-left">
+<p class="sect">Palette</p>
+<div class="sw">
+<div style="background:#070B14"><b>Background</b><span>#070B14</span></div>
+<div style="background:#0D1221"><b>Surface</b><span>#0D1221</span></div>
+<div style="background:#131929"><b>Surface 2</b><span>#131929</span></div>
+<div style="background:#4F9DFF;color:#04101F;border-color:transparent"><b>Primary</b><span>#4F9DFF</span></div>
+<div style="background:#7B6EF6;color:#0A0620;border-color:transparent"><b>Secondary</b><span>#7B6EF6</span></div>
+<div style="background:#34D399;color:#052117;border-color:transparent"><b>Success</b><span>#34D399</span></div>
+<div style="background:#F5A623;color:#241403;border-color:transparent"><b>Warning</b><span>#F5A623</span></div>
+<div style="background:#F87171;color:#2A0808;border-color:transparent"><b>Error</b><span>#F87171</span></div>
+<div style="background:#E8E4DB;color:#070B14;border-color:transparent"><b>Text</b><span>#E8E4DB</span></div>
+<div style="background:#7A8699;color:#070B14;border-color:transparent"><b>Muted</b><span>#7A8699</span></div>
+</div>
+<p class="sect">Specimen</p>
+<div class="spec" style="background:#0D1221">
+<div class="h">Wave properties and wave speed</div>
+<div class="b" style="color:#C0BAB0">Amplitude is the maximum displacement of an oscillating wave from its equilibrium position.</div>
+<span class="m" style="background:rgba(79,157,255,.14);color:#4F9DFF">v = fλ = λ / T</span>
+</div>
+</div>
+<div class="kit-right">
+<p class="sect">Slide preview</p>
+<div class="mini" style="background:#0D1221">
+<div class="e" style="color:#7A8699">C.2 · Lesson 1 of 4</div>
+<div class="t">Period and frequency</div>
+<div class="f" style="background:rgba(79,157,255,.12);border-left:6px solid #4F9DFF;color:#4F9DFF">f = 1 / T</div>
+<div class="p" style="color:#C0BAB0">Period T is the time for a complete oscillation to pass a fixed point, in seconds.</div>
+</div>
+<p class="sect">Paste into your prompt</p>
+<pre style="background:#0A0F1C;color:#A8B4C8">bg #070B14 · surface #0D1221 · surface2 #131929
+border rgba(79,157,255,0.14)
+text #E8E4DB · text2 #C0BAB0 · muted #7A8699
+primary #4F9DFF · secondary #7B6EF6
+success #34D399 · warn #F5A623 · error #F87171
+radius 10px · shadow 0 8px 40px rgba(0,0,0,.45)</pre>
+</div>
+</div>
+</div>
+
+<!-- KIT 2 -->
+<div class="kit" style="background:#F4EFE6;color:#1C1917;border-color:rgba(0,0,0,.1)">
+<div class="kit-head"><span class="kit-num">KIT 02</span><span class="kit-name">Paper Lab</span><span class="kit-note">The site's light theme. Warm paper, deeper blue for contrast on cream. The right choice for anything projected in a bright classroom or printed.</span></div>
+<div class="kit-body" style="border-color:rgba(0,0,0,.09)">
+<div class="kit-left">
+<p class="sect">Palette</p>
+<div class="sw">
+<div style="background:#F4EFE6;border-color:rgba(0,0,0,.14)"><b>Background</b><span>#F4EFE6</span></div>
+<div style="background:#FFFFFF;border-color:rgba(0,0,0,.14)"><b>Surface</b><span>#FFFFFF</span></div>
+<div style="background:#FBF8F2;border-color:rgba(0,0,0,.14)"><b>Surface 2</b><span>#FBF8F2</span></div>
+<div style="background:#2563EB;color:#EAF1FE;border-color:transparent"><b>Primary</b><span>#2563EB</span></div>
+<div style="background:#6D28D9;color:#F0E9FC;border-color:transparent"><b>Secondary</b><span>#6D28D9</span></div>
+<div style="background:#0F8A5F;color:#E6F5EF;border-color:transparent"><b>Success</b><span>#0F8A5F</span></div>
+<div style="background:#B4791A;color:#FBF1DE;border-color:transparent"><b>Warning</b><span>#B4791A</span></div>
+<div style="background:#C2413F;color:#FBEBEA;border-color:transparent"><b>Error</b><span>#C2413F</span></div>
+<div style="background:#1C1917;color:#F4EFE6;border-color:transparent"><b>Text</b><span>#1C1917</span></div>
+<div style="background:#78716C;color:#F4EFE6;border-color:transparent"><b>Muted</b><span>#78716C</span></div>
+</div>
+<p class="sect">Specimen</p>
+<div class="spec" style="background:#FFFFFF;border-color:#E2DACB">
+<div class="h">Wave properties and wave speed</div>
+<div class="b" style="color:#44403C">Amplitude is the maximum displacement of an oscillating wave from its equilibrium position.</div>
+<span class="m" style="background:#EAF1FE;color:#2563EB">v = fλ = λ / T</span>
+</div>
+</div>
+<div class="kit-right" style="border-color:rgba(0,0,0,.09)">
+<p class="sect">Slide preview</p>
+<div class="mini" style="background:#FFFFFF;border-color:#E2DACB">
+<div class="e" style="color:#78716C">C.2 · Lesson 1 of 4</div>
+<div class="t">Period and frequency</div>
+<div class="f" style="background:#EAF1FE;border-left:6px solid #2563EB;color:#2563EB">f = 1 / T</div>
+<div class="p" style="color:#44403C">Period T is the time for a complete oscillation to pass a fixed point, in seconds.</div>
+</div>
+<p class="sect">Paste into your prompt</p>
+<pre style="background:#FBF8F2;color:#57534E;border-color:#E2DACB">bg #F4EFE6 · surface #FFFFFF · surface2 #FBF8F2
+border #E2DACB
+text #1C1917 · text2 #44403C · muted #78716C
+primary #2563EB · secondary #6D28D9
+success #0F8A5F · warn #B4791A · error #C2413F
+radius 14px · shadow 0 2px 14px rgba(28,25,23,.06)</pre>
+</div>
+</div>
+</div>
+
+<!-- KIT 3 -->
+<div class="kit" style="background:#0A0814;color:#EDE9F5">
+<div class="kit-head"><span class="kit-num">KIT 03</span><span class="kit-name">Violet Shift</span><span class="kit-note">Same dark structure, violet lead with blue as the second voice. Reads as the quantum / modern-physics end of the site. Softer and slightly less clinical than Kit 01.</span></div>
+<div class="kit-body">
+<div class="kit-left">
+<p class="sect">Palette</p>
+<div class="sw">
+<div style="background:#0A0814"><b>Background</b><span>#0A0814</span></div>
+<div style="background:#130F24"><b>Surface</b><span>#130F24</span></div>
+<div style="background:#1B1533"><b>Surface 2</b><span>#1B1533</span></div>
+<div style="background:#8B7CFF;color:#0D0722;border-color:transparent"><b>Primary</b><span>#8B7CFF</span></div>
+<div style="background:#4F9DFF;color:#04101F;border-color:transparent"><b>Secondary</b><span>#4F9DFF</span></div>
+<div style="background:#3DD6A0;color:#04231A;border-color:transparent"><b>Success</b><span>#3DD6A0</span></div>
+<div style="background:#F2B045;color:#241603;border-color:transparent"><b>Warning</b><span>#F2B045</span></div>
+<div style="background:#FF7A8A;color:#2B060D;border-color:transparent"><b>Error</b><span>#FF7A8A</span></div>
+<div style="background:#EDE9F5;color:#0A0814;border-color:transparent"><b>Text</b><span>#EDE9F5</span></div>
+<div style="background:#837C99;color:#0A0814;border-color:transparent"><b>Muted</b><span>#837C99</span></div>
+</div>
+<p class="sect">Specimen</p>
+<div class="spec" style="background:#130F24">
+<div class="h">Wave properties and wave speed</div>
+<div class="b" style="color:#BEB6D2">Amplitude is the maximum displacement of an oscillating wave from its equilibrium position.</div>
+<span class="m" style="background:rgba(139,124,255,.16);color:#8B7CFF">v = fλ = λ / T</span>
+</div>
+</div>
+<div class="kit-right">
+<p class="sect">Slide preview</p>
+<div class="mini" style="background:#130F24">
+<div class="e" style="color:#837C99">C.2 · Lesson 1 of 4</div>
+<div class="t">Period and frequency</div>
+<div class="f" style="background:rgba(139,124,255,.14);border-left:6px solid #8B7CFF;color:#8B7CFF">f = 1 / T</div>
+<div class="p" style="color:#BEB6D2">Period T is the time for a complete oscillation to pass a fixed point, in seconds.</div>
+</div>
+<p class="sect">Paste into your prompt</p>
+<pre style="background:#0E0B1C;color:#AAA2C2">bg #0A0814 · surface #130F24 · surface2 #1B1533
+border rgba(139,124,255,0.16)
+text #EDE9F5 · text2 #BEB6D2 · muted #837C99
+primary #8B7CFF · secondary #4F9DFF
+success #3DD6A0 · warn #F2B045 · error #FF7A8A
+radius 12px · shadow 0 8px 40px rgba(0,0,0,.5)</pre>
+</div>
+</div>
+</div>
+
+<!-- KIT 4 -->
+<div class="kit" style="background:#04080D;color:#E6F4F8">
+<div class="kit-head"><span class="kit-num">KIT 04</span><span class="kit-name">Cyan Trace</span><span class="kit-note">Near-black with an oscilloscope cyan and a gold second accent. Tighter corners and a mono-forward feel. Best for waves, oscillations and anything graph-heavy.</span></div>
+<div class="kit-body">
+<div class="kit-left">
+<p class="sect">Palette</p>
+<div class="sw">
+<div style="background:#04080D"><b>Background</b><span>#04080D</span></div>
+<div style="background:#0A121A"><b>Surface</b><span>#0A121A</span></div>
+<div style="background:#0F1B26"><b>Surface 2</b><span>#0F1B26</span></div>
+<div style="background:#00D4FF;color:#022733;border-color:transparent"><b>Primary</b><span>#00D4FF</span></div>
+<div style="background:#F5A623;color:#241403;border-color:transparent"><b>Secondary</b><span>#F5A623</span></div>
+<div style="background:#2FE0A6;color:#032620;border-color:transparent"><b>Success</b><span>#2FE0A6</span></div>
+<div style="background:#F5A623;color:#241403;border-color:transparent"><b>Warning</b><span>#F5A623</span></div>
+<div style="background:#FF6B6B;color:#2B0707;border-color:transparent"><b>Error</b><span>#FF6B6B</span></div>
+<div style="background:#E6F4F8;color:#04080D;border-color:transparent"><b>Text</b><span>#E6F4F8</span></div>
+<div style="background:#6B8593;color:#04080D;border-color:transparent"><b>Muted</b><span>#6B8593</span></div>
+</div>
+<p class="sect">Specimen</p>
+<div class="spec" style="background:#0A121A;border-radius:6px">
+<div class="h">Wave properties and wave speed</div>
+<div class="b" style="color:#A9C4CE">Amplitude is the maximum displacement of an oscillating wave from its equilibrium position.</div>
+<span class="m" style="background:rgba(0,212,255,.14);color:#00D4FF;border-radius:4px">v = fλ = λ / T</span>
+</div>
+</div>
+<div class="kit-right">
+<p class="sect">Slide preview</p>
+<div class="mini" style="background:#0A121A;border-radius:6px">
+<div class="e" style="color:#6B8593">C.2 · Lesson 1 of 4</div>
+<div class="t">Period and frequency</div>
+<div class="f" style="background:rgba(0,212,255,.12);border-left:6px solid #00D4FF;color:#00D4FF;border-radius:0 4px 4px 0">f = 1 / T</div>
+<div class="p" style="color:#A9C4CE">Period T is the time for a complete oscillation to pass a fixed point, in seconds.</div>
+</div>
+<p class="sect">Paste into your prompt</p>
+<pre style="background:#071016;color:#9CB6C2;border-radius:6px">bg #04080D · surface #0A121A · surface2 #0F1B26
+border rgba(0,212,255,0.16)
+text #E6F4F8 · text2 #A9C4CE · muted #6B8593
+primary #00D4FF · secondary #F5A623
+success #2FE0A6 · warn #F5A623 · error #FF6B6B
+radius 6px · mono-forward for all data and labels</pre>
+</div>
+</div>
+</div>
+
+<!-- KIT 5 -->
+<div class="kit" style="background:#1E2634;color:#F5EEDC">
+<div class="kit-head"><span class="kit-num">KIT 05</span><span class="kit-name">Slate Chalk</span><span class="kit-note">Mid-tone slate with chalk-white text and a gold lead. Warmer and lower-contrast than the other darks — easy on the eyes for long lessons, and forgiving of white-background diagrams.</span></div>
+<div class="kit-body">
+<div class="kit-left">
+<p class="sect">Palette</p>
+<div class="sw">
+<div style="background:#1E2634"><b>Background</b><span>#1E2634</span></div>
+<div style="background:#263041"><b>Surface</b><span>#263041</span></div>
+<div style="background:#2E3A4D"><b>Surface 2</b><span>#2E3A4D</span></div>
+<div style="background:#F5A623;color:#241403;border-color:transparent"><b>Primary</b><span>#F5A623</span></div>
+<div style="background:#7FD1AE;color:#082419;border-color:transparent"><b>Secondary</b><span>#7FD1AE</span></div>
+<div style="background:#7FD1AE;color:#082419;border-color:transparent"><b>Success</b><span>#7FD1AE</span></div>
+<div style="background:#F5A623;color:#241403;border-color:transparent"><b>Warning</b><span>#F5A623</span></div>
+<div style="background:#E8836F;color:#2B0D06;border-color:transparent"><b>Error</b><span>#E8836F</span></div>
+<div style="background:#F5EEDC;color:#1E2634;border-color:transparent"><b>Text</b><span>#F5EEDC</span></div>
+<div style="background:#9AA3AE;color:#1E2634;border-color:transparent"><b>Muted</b><span>#9AA3AE</span></div>
+</div>
+<p class="sect">Specimen</p>
+<div class="spec" style="background:#263041;border-radius:4px">
+<div class="h">Wave properties and wave speed</div>
+<div class="b" style="color:#D2C9B4">Amplitude is the maximum displacement of an oscillating wave from its equilibrium position.</div>
+<span class="m" style="background:rgba(245,166,35,.16);color:#F5A623;border-radius:3px">v = fλ = λ / T</span>
+</div>
+</div>
+<div class="kit-right">
+<p class="sect">Slide preview</p>
+<div class="mini" style="background:#263041;border-radius:4px">
+<div class="e" style="color:#9AA3AE">C.2 · Lesson 1 of 4</div>
+<div class="t">Period and frequency</div>
+<div class="f" style="background:rgba(245,166,35,.14);border-left:6px solid #F5A623;color:#F5A623;border-radius:0 3px 3px 0">f = 1 / T</div>
+<div class="p" style="color:#D2C9B4">Period T is the time for a complete oscillation to pass a fixed point, in seconds.</div>
+</div>
+<p class="sect">Paste into your prompt</p>
+<pre style="background:#222B3A;color:#B9BFC9;border-radius:4px">bg #1E2634 · surface #263041 · surface2 #2E3A4D
+border rgba(245,238,220,0.12)
+text #F5EEDC · text2 #D2C9B4 · muted #9AA3AE
+primary #F5A623 · secondary #7FD1AE
+success #7FD1AE · warn #F5A623 · error #E8836F
+radius 4px · serif-forward, low contrast</pre>
+</div>
+</div>
+</div>
+
+<div class="foot">
+<p><strong>Using these with another tool</strong></p>
+<ul>
+<li>Pick one kit per deck and stay in it. Mixing two within a deck breaks the uniformity these are designed to give you.</li>
+<li>Always pass the <strong>constant</strong> block alongside the kit's colour list — the type system and the left-rule equation/callout pattern are what carry the brand, not the hue.</li>
+<li>Semantic roles are fixed across all five: <strong>accent</strong> = definition or note, <strong>warning</strong> = trap or common mistake, <strong>success</strong> = examiner tip or model answer, <strong>error</strong> = misconception only.</li>
+<li>The existing lesson figures are black line art on white. Kits 02 and 05 sit against them cleanly; on Kits 01, 03 and 04 keep figures inside a white or light surface card rather than placing them on the page background.</li>
+<li>Maximum two background tones per deck: the page background and one accent-filled divider or title slide.</li>
+</ul>
+</div>
+
+</div>
+</body>
+</html>

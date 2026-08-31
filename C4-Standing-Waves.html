@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.4 Standing Waves and Resonance — φQ Physics IB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ─── THEME TOKENS ─── */
+:root {
+  color-scheme: light;
+  --bg:          #f8f7f5;
+  --surface:     #ffffff;
+  --surface2:    #f2f1ef;
+  --surface3:    #e8e6e2;
+  --border:      #e0ddd8;
+  --border-2:    #c8c3bb;
+  --text:        #1a1916;
+  --text-2:      #3d3a35;
+  --text-muted:  #7a7570;
+  --accent:      oklch(52% 0.18 255);
+  --accent-dim:  oklch(96% 0.04 255);
+  --gold:        oklch(62% 0.15 80);
+  --gold-dim:    oklch(97% 0.04 80);
+  --green:       oklch(52% 0.15 155);
+  --green-dim:   oklch(96% 0.04 155);
+  --red:         oklch(52% 0.18 25);
+  --red-dim:     oklch(96% 0.05 25);
+  --radius:      8px;
+  --font-sans:   'Inter', sans-serif;
+  --font-serif:  'Source Serif 4', Georgia, serif;
+  --font-mono:   'JetBrains Mono', monospace;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:          #141412;
+  --surface:     #1e1d1b;
+  --surface2:    #252422;
+  --surface3:    #2e2c29;
+  --border:      #353330;
+  --border-2:    #4a4744;
+  --text:        #f0ede8;
+  --text-2:      #c8c4bc;
+  --text-muted:  #807b74;
+  --accent:      oklch(65% 0.18 255);
+  --accent-dim:  oklch(20% 0.06 255);
+  --gold:        oklch(72% 0.15 80);
+  --gold-dim:    oklch(18% 0.05 80);
+  --green:       oklch(65% 0.15 155);
+  --green-dim:   oklch(18% 0.05 155);
+  --red:         oklch(65% 0.18 25);
+  --red-dim:     oklch(18% 0.06 25);
+}
+
+/* ─── PAGE CHROME ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.25s, color 0.25s;
+}
+.page-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+.theme-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+}
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  transition: all 0.15s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.site-brand { font-weight: 700; letter-spacing: -0.01em; color: var(--accent); font-size: 0.9rem; }
+
+/* ─── φQ LESSON CSS (exact spec) ─── */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.75rem 1.1rem;margin:0.75rem 0;
+  font-family:var(--font-mono);font-size:1.05rem;
+  color:var(--accent);text-align:center; }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img svg { max-width:100%; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+
+/* ─── SVG DIAGRAM THEMING ─── */
+.diag-axis { stroke: var(--border-2); }
+.diag-wave { stroke: var(--accent); fill: none; }
+.diag-wave2 { stroke: var(--gold); fill: none; }
+.diag-node { fill: var(--red); }
+.diag-anti { fill: var(--green); }
+.diag-label { fill: var(--text-muted); font-family: var(--font-mono); font-size: 11px; }
+.diag-label-accent { fill: var(--accent); font-family: var(--font-mono); font-size: 11px; font-weight: 600; }
+.diag-pipe { fill: var(--surface3); stroke: var(--border-2); }
+.diag-pipe-open { fill: none; stroke: var(--border-2); }
+.diag-line { stroke: var(--text-muted); stroke-dasharray: 4 3; fill: none; }
+.diag-curve { stroke: var(--accent); fill: none; stroke-width: 2.5; }
+.diag-curve2 { stroke: var(--gold); fill: none; stroke-width: 2; stroke-dasharray: 6 3; }
+.diag-vline { stroke: var(--red); stroke-dasharray: 3 3; }
+.diag-arrow { fill: var(--text-muted); }
+.diag-title { fill: var(--text-2); font-family: var(--font-sans); font-size: 12px; font-weight: 600; }
+
+/* ─── HL BADGE ─── */
+.hl-badge { display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;
+  text-transform:uppercase;background:var(--gold-dim);color:var(--gold);
+  border:1px solid var(--gold);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:middle; }
+
+/* animated standing wave */
+@keyframes sw-pulse { 0%,100%{opacity:1} 50%{opacity:0.15} }
+.sw-animated .wave-envelope { animation: sw-pulse 1.4s ease-in-out infinite; }
+</style>
+</head>
+<body>
+
+<!-- theme bar -->
+<div class="theme-bar">
+  <span class="site-brand">φQ Physics IB</span>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light mode</button>
+</div>
+
+<div class="page-wrap">
+
+<!-- ══════════════════════════════════════════
+     LESSON HEADER
+══════════════════════════════════════════ -->
+<div class="lc-badge"><span>4</span> Lesson 1–4 of 4 · C.4 · SL + HL</div>
+<div class="lc-title">Standing Waves and Resonance</div>
+<div class="lc-sub">Formation of standing waves, harmonics in strings and pipes, natural frequency, damping, and resonance — with full SL and HL content.</div>
+
+<!-- ══════════════════════════════════════════
+     CONCEPT 1 — NATURE OF STANDING WAVES
+══════════════════════════════════════════ -->
+<div class="lc-section">Concept 1 — The nature of standing waves</div>
+
+<div class="lc-card">
+  <h3>From travelling waves to standing waves</h3>
+  <p>You already know that <strong>travelling waves</strong> transfer energy progressively away from a source. A <strong>standing wave</strong> (also called a stationary wave) is fundamentally different: its wave pattern stays fixed in position and transfers <em>no</em> net energy along the medium.</p>
+  <p>Standing waves form when two identical waves — same frequency, same wavelength, same amplitude — travel in <em>opposite</em> directions through the same medium and continuously superpose. In practice this almost always happens when a wave is reflected back upon itself in a confined space.</p>
+  <div class="lc-formula">Standing wave = two identical waves travelling in opposite directions</div>
+</div>
+
+<!-- SVG 1 — Superposition forming a standing wave -->
+<div class="lc-img sw-animated">
+  <svg viewBox="0 0 560 160" width="520" height="160" aria-label="Two travelling waves superposing to form a standing wave">
+    <!-- axes -->
+    <line x1="20" y1="50" x2="540" y2="50" class="diag-axis" stroke-width="1"/>
+    <line x1="20" y1="110" x2="540" y2="110" class="diag-axis" stroke-width="1"/>
+    <line x1="20" y1="148" x2="540" y2="148" class="diag-axis" stroke-width="1.5"/>
+    <!-- wave 1 rightward (blue) -->
+    <path class="diag-wave wave-envelope" stroke-width="2"
+      d="M20,50 C60,10 100,90 140,50 C180,10 220,90 260,50 C300,10 340,90 380,50 C420,10 460,90 500,50 C520,10 540,90 540,50"/>
+    <!-- wave 2 leftward (gold) -->
+    <path class="diag-wave2 wave-envelope" stroke-width="2"
+      d="M20,110 C60,70 100,150 140,110 C180,70 220,150 260,110 C300,70 340,150 380,110 C420,70 460,150 500,110 C520,70 540,150 540,110"/>
+    <!-- resultant (standing) -->
+    <path class="diag-wave wave-envelope" stroke-width="2.5" stroke-dasharray="none"
+      d="M20,148 C80,108 140,188 200,148 C260,108 320,188 380,148 C440,108 500,188 540,148"/>
+    <!-- labels -->
+    <text x="545" y="54" class="diag-label-accent">→</text>
+    <text x="545" y="114" class="diag-label" style="fill:var(--gold)">←</text>
+    <text x="22" y="145" class="diag-label">resultant</text>
+    <text x="22" y="46" class="diag-label-accent">wave 1</text>
+    <text x="22" y="106" class="diag-label" style="fill:var(--gold)">wave 2</text>
+  </svg>
+  <div class="lc-cap">Fig 1 — Two identical waves (blue = rightward, amber = leftward) continuously superpose. Their sum produces the standing wave pattern shown at the bottom (dashed envelope shows oscillation limits).</div>
+</div>
+
+<div class="lc-card">
+  <h3>Nodes and antinodes</h3>
+  <p>The standing wave pattern has two special types of point:</p>
+  <p><strong>Nodes (N)</strong> — points where the two waves are always exactly out of phase (phase difference = π). Displacement is permanently zero. Adjacent nodes are separated by λ/2.</p>
+  <p><strong>Antinodes (A)</strong> — points where the two waves are always exactly in phase. Amplitude is maximum. An antinode sits halfway between each pair of adjacent nodes.</p>
+  <p>All points between two adjacent nodes oscillate <em>in phase</em> with each other but with different amplitudes. Points on opposite sides of a node oscillate in antiphase (phase difference = π).</p>
+  <div class="lc-formula">Distance between adjacent nodes = λ/2 &nbsp;|&nbsp; Distance between alternate nodes = λ</div>
+</div>
+
+<!-- SVG 2 — Nodes and antinodes on a string (3rd harmonic) -->
+<div class="lc-img">
+  <svg viewBox="0 0 520 110" width="500" height="110" aria-label="Standing wave showing nodes and antinodes">
+    <defs>
+      <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" class="diag-arrow"/>
+      </marker>
+    </defs>
+    <!-- string line -->
+    <line x1="30" y1="55" x2="490" y2="55" class="diag-axis" stroke-width="1" stroke-dasharray="3 3"/>
+    <!-- wave shape (3rd harmonic — 3 loops) -->
+    <path class="diag-wave" stroke-width="2.5"
+      d="M30,55 C63,15 97,95 130,55 C163,15 197,95 230,55 C263,15 297,95 330,55 C363,15 397,95 430,55 C463,15 490,55 490,55"/>
+    <!-- Node dots -->
+    <circle cx="30"  cy="55" r="5" class="diag-node"/>
+    <circle cx="162" cy="55" r="5" class="diag-node"/>
+    <circle cx="294" cy="55" r="5" class="diag-node"/>
+    <circle cx="426" cy="55" r="5" class="diag-node"/>
+    <!-- Antinode arrows -->
+    <line x1="96"  y1="15" x2="96"  y2="45" stroke="var(--green)" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="228" y1="95" x2="228" y2="65" stroke="var(--green)" stroke-width="1.5" marker-end="url(#arr)"/>
+    <line x1="360" y1="15" x2="360" y2="45" stroke="var(--green)" stroke-width="1.5" marker-end="url(#arr)"/>
+    <!-- Labels -->
+    <text x="26"  y="78" class="diag-label" style="fill:var(--red)">N</text>
+    <text x="158" y="78" class="diag-label" style="fill:var(--red)">N</text>
+    <text x="290" y="78" class="diag-label" style="fill:var(--red)">N</text>
+    <text x="422" y="78" class="diag-label" style="fill:var(--red)">N</text>
+    <text x="90"  y="12" class="diag-label" style="fill:var(--green)">A</text>
+    <text x="222" y="105" class="diag-label" style="fill:var(--green)">A</text>
+    <text x="354" y="12" class="diag-label" style="fill:var(--green)">A</text>
+    <!-- lambda label -->
+    <line x1="30" y1="100" x2="162" y2="100" stroke="var(--text-muted)" stroke-width="1" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <text x="82" y="110" class="diag-label">λ/2</text>
+    <line x1="30" y1="108" x2="294" y2="108" stroke="var(--accent)" stroke-width="1" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <text x="148" y="118" class="diag-label-accent" style="font-size:10px">λ</text>
+  </svg>
+  <div class="lc-cap">Fig 2 — Third harmonic on a string fixed at both ends. Red dots = nodes (N), green arrows = antinodes (A). Distance between adjacent nodes = λ/2; between alternate nodes = λ.</div>
+</div>
+
+<!-- Comparison table -->
+<div class="lc-card">
+  <h3>Standing vs. travelling waves — comparison</h3>
+  <table class="lc-table">
+    <thead><tr><th>Property</th><th>Standing wave</th><th>Travelling wave</th></tr></thead>
+    <tbody>
+      <tr><td>Wave pattern</td><td>Stationary — does not move</td><td>Progressive — moves through medium</td></tr>
+      <tr><td>Energy transfer</td><td>No net energy transferred</td><td>Energy transferred in direction of travel</td></tr>
+      <tr><td>Amplitude</td><td>Varies with position (0 at nodes, max at antinodes)</td><td>Same at all points</td></tr>
+      <tr><td>Phase</td><td>All points between adjacent nodes are in phase; opposite sides of a node are in antiphase</td><td>Phase changes continuously with distance; points 1λ apart are in phase</td></tr>
+      <tr><td>Frequency</td><td>All points vibrate at the same frequency</td><td>All points vibrate at the same frequency</td></tr>
+      <tr><td>Wavelength</td><td>2 × distance between adjacent nodes</td><td>Shortest distance between in-phase points</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="lc-info">💡 <strong>Boundary conditions</strong> determine whether nodes or antinodes occur at the ends of a system. A fixed end → node. A free/open end → antinode. These conditions control which harmonics are possible.</div>
+
+<div class="lc-warn">⚠️ Standing waves do <em>not</em> transfer energy along the medium. Energy is stored within the system (as kinetic and potential energy of the oscillating medium) but is not propagated outward as it would be in a travelling wave.</div>
+
+<div class="lc-kp">
+  <span>superposition</span><span>node: displacement = 0</span><span>antinode: max amplitude</span>
+  <span>adjacent nodes: λ/2 apart</span><span>no net energy transfer</span>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CONCEPT 2 — STRINGS AND PIPES
+══════════════════════════════════════════ -->
+<div class="lc-section">Concept 2 — Harmonics in strings and pipes</div>
+
+<div class="lc-card">
+  <h3>Standing waves on strings — fixed at both ends</h3>
+  <p>A stretched string fixed at both ends must have <strong>nodes at both ends</strong>. The possible standing wave modes are called <strong>harmonics</strong>. The first harmonic (fundamental) has the longest wavelength and lowest frequency f₀.</p>
+  <p>If the string has length <em>l</em>, the wavelength of the n-th harmonic is:</p>
+  <div class="lc-formula">λₙ = 2l / n &nbsp;&nbsp; fₙ = n · f₀ &nbsp;&nbsp; f₀ = v / 2l</div>
+  <p>where <em>v</em> is the wave speed on the string (depends on tension and mass per unit length). All integer harmonics (n = 1, 2, 3 …) are possible.</p>
+</div>
+
+<!-- SVG 3 — First four harmonics on a string -->
+<div class="lc-img">
+  <svg viewBox="0 0 520 220" width="500" height="220" aria-label="First four harmonics on a string fixed at both ends">
+    <!-- 1st harmonic -->
+    <text x="4" y="30" class="diag-title">1st harmonic (n=1)</text>
+    <line x1="60" y1="35" x2="460" y2="35" class="diag-axis" stroke-width="0.5" stroke-dasharray="2 2"/>
+    <path class="diag-wave" stroke-width="2" d="M60,35 C160,5 360,65 460,35"/>
+    <circle cx="60"  cy="35" r="4" class="diag-node"/>
+    <circle cx="460" cy="35" r="4" class="diag-node"/>
+    <text x="2"  y="38" class="diag-label" style="fill:var(--red);font-size:9px">N</text>
+    <text x="462" y="38" class="diag-label" style="fill:var(--red);font-size:9px">N</text>
+    <text x="256" y="4" class="diag-label" style="fill:var(--green);font-size:9px">A</text>
+    <text x="468" y="32" class="diag-label-accent" style="font-size:10px">λ=2l, f=f₀</text>
+
+    <!-- 2nd harmonic -->
+    <text x="4" y="75" class="diag-title">2nd harmonic (n=2)</text>
+    <line x1="60" y1="80" x2="460" y2="80" class="diag-axis" stroke-width="0.5" stroke-dasharray="2 2"/>
+    <path class="diag-wave" stroke-width="2" d="M60,80 C110,55 210,105 260,80 C310,55 410,105 460,80"/>
+    <circle cx="60"  cy="80" r="4" class="diag-node"/>
+    <circle cx="260" cy="80" r="4" class="diag-node"/>
+    <circle cx="460" cy="80" r="4" class="diag-node"/>
+    <text x="2"  y="83" class="diag-label" style="fill:var(--red);font-size:9px">N</text>
+    <text x="255" y="83" class="diag-label" style="fill:var(--red);font-size:9px">N</text>
+    <text x="462" y="83" class="diag-label" style="fill:var(--red);font-size:9px">N</text>
+    <text x="468" y="78" class="diag-label-accent" style="font-size:10px">λ=l, f=2f₀</text>
+
+    <!-- 3rd harmonic -->
+    <text x="4" y="120" class="diag-title">3rd harmonic (n=3)</text>
+    <line x1="60" y1="125" x2="460" y2="125" class="diag-axis" stroke-width="0.5" stroke-dasharray="2 2"/>
+    <path class="diag-wave" stroke-width="2" d="M60,125 C93,105 127,145 160,125 C193,105 227,145 260,125 C293,105 327,145 360,125 C393,105 427,145 460,125"/>
+    <circle cx="60"  cy="125" r="4" class="diag-node"/>
+    <circle cx="193" cy="125" r="4" class="diag-node"/>
+    <circle cx="327" cy="125" r="4" class="diag-node"/>
+    <circle cx="460" cy="125" r="4" class="diag-node"/>
+    <text x="468" y="123" class="diag-label-accent" style="font-size:10px">λ=2l/3, f=3f₀</text>
+
+    <!-- 4th harmonic -->
+    <text x="4" y="165" class="diag-title">4th harmonic (n=4)</text>
+    <line x1="60" y1="170" x2="460" y2="170" class="diag-axis" stroke-width="0.5" stroke-dasharray="2 2"/>
+    <path class="diag-wave" stroke-width="2" d="M60,170 C85,152 110,188 135,170 C160,152 185,188 210,170 C235,152 260,188 285,170 C310,152 335,188 360,170 C385,152 410,188 435,170 C460,152 460,170 460,170"/>
+    <circle cx="60"  cy="170" r="4" class="diag-node"/>
+    <circle cx="160" cy="170" r="4" class="diag-node"/>
+    <circle cx="260" cy="170" r="4" class="diag-node"/>
+    <circle cx="360" cy="170" r="4" class="diag-node"/>
+    <circle cx="460" cy="170" r="4" class="diag-node"/>
+    <text x="468" y="168" class="diag-label-accent" style="font-size:10px">λ=l/2, f=4f₀</text>
+
+    <!-- length label -->
+    <line x1="60" y1="210" x2="460" y2="210" stroke="var(--text-muted)" stroke-width="1" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    <text x="240" y="220" class="diag-label">l</text>
+  </svg>
+  <div class="lc-cap">Fig 3 — First four harmonics for a string fixed at both ends. All integer harmonics are possible. Frequency is always a whole-number multiple of f₀ = v/2l.</div>
+</div>
+
+<div class="lc-card">
+  <h3>Worked Example C4.1 — String harmonics</h3>
+  <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:0.75rem">A stretched rope fixed at both ends has length l = 0.98 m. Wave speed v = 6.7 m s⁻¹.</p>
+  <div class="lc-step">
+    <div class="lc-step-num">1</div>
+    <div class="lc-step-body"><strong>1st harmonic wavelength:</strong> λ₀ = 2l = 2 × 0.98 = <strong>1.96 m</strong></div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">2</div>
+    <div class="lc-step-body"><strong>1st harmonic frequency:</strong> f₀ = v / λ₀ = 6.7 / 1.96 = <strong>3.4 Hz</strong></div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">3</div>
+    <div class="lc-step-body"><strong>4th harmonic wavelength:</strong> λ₄ = 2l / 4 = 1.96 / 4 = <strong>0.49 m</strong></div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">4</div>
+    <div class="lc-step-body"><strong>4th harmonic frequency:</strong> f₄ = 4f₀ = 4 × 3.4 = <strong>14 Hz</strong></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>Standing waves in pipes — three boundary conditions</h3>
+  <p>Longitudinal standing waves in air columns depend on whether each end is <strong>open</strong> (antinode) or <strong>closed</strong> (node).</p>
+</div>
+
+<!-- SVG 4 — Three pipe boundary conditions -->
+<div class="lc-img">
+  <svg viewBox="0 0 520 170" width="500" height="170" aria-label="Nodes and antinodes for three pipe configurations">
+    <!-- open-open -->
+    <text x="15" y="15" class="diag-title">Open–Open</text>
+    <rect x="15" y="20" width="130" height="30" rx="2" class="diag-pipe" stroke-dasharray="4 0"/>
+    <!-- open ends shown as dashes on sides only -->
+    <path d="M15,20 L15,50" stroke="var(--border-2)" stroke-width="2" stroke-dasharray="4 3"/>
+    <path d="M145,20 L145,50" stroke="var(--border-2)" stroke-width="2" stroke-dasharray="4 3"/>
+    <path class="diag-wave" stroke-width="2" d="M15,35 C40,18 80,52 115,35 C130,28 145,35 145,35"/>
+    <circle cx="15"  cy="35" r="4" class="diag-anti" opacity="0.8"/>
+    <circle cx="145" cy="35" r="4" class="diag-anti" opacity="0.8"/>
+    <text x="10"  y="62" class="diag-label" style="fill:var(--green);font-size:9px">A</text>
+    <text x="140" y="62" class="diag-label" style="fill:var(--green);font-size:9px">A</text>
+    <text x="72"  y="62" class="diag-label" style="fill:var(--red);font-size:9px">N</text>
+    <text x="15"  y="80" class="diag-label">λ₀=2l, all harmonics</text>
+
+    <!-- closed-closed -->
+    <text x="185" y="15" class="diag-title">Closed–Closed</text>
+    <rect x="185" y="20" width="130" height="30" rx="2" class="diag-pipe"/>
+    <path class="diag-wave" stroke-width="2" d="M185,35 C210,18 250,52 285,35 C300,28 315,35 315,35"/>
+    <circle cx="185" cy="35" r="4" class="diag-node"/>
+    <circle cx="315" cy="35" r="4" class="diag-node"/>
+    <text x="180" y="62" class="diag-label" style="fill:var(--red);font-size:9px">N</text>
+    <text x="310" y="62" class="diag-label" style="fill:var(--red);font-size:9px">N</text>
+    <text x="242" y="62" class="diag-label" style="fill:var(--green);font-size:9px">A</text>
+    <text x="185" y="80" class="diag-label">λ₀=2l, all harmonics</text>
+
+    <!-- closed-open -->
+    <text x="360" y="15" class="diag-title">Closed–Open</text>
+    <rect x="360" y="20" width="130" height="30" rx="2" class="diag-pipe"/>
+    <path d="M490,20 L490,50" stroke="var(--border-2)" stroke-width="2" stroke-dasharray="4 3"/>
+    <path class="diag-wave" stroke-width="2" d="M360,35 C410,5 460,65 490,35"/>
+    <circle cx="360" cy="35" r="4" class="diag-node"/>
+    <circle cx="490" cy="35" r="4" class="diag-anti" opacity="0.8"/>
+    <text x="355" y="62" class="diag-label" style="fill:var(--red);font-size:9px">N</text>
+    <text x="485" y="62" class="diag-label" style="fill:var(--green);font-size:9px">A</text>
+    <text x="358" y="80" class="diag-label">λ₀=4l, odd harmonics only</text>
+
+    <!-- legend -->
+    <circle cx="30" cy="115" r="5" class="diag-node"/>
+    <text x="40" cy="119" class="diag-label" y="119">= node (closed end)</text>
+    <circle cx="200" cy="115" r="5" class="diag-anti" opacity="0.8"/>
+    <text x="210" cy="119" class="diag-label" y="119">= antinode (open end)</text>
+  </svg>
+  <div class="lc-cap">Fig 4 — Boundary conditions for the three pipe types. Open ends → antinodes; closed ends → nodes. Closed–open pipes only support odd harmonics (n = 1, 3, 5 …).</div>
+</div>
+
+<!-- SVG 5 — Harmonics in open pipe and closed pipe side by side -->
+<div class="lc-img-row">
+  <div class="lc-img">
+    <svg viewBox="0 0 240 200" width="230" height="200" aria-label="Harmonics in a pipe open at both ends">
+      <text x="5" y="14" class="diag-title">Open–Open pipe (n=1,2,3…)</text>
+      <!-- 1st -->
+      <rect x="10" y="22" width="160" height="22" rx="2" class="diag-pipe" fill-opacity="0.3"/>
+      <path class="diag-wave" stroke-width="2" d="M10,33 C50,18 120,48 170,33"/>
+      <text x="176" y="36" class="diag-label-accent" style="font-size:9px">n=1, f₀</text>
+      <!-- 2nd -->
+      <rect x="10" y="60" width="160" height="22" rx="2" class="diag-pipe" fill-opacity="0.3"/>
+      <path class="diag-wave" stroke-width="2" d="M10,71 C30,58 70,84 90,71 C110,58 150,84 170,71"/>
+      <text x="176" y="74" class="diag-label-accent" style="font-size:9px">n=2, 2f₀</text>
+      <!-- 3rd -->
+      <rect x="10" y="98" width="160" height="22" rx="2" class="diag-pipe" fill-opacity="0.3"/>
+      <path class="diag-wave" stroke-width="2" d="M10,109 C24,99 44,119 64,109 C84,99 104,119 124,109 C144,99 160,119 170,109"/>
+      <text x="176" y="112" class="diag-label-accent" style="font-size:9px">n=3, 3f₀</text>
+
+      <text x="5" y="150" class="diag-label">λ₀ = 2l</text>
+      <text x="5" y="165" class="diag-label">fₙ = n·f₀</text>
+      <text x="5" y="180" class="diag-label">All n possible</text>
+    </svg>
+    <div class="lc-cap">Fig 5a — Open–open pipe: antinodes at both ends. All harmonics possible. λ₀ = 2l.</div>
+  </div>
+  <div class="lc-img">
+    <svg viewBox="0 0 240 200" width="230" height="200" aria-label="Harmonics in a pipe closed at one end">
+      <text x="5" y="14" class="diag-title">Closed–Open pipe (n=1,3,5…)</text>
+      <!-- 1st -->
+      <rect x="10" y="22" width="160" height="22" rx="2" class="diag-pipe" fill-opacity="0.3"/>
+      <path d="M170,22 L170,44" stroke="var(--border-2)" stroke-width="2" stroke-dasharray="3 2"/>
+      <path class="diag-wave" stroke-width="2" d="M10,33 C60,5 130,65 170,33"/>
+      <circle cx="10" cy="33" r="3" class="diag-node"/>
+      <circle cx="170" cy="33" r="3" class="diag-anti" opacity="0.8"/>
+      <text x="176" y="36" class="diag-label-accent" style="font-size:9px">n=1, f₀</text>
+      <!-- 3rd -->
+      <rect x="10" y="62" width="160" height="22" rx="2" class="diag-pipe" fill-opacity="0.3"/>
+      <path d="M170,62 L170,84" stroke="var(--border-2)" stroke-width="2" stroke-dasharray="3 2"/>
+      <path class="diag-wave" stroke-width="2" d="M10,73 C30,58 55,88 80,73 C105,58 130,88 150,73 C160,68 170,73 170,73"/>
+      <circle cx="10" cy="73" r="3" class="diag-node"/>
+      <circle cx="170" cy="73" r="3" class="diag-anti" opacity="0.8"/>
+      <text x="176" y="76" class="diag-label-accent" style="font-size:9px">n=3, 3f₀</text>
+      <!-- 5th -->
+      <rect x="10" y="102" width="160" height="22" rx="2" class="diag-pipe" fill-opacity="0.3"/>
+      <path d="M170,102 L170,124" stroke="var(--border-2)" stroke-width="2" stroke-dasharray="3 2"/>
+      <path class="diag-wave" stroke-width="2" d="M10,113 C22,102 38,124 54,113 C70,102 86,124 102,113 C118,102 134,124 150,113 C160,108 170,113 170,113"/>
+      <circle cx="10" cy="113" r="3" class="diag-node"/>
+      <circle cx="170" cy="113" r="3" class="diag-anti" opacity="0.8"/>
+      <text x="176" y="116" class="diag-label-accent" style="font-size:9px">n=5, 5f₀</text>
+
+      <text x="5" y="150" class="diag-label">λ₀ = 4l</text>
+      <text x="5" y="165" class="diag-label">fₙ = n·f₀ (odd n only)</text>
+      <text x="5" y="180" class="diag-label">n = 1, 3, 5, 7 …</text>
+    </svg>
+    <div class="lc-cap">Fig 5b — Closed–open pipe: node at closed end, antinode at open end. Only odd harmonics. λ₀ = 4l.</div>
+  </div>
+</div>
+
+<div class="lc-warn">⚠️ A common exam mistake: the diagrams of standing waves in pipes show the <em>sideways displacement</em> of air molecules — they are <strong>not</strong> transverse waves. The actual wave is longitudinal (pressure variation along the pipe axis).</div>
+
+<div class="lc-success">✓ Exam strategy: always state the boundary conditions first (node/antinode at each end), then deduce the wavelength of the first harmonic, then use v = fλ to find frequency. Always show the formula before substituting numbers.</div>
+
+<div class="lc-card">
+  <h3>Worked Example C4.3 — Pipe harmonics</h3>
+  <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:0.75rem">A tube closed at both ends, length l = 73.5 cm, shows the 6th harmonic. Loudspeaker frequency = 1410 Hz.</p>
+  <div class="lc-step">
+    <div class="lc-step-num">1</div>
+    <div class="lc-step-body"><strong>Identify harmonic:</strong> 6th harmonic → 6 loops → 3 full wavelengths fit in the tube.</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">2</div>
+    <div class="lc-step-body"><strong>Wavelength:</strong> λ = 2l/6 = 2 × 0.735 / 6 = <strong>0.245 m</strong></div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">3</div>
+    <div class="lc-step-body"><strong>Wave speed:</strong> v = fλ = 1410 × 0.245 = <strong>345 m s⁻¹</strong></div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">4</div>
+    <div class="lc-step-body"><strong>If open at one end</strong> (closed–open), λ₀ = 4l = 2.94 m → f₀ = 345/2.94 ≈ <strong>117 Hz</strong> (1st harmonic). Next possible = 3rd harmonic = 3 × 117 = <strong>353 Hz</strong>.</div>
+  </div>
+</div>
+
+<div class="lc-kp">
+  <span>string (fixed-fixed): λₙ=2l/n</span><span>open-open: λₙ=2l/n</span>
+  <span>closed-open: λₙ=4l/n (odd n)</span><span>v=fλ always</span>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CONCEPT 3 — NATURAL FREQUENCY & DAMPING
+══════════════════════════════════════════ -->
+<div class="lc-section">Concept 3 — Natural frequency and damping</div>
+
+<div class="lc-card">
+  <h3>Natural frequency</h3>
+  <p>When an object is disturbed and then left to oscillate <em>without further external influence</em>, it vibrates at its <strong>natural frequency</strong> (or natural frequencies). This frequency depends only on the physical properties of the system — its mass, stiffness, dimensions — not on how it was disturbed.</p>
+  <p>Examples: a pendulum, a mass on a spring, a tuning fork, a clamped ruler. Most objects have more than one natural frequency, though one usually dominates.</p>
+  <div class="lc-formula">f₀ depends on mass and stiffness only — not on amplitude (for small oscillations)</div>
+</div>
+
+<div class="lc-card">
+  <h3>Damping <span class="hl-badge">SL+HL</span></h3>
+  <p>All real oscillators experience <strong>resistive forces</strong> (friction, air resistance, viscosity) that oppose motion. These convert kinetic energy into thermal energy, reducing amplitude over time. This is called <strong>damping</strong>.</p>
+  <p>Key feature: in many damped systems the <em>frequency</em> stays approximately constant while amplitude decreases exponentially — successive peaks are multiplied by the same constant fraction (geometric sequence).</p>
+</div>
+
+<!-- SVG 6 — Three types of damping -->
+<div class="lc-img">
+  <svg viewBox="0 0 520 200" width="500" height="200" aria-label="Light, critical and heavy damping displacement-time graphs">
+    <!-- axes -->
+    <line x1="40" y1="170" x2="510" y2="170" class="diag-axis" stroke-width="1.5"/>
+    <line x1="40" y1="20"  x2="40"  y2="170" class="diag-axis" stroke-width="1.5"/>
+    <text x="512" y="173" class="dic-label diag-label">t</text>
+    <text x="28"  y="18"  class="diag-label">x</text>
+    <line x1="40" y1="95" x2="510" y2="95" class="diag-line"/>
+
+    <!-- light damping — oscillates, decays slowly -->
+    <path class="diag-curve" d="
+      M40,40
+      C70,15  90,75  120,50
+      C150,25 165,75 200,58
+      C235,42 248,80 280,68
+      C312,56 323,84 350,76
+      C377,68 385,90 410,85
+      C435,80 442,98 465,94
+      C480,91 495,98 510,96"/>
+    <text x="344" y="62" class="diag-label" style="fill:var(--accent)">light damping</text>
+
+    <!-- critical damping — returns quickly without oscillating -->
+    <path class="diag-curve2" d="M40,40 C80,20 130,88 180,93 C230,97 350,95 510,95"/>
+    <text x="185" y="80" class="diag-label" style="fill:var(--gold)">critical damping</text>
+
+    <!-- heavy damping — very slow return, no oscillation -->
+    <path stroke="var(--red)" fill="none" stroke-width="2" stroke-dasharray="8 4"
+      d="M40,40 C80,38 160,70 240,84 C320,93 420,95 510,95"/>
+    <text x="240" y="55" class="diag-label" style="fill:var(--red)">heavy damping</text>
+
+    <!-- equilibrium label -->
+    <text x="44" y="91" class="diag-label" style="font-size:9px">equilibrium</text>
+  </svg>
+  <div class="lc-cap">Fig 6 — Three types of damping. Light damping: oscillates with decreasing amplitude. Critical damping: returns to equilibrium as fast as possible without overshooting. Heavy damping: very slow return, no oscillation.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔵 Light damping</h3>
+    <p>System oscillates many times before coming to rest. Amplitude decreases exponentially. Example: pendulum in air, mass on a spring.</p>
+  </div>
+  <div class="lc-card">
+    <h3>🟡 Critical damping</h3>
+    <p>System returns to equilibrium as quickly as possible <em>without</em> overshooting. Example: car suspension system — shock absorbers are designed to be critically damped.</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔴 Heavy damping</h3>
+  <p>Resistive forces are large; the system creeps back slowly to equilibrium without ever passing through it. Takes longer than critical damping. Example: a door closer mechanism, an object oscillating in treacle.</p>
+</div>
+
+<div class="lc-info">💡 The frequency of a lightly-damped oscillation is approximately equal to its natural frequency. Greater damping reduces the resonant frequency slightly (important for HL).</div>
+
+<div class="lc-kp">
+  <span>natural frequency: intrinsic to system</span><span>light: amplitude decays, oscillates</span>
+  <span>critical: fastest return, no overshoot</span><span>heavy: slow return, no oscillation</span>
+  <span>energy ∝ amplitude²</span>
+</div>
+
+<!-- ══════════════════════════════════════════
+     CONCEPT 4 — FORCED VIBRATIONS & RESONANCE
+══════════════════════════════════════════ -->
+<div class="lc-section">Concept 4 — Forced vibrations and resonance</div>
+
+<div class="lc-card">
+  <h3>Forced vibrations</h3>
+  <p>A <strong>forced vibration</strong> occurs when a periodic external force continuously drives a system at a <em>driving frequency</em> f_d which may differ from the system's natural frequency f₀.</p>
+  <p>When f_d ≠ f₀ the system vibrates at f_d but with small amplitude. When f_d = f₀ something special happens: <strong>resonance</strong>.</p>
+</div>
+
+<div class="lc-card">
+  <h3>Resonance</h3>
+  <p><strong>Resonance</strong> is the large increase in amplitude of oscillation that occurs when the driving frequency equals (or is very close to) the natural frequency of the system, <em>and the driving force is in phase with the velocity of the oscillator</em>.</p>
+  <p>At resonance, energy is transferred from the driver to the system at the maximum possible rate. The amplitude grows until the rate of energy input equals the rate of energy dissipation due to damping.</p>
+  <div class="lc-formula">Resonance occurs when: f_driver = f_natural</div>
+</div>
+
+<!-- SVG 7 — Frequency-response curves with different damping -->
+<div class="lc-img">
+  <svg viewBox="0 0 520 230" width="500" height="230" aria-label="Frequency-response curves showing effect of damping on resonance peak">
+    <defs>
+      <marker id="arr2" markerWidth="7" markerHeight="7" refX="3" refY="3" orient="auto">
+        <path d="M0,0 L7,3.5 L0,7 Z" class="diag-arrow"/>
+      </marker>
+    </defs>
+    <!-- axes -->
+    <line x1="50" y1="200" x2="500" y2="200" class="diag-axis" stroke-width="1.5" marker-end="url(#arr2)"/>
+    <line x1="50" y1="200" x2="50"  y2="20"  class="diag-axis" stroke-width="1.5" marker-end="url(#arr2)"/>
+    <text x="505" y="204" class="diag-label">f_driver</text>
+    <text x="30"  y="18"  class="diag-label">A</text>
+
+    <!-- Natural frequency dashed vertical -->
+    <line x1="270" y1="20" x2="270" y2="200" class="diag-vline" stroke-width="1"/>
+    <text x="255" y="215" class="diag-label" style="fill:var(--red);font-size:9px">f₀</text>
+
+    <!-- Light damping curve — tall sharp peak -->
+    <path class="diag-curve" d="
+      M50,195 C100,193 160,188 210,175
+      C240,160 255,100 270,35
+      C285,100 300,160 330,175
+      C380,188 440,193 500,195"/>
+    <text x="285" y="38" class="diag-label" style="fill:var(--accent)">light damping</text>
+
+    <!-- Increased damping — shorter broader peak -->
+    <path class="diag-curve2" d="
+      M50,195 C100,192 160,183 210,165
+      C240,148 255,120 270,100
+      C285,120 300,148 330,165
+      C380,183 440,192 500,195"/>
+    <text x="340" y="100" class="diag-label" style="fill:var(--gold)">more damping</text>
+
+    <!-- Heavy damping — very flat -->
+    <path stroke="var(--red)" fill="none" stroke-width="2" stroke-dasharray="6 3"
+      d="M50,195 C100,190 160,178 210,160
+      C240,148 260,142 270,138
+      C280,142 300,148 330,160
+      C380,178 440,190 500,195"/>
+    <text x="340" y="140" class="diag-label" style="fill:var(--red)">heavy damping</text>
+
+    <!-- Amplitude axis label -->
+    <text x="18" y="110" class="diag-label" transform="rotate(-90,18,110)">Amplitude</text>
+    <!-- note: resonant frequency shifts left with more damping -->
+    <text x="52" y="216" class="diag-label" style="font-size:9px">0</text>
+  </svg>
+  <div class="lc-cap">Fig 7 — Frequency-response curves. Greater damping → lower and broader peak, and the resonant frequency shifts slightly below f₀. At any driving frequency, more damping means smaller amplitude. The peak always occurs close to the natural frequency f₀.</div>
+</div>
+
+<div class="lc-card">
+  <h3>Effect of damping on resonance <span class="hl-badge">HL</span></h3>
+  <p>As damping increases:</p>
+  <p>① The peak amplitude at resonance <strong>decreases</strong> (more energy dissipated per cycle)</p>
+  <p>② The resonance peak becomes <strong>broader and flatter</strong> (less selective)</p>
+  <p>③ The resonant frequency shifts <strong>slightly below f₀</strong> (the undamped natural frequency)</p>
+  <p>Since energy ∝ A², even a moderate reduction in amplitude means a large reduction in energy stored.</p>
+  <div class="lc-formula">E ∝ A² &nbsp;→&nbsp; halving A reduces energy by a factor of 4</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>⚠️ Unwanted resonance</h3>
+    <p>Buildings damaged in earthquakes when seismic wave frequency matches natural frequency of structure. Tacoma Narrows Bridge (1940) — wind-driven oscillations caused collapse. Millennium Bridge London (2000) — pedestrian footsteps caused lateral resonance.</p>
+  </div>
+  <div class="lc-card">
+    <h3>✅ Useful resonance</h3>
+    <p>MRI (magnetic resonance imaging) — radio waves flip hydrogen proton spins. Microwave ovens — microwaves match vibrational frequency of water molecules. Musical instruments — body resonates with string vibrations to amplify sound. Greenhouse effect — CO₂ absorbs IR radiation by molecular resonance.</p>
+  </div>
+</div>
+
+<div class="lc-success">✓ To reduce resonance risk, engineers: (1) change the shape/mass/stiffness so natural frequencies do not match driving frequencies; (2) add dampers to dissipate energy; (3) use flexible designs that allow controlled energy dissipation.</div>
+
+<div class="lc-card">
+  <h3>Worked Example — Resonance frequency of a mass–spring system <span class="hl-badge">HL</span></h3>
+  <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:0.75rem">Mass m = 740 g = 0.74 kg, spring constant k = 17.2 N m⁻¹. Find natural frequency.</p>
+  <div class="lc-step">
+    <div class="lc-step-num">1</div>
+    <div class="lc-step-body"><strong>Formula for mass–spring:</strong> T = 2π√(m/k)</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">2</div>
+    <div class="lc-step-body"><strong>Substitute:</strong> T = 2π × √(0.74 / 17.2) = 2π × 0.2073 = <strong>1.30 s</strong></div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">3</div>
+    <div class="lc-step-body"><strong>Natural frequency:</strong> f₀ = 1/T = 1/1.30 = <strong>0.77 Hz</strong></div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">4</div>
+    <div class="lc-step-body"><strong>Resonance occurs</strong> when driver frequency = 0.77 Hz. In water (more damping), amplitude at resonance decreases and peak broadens.</div>
+  </div>
+</div>
+
+<div class="lc-kp">
+  <span>resonance: f_driver = f₀</span><span>peak A decreases with damping</span>
+  <span>E ∝ A²</span><span>f_resonant ≤ f₀</span><span>driver must be in phase with velocity</span>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PRACTICE — MCQ
+══════════════════════════════════════════ -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A standing wave is formed on a string 0.60 m long, fixed at both ends. The third harmonic is established. What is the wavelength of this standing wave?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 1.20 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> 0.60 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> 0.40 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> 0.30 m</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A pipe is closed at one end and open at the other. Its length is 0.85 m. Which frequency is a possible harmonic? (Speed of sound = 340 m s⁻¹)</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 100 Hz</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 300 Hz</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 400 Hz</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 200 Hz</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. At a node of a standing wave, which statement is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> The amplitude is at its maximum value</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> The two component waves are exactly in phase</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> Energy is transferred most rapidly through this point</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> The displacement is always zero</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. When the degree of damping on an oscillating system is increased, what happens to the frequency-response curve?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> The peak becomes taller and narrower</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> The peak shifts to a higher frequency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> The peak becomes shorter and broader, shifting slightly to lower frequency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> The peak height is unchanged but it shifts to a lower frequency</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Which of the following is a correct comparison between standing waves and travelling waves of the same type?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> All points in a standing wave have the same amplitude</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> All points in a travelling wave have the same amplitude</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> Adjacent points in a standing wave are always in antiphase</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> A standing wave transfers energy progressively along the medium</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FILL IN THE BLANKS
+══════════════════════════════════════════ -->
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    In a standing wave, points where the displacement is always zero are called
+    <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:80px">.
+    The distance between adjacent nodes equals
+    <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:65px">
+    of the wavelength. A pipe closed at one end and open at the other can only support
+    <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:55px">
+    harmonics. Resonance occurs when the driving frequency equals the
+    <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px">
+    of the system.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     EXAM-STYLE QUESTIONS
+══════════════════════════════════════════ -->
+<div class="lc-section">Exam-style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate and explain</div>
+  <div class="lc-exam-q">
+    A violin string has a length of 32.8 cm and is fixed at both ends. It vibrates in its first harmonic mode, producing middle C at 262 Hz.
+    <br><br>
+    (a) Calculate the wave speed on the string. <span class="lc-exam-marks">[2 marks]</span><br>
+    (b) Calculate the wavelength and frequency of the third harmonic. <span class="lc-exam-marks">[2 marks]</span><br>
+    (c) State one assumption made in part (a). <span class="lc-exam-marks">[1 mark]</span>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong><br>
+    λ₀ = 2l = 2 × 0.328 = 0.656 m ✓<br>
+    v = fλ = 262 × 0.656 = <strong>172 m s⁻¹</strong> ✓
+    <br><br>
+    <strong>(b)</strong><br>
+    λ₃ = 2l/3 = 0.656/3 = <strong>0.219 m</strong> ✓<br>
+    f₃ = 3 × 262 = <strong>786 Hz</strong> ✓
+    <br><br>
+    <strong>(c)</strong> The string vibrates only in its first harmonic (fundamental) mode ✓ OR the ends are true fixed nodes (no end correction needed) ✓
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe and explain</div>
+  <div class="lc-exam-q">
+    A mass–spring system is set oscillating. A vibration generator applies a periodic driving force at varying frequencies. The graph of amplitude vs. driving frequency is plotted for two cases: (i) with light oil damping and (ii) with heavy oil damping.
+    <br><br>
+    Describe and explain the differences between the two frequency-response curves. <span class="lc-exam-marks">[4 marks]</span>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ With heavy damping the maximum (peak) amplitude is <strong>smaller/lower</strong> than with light damping.<br>
+    ✓ With heavy damping the peak is <strong>broader</strong> (spread over a wider range of frequencies).<br>
+    ✓ The resonant frequency with heavy damping is <strong>slightly lower</strong> than with light damping (and slightly below f₀).<br>
+    ✓ At frequencies away from resonance, both curves approach the same (small) amplitude; the heavily damped system dissipates more energy per cycle so the amplitude at resonance cannot build as high.
+    <br><br>
+    <em>Mark scheme note: award 1 mark per correct, distinct, physics-accurate comparative point up to 4.</em>
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Deduce</div>
+  <div class="lc-exam-q">
+    A pipe, closed at one end and open at the other, has a length of 0.55 m. The speed of sound in air is 340 m s⁻¹.
+    <br><br>
+    (a) Sketch the standing wave pattern for the first harmonic, clearly labelling nodes (N) and antinodes (A). <span class="lc-exam-marks">[2 marks]</span><br>
+    (b) Calculate the frequency of the first harmonic. <span class="lc-exam-marks">[2 marks]</span><br>
+    (c) State and explain why the second harmonic cannot exist in this pipe. <span class="lc-exam-marks">[2 marks]</span>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> Sketch should show: node (N) at closed end, antinode (A) at open end, with ¼ wavelength fitting in the pipe. ✓ (node and antinode correctly placed) ✓ (¼ wave shape shown)
+    <br><br>
+    <strong>(b)</strong><br>
+    λ₀ = 4l = 4 × 0.55 = 2.20 m ✓<br>
+    f₀ = v/λ₀ = 340 / 2.20 = <strong>155 Hz</strong> ✓
+    <br><br>
+    <strong>(c)</strong><br>
+    The second harmonic does not exist ✓ because the boundary conditions (node at closed end, antinode at open end) require an odd number of quarter-wavelengths to fit in the pipe. ✓ Only odd harmonics (n = 1, 3, 5 …) are supported.
+  </div>
+</div>
+
+<!-- score -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+</div><!-- /page-wrap -->
+
+<script>
+// ─── THEME TOGGLE ───
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn  = document.getElementById('themeBtn');
+  if (html.getAttribute('data-theme') === 'dark') {
+    html.removeAttribute('data-theme');
+    btn.textContent = '☀️ Light mode';
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    btn.textContent = '🌙 Dark mode';
+  }
+}
+
+// ─── LESSON INTERACTIVE JS (IIFE) ───
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+
+  const lcFeedback = {
+    mcq1: { C: 'For the nth harmonic on a string fixed at both ends, λₙ = 2l/n. Third harmonic: λ = 2 × 0.60 / 3 = 0.40 m.' },
+    mcq2: { B: 'Closed–open pipe: f₀ = v/4l = 340/(4×0.85) = 100 Hz. Only odd harmonics: 100, 300, 500 Hz… 300 Hz = 3f₀ is a valid harmonic. 200 Hz and 400 Hz are even harmonics — not possible.' },
+    mcq3: { D: 'At a node the two component waves are always exactly out of phase (phase difference = π), so their displacements cancel completely and displacement is permanently zero.' },
+    mcq4: { C: 'Increased damping dissipates more energy per cycle, reducing peak amplitude and broadening the peak. Greater damping also shifts the resonant frequency slightly below f₀.' },
+    mcq5: { B: 'In a travelling wave all points have the same amplitude. In a standing wave amplitude varies with position (zero at nodes, maximum at antinodes). Adjacent points between the same pair of nodes are IN phase, not antiphase.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id + '-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct answer: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = {
+      lf1: 'nodes',
+      lf2: 'half',
+      lf3: 'odd',
+      lf4: 'natural frequency'
+    };
+    let correct = 0;
+    const total = Object.keys(ans).length;
+    Object.keys(ans).forEach(function(id) {
+      const el  = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok  = val === ans[id] || val.includes(ans[id].split(' ')[0]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: nodes · half · odd · natural frequency';
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+</body>
+</html>

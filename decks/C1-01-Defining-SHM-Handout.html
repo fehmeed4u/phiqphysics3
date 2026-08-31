@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C.1 Lesson 1 — Defining SHM — Student Handout</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{font-family:Inter,sans-serif;color:#1C1917}
+h1,h2{font-family:'Playfair Display',serif;letter-spacing:-.015em;line-height:1.15}
+h1{font-size:23pt;margin:0 0 2pt}
+.sub{font-size:10.5pt;color:#57534E;margin:0 0 16pt}
+h2{font-size:13pt;margin:20pt 0 8pt;padding-bottom:4pt;border-bottom:1px solid #D6CEBF}
+h2 .n{font-family:'JetBrains Mono',monospace;font-size:9.5pt;color:#2563EB;letter-spacing:.08em;display:block;margin-bottom:3pt}
+p,li,td{font-size:11pt;line-height:1.5;color:#292524}
+.q{margin:0 0 11pt;break-inside:avoid}
+.q>p{margin:0 0 4pt;font-weight:500}
+.qhead{display:flex;align-items:flex-start;gap:10pt}
+.qhead p{flex:1}
+.box{flex:none;width:26pt;height:26pt;border:1.2pt solid #2563EB;border-radius:4px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1.5pt}
+.box span{font-family:'JetBrains Mono',monospace;font-size:6pt;letter-spacing:.04em;color:#78716C}
+.opts .l{font-family:'JetBrains Mono',monospace;color:#57534E;margin-right:5pt;display:inline-flex;align-items:center;justify-content:center;width:12pt;height:12pt;border:.8pt solid #B8AF9E;border-radius:50%;font-size:8pt}
+.opts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2pt 14pt}
+.opts li{font-size:10.5pt;color:#44403C}
+.opts .l{font-family:'JetBrains Mono',monospace;color:#78716C;margin-right:5pt}
+.mono{font-family:'JetBrains Mono',monospace}
+.rule{border-bottom:1px solid #D6CEBF;height:20pt}
+.lines{display:grid;gap:0;margin-top:6pt}
+.exam{border:1px solid #2563EB;border-radius:8px;padding:12pt 14pt;break-inside:avoid}
+.exam .marks{font-size:9.5pt;font-style:italic;color:#78716C}
+.meta{display:flex;gap:22pt;font-size:10pt;color:#57534E;border-top:1px solid #D6CEBF;border-bottom:1px solid #D6CEBF;padding:7pt 0;margin-bottom:14pt}
+.meta span{flex:1}
+.key{break-before:page}
+.key table{width:100%;border-collapse:collapse;margin-bottom:12pt}
+.key th{font-size:8.5pt;text-transform:uppercase;letter-spacing:.07em;color:#78716C;text-align:left;padding:5pt 6pt;border-bottom:1px solid #D6CEBF}
+.key td{font-size:10pt;padding:5pt 6pt;border-bottom:1px solid #E7E1D6;vertical-align:top}
+.key td:first-child{font-family:'JetBrains Mono',monospace;color:#2563EB;white-space:nowrap}
+.tick{color:#0F8A5F}
+a{color:#2563EB}a:hover{color:#6D28D9}
+</style>
+</head>
+<body>
+<doc-page size="a4" margin="0.7in">
+<h1>Defining Simple Harmonic Motion</h1>
+<p class="sub">C.1 Simple Harmonic Motion · Lesson 1 of 5 · SL / HL · student answer sheet</p>
+<div class="meta"><span>Name</span><span>Class</span><span>Date</span></div>
+
+<h2><span class="n">STARTER</span>Retrieval — five questions on prior knowledge</h2>
+<div class="q"><div class="qhead"><p>1. A book rests in equilibrium on a horizontal bench. The resultant force acting on the book is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>equal to the weight of the book</li><li><span class="l">B</span>zero</li><li><span class="l">C</span>directed vertically upwards</li><li><span class="l">D</span>constantly changing in size</li></ul></div>
+<div class="q"><div class="qhead"><p>2. A spring extends by 4.0 cm when a force of 2.0 N is applied to it. The spring constant is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>0.50 N m⁻¹</li><li><span class="l">B</span>8.0 N m⁻¹</li><li><span class="l">C</span>50 N m⁻¹</li><li><span class="l">D</span>500 N m⁻¹</li></ul></div>
+<div class="q"><div class="qhead"><p>3. One complete revolution corresponds to an angle of</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>π/2 rad</li><li><span class="l">B</span>π rad</li><li><span class="l">C</span>2π rad</li><li><span class="l">D</span>360 rad</li></ul></div>
+<div class="q"><div class="qhead"><p>4. A resultant force of 2.0 N acts on a mass of 0.50 kg. The acceleration of the mass is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>0.25 m s⁻²</li><li><span class="l">B</span>1.0 m s⁻²</li><li><span class="l">C</span>4.0 m s⁻²</li><li><span class="l">D</span>9.8 m s⁻²</li></ul></div>
+<div class="q"><div class="qhead"><p>5. A pendulum bob is pulled to one side and released from rest. Its speed is greatest</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>immediately after release</li><li><span class="l">B</span>at the lowest point of the swing</li><li><span class="l">C</span>at the highest point of the swing</li><li><span class="l">D</span>at the moment it reverses direction</li></ul></div>
+
+<h2><span class="n">CHECK 1</span>Oscillations and the language of time</h2>
+<div class="q"><div class="qhead"><p>1. The extreme positions of an oscillating mass are 8.0 cm apart. The amplitude of the oscillation is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>2.0 cm</li><li><span class="l">B</span>4.0 cm</li><li><span class="l">C</span>8.0 cm</li><li><span class="l">D</span>16 cm</li></ul></div>
+<div class="q"><div class="qhead"><p>2. A pendulum completes 30 complete oscillations in 45 s. Its frequency is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>0.67 Hz</li><li><span class="l">B</span>1.5 Hz</li><li><span class="l">C</span>30 Hz</li><li><span class="l">D</span>0.022 Hz</li></ul></div>
+<div class="q"><div class="qhead"><p>3. An oscillation has a frequency of 50 Hz. Its angular frequency is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>3.1 × 10² rad s⁻¹</li><li><span class="l">B</span>1.6 × 10² rad s⁻¹</li><li><span class="l">C</span>50 rad s⁻¹</li><li><span class="l">D</span>8.0 rad s⁻¹</li></ul></div>
+<div class="q"><div class="qhead"><p>4. Which statement about one complete cycle of an oscillation is correct?</p><div class="box"><span>ANS</span></div></div><ul class="opts" style="grid-template-columns:1fr"><li><span class="l">A</span>A single movement from one extreme position to the other</li><li><span class="l">B</span>The mass returns to a given position moving in the same direction</li><li><span class="l">C</span>The mass has travelled a distance equal to its amplitude</li><li><span class="l">D</span>The mass has passed through the equilibrium position once</li></ul></div>
+
+<h2><span class="n">CHECK 2</span>The two laboratory oscillators</h2>
+<div class="q"><div class="qhead"><p>1. A mass on a spring oscillates with period T. The mass is replaced by one four times larger, on the same spring. The new period is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>T/2</li><li><span class="l">B</span>2T</li><li><span class="l">C</span>4T</li><li><span class="l">D</span>16T</li></ul></div>
+<div class="q"><div class="qhead"><p>2. A simple pendulum and a mass–spring system are both taken to the Moon. Compared with on Earth, their periods</p><div class="box"><span>ANS</span></div></div><ul class="opts" style="grid-template-columns:1fr"><li><span class="l">A</span>pendulum increases, mass–spring unchanged</li><li><span class="l">B</span>pendulum unchanged, mass–spring increases</li><li><span class="l">C</span>both increase</li><li><span class="l">D</span>both unchanged</li></ul></div>
+<div class="q"><div class="qhead"><p>3. A student plots T² against l for a simple pendulum and finds a gradient of 4.0 s² m⁻¹. The value of g is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>0.10 N kg⁻¹</li><li><span class="l">B</span>9.9 N kg⁻¹</li><li><span class="l">C</span>39 N kg⁻¹</li><li><span class="l">D</span>158 N kg⁻¹</li></ul></div>
+<div class="q"><div class="qhead"><p>4. The same mass is transferred to a spring of twice the spring constant. Its new period is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>2T</li><li><span class="l">B</span>T√2</li><li><span class="l">C</span>T/√2</li><li><span class="l">D</span>T/2</li></ul></div>
+
+<h2><span class="n">CHECK 3</span>The defining condition</h2>
+<div class="q"><div class="qhead"><p>1. Which statement defines simple harmonic motion?</p><div class="box"><span>ANS</span></div></div><ul class="opts" style="grid-template-columns:1fr"><li><span class="l">A</span>The velocity is proportional to the displacement and in the same direction</li><li><span class="l">B</span>The acceleration is constant and directed towards the equilibrium position</li><li><span class="l">C</span>The acceleration is proportional to the displacement and in the opposite direction</li><li><span class="l">D</span>The period is proportional to the amplitude of the oscillation</li></ul></div>
+<div class="q"><div class="qhead"><p>2. A particle in SHM is at maximum displacement. At that instant</p><div class="box"><span>ANS</span></div></div><ul class="opts" style="grid-template-columns:1fr"><li><span class="l">A</span>velocity and acceleration are both maximum</li><li><span class="l">B</span>velocity and acceleration are both zero</li><li><span class="l">C</span>velocity is maximum and acceleration is zero</li><li><span class="l">D</span>velocity is zero and acceleration is maximum</li></ul></div>
+<div class="q"><div class="qhead"><p>3. The phase difference between the displacement and the acceleration of a particle in SHM is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>0</li><li><span class="l">B</span>π/2 rad</li><li><span class="l">C</span>π rad</li><li><span class="l">D</span>2π rad</li></ul></div>
+<div class="q"><div class="qhead"><p>4. The acceleration–displacement graph for an oscillator is a straight line of gradient −16 s⁻². The time period of the oscillation is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>0.40 s</li><li><span class="l">B</span>1.6 s</li><li><span class="l">C</span>2.5 s</li><li><span class="l">D</span>6.3 s</li></ul></div>
+
+<h2><span class="n">WRAP-UP</span>Exam-style question</h2>
+<div class="exam">
+<p>(a) State the two conditions that must be satisfied for an oscillation to be simple harmonic.</p>
+<p>(b) Explain why the time period of a simple harmonic oscillator does not depend on its amplitude.</p>
+<p class="marks">[5 marks]</p>
+</div>
+<div class="lines"><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div></div>
+
+<div class="key">
+<h1>Answer key — teacher copy</h1>
+<p class="sub">C.1 Lesson 1 · Defining Simple Harmonic Motion</p>
+<h2><span class="n">MULTIPLE CHOICE</span>Answers and the reasoning to hear back</h2>
+<table><thead><tr><th>Q</th><th>Ans</th><th>Reasoning to hear from the class</th></tr></thead><tbody>
+<tr><td>S1</td><td>B</td><td>The equilibrium position is where there is no resultant force</td></tr>
+<tr><td>S2</td><td>C</td><td>k = F/x = 2.0/0.040 = 50 N m⁻¹</td></tr>
+<tr><td>S3</td><td>C</td><td>One cycle is equivalent to 2π radians</td></tr>
+<tr><td>S4</td><td>C</td><td>a = F/m = 2.0/0.50 = 4.0 m s⁻²</td></tr>
+<tr><td>S5</td><td>B</td><td>GPE → KE; greatest speed at the lowest point, which is equilibrium</td></tr>
+<tr><td>1.1</td><td>B</td><td>Amplitude is measured from equilibrium: 8.0/2 = 4.0 cm</td></tr>
+<tr><td>1.2</td><td>A</td><td>f = 30/45 = 0.67 Hz (1.5 s is the period)</td></tr>
+<tr><td>1.3</td><td>A</td><td>ω = 2πf = 2π × 50 = 3.1 × 10² rad s⁻¹</td></tr>
+<tr><td>1.4</td><td>B</td><td>A cycle ends on return to a position moving in the same direction</td></tr>
+<tr><td>2.1</td><td>B</td><td>T ∝ √m, so ×4 mass gives ×2 period</td></tr>
+<tr><td>2.2</td><td>A</td><td>Pendulum depends on g; mass–spring depends only on m and k</td></tr>
+<tr><td>2.3</td><td>B</td><td>gradient = 4π²/g → g = 4π²/4.0 = 9.9 N kg⁻¹</td></tr>
+<tr><td>2.4</td><td>C</td><td>T ∝ 1/√k, so doubling k divides T by √2</td></tr>
+<tr><td>3.1</td><td>C</td><td>a ∝ −x, written a = −ω²x</td></tr>
+<tr><td>3.2</td><td>D</td><td>At ±x₀ the velocity is zero and the acceleration is maximum</td></tr>
+<tr><td>3.3</td><td>C</td><td>a is always opposite in sign to x — antiphase, π rad</td></tr>
+<tr><td>3.4</td><td>B</td><td>gradient = −ω² → ω = 4.0 rad s⁻¹; T = 2π/4.0 = 1.6 s</td></tr>
+</tbody></table>
+<h2><span class="n">WRAP-UP</span>Mark scheme [5]</h2>
+<p><span class="tick">✓</span> (a) The restoring force (and so the acceleration) is proportional to the displacement from equilibrium</p>
+<p><span class="tick">✓</span> (a) and is always directed towards the equilibrium position: a = −ω²x</p>
+<p><span class="tick">✓</span> (b) Doubling the amplitude doubles the displacement at every equivalent point</p>
+<p><span class="tick">✓</span> (b) so the restoring force and the acceleration double, and the average speed doubles</p>
+<p><span class="tick">✓</span> (b) the oscillator covers twice the distance at twice the average speed, so the time for one cycle is unchanged</p>
+<p style="margin-top:10pt;color:#57534E;font-size:10pt">Common zero-scoring answer: "because the period does not depend on amplitude" — a restatement of the question, with no chain of reasoning.</p>
+</div>
+</doc-page>
+<script src="doc-page.js"></script>
+</body>
+</html>

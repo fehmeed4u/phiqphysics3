@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conservation of Momentum — A.2 Forces and Momentum — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A2">A.2 Forces and Momentum</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Conservation of Momentum</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.2
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 5 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Conservation of Momentum</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.2 Forces and Momentum</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.2 overview
+      </a>
+      <div class="sidebar-title">A.2 Concepts</div>
+      <a href="01-newton-s-laws-of-motion.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Newton's Laws of Motion</span>
+        </a>
+      <a href="02-free-body-diagrams.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Free Body Diagrams</span>
+        </a>
+      <a href="03-friction-and-normal-force.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Friction and Normal Force</span>
+        </a>
+      <a href="04-momentum-and-impulse.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Momentum and Impulse</span>
+        </a>
+      <a href="05-conservation-of-momentum.html" class="sidebar-link active">
+          <span class="sidebar-num">05</span>
+          <span>Conservation of Momentum</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>5</span> Lesson 5 of 5 · A.2 Forces and Momentum</div>
+<div class="lc-title">Conservation of Momentum</div>
+<div class="lc-sub">One law with no known exceptions: collisions, explosions, recoil and rocket exhaust all obey it.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – Newton's cradle</h3>
+  <p>Lift one ball of a Newton's cradle and release it. One ball flies out the far side at the same speed. Lift two, and exactly two leave. Never three, never one at double speed. The cradle is obeying <strong>two</strong> conservation laws at once — momentum and kinetic energy — and only one outcome satisfies both.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-05-conservation-of-momentum-01.png" alt="Newton's cradle with one ball raised on the left and one ball swinging out on the right">
+    <div class="lc-cap">Fig 1 — One ball in, one ball out. Momentum alone would allow other outcomes; energy conservation rules them out.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — Two balls are lifted and released together. Why can't one ball leave the far side at twice the speed? <em>That would conserve momentum (2mv = m·2v) but would double the kinetic energy, which is impossible.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 The law of conservation of momentum</h3>
+  <p>When two objects interact, Newton's third law says the forces on them are equal and opposite, and they act for the same length of time. So the impulses are equal and opposite, and therefore the changes in momentum are equal and opposite: whatever one object gains, the other loses.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Law of conservation of momentum</span>
+    $$\sum p_{\text{before}} = \sum p_{\text{after}}$$
+  </div>
+  <p>Stated in words: <strong>the total momentum of any system is constant provided no resultant external force acts on it</strong>. A system with no external force acting is called an <strong>isolated system</strong>. This law has no known exceptions — it holds for billiard balls, galaxies and subatomic particles alike.</p>
+  <p>For a one-dimensional collision between two bodies:</p>
+  <div class="lc-formula">
+    $$m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-05-conservation-of-momentum-02.png" alt="Two trolleys before and after a collision, with masses and velocity arrows labelled and a positive direction marked">
+    <div class="lc-cap">Fig 2 — Choose a positive direction first, then give every velocity a sign. Motion the other way is negative.</div>
+  </div>
+  <div class="lc-warn">⚠️ "No resultant external force" is the condition, not "no force at all". Gravity and the normal force act on colliding trolleys, but they cancel, so horizontal momentum is still conserved.</div>
+</div>
+
+<div class="lc-card">
+  <h3>💥 Elastic, inelastic and totally inelastic collisions</h3>
+  <p>Momentum is conserved in <em>every</em> collision. Kinetic energy is not. That difference is what classifies collisions.</p>
+  <table class="lc-table">
+    <thead><tr><th>Type</th><th>Momentum</th><th>Kinetic energy</th><th>Typical example</th></tr></thead>
+    <tbody>
+      <tr><td>Elastic</td><td>Conserved</td><td>Conserved</td><td>Steel spheres, gas molecules, alpha particle scattering</td></tr>
+      <tr><td>Inelastic</td><td>Conserved</td><td>Reduced — some transferred as thermal energy and sound</td><td>Most everyday collisions; a bouncing tennis ball</td></tr>
+      <tr><td>Totally inelastic</td><td>Conserved</td><td>Maximum possible loss</td><td>Objects that stick together: a bullet embedding in a block</td></tr>
+    </tbody>
+  </table>
+  <p>Perfectly elastic collisions are an idealisation for macroscopic objects, though the collision between two hard steel spheres comes close. They are genuinely common at the microscopic scale, between atoms and subatomic particles.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-05-conservation-of-momentum-03.png" alt="Three rows comparing elastic, inelastic and totally inelastic collisions of two blocks before and after">
+    <div class="lc-cap">Fig 3 — In a totally inelastic collision the objects move off together with a common velocity.</div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Totally inelastic collision — common final velocity</span>
+    $$m_1 u_1 + m_2 u_2 = (m_1 + m_2)v$$
+  </div>
+  <div class="lc-success">✓ Examiner tip: to test whether a collision is elastic, calculate \(\tfrac{1}{2}mv^2\) for every object before and after and compare the totals. Do not guess from the wording.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🧨 Explosions and recoil</h3>
+  <p>An <strong>explosion</strong> in physics is any event where internal forces push a stationary system apart. The total momentum before is zero, so the total momentum after must also be zero: the fragments must carry equal and opposite momenta.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Two-body explosion from rest</span>
+    $$0 = m_1 v_1 + m_2 v_2 \quad\Rightarrow\quad m_1 v_1 = -m_2 v_2$$
+  </div>
+  <p>This is why a fired rifle kicks backwards — the <strong>recoil</strong>. The heavier object always moves more slowly: double the mass, half the speed. Unlike collisions, an explosion <em>increases</em> total kinetic energy, because chemical or elastic potential energy is released into the fragments.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-05-conservation-of-momentum-04.png" alt="Spring-loaded trolleys pushed apart on a track, and a cannon recoiling as a cannonball is fired">
+    <div class="lc-cap">Fig 4 — Zero momentum before, zero after. The massive cannon recoils slowly; the ball leaves fast.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Momentum–time for two colliding bodies</td><td>Time \(t\), momentum \(p\)</td><td>Two mirror-image steps during the contact time</td><td>The gains and losses are equal and opposite; the total is a horizontal line</td></tr>
+      <tr><td>Total momentum–time</td><td>Time \(t\), total \(p\)</td><td>Horizontal straight line throughout</td><td>Confirms momentum is conserved even while the individual momenta change</td></tr>
+      <tr><td>Kinetic energy bar chart</td><td>Before / after, \(E_{\text{k}}\)</td><td>Equal bars (elastic) or a shorter "after" bar (inelastic)</td><td>The missing height is energy transferred to thermal energy and sound</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a2-05-conservation-of-momentum-05.png" alt="Momentum-time graph showing two objects with equal and opposite momentum changes and a constant total"><div class="lc-cap">Fig 5 — Individual momenta change; the total never does.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a2-05-conservation-of-momentum-06.png" alt="Bar chart comparing total kinetic energy before and after elastic, inelastic and totally inelastic collisions"><div class="lc-cap">Fig 6 — Kinetic energy is the quantity that distinguishes the three collision types.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – colliding trolleys</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> A 2.1 kg trolley moving at 0.82 m s⁻¹ collides head-on with a 1.7 kg trolley moving at 0.98 m s⁻¹ the other way. After the collision the 1.7 kg trolley reverses and moves at 0.43 m s⁻¹. Find the velocity of the 2.1 kg trolley, and say whether the collision was elastic.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> Take the 2.1 kg trolley's original direction as positive. \(u_1 = +0.82\), \(u_2 = -0.98\), \(v_2 = +0.43\ \text{m s}^{-1}\). Total momentum before \(= (2.1)(0.82) + (1.7)(-0.98) = 1.722 - 1.666 = +0.056\ \text{kg m s}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(0.056 = 2.1v_1 + (1.7)(0.43) = 2.1v_1 + 0.731\), so \(v_1 = -0.32\ \text{m s}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> The 2.1 kg trolley rebounds at 0.32 m s⁻¹. Checking energy: before, \(E_{\text{k}} = \tfrac12(2.1)(0.82)^2 + \tfrac12(1.7)(0.98)^2 = 1.52\ \text{J}\); after, \(\tfrac12(2.1)(0.32)^2 + \tfrac12(1.7)(0.43)^2 = 0.26\ \text{J}\). Both speeds fell, so this is a strongly <strong>inelastic</strong> collision.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-05-conservation-of-momentum-07.png" alt="Two trolleys approaching head on with masses and speeds labelled, and their velocities after the collision">
+    <div class="lc-cap">Fig 7 — Before and after for the worked example. Both trolleys end up reversed and slower.</div>
+  </div>
+  <div class="lc-info">💡 Had the collision been totally inelastic, the trolleys would move off together at \(v = 0.056/3.8 = +0.015\ \text{m s}^{-1}\) — almost stationary, and almost all the kinetic energy gone.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🚀 Real-world: propulsion</h3>
+    <p>Every form of propulsion is an explosion in slow motion. A propeller throws water or air backwards; a jet engine ejects hot exhaust with more momentum than the air it took in; a rocket carries its own oxidant so it works in vacuum. In each case the vehicle gains exactly the momentum given to the fluid.</p>
+    <div class="lc-success">✓ Examiner tip: "a rocket pushes against the air" is wrong and is penalised. It pushes against its own exhaust — which is why rockets work in space.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – two-dimensional collisions</h3>
+    <p>Momentum is a vector, so it is conserved <strong>independently in each direction</strong>. Resolve every velocity into \(x\) and \(y\) components and write one conservation equation for each:</p>
+    <div class="lc-formula">$$\sum m u_x = \sum m v_x \qquad \sum m u_y = \sum m v_y$$</div>
+    <p><strong>Challenge:</strong> A stationary 5.0 g mass explodes into three parts. A (1.5 g) moves at 23 m s⁻¹ along \(x\); B (2.0 g) at 18 m s⁻¹ at 60° to A. Find the speed of C (1.5 g). (Answer: components 35 and 21 m s⁻¹ giving 41 m s⁻¹ at 31° to the −\(x\) direction)</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/a2-05-conservation-of-momentum-08.png" alt="Two dimensional explosion into three fragments with velocity vectors and the angle between them marked">
+      <div class="lc-cap">Fig 8 — Resolve, then conserve in each direction separately.</div>
+    </div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Kinetic energy is conserved in all collisions</td><td>Only in elastic ones. Momentum is always conserved; kinetic energy usually is not.</td></tr>
+      <tr><td>Momentum is only conserved in elastic collisions</td><td>It is conserved in every interaction with no resultant external force, including explosions.</td></tr>
+      <tr><td>Speeds can just be added, ignoring direction</td><td>Momentum is a vector. Define a positive direction and use signed velocities.</td></tr>
+      <tr><td>An explosion violates conservation of momentum, since nothing was moving</td><td>Total momentum stays zero. The fragments carry equal and opposite momenta.</td></tr>
+      <tr><td>A ball thrown upwards loses momentum, so momentum is not conserved</td><td>The Earth is part of the system. Gravity is an external force on the ball alone, but ball + Earth conserve momentum together.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: dropping the minus sign on an object moving in the negative direction. Write the sign convention at the top of your working before substituting anything.</div>
+</div>
+
+<div class="lc-kp">
+  <span>Σp_before = Σp_after</span>
+  <span>m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂</span>
+  <span>elastic: E_k conserved</span>
+  <span>totally inelastic: stick together</span>
+  <span>explosion: Σp = 0</span>
+  <span>resolve x and y separately (HL)</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A 4.0 kg object moving at 3.0 m s⁻¹ collides with a stationary 2.0 kg object and they stick together. Their common velocity afterwards is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> 1.5 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> 2.0 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> 3.0 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> 6.0 m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Which quantity is conserved in a totally inelastic collision?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> Kinetic energy only</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> Neither momentum nor kinetic energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> Momentum only</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> Both momentum and kinetic energy</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A stationary 1.2 kg firework explodes into two fragments. One of mass 0.40 kg flies off at 15 m s⁻¹. The velocity of the other fragment is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> 15 m s⁻¹ in the same direction</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> 7.5 m s⁻¹ in the opposite direction</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> 15 m s⁻¹ in the opposite direction</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> 30 m s⁻¹ in the opposite direction</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Two identical trolleys approach each other at the same speed on a friction-free track and stick together on impact. After the collision</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','D')"><span class="lc-opt-l">A</span> they move off at half the original speed, conserving kinetic energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','D')"><span class="lc-opt-l">B</span> they move off in the direction of the heavier trolley</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','D')"><span class="lc-opt-l">C</span> momentum has been destroyed, since nothing is moving</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','D')"><span class="lc-opt-l">D</span> they are at rest, and all the kinetic energy has been transferred elsewhere</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A rifle of mass 1.5 kg fires a 20 g bullet at 250 m s⁻¹. The recoil speed of the rifle is approximately</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> 0.30 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> 1.7 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> 3.3 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> 250 m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The total momentum of a system is constant provided there is no resultant <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:130px"> force acting on it. A collision in which kinetic energy is conserved is called <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px">. If the objects stick together the collision is described as totally <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:130px">. In an explosion starting from rest, the total momentum afterwards is <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:90px">. Momentum is a <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px"> quantity, so direction matters.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State / Explain</div>
+  <div class="lc-exam-q">(a) State the law of conservation of momentum. [2]<br>(b) Explain, using Newton's laws, why the total momentum of two colliding objects is unchanged. [3]</div>
+  <div class="lc-exam-marks">5 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ The total momentum of a system remains constant ✓ provided no resultant external force acts on it.<br>(b) ✓ By Newton's third law the forces the two objects exert on each other are equal in magnitude and opposite in direction. ✓ They act for the same time, so the impulses are equal and opposite. ✓ Impulse equals change of momentum, so one object gains exactly what the other loses and the total is unchanged.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">A 2.40 g bullet is fired horizontally into a 650 g block of wood at rest on a friction-free surface. The block and bullet move off together at 0.960 m s⁻¹.<br>(a) Calculate the speed of the bullet before impact. [3]<br>(b) Show that the collision is not elastic. [2]</div>
+  <div class="lc-exam-marks">5 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Totally inelastic: \(m_{\text{b}}u = (m_{\text{b}} + m_{\text{w}})v\). ✓ \(0.00240u = (0.6524)(0.960) = 0.6263\). ✓ \(u = 261\ \text{m s}^{-1}\).<br>(b) ✓ Before: \(E_{\text{k}} = \tfrac12(0.00240)(261)^2 = 82\ \text{J}\). After: \(\tfrac12(0.6524)(0.960)^2 = 0.30\ \text{J}\). ✓ Almost all the kinetic energy has been transferred to thermal energy and sound, so the collision is inelastic.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss</div>
+  <div class="lc-exam-q">A student claims that when a ball is thrown vertically upwards its momentum decreases, so the law of conservation of momentum is broken.<br>(a) Discuss whether the student is correct. [3]<br>(b) A trolley on a friction-free track is loaded with sand falling vertically into it. Explain why the trolley slows down. [3]</div>
+  <div class="lc-exam-marks">6 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ The student is not correct. ✓ The ball alone is not an isolated system — gravity is a resultant external force acting on it. ✓ Taking ball and Earth together, the Earth gains an equal and opposite momentum, so total momentum is conserved.<br>(b) ✓ The sand adds mass to the trolley but no horizontal momentum. ✓ Horizontal momentum \(mv\) is conserved as no horizontal external force acts. ✓ Since \(m\) increases and \(mv\) is constant, \(v\) must decrease.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { B: 'Totally inelastic: 4.0 \u00d7 3.0 = (4.0 + 2.0)v, so v = 12/6.0 = 2.0 m s\u207b\u00b9.' },
+    mcq2: { C: 'Momentum is conserved in every collision. In a totally inelastic one the kinetic energy loss is the largest possible.' },
+    mcq3: { B: 'Total momentum stays zero: 0.40 \u00d7 15 = 0.80 \u00d7 v, so v = 7.5 m s\u207b\u00b9 the other way.' },
+    mcq4: { D: 'Equal and opposite momenta sum to zero, so the stuck-together trolleys are at rest. Momentum is conserved (it was zero all along) but all the kinetic energy has gone.' },
+    mcq5: { C: '0 = 1.5v + 0.020 \u00d7 250, so v = -5.0/1.5 = -3.3 m s\u207b\u00b9.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '\u2713 ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '\u2717 Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'external', lf2:'elastic', lf3:'inelastic', lf4:'zero', lf5:'vector' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '\u2713 All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' \u00b7 ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+</div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="04-momentum-and-impulse.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Momentum and Impulse</div>
+          </div>
+        </a>
+        <a href="../A.3-Work-Energy-Power/index.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Work, Energy and Power</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

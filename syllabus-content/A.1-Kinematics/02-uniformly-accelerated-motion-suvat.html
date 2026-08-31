@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uniformly Accelerated Motion — SUVAT — A.1 Kinematics — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A1">A.1 Kinematics</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Uniformly Accelerated Motion — SUVAT</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.1
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 2 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Uniformly Accelerated Motion — SUVAT</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.1 Kinematics</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.1 overview
+      </a>
+      <div class="sidebar-title">A.1 Concepts</div>
+      <a href="01-displacement-velocity-and-acceleration.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Displacement, Velocity and Acceleration</span>
+        </a>
+      <a href="02-uniformly-accelerated-motion-suvat.html" class="sidebar-link active">
+          <span class="sidebar-num">02</span>
+          <span>Uniformly Accelerated Motion — SUVAT</span>
+        </a>
+      <a href="03-graphs-of-motion.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Graphs of Motion</span>
+        </a>
+      <a href="04-projectile-motion.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Projectile Motion</span>
+        </a>
+      <a href="05-relative-motion.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Relative Motion</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 5 · A.1 Kinematics</div>
+<div class="lc-title">Uniformly Accelerated Motion (SUVAT)</div>
+<div class="lc-sub">Four equations that let you predict where a uniformly accelerating object will be, and how fast it will be going, at any moment.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – Zero to 54 in three seconds</h3>
+  <p>A Formula One car leaves the starting grid from rest with an acceleration of 18 m s⁻². Three seconds later it is travelling at 54 m s⁻¹ — about 195 km h⁻¹ — and has covered 81 m of track. Nobody measured that distance with a tape: it was calculated from three numbers. <strong>Once acceleration is uniform, the whole motion is locked in.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-02-uniformly-accelerated-motion-suvat-01.png" alt="Formula One car accelerating from the starting grid with velocity arrows growing at one-second intervals">
+    <div class="lc-cap">Fig 1 — The car from rest: velocity arrows lengthen equally each second because the acceleration is constant, while the gaps travelled each second grow.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — In the first second the car travels 9 m. How far does it travel in the second second? <em>Not 9 m — it travels 27 m. Equal increases in velocity produce unequal distances, because distance depends on \(t^2\).</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 The five quantities and the four equations</h3>
+  <p>The five quantities \(u\), \(v\), \(a\), \(s\) and \(t\) are all that is needed to fully describe the motion of an object that is moving with <strong>uniform acceleration</strong>. The <strong>equations of motion</strong> are the equations used to make calculations about objects moving with uniform acceleration.</p>
+  <table class="lc-table">
+    <thead><tr><th>Symbol</th><th>Meaning</th><th>Unit</th></tr></thead>
+    <tbody>
+      <tr><td>\(u\)</td><td>velocity (speed) at the start of time \(t\)</td><td>m s⁻¹</td></tr>
+      <tr><td>\(v\)</td><td>velocity (speed) at the end of time \(t\)</td><td>m s⁻¹</td></tr>
+      <tr><td>\(a\)</td><td>acceleration (constant)</td><td>m s⁻²</td></tr>
+      <tr><td>\(s\)</td><td>displacement occurring in time \(t\)</td><td>m</td></tr>
+      <tr><td>\(t\)</td><td>time taken for velocity to change from \(u\) to \(v\) and to travel a distance \(s\)</td><td>s</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-02-uniformly-accelerated-motion-suvat-02.png" alt="A body at a start point labelled u and an end point labelled v, joined by a displacement arrow s, with constant acceleration a and elapsed time t marked">
+    <div class="lc-cap">Fig 2 — Every SUVAT problem is this one picture: a start velocity, an end velocity, and a constant acceleration acting over one interval of time and displacement.</div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Average velocity × time</span>
+    $$s = \frac{(u+v)}{2}\,t$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">From the definition of acceleration</span>
+    $$v = u + at$$
+  </div>
+  <p><strong>If any three of the quantities are known, the other two can be calculated</strong> using the first two equations. They come straight from definitions. Rearranging \(a = \dfrac{(v-u)}{t}\) gives \(v = u + at\). And since an object accelerating uniformly from \(u\) to \(v\) has average velocity \(\dfrac{(u+v)}{2}\), then distance = average velocity × time gives \(s = \dfrac{(u+v)}{2}t\).</p>
+  <p>These two equations can be combined mathematically to give two further equations. <strong>They contain no further physics theory</strong> — they express the same principles in a different way, arranged so you can avoid calculating a quantity you do not need.</p>
+  <div class="lc-formula">
+    $$s = ut + \tfrac{1}{2}at^2 \qquad v^2 = u^2 + 2as$$
+  </div>
+  <div class="lc-info">💡 <strong>Choosing the equation</strong> — list what you know and what you want. The right equation is the one containing your four letters and missing the fifth. If \(t\) is not given and not wanted, reach for \(v^2 = u^2 + 2as\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Velocity–time</td><td>\(t\), \(v\)</td><td>Straight line, gradient \(a\), intercept \(u\)</td><td>Gradient = acceleration; area under line = displacement \(s\)</td></tr>
+      <tr><td>Displacement–time</td><td>\(t\), \(s\)</td><td>Parabola (curving upwards for positive \(a\))</td><td>Tangent gradient = instantaneous velocity; curvature shows \(a \neq 0\)</td></tr>
+      <tr><td>\(v^2\) against \(s\)</td><td>\(s\), \(v^2\)</td><td>Straight line, intercept \(u^2\)</td><td>Gradient = \(2a\), so \(a = \tfrac{1}{2} \times\) gradient</td></tr>
+      <tr><td>Acceleration–time</td><td>\(t\), \(a\)</td><td>Horizontal line</td><td>Constant value confirms uniform acceleration; area = change in velocity</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a1-02-uniformly-accelerated-motion-suvat-03.png" alt="Velocity-time graph, straight line from u to v, with the area beneath shaded and split into a rectangle and a triangle"><div class="lc-cap">Fig 3 — The shaded trapezium is \(s\). Split as rectangle \(ut\) plus triangle \(\tfrac{1}{2}at^2\) and you have derived \(s = ut + \tfrac{1}{2}at^2\) from the graph alone.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a1-02-uniformly-accelerated-motion-suvat-04.png" alt="Graph of v squared against s: straight line with positive gradient and a positive vertical intercept"><div class="lc-cap">Fig 4 — Linearised motion: plotting \(v^2\) against \(s\) gives a straight line of gradient \(2a\) and intercept \(u^2\). This is the standard way to measure \(a\) from data.</div></div>
+  </div>
+  <div class="lc-success">✓ Examiner tip: on a velocity–time graph the area below the axis counts as negative displacement. A body that returns to its start has equal areas above and below, so \(s = 0\) while the distance travelled is not.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – stopping a train at the station</h3>
+  <p>A train travelling at 50 m s⁻¹ (180 km h⁻¹) needs to decelerate uniformly so that it stops at a station 2.0 kilometres away. Determine the necessary deceleration, and the time needed to stop the train.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> uniform acceleration in a straight line, so SUVAT applies. Part (a) wants \(a\) from \(u\), \(v\) and \(s\) — no time involved, so use \(v^2 = u^2 + 2as\). Part (b) wants \(t\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(u = 50\ \text{m s}^{-1}\), \(v = 0\) (it stops at the station), \(s = 2.0\ \text{km} = 2000\ \text{m}\). Convert to SI first — using 2.0 here instead of 2000 is the single most common error.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(0^2 = 50^2 + (2 \times a \times 2000)\), so \(4000a = -2500\) and \(a = -0.63\ \text{m s}^{-2}\). Then \(v = u + at\) gives \(0 = 50 + (-0.63)t\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(a = -0.63\ \text{m s}^{-2}\) (a deceleration of 0.63 m s⁻², the minus sign meaning it opposes the motion) and \(t = 80\ \text{s}\). Alternatively \(s = \dfrac{(u+v)}{2}t\) gives \(2000 = 25t\), \(t = 80\ \text{s}\) — a useful independent check.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-02-uniformly-accelerated-motion-suvat-05.png" alt="Train on a straight track with u equals 50 metres per second at the left, station 2000 metres to the right where v equals zero, and a deceleration arrow pointing backwards">
+    <div class="lc-cap">Fig 5 — Geometry for the worked example: motion is to the right, so the deceleration vector points to the left and \(a\) takes a negative value.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔧 Real-world: runway length and take-off</h3>
+    <p>An aircraft accelerating from rest at 2.40 m s⁻² must reach 86.0 m s⁻¹ to leave the ground. Rearranging \(v^2 = u^2 + 2as\) gives \(s = 1.54\ \text{km}\) — which is why airports building for larger aircraft must extend their runways rather than simply schedule more flights.</p>
+    <div class="lc-success">✓ Examiner tip: "assume uniform acceleration" is your licence to use SUVAT. If a question says the acceleration changes, you must work graphically or split the motion into uniform stages instead.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – rotational analogues</h3>
+    <p>Every linear equation has a rotational twin in Topic A.4: swap \(s \to \theta\), \(u \to \omega_i\), \(v \to \omega_f\), \(a \to \alpha\), and the algebra is identical, so \(\omega_f^2 = \omega_i^2 + 2\alpha\theta\).<br>
+    <strong>Challenge:</strong> a wheel at rest is given an angular acceleration of 3.0 rad s⁻² for 4.0 s. Through what angle does it turn? (Answer: \(\theta = \tfrac{1}{2}\alpha t^2 = 24\ \text{rad}\))</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>SUVAT works for any motion</td><td>Only for <em>uniform</em> acceleration. Changing acceleration needs graphs or stage-by-stage treatment.</td></tr>
+      <tr><td>"Deceleration" means a positive value goes into the equation</td><td>If the motion direction is positive, a deceleration is a negative \(a\). Sign errors here flip the whole answer.</td></tr>
+      <tr><td>Average velocity is always \(\frac{(u+v)}{2}\)</td><td>Only when acceleration is uniform. Otherwise average velocity is total displacement ÷ total time.</td></tr>
+      <tr><td>\(s\) is the distance travelled</td><td>\(s\) is <em>displacement</em>. For motion that reverses, distance travelled exceeds \(|s|\).</td></tr>
+      <tr><td>Doubling the time doubles the distance from rest</td><td>From rest \(s \propto t^2\), so doubling \(t\) quadruples \(s\).</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: leaving a distance in kilometres or a speed in km h⁻¹. Convert every quantity to metres and seconds before substituting — in the train example, using 2.0 instead of 2000 gives an acceleration 1000× too large and loses every mark in the chain.</div>
+</div>
+
+<div class="lc-kp">
+  <span>v = u + at</span>
+  <span>s = ½(u+v)t</span>
+  <span>s = ut + ½at²</span>
+  <span>v² = u² + 2as</span>
+  <span>uniform a only</span>
+  <span>3 knowns → 2 unknowns</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A car accelerates uniformly from rest at 4.0 m s⁻². How far has it travelled after 5.0 s?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 20 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> 40 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> 50 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> 100 m</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. An object is thrown upwards and returns to the thrower's hand. Over the whole flight, which statement is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> Both the displacement and the distance travelled are zero</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> The displacement is zero but the distance travelled is not</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> The acceleration is zero at the highest point</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> SUVAT cannot be applied because the direction reverses</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A ball rolling down a slope passes P at 1.2 m s⁻¹ and, 1.4 s later, passes Q at 2.6 m s⁻¹. What is the distance PQ?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> 1.7 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> 2.0 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> 2.7 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> 3.6 m</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Experimental values of \(v^2\) are plotted against \(s\) for a uniformly accelerating trolley. The line has gradient 6.0 m s⁻² and vertical intercept 4.0 m² s⁻². What are the acceleration and initial velocity?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> \(a = 6.0\) m s⁻², \(u = 4.0\) m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> \(a = 3.0\) m s⁻², \(u = 2.0\) m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> \(a = 12\) m s⁻², \(u = 2.0\) m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> \(a = 3.0\) m s⁻², \(u = 4.0\) m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The equations of motion apply only when the acceleration is <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:130px">. On a velocity–time graph, the gradient gives the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:170px"> and the area under the line gives the <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:170px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">A Formula One car accelerates from rest at 18 m s⁻². (a) Calculate its speed after 3.0 s. [2] (b) Calculate how far it travels in this time. [2] (c) If it continues to accelerate at the same rate, determine its velocity after it has travelled 200 m from the start. [2] <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(v = u + at = 0 + (18 \times 3.0)\) ✓ \(= 54\ \text{m s}^{-1}\)<br>✓ (b) \(s = ut + \tfrac{1}{2}at^2 = (0 \times 3.0) + (0.5 \times 18 \times 3.0^2)\) ✓ \(= 81\ \text{m}\) (equally valid: \(s = \frac{(0+54)}{2} \times 3.0 = 81\ \text{m}\))<br>✓ (c) \(v^2 = u^2 + 2as = 0^2 + (2 \times 18 \times 200) = 7200\) ✓ \(v = 85\ \text{m s}^{-1}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q">An aircraft accelerates uniformly from rest along a runway and takes off with a velocity of 86.0 m s⁻¹. Its acceleration during this time is 2.40 m s⁻². (a) Calculate the distance along the runway that the aircraft needs to travel before take-off. [2] (b) Predict how long after starting its acceleration the aircraft takes off. [2] <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(v^2 = u^2 + 2as \Rightarrow 86.0^2 = 0 + (2 \times 2.40 \times s)\) ✓ \(s = \frac{7396}{4.80} = 1.54 \times 10^3\ \text{m}\) (1540 m)<br>✓ (b) \(v = u + at \Rightarrow 86.0 = 0 + 2.40t\) ✓ \(t = 35.8\ \text{s}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch and explain</div>
+  <div class="lc-exam-q">A cyclist travels at a constant 8.0 m s⁻¹ for 10 s, then decelerates uniformly to rest over the next 5.0 s. (a) Sketch the velocity–time graph for the 15 s of motion. [2] (b) Use the graph to determine the total distance travelled. [2] (c) Explain why the equation \(s = \frac{(u+v)}{2}t\) cannot be applied to the whole 15 s in a single step. [2] <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Horizontal line at \(v = 8.0\) m s⁻¹ from \(t = 0\) to \(t = 10\) s ✓ then a straight line falling to zero at \(t = 15\) s.<br>✓ (b) Rectangle \(= 8.0 \times 10 = 80\ \text{m}\); triangle \(= \tfrac{1}{2} \times 5.0 \times 8.0 = 20\ \text{m}\) ✓ total \(= 100\ \text{m}\).<br>✓ (c) The acceleration is not uniform across the whole 15 s — it is zero for the first 10 s and negative for the last 5 s ✓ so the average velocity is not \(\frac{(u+v)}{2}\) and the motion must be split into two uniform stages.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'From rest, s = ut + ½at² = 0 + 0.5 × 4.0 × 5.0² = 50 m. Using s = ut alone gives zero; using v × t gives 100 m, which double-counts because the car was not at 20 m s⁻¹ the whole time.' },
+    mcq2: { B: 'Displacement is zero because start and finish coincide, but the distance travelled is twice the maximum height. Acceleration stays g downwards throughout, including at the highest point where v = 0.' },
+    mcq3: { C: 'Average velocity = (1.2 + 2.6)/2 = 1.9 m s⁻¹, so s = 1.9 × 1.4 = 2.66 ≈ 2.7 m. The acceleration, if needed, is (2.6 − 1.2)/1.4 = 1.0 m s⁻².' },
+    mcq4: { B: 'Comparing v² = u² + 2as with y = mx + c: gradient = 2a = 6.0 so a = 3.0 m s⁻², and intercept = u² = 4.0 so u = 2.0 m s⁻¹.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'uniform', lf2:'acceleration', lf3:'displacement' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="01-displacement-velocity-and-acceleration.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Displacement, Velocity and Acceleration</div>
+          </div>
+        </a>
+        <a href="03-graphs-of-motion.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Graphs of Motion</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

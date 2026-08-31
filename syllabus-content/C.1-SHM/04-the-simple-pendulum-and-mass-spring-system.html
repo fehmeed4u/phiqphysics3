@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Simple Pendulum and Mass-Spring System — C.1 Simple Harmonic Motion — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C1">C.1 Simple Harmonic Motion</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">The Simple Pendulum and Mass-Spring System</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">
+            C.1
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 4 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">The Simple Pendulum and Mass-Spring System</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">C.1 Simple Harmonic Motion</strong>
+          · Unit C — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to C.1 overview
+      </a>
+      <div class="sidebar-title">C.1 Concepts</div>
+      <a href="01-defining-simple-harmonic-motion.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Defining Simple Harmonic Motion</span>
+        </a>
+      <a href="02-shm-equations-displacement-velocity-acceleration.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>SHM Equations — Displacement, Velocity, Acceleration</span>
+        </a>
+      <a href="03-energy-in-shm.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Energy in SHM</span>
+        </a>
+      <a href="04-the-simple-pendulum-and-mass-spring-system.html" class="sidebar-link active">
+          <span class="sidebar-num">04</span>
+          <span>The Simple Pendulum and Mass-Spring System</span>
+        </a>
+      <a href="05-damping-and-resonance.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Damping and Resonance</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+        <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 5 · C.1 Simple Harmonic Motion</div>
+<div class="lc-title">The Simple Pendulum and Mass-Spring System</div>
+<div class="lc-sub">Two oscillators do almost all the work in this topic. This lesson derives what each period depends on, shows how to linearize the laboratory data, and works through the standard spring-constant exam question.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – why these two, out of every oscillator there is?</h3>
+  <p>A mass–spring system and a simple pendulum are important for a number of good reasons. These include: the proportional relationships between force and displacement are easily understood; their periods of oscillation have a convenient time for measurement in a school laboratory; they are good approximations to simple harmonic motion; energy is dissipated slowly, so that the oscillations continue for a long enough time that allows for accurate measurements to be completed; and <strong>they act as starting points for understanding many similar, but more complex, oscillators.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-04-the-simple-pendulum-and-mass-spring-system-01.png" alt="Four stages of a mass oscillating vertically on a spring hanging from a rigid support: no load, at the equilibrium position, and at each extreme of amplitude">
+    <div class="lc-cap">Fig 1 — Different positions (a, b, c, d) of a mass, \(m\), oscillating on a spring. The amplitude is measured either side of the equilibrium position.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — The mass hangs vertically, so gravity pulls on it all the way through the oscillation. Does that change the period? <em>No. The force of gravity (the weight of the mass) also acts vertically, but it does not affect the results because it is constant. The system would have the same time period if it was moved to a location where the gravitational field strength was different.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 The mass–spring system</h3>
+  <p>We assume the spring is never overstretched and that it obeys <strong>Hooke's law</strong>:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Hooke's law — restoring force</span>
+    $$F_{\text{H}} = -kx$$
+  </div>
+  <p>In words: the size of the restoring force acting on the mass = spring constant × displacement from its equilibrium position. The <strong>spring constant</strong> is a measure of the spring's stiffness (= force / deformation).</p>
+  <p>The exact relationship for the SHM of a mass on a spring is:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Time period of a mass–spring system</span>
+    $$T = 2\pi\sqrt{\frac{m}{k}}$$
+  </div>
+  <p>Since \(\omega = \dfrac{2\pi}{T}\), this equation can also be written as:</p>
+  <div class="lc-formula">
+    $$\omega^2 = \frac{k}{m}$$
+  </div>
+  <p>Laboratory investigations of the time periods of a mass on a spring are straightforward, especially those involving using different masses on the same spring. Different springs, or combinations of springs, used with the same mass, can be used to investigate the effect of the spring constant, \(k\), on the period. <strong>Position sensors</strong> are useful in many aspects of the study of motion, including mechanical oscillations: digital data can be collected and processed later by the computer.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c1-04-the-simple-pendulum-and-mass-spring-system-02.png" alt="Mass on a spring above a motion sensor connected to an interface and computer"><div class="lc-cap">Fig 2 — Using a sensor to investigate oscillations of a mass on a spring.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c1-04-the-simple-pendulum-and-mass-spring-system-03.png" alt="Graph of time period in seconds against mass in grams for a mass on a spring, a curve of decreasing gradient from the origin to about 1.3 s at 1000 g"><div class="lc-cap">Fig 3 — Variation of time period, \(T\), with mass, \(m\), on a spring: \(T\) / s against mass / g, from 0 to 1000 g.</div></div>
+  </div>
+  <div class="lc-info">🧮 <strong>Linearize the graph.</strong> Figure 3 appears that it might represent the relationship \(T^2 \propto m\). Check this by using information from the graph to draw a \(T^2\)–\(m\) graph (uncertainties in \(T\) are \(\pm\,0.05\) s). It should produce a straight line through the origin. Use the graph and \(T = 2\pi\sqrt{m/k}\) to determine a value for the spring constant, \(k\) — the gradient is \(4\pi^2/k\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>📏 Where the simple model runs out — the oscillating ruler</h3>
+  <p>The equation \(T = 2\pi\sqrt{m/k}\) applies perfectly only to a <strong>point mass</strong> acted upon by a separate simple spring system that has a well-defined stiffness (\(k\)) and no (significant) mass. There is an extremely large number of other oscillating mechanical systems that have similarities to this simple model but are much more complex — for example, oscillations in buildings and bridges. A simpler example is one in which the mass is spread uniformly along the oscillating system: a ruler clamped at one end.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-04-the-simple-pendulum-and-mass-spring-system-04.png" alt="Ruler clamped to the edge of a bench with its free end oscillating up and down, with masses taped near the free end">
+    <div class="lc-cap">Fig 4 — Oscillating ruler. The mass of the blade itself is spread along the oscillator, so it is not a point mass.</div>
+  </div>
+  <p>A student investigated an oscillating ruler, varying the mass of the ruler by taping various masses near to its free end. She predicted that the time period of the oscillator could be determined from the same equation as for a mass oscillating vertically on the end of a spring. Her raw data (assume that the uncertainties are low):</p>
+  <table class="lc-table">
+    <thead><tr><th>Mass on end of blade / g</th><th>Time period / s</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>too quick to measure</td></tr>
+      <tr><td>40</td><td>0.55</td></tr>
+      <tr><td>80</td><td>0.76</td></tr>
+      <tr><td>120</td><td>0.91</td></tr>
+      <tr><td>160</td><td>1.04</td></tr>
+      <tr><td>200</td><td>1.15</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-success">✓ <strong>Concluding and evaluating.</strong> Process the results by plotting \(T^2\) against \(m\): the points do lie on a straight line, so \(T^2 \propto m\) is a good description of the trend. But the student predicted incorrectly in one respect — the line does not pass through the origin, and the ruler still oscillates when no mass is added (the \(m = 0\) period was "too quick to measure", not zero). The reason: the blade's own mass oscillates too, so the effective mass of the system is the added mass plus a share of the ruler's mass, and \(k\) for a clamped blade is not a simple spring constant.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🕰️ The simple pendulum</h3>
+  <p>There are many different designs of pendulum, all of which involve a mass swinging from side to side under the effects of gravity. We use the term <strong>simple pendulum</strong> to describe the simplest possible model of a pendulum: a spherical mass swinging on a rod, or string (both of which have negligible mass), from a rigid, frictionless support. The mass is often called a pendulum <strong>'bob'</strong>.</p>
+  <div class="lc-info">📖 <strong>Pendulum</strong> — A weight, which is suspended below a pivot, which is able to swing from side to side. The weight is sometimes called the pendulum bob. The concept of a simple pendulum is a point mass on the end of an inextensible string.</div>
+  <p>Because the mass is spherical and the rod / string has negligible mass, all of the mass of the pendulum can be assumed to be acting as a point mass at the centre of the sphere. The displacement of the motion can be considered to be the <strong>angle between the rod / string and the vertical</strong>. The restoring force is provided by gravity.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c1-04-the-simple-pendulum-and-mass-spring-system-05.png" alt="Simple pendulum hanging from a rigid frictionless support, labelled with rod or string of negligible mass, mass m, equilibrium position, path of oscillation and amplitude"><div class="lc-cap">Fig 5 — Simple pendulum: length \(l\) is measured from the point of support to the centre of mass.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c1-04-the-simple-pendulum-and-mass-spring-system-06.png" alt="Pendulum bob free-body diagram showing tension along the string, weight mg vertically down and its components mg sin theta and mg cos theta"><div class="lc-cap">Fig 6 — Components of the weight of the pendulum: \(mg\sin\theta\) restores, \(mg\cos\theta\) tensions the string.</div></div>
+  </div>
+  <p>The weight, \(mg\), of the pendulum is conveniently resolved into two perpendicular components: a force \(mg\sin\theta\) provides the restoring force bringing the pendulum back towards its equilibrium position; a force \(mg\cos\theta\) keeps the rod / string in tension.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Restoring force on a pendulum</span>
+    $$F = mg\sin\theta$$
+  </div>
+  <p>An alternative way of looking at this situation: the pendulum has only two forces acting on it — tension in the rod / string, and weight, \(mg\). The resultant of these is the restoring force, \(mg\sin\theta\).</p>
+  <p>Practical laboratory investigations of a simple pendulum will confirm that, for small amplitudes, the time period, \(T\), depends only on its length, \(l\) (measured from its point of support to its centre of mass). <strong>Period is not affected by its mass.</strong> This is because doubling the mass, for example, will also result in doubling the restoring force.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Time period of a simple pendulum (small amplitudes)</span>
+    $$T = 2\pi\sqrt{\frac{l}{g}}$$
+  </div>
+  <div class="lc-warn">⚠️ For the motion of a simple pendulum to be a good example of SHM, we require that the restoring force (\(mg\sin\theta\)) is proportional to the displacement (\(\theta\)). For very small angles, values of \(\sin\theta\), \(\tan\theta\) and \(\theta\) (in rad) are almost identical, so that this condition is satisfied. But, as the angle increases, the difference gets greater. <strong>Task:</strong> determine the minimum angle for which there is at least a 1% difference between \(\sin\theta\), \(\tan\theta\) and \(\theta\) (in rad). <em>(\(\tan\theta\) reaches a 1% difference first, at about 0.17 rad ≈ 10°; \(\sin\theta\) differs by 1% at about 0.24 rad ≈ 14°.)</em></div>
+  <p>The equation also shows that the period of a simple pendulum would change if its value was checked in a location where the gravitational field strength had a different value. Mount Nevado Huascarán in Peru is reported to have the lowest gravitational field strength on Earth; its summit (6768 m) is one of the farthest points on the surface of the Earth from Earth's centre. <strong>Research task:</strong> investigate the variations of the strength of the gravitational field around the Earth, then state and explain whether experiments in school laboratories would be able to measure those differences.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Spring, raw</td><td>mass \(m\) / g, period \(T\) / s</td><td>Curve of decreasing gradient from the origin</td><td>Not linear — cannot get \(k\) directly; linearize first</td></tr>
+      <tr><td>Spring, linearized</td><td>\(m\), \(T^2\)</td><td>Straight line through the origin</td><td>Gradient \(= 4\pi^2/k\), so \(k = 4\pi^2/\text{gradient}\)</td></tr>
+      <tr><td>Pendulum, raw</td><td>length \(l\) / m, period \(T\) / s</td><td>Curve of decreasing gradient from the origin</td><td>\(T\) rises with \(l\) but not proportionally</td></tr>
+      <tr><td>Pendulum, linearized</td><td>\(l\), \(T^2\)</td><td>Straight line through the origin</td><td>Gradient \(= 4\pi^2/g\), so \(g = 4\pi^2/\text{gradient}\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c1-04-the-simple-pendulum-and-mass-spring-system-07.png" alt="Graph of time period in seconds against pendulum length in metres, a curve of decreasing gradient from the origin reaching about 1.5 s at 0.6 m"><div class="lc-cap">Fig 7 — Results of a simple pendulum investigation: \(T\) / s against \(l\) / m, 0 to 0.6 m.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c1-04-the-simple-pendulum-and-mass-spring-system-08.png" alt="Linearized graph of period squared against length, a straight line through the origin with a gradient triangle labelled 4 pi squared over g"><div class="lc-cap">Fig 8 — The same data linearized. A graph of \(T^2\)–\(l\) is a straight line through the origin with gradient \(4\pi^2/g\).</div></div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Gradient of a \(T^2\)–\(l\) graph</span>
+    $$\text{gradient} = \frac{4\pi^2}{g}$$
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – spring constant from an extension (C1.2)</h3>
+  <p>A 200 g mass was placed on the end of a long spring and increased its length by 5.4 cm. (a) Determine the spring constant, \(k\), of the spring. (b) If the mass is displaced a small distance from its equilibrium position and undergoes SHM, calculate the frequency of oscillations. (c) Suggest a possible reason why oscillations with greater amplitude may not be simple harmonic.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the static extension gives \(k\) through Hooke's law; \(k\) then gives the period through the mass–spring SHM equation, and \(f = 1/T\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 0.200\ \text{kg}\)<br>\(x = 5.4 \times 10^{-2}\ \text{m}\)<br>\(g = 9.8\ \text{N kg}^{-1}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong> \(F_{\text{H}} = -kx\)<br>\(0.200 \times 9.8 = -k \times (5.4\times10^{-2})\)<br>\(k = -36\ \text{N m}^{-1}\) — the negative sign shows that force and displacement are in opposite directions.<br><br><strong>Equation (b):</strong> \(T = 2\pi\sqrt{m/k}\)<br>\(= 2\pi\sqrt{0.200/36} = 0.47\ \text{s}\)<br>\(f = 1/T = 1/0.47\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(k = 36\ \text{N m}^{-1}\). (b) \(f = 2.1\ \text{Hz}\). (c) The spring may become overstretched, so that Hooke's law is no longer applicable.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-04-the-simple-pendulum-and-mass-spring-system-09.png" alt="Spring shown unloaded and then loaded with a 200 g mass, with the extension of 5.4 cm marked between the two lower ends">
+    <div class="lc-cap">Fig 9 — Geometry for Worked example C1.2: the 200 g load stretches the spring by 5.4 cm, which fixes \(k\) before any oscillation is considered.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: clocks, gravimeters and buildings</h3>
+    <p>Because \(T = 2\pi\sqrt{l/g}\) contains \(g\) and not \(m\), a pendulum of fixed length is a gravity meter: measure \(T\), get \(g\). Mount Nevado Huascarán in Peru is reported to have the lowest gravitational field strength on Earth, its summit at 6768 m being one of the farthest points on the surface of the Earth from Earth's centre. The mass–spring model, meanwhile, is the starting point for oscillations in buildings and bridges, where the mass is spread through the structure rather than concentrated at a point.</p>
+    <div class="lc-success">✓ Examiner tip: quote the length of a pendulum as measured from the point of support to the <em>centre of mass</em> of the bob — not to the top of the bob.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – from \(\omega^2 = k/m\) to the pendulum</h3>
+    <p>SHM requires \(a = -\omega^2 x\). For the spring, \(F = -kx\) with \(F = ma\) gives \(\omega^2 = k/m\) directly. For the pendulum, the restoring force is \(mg\sin\theta\); using \(\sin\theta \approx \theta = x/l\) for small angles gives \(F \approx -(mg/l)x\), so the effective stiffness is \(mg/l\) and \(\omega^2 = g/l\).<br>
+    <strong>Challenge:</strong> a pendulum has a period of 2.0 s on Earth. What is its period on the Moon, where \(g\) is one sixth of Earth's? (Answer: \(T \propto 1/\sqrt{g}\), so \(T = 2.0\sqrt{6} = 4.9\ \text{s}\).)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Heavier bob, slower swing</td><td>A heavier bob does not swing more slowly — period is not affected by its mass — doubling the mass also doubles the restoring force</td></tr>
+      <tr><td>Spring ignores mass too</td><td>A heavier mass on a spring does <em>not</em> have the same period: \(T = 2\pi\sqrt{m/k}\), so the period does depend on mass when the stiffness \(k\) is fixed</td></tr>
+      <tr><td>Gravity is in \(T\) for a spring</td><td>Even though the mass hangs vertically, the weight is constant, so it does not affect the results; the same system has the same period where \(g\) differs</td></tr>
+      <tr><td>Any pendulum amplitude gives SHM</td><td>Only for small amplitudes, where \(\sin\theta \approx \theta\) in rad, is the restoring force proportional to displacement</td></tr>
+      <tr><td>Curved graph, no relationship</td><td>A curved \(T\)–\(m\) or \(T\)–\(l\) graph does not disprove proportionality — linearize it: \(T^2\)–\(m\) and \(T^2\)–\(l\) are straight lines through the origin</td></tr>
+      <tr><td>Ruler = mass–spring system</td><td>The clamped ruler does not obey the mass–spring equation exactly: the blade's own mass is spread along the oscillator, so the simple point-mass model does not fit and the line misses the origin</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: taking the gradient of a \(T^2\)–\(l\) graph as \(g\) itself. The gradient is \(4\pi^2/g\), so \(g = 4\pi^2 \div \text{gradient}\).</div>
+</div>
+
+<div class="lc-kp">
+  <span>T = 2π√(m/k)</span>
+  <span>T = 2π√(l/g)</span>
+  <span>ω² = k/m</span>
+  <span>F_H = −kx</span>
+  <span>ω = 2π/T</span>
+  <span>gradient of T²–l = 4π²/g</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. The mass on a spring is doubled. By what factor does the time period change?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> It doubles</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> It increases by a factor of \(\sqrt{2}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> It halves</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> It is unchanged</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A simple pendulum is taken to a mountain summit where \(g\) is slightly smaller. Its period:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','A')"><span class="lc-opt-l">A</span> Increases slightly</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','A')"><span class="lc-opt-l">B</span> Decreases slightly</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','A')"><span class="lc-opt-l">C</span> Is unchanged, because \(g\) cancels</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','A')"><span class="lc-opt-l">D</span> Depends on the mass of the bob</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A student plots \(T^2\) against \(l\) for a simple pendulum and finds a gradient of 4.0 s² m⁻¹. What value of \(g\) does this give?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> 4.0 m s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> 6.3 m s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> 9.9 m s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> 39 m s⁻²</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Which change would leave the period of a simple pendulum unchanged?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> Doubling its length</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> Moving it to the Moon</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> Doubling the mass of the bob</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> Halving its length</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A clamped ruler is loaded with masses at its free end and \(T^2\) is plotted against the added mass. The line is straight but does not pass through the origin. The best explanation is that:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','D')"><span class="lc-opt-l">A</span> The ruler does not obey Hooke's law at all</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','D')"><span class="lc-opt-l">B</span> The timing uncertainties are too large</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','D')"><span class="lc-opt-l">C</span> The oscillation is not simple harmonic at any amplitude</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','D')"><span class="lc-opt-l">D</span> The ruler's own mass oscillates too, so the effective mass is more than the added mass</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The spring constant is a measure of the spring's <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px">.
+    The period of a mass–spring system does not depend on <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px">, but the period of a pendulum does.
+    The period of a simple pendulum does not depend on the <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> of the bob.
+    A pendulum's length is measured from the point of support to the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:190px">.
+    Plotting \(T^2\) against \(l\) gives a straight line whose gradient equals \(4\pi^2\) divided by <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:60px">.
+    The pendulum is only simple harmonic for <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px"> amplitudes.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">The central processing unit of a lap-top computer operates at \(3.2 \times 10^{9}\) cycles per second.<br>(a) Express this frequency in (i) megahertz, (ii) gigahertz. <span class="lc-exam-marks">[2 marks]</span><br>(b) Calculate the time period of each cycle. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ (i) \(3.2\times10^{9}\ \text{Hz} = 3.2\times10^{3}\ \text{MHz}\) (3200 MHz).<br>✓ (ii) \(3.2\ \text{GHz}\).<br><br>(b) ✓ \(T = 1/f = 1/(3.2\times10^{9})\)<br>✓ \(= 3.1\times10^{-10}\ \text{s}\) (0.31 ns).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Suggest</div>
+  <div class="lc-exam-q">When a guitar string was plucked (once) it oscillated with a frequency of 196 Hz.<br>(a) Determine the angular frequency of this oscillation. <span class="lc-exam-marks">[2 marks]</span><br>(b) Suggest how you would expect the frequency and amplitude to change in the next few seconds. Explain your answer. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ \(\omega = 2\pi f = 2\pi \times 196\)<br>✓ \(= 1.2\times10^{3}\ \text{rad s}^{-1}\).<br><br>(b) ✓ The amplitude decreases, because the oscillation is damped — energy is transferred away from the string (as sound and to the instrument body). ✓ The frequency stays the same (196 Hz), so the note keeps its pitch. ✓ The frequency of damped oscillations does not change as the amplitude decreases.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that / Determine</div>
+  <div class="lc-exam-q">(a) Show that the angular frequency of the Earth spinning on its axis is approximately \(7 \times 10^{-5}\) rad s⁻¹. <span class="lc-exam-marks">[2 marks]</span><br>(b) Determine the total angle (rad) through which it will rotate in 100 hours. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ \(T = 24 \times 3600 = 8.64\times10^{4}\ \text{s}\)<br>✓ \(\omega = 2\pi/T = 7.3\times10^{-5} \approx 7\times10^{-5}\ \text{rad s}^{-1}\).<br><br>(b) ✓ \(t = 100 \times 3600 = 3.6\times10^{5}\ \text{s}\)<br>✓ \(\theta = \omega t = 7.3\times10^{-5} \times 3.6\times10^{5} = 26\ \text{rad}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">(a) A car engine was measured to have 3755 rpm (revolutions per minute). Calculate its angular frequency. <span class="lc-exam-marks">[2 marks]</span><br>(b) Using slow-motion video replay, the angular frequency of the oscillations of a humming bird's wings was found to be 272 rad s⁻¹. Determine how many times it beat its wings in one minute. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ \(f = 3755/60 = 62.6\ \text{Hz}\)<br>✓ \(\omega = 2\pi f = 393\ \text{rad s}^{-1}\).<br><br>(b) ✓ \(f = \omega/2\pi = 272/(2\pi) = 43.3\ \text{Hz}\)<br>✓ Beats in one minute \(= 43.3 \times 60 = 2.6\times10^{3}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Suggest</div>
+  <div class="lc-exam-q">A 200 g mass was placed on the end of a long spring and increased its length by 5.4 cm.<br>(a) Determine the spring constant, \(k\), of the spring. <span class="lc-exam-marks">[2 marks]</span><br>(b) If the mass is displaced a small distance from its equilibrium position and undergoes SHM, calculate the frequency of oscillations. <span class="lc-exam-marks">[3 marks]</span><br>(c) Suggest a possible reason why oscillations with greater amplitude may not be simple harmonic. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…" style="min-height:90px"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ \(F_{\text{H}} = -kx\): \(0.200\times9.8 = -k\times(5.4\times10^{-2})\)<br>✓ \(k = -36\ \text{N m}^{-1}\); the negative sign shows that force and displacement are in opposite directions.<br><br>(b) ✓ \(T = 2\pi\sqrt{m/k} = 2\pi\sqrt{0.200/36}\)<br>✓ \(T = 0.47\ \text{s}\)<br>✓ \(f = 1/T = 2.1\ \text{Hz}\).<br><br>(c) ✓ The spring may become overstretched, ✓ so that Hooke's law is no longer applicable.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Conclude / Evaluate</div>
+  <div class="lc-exam-q">A student investigated an oscillating ruler by taping various masses near to its free end, predicting that the time period could be determined from the same equation as a mass oscillating vertically on a spring. Her results were: 0 g (too quick to measure), 40 g (0.55 s), 80 g (0.76 s), 120 g (0.91 s), 160 g (1.04 s), 200 g (1.15 s). Process the results and reach a conclusion. State whether the student predicted correctly. If not, suggest a possible reason. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…" style="min-height:90px"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Square the periods: 0.30, 0.58, 0.83, 1.08, 1.32 s² for 40, 80, 120, 160, 200 g.<br>✓ Plot \(T^2\) against \(m\): the points lie on a good straight line, with a gradient of about \(6.4\times10^{-3}\ \text{s}^2\ \text{g}^{-1}\).<br>✓ So \(T^2\) is a linear function of the added mass, as \(T = 2\pi\sqrt{m/k}\) would suggest.<br>✓ But the line does not pass through the origin (positive intercept), and with no added mass the ruler still oscillates — too quickly to measure rather than not at all. The prediction was therefore not fully correct.<br>✓ Reason: the mass of the blade itself oscillates, so the effective mass is the added mass plus a share of the ruler's own mass; the ruler is not a point mass on a massless spring of well-defined \(k\).</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { B: 'T is proportional to the square root of m, so doubling the mass multiplies the period by √2 ≈ 1.41.' },
+    mcq2: { A: 'T = 2π√(l/g): a smaller g gives a longer period. The mass of the bob is irrelevant.' },
+    mcq3: { C: 'Gradient = 4π²/g, so g = 4π²/4.0 = 9.9 m s⁻².' },
+    mcq4: { C: 'Period is not affected by the mass of the bob — doubling the mass also doubles the restoring force mg sin θ.' },
+    mcq5: { D: 'The blade\'s own mass is spread along the oscillator, so the effective mass exceeds the added mass and the line is offset from the origin.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'stiffness', lf2:'gravity', lf3:'mass', lf4:'centre of mass', lf5:'g', lf6:'small' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val.length > 0 && (val === ans[id] || val.includes(ans[id]));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+        </div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="03-energy-in-shm.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Energy in SHM</div>
+          </div>
+        </a>
+        <a href="05-damping-and-resonance.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Damping and Resonance</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

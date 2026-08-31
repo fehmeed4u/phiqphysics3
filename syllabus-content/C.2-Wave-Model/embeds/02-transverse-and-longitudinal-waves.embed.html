@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transverse and Longitudinal Waves — φQ Physics lesson</title>
+  <link rel="stylesheet" href="../../../shared/theme.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('phyq-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+  <script>
+    window.MathJax = { tex:{ inlineMath:[['\\(','\\)']], displayMath:[['\\[','\\]']] }, svg:{ fontCache:'global' } };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+  <style>
+    html,body{ background:transparent !important; }
+    body{ padding:0; margin:0; font-family: var(--font-sans) !important; }
+    h1,h2,h3,h4,h5,.lc-title{ font-family: var(--font-serif) !important; }
+    mjx-container{ color: var(--text-2); }
+    .lc-formula mjx-container{ color: var(--accent) !important; }
+  </style>
+</head>
+<body>
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-h2 { font-family:var(--font-serif);font-size:1.25rem;color:var(--text);
+  margin:1.75rem 0 0.5rem;padding-bottom:0.4rem;border-bottom:1px solid var(--border); }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card h4 { font-size:0.88rem;font-weight:600;margin:0.75rem 0 0.4rem;color:var(--accent);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-card ul, .lc-card ol { margin:0.3rem 0 0.5rem 1.1rem; }
+.lc-card li { font-size:0.9rem;color:var(--text-2);line-height:1.7;margin-bottom:0.25rem; }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.7rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.7rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.7rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-tag-title { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.08em;margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-info .lc-tag-title { color:var(--accent); }
+.lc-warn .lc-tag-title { color:var(--gold); }
+.lc-success .lc-tag-title { color:var(--green); }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem;margin:0.5rem 0; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.06em;color:var(--text-muted);padding:8px 10px;
+  border-bottom:1px solid var(--border-2);text-align:left; }
+.lc-table td { padding:8px 10px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2); }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-table td:first-child { font-weight:600;color:var(--accent); }
+
+.lc-def td:first-child { white-space:nowrap;width:32%; }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.1rem 1.25rem;margin-bottom:0.85rem; }
+.lc-exam-top { display:flex;justify-content:space-between;align-items:center;gap:0.75rem;margin-bottom:0.5rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent); }
+.lc-exam-marks { font-family:var(--font-mono);font-size:0.72rem;background:var(--accent-dim);
+  border:1px solid var(--border-2);color:var(--accent);padding:2px 9px;border-radius:100px;flex-shrink:0; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.7; }
+.lc-reveal-btn { margin-top:0.6rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+</style>
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 5 · C.2 Wave Model</div>
+<div class="lc-title">Transverse &amp; Longitudinal Waves</div>
+<div class="lc-sub">Wave types, particle motion, sound waves, compressions &amp; rarefactions, and mechanical vs electromagnetic waves</div>
+
+<div class="lc-info">
+  <div class="lc-tag-title">Syllabus content</div>
+  Transverse and longitudinal travelling waves. The nature of sound waves. The differences between mechanical waves and electromagnetic waves.
+</div>
+
+<div class="lc-h2">1. Transverse Waves</div>
+
+<div class="lc-card">
+  <div class="lc-info">
+    <div class="lc-tag-title">Definition — Transverse Wave</div>
+    A wave is <strong>transverse</strong> if the displacement of the particles of the medium is <strong>at right angles</strong> (perpendicular) to the direction of energy transfer.
+  </div>
+  <p>In a transverse wave on a rope, the rope segments oscillate up and down while the wave pattern propagates horizontally. The highest points are <strong>crests</strong> and the lowest are <strong>troughs</strong>. Each particle performs SHM with the same frequency as the wave but is slightly out of phase with its neighbour.</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/mgNv41xY/Chat-GPT-Image-May-4-2026-09-43-45-AM.png" alt="Transverse wave on a rope showing crests, troughs, and perpendicular particle motion.">
+    <div class="lc-cap">A transverse wave: particles oscillate perpendicular to the direction of energy transfer.</div>
+  </div>
+  <p><strong>Examples:</strong> waves on strings, ropes, and water surfaces; all electromagnetic waves; seismic S-waves.</p>
+
+  <h3>Determining particle motion from a snapshot</h3>
+  <p>This is a key exam skill. Given the wave direction and a displacement–distance graph, you can find which way any particle will move next:</p>
+  <ol>
+    <li>Draw the wave profile (solid line) at the current instant.</li>
+    <li>Draw a copy of the wave (dashed line) shifted slightly in the direction of propagation.</li>
+    <li>Each particle moves vertically from its position on the solid curve towards its position on the dashed curve.</li>
+  </ol>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="https://i.postimg.cc/Pqc9zBBN/image.png" alt="Wave snapshot with solid and shifted dashed profile showing particle motion direction."><div class="lc-cap">Shift the wave slightly in its travel direction to see where each particle moves next.</div></div>
+    <div class="lc-img"><img src="https://i.postimg.cc/dtXK9Hgh/image.png" alt="Particles on a transverse wave with arrows showing their next vertical motion."><div class="lc-cap">Each particle moves vertically toward the shifted (dashed) profile.</div></div>
+  </div>
+  <div class="lc-warn">
+    <div class="lc-tag-title">Exam tip — Velocity at crests and equilibrium</div>
+    At a <strong>crest or trough</strong>: the particle has zero velocity (momentarily at rest) but maximum acceleration (directed towards equilibrium). At the <strong>equilibrium position</strong>: the particle has maximum speed but zero acceleration. This follows directly from SHM.
+  </div>
+</div>
+
+<div class="lc-h2">2. Longitudinal Waves</div>
+
+<div class="lc-card">
+  <div class="lc-info">
+    <div class="lc-tag-title">Definition — Longitudinal Wave</div>
+    A wave is <strong>longitudinal</strong> if the displacement of the particles is <strong>parallel</strong> to the direction of energy transfer. Longitudinal waves consist of alternating <strong>compressions</strong> and <strong>rarefactions</strong>.
+  </div>
+  <p>Imagine pushing and pulling one end of a slinky spring along its length. Coils crowd together (compression) and then spread apart (rarefaction). These regions propagate along the spring.</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/V65xMXDm/image.png" alt="Longitudinal wave on a slinky showing compressions (coils bunched) and rarefactions (coils spread).">
+    <div class="lc-cap">Longitudinal wave on a slinky: compressions (coils bunched together) and rarefactions (coils spread apart).</div>
+  </div>
+  <table class="lc-table lc-def">
+    <tr><td>Compression</td><td>A region where particles are closer together than at equilibrium → higher density and pressure.</td></tr>
+    <tr><td>Rarefaction</td><td>A region where particles are further apart than at equilibrium → lower density and pressure.</td></tr>
+  </table>
+
+  <h3>Displacement–distance graphs for longitudinal waves</h3>
+  <p>We represent longitudinal waves using the same sinusoidal graph style. The key difference: the displacement axis represents particle displacement <em>along</em> the wave direction. Positive displacement = motion in the direction of wave travel; negative = opposite.</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/GmVGdCVj/image.png" alt="Displacement-distance graph for a longitudinal wave with compressions and rarefactions marked at the zero crossings.">
+    <div class="lc-cap">A longitudinal wave drawn as a displacement–distance graph. Compressions and rarefactions sit at the zero-crossings.</div>
+  </div>
+
+  <h4>Locating compressions and rarefactions on the graph</h4>
+  <p>This is one of the most commonly tested and most commonly <em>wrong</em> topics:</p>
+  <ul>
+    <li>A <strong>compression</strong> occurs where displacement is zero and the gradient is <strong>negative</strong> (for a wave moving right). Particles on the left have moved right and particles on the right have moved left — they've crowded together.</li>
+    <li>A <strong>rarefaction</strong> occurs where displacement is zero and the gradient is <strong>positive</strong>. Particles on both sides have moved away from this point.</li>
+  </ul>
+  <div class="lc-warn">
+    <div class="lc-tag-title">Exam tip — Critical error to avoid</div>
+    Compressions and rarefactions are <strong>NOT</strong> at the peaks and troughs of the displacement graph. They occur at the <strong>zero-crossing points</strong>. This is the single most common error with longitudinal wave graphs. At the peaks/troughs, the displacement is maximum but the density is approximately normal (equilibrium separation).
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>Worked Example 1 — Longitudinal wave analysis</h3>
+  <p>A longitudinal wave travels to the right. A displacement–distance graph shows that at point P (at x = 20 cm), the displacement is zero and the graph is transitioning from positive to negative. Is P a compression or rarefaction?</p>
+  <div class="lc-success">
+    <div class="lc-tag-title">Solution</div>
+    At P, the gradient is negative. Particles to the left of P have positive displacement (moved right, towards P). Particles to the right of P have negative displacement (moved left, towards P). Particles on both sides have moved <em>towards</em> P → higher density → <strong>P is a compression</strong>.
+  </div>
+</div>
+
+<div class="lc-h2">3. Sound Waves</div>
+
+<div class="lc-card">
+  <p><strong>Sound</strong> is a longitudinal mechanical wave. It is produced when a vibrating surface (loudspeaker, vocal cord, tuning fork) creates alternating compressions and rarefactions in the surrounding air.</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/K86kC533/image.png" alt="Sound wave from a loudspeaker showing compressions and rarefactions in air.">
+    <div class="lc-cap">A loudspeaker creates compressions and rarefactions of air pressure — a longitudinal sound wave.</div>
+  </div>
+  <h4>Key facts about sound</h4>
+  <ul>
+    <li><strong>Medium required:</strong> Sound cannot travel through a vacuum.</li>
+    <li><strong>Typical speed in air:</strong> ~340 m s⁻¹ at room temperature (increases slightly with temperature).</li>
+    <li><strong>Speed in different media:</strong> Generally fastest in solids, slowest in gases — because particles are closer and inter-particle forces are stronger in solids.</li>
+    <li><strong>Audible range:</strong> approximately 20 Hz – 20 kHz.</li>
+    <li><strong>Pitch:</strong> determined by frequency (higher f → higher pitch).</li>
+    <li><strong>Loudness:</strong> determined by amplitude (greater A → louder).</li>
+  </ul>
+  <p>To give a sense of scale: at the threshold of hearing (1000 Hz), the pressure variation at the eardrum exceeds atmospheric by just 20 μPa (atmospheric pressure is ~10⁵ Pa). The corresponding molecular displacement is about 10⁻¹¹ m — a tenth of a hydrogen atom's diameter!</p>
+</div>
+
+<div class="lc-h2">4. Mechanical vs Electromagnetic Waves</div>
+
+<div class="lc-card">
+  <table class="lc-table">
+    <tr><th>Property</th><th>Mechanical waves</th><th>Electromagnetic waves</th></tr>
+    <tr><td>Requires medium?</td><td>Yes — solid, liquid, or gas</td><td>No — can travel through vacuum</td></tr>
+    <tr><td>What oscillates?</td><td>Particles of the medium (masses)</td><td>Electric and magnetic fields</td></tr>
+    <tr><td>Type</td><td>Can be transverse or longitudinal</td><td>Always transverse</td></tr>
+    <tr><td>Speed in vacuum</td><td>Cannot exist in vacuum</td><td>\(c = 3.00 \times 10^8\) m s⁻¹</td></tr>
+    <tr><td>Speed depends on…</td><td>Medium properties (density, stiffness)</td><td>Same for all EM waves in vacuum; varies slightly in materials</td></tr>
+    <tr><td>Examples</td><td>Sound, water waves, seismic waves</td><td>Light, radio, X-rays, microwaves, gamma rays</td></tr>
+  </table>
+</div>
+
+<div class="lc-card">
+  <div class="lc-success">
+    <div class="lc-tag-title">Critical thinking — Why can't transverse waves travel through gases?</div>
+    Transverse mechanical waves require a restoring force perpendicular to the direction of propagation. This requires the medium to sustain <strong>shear stress</strong>. Gases (and bulk liquids) have no fixed molecular structure and cannot resist shear — their molecules simply slide past each other. Hence only longitudinal (compression) waves can propagate. This explains why seismic S-waves (transverse) cannot pass through Earth's liquid outer core, while P-waves (longitudinal) can — giving evidence for the core's liquid state.
+  </div>
+  <div class="lc-success">
+    <div class="lc-tag-title">Critical thinking — Water surface waves: truly transverse?</div>
+    We often call water surface waves “transverse,” but this is a simplification. In deep water, individual water particles actually move in <strong>circles</strong> (or ellipses in shallow water) — combining both vertical and horizontal motion. The surface appears to move transversely, but the underlying particle motion is more complex. This is a good example of how models simplify reality.
+  </div>
+</div>
+
+<div class="lc-section">Exam-style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-top"><span class="lc-exam-tag">Q1 · State</span><span class="lc-exam-marks">[2]</span></div>
+  <div class="lc-exam-q">State the key difference between a transverse wave and a longitudinal wave, in terms of particle displacement relative to the direction of energy transfer.</div>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">Transverse: particle displacement is perpendicular (at right angles) to the direction of energy transfer. ✓ Longitudinal: particle displacement is parallel to the direction of energy transfer. ✓</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-top"><span class="lc-exam-tag">Q2 · Apply</span><span class="lc-exam-marks">[3]</span></div>
+  <div class="lc-exam-q">A transverse wave propagates to the right along a string. Three points on the string are shown. Indicate the direction each will move in the next instant.</div>
+  <div class="lc-img" style="margin-top:0.6rem">
+    <img src="https://i.postimg.cc/65Rynvm2/image.png" alt="Transverse wave on a string with three marked points to determine next motion.">
+  </div>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">Shift the wave slightly to the right and move each point vertically toward the shifted profile: a point just behind a crest moves up; a point just ahead of a crest moves down; a point at a crest is momentarily stationary. ✓✓✓</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-top"><span class="lc-exam-tag">Q3 · Graph</span><span class="lc-exam-marks">[4]</span></div>
+  <div class="lc-exam-q">A displacement–distance graph for a longitudinal wave travelling to the right is given. Positive displacement = motion to the right.<br>(a) State the wavelength.<br>(b) Mark on the graph one position where a compression occurs and one where a rarefaction occurs.<br>(c) At the points x = 1.0 m and x = 3.0 m, draw arrows showing the direction of particle velocity.</div>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) Wavelength read directly as the distance between repeating features. ✓<br>(b) Compression = zero displacement with negative gradient; rarefaction = zero displacement with positive gradient. ✓✓<br>(c) Velocity arrows point toward where each particle moves next (use the small-shift method). ✓</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-top"><span class="lc-exam-tag">Q4 · Explain</span><span class="lc-exam-marks">[3]</span></div>
+  <div class="lc-exam-q">State and explain two differences between an electromagnetic wave and a sound wave.</div>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">EM waves need no medium (can travel through vacuum) while sound requires a medium. ✓ EM waves are transverse (oscillating E and B fields) while sound is longitudinal (compressions and rarefactions). ✓ EM waves travel at \(c = 3.0\times10^8\) m s⁻¹ in vacuum, far faster than sound (~340 m s⁻¹ in air). ✓</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-top"><span class="lc-exam-tag">Q5 · Explain</span><span class="lc-exam-marks">[3]</span></div>
+  <div class="lc-exam-q">Explain why seismic S-waves (transverse) cannot travel through Earth's liquid outer core, but P-waves (longitudinal) can. What does this tell us about the state of the outer core?</div>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">Transverse waves need a medium that can sustain shear stress. Liquids cannot resist shear, so S-waves are not transmitted through the liquid outer core. ✓ Longitudinal P-waves rely on compression, which liquids can transmit, so they pass through. ✓ The absence of S-waves through the core is evidence that the outer core is liquid. ✓</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-top"><span class="lc-exam-tag">Q6 · Deduce</span><span class="lc-exam-marks">[4]</span></div>
+  <div class="lc-exam-q">The displacement–position graph for a longitudinal wave shows four particles P, Q, R, and S. The wave travels to the right. P is at maximum negative displacement. Q is at a zero crossing with negative gradient. R is at maximum positive displacement. S is at a zero crossing with positive gradient.<br>(a) State the amplitude of the wave. [1]<br>(b) State which particle is at the centre of a compression. Explain. [2]<br>(c) A quarter period later, state the displacement of particle P. [1]</div>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) Amplitude = the maximum displacement magnitude shown on the graph. ✓<br>(b) Q — at a zero crossing with negative gradient, neighbouring particles move toward Q, crowding together → compression. ✓✓<br>(c) A quarter period later P returns to zero displacement (it moves from the extreme toward equilibrium). ✓</div>
+</div>
+
+<script>
+  window.lcToggleModel = function(btn) {
+    var ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([ma]);
+  };
+</script>
+
+<script>
+  (function(){
+    window.addEventListener('storage', function(e){ if(e.key==='phyq-theme'){ document.documentElement.dataset.theme = e.newValue||'dark'; } });
+    function postH(){
+      var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      parent.postMessage({ __lessonEmbed:true, h:h }, '*');
+    }
+    window.addEventListener('load', function(){ postH(); setTimeout(postH,250); setTimeout(postH,700); });
+    if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
+      MathJax.startup.promise.then(function(){ postH(); setTimeout(postH,200); });
+    }
+    if (window.ResizeObserver) new ResizeObserver(postH).observe(document.body);
+    document.addEventListener('click', function(){ setTimeout(postH,90); });
+    document.addEventListener('input', function(){ setTimeout(postH,90); });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newton's Law of Gravitation — D.1 Gravitational Fields — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#D1">D.1 Gravitational Fields</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Newton's Law of Gravitation</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#F5A623;background:#F5A62318;padding:0.2rem 0.6rem;border-radius:6px">D.1</span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 1 of 5</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Newton's Law of Gravitation</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">D.1 Gravitational Fields</strong> · Unit D — IB Physics 2023</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">← Back to D.1 overview</a>
+      <div class="sidebar-title">D.1 Concepts</div>
+      <a href="01-newton-s-law-of-gravitation.html" class="sidebar-link active">
+          <span class="sidebar-num">01</span>
+          <span>Newton's Law of Gravitation</span>
+        </a>
+      <a href="02-gravitational-field-strength.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Gravitational Field Strength</span>
+        </a>
+      <a href="03-gravitational-potential.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Gravitational Potential</span>
+        </a>
+      <a href="04-orbital-mechanics.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Orbital Mechanics</span>
+        </a>
+      <a href="05-kepler-s-laws.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Kepler's Laws</span>
+        </a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:1rem 1.4rem;margin:0.85rem 0;
+  text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .katex { font-size:1.35rem;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
+  margin-bottom:0.35rem;font-family:var(--font-sans); }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+
+/* ── Interactive slider lab ── */
+.lc-slider-lab { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem; }
+.lc-slider-lab h4 { font-size:0.95rem;font-weight:600;margin:0 0 0.5rem 0;color:var(--accent); }
+.lc-slider-lab canvas { width:100%;height:auto;background:var(--surface);
+  border-radius:8px;margin-top:0.5rem;border:1px solid var(--border); }
+.lc-slider-lab input[type=range] { width:100%;margin:0.5rem 0;accent-color:var(--accent); }
+.lc-slider-lab .lc-slider-value { font-family:var(--font-mono);font-size:0.85rem;
+  text-align:center;color:var(--text-2); }
+.lc-slider-row { display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:0.25rem; }
+.lc-slider-row label { font-size:0.78rem;font-weight:600;color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:0.15rem; }
+.lc-slider-row .lc-slider-col { flex:1;min-width:140px; }
+</style>
+
+<!-- ── SECTION A: HEADER ── -->
+<div class="lc-badge"><span>1</span> Lesson 1 of 6 · D.1 Gravitational Fields</div>
+<div class="lc-title">Newton's Universal Law of Gravitation</div>
+<div class="lc-sub">Why does the Moon stay in orbit instead of flying away? The same force that pulls an apple to the ground reaches across 384 000 km of space — and its secret is an inverse‑square law.</div>
+
+<!-- ── SECTION B: HOOK & DIAGNOSTIC ── -->
+<div class="lc-card">
+  <h3>🍎 Hook – the apple and the Moon</h3>
+  <p>In 1666, Isaac Newton watched an apple fall from a tree in his garden. He asked a revolutionary question: <strong>if gravity reaches to the top of the tallest tree, could it reach all the way to the Moon?</strong> He realised the Moon is constantly "falling" towards Earth — but because it also moves sideways, it keeps missing and stays in orbit. The same force that makes an apple drop with an acceleration of \(g \approx 9.81\ \text{m s}^{-2}\) also provides the centripetal acceleration that keeps the Moon in its circular path.</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/fTpSF39Q/image.png" alt="Newton's apple tree and the Moon orbiting Earth">
+    <div class="lc-cap">Fig 1 — Newton's insight: the force pulling an apple to the ground is the same force that keeps the Moon in orbit around Earth.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — The Moon is about 60 Earth radii away from us. If gravity follows an inverse‑square law, by what factor is the gravitational acceleration at the Moon's distance weaker than at Earth's surface? <em>Answer: \(1/60^2 = 1/3600\), so \(a_{\text{Moon}} \approx g/3600 \approx 2.7 \times 10^{-3}\ \text{m s}^{-2}\).</em></div>
+</div>
+
+<!-- ── SECTION C: CORE KNOWLEDGE ── -->
+<div class="lc-card">
+  <h3>📐 Newton's universal law of gravitation</h3>
+  <p>Every <strong>point mass</strong> attracts every other point mass with a force that is:</p>
+  <p>• <strong>Proportional to the product of the masses</strong>: \(F \propto m_1 \times m_2\)<br>
+  • <strong>Inversely proportional to the square of their separation</strong>: \(F \propto 1/r^2\)<br>
+  • <strong>Always attractive</strong> — it acts along the line joining the centres of the two masses.</p>
+
+  <div class="lc-formula">
+    <span class="lc-formula-label">Newton's universal law of gravitation</span>
+    $$F = G\,\frac{m_1 m_2}{r^2}$$
+  </div>
+
+  <p>where \(G = 6.67 \times 10^{-11}\ \text{N m}^2\text{ kg}^{-2}\) is the <strong>universal gravitational constant</strong>. The small value of \(G\) means gravitational forces are tiny unless at least one mass is enormous (like a planet).</p>
+
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/J0g09gtk/image.png" alt="Two point masses with equal and opposite gravitational force vectors">
+    <div class="lc-cap">Fig 2 — Gravitational forces between two point masses: equal magnitude, opposite direction (Newton's third law). The force on \(m_1\) is exactly the same size as the force on \(m_2\), even if the masses are different.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🌍 When can we treat extended objects as point masses?</h3>
+  <p>The formula \(F = G m_1 m_2 / r^2\) applies strictly to <strong>point masses</strong>. However, it also works perfectly for real objects under two conditions:</p>
+  <p>1. The objects are <strong>uniform spheres</strong> — then all their mass can be considered concentrated at their centres.<br>
+  2. The <strong>separation is much larger</strong> than the objects' own dimensions.</p>
+  <p>For a book on Earth's surface, the distance \(r\) is measured from the book to the <strong>centre</strong> of the Earth, not the surface. The Earth's radius is \(R_{\text{E}} \approx 6.4 \times 10^6\ \text{m}\).</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/zfjBJ3Vh/image.png" alt="Planet with cutaway showing mass concentrated at centre">
+    <div class="lc-cap">Fig 3 — For a uniform sphere, all mass can be treated as if it is concentrated at the centre. The distance \(r\) is measured between centres.</div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Linking G to g — gravitational field strength</span>
+    $$g = \frac{F}{m} = \frac{GM}{r^2}$$
+  </div>
+  <p>On Earth's surface: \(g = \dfrac{G M_{\text{E}}}{R_{\text{E}}^2} \approx 9.81\ \text{N kg}^{-1}\). This is the <strong>equivalence principle</strong>: inertial mass (in \(F=ma\)) and gravitational mass (in \(F=GMm/r^2\)) are identical to within 1 part in \(10^{15}\).</p>
+</div>
+
+<!-- ── SECTION D: INTERACTIVE SLIDER LAB ── -->
+<div class="lc-slider-lab">
+  <h4>🔬 Interactive lab 1 – Exploring \(F = G m_1 m_2 / r^2\)</h4>
+  <p style="font-size:0.86rem;color:var(--text-2);margin-bottom:0.25rem">Drag the sliders to change the masses and separation. Watch the force readout update and see the force‑vs‑distance graph trace the inverse‑square curve.</p>
+
+  <div class="lc-slider-row">
+    <div class="lc-slider-col">
+      <label for="slider-m1">Mass \(m_1\) / kg</label>
+      <input type="range" id="slider-m1" min="1" max="100" value="10" step="1">
+    </div>
+    <div class="lc-slider-col">
+      <label for="slider-m2">Mass \(m_2\) / kg</label>
+      <input type="range" id="slider-m2" min="1" max="100" value="20" step="1">
+    </div>
+    <div class="lc-slider-col">
+      <label for="slider-r">Separation \(r\) / m</label>
+      <input type="range" id="slider-r" min="1" max="20" value="5" step="0.1">
+    </div>
+  </div>
+
+  <canvas id="gravCanvas" width="600" height="280"></canvas>
+
+  <div class="lc-slider-value">
+    \(m_1\) = <span id="val-m1">10</span> kg &nbsp;|&nbsp;
+    \(m_2\) = <span id="val-m2">20</span> kg &nbsp;|&nbsp;
+    \(r\) = <span id="val-r">5.0</span> m &nbsp;|&nbsp;
+    <strong>\(F\) = <span id="val-F">5.34e-10</span> N</strong>
+  </div>
+  <div class="lc-info" style="margin-top:0.5rem">💡 <strong>What to notice:</strong> Set \(m_1 = m_2 = 10\) kg and \(r = 1\) m → \(F \approx 6.67 \times 10^{-9}\) N. Now double \(r\) to 2 m → \(F\) drops to one‑quarter. Double both masses → \(F\) quadruples. The graph traces a hyperbola — force never reaches zero at any finite distance.</div>
+</div>
+
+<!-- ── SECTION E: GRAPH MASTERY TABLE ── -->
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Force vs distance</td><td>\(r\) / m, \(F\) / N</td><td>Hyperbolic decay; asymptotically approaches zero</td><td>Inverse‑square behaviour: doubling \(r\) quarters \(F\). Never touches axes — force is zero only at infinity.</td></tr>
+      <tr><td>Force vs \(1/r^2\) (linearised)</td><td>\(1/r^2\) / m⁻², \(F\) / N</td><td>Straight line through origin</td><td>Gradient = \(G m_1 m_2\). Used to verify the law and determine \(G\) experimentally.</td></tr>
+      <tr><td>\(\log F\) vs \(\log r\)</td><td>\(\log(r)\) , \(\log(F)\)</td><td>Straight line, gradient = –2</td><td>The slope tests the exponent: slope = –2 confirms \(F \propto 1/r^2\). Intercept = \(\log(G m_1 m_2)\).</td></tr>
+      <tr><td>Force‑bar comparison</td><td>Object A, Object B</td><td>Two equal‑height bars</td><td>Forces are always equal and opposite, regardless of mass difference (Newton's 3rd law).</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img">
+      <img src="https://i.postimg.cc/QNWF78z4/image.png" alt="F vs r graph showing hyperbolic decay">
+      <div class="lc-cap">Fig 4 — Gravitational force vs distance: as \(r\) increases, \(F\) decays following \(1/r^2\). The force approaches zero but never reaches it at any finite distance.</div>
+    </div>
+    <div class="lc-img">
+      <img src="https://i.postimg.cc/V60kXgKy/image.png" alt="F vs 1/r² graph showing straight line through origin">
+      <div class="lc-cap">Fig 5 — Linearised graph: plotting \(F\) against \(1/r^2\) yields a straight line through the origin, confirming the inverse‑square relationship.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION F: WORKED EXAMPLE ── -->
+<div class="lc-card">
+  <h3>✍️ Worked example – gravitational force on a 1.0 kg book</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> We need the gravitational force between a 1.0 kg book and the Earth. Since the Earth is a uniform sphere, we can treat both as point masses with all mass at their centres. The separation \(r\) is the Earth's radius.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m_{\text{book}} = 1.0\ \text{kg}\), \(M_{\text{E}} = 6.0 \times 10^{24}\ \text{kg}\), \(R_{\text{E}} = 6.4 \times 10^{6}\ \text{m}\), \(G = 6.67 \times 10^{-11}\ \text{N m}^2\text{ kg}^{-2}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(F = G\,\dfrac{m_{\text{book}}\,M_{\text{E}}}{R_{\text{E}}^2}\). Substitute: \(F = \dfrac{(6.67 \times 10^{-11}) \times 1.0 \times (6.0 \times 10^{24})}{(6.4 \times 10^6)^2}\). Denominator: \((6.4 \times 10^6)^2 = 4.096 \times 10^{13}\). Numerator: \(6.67 \times 10^{-11} \times 6.0 \times 10^{24} = 4.002 \times 10^{14}\). Division: \(4.002 \times 10^{14} / 4.096 \times 10^{13} = 9.77\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(F \approx 9.8\ \text{N}\). This is exactly the weight of a 1.0 kg mass — confirming that \(W = mg\) is a special case of Newton's universal law.</div></div>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/zGdzM6M1/image.png" alt="Diagram of Earth with 1.0 kg book on surface showing radius">
+    <div class="lc-cap">Fig 6 — Geometry for the worked example: the distance \(r\) is measured from the book to the centre of the Earth.</div>
+  </div>
+</div>
+
+<!-- ── SECTION G: REAL-WORLD + HL EXTENSION ── -->
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔧 Real-world: "weighing the Earth" – the Cavendish experiment</h3>
+    <p>In 1798, Henry Cavendish used a torsion balance with small and large lead spheres to measure \(G\) directly for the first time. Once \(G\) was known, Earth's mass could be calculated from \(g = GM/R^2\). This was called <strong>"weighing the Earth"</strong> — one of the most precise experiments of its era.</p>
+    <div class="lc-img">
+      <img src="https://i.postimg.cc/Xqvx2Zy4/image001.gif" alt="Cavendish torsion balance apparatus">
+      <div class="lc-cap">Fig 7 — Cavendish's torsion balance: small lead masses on a suspended rod are attracted to larger stationary masses, twisting a fine wire. The tiny twist angle reveals \(G\).</div>
+    </div>
+    <div class="lc-success">✓ Examiner tip: when a question asks about "weighing the Earth", it means determining \(G\) (or \(M_{\text{E}}\)) from a direct force measurement between known masses.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – deriving Kepler's third law</h3>
+    <p>For a small mass \(m\) orbiting a large mass \(M\) in a circular orbit, gravity provides the centripetal force:</p>
+    <div class="lc-formula">
+      $$\frac{G M m}{r^2} = \frac{m v^2}{r} \;\Rightarrow\; v^2 = \frac{GM}{r}$$
+    </div>
+    <p>With \(v = \dfrac{2\pi r}{T}\): \(\left(\dfrac{2\pi r}{T}\right)^2 = \dfrac{GM}{r}\), giving:</p>
+    <div class="lc-formula">
+      $$\frac{r^3}{T^2} = \frac{GM}{4\pi^2} = \text{constant}$$
+    </div>
+    <p>This is <strong>Kepler's third law</strong> for circular orbits. Newton showed it is a consequence of the inverse‑square law.<br>
+    <strong>Challenge:</strong> Jupiter's moon Io orbits at \(r = 4.22 \times 10^8\) m with \(T = 1.53 \times 10^5\) s. Calculate Jupiter's mass. <em>(Answer: \(M_{\text{J}} \approx 1.90 \times 10^{27}\) kg)</em></p>
+  </div>
+</div>
+
+<!-- ── SECTION H: MISCONCEPTIONS / TRAP CORNER ── -->
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"The bigger mass exerts a larger force on the smaller mass."</td><td>The forces are <strong>always equal</strong> and opposite (Newton's 3rd law). \(F_{A\text{ on }B} = F_{B\text{ on }A}\).</td></tr>
+      <tr><td>"\(G\) and \(g\) are the same thing."</td><td>\(G = 6.67 \times 10^{-11}\ \text{N m}^2\text{ kg}^{-2}\) is a universal constant. \(g \approx 9.81\ \text{N kg}^{-1}\) is the local gravitational field strength at Earth's surface. They are related by \(g = GM/R^2\).</td></tr>
+      <tr><td>"Doubling the distance halves the force."</td><td>Doubling \(r\) makes the force <strong>one‑quarter</strong> of its original value: \(1/2^2 = 1/4\), not \(1/2\).</td></tr>
+      <tr><td>"The force becomes zero at a large enough distance."</td><td>The force <strong>approaches</strong> zero as \(r \to \infty\) but is never exactly zero at any finite distance.</td></tr>
+      <tr><td>"\(r\) is measured from the surface of the planet."</td><td>\(r\) is always measured from the <strong>centre</strong> of the mass (or between centres for two extended objects).</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common exam slip: using the planet's radius when the question gives altitude above the surface. If a satellite is 300 km above Earth, \(r = R_{\text{E}} + 300\ \text{km} = 6.4 \times 10^6 + 3.0 \times 10^5 = 6.7 \times 10^6\) m. Always add altitude to radius!</div>
+</div>
+
+<!-- ── SECTION I: KEY POINTS PILLS ── -->
+<div class="lc-kp">
+  <span>\(F = G m_1 m_2 / r^2\)</span>
+  <span>\(G = 6.67 \times 10^{-11}\)</span>
+  <span>\(F \propto 1/r^2\)</span>
+  <span>Point masses / uniform spheres</span>
+  <span>\(g = GM / r^2\)</span>
+  <span>Newton's 3rd law: equal forces</span>
+  <span>Linearise: \(F\) vs \(1/r^2\)</span>
+</div>
+
+<!-- ── SECTION J: MCQ PRACTICE ── -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Two stars of equal mass are separated by a distance \(d\). The gravitational force each exerts on the other is \(F\). If the separation is doubled to \(2d\), the force becomes:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> \(F/2\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> \(F/4\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> \(2F\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> \(4F\)</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Which graph best shows how the gravitational force \(F\) between two fixed masses varies with their separation \(r\)?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> Straight line through origin</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> Straight horizontal line</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> Decreasing curve (hyperbolic)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> Increasing curve</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. The gravitational force between two 1.0 kg masses placed 1.0 m apart is \(F_0\). What is the force when each mass is 2.0 kg and the distance is 0.5 m?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> \(F_0\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> \(4F_0\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> \(8F_0\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> \(16F_0\)</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A communications satellite of mass \(m\) orbits Earth of mass \(M\) at distance \(r\). The gravitational force on the satellite is \(F_{\text{s}}\) and the force on Earth is \(F_{\text{E}}\). Which statement is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> \(F_{\text{s}} > F_{\text{E}}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> \(F_{\text{s}} < F_{\text{E}}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> \(F_{\text{s}} = F_{\text{E}}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> It depends on the satellite's mass</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<!-- ── SECTION K: FILL IN THE BLANKS ── -->
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Newton's law of gravitation states that the force between two point masses is proportional to the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:80px"> of the masses and <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> proportional to the <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:60px"> of their separation. The universal gravitational constant \(G\) has units of <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- ── SECTION L: EXAM-STYLE QUESTIONS ── -->
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State & Calculate</div>
+  <div class="lc-exam-q">(a) State Newton's universal law of gravitation in words. <span class="lc-exam-marks">[2 marks]</span><br>
+  (b) The Earth (\(5.97 \times 10^{24}\) kg) and the Sun (\(1.99 \times 10^{30}\) kg) are \(1.50 \times 10^{11}\) m apart. Calculate the gravitational force exerted by the Sun on the Earth. <span class="lc-exam-marks">[3 marks]</span><br>
+  (c) Explain why the Earth can be treated as a point mass in this calculation. <span class="lc-exam-marks">[1 mark]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ The force between two point masses is directly proportional to the product of the masses; ✓ and inversely proportional to the square of their separation.<br>
+  (b) ✓ \(F = G M m / r^2\) ✓ \(= (6.67 \times 10^{-11}) \times (1.99 \times 10^{30}) \times (5.97 \times 10^{24}) / (1.50 \times 10^{11})^2\) ✓ \(= 3.52 \times 10^{22}\) N (accept \(3.5 \times 10^{22}\) N).<br>
+  (c) ✓ The Earth's radius is negligible compared with the Earth–Sun distance, so all mass can be treated as concentrated at the centre.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Data analysis & graph</div>
+  <div class="lc-exam-q">A student investigates the inverse‑square law by measuring the gravitational force \(F\) on a 1.0 kg test mass placed at different distances \(r\) from a fixed planet. Her data are shown below.<br><br>
+  <table style="width:100%;text-align:center;font-size:0.84rem;border-collapse:collapse;margin-bottom:0.5rem">
+    <tr><td>\(r\) / m</td><td>2.0</td><td>4.0</td><td>6.0</td><td>8.0</td><td>10.0</td></tr>
+    <tr><td>\(F\) / 10⁻⁹ N</td><td>25.0</td><td>6.25</td><td>2.78</td><td>1.56</td><td>1.00</td></tr>
+  </table>
+  (a) Suggest how a linear graph can be plotted to verify the inverse‑square relationship. <span class="lc-exam-marks">[2 marks]</span><br>
+  (b) State what the gradient of this linear graph represents. <span class="lc-exam-marks">[1 mark]</span><br>
+  (c) If the planet's mass is \(5.0 \times 10^{23}\) kg and the test mass is 1.0 kg, use the gradient to estimate a value for \(G\). <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Plot \(F\) against \(1/r^2\). ✓ If the inverse‑square law holds, the graph will be a straight line through the origin.<br>
+  (b) ✓ Gradient = \(G M m_{\text{test}}\) (or \(G M\) if test mass is 1.0 kg).<br>
+  (c) ✓ Calculate \(1/r^2\) values: 0.25, 0.0625, 0.0278, 0.0156, 0.0100 m⁻². Gradient ≈ \((25.0 - 0) / (0.25 - 0) = 100 \times 10^{-9}\) N m². ✓ \(G = \text{gradient} / (M m_{\text{test}}) = 1.00 \times 10^{-7} / (5.0 \times 10^{23} \times 1.0) = 2.0 \times 10^{-31}\) N m² kg⁻². (Note: this is a simplified data set for practice; the real \(G\) is \(6.67 \times 10^{-11}\).)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain & Compare</div>
+  <div class="lc-exam-q">A student says: "The gravitational force on a 10 kg mass is ten times greater than the force on a 1 kg mass at the same location, because gravity pulls harder on bigger masses."<br>
+  (a) Explain whether the student is correct about the magnitude of the force. <span class="lc-exam-marks">[2 marks]</span><br>
+  (b) Using the equivalence principle, explain why all objects fall with the same acceleration \(g\) near Earth's surface despite having different masses. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ The student is correct about force magnitude: \(F = G M m / r^2\), so doubling the mass doubles the force. ✓ However, the force on Earth from the mass is exactly the same size (Newton's 3rd law) — the student's phrasing "pulls harder" may imply a one‑way force, which is incorrect.<br>
+  (b) ✓ By the equivalence principle, inertial mass (\(m\) in \(F = ma\)) and gravitational mass (\(m\) in \(F = G M m / r^2\)) are identical. ✓ So \(a = F/m = (G M m / r^2)/m = G M / r^2 = g\), which is independent of the object's mass. All objects experience the same gravitational acceleration.</div>
+</div>
+
+<!-- ── SECTION M: SCORE DISPLAY ── -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<!-- ── SECTION N: JAVASCRIPT ── -->
+<script>
+// ── QUIZ IIFE ──
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { B: '✓ Correct! Force ∝ 1/r², so doubling r gives (1/2)² = 1/4 of the original force.' },
+    mcq2: { C: '✓ Correct! The inverse‑square relationship produces a hyperbolic decay — force drops rapidly then flattens, asymptotically approaching zero.' },
+    mcq3: { D: '✓ Correct! Mass product factor = 2×2 = 4, distance factor = 1/(0.5)² = 4. Overall factor = 4×4 = 16F₀.' },
+    mcq4: { C: '✓ Correct! Newton\'s third law: the forces are always equal and opposite, regardless of the masses.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = lcFeedback[id][correct] || '✓ Correct!';
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + (lcFeedback[id][correct] || '');
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'product', lf2:'inversely', lf3:'square', lf4:'N m2 kg-2' };
+    const aliases = { lf4: ['N m^2 kg^-2', 'Nm2kg-2', 'N·m²·kg⁻²', 'N m² kg⁻²', 'N m² kg⁻²', 'N m2 kg-2', 'N m^2 / kg^2', 'm3 kg-1 s-2'] };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase().replace(/\s+/g,' ');
+      const ok = val === ans[id] || (aliases[id] && aliases[id].some(a => val === a.toLowerCase().replace(/\s+/g,' '))) || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: product · inversely · square · N m² kg⁻²';
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+
+// ── THEME-AWARE HELPER ──
+function getThemeColor(varName) {
+  return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+}
+
+// ── INTERACTIVE LAB: GRAVITATIONAL FORCE ──
+const gravCanvas = document.getElementById('gravCanvas');
+const gravCtx = gravCanvas.getContext('2d');
+
+function drawGravLab() {
+  const w = gravCanvas.width, h = gravCanvas.height;
+  gravCtx.clearRect(0, 0, w, h);
+
+  // Theme colours
+  const surface3 = getThemeColor('--surface3') || '#e8e6e2';
+  const gold = getThemeColor('--gold') || '#b8860b';
+  const accent = getThemeColor('--accent') || '#1a73e8';
+  const green = getThemeColor('--green') || '#2e7d32';
+  const textMuted = getThemeColor('--text-muted') || '#666';
+  const border2 = getThemeColor('--border-2') || '#ccc';
+
+  gravCtx.fillStyle = surface3;
+  gravCtx.fillRect(0, 0, w, h);
+
+  const m1 = parseFloat(document.getElementById('slider-m1').value);
+  const m2 = parseFloat(document.getElementById('slider-m2').value);
+  const r = parseFloat(document.getElementById('slider-r').value);
+  const G = 6.67e-11;
+  const F = G * m1 * m2 / (r * r);
+
+  // Update value displays
+  document.getElementById('val-m1').textContent = m1;
+  document.getElementById('val-m2').textContent = m2;
+  document.getElementById('val-r').textContent = r.toFixed(1);
+  document.getElementById('val-F').textContent = F.toExponential(2);
+
+  // ── Left panel: force‑vector diagram ──
+  const cx1 = 140, cy = 140;
+  const maxForceForScale = G * 100 * 100 / (1 * 1); // ~6.67e-7 N
+  const scale = Math.min(80, 80 * (F / maxForceForScale) + 5);
+
+  // Mass 1 (left)
+  gravCtx.beginPath();
+  gravCtx.arc(cx1 - 60, cy, 18, 0, Math.PI * 2);
+  gravCtx.fillStyle = gold;
+  gravCtx.fill();
+  gravCtx.strokeStyle = border2;
+  gravCtx.stroke();
+  gravCtx.fillStyle = textMuted;
+  gravCtx.font = '12px sans-serif';
+  gravCtx.textAlign = 'center';
+  gravCtx.fillText('m₁', cx1 - 60, cy + 35);
+
+  // Mass 2 (right)
+  gravCtx.beginPath();
+  gravCtx.arc(cx1 + 60, cy, 18, 0, Math.PI * 2);
+  gravCtx.fillStyle = accent;
+  gravCtx.fill();
+  gravCtx.stroke();
+  gravCtx.fillText('m₂', cx1 + 60, cy + 35);
+
+  // Force arrows
+  gravCtx.strokeStyle = green;
+  gravCtx.lineWidth = 3;
+  gravCtx.beginPath();
+  gravCtx.moveTo(cx1 - 60 + 20, cy);
+  gravCtx.lineTo(cx1 - 60 + 20 + scale, cy);
+  gravCtx.stroke();
+  gravCtx.beginPath();
+  gravCtx.moveTo(cx1 - 60 + 20 + scale - 6, cy - 5);
+  gravCtx.lineTo(cx1 - 60 + 20 + scale, cy);
+  gravCtx.lineTo(cx1 - 60 + 20 + scale - 6, cy + 5);
+  gravCtx.stroke();
+
+  gravCtx.beginPath();
+  gravCtx.moveTo(cx1 + 60 - 20, cy);
+  gravCtx.lineTo(cx1 + 60 - 20 - scale, cy);
+  gravCtx.stroke();
+  gravCtx.beginPath();
+  gravCtx.moveTo(cx1 + 60 - 20 - scale + 6, cy - 5);
+  gravCtx.lineTo(cx1 + 60 - 20 - scale, cy);
+  gravCtx.lineTo(cx1 + 60 - 20 - scale + 6, cy + 5);
+  gravCtx.stroke();
+
+  gravCtx.fillStyle = green;
+  gravCtx.font = 'bold 11px sans-serif';
+  gravCtx.fillText('F', cx1 - 60 + 20 + scale/2, cy - 10);
+  gravCtx.fillText('F', cx1 + 60 - 20 - scale/2, cy - 10);
+
+  // ── Right panel: F vs r graph ──
+  const gx0 = 300, gy0 = 20, gw = 280, gh = 240;
+  gravCtx.strokeStyle = border2;
+  gravCtx.lineWidth = 0.5;
+  gravCtx.strokeRect(gx0, gy0, gw, gh);
+
+  // Axes labels
+  gravCtx.fillStyle = textMuted;
+  gravCtx.font = '10px sans-serif';
+  gravCtx.textAlign = 'center';
+  gravCtx.fillText('r / m →', gx0 + gw/2, gy0 + gh + 16);
+  gravCtx.save();
+  gravCtx.translate(gx0 - 14, gy0 + gh/2);
+  gravCtx.rotate(-Math.PI/2);
+  gravCtx.fillText('F / N →', 0, 0);
+  gravCtx.restore();
+
+  // Plot theoretical curve
+  gravCtx.strokeStyle = accent;
+  gravCtx.lineWidth = 2;
+  gravCtx.beginPath();
+  for (let i = 0; i <= 100; i++) {
+    const rx = 0.2 + (20 - 0.2) * i / 100;
+    const Fy = G * m1 * m2 / (rx * rx);
+    const px = gx0 + (rx / 20) * gw;
+    const Fmax = G * m1 * m2 / (0.2 * 0.2);
+    const py = gy0 + gh - (Fy / Fmax) * gh;
+    if (i === 0) gravCtx.moveTo(px, py);
+    else gravCtx.lineTo(px, py);
+  }
+  gravCtx.stroke();
+
+  // Mark current point
+  const pxNow = gx0 + (r / 20) * gw;
+  const FmaxNow = G * m1 * m2 / (0.2 * 0.2);
+  const Fnow = G * m1 * m2 / (r * r);
+  const pyNow = gy0 + gh - (Fnow / FmaxNow) * gh;
+  gravCtx.beginPath();
+  gravCtx.arc(pxNow, pyNow, 5, 0, Math.PI * 2);
+  gravCtx.fillStyle = green;
+  gravCtx.fill();
+  gravCtx.strokeStyle = '#fff';
+  gravCtx.lineWidth = 1.5;
+  gravCtx.stroke();
+
+  gravCtx.fillStyle = textMuted;
+  gravCtx.font = '9px monospace';
+  gravCtx.textAlign = 'left';
+  gravCtx.fillText('r=' + r.toFixed(1) + ' m', pxNow + 8, pyNow - 4);
+}
+
+document.getElementById('slider-m1').addEventListener('input', drawGravLab);
+document.getElementById('slider-m2').addEventListener('input', drawGravLab);
+document.getElementById('slider-r').addEventListener('input', drawGravLab);
+drawGravLab();
+
+window.drawGravLab = drawGravLab;
+
+// ── KATEX AUTO-RENDER ──
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '\\(', right: '\\)', display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+</script>
+      </div>
+      </div>
+
+      <div class="lesson-nav">
+        <a href="../C.5-Doppler/index.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Doppler Effect</div>
+          </div>
+        </a>
+        <a href="02-gravitational-field-strength.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Gravitational Field Strength</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

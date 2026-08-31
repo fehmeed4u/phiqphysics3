@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electric Field Strength — D.2 Electric and Magnetic Fields — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#D2">D.2 Electric and Magnetic Fields</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Electric Field Strength</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#F5A623;background:#F5A62318;padding:0.2rem 0.6rem;border-radius:6px">D.2</span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 2 of 5</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Electric Field Strength</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">D.2 Electric and Magnetic Fields</strong> · Unit D — IB Physics 2023</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">← Back to D.2 overview</a>
+      <div class="sidebar-title">D.2 Concepts</div>
+      <a href="01-coulomb-s-law.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Coulomb's Law</span>
+        </a>
+      <a href="02-electric-field-strength.html" class="sidebar-link active">
+          <span class="sidebar-num">02</span>
+          <span>Electric Field Strength</span>
+        </a>
+      <a href="03-electric-potential.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Electric Potential</span>
+        </a>
+      <a href="04-magnetic-fields-and-flux-density.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Magnetic Fields and Flux Density</span>
+        </a>
+      <a href="05-magnetic-flux.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Magnetic Flux</span>
+        </a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true
+  },
+  svg: {
+    fontCache: 'global',
+    scale: 1.15
+  },
+  startup: {
+    pageReady: function () {
+      return MathJax.startup.defaultPageReady();
+    }
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:1rem 1.4rem;margin:0.85rem 0;
+  text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
+  margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<!-- ═══ SECTION A — HEADER ═══ -->
+<div class="lc-badge"><span>1</span> Lesson 1 of 1 · D.2 Electric and Magnetic Fields</div>
+<div class="lc-title">Electric Field and Strength</div>
+<div class="lc-sub">Invisible forces shape every bolt of lightning and every circuit — learn to map and measure the electric field that makes it all happen.</div>
+
+<!-- ═══ SECTION B — HOOK & DIAGNOSTIC ═══ -->
+<div class="lc-card">
+  <h3>⚡ Hook – The invisible map</h3>
+  <p>Sprinkle iron filings near a charged balloon and they shift into sweeping arcs — revealing invisible lines of influence that reach across empty space. Place a second balloon nearby and the pattern warps, stretches, and merges. You're looking at an <strong>electric field</strong> — the same field that steers electrons through wires, drives lightning to the ground, and holds every atom together. <strong>The field is everywhere; charges just make it visible.</strong></p>
+  <div class="lc-img">
+    <img src="https://i.ibb.co/FbN7Lpr5/image.png" alt="Two positive charges with overlapping radial electric field lines curving away from each other">
+    <div class="lc-cap">Fig 1 — Two like charges repel: their field lines curve away from each other in the overlap region.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Think first</strong> — If you placed a tiny positive test charge exactly midway between two equal positive charges, would it feel a net force? <em>No — the two repulsive forces are equal in magnitude and opposite in direction, so they cancel. However, this is an unstable equilibrium; any slight displacement produces a net force away from the midpoint.</em></div>
+</div>
+
+<!-- ═══ SECTION C — CORE KNOWLEDGE ═══ -->
+<div class="lc-section">Core knowledge</div>
+
+<!-- Card 1: Electric field lines -->
+<div class="lc-card">
+  <h3>🧲 Electric field lines</h3>
+  <p>An <strong>electric field</strong> is a region of space in which a charged particle experiences an electric force. We visualise these fields with <strong>electric field lines</strong> — imaginary curves drawn so that at every point the line is tangent to the direction of force on a positive test charge.</p>
+  <p>By convention, field lines <strong>point away from positive charges</strong> and <strong>toward negative charges</strong>. They never cross each other. Where the lines are packed close together the field is <strong>strong</strong>; where they spread apart the field is <strong>weak</strong>.</p>
+  <p>Key patterns every IB student must recognise: a <strong>radial field</strong> around an isolated point charge (lines spread outward for positive, inward for negative), a <strong>dipole field</strong> between equal and opposite charges (lines leave + and curve into −), and a <strong>uniform field</strong> between parallel plates (equally spaced, straight, parallel lines from + plate to − plate). Field lines are always <strong>perpendicular to conducting surfaces</strong> — if they weren't, the component of force along the surface would push mobile electrons until equilibrium is restored.</p>
+  <div class="lc-img">
+    <img src="https://i.ibb.co/Kxd7rxs5/image.png" alt="Three field patterns: radial field around positive charge, radial field around negative charge, and dipole field between opposite charges">
+    <div class="lc-cap">Fig 2 — Three fundamental electric field patterns: positive point charge, negative point charge, and electric dipole.</div>
+  </div>
+  <div class="lc-info">ℹ️ On a charged conducting sphere, all excess charge sits on the outer surface. The field outside is identical to that of a point charge at the centre; the field inside is zero.</div>
+</div>
+
+<!-- Card 2: Electric field strength -->
+<div class="lc-card">
+  <h3>📐 Electric field strength</h3>
+  <p><strong>Electric field strength</strong> \(E\) is defined as the force per unit positive test charge at a point. It is a vector quantity whose direction is the direction of force on a positive test charge.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Electric field strength</span>
+    $$E = \dfrac{F}{q}$$
+  </div>
+  <p>The SI unit is N C⁻¹. For the special case of the <strong>uniform field between parallel metal plates</strong> separated by distance \(d\) with potential difference \(V\) across them, energy conservation gives \(W = Fd = Vq\), and rearranging yields:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Uniform field between parallel plates</span>
+    $$E = \dfrac{V}{d}$$
+  </div>
+  <p>This shows that V m⁻¹ is an equivalent unit for electric field strength. The field is constant in magnitude and direction everywhere between the plates (ignoring edge effects).</p>
+  <p>The <strong>electronvolt</strong> (eV) is a convenient energy unit at atomic scales. A charge \(e\) accelerated through 1 V gains exactly 1 eV of kinetic energy — so an electron accelerated through 3000 V gains 3000 eV, without further calculation needed.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Electronvolt</span>
+    $$1\;\text{eV} = 1.60 \times 10^{-19}\;\text{J}$$
+  </div>
+  <div class="lc-img">
+    <img src="https://i.ibb.co/Sw3jpr27/image.png" alt="Uniform electric field between parallel plates connected to a battery, with field lines, plate separation d, and voltage V labelled">
+    <div class="lc-cap">Fig 3 — Uniform electric field between parallel plates: straight, equally spaced field lines from + to −.</div>
+  </div>
+  <div class="lc-success">✓ <strong>Examiner tip:</strong> When a question gives voltage and plate separation, jump straight to \(E = V/d\) — there's no need to know the charge. This saves time and avoids errors.</div>
+</div>
+
+<!-- Card 3: Point charge field & combining fields -->
+<div class="lc-card">
+  <h3>🔬 Point charge field &amp; combining fields</h3>
+  <p>Coulomb's law and the definition \(E = F/q\) combine to give the field strength at distance \(r\) from a point charge \(q\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Field due to a point charge</span>
+    $$E = \dfrac{kq}{r^{2}}$$
+  </div>
+  <p>This is an <strong>inverse-square law</strong>: double the distance and the field drops to one quarter. The field points radially outward for a positive source charge and radially inward for a negative one.</p>
+  <p>Because electric field strength is a <strong>vector</strong>, fields from separate charges are combined by <strong>vector addition</strong>. On the line joining two charges this reduces to adding or subtracting magnitudes (with careful attention to direction). At off-axis points, use the parallelogram rule or resolve into components:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Resultant of perpendicular fields</span>
+    $$E_{\text{R}} = \sqrt{E_{1}^{2} + E_{2}^{2}} \qquad \theta = \arctan\!\left(\dfrac{E_{2}}{E_{1}}\right)$$
+  </div>
+  <div class="lc-img">
+    <img src="https://i.ibb.co/dwtWnYsJ/image.png" alt="Vector addition of two electric fields at point P using the parallelogram rule, showing resultant field and angle theta">
+    <div class="lc-cap">Fig 4 — Combining electric fields: the parallelogram rule gives the resultant \(E_{\text{R}}\) at point P.</div>
+  </div>
+  <div class="lc-warn">⚠️ When combining fields between two charges, direction matters. Between two positive charges the individual fields point in <strong>opposite</strong> directions — subtract magnitudes. Between a positive and a negative charge the fields point the <strong>same</strong> way — add them.</div>
+</div>
+
+<!-- ═══ SECTION D — GRAPH MASTERY TABLE ═══ -->
+<div class="lc-section">Graph mastery</div>
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>\(E\) vs \(r\)</td>
+        <td>X: distance \(r\) (m)<br>Y: field strength \(E\) (N C⁻¹)</td>
+        <td>Inverse-square curve, asymptotic to both axes</td>
+        <td>Field decreases rapidly with distance; at \(2r_0\) the field is \(\tfrac{1}{4}\) of its value at \(r_0\)</td>
+      </tr>
+      <tr>
+        <td>\(E\) vs \(1/r^2\)</td>
+        <td>X: \(1/r^2\) (m⁻²)<br>Y: field strength \(E\) (N C⁻¹)</td>
+        <td>Straight line through the origin</td>
+        <td>Gradient = \(kq\); use to determine source charge from data</td>
+      </tr>
+      <tr>
+        <td>\(E\) vs \(d\) (fixed \(V\))</td>
+        <td>X: plate separation \(d\) (m)<br>Y: field strength \(E\) (N C⁻¹)</td>
+        <td>Inverse (hyperbolic) curve</td>
+        <td>Halving the separation doubles the field; \(E = V/d\) at any point</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img">
+      <img src="https://i.ibb.co/PZHmWYwg/image.png" alt="Graph of electric field strength E versus distance r showing an inverse-square curve">
+      <div class="lc-cap">Fig 5 — \(E\) vs \(r\): inverse-square decay around a point charge.</div>
+    </div>
+    <div class="lc-img">
+      <img src="https://i.ibb.co/fYPcSspN/image.png" alt="Linearised graph of E versus 1 over r squared showing a straight line through the origin with gradient triangle">
+      <div class="lc-cap">Fig 6 — Linearised: \(E\) vs \(1/r^2\) gives gradient = \(kq\).</div>
+    </div>
+  </div>
+  <div class="lc-info">📏 <strong>Linearising trick:</strong> Plot \(E\) against \(1/r^2\). The relationship \(E = kq/r^2\) becomes \(E = (kq) \cdot (1/r^2)\), a straight line through the origin. The source charge is \(q = \text{gradient} / k\).</div>
+</div>
+
+<!-- ═══ SECTION E — WORKED EXAMPLE ═══ -->
+<div class="lc-section">Worked example</div>
+<div class="lc-card">
+  <h3>✍️ Worked example – Field and energy between parallel plates</h3>
+  <div class="lc-step">
+    <div class="lc-step-num">1</div>
+    <div class="lc-step-body"><strong>Identify:</strong> We need the electric field strength between parallel plates and the kinetic energy gained by an electron crossing them. This is a uniform-field problem using \(E = V/d\) and \(W = qV\).</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">2</div>
+    <div class="lc-step-body"><strong>Data:</strong> Plate separation \(d = 8.0\;\text{cm} = 0.080\;\text{m}\). Potential difference \(V = 15\;\text{kV} = 15\,000\;\text{V}\). Electron charge \(e = 1.60 \times 10^{-19}\;\text{C}\).</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">3</div>
+    <div class="lc-step-body"><strong>Equation:</strong> Electric field strength: \(E = \dfrac{V}{d} = \dfrac{15\,000}{0.080} = 1.875 \times 10^{5}\;\text{V m}^{-1}\). Energy gained in eV: an electron accelerated through 15 000 V gains <strong>15 000 eV = 15 keV</strong>. Energy in joules: \(W = qV = (1.60 \times 10^{-19})(15\,000) = 2.4 \times 10^{-15}\;\text{J}\).</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">4</div>
+    <div class="lc-step-body"><strong>Answer:</strong> The field strength is <strong>\(1.9 \times 10^{5}\;\text{V m}^{-1}\)</strong> (2 s.f.) and the electron gains <strong>15 keV</strong> (= \(2.4 \times 10^{-15}\;\text{J}\)) of kinetic energy. The electronvolt shortcut eliminates multiplication when the charge is \(e\).</div>
+  </div>
+  <div class="lc-img">
+    <img src="https://i.ibb.co/6cnVwybJ/image.png" alt="Parallel plate setup showing an electron accelerating from negative to positive plate, with separation d = 8.0 cm and voltage V = 15 kV labelled">
+    <div class="lc-cap">Fig 7 — Worked example geometry: electron accelerated between parallel plates.</div>
+  </div>
+</div>
+
+<!-- ═══ SECTION F — REAL-WORLD + HL EXTENSION ═══ -->
+<div class="lc-section">Applications &amp; extensions</div>
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>⚡ Real-world: Electrostatic precipitators</h3>
+    <p>Inside coal-fired power stations, flue gases pass between charged plates that create strong, uniform electric fields. Tiny soot and ash particles pick up charge and are driven to the collecting plates, removing up to 99% of particulate pollution before gases reach the chimney. The physics is exactly \(E = V/d\) scaled up to industrial voltages.</p>
+    <div class="lc-success">✓ <strong>Examiner tip:</strong> If asked to "explain" how a device works, state the field pattern first, then link force to charge using \(F = qE\) — this earns the "link" mark.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – Millikan's oil drop experiment</h3>
+    <p>By balancing gravitational force on a tiny charged oil drop against the upward electric force between horizontal parallel plates, Millikan showed that charge is <strong>quantised</strong> in multiples of \(e = 1.60 \times 10^{-19}\;\text{C}\). At equilibrium: \(qE = mg\), so \(q = mg/E\). Every measured charge was an integer multiple of \(e\).</p>
+    <p><strong>Challenge:</strong> An oil drop of mass \(9.79 \times 10^{-15}\;\text{kg}\) is suspended between plates separated by 5.0 mm with a p.d. of 306 V. How many excess electrons does the drop carry? (Answer: \(q = mgd/V = 1.57 \times 10^{-18}\;\text{C}\); \(n = q/e \approx 10\) electrons.)</p>
+  </div>
+</div>
+
+<!-- ═══ SECTION G — MISCONCEPTIONS ═══ -->
+<div class="lc-section">Trap corner</div>
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>"Field lines are the paths charges follow."</td>
+        <td>Field lines show the direction of force (and therefore acceleration), not the trajectory. A moving charge can cross field lines.</td>
+      </tr>
+      <tr>
+        <td>"\(E = V/d\) works for any electric field."</td>
+        <td>This formula applies only to the uniform field between parallel plates. For point charges, use \(E = kq/r^2\).</td>
+      </tr>
+      <tr>
+        <td>"Doubling the distance halves the field."</td>
+        <td>The field follows an inverse-square law: doubling \(r\) reduces \(E\) to one quarter, not one half.</td>
+      </tr>
+      <tr>
+        <td>"The electronvolt is a unit of voltage."</td>
+        <td>The electronvolt is a unit of <strong>energy</strong> (\(1\;\text{eV} = 1.60 \times 10^{-19}\;\text{J}\)). It applies to any particle, not just electrons.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ <strong>Most common slip:</strong> Forgetting to convert cm to m before substituting into \(E = V/d\) or \(E = kq/r^2\). This produces answers wrong by factors of 100 or 10 000 — an instant giveaway and zero marks for the numerical answer.</div>
+</div>
+
+<!-- ═══ SECTION H — KEY POINTS PILLS ═══ -->
+<div class="lc-section">Key points</div>
+<div class="lc-kp">
+  <span>E = F / q</span>
+  <span>E = V / d (plates)</span>
+  <span>E = kq / r² (point)</span>
+  <span>1 eV = 1.60 × 10⁻¹⁹ J</span>
+  <span>Field lines: + → −</span>
+  <span>Inverse-square law</span>
+</div>
+
+<!-- ═══ SECTION I — MCQ PRACTICE ═══ -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. The electric field strength between parallel plates is 5000 V m⁻¹. The plates are 2.0 cm apart. What is the potential difference across the plates?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 10 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> 50 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> 100 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> 250 000 V</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. The electric field strength at a distance \(r\) from a point charge is \(E\). At a distance \(3r\) the field strength is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> \(E/3\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> \(E/6\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> \(E/9\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> \(3E\)</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A proton and an electron are placed in the same uniform electric field. Which statement is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> They experience the same force in the same direction.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> They experience the same magnitude of force but in opposite directions.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> The electron experiences a larger force because it has smaller mass.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> The proton experiences a larger force because it has larger charge.</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. An electron is accelerated from rest through a potential difference of 500 V. What kinetic energy does it gain?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> 500 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> 500 eV</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> \(8.0 \times 10^{-17}\) eV</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> \(3.1 \times 10^{21}\) eV</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<!-- ═══ SECTION J — FILL IN THE BLANKS ═══ -->
+<div class="lc-section">Practice check — fill in the blanks</div>
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The electric field strength is defined as the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:80px"> per unit <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> experienced by a small positive test charge. Between parallel plates the field is <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px"> and its strength equals <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:80px">. The field around a point charge obeys an <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:130px"> law.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- ═══ SECTION K — EXAM-STYLE QUESTIONS ═══ -->
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">Two parallel metal plates are separated by 4.0 cm and connected to a 6.0 kV power supply.<br>(a) Calculate the electric field strength between the plates. [2]<br>(b) Determine the force on a singly charged positive ion between the plates. [2]<br>(c) State the direction of the force on the ion. [1]</div>
+  <div class="lc-exam-marks">[5 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> \(E = V/d\) ✓<br>
+    \(= 6000 / 0.040 = 1.5 \times 10^{5}\;\text{V m}^{-1}\) ✓<br><br>
+    <strong>(b)</strong> \(F = qE\) ✓<br>
+    \(= (1.60 \times 10^{-19})(1.5 \times 10^{5}) = 2.4 \times 10^{-14}\;\text{N}\) ✓<br><br>
+    <strong>(c)</strong> From the positive plate toward the negative plate / in the direction of the electric field. ✓
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">(a) Define electric field strength. [2]<br>(b) Explain why electric field lines must be perpendicular to the surface of a conductor at equilibrium. [2]</div>
+  <div class="lc-exam-marks">[4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> Electric field strength is the force per unit charge ✓ experienced by a small positive test charge placed at that point. ✓<br><br>
+    <strong>(b)</strong> If the field had a component parallel/tangential to the surface ✓, free electrons in the conductor would experience a net force along the surface and would redistribute until the tangential component is eliminated / the field is perpendicular. ✓
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">Point charges of +26 nC and −10 nC are separated by 50 cm.<br>(a) Calculate the electric field strength at the midpoint between them. [3]<br>(b) State the direction of the resultant field at that midpoint. [1]<br>(c) Explain why there is no point between the charges where the field strength is zero. [1]</div>
+  <div class="lc-exam-marks">[5 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> Midpoint is 0.25 m from each charge.<br>
+    \(E_1 = kq_1/r^2 = (8.99 \times 10^{9})(26 \times 10^{-9}) / 0.25^2 = 3740\;\text{N C}^{-1}\) ✓<br>
+    \(E_2 = kq_2/r^2 = (8.99 \times 10^{9})(10 \times 10^{-9}) / 0.25^2 = 1440\;\text{N C}^{-1}\) ✓<br>
+    Both fields point in the same direction (from + toward −), so \(E_{\text{total}} = 3740 + 1440 \approx 5200\;\text{N C}^{-1}\) ✓<br><br>
+    <strong>(b)</strong> Directed from the positive charge toward the negative charge. ✓<br><br>
+    <strong>(c)</strong> Between opposite charges, both individual fields point in the same direction (both toward the negative charge), so they always add rather than cancel. ✓
+  </div>
+</div>
+
+<!-- ═══ SECTION L — SCORE DISPLAY ═══ -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<!-- ═══ SECTION M — JAVASCRIPT ═══ -->
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { 'C': 'V = Ed = 5000 × 0.020 = 100 V. A common error is forgetting to convert cm to m, giving 10 V (A) or not converting at all giving 250 000 V (D).' },
+    mcq2: { 'C': 'E ∝ 1/r². Tripling the distance divides the field by 3² = 9, giving E/9.' },
+    mcq3: { 'B': 'Both have the same magnitude of charge (e), so F = qE is the same magnitude. But the proton is positive and the electron negative, so the forces are opposite. Mass affects acceleration, not force.' },
+    mcq4: { 'B': 'By definition, a charge of e accelerated through V volts gains V electronvolts. So the answer is 500 eV, which equals 8.0 × 10⁻¹⁷ J (not eV).' }
+  };
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    var block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(function(o){ o.classList.add('disabled'); });
+    var fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(function(o){
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+  window.lcFITB = function() {
+    var ans = { lf1:'force', lf2:'charge', lf3:'uniform', lf4:'v/d', lf5:'inverse-square' };
+    var correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(function(id){
+      var el = document.getElementById(id);
+      var val = el.value.trim().toLowerCase();
+      var ok = val === ans[id] || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    var res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      if (!lcAnswered['fitb']) { lcScore += 2; lcAnswered['fitb'] = true; }
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: force · charge · uniform · v/d · inverse-square';
+    }
+  };
+  window.lcToggleModel = function(btn) {
+    var ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <div class="lesson-nav">
+        <a href="01-coulomb-s-law.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Coulomb's Law</div>
+          </div>
+        </a>
+        <a href="03-electric-potential.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Electric Potential</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

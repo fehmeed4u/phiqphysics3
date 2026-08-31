@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources — φQ Physics</title>
+  <link rel="stylesheet" href="shared/theme.css">
+  <style>
+    .res-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border); padding: 3.5rem 0 2.5rem;
+    }
+    .tab-row { display:flex; gap:0.35rem; flex-wrap:wrap; margin-bottom:3rem;
+      border-bottom:1px solid var(--border); padding-bottom:0; }
+    .res-tab {
+      padding:0.7rem 1.2rem; border-radius:var(--radius) var(--radius) 0 0;
+      font-size:0.88rem; font-weight:600; cursor:pointer;
+      border:1px solid transparent; border-bottom:none;
+      background:none; color:var(--text-muted);
+      transition:var(--t); font-family:var(--font-sans);
+      position:relative; bottom:-1px;
+    }
+    .res-tab:hover { color:var(--text); }
+    .res-tab.active {
+      background:var(--surface); border-color:var(--border);
+      border-bottom-color:var(--surface); color:var(--accent);
+    }
+    .formula-search {
+      width:100%; max-width:400px; padding:0.65rem 1rem 0.65rem 2.5rem;
+      background:var(--surface); border:1.5px solid var(--border);
+      border-radius:100px; color:var(--text);
+      font-family:var(--font-sans); font-size:0.9rem;
+      outline:none; transition:var(--t); margin-bottom:1.5rem;
+    }
+    .formula-search:focus { border-color:var(--accent); box-shadow:var(--glow-sm); }
+    .formula-search::placeholder { color:var(--text-dim); }
+    .formula-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+      gap:0.75rem;
+    }
+    .tip-card {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:1.5rem;
+      border-left:4px solid var(--accent);
+      transition:var(--t);
+    }
+    .tip-card:hover { border-color:var(--border-2); box-shadow:var(--glow-sm); }
+    .tip-num {
+      font-family:var(--font-serif); font-size:2rem;
+      font-weight:700; color:var(--accent); opacity:0.3;
+      line-height:1; margin-bottom:0.5rem;
+    }
+    .paper-row {
+      display:flex; align-items:center; gap:1rem;
+      padding:1rem 1.25rem; background:var(--surface);
+      border:1px solid var(--border); border-radius:var(--radius);
+      margin-bottom:0.5rem; transition:var(--t); flex-wrap:wrap;
+    }
+    .paper-row:hover { border-color:var(--border-2); }
+    .video-card {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--radius-lg); overflow:hidden;
+      transition:border-color var(--t), transform var(--t);
+    }
+    .video-card:hover { border-color:var(--border-2); transform:translateY(-3px); }
+    .video-thumb {
+      aspect-ratio:16/9; position:relative;
+      background:var(--surface2);
+    }
+    .video-play {
+      position:absolute; inset:0; display:flex;
+      align-items:center; justify-content:center;
+      background:rgba(0,0,0,0.35);
+    }
+    .video-play-btn {
+      width:52px; height:52px; border-radius:50%;
+      background:rgba(79,157,255,0.9);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; color:#fff;
+    }
+    .video-body { padding:1rem 1.1rem; }
+    .ws-card {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:1.4rem;
+      display:flex; flex-direction:column; gap:0.75rem;
+      transition:var(--t);
+    }
+    .ws-card:hover { border-color:var(--border-2); box-shadow:var(--glow-sm); }
+    .contact-form input, .contact-form textarea {
+      width:100%; padding:0.8rem 1rem;
+      background:var(--surface2); border:1.5px solid var(--border);
+      border-radius:var(--radius); color:var(--text);
+      font-family:var(--font-sans); font-size:0.92rem;
+      outline:none; transition:var(--t); margin-bottom:0.75rem;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border-color:var(--accent); box-shadow:var(--glow-sm);
+    }
+    .contact-form textarea { min-height:120px; resize:vertical; }
+  </style>
+</head>
+<body>
+<script src="shared/nav.js"></script>
+
+<div class="res-hero">
+  <div class="container">
+    <div class="section-label" style="color:var(--green)">Resource Hub</div>
+    <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:0.4rem">Resources</h1>
+    <p style="max-width:540px">Formula sheet, exam tips, past papers, video library, worksheets and contact — everything in one place.</p>
+  </div>
+</div>
+
+<div class="section container" id="app-root">
+  <div style="color:var(--text-muted);text-align:center;padding:4rem 0">Loading…</div>
+</div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+const { useState, useMemo, useEffect } = React;
+
+/* ── FORMULA DATA ──────────────────────────────────────────────── */
+const FORMULAS = [
+  // Unit A
+  { unit:'A', topic:'Kinematics',   eq:'v = u + at',              name:'SUVAT 1',             vars:'v=final vel, u=initial vel, a=accel, t=time' },
+  { unit:'A', topic:'Kinematics',   eq:'s = ut + ½at²',           name:'SUVAT 2',             vars:'s=displacement' },
+  { unit:'A', topic:'Kinematics',   eq:'v² = u² + 2as',           name:'SUVAT 3',             vars:'No time variable' },
+  { unit:'A', topic:'Kinematics',   eq:'s = ½(u+v)t',             name:'SUVAT 4',             vars:'Average velocity × time' },
+  { unit:'A', topic:'Forces',       eq:'F = ma',                  name:"Newton's 2nd Law",    vars:'F=net force, m=mass, a=acceleration' },
+  { unit:'A', topic:'Forces',       eq:'p = mv',                  name:'Momentum',            vars:'p=momentum, m=mass, v=velocity' },
+  { unit:'A', topic:'Forces',       eq:'J = FΔt = Δp',            name:'Impulse',             vars:'J=impulse, FΔt=force×time' },
+  { unit:'A', topic:'Forces',       eq:'F_f ≤ μN',                name:'Friction',            vars:'μ=coefficient, N=normal force' },
+  { unit:'A', topic:'Energy',       eq:'W = Fs cosθ',             name:'Work Done',           vars:'θ=angle between F and displacement' },
+  { unit:'A', topic:'Energy',       eq:'KE = ½mv²',               name:'Kinetic Energy',      vars:'' },
+  { unit:'A', topic:'Energy',       eq:'GPE = mgh',               name:'Gravitational PE',    vars:'h=height above reference' },
+  { unit:'A', topic:'Energy',       eq:'P = W/t = Fv',            name:'Power',               vars:'P=power, W=work, t=time' },
+  { unit:'A', topic:'Relativity',   eq:'γ = 1/√(1−v²/c²)',       name:'Lorentz Factor',      vars:'γ≥1, v=relative speed, c=speed of light' },
+  { unit:'A', topic:'Relativity',   eq:"t' = γt₀",               name:'Time Dilation',       vars:"t'=dilated time, t₀=proper time" },
+  { unit:'A', topic:'Relativity',   eq:"L' = L₀/γ",              name:'Length Contraction',  vars:"L'=contracted length, L₀=proper length" },
+  { unit:'A', topic:'Relativity',   eq:'E = mc²',                 name:'Mass-Energy',         vars:'E=energy, m=mass, c=3×10⁸ m s⁻¹' },
+  // Unit B
+  { unit:'B', topic:'Thermal',      eq:'Q = mcΔT',                name:'Specific Heat',       vars:'Q=heat, m=mass, c=specific heat capacity' },
+  { unit:'B', topic:'Thermal',      eq:'Q = mL',                  name:'Latent Heat',         vars:'L=specific latent heat (no ΔT)' },
+  { unit:'B', topic:'Thermal',      eq:'P = σAT⁴',               name:'Stefan-Boltzmann',    vars:'σ=5.67×10⁻⁸ W m⁻² K⁻⁴, T in Kelvin' },
+  { unit:'B', topic:'Gas Laws',     eq:'pV = nRT',                name:'Ideal Gas Law',       vars:'n=moles, R=8.31 J mol⁻¹ K⁻¹' },
+  { unit:'B', topic:'Gas Laws',     eq:'pV = NkT',                name:'Ideal Gas (N)',       vars:'N=number of molecules, k=1.38×10⁻²³ J K⁻¹' },
+  { unit:'B', topic:'Gas Laws',     eq:'E_k = 3/2 kT',           name:'Mean KE per molecule',vars:'Average translational KE' },
+  { unit:'B', topic:'Circuits',     eq:'V = IR',                  name:"Ohm's Law",           vars:'V=voltage, I=current, R=resistance' },
+  { unit:'B', topic:'Circuits',     eq:'P = IV = I²R = V²/R',    name:'Electrical Power',    vars:'' },
+  { unit:'B', topic:'Circuits',     eq:'ε = I(R+r)',              name:'EMF equation',        vars:'ε=EMF, r=internal resistance' },
+  // Unit C
+  { unit:'C', topic:'SHM',          eq:'a = −ω²x',               name:'SHM Acceleration',    vars:'ω=angular frequency, x=displacement' },
+  { unit:'C', topic:'SHM',          eq:'x = x₀ sin(ωt)',         name:'SHM Displacement',    vars:'x₀=amplitude' },
+  { unit:'C', topic:'SHM',          eq:'T = 2π√(m/k)',           name:'Mass-Spring Period',   vars:'k=spring constant' },
+  { unit:'C', topic:'SHM',          eq:'T = 2π√(L/g)',           name:'Pendulum Period',      vars:'L=length, g=gravitational field strength' },
+  { unit:'C', topic:'Waves',        eq:'v = fλ',                  name:'Wave Speed',          vars:'f=frequency, λ=wavelength' },
+  { unit:'C', topic:'Waves',        eq:'I ∝ A²',                  name:'Intensity–Amplitude', vars:'Intensity proportional to amplitude squared' },
+  { unit:'C', topic:'Interference', eq:'sλ/d = Δy',              name:"Young's Double Slit",  vars:'s=slit-screen dist, d=slit sep, Δy=fringe spacing' },
+  { unit:'C', topic:'Doppler',      eq:"f' = f·v/(v−v_s)",       name:'Doppler (source →)',  vars:"Source approaching observer" },
+  // Unit D
+  { unit:'D', topic:'Gravity',      eq:'F = Gm₁m₂/r²',           name:'Gravitational Force', vars:'G=6.67×10⁻¹¹ N m² kg⁻²' },
+  { unit:'D', topic:'Gravity',      eq:'g = GM/r²',               name:'Grav. Field Strength',vars:'' },
+  { unit:'D', topic:'Gravity',      eq:'V = −GM/r',               name:'Grav. Potential',     vars:'Negative — zero at infinity' },
+  { unit:'D', topic:'Electricity',  eq:'F = kq₁q₂/r²',           name:"Coulomb's Law",       vars:'k=8.99×10⁹ N m² C⁻²' },
+  { unit:'D', topic:'Electricity',  eq:'E = kQ/r²',               name:'Electric Field',      vars:'Point charge' },
+  { unit:'D', topic:'Magnetism',    eq:'F = qvB sinθ',            name:'Lorentz Force',       vars:'q=charge, v=velocity, B=flux density' },
+  { unit:'D', topic:'Magnetism',    eq:'F = BIL sinθ',            name:'Force on conductor',  vars:'I=current, L=length' },
+  { unit:'D', topic:'Induction',    eq:'ε = −NΔΦ/Δt',            name:"Faraday's Law",       vars:'N=turns, Φ=flux, negative=Lenz\'s law' },
+  { unit:'D', topic:'Induction',    eq:'ε = BLv',                 name:'Motional EMF',        vars:'L=conductor length, v=speed' },
+  // Unit E
+  { unit:'E', topic:'Atomic',       eq:'ΔE = hf',                 name:'Photon Energy',       vars:'h=6.63×10⁻³⁴ J s, f=frequency' },
+  { unit:'E', topic:'Atomic',       eq:'E_n = −13.6/n² eV',      name:'Hydrogen Energy Levels',vars:'n=principal quantum number' },
+  { unit:'E', topic:'Quantum',      eq:'KE_max = hf − φ',        name:'Photoelectric Effect',vars:'φ=work function' },
+  { unit:'E', topic:'Quantum',      eq:'λ = h/mv',               name:'de Broglie Wavelength',vars:'m=mass, v=velocity' },
+  { unit:'E', topic:'Quantum',      eq:'ΔxΔp ≥ ℏ/2',            name:'Uncertainty Principle',vars:'ℏ=h/2π=1.055×10⁻³⁴ J s' },
+  { unit:'E', topic:'Nuclear',      eq:'N = N₀e^(−λt)',          name:'Radioactive Decay',   vars:'λ=decay constant' },
+  { unit:'E', topic:'Nuclear',      eq:'T½ = ln2/λ = 0.693/λ',  name:'Half-Life',           vars:'' },
+  { unit:'E', topic:'Nuclear',      eq:'E = Δmc²',               name:'Mass Defect Energy',  vars:'Δm=mass defect' },
+];
+
+const UNIT_COLORS = { A:'#4F9DFF', B:'#7B6EF6', C:'#00D4FF', D:'#F5A623', E:'#34D399' };
+
+const TIPS = [
+  { title:'Read the question twice', color:'var(--accent)', tip:'Underline the command term (calculate, state, explain, discuss, outline). Each has a specific expected response length and style. "State" needs one sentence; "explain" needs mechanism + consequence.' },
+  { title:'Data Paper 2 strategy', color:'var(--accent2)', tip:'Always write the formula first, then substitute values with units, then calculate. Even if the final answer is wrong, you earn method marks for the correct formula and substitution.' },
+  { title:'Show ALL working', color:'var(--gold)', tip:'A bare numerical answer scores zero if the number is wrong. Working earns partial credit (ECF — error carried forward). Never skip algebraic steps in a calculation question.' },
+  { title:'Significant figures', color:'var(--green)', tip:'Give answers to the same number of sig figs as the least precise data given. Typically 2–3 sig figs. The IB will penalise answers with excessive or insufficient sig figs (but only once per paper).' },
+  { title:'Units every time', color:'var(--accent)', tip:'A numerical answer without units loses the mark automatically. Write units at every calculation step, not just the final answer. Check dimensional consistency as a self-check.' },
+  { title:'Graphs: five must-haves', color:'var(--accent3)', tip:'1) Title. 2) Both axes labelled with quantity and unit. 3) Appropriate scale (fills >50% of grid). 4) Points plotted correctly with error bars. 5) Best-fit line or smooth curve (NOT dot-to-dot).' },
+  { title:'Definitions must be exact', color:'var(--accent2)', tip:'Learn IB definitions word-for-word. For example: "The gravitational field strength at a point is the force per unit mass acting on a small test mass placed at that point." Paraphrasing often loses marks.' },
+  { title:'Paper 3 data analysis', color:'var(--gold)', tip:'For log graphs: if ln y = n ln x + c, the gradient = n and y-intercept = c. Always take at least two widely-separated points on the line (NOT original data points) to calculate gradient.' },
+  { title:'Time management', color:'var(--green)', tip:'Paper 2: allocate ~1.5 min per mark. Paper 3: the data question is usually worth 20+ marks — spend proportional time on it. Skim the whole paper first to avoid spending 15 min on a 2-mark question.' },
+  { title:'Uncertainty in Paper 3', color:'var(--red)', tip:'Absolute uncertainty: half the smallest scale division for analogue instruments. For digital instruments: ±1 in the last digit. Percentage uncertainty = (absolute/value) × 100%. Always quote final uncertainties to 1 sig fig.' },
+  { title:'Extended response (6-mark)', color:'var(--accent)', tip:'Structure with: Define key terms → State the relationship → Explain the mechanism → Give an example → Link back to the question. Bullet points are fine. 6 correct points scores full marks.' },
+  { title:"Don't leave blanks", color:'var(--accent2)', tip:'There is NO negative marking in IB Physics. Always attempt every question. For MCQ, eliminate options you know are wrong — even a random guess from 2 options is 50/50.' },
+];
+
+const VIDEOS = [
+  { topic:'A.1 Kinematics',  channel:'Physics Online',  desc:'SUVAT equations with worked examples',      duration:'18 min', url:'https://www.youtube.com/results?search_query=IB+Physics+Kinematics+SUVAT' },
+  { topic:'A.2 Forces',      channel:'Mr Exham',        desc:'Newton\'s laws and free body diagrams',      duration:'22 min', url:'https://www.youtube.com/results?search_query=IB+Physics+Forces+Newton+laws' },
+  { topic:'B.3 Gas Laws',    channel:'Richard Thornley', desc:'Ideal gas and kinetic theory',             duration:'15 min', url:'https://www.youtube.com/results?search_query=IB+Physics+Gas+Laws+ideal' },
+  { topic:'C.1 SHM',         channel:'Physics Online',  desc:'Simple harmonic motion complete guide',     duration:'25 min', url:'https://www.youtube.com/results?search_query=IB+Physics+simple+harmonic+motion' },
+  { topic:'C.3 Interference','channel':'Andrew Whalley', desc:'Young\'s double slit and diffraction',     duration:'20 min', url:'https://www.youtube.com/results?search_query=IB+Physics+Young+double+slit' },
+  { topic:'D.1 Gravity',     channel:'Richard Thornley', desc:'Gravitational fields and orbital motion',  duration:'19 min', url:'https://www.youtube.com/results?search_query=IB+Physics+gravitational+fields+orbits' },
+  { topic:'E.2 Quantum',     channel:'Mr Exham',        desc:'Photoelectric effect and de Broglie',       duration:'23 min', url:'https://www.youtube.com/results?search_query=IB+Physics+photoelectric+effect+quantum' },
+  { topic:'E.3 Radioactivity','channel':'Physics Online', desc:'Decay law, half-life and activity',       duration:'16 min', url:'https://www.youtube.com/results?search_query=IB+Physics+radioactive+decay+half+life' },
+  { topic:'A.5 Relativity',  channel:'Andrew Whalley',  desc:'Special relativity for HL students',        duration:'28 min', url:'https://www.youtube.com/results?search_query=IB+Physics+special+relativity+HL' },
+];
+
+const PAPERS = [
+  { session:'May 2023',   level:'HL', papers:['Paper 1','Paper 2','Paper 3'], url:'https://www.ibdocuments.com/' },
+  { session:'Nov 2022',   level:'HL', papers:['Paper 1','Paper 2','Paper 3'], url:'https://www.ibdocuments.com/' },
+  { session:'May 2022',   level:'SL', papers:['Paper 1','Paper 2','Paper 3'], url:'https://www.ibdocuments.com/' },
+  { session:'May 2021',   level:'HL', papers:['Paper 1','Paper 2'],           url:'https://www.ibdocuments.com/' },
+  { session:'Nov 2021',   level:'SL', papers:['Paper 1','Paper 2'],           url:'https://www.ibdocuments.com/' },
+  { session:'May 2019',   level:'HL', papers:['Paper 1','Paper 2','Paper 3'], url:'https://www.ibdocuments.com/' },
+  { session:'May 2019',   level:'SL', papers:['Paper 1','Paper 2','Paper 3'], url:'https://www.ibdocuments.com/' },
+  { session:'Nov 2018',   level:'HL', papers:['Paper 1','Paper 2','Paper 3'], url:'https://www.ibdocuments.com/' },
+];
+
+const WORKSHEETS = [
+  { title:'A.1 Kinematics',         desc:'SUVAT practice, projectile problems, relative velocity', unit:'A', pages:4, diff:'SL/HL' },
+  { title:'A.2 Forces & Momentum',  desc:'Newton\'s laws, free body diagrams, collision problems', unit:'A', pages:5, diff:'SL/HL' },
+  { title:'A.3 Work & Energy',       desc:'Energy conservation, power calculations, efficiency',   unit:'A', pages:3, diff:'SL' },
+  { title:'A.5 Special Relativity',  desc:'Time dilation, length contraction, spacetime diagrams', unit:'A', pages:4, diff:'HL' },
+  { title:'B.3 Gas Laws',            desc:'pV diagrams, ideal gas calculations, kinetic theory',   unit:'B', pages:3, diff:'SL/HL' },
+  { title:'B.5 Circuits',            desc:"Kirchhoff's laws, EMF, internal resistance circuits",   unit:'B', pages:5, diff:'SL/HL' },
+  { title:'C.1 SHM',                 desc:'Period, energy, displacement equations, resonance',     unit:'C', pages:4, diff:'SL/HL' },
+  { title:'C.3 Wave Phenomena',      desc:'Interference, diffraction, double-slit calculations',   unit:'C', pages:4, diff:'HL' },
+  { title:'D.1 Gravitational Fields','desc':'Field strength, potential, orbital mechanics',        unit:'D', pages:4, diff:'SL/HL' },
+  { title:'D.4 Induction',           desc:'Faraday\'s law, transformers, flux linkage',            unit:'D', pages:3, diff:'HL' },
+  { title:'E.2 Quantum Physics',     desc:'Photoelectric effect, de Broglie, uncertainty',         unit:'E', pages:4, diff:'HL' },
+  { title:'E.3 Radioactive Decay',   desc:'Decay equations, half-life, activity calculations',     unit:'E', pages:3, diff:'SL/HL' },
+];
+
+/* ── TAB PANELS ────────────────────────────────────────────────── */
+function FormulasTab() {
+  const [q, setQ] = useState('');
+  const [unitF, setUnitF] = useState('all');
+  const filtered = useMemo(() => FORMULAS.filter(f => {
+    const match = !q || f.eq.toLowerCase().includes(q) || f.name.toLowerCase().includes(q) || f.topic.toLowerCase().includes(q) || f.vars.toLowerCase().includes(q);
+    const unit  = unitF === 'all' || f.unit === unitF;
+    return match && unit;
+  }), [q, unitF]);
+
+  return (
+    <div>
+      <div style={{ display:'flex', gap:'1rem', flexWrap:'wrap', marginBottom:'1.5rem', alignItems:'center' }}>
+        <div style={{ position:'relative', flex:1, minWidth:200 }}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"
+            style={{ position:'absolute', left:'0.8rem', top:'50%', transform:'translateY(-50%)', color:'var(--text-muted)' }}>
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input className="formula-search" style={{ margin:0 }} value={q} onChange={e => setQ(e.target.value.toLowerCase())}
+            placeholder="Search equations, topic, variable…" />
+        </div>
+        <div style={{ display:'flex', gap:'0.3rem', flexWrap:'wrap' }}>
+          {['all','A','B','C','D','E'].map(u => (
+            <button key={u} onClick={() => setUnitF(u)}
+              style={{ padding:'0.35rem 0.75rem', borderRadius:100, fontSize:'0.8rem', fontWeight:600,
+                border:`1.5px solid ${unitF===u ? (u==='all'?'var(--accent)':UNIT_COLORS[u]) : 'var(--border)'}`,
+                background: unitF===u ? (u==='all'?'var(--accent)':UNIT_COLORS[u]) : 'none',
+                color: unitF===u ? '#fff' : 'var(--text-muted)',
+                cursor:'pointer', fontFamily:'var(--font-sans)', transition:'var(--t)' }}>
+              {u==='all'?'All':u}
+            </button>
+          ))}
+        </div>
+        <span style={{ fontSize:'0.82rem', color:'var(--text-muted)' }}>{filtered.length} formulas</span>
+      </div>
+      <div className="formula-grid">
+        {filtered.map((f, i) => (
+          <div key={i} className="formula-card">
+            <div className="formula-name">{f.name}</div>
+            <div className="formula-eq">{f.eq}</div>
+            <div className="formula-vars">{f.vars}</div>
+            <div style={{ marginTop:'0.5rem' }}>
+              <span style={{ fontSize:'0.7rem', fontWeight:700, color:UNIT_COLORS[f.unit],
+                background:`${UNIT_COLORS[f.unit]}18`, padding:'0.15rem 0.5rem', borderRadius:6 }}>
+                {f.unit} · {f.topic}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+      {!filtered.length && <div style={{ textAlign:'center', color:'var(--text-muted)', padding:'3rem' }}>No formulas match "{q}"</div>}
+    </div>
+  );
+}
+
+function TipsTab() {
+  return (
+    <div>
+      <div style={{ background:'var(--surface2)', borderRadius:'var(--radius-lg)', padding:'1.25rem 1.5rem',
+        marginBottom:'2rem', borderLeft:'4px solid var(--gold)' }}>
+        <h4 style={{ color:'var(--gold)', marginBottom:'0.4rem' }}>IB Physics Papers — Quick Reference</h4>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(200px, 1fr))', gap:'1rem', marginTop:'0.75rem' }}>
+          {[
+            ['Paper 1', 'MCQ', 'No calculator', '30 questions / 60 min (HL)'],
+            ['Paper 2', 'Short & long answer', 'Calculator allowed', '2h15 (HL)'],
+            ['Paper 3', 'Data + options', 'Calculator allowed', '1h15 (HL)'],
+          ].map(([p,type,calc,time]) => (
+            <div key={p} style={{ background:'var(--surface)', borderRadius:'var(--radius)', padding:'0.85rem 1rem',
+              border:'1px solid var(--border)' }}>
+              <div style={{ fontWeight:700, color:'var(--text)', marginBottom:'0.25rem' }}>{p}</div>
+              <div style={{ fontSize:'0.8rem', color:'var(--text-muted)', lineHeight:1.7 }}>{type}<br/>{calc}<br/>{time}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(280px, 1fr))', gap:'1rem' }}>
+        {TIPS.map((tip, i) => (
+          <div key={i} className="tip-card" style={{ borderLeftColor: tip.color }}>
+            <div className="tip-num">{String(i+1).padStart(2,'0')}</div>
+            <h4 style={{ marginBottom:'0.5rem', color:'var(--text)', fontFamily:'var(--font-serif)' }}>{tip.title}</h4>
+            <p style={{ fontSize:'0.88rem', lineHeight:1.7 }}>{tip.tip}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PapersTab() {
+  return (
+    <div>
+      <div style={{ background:'var(--accent-dim)', borderRadius:'var(--radius-lg)', padding:'1.25rem 1.5rem',
+        marginBottom:'2rem', border:'1px solid var(--border-2)' }}>
+        <h4 style={{ color:'var(--accent)', marginBottom:'0.4rem' }}>📌 Note on past papers</h4>
+        <p style={{ fontSize:'0.9rem' }}>Official IB past papers require a valid IB account (students/teachers). Links below direct to <strong style={{color:'var(--text)'}}>ibdocuments.com</strong> where many sessions are available. Your teacher may also provide papers directly.</p>
+      </div>
+      {PAPERS.map((p, i) => (
+        <div key={i} className="paper-row">
+          <div style={{ display:'flex', gap:'0.5rem', alignItems:'center', minWidth:140 }}>
+            <span style={{ fontFamily:'var(--font-serif)', fontWeight:700, fontSize:'1rem', color:'var(--text)' }}>{p.session}</span>
+            <span className={`tag ${p.level==='HL'?'tag-purple':'tag-blue'}`}>{p.level}</span>
+          </div>
+          <div style={{ display:'flex', gap:'0.4rem', flex:1, flexWrap:'wrap' }}>
+            {p.papers.map(pp => (
+              <span key={pp} style={{ background:'var(--surface2)', border:'1px solid var(--border)',
+                borderRadius:6, padding:'0.2rem 0.6rem', fontSize:'0.8rem', color:'var(--text-2)' }}>
+                {pp}
+              </span>
+            ))}
+          </div>
+          <a href={p.url} target="_blank" rel="noopener noreferrer"
+            className="btn btn-secondary btn-sm" style={{ flexShrink:0 }}>
+            Access →
+          </a>
+        </div>
+      ))}
+      <div style={{ marginTop:'2rem', padding:'1.25rem 1.5rem', background:'var(--surface)', borderRadius:'var(--radius-lg)',
+        border:'1px solid var(--border)' }}>
+        <h4 style={{ marginBottom:'0.75rem', color:'var(--text)' }}>Also recommended</h4>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(200px, 1fr))', gap:'0.75rem' }}>
+          {[['IB Documents','ibdocuments.com','Free past papers archive','https://www.ibdocuments.com/'],
+            ['Revision Village','revisionvillage.com','IB Physics dedicated platform','https://www.revisionvillage.com/ib-physics/'],
+            ['OSC IB','osc-ib.com','Official IB revision materials','https://www.osc-ib.com/'],
+            ['Physics & Maths Tutor','physicsandmathstutor.com','Exam practice resources','https://www.physicsandmathstutor.com/']
+          ].map(([name,domain,desc,url]) => (
+            <a key={name} href={url} target="_blank" rel="noopener noreferrer"
+              style={{ display:'block', background:'var(--surface2)', borderRadius:'var(--radius)',
+                padding:'0.85rem 1rem', border:'1px solid var(--border)', textDecoration:'none',
+                transition:'var(--t)' }}
+              onMouseOver={e=>e.currentTarget.style.borderColor='var(--border-2)'}
+              onMouseOut={e=>e.currentTarget.style.borderColor='var(--border)'}>
+              <div style={{ fontWeight:600, color:'var(--text)', fontSize:'0.9rem', marginBottom:'0.2rem' }}>{name}</div>
+              <div style={{ fontSize:'0.75rem', color:'var(--accent)', marginBottom:'0.2rem' }}>{domain}</div>
+              <div style={{ fontSize:'0.78rem', color:'var(--text-muted)' }}>{desc}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function VideosTab() {
+  return (
+    <div>
+      <p style={{ marginBottom:'2rem', maxWidth:540 }}>Handpicked explanations from trusted IB Physics YouTube channels. Click any card to search for the video.</p>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(260px, 1fr))', gap:'1rem' }}>
+        {VIDEOS.map((v, i) => (
+          <a key={i} href={v.url} target="_blank" rel="noopener noreferrer" className="video-card" style={{ textDecoration:'none' }}>
+            <div className="video-thumb">
+              <div className="img-ph" style={{ minHeight:0, height:'100%', border:'none', borderRadius:0 }}>
+                <div className="img-ph-icon">🎬</div>
+                <div style={{ fontSize:'0.78rem', color:'var(--text-muted)', textAlign:'center', padding:'0 0.5rem' }}>{v.topic}</div>
+              </div>
+              <div className="video-play">
+                <div className="video-play-btn">▶</div>
+              </div>
+              <div style={{ position:'absolute', top:'0.5rem', right:'0.5rem', background:'rgba(0,0,0,0.7)',
+                borderRadius:4, padding:'0.15rem 0.4rem', fontSize:'0.72rem', color:'#fff' }}>
+                {v.duration}
+              </div>
+            </div>
+            <div className="video-body">
+              <div style={{ fontSize:'0.72rem', fontWeight:700, color:'var(--accent)', textTransform:'uppercase',
+                letterSpacing:'0.08em', marginBottom:'0.3rem' }}>{v.topic}</div>
+              <div style={{ fontWeight:600, fontSize:'0.9rem', color:'var(--text)', marginBottom:'0.3rem' }}>{v.desc}</div>
+              <div style={{ fontSize:'0.78rem', color:'var(--text-muted)' }}>📺 {v.channel}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div style={{ marginTop:'1.5rem', padding:'1rem 1.25rem', background:'var(--surface)', borderRadius:'var(--radius-lg)',
+        border:'1px solid var(--border)', fontSize:'0.88rem', color:'var(--text-muted)' }}>
+        💡 Also explore: <strong style={{color:'var(--text)'}}>Richard Thornley</strong>, <strong style={{color:'var(--text)'}}>Physics Online</strong>,
+        and <strong style={{color:'var(--text)'}}>Crash Course Physics</strong> on YouTube for comprehensive IB coverage.
+      </div>
+    </div>
+  );
+}
+
+function WorksheetsTab() {
+  return (
+    <div>
+      <div style={{ background:'var(--gold-dim)', borderRadius:'var(--radius-lg)', padding:'1.25rem 1.5rem',
+        marginBottom:'2rem', border:'1px solid var(--gold)', borderLeft:'4px solid var(--gold)' }}>
+        <h4 style={{ color:'var(--gold)', marginBottom:'0.4rem' }}>📋 Worksheets coming soon</h4>
+        <p style={{ fontSize:'0.9rem' }}>Downloadable PDF worksheets are being finalised. Check back regularly or contact Mr. Qadir to request specific topics.</p>
+      </div>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(280px, 1fr))', gap:'0.75rem' }}>
+        {WORKSHEETS.map((w, i) => (
+          <div key={i} className="ws-card">
+            <div style={{ display:'flex', alignItems:'flex-start', gap:'0.75rem' }}>
+              <div style={{ width:40, height:40, borderRadius:10, background:`${UNIT_COLORS[w.unit]}18`,
+                display:'flex', alignItems:'center', justifyContent:'center',
+                fontSize:'1.1rem', flexShrink:0 }}>📄</div>
+              <div style={{ flex:1 }}>
+                <div style={{ fontWeight:600, color:'var(--text)', fontSize:'0.95rem', marginBottom:'0.2rem' }}>{w.title}</div>
+                <div style={{ fontSize:'0.8rem', color:'var(--text-muted)', lineHeight:1.5 }}>{w.desc}</div>
+              </div>
+            </div>
+            <div style={{ display:'flex', alignItems:'center', gap:'0.5rem', flexWrap:'wrap' }}>
+              <span style={{ fontSize:'0.72rem', fontWeight:700, color:UNIT_COLORS[w.unit],
+                background:`${UNIT_COLORS[w.unit]}18`, padding:'0.15rem 0.5rem', borderRadius:6 }}>
+                Unit {w.unit}
+              </span>
+              <span className="tag tag-gold" style={{ fontSize:'0.7rem' }}>{w.diff}</span>
+              <span style={{ fontSize:'0.75rem', color:'var(--text-muted)', marginLeft:'auto' }}>{w.pages} pages</span>
+              <button className="btn btn-sm" style={{ background:'var(--surface2)', color:'var(--text-muted)',
+                border:'1px solid var(--border)', cursor:'not-allowed', opacity:0.6 }}>
+                Coming soon
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ContactTab() {
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name:'', email:'', subject:'', message:'' });
+  const update = k => e => setForm(f => ({...f, [k]: e.target.value}));
+
+  return (
+    <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'2rem' }}>
+      <div>
+        <h3 style={{ marginBottom:'0.5rem' }}>Get in touch</h3>
+        <p style={{ marginBottom:'1.5rem' }}>Questions about content, the IA, or anything else? Send a message and Mr. Qadir will get back to you.</p>
+
+        {sent ? (
+          <div style={{ background:'var(--green-dim)', border:'1px solid var(--green)',
+            borderRadius:'var(--radius-lg)', padding:'2rem', textAlign:'center' }}>
+            <div style={{ fontSize:'2.5rem', marginBottom:'0.75rem' }}>✅</div>
+            <h4 style={{ color:'var(--green)', marginBottom:'0.4rem' }}>Message sent!</h4>
+            <p>Thank you. Mr. Qadir will respond within 48 hours.</p>
+            <button onClick={() => setSent(false)} className="btn btn-secondary btn-sm" style={{ marginTop:'1rem' }}>
+              Send another
+            </button>
+          </div>
+        ) : (
+          <form className="contact-form" onSubmit={e => { e.preventDefault(); setSent(true); }}>
+            <input placeholder="Your name" value={form.name} onChange={update('name')} required />
+            <input type="email" placeholder="Your email" value={form.email} onChange={update('email')} required />
+            <input placeholder="Subject (e.g. IA question — D.4 Induction)" value={form.subject} onChange={update('subject')} required />
+            <textarea placeholder="Your message…" value={form.message} onChange={update('message')} required />
+            <button type="submit" className="btn btn-primary">Send message →</button>
+          </form>
+        )}
+      </div>
+      <div style={{ display:'flex', flexDirection:'column', gap:'1rem' }}>
+        <div style={{ background:'var(--surface)', border:'1px solid var(--border)', borderRadius:'var(--radius-lg)', padding:'1.5rem' }}>
+          <h4 style={{ marginBottom:'1rem', fontFamily:'var(--font-serif)' }}>About Mr. Fahmeed Qadir</h4>
+          <div className="img-ph" style={{ height:180, marginBottom:'1rem' }}>
+            <div class="img-ph-icon">📸</div>
+            <div class="img-ph-label">Teacher Photo</div>
+            <div class="img-ph-hint">Replace with your photo</div>
+          </div>
+          <p style={{ fontSize:'0.9rem', lineHeight:1.7 }}>IB Physics teacher dedicated to helping Grade 12 students achieve their potential. This site is maintained as a free resource for all students.</p>
+        </div>
+        <div style={{ background:'var(--surface)', border:'1px solid var(--border)', borderRadius:'var(--radius-lg)', padding:'1.5rem' }}>
+          <h4 style={{ marginBottom:'0.75rem' }}>Quick links</h4>
+          {[['📧','Email','Reach out by email for private queries'],['💬','Class chat','Check school platform for announcements'],['📚','IB Physics guide','Official 2023 syllabus document']].map(([icon,label,desc]) => (
+            <div key={label} style={{ display:'flex', gap:'0.75rem', padding:'0.6rem 0', borderBottom:'1px solid var(--border)' }}>
+              <span>{icon}</span>
+              <div>
+                <div style={{ fontWeight:600, fontSize:'0.88rem', color:'var(--text)' }}>{label}</div>
+                <div style={{ fontSize:'0.78rem', color:'var(--text-muted)' }}>{desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── APP ──────────────────────────────────────────────────────── */
+const TABS = [
+  { id:'formulas',   label:'Formula Sheet', icon:'∑',  anchor:'formulas' },
+  { id:'tips',       label:'Exam Tips',     icon:'🎯',  anchor:'tips' },
+  { id:'papers',     label:'Past Papers',   icon:'📄',  anchor:'papers' },
+  { id:'videos',     label:'Videos',        icon:'🎬',  anchor:'videos' },
+  { id:'worksheets', label:'Worksheets',    icon:'📋',  anchor:'worksheets' },
+  { id:'contact',    label:'Contact',       icon:'✉️',  anchor:'contact' },
+];
+
+function App() {
+  const hash = window.location.hash.replace('#','');
+  const initial = TABS.find(t => t.anchor === hash) ? hash : 'formulas';
+  const [active, setActive] = useState(initial);
+
+  const Panel = {
+    formulas:   <FormulasTab />,
+    tips:       <TipsTab />,
+    papers:     <PapersTab />,
+    videos:     <VideosTab />,
+    worksheets: <WorksheetsTab />,
+    contact:    <ContactTab />,
+  }[active];
+
+  return (
+    <div>
+      <div className="tab-row">
+        {TABS.map(t => (
+          <button key={t.id} className={`res-tab${active === t.id ? ' active' : ''}`}
+            onClick={() => { setActive(t.id); window.location.hash = t.anchor; }}>
+            {t.icon} {t.label}
+          </button>
+        ))}
+      </div>
+      {Panel}
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('app-root'));
+root.render(<App />);
+</script>
+</body>
+</html>

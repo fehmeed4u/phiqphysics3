@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Electromagnetic Spectrum — φQ Physics lesson</title>
+  <link rel="stylesheet" href="../../../shared/theme.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('phyq-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+  <script>
+    window.MathJax = { tex:{ inlineMath:[['\\(','\\)']], displayMath:[['\\[','\\]']] }, svg:{ fontCache:'global' } };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+  <style>
+    html,body{ background:transparent !important; }
+    body{ padding:0; margin:0; font-family: var(--font-sans) !important; }
+    h1,h2,h3,h4,h5,.lc-title{ font-family: var(--font-serif) !important; }
+    mjx-container{ color: var(--text-2); }
+    .lc-formula mjx-container{ color: var(--accent) !important; }
+  </style>
+</head>
+<body>
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-formula { background:var(--surface3);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.75rem 1.1rem;margin:0.75rem 0;
+  font-family:var(--font-mono);font-size:1.05rem;
+  color:var(--accent);text-align:center; }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-step { display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2);margin-bottom:0.4rem; }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>5</span> Lesson 5 of 5 · C.2 Wave Model</div>
+<div class="lc-title">The Electromagnetic Spectrum</div>
+<div class="lc-sub">From radio to gamma rays: wave properties, photon energy, and how to master graphs for IB Physics SL</div>
+
+<div class="lc-card">
+  <h3>📡 What is the electromagnetic spectrum?</h3>
+  <p>The electromagnetic (EM) spectrum is the <strong>continuous range of all possible frequencies</strong> of electromagnetic radiation. It spans from very long wavelength radio waves (km scale) to extremely short gamma rays (smaller than an atomic nucleus).</p>
+  <p>All EM waves travel at the same speed in a vacuum: <strong>c = 3.00 × 10⁸ m s⁻¹</strong>. They differ only in <strong>frequency (f)</strong> and <strong>wavelength (λ)</strong> – and therefore in the <strong>energy</strong> they carry.</p>
+  <div class="lc-img">
+    <img src="https://o.quizlet.com/6LGscvuuHPKa1W4HMUFmTg_b.jpg" alt="Labelled electromagnetic spectrum from radio to gamma rays with visible light expanded">
+    <div class="lc-cap">Fig 1 — The electromagnetic spectrum. Note the inverse relationship: long wavelength ↔ low frequency ↔ low energy (left) and short wavelength ↔ high frequency ↔ high energy (right).</div>
+  </div>
+  <div class="lc-info">💡 <strong>Examiner insight:</strong> You must be able to <strong>order</strong> any set of EM radiations by frequency (or wavelength). Mnemonic: <strong>R</strong>adio, <strong>M</strong>icrowave, <strong>I</strong>nfrared, <strong>V</strong>isible, <strong>U</strong>ltraviolet, <strong>X</strong>-ray, <strong>G</strong>amma – “Rabbits Mate In Very Unusual eXpensive Gardens”.</div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ How are EM waves created?</h3>
+  <p>An <strong>oscillating electric charge</strong> (for example, electrons moving up and down in an antenna) produces a changing electric field, which in turn generates a changing magnetic field. These two fields regenerate each other and propagate outward as a <strong>transverse wave</strong> – no medium required.</p>
+  <div class="lc-img">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Electromagneticwave3D.gif" alt="Animated 3D diagram of an electromagnetic wave showing perpendicular electric and magnetic fields">
+    <div class="lc-cap">Fig 2 — Propagation of an EM wave. The electric field (blue) and magnetic field (red) oscillate perpendicular to each other and to the direction of travel.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 The wave equation – linking f and λ</h3>
+  <p>For any EM wave in a vacuum, the speed \(c\) is constant. Therefore frequency and wavelength are inversely proportional:</p>
+  <div class="lc-formula">c = f λ ⇒ f = c / λ &nbsp; and &nbsp; λ = c / f</div>
+  <p>If frequency doubles, wavelength halves – and vice versa.</p>
+  <div class="lc-kp">
+    <span>c = 3.00×10⁸ m/s</span>
+    <span>f ∝ 1/λ</span>
+    <span>λ ∝ 1/f</span>
+  </div>
+  <div class="lc-warn">⚠️ <strong>Common mistake:</strong> Thinking that different EM waves travel at different speeds in vacuum. They <strong>all</strong> travel at \(c\). Speed only changes in a medium (e.g., glass, water).</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔋 Photon model – quantised energy</h3>
+  <p>EM waves carry energy in discrete packets called <strong>photons</strong>. The energy of a single photon depends only on its frequency (not on its intensity):</p>
+  <div class="lc-formula">E = h f</div>
+  <p>where \(h = 6.63 \times 10^{-34} \text{ J·s}\) (Planck’s constant). Using the wave equation, we also get:</p>
+  <div class="lc-formula">E = h c / λ</div>
+  <p>A very useful shortcut for the IB data booklet: \(hc = 1240 \text{ eV·nm}\). That means if λ is in nanometres, \(E (\text{eV}) = 1240 / \lambda (\text{nm})\).</p>
+  <div class="lc-success">✓ <strong>Exam tip:</strong> You will often be asked to convert between joules and electronvolts. Remember 1 eV = 1.60 × 10⁻¹⁹ J.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphical mastery for IB exams</h3>
+  <p>Two essential graphs appear frequently in Papers 1, 2 and 3:</p>
+  <div class="lc-img-row">
+    <div class="lc-img">
+      <img src="https://i.postimg.cc/zfNsqLgj/Chat-GPT-Image-May-4-2026-09-48-57-PM.png" alt="Straight line graph of photon energy versus frequency, slope equals Planck constant">
+      <div class="lc-cap">Fig 3 — Photon energy vs. frequency: straight line through origin, slope = h = 6.63×10⁻³⁴ J·s. Higher frequency = higher photon energy.</div>
+    </div>
+    <div class="lc-img">
+      <img src="https://i.postimg.cc/yYjT5kT9/image.png" alt="Graph of energy versus wavelength (hyperbola) and linearised graph of energy versus 1/wavelength">
+      <div class="lc-cap">Fig 4 — Left: E ∝ 1/λ (hyperbola). Right: linearised plot E vs. 1/λ gives a straight line with slope = hc.</div>
+    </div>
+  </div>
+  <p><strong>What examiners ask:</strong> Identify the slope, calculate h or hc from a graph, predict the energy for a given frequency, or determine which region of the spectrum a data point belongs to.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🔧 Worked example – calculating wavelength and photon energy</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>State the known values:</strong> A microwave oven operates at f = 2.45 GHz. \(c = 3.00\times10^8 \text{ m/s}\), \(h = 6.63\times10^{-34} \text{ J·s}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Find the wavelength:</strong> Convert GHz → Hz: 2.45 GHz = 2.45×10⁹ Hz. Use λ = c / f = (3.00×10⁸) / (2.45×10⁹) = 0.122 m.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Find photon energy in joules:</strong> E = h f = (6.63×10⁻³⁴)(2.45×10⁹) = 1.62×10⁻²⁴ J.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Convert to eV:</strong> E = (1.62×10⁻²⁴) / (1.60×10⁻¹⁹) = 1.01×10⁻⁵ eV (very low energy – non‑ionising).</div></div>
+  <div class="lc-info">💡 <strong>Examiner note:</strong> Always include units and show conversion steps. Marks are often awarded for the correct use of scientific notation.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🌍 Real‑world connections</h3>
+  <div class="lc-img">
+    <img src="http://ffden-2.phys.uaf.edu/webproj/213_fall_2017/Christopher_Seamount/images/homeimage.png" alt="Collage: medical X-ray, microwave oven, thermal camera, radio telescope">
+    <div class="lc-cap">Fig 5 — Applications across the spectrum: X‑rays (medical imaging), microwaves (cooking &amp; radar), infrared (thermal cameras), radio (astronomy &amp; communication).</div>
+  </div>
+  <p>Each region interacts with matter differently because of photon energy: radio waves pass through walls, UV causes sunburn (ionisation starts near 3.1 eV), and gamma rays sterilise medical equipment.</p>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which of the following types of electromagnetic radiation has the <strong>longest wavelength</strong>?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> Ultraviolet</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> Radio waves</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> Gamma rays</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> Visible light</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. The energy of a photon is directly proportional to:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> its wavelength</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> its frequency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> the speed of light</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> the amplitude of the wave</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A photon of red light has wavelength 700 nm. What is its approximate energy in eV? (Use \(hc = 1240 \text{ eV·nm}\))</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> 0.56 eV</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> 0.89 eV</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> 1.77 eV</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> 3.54 eV</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Which statement about X‑rays and radio waves is <strong>true</strong>?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','D')"><span class="lc-opt-l">A</span> Radio waves travel faster in vacuum than X‑rays.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','D')"><span class="lc-opt-l">B</span> X‑rays have a lower frequency than radio waves.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','D')"><span class="lc-opt-l">C</span> Radio waves carry more energy per photon than X‑rays.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','D')"><span class="lc-opt-l">D</span> X‑rays have a shorter wavelength and higher photon energy.</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    1. All electromagnetic waves travel at the same speed in a vacuum, which is <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:150px"> m s⁻¹.
+  </div>
+  <div class="lc-fitb">
+    2. The energy of a photon is given by \(E = \) <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px"> (in terms of frequency) or \(E = \) <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> (in terms of wavelength).
+  </div>
+  <div class="lc-fitb">
+    3. The region of the EM spectrum immediately below visible light (lower frequency) is <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px">; the region immediately above visible light is <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:100px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam-style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">(a) A gamma ray photon has a wavelength of \(5.0 \times 10^{-13}\) m. Calculate its frequency. <span class="lc-exam-marks">[2 marks]</span></div>
+  <div class="lc-exam-q">(b) Hence calculate the energy of this photon in joules and in eV. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your full working here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>Model answer (5 marks total):</strong><br>
+    (a) \(f = \frac{c}{\lambda} = \frac{3.00\times10^8}{5.0\times10^{-13}} = 6.0\times10^{20}\) Hz ✓<br>
+    (b) \(E = hf = (6.63\times10^{-34})(6.0\times10^{20}) = 3.98\times10^{-13}\) J ✓<br>
+    Convert to eV: \(E = \frac{3.98\times10^{-13}}{1.60\times10^{-19}} = 2.49\times10^{6}\) eV ✓ (or 2.49 MeV)<br>
+    ✓ Unit conversions correct. ✓ Final answers to 2 significant figures.
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">Ultraviolet (UV) radiation is more harmful to living tissue than visible light, even at the same low intensity. Using the photon model, explain why. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your explanation…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>Model answer (3 marks):</strong><br>
+    ✓ UV has a higher frequency / shorter wavelength than visible light.<br>
+    ✓ From \(E = hf\), each UV photon carries more energy than a visible photon.<br>
+    ✓ Higher‑energy photons can ionise atoms / break chemical bonds in DNA (even if the total intensity – number of photons per second – is low).<br>
+    (Award any two of the above for full marks, third is bonus clarity.)
+  </div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { B: 'Radio waves have the longest wavelength (up to kilometres) and lowest frequency.' },
+    mcq2: { B: 'E = hf, so energy is directly proportional to frequency. Wavelength gives inverse proportion.' },
+    mcq3: { C: 'E = 1240 / 700 = 1.77 eV. (Careful: 1240/350 = 3.54 eV is for 350 nm – near UV.)' },
+    mcq4: { D: 'X‑rays have much higher frequency (shorter λ) → higher photon energy. Speed is same for all EM in vacuum.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = {
+      lf1: '3.00×10^8',
+      lf2: 'hf',
+      lf3: 'hc/λ',
+      lf4: 'infrared',
+      lf5: 'ultraviolet'
+    };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      let val = el.value.trim().toLowerCase();
+      if (id === 'lf1') {
+        if (val === '3.00×10^8' || val === '3.00e8' || val === '3.0×10^8' || val === '3×10^8' || val === '3.0e8' || val === '3e8') val = '3.00×10^8';
+      }
+      const ok = (val === ans[id]) || (ans[id] === 'hf' && val === 'hf') || (ans[id] === 'hc/λ' && (val === 'hc/λ' || val === 'hc/lambda'));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([ma]);
+  };
+})();
+</script>
+
+<script>
+  (function(){
+    window.addEventListener('storage', function(e){ if(e.key==='phyq-theme'){ document.documentElement.dataset.theme = e.newValue||'dark'; } });
+    function postH(){
+      var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      parent.postMessage({ __lessonEmbed:true, h:h }, '*');
+    }
+    window.addEventListener('load', function(){ postH(); setTimeout(postH,250); setTimeout(postH,700); });
+    if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
+      MathJax.startup.promise.then(function(){ postH(); setTimeout(postH,200); });
+    }
+    if (window.ResizeObserver) new ResizeObserver(postH).observe(document.body);
+    document.addEventListener('click', function(){ setTimeout(postH,90); });
+    document.addEventListener('input', function(){ setTimeout(postH,90); });
+  })();
+</script>
+</body>
+</html>

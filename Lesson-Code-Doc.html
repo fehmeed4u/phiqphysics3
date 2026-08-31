@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>φQ Physics — Lesson Code Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0f1c; color: #E8E4DB;
+      min-height: 100vh;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: fixed; left: 0; top: 0; bottom: 0;
+      width: 280px; background: #0d1221;
+      border-right: 1px solid rgba(79,157,255,0.12);
+      overflow-y: auto; z-index: 100;
+      display: flex; flex-direction: column;
+    }
+    .sidebar-header {
+      padding: 1.25rem 1.25rem 0.75rem;
+      border-bottom: 1px solid rgba(79,157,255,0.1);
+      position: sticky; top: 0; background: #0d1221; z-index: 1;
+    }
+    .sidebar-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
+    .sidebar-logo span:first-child { color: #4F9DFF; }
+    .sidebar-logo span:nth-child(2) { color: #7B6EF6; }
+    .sidebar-sub { font-size: 0.72rem; color: #4D5A6E; margin-top: 0.15rem; }
+
+    .sidebar-search {
+      margin: 0.75rem 1rem;
+      padding: 0.5rem 0.75rem;
+      background: #131929; border: 1px solid rgba(79,157,255,0.15);
+      border-radius: 8px; color: #E8E4DB;
+      font-family: 'Inter', sans-serif; font-size: 0.82rem;
+      outline: none; width: calc(100% - 2rem);
+    }
+    .sidebar-search::placeholder { color: #4D5A6E; }
+    .sidebar-search:focus { border-color: rgba(79,157,255,0.4); }
+
+    .unit-group { padding: 0 0.5rem 0.5rem; }
+    .unit-group-label {
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; padding: 0.6rem 0.75rem 0.3rem;
+      color: #4D5A6E; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .unit-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    .sidebar-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.45rem 0.75rem; border-radius: 7px;
+      cursor: pointer; transition: background 0.15s;
+      font-size: 0.8rem; color: #7A8699;
+      border: none; background: none; width: 100%;
+      text-align: left; font-family: 'Inter', sans-serif;
+    }
+    .sidebar-item:hover { background: rgba(79,157,255,0.08); color: #C0BAB0; }
+    .sidebar-item.active { background: rgba(79,157,255,0.12); color: #4F9DFF; }
+    .sidebar-item.has-code { color: #C0BAB0; }
+    .sidebar-item.has-code::after {
+      content: '●'; margin-left: auto; color: #34D399;
+      font-size: 0.55rem; flex-shrink: 0;
+    }
+    .sidebar-item-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; flex-shrink: 0;
+      color: inherit; opacity: 0.7;
+    }
+
+    /* ── MAIN ── */
+    .main {
+      margin-left: 280px;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+
+    .main-header {
+      padding: 1.5rem 2rem 1rem;
+      border-bottom: 1px solid rgba(79,157,255,0.1);
+      background: #0a0f1c;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .lesson-title-area h2 {
+      font-family: 'Playfair Display', serif; font-size: 1.4rem;
+      color: #E8E4DB;
+    }
+    .lesson-title-area p { font-size: 0.82rem; color: #7A8699; margin-top: 0.25rem; }
+
+    .header-btns { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .btn {
+      padding: 0.5rem 1.1rem; border-radius: 100px;
+      font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; border: none;
+      font-family: 'Inter', sans-serif; transition: all 0.2s;
+    }
+    .btn-primary { background: #4F9DFF; color: #fff; }
+    .btn-primary:hover { filter: brightness(1.12); }
+    .btn-secondary { background: transparent; color: #7A8699; border: 1.5px solid rgba(79,157,255,0.2); }
+    .btn-secondary:hover { border-color: #4F9DFF; color: #4F9DFF; }
+    .btn-green { background: #34D399; color: #000; }
+    .btn-green:hover { filter: brightness(1.1); }
+    .btn-danger { background: transparent; color: #F87171; border: 1.5px solid rgba(248,113,113,0.3); }
+    .btn-danger:hover { background: rgba(248,113,113,0.1); }
+
+    /* ── EDITOR AREA ── */
+    .editor-wrap {
+      flex: 1; padding: 1.5rem 2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+
+    .status-bar {
+      display: flex; align-items: center; gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .status-tag {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 0.22rem 0.65rem;
+      border-radius: 100px;
+    }
+    .status-empty  { background: rgba(122,134,153,0.15); color: #7A8699; border: 1px solid rgba(122,134,153,0.2); }
+    .status-has    { background: rgba(52,211,153,0.12);  color: #34D399; border: 1px solid rgba(52,211,153,0.25); }
+    .char-count    { font-size: 0.78rem; color: #4D5A6E; font-family: 'JetBrains Mono', monospace; }
+
+    .instructions {
+      background: #0d1221; border: 1px solid rgba(79,157,255,0.15);
+      border-radius: 12px; padding: 1.25rem 1.5rem;
+      font-size: 0.86rem; color: #7A8699; line-height: 1.7;
+    }
+    .instructions strong { color: #C0BAB0; }
+    .instructions code {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+      background: #131929; padding: 0.1rem 0.4rem; border-radius: 4px;
+      color: #4F9DFF;
+    }
+
+    .code-editor {
+      width: 100%; min-height: 420px;
+      background: #070b14; border: 1.5px solid rgba(79,157,255,0.15);
+      border-radius: 12px; color: #E8E4DB;
+      font-family: 'JetBrains Mono', monospace; font-size: 0.84rem;
+      padding: 1.25rem; resize: vertical; outline: none;
+      line-height: 1.65; transition: border-color 0.2s;
+      tab-size: 2;
+    }
+    .code-editor:focus { border-color: rgba(79,157,255,0.5); }
+    .code-editor::placeholder { color: #2A3347; }
+    .code-editor.has-code { border-color: rgba(52,211,153,0.25); }
+
+    .save-row {
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;
+    }
+    .save-hint { font-size: 0.78rem; color: #4D5A6E; }
+
+    /* ── EXPORT PANEL ── */
+    .export-panel {
+      background: #0d1221; border: 1px solid rgba(79,157,255,0.15);
+      border-radius: 14px; padding: 1.5rem 2rem; margin: 0 2rem 2rem;
+    }
+    .export-panel h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+    .export-panel p { font-size: 0.85rem; color: #7A8699; margin-bottom: 1rem; }
+    .export-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+    .export-card {
+      background: #131929; border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px; padding: 1rem;
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .export-card-title { font-size: 0.9rem; font-weight: 600; color: #E8E4DB; }
+    .export-card-desc  { font-size: 0.78rem; color: #7A8699; flex: 1; }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 4rem 2rem; color: #4D5A6E;
+    }
+    .empty-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .empty-state h3 { font-family: 'Playfair Display', serif; color: #7A8699; margin-bottom: 0.5rem; }
+    .empty-state p { font-size: 0.88rem; max-width: 360px; }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: #34D399; color: #000; font-weight: 600;
+      padding: 0.75rem 1.5rem; border-radius: 100px;
+      font-size: 0.88rem; z-index: 9999;
+      transform: translateY(100px); opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .toast.show { transform: none; opacity: 1; }
+
+    /* ── PROGRESS ── */
+    .sidebar-footer {
+      margin-top: auto; padding: 1rem 1.25rem;
+      border-top: 1px solid rgba(79,157,255,0.08);
+    }
+    .sidebar-prog-label {
+      display: flex; justify-content: space-between;
+      font-size: 0.72rem; color: #4D5A6E; margin-bottom: 0.4rem;
+    }
+    .sidebar-prog-bar {
+      height: 4px; background: #131929; border-radius: 100px; overflow: hidden;
+    }
+    .sidebar-prog-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #4F9DFF, #34D399);
+      border-radius: 100px; transition: width 0.4s;
+    }
+
+    @media(max-width:768px){
+      .sidebar { width: 100%; height: auto; position: relative; }
+      .main { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo"><span>φ</span><span>Q</span> <span style="color:#7A8699;font-weight:400;font-size:0.95rem">Physics</span></div>
+    <div class="sidebar-sub">Lesson Code Document · 80 lessons</div>
+  </div>
+
+  <input type="text" class="sidebar-search" id="sidebar-search" placeholder="Search lessons…" oninput="filterSidebar(this.value)">
+
+  <div id="sidebar-list" style="flex:1;overflow-y:auto;padding-bottom:0.5rem"></div>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-prog-label">
+      <span id="footer-prog-label">0 of 80 lessons have code</span>
+      <span id="footer-prog-pct">0%</span>
+    </div>
+    <div class="sidebar-prog-bar">
+      <div class="sidebar-prog-fill" id="sidebar-prog-fill" style="width:0%"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main" id="main-area">
+  <div class="empty-state" id="empty-state">
+    <div class="empty-icon">📂</div>
+    <h3>Select a lesson from the sidebar</h3>
+    <p>Click any lesson on the left to open its code editor. Paste your generated lesson HTML and save it.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const LESSONS = [
+  { unit:'A', unitName:'Space, Time and Motion', color:'#4F9DFF', topics:[
+    { code:'A.1', name:'Kinematics', level:'SL/HL', concepts:['Displacement, Velocity and Acceleration','Uniformly Accelerated Motion — SUVAT','Graphs of Motion','Projectile Motion','Fluid Resistance and Terminal Velocity\n'] },
+    { code:'A.2', name:'Forces and Momentum', level:'SL/HL', concepts:["Newton's Laws of Motion",'Free Body Diagrams','Friction and Normal Force','Momentum and Impulse','Conservation of Momentum'] },
+    { code:'A.3', name:'Work, Energy and Power', level:'SL/HL', concepts:['Work Done by a Force','Kinetic and Gravitational Potential Energy','Conservation of Mechanical Energy','Power and Efficiency','Elastic and Inelastic Collisions'] },
+    { code:'A.4', name:'Rigid Body Mechanics', level:'HL only', concepts:['Torque and Moment of Force','Angular Velocity and Acceleration','Moment of Inertia','Rotational Kinetic Energy','Angular Momentum'] },
+    { code:'A.5', name:'Galilean and Special Relativity', level:'HL only', concepts:['Galilean Relativity',"Einstein's Postulates",'Time Dilation','Length Contraction','Mass-Energy Equivalence','Spacetime Diagrams'] },
+  ]},
+  { unit:'B', unitName:'The Particulate Nature of Matter', color:'#7B6EF6', topics:[
+    { code:'B.1', name:'Thermal Energy Transfers', level:'SL/HL', concepts:['Specific Heat Capacity','Specific Latent Heat','Conduction','Convection','Radiation and Black-body Emission'] },
+    { code:'B.2', name:'Greenhouse Effect', level:'SL/HL', concepts:['Solar Radiation and Albedo','Energy Balance of Earth','Greenhouse Gases and Mechanisms','Enhanced Greenhouse Effect and Climate'] },
+    { code:'B.3', name:'Gas Laws', level:'SL/HL', concepts:["Boyle's Law","Charles's Law and Gay-Lussac's Law",'The Ideal Gas Equation','Kinetic Theory of Gases','Internal Energy'] },
+    { code:'B.4', name:'Thermodynamics', level:'HL only', concepts:['First Law of Thermodynamics','Thermodynamic Processes and p-V Diagrams','The Carnot Cycle','Entropy and the Second Law','Heat Engines and Refrigerators'] },
+    { code:'B.5', name:'Current and Circuits', level:'SL/HL', concepts:['Current, Voltage and Resistance',"Ohm's Law and I-V Characteristics",'Series and Parallel Circuits','EMF and Internal Resistance','Electrical Power and Energy'] },
+  ]},
+  { unit:'C', unitName:'Wave Behaviour', color:'#00D4FF', topics:[
+    { code:'C.1', name:'Simple Harmonic Motion', level:'SL/HL', concepts:['Defining Simple Harmonic Motion','SHM Equations — Displacement, Velocity, Acceleration','Energy in SHM','The Simple Pendulum and Mass-Spring System','Damping and Resonance'] },
+    { code:'C.2', name:'Wave Model', level:'SL/HL', concepts:['Wave Properties — Amplitude, Frequency, Wavelength','Transverse and Longitudinal Waves','Wave Speed','Intensity and Amplitude','The Electromagnetic Spectrum'] },
+    { code:'C.3', name:'Wave Phenomena', level:'SL/HL', concepts:['Principle of Superposition','Constructive and Destructive Interference',"Young's Double-Slit Experiment",'Diffraction Grating','Polarisation'] },
+    { code:'C.4', name:'Standing Waves and Resonance', level:'SL/HL', concepts:['Formation of Standing Waves','Harmonics in Strings','Harmonics in Pipes','Resonance'] },
+    { code:'C.5', name:'Doppler Effect', level:'SL/HL', concepts:['Doppler Effect for Sound','Doppler Effect for Light — Redshift','Applications of the Doppler Effect'] },
+  ]},
+  { unit:'D', unitName:'Fields', color:'#F5A623', topics:[
+    { code:'D.1', name:'Gravitational Fields', level:'SL/HL', concepts:["Newton's Law of Gravitation",'Gravitational Field Strength','Gravitational Potential','Orbital Mechanics',"Kepler's Laws"] },
+    { code:'D.2', name:'Electric and Magnetic Fields', level:'SL/HL', concepts:["Coulomb's Law",'Electric Field Strength','Electric Potential','Magnetic Fields and Flux Density','Magnetic Flux'] },
+    { code:'D.3', name:'Motion in Electromagnetic Fields', level:'SL/HL', concepts:['The Lorentz Force','Circular Motion of Charges in a Magnetic Field','The Velocity Selector','The Hall Effect'] },
+    { code:'D.4', name:'Induction', level:'HL only', concepts:["Faraday's Law of Electromagnetic Induction","Lenz's Law",'Motional EMF','AC Generators','Transformers'] },
+  ]},
+  { unit:'E', unitName:'Nuclear and Quantum Physics', color:'#34D399', topics:[
+    { code:'E.1', name:'Structure of the Atom', level:'SL/HL', concepts:['The Rutherford Scattering Experiment','The Nuclear Model of the Atom','Atomic Energy Levels','Emission Spectra','Absorption Spectra and the Bohr Model'] },
+    { code:'E.2', name:'Quantum Physics', level:'HL only', concepts:['The Photoelectric Effect','The Photon Model of Light','The de Broglie Wavelength','The Heisenberg Uncertainty Principle','Wave-Particle Duality'] },
+    { code:'E.3', name:'Radioactive Decay', level:'SL/HL', concepts:['Alpha, Beta and Gamma Radiation','The Radioactive Decay Law','Half-Life','Activity and Decay Constant','Nuclear Equations and Conservation Laws'] },
+    { code:'E.4', name:'Fission', level:'SL/HL', concepts:['Nuclear Binding Energy','Mass Defect and Energy Release','Chain Reactions and Critical Mass','Nuclear Fission Reactors'] },
+    { code:'E.5', name:'Fusion and Stars', level:'SL/HL', concepts:['Nuclear Fusion Reactions','Stellar Evolution','The Hertzsprung-Russell Diagram','Main Sequence, Giants and Remnants'] },
+  ]},
+];
+
+const STORE = 'phyq-lesson-codes';
+let codes = {};
+try { codes = JSON.parse(localStorage.getItem(STORE) || '{}'); } catch(e){}
+
+// Pre-fill C.1.01 as done
+const c1key = 'C.1__Defining Simple Harmonic Motion';
+if (!codes[c1key]) codes[c1key] = '/* C.1.01 — Defining Simple Harmonic Motion — ALREADY UPLOADED TO WEBSITE */\n/* This lesson is complete. The HTML is in:\nsyllabus-content/C.1-SHM/01-defining-simple-harmonic-motion.html */';
+
+let currentKey = null;
+
+function getLessonKey(code, concept) {
+  return `${code}__${concept}`;
+}
+
+function getCode(code, concept) {
+  return codes[getLessonKey(code, concept)] || '';
+}
+
+function hasCode(code, concept) {
+  const c = getCode(code, concept);
+  return c.trim().length > 0;
+}
+
+function saveCode(code, concept, val) {
+  codes[getLessonKey(code, concept)] = val;
+  localStorage.setItem(STORE, JSON.stringify(codes));
+  updateProgress();
+  renderSidebar();
+}
+
+function updateProgress() {
+  let total = 0, filled = 0;
+  LESSONS.forEach(u => u.topics.forEach(t => t.concepts.forEach(c => {
+    total++;
+    if (hasCode(t.code, c)) filled++;
+  })));
+  const pct = Math.round(filled/total*100);
+  document.getElementById('footer-prog-label').textContent = `${filled} of ${total} lessons have code`;
+  document.getElementById('footer-prog-pct').textContent = pct + '%';
+  document.getElementById('sidebar-prog-fill').style.width = pct + '%';
+}
+
+function renderSidebar(filter='') {
+  const fl = filter.toLowerCase();
+  const list = document.getElementById('sidebar-list');
+  list.innerHTML = '';
+
+  LESSONS.forEach(unit => {
+    const groupEl = document.createElement('div');
+    groupEl.className = 'unit-group';
+
+    const label = document.createElement('div');
+    label.className = 'unit-group-label';
+    label.innerHTML = `<span class="unit-dot" style="background:${unit.color}"></span>Unit ${unit.unit} — ${unit.unitName}`;
+    groupEl.appendChild(label);
+
+    let anyVisible = false;
+    unit.topics.forEach(topic => {
+      topic.concepts.forEach((concept, ci) => {
+        if (fl && !concept.toLowerCase().includes(fl) && !topic.name.toLowerCase().includes(fl) && !topic.code.toLowerCase().includes(fl)) return;
+        anyVisible = true;
+        const key = getLessonKey(topic.code, concept);
+        const btn = document.createElement('button');
+        btn.className = `sidebar-item ${key === currentKey ? 'active' : ''} ${hasCode(topic.code, concept) ? 'has-code' : ''}`;
+        btn.innerHTML = `<span class="sidebar-item-code">${topic.code}.${String(ci+1).padStart(2,'0')}</span><span style="flex:1;text-align:left">${concept}</span>`;
+        btn.onclick = () => openLesson(topic, concept, ci, unit.color);
+        groupEl.appendChild(btn);
+      });
+    });
+
+    if (anyVisible || !fl) list.appendChild(groupEl);
+  });
+}
+
+function openLesson(topic, concept, ci, color) {
+  currentKey = getLessonKey(topic.code, concept);
+  renderSidebar(document.getElementById('sidebar-search').value);
+
+  const main = document.getElementById('main-area');
+  const code = getCode(topic.code, concept);
+  const isHL = topic.level === 'HL only';
+
+  main.innerHTML = `
+    <div class="main-header">
+      <div class="lesson-title-area">
+        <h2>${concept}</h2>
+        <p>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;
+            color:${color};background:${color}18;padding:0.15rem 0.5rem;border-radius:5px">
+            ${topic.code}.${String(ci+1).padStart(2,'0')}
+          </span>
+          &nbsp; ${topic.name} &nbsp;·&nbsp;
+          <span style="color:${isHL?'#7B6EF6':'#4F9DFF'}">${topic.level}</span>
+        </p>
+      </div>
+      <div class="header-btns">
+        <button class="btn btn-secondary" onclick="clearCode()">Clear</button>
+        <button class="btn btn-green" onclick="saveCurrentCode()">Save code ✓</button>
+      </div>
+    </div>
+
+    <div class="editor-wrap">
+      <div class="status-bar">
+        <span class="status-tag ${code.trim() ? 'status-has' : 'status-empty'}" id="status-tag">
+          ${code.trim() ? '✅ Code saved' : '📝 Empty — paste code here'}
+        </span>
+        <span class="char-count" id="char-count">${code.length > 0 ? code.length + ' chars' : ''}</span>
+      </div>
+
+      <div class="instructions">
+        <strong>How to use:</strong>
+        Use the <code>φQ Lesson Generator Prompt</code> to generate HTML for this lesson.
+        Then paste the generated <code>&lt;style&gt;…&lt;/style&gt;</code> + content + <code>&lt;script&gt;…&lt;/script&gt;</code>
+        block into the editor below. Click <strong>Save code</strong> when done.
+        When you're ready to update the website, click <strong>"Export all to file"</strong> at the bottom.
+      </div>
+
+      <textarea
+        class="code-editor ${code.trim() ? 'has-code' : ''}"
+        id="code-editor"
+        placeholder="Paste your lesson HTML code here…&#10;&#10;It should start with &lt;style&gt; and end with &lt;/script&gt;&#10;&#10;Generated using the φQ Lesson Generator Prompt."
+        oninput="onEditorInput(this)"
+      >${escapeHtml(code)}</textarea>
+
+      <div class="save-row">
+        <span class="save-hint">💾 Code is saved automatically in your browser. Export when ready to upload.</span>
+        <button class="btn btn-primary" onclick="saveCurrentCode()">Save code →</button>
+      </div>
+    </div>
+
+    <div class="export-panel">
+      <h3>Export options</h3>
+      <p>When you have added code for multiple lessons, export and send to update the website.</p>
+      <div class="export-grid">
+        <div class="export-card">
+          <div class="export-card-title">📦 Export all lessons</div>
+          <div class="export-card-desc">Download a JSON file containing all saved lesson codes. Upload this file to update the website.</div>
+          <button class="btn btn-primary" style="margin-top:0.5rem;align-self:flex-start" onclick="exportAll()">Download JSON</button>
+        </div>
+        <div class="export-card">
+          <div class="export-card-title">📋 Copy this lesson</div>
+          <div class="export-card-desc">Copy just this lesson's code to clipboard to paste into chat for a single update.</div>
+          <button class="btn btn-secondary" style="margin-top:0.5rem;align-self:flex-start" onclick="copyCurrentLesson()">Copy code</button>
+        </div>
+        <div class="export-card">
+          <div class="export-card-title">📊 Progress</div>
+          <div class="export-card-desc" id="export-progress-text">Loading…</div>
+        </div>
+      </div>
+    </div>`;
+
+  // Update export progress
+  let total = 0, filled = 0;
+  LESSONS.forEach(u => u.topics.forEach(t => t.concepts.forEach(c => {
+    total++; if (hasCode(t.code, c)) filled++;
+  })));
+  document.getElementById('export-progress-text').textContent =
+    `${filled} of ${total} lessons have code saved. ${total-filled} remaining.`;
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function onEditorInput(el) {
+  const val = el.value;
+  const ct = document.getElementById('char-count');
+  if (ct) ct.textContent = val.length > 0 ? val.length + ' chars' : '';
+  el.classList.toggle('has-code', val.trim().length > 0);
+  const st = document.getElementById('status-tag');
+  if (st) {
+    st.className = 'status-tag ' + (val.trim() ? 'status-has' : 'status-empty');
+    st.textContent = val.trim() ? '✅ Code ready — click Save' : '📝 Empty — paste code here';
+  }
+}
+
+function saveCurrentCode() {
+  if (!currentKey) return;
+  const el = document.getElementById('code-editor');
+  if (!el) return;
+  const [code, concept] = currentKey.split('__');
+  saveCode(code, concept, el.value);
+  showToast('✓ Code saved!');
+  // Update status tag
+  const st = document.getElementById('status-tag');
+  if (st && el.value.trim()) {
+    st.className = 'status-tag status-has';
+    st.textContent = '✅ Code saved';
+  }
+}
+
+function clearCode() {
+  const el = document.getElementById('code-editor');
+  if (el && confirm('Clear the code for this lesson?')) {
+    el.value = '';
+    onEditorInput(el);
+    if (currentKey) {
+      const [code, concept] = currentKey.split('__');
+      saveCode(code, concept, '');
+    }
+  }
+}
+
+function copyCurrentLesson() {
+  const el = document.getElementById('code-editor');
+  if (!el || !el.value.trim()) { showToast('⚠ No code to copy'); return; }
+  navigator.clipboard.writeText(el.value).then(() => showToast('✓ Copied to clipboard!'));
+}
+
+function exportAll() {
+  const filled = {};
+  let count = 0;
+  LESSONS.forEach(u => u.topics.forEach(t => t.concepts.forEach((c, ci) => {
+    const v = getCode(t.code, c);
+    if (v.trim()) {
+      filled[`${t.code}__${String(ci+1).padStart(2,'0')}__${c}`] = v;
+      count++;
+    }
+  })));
+
+  if (!count) { showToast('⚠ No lesson codes saved yet'); return; }
+
+  const blob = new Blob([JSON.stringify({ version:1, date: new Date().toISOString(), lessonCount: count, lessons: filled }, null, 2)], { type:'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `phyq-lessons-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  showToast(`✓ Exported ${count} lessons!`);
+}
+
+window.filterSidebar = function(val) { renderSidebar(val); };
+window.saveCurrentCode = saveCurrentCode;
+window.clearCode = clearCode;
+window.copyCurrentLesson = copyCurrentLesson;
+window.exportAll = exportAll;
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// Init
+renderSidebar();
+updateProgress();
+</script>
+</body>
+</html>

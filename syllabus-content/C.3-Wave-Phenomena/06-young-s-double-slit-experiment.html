@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Young's Double-Slit Experiment — C.3 Wave Phenomena — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C3">C.3 Wave Phenomena</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Young's Double-Slit Experiment</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">
+            C.3
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 6 of 9
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Young's Double-Slit Experiment</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">C.3 Wave Phenomena</strong>
+          · Unit C — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to C.3 overview
+      </a>
+      <div class="sidebar-title">C.3 Concepts</div>
+      <a href="01-transmission-absorption-and-scattering-of-waves.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Transmission, Absorption and Scattering of Waves</span>
+        </a>
+      <a href="02-reflection-of-waves-and-rays.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Reflection of Waves and Rays</span>
+        </a>
+      <a href="03-refraction-of-waves.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Refraction of Waves</span>
+        </a>
+      <a href="04-principle-of-superposition.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Principle of Superposition</span>
+        </a>
+      <a href="05-constructive-and-destructive-interference.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Constructive and Destructive Interference</span>
+        </a>
+      <a href="06-young-s-double-slit-experiment.html" class="sidebar-link active">
+          <span class="sidebar-num">06</span>
+          <span>Young's Double-Slit Experiment</span>
+        </a>
+      <a href="07-single-slit-diffraction.html" class="sidebar-link">
+          <span class="sidebar-num">07</span>
+          <span>Single-Slit Diffraction</span>
+        </a>
+      <a href="08-polarisation.html" class="sidebar-link">
+          <span class="sidebar-num">08</span>
+          <span>Polarisation</span>
+        </a>
+      <a href="09-diffraction-gratings.html" class="sidebar-link">
+          <span class="sidebar-num">09</span>
+          <span>Diffraction Gratings</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.75rem 1.1rem;margin:0.75rem 0;
+  font-family:var(--font-mono);font-size:1.05rem;
+  color:var(--accent);text-align:center; }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- LESSON HEADER                              -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-badge"><span>6</span> Lesson 3 · C.3</div>
+<div class="lc-title">Young's Double-Slit Experiment</div>
+<div class="lc-sub">How two slits, one wavelength, and a screen reveal the wave nature of light — deriving and applying s = λD / d</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- HOOK — EVERYDAY PHENOMENON                 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-card">
+  <h3>Why Should You Care?</h3>
+  <p>Have you ever noticed the rainbow colours on a soap bubble or a thin oil film on a puddle? Those colours come from <strong>interference</strong> — the same wave behaviour that Thomas Young used in 1801 to prove that light is a wave. When two sets of waves overlap, they can reinforce or cancel each other, creating striking patterns of bright and dark bands called <strong>fringes</strong>.</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/L5WMGGZj/image.png" alt="Thin-film interference producing rainbow colours on a soap bubble, illustrating how wave interference creates visible patterns">
+  <div class="lc-cap">Fig 1 — Thin-film interference in everyday life. The same principle — superposition of waves with different path lengths — underlies Young's experiment.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- KEY DEFINITIONS                            -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-section">Key definitions</div>
+
+<div class="lc-card">
+  <h3>Terms You Must Know</h3>
+  <table class="lc-table">
+    <thead>
+      <tr><th>Term</th><th>Definition</th><th>Symbol</th><th>Unit</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Coherence</td><td>A constant phase difference between two waves (same frequency, same waveform)</td><td>—</td><td>—</td></tr>
+      <tr><td>Path difference</td><td>The extra distance one wave travels compared to the other to reach the same point</td><td>Δ</td><td>m</td></tr>
+      <tr><td>Fringe spacing</td><td>Distance between the centres of adjacent bright fringes</td><td>s</td><td>m</td></tr>
+      <tr><td>Slit separation</td><td>Centre-to-centre distance between the two slits</td><td>d</td><td>m</td></tr>
+      <tr><td>Screen distance</td><td>Distance from the double slit to the observation screen</td><td>D</td><td>m</td></tr>
+      <tr><td>Wavelength</td><td>Distance between consecutive identical points on a wave</td><td>λ</td><td>m (nm often used)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="lc-warn">⚠️ <strong>Coherence trap:</strong> Two separate light bulbs are <em>not</em> coherent — their phase difference changes randomly billions of times per second, so no stable fringe pattern forms. You need a single source split into two beams (or a laser, which is inherently coherent).</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- CORE EXPLANATION                           -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-section">How the experiment works</div>
+
+<div class="lc-card">
+  <h3>The Setup</h3>
+  <p>Monochromatic light (a single wavelength) passes through a narrow single slit, which acts as a point-like coherent source. This light then hits a barrier with <strong>two narrow slits</strong> separated by a small distance <em>d</em>. Each slit diffracts the incoming wave, producing two overlapping sets of circular wavefronts that travel to a distant screen.</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/02HQqBqB/image.png" alt="Diagram showing monochromatic light passing through a double slit and producing an interference pattern of bright and dark fringes on a distant screen">
+  <div class="lc-cap">Fig 2 — Overview of Young's double-slit experiment. Light diffracts through both slits; where the two sets of waves overlap on the screen, constructive and destructive interference produce alternating bright and dark fringes.</div>
+</div>
+
+<div class="lc-card">
+  <h3>Why Fringes Form</h3>
+  <p>At any point on the screen, two waves arrive — one from each slit. Because the slits are at slightly different distances from that point, the waves have travelled different path lengths.</p>
+  <p>Where the waves arrive <strong>in phase</strong> (crest meets crest), they add up — <strong>constructive interference</strong> → bright fringe.</p>
+  <p>Where they arrive <strong>out of phase</strong> (crest meets trough), they cancel — <strong>destructive interference</strong> → dark fringe.</p>
+  <p>The <strong>path difference</strong> determines which type of interference occurs at each point on the screen.</p>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>Constructive Interference</h3>
+    <p>Path difference = whole number of wavelengths</p>
+    <div class="lc-formula">Δ = nλ &nbsp; (n = 0, 1, 2, …)</div>
+    <p>Waves arrive in phase → amplitudes add → <strong>bright fringe</strong>.</p>
+  </div>
+  <div class="lc-card">
+    <h3>Destructive Interference</h3>
+    <p>Path difference = half-integer number of wavelengths</p>
+    <div class="lc-formula">Δ = (n + ½)λ</div>
+    <p>Waves arrive in antiphase → amplitudes cancel → <strong>dark fringe</strong>.</p>
+  </div>
+</div>
+
+<div class="lc-info">💡 <strong>Intensity at bright fringes:</strong> When two equal waves interfere constructively, the resultant amplitude is doubled. Since intensity ∝ amplitude², the bright fringe intensity is <strong>4×</strong> that of a single slit — not 2×. This is a common exam trap.</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/Gh9LzxsX/image.png" alt="Comparison showing coherent sources producing stable fringes versus incoherent sources producing no visible pattern">
+  <div class="lc-cap">Fig 3 — Coherent versus incoherent sources. Only coherent waves (constant phase relationship) produce a stable interference pattern.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- THE BIG RELATIONSHIP                       -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-section">Deriving the fringe spacing formula</div>
+
+<div class="lc-card">
+  <h3>Geometry of the Double Slit</h3>
+  <p>Consider two rays leaving the slits and meeting at the <em>n</em>-th bright fringe on the screen. The screen is at distance <em>D</em> from the slits, and the fringe is at distance <em>s<sub>n</sub></em> from the central maximum.</p>
+  <p>The path difference between the two rays is:</p>
+  <div class="lc-formula">path difference = d sin θ</div>
+  <p>For a bright fringe (constructive interference), this must equal a whole number of wavelengths:</p>
+  <div class="lc-formula">d sin θ = nλ &nbsp; (n = 0, ±1, ±2, …)</div>
+  <p>When the screen is far away (<em>D</em> ≫ <em>d</em>), the angle θ is small, so we can use the <strong>small-angle approximation</strong>:</p>
+  <div class="lc-formula">sin θ ≈ tan θ = s<sub>n</sub> / D</div>
+  <p>Substituting into the constructive condition:</p>
+  <div class="lc-formula">d · (s<sub>n</sub> / D) = nλ &nbsp; → &nbsp; s<sub>n</sub> = nλD / d</div>
+  <p>The spacing between adjacent bright fringes (fringe <em>n</em> and fringe <em>n + 1</em>) is:</p>
+  <div class="lc-formula">s = λD / d</div>
+  <p>This is constant — the fringes are <strong>equally spaced</strong>, independent of the order <em>n</em>.</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/Bv2QHZ1J/image.png" alt="Geometric ray diagram showing two rays from the double slits converging at a point on the screen, with path difference d sin theta labelled">
+  <div class="lc-cap">Fig 4 — Geometry of the double slit. The path difference between the two rays is d sin θ. For small angles, sin θ ≈ s<sub>n</sub> / D, which leads directly to the fringe spacing formula.</div>
+</div>
+
+<div class="lc-card">
+  <h3>All Key Formulas</h3>
+  <div class="lc-formula">Constructive: &nbsp; d sin θ = nλ &nbsp; (n = 0, 1, 2, …)</div>
+  <div class="lc-formula">Destructive: &nbsp; d sin θ = (n + ½)λ</div>
+  <div class="lc-formula">Fringe spacing: &nbsp; s = λD / d</div>
+  <div class="lc-formula">Small-angle approx: &nbsp; sin θ ≈ tan θ ≈ θ (rad)</div>
+
+  <div class="lc-kp">
+    <span>s ∝ λ</span>
+    <span>s ∝ D</span>
+    <span>s ∝ 1/d</span>
+  </div>
+</div>
+
+<div class="lc-success">✓ <strong>Exam strategy — proportionality reasoning:</strong> Many IB questions ask "what happens to s if you double D and halve d?" You don't need to recalculate — just use the proportionalities: s doubles (from D) and doubles again (from 1/d) → s increases by a factor of 4.</div>
+
+<div class="lc-warn">⚠️ <strong>Unit conversion trap:</strong> Slit separation <em>d</em> is often given in mm, screen distance <em>D</em> in m, and wavelength λ in nm. Convert everything to metres before substituting into s = λD / d. Remember: 1 mm = 10⁻³ m, 1 nm = 10⁻⁹ m.</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- GRAPHICAL UNDERSTANDING                    -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-section">Graphs you must know</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/wM46g7nx/image.png" alt="Graph of relative intensity versus position on screen showing equally spaced bright fringes with a central maximum">
+  <div class="lc-cap">Fig 5 — Intensity vs. position for double-slit interference. The peaks are equally spaced (spacing = s). For negligible slit width, all maxima have the same height. Read s directly as the distance between adjacent peaks.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>s vs. λ (straight line)</h3>
+    <p>Plotting fringe spacing against wavelength with fixed <em>d</em> and <em>D</em> gives a <strong>straight line through the origin</strong>.</p>
+    <p>Gradient = D / d</p>
+    <p>Use this to find D/d from experimental data by plotting s against λ for several different colours.</p>
+  </div>
+  <div class="lc-card">
+    <h3>s vs. 1/d (straight line)</h3>
+    <p>Plotting fringe spacing against the reciprocal of slit separation (with fixed λ and <em>D</em>) gives a <strong>straight line through the origin</strong>.</p>
+    <p>Gradient = λD</p>
+    <p>Use this linearisation to determine λ from a range of slit-separation measurements.</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>sin θ<sub>n</sub> vs. fringe order n</h3>
+  <p>Plotting sin θ<sub>n</sub> (where θ<sub>n</sub> = arctan(s<sub>n</sub> / D)) against fringe order <em>n</em> yields a straight line through the origin with gradient <strong>λ / d</strong>. This linearisation avoids measuring small fringe spacings directly and is useful in high-precision experiments.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SINGLE-SLIT ENVELOPE (HL EXTENSION)        -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-section">HL extension — finite slit width</div>
+
+<div class="lc-card">
+  <h3>Real Slits Have Width</h3>
+  <p>In a real experiment, each slit has a finite width <em>a</em>. This produces a <strong>single-slit diffraction envelope</strong> that modulates the double-slit fringes. Some bright fringes may be "missing" where a double-slit maximum coincides with a single-slit minimum.</p>
+  <p>The condition for <strong>missing orders</strong> occurs when the ratio <em>d / a</em> is an integer — the <em>m</em>-th double-slit maximum vanishes at the <em>k</em>-th single-slit minimum, where m / k = d / a.</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/mDbR9YsM/image.png" alt="Graph comparing an ideal double-slit pattern with equal-height peaks to a real pattern where a single-slit diffraction envelope causes the peaks to decrease in height away from centre, with some orders missing">
+  <div class="lc-cap">Fig 6 — Ideal vs. real double-slit pattern. The dashed curve is the single-slit diffraction envelope (from slit width <em>a</em>). Where the envelope reaches zero, double-slit fringes vanish — these are "missing orders".</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- WORKED EXAMPLE                             -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-section">Worked example</div>
+
+<div class="lc-card">
+  <h3>Worked Example — Sodium Light Double-Slit Calculation</h3>
+  <p>In a Young's double-slit experiment, light of wavelength 589 nm (sodium) passes through slits separated by 0.25 mm. The screen is 2.80 m away. Calculate the fringe spacing.</p>
+
+  <div class="lc-step">
+    <div class="lc-step-num">1</div>
+    <div class="lc-step-body"><strong>List the known values (convert to SI):</strong><br>
+      λ = 589 nm = 589 × 10⁻⁹ m<br>
+      d = 0.25 mm = 0.25 × 10⁻³ m = 2.5 × 10⁻⁴ m<br>
+      D = 2.80 m</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">2</div>
+    <div class="lc-step-body"><strong>Select the equation:</strong><br>
+      s = λD / d</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">3</div>
+    <div class="lc-step-body"><strong>Substitute and solve:</strong><br>
+      s = (589 × 10⁻⁹ × 2.80) / (2.5 × 10⁻⁴)<br>
+      s = (1.649 × 10⁻⁶) / (2.5 × 10⁻⁴)<br>
+      s = 6.60 × 10⁻³ m</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">4</div>
+    <div class="lc-step-body"><strong>State the answer with units:</strong><br>
+      s = 6.60 mm</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>Follow-Up — Proportionality Reasoning</h3>
+  <p><strong>(b)</strong> If the experiment is repeated with blue light (λ = 450 nm), the fringe spacing <strong>decreases</strong> because s ∝ λ. Blue light has a shorter wavelength than sodium light, so the fringes become closer together.</p>
+  <p><strong>(c)</strong> If the slit separation is doubled to 0.50 mm (same λ, same D), then since s ∝ 1/d, doubling d halves s. New fringe spacing = 6.60 / 2 = <strong>3.30 mm</strong>.</p>
+</div>
+
+<div class="lc-info">💡 <strong>Examiner's insight:</strong> Part (b) is a "state and explain" question — you must give the direction of change AND link it to the formula or proportionality for full marks.</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MISCONCEPTIONS                             -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-section">Common misconceptions</div>
+
+<div class="lc-card">
+  <h3>Trap Corner — Don't Fall For These</h3>
+  <table class="lc-table">
+    <thead>
+      <tr><th>Misconception</th><th>Correct View</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Two flashlights can produce interference</td><td>They are incoherent — the phase difference changes randomly. You need one source split into two beams.</td></tr>
+      <tr><td>Bright fringe intensity is 2× a single slit</td><td>Amplitude doubles → intensity = amplitude² → bright fringe intensity is <strong>4×</strong> a single slit.</td></tr>
+      <tr><td>Dark fringes always have zero intensity</td><td>Perfect cancellation requires equal amplitudes from both slits. In practice, minima may not reach exactly zero.</td></tr>
+      <tr><td>s = λD / d works for any angle</td><td>It relies on the small-angle approximation (θ &lt; ~10°). For large angles, use d sin θ = nλ directly.</td></tr>
+      <tr><td>Increasing D only affects brightness</td><td>Increasing D does spread the light (dimmer), but it also increases fringe spacing (s ∝ D). These are separate effects.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MCQ PRACTICE                               -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A double-slit interference pattern is observed on a screen. The slit separation is reduced by half while the wavelength and screen distance remain the same. The fringe spacing will:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','A')"><span class="lc-opt-l">A</span> Double</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','A')"><span class="lc-opt-l">B</span> Halve</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','A')"><span class="lc-opt-l">C</span> Stay the same</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','A')"><span class="lc-opt-l">D</span> Quadruple</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Which of the following is necessary to observe a stable interference pattern with light?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> Two separate light bulbs of the same colour</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> Light from a single source split into two coherent beams</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> Very bright white light</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> A single narrow slit only</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Which change would cause the interference fringes to become closer together?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> Increasing the screen distance D</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> Using red light instead of blue</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> Decreasing the slit separation d</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> Using a shorter wavelength</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. In a double-slit experiment, the intensity at a bright fringe is I. If one slit is covered, the intensity at the same point becomes:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> I</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> I / 2</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> I / 4</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> Zero</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Light from a laser (λ = 633 nm) passes through two slits separated by 0.20 mm. The screen is 1.50 m away. The fringe spacing is approximately:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> 2.4 mm</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> 4.7 mm</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> 9.5 mm</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> 14.2 mm</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- FILL IN THE BLANKS                         -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    1. For two waves to produce a stable interference pattern, they must be <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px">.
+  </div>
+  <div class="lc-fitb">
+    2. Constructive interference occurs when the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px"> is an integer multiple of the wavelength.
+  </div>
+  <div class="lc-fitb">
+    3. At a dark fringe, the waves arrive with a <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px"> difference of π radians (or 180°).
+  </div>
+  <div class="lc-fitb">
+    4. The <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px"> of the resultant wave at a bright fringe is twice that of a single wave, so the intensity is four times greater.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- EXAM-STYLE QUESTIONS                       -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="lc-section">Exam-style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate and explain</div>
+  <div class="lc-exam-q">A student uses a green laser (λ = 532 nm) with double slits of separation d = 0.30 mm. The screen is 2.50 m away.<br><br>
+    (a) Calculate the fringe spacing s. [2 marks]<br>
+    (b)(i) The green laser is replaced with a red laser (λ = 650 nm). State whether the fringes become wider or narrower. [1 mark]<br>
+    (b)(ii) Calculate the new fringe spacing. [2 marks]<br>
+    (c) Explain why the fringes in (b)(ii) are still equally spaced. [1 mark]
+    <span class="lc-exam-marks">[6 marks]</span>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> s = λD / d = (532 × 10⁻⁹ × 2.50) / (0.30 × 10⁻³) ✓<br>
+    s = 4.43 × 10⁻³ m = 4.43 mm ✓<br><br>
+    <strong>(b)(i)</strong> Wider ✓ (since λ increases and s ∝ λ)<br><br>
+    <strong>(b)(ii)</strong> s = (650 × 10⁻⁹ × 2.50) / (0.30 × 10⁻³) ✓<br>
+    s = 5.42 × 10⁻³ m = 5.42 mm ✓<br><br>
+    <strong>(c)</strong> The formula s = λD / d gives a constant spacing that does not depend on the fringe order n ✓
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Analyse data</div>
+  <div class="lc-exam-q">An intensity-vs-position graph for a double-slit experiment (D = 1.80 m) shows that the distance between the first minima on either side of the central maximum is 8.4 mm.<br><br>
+    (a) Determine the fringe spacing s. [1 mark]<br>
+    (b) If the slit separation d = 0.12 mm, calculate the wavelength of the light used. [2 marks]<br>
+    (c) Sketch on the same axes the pattern expected if d were increased to 0.24 mm, with the same light and D. [2 marks]
+    <span class="lc-exam-marks">[5 marks]</span>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> The distance between the first minima on either side = 2s, so s = 8.4 / 2 = 4.2 mm ✓<br><br>
+    <strong>(b)</strong> Rearranging: λ = sd / D = (4.2 × 10⁻³ × 0.12 × 10⁻³) / 1.80 ✓<br>
+    λ = 2.8 × 10⁻⁷ m = 280 nm (ultraviolet) ✓<br><br>
+    <strong>(c)</strong> Doubling d halves the fringe spacing (s ∝ 1/d) → fringes are twice as close together ✓. Same central-peak height (assuming negligible slit width); pattern has more fringes visible in the same width of screen ✓.
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">A student observes a double-slit interference pattern using white light instead of monochromatic light.<br><br>
+    (a) Describe what the student sees at the central maximum. [1 mark]<br>
+    (b) Describe and explain what the student sees away from the central maximum. [3 marks]
+    <span class="lc-exam-marks">[4 marks]</span>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> The central maximum is white/bright ✓ (all wavelengths have zero path difference there and interfere constructively).<br><br>
+    <strong>(b)</strong> Away from centre, the student sees coloured fringes ✓. Different wavelengths have different fringe spacings (s ∝ λ), so the bright fringes for each colour occur at slightly different positions ✓. The red fringes are spaced further apart than blue fringes, causing the colours to spread out. After a few orders the colours overlap and the pattern becomes washed out / white ✓.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SCORE                                      -->
+<!-- ═══════════════════════════════════════════ -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- JAVASCRIPT                                 -->
+<!-- ═══════════════════════════════════════════ -->
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1:{ A:'s ∝ 1/d. Halving d doubles the fringe spacing.' },
+    mcq2:{ B:'Coherent sources (constant phase difference) are required. Two separate bulbs are incoherent and produce no stable fringes.' },
+    mcq3:{ D:'s ∝ λ, so using a shorter wavelength reduces the fringe spacing. Options A, B and C would all increase s.' },
+    mcq4:{ C:'With both slits open, amplitude = 2A so intensity = 4A² = I. With one slit, amplitude = A so intensity = A² = I/4.' },
+    mcq5:{ B:'s = λD/d = (633 × 10⁻⁹ × 1.50) / (0.20 × 10⁻³) = 4.75 × 10⁻³ m ≈ 4.7 mm.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    var block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(function(o){ o.classList.add('disabled'); });
+    var fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '\u2713 ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(function(o){
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '\u2717 Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    var ans = { lf1:'coherent', lf2:'path difference', lf3:'phase', lf4:'amplitude' };
+    var correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(function(id){
+      var el = document.getElementById(id);
+      var val = el.value.trim().toLowerCase();
+      var ok = val === ans[id] || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    var res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '\u2713 All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' \u00b7 ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    var ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="05-constructive-and-destructive-interference.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Constructive and Destructive Interference</div>
+          </div>
+        </a>
+        <a href="07-single-slit-diffraction.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Single-Slit Diffraction</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conservation of Mechanical Energy — A.3 Work, Energy and Power — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+      overflow: hidden; min-width: 0;
+    }
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body img, #lesson-body table { max-width: 100%; }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A3">A.3 Work, Energy and Power</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Conservation of Mechanical Energy</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.3
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 3 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Conservation of Mechanical Energy</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.3 Work, Energy and Power</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.3 overview
+      </a>
+      <div class="sidebar-title">A.3 Concepts</div>
+      <a href="01-work-done-by-a-force.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Work Done by a Force</span>
+        </a>
+      <a href="02-kinetic-and-gravitational-potential-energy.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Kinetic and Gravitational Potential Energy</span>
+        </a>
+      <a href="03-conservation-of-mechanical-energy.html" class="sidebar-link active">
+          <span class="sidebar-num">03</span>
+          <span>Conservation of Mechanical Energy</span>
+        </a>
+      <a href="04-power-and-efficiency.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Power and Efficiency</span>
+        </a>
+      <a href="05-elastic-and-inelastic-collisions.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Elastic and Inelastic Collisions</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+        <!-- ═══════════════════════════════════════════════
+             LESSON CONTENT GOES HERE
+             Replace this placeholder with your lesson HTML
+             ═══════════════════════════════════════════════ -->
+<div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:1rem 1.4rem;margin:0.85rem 0;
+  text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
+  margin-bottom:0.35rem;font-family:var(--font-sans); }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-model { overflow-x:auto; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:14pt;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:14pt;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:14pt;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 5 · A.3 Work, Energy and Power</div>
+<div class="lc-title">Conservation of Mechanical Energy</div>
+<div class="lc-sub">When no friction acts, kinetic, gravitational potential and elastic potential energy add to a constant — and where that constant leaks away, you can calculate exactly how much was dissipated.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the ball that never comes back as high</h3>
+  <p>Release a ball from rest at the top of a curved track. It speeds up to the bottom, climbs the far side — and stops slightly <strong>lower</strong> than where it started. Every following swing is lower still, until it sits at the lowest point. Nothing was destroyed: the missing mechanical energy has been transferred to <strong>internal energy</strong> in the surfaces by friction. <strong>Mechanical energy is only constant when non-conservative forces are absent.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-03-conservation-of-mechanical-energy-01.png" alt="Ball released on a curved track rising to a lower point on the far side, with energy bars showing kinetic and gravitational potential energy">
+    <div class="lc-cap">Fig 1 — Each rise is lower than the last. The energy bars show GPE and KE trading places while the total slowly shrinks.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — Two identical balls are released from the same height, one down a steep smooth slope and one down a gentle smooth slope. Which is faster at the bottom? <em>Neither — they arrive at exactly the same speed. With no friction, \(v=\sqrt{2g\Delta h}\) depends only on the drop in height, not on the path or the mass.</em></div>
+</div>
+
+<div class="lc-section">Core knowledge</div>
+
+<div class="lc-card">
+  <h3>⚖️ The conservation statement, and its one condition</h3>
+  <p>Syllabus statement: <strong>in the absence of frictional resistive forces, the total mechanical energy of a system is conserved.</strong> If mechanical energy is conserved, work is the amount of energy <strong>transformed between different forms of mechanical energy</strong> in a system — kinetic energy, gravitational potential energy and elastic potential energy.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Conservation of mechanical energy</span>
+    $$E_{\text{k}} + E_{\text{p}} + E_{\text{H}} = \text{constant}$$
+  </div>
+  <p>In words: kinetic energy + gravitational potential energy + elastic potential energy = constant. But this is <strong>only</strong> true if there are no frictional (resistive) forces acting. Such forces are described as <strong>non-conservative</strong>. <strong>Conservative forces</strong> (gravitational forces, for example) conserve mechanical energy and do not involve the dissipation of energy.</p>
+  <div class="lc-info">◆ <strong>Conservative force</strong> — a force, the action of which conserves mechanical energy. There is no energy dissipation. More precisely: a conservative force is one for which the total work done in moving between two points is <strong>independent of the path taken</strong>.</div>
+  <p>Energy dissipation occurs in <strong>all</strong> mechanical systems to a greater or lesser extent, because of ever-present frictional / resistive forces (non-conservative forces). However, the equation above remains very useful for two things: predicting <strong>‘ideal’ outcomes</strong>, and <strong>determining the amount of energy dissipated</strong> in other situations — the ideal answer minus the real answer is the energy lost.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📐 GPE ⇄ KE: the most common transfer</h3>
+  <p>One of the most common examples of mechanical energy transfer is that between gravitational potential energy and kinetic energy. Assuming no resistive forces: change of gravitational potential energy = change of kinetic energy.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">GPE lost = KE gained</span>
+    $$mg\Delta h = \tfrac{1}{2}mv^2 - \tfrac{1}{2}mu^2$$
+  </div>
+  <p>If the mass <strong>starts or ends with zero velocity</strong> during the time being considered, one term vanishes and the mass cancels:</p>
+  <div class="lc-formula">
+    $$v^2 \ (\text{or } u^2) = 2g\Delta h$$
+    $$v \ (\text{or } u) = \sqrt{2g\Delta h}$$
+  </div>
+  <p>This equation can be used to relate height with speed for <strong>any</strong> mass falling from rest, or any mass projected upwards to its highest point (assuming that gravity is the only force acting).</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-03-conservation-of-mechanical-energy-02.png" alt="Ball projected vertically upwards with kinetic energy converting to gravitational potential energy, and the same ball falling from rest">
+    <div class="lc-cap">Fig 2 — Up or down, the same relation applies: all KE becomes GPE at the top, all GPE becomes KE on return. Mass cancels.</div>
+  </div>
+  <div class="lc-success">✓ Note that the same equation can be obtained using the equation of motion (see Topic A.1): \(v^2 = u^2 + 2as\), with \(u\) or \(v\) equal to zero, and using \(s\) instead of \(h\). Energy methods and suvat agree — energy methods are usually faster when the path is curved.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🌀 Elastic potential energy in the mix</h3>
+  <p>A stretched or compressed spring that obeys <strong>Hooke's law</strong> stores <strong>elastic potential energy</strong>, and that store can be transformed into kinetic energy or gravitational potential energy just like any other term in the conservation equation.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Elastic potential energy · work done</span>
+    $$E_{\text{H}} = \tfrac{1}{2}k\Delta x^2$$
+    $$W = Fs$$
+  </div>
+  <p>Because the force needed to stretch a Hookean spring rises from zero to \(F=k\Delta x\), the <strong>average</strong> force over the extension is half the maximum force — which is why \(E_{\text{H}} = \tfrac{1}{2}k\Delta x^2\) and not \(k\Delta x^2\). Using \(E_{\text{H}} = Fs\) with the average force gives the same number.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Force–extension (Hookean)</td><td>extension \(\Delta x\), force \(F\)</td><td>Straight line through the origin, gradient \(k\)</td><td>Gradient = spring constant; <strong>area under the line</strong> = work done = \(E_{\text{H}}\) stored</td></tr>
+      <tr><td>Force–extension (real cord)</td><td>extension, force</td><td>Curve of increasing gradient — cord stiffens</td><td>Area under the curve = energy stored; not proportional, so \(\tfrac12k\Delta x^2\) cannot be used</td></tr>
+      <tr><td>Energy–height (ideal)</td><td>height \(h\), energy</td><td>GPE rises linearly, KE falls linearly, total is a flat line</td><td>Flat total ⇒ mechanical energy conserved; read either store at any height</td></tr>
+      <tr><td>Energy–distance (real)</td><td>distance travelled, energy</td><td>Total line slopes downwards</td><td>Drop in the total line = energy dissipated by friction</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-03-conservation-of-mechanical-energy-03.png" alt="Force against extension straight-line graph with the triangular area under the line shaded"><div class="lc-cap">Fig 3 — Hookean spring: gradient \(k\), shaded triangular area = \(\tfrac12k\Delta x^2\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-03-conservation-of-mechanical-energy-04.png" alt="Energy against height graph showing kinetic energy falling, potential energy rising and a constant total"><div class="lc-cap">Fig 4 — Ideal transfer: KE and GPE cross, total stays flat. A sloping total means dissipation.</div></div>
+  </div>
+</div>
+
+<div class="lc-section">Worked examples</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example A3.8 – ball thrown upwards</h3>
+  <p>A ball is thrown upwards with a speed of 23 m s⁻¹. Calculate the maximum height that it can reach.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> KE at launch is entirely transformed into GPE at the highest point, where the speed is zero. Gravity is the only force acting, so mechanical energy is conserved.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(u = 23\ \text{m s}^{-1}\), \(v = 0\), \(g = 9.8\ \text{m s}^{-2}\). Mass is not needed — it cancels.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(u^2 = 2g\Delta h\) ⇒ \(23^2 = 2 \times 9.8 \times \Delta h\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\Delta h = 27\ \text{m}\). In reality air resistance makes the real height less than this ideal value.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example A3.9 – ball fired horizontally by a spring</h3>
+  <p>A ball of mass 7.8 g was fired horizontally by a spring, as shown in Figure A3.30. The spring has a spring constant of 620 N m⁻¹ and was pulled back 3.7 cm from its uncompressed length. <strong>(a)</strong> Calculate how much elastic potential energy was stored in the spring, assuming it obeys Hooke's law. <strong>(b)</strong> What average force was used to compress the spring? <strong>(c)</strong> Determine the maximum possible speed of the ball after the spring was released. <strong>(d)</strong> Explain why the actual speed will be less than your answer to part (c).</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-03-conservation-of-mechanical-energy-05.png" alt="Ball inside a tube being fired horizontally by a compressed spring pulled back 3.7 cm">
+    <div class="lc-cap">Fig 5 — Figure A3.30: ball being fired horizontally by a spring compressed 3.7 cm.</div>
+  </div>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>(a) Elastic PE:</strong> \(E_{\text{H}} = \tfrac12 k\Delta x^2\)<br>\(= 0.5 \times 620 \times 0.037^2 = 0.42\ \text{J}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>(b) Average force:</strong> \(E_{\text{H}} = W = Fs\) ⇒ \(0.42 = F \times 0.037\) ⇒ \(F = 11\ \text{N}\). (This was <em>half</em> of the maximum force.)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>(c) Maximum speed:</strong> \(0.42 = \tfrac12 mv^2 = 0.5 \times 0.0078 \times v^2\)<br>\(v = 10\ \text{m s}^{-1}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>(d) Why less:</strong> all of the elastic potential energy in the spring was not transferred to the kinetic energy of the ball. For example, there was some friction with the sides of the tube, the spring did not stop moving after propelling the ball, and there was some sound produced.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example A3.10 – box sliding down a slope</h3>
+  <p>A box of mass 4.7 kg slid down a slope of vertical height 80 cm. <strong>(a)</strong> Calculate the gravitational potential energy of the box at the top of the slope (compared to the bottom). <strong>(b)</strong> Assuming the conservation of mechanical energy, what would the speed of the box be at the bottom? <strong>(c)</strong> The actual speed was measured to be 2.2 m s⁻¹ — explain why it was less than the answer to (b). <strong>(d)</strong> Determine how much energy was dissipated into the surroundings. <strong>(e)</strong> In what form(s) was this dissipated energy?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>(a) GPE:</strong> \(\Delta E_{\text{p}} = mg\Delta h\)<br>\(= 4.7 \times 9.8 \times 0.80 = 37\ \text{J}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>(b) Ideal speed:</strong> \(37 = \tfrac12 mv^2 = 0.5 \times 4.7 \times v^2\)<br>\(v = 4.0\ \text{m s}^{-1}\). Note that this answer (which assumes no energy dissipation) would be the same for <em>any</em> mass on <em>any</em> slope, or a vertical fall.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>(c) Why slower:</strong> friction with the slope (and a little air resistance) acted in the opposite direction to motion.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>(d) Energy dissipated:</strong> \(\Delta E_{\text{p}} - \tfrac12 mv^2\)<br>\(= 37 - (0.5 \times 4.7 \times 2.2^2) = 26\ \text{J}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">5</div><div class="lc-step-body"><strong>(e) Form:</strong> internal energy in the surfaces of the slope and box (which then spreads out as thermal energy).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-03-conservation-of-mechanical-energy-06.png" alt="Box on an inclined slope of vertical height 80 cm with friction and weight components marked">
+    <div class="lc-cap">Fig 6 — Only the <em>vertical</em> drop of 80 cm matters for the GPE; the slope angle and length do not.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔧 Real-world: crumple zones and landing mats</h3>
+    <p>Crumple zones are designed to deform permanently in a collision. Rearranging \(Fs = \tfrac12 mv^2\): the kinetic energy to be removed is fixed by mass and speed, so the only way to reduce the <strong>force</strong> is to increase the <strong>distance</strong> over which the vehicle stops. The same logic explains foam landing pits, running shoes and airbags.</p>
+    <div class="lc-success">✓ Examiner tip: quote the equation, then argue one variable at a time — "\(E_{\text{k}}\) is fixed, \(s\) is larger, therefore \(F\) is smaller". Vague answers about "absorbing the shock" score nothing.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – path independence and energy gradients</h3>
+    <p>For a conservative force the work done between two points is independent of the path, so the work around any closed loop is zero and a potential energy function can be defined: \(\Delta E_{\text{p}} = -W = -\int F\,\mathrm{d}x\). Reading it backwards, the force is the negative gradient of the potential energy graph, \(F = -\dfrac{\mathrm{d}E_{\text{p}}}{\mathrm{d}x}\) — equilibrium sits where the \(E_{\text{p}}\)–\(x\) graph is flat, stable where it is a minimum.<br>
+    <strong>Challenge:</strong> A mass on a spring has \(E_{\text{p}} = \tfrac12 kx^2\). What force does the gradient rule predict? (Answer: \(F = -kx\) — Hooke's law, restoring, pointing back to \(x=0\).)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"Energy is lost to friction, so conservation of energy fails"</td><td>Total energy is always conserved. Only <em>mechanical</em> energy falls — the rest becomes internal energy in the surfaces and surroundings.</td></tr>
+      <tr><td>"A heavier object hits the ground faster"</td><td>\(v=\sqrt{2g\Delta h}\) contains no mass. Ideal fall speed is mass-independent.</td></tr>
+      <tr><td>"Use the slope length in \(mg\Delta h\)"</td><td>\(\Delta h\) is the <em>vertical</em> height change only.</td></tr>
+      <tr><td>"Elastic PE is \(k\Delta x^2\) or \(F\Delta x\) with the maximum force"</td><td>\(E_{\text{H}} = \tfrac12 k\Delta x^2\); the average force is half the maximum for a Hookean spring.</td></tr>
+      <tr><td>"Momentum conservation and KE conservation go together"</td><td>Momentum is conserved in <em>every</em> collision; kinetic energy is only conserved in elastic ones.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting to convert centimetres and grams. In A3.9, using 3.7 cm and 7.8 g directly gives an answer wrong by orders of magnitude — always go to metres and kilograms first.</div>
+</div>
+
+<div class="lc-kp">
+  <span>E_k + E_p + E_H = constant</span>
+  <span>mgΔh = ½mv² − ½mu²</span>
+  <span>v = √(2gΔh)</span>
+  <span>E_H = ½kΔx²</span>
+  <span>W = Fs</span>
+  <span>conservative force</span>
+  <span>energy dissipated = ideal − actual</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A stone is dropped from rest through 1.80 m. Ignoring air resistance, its speed on landing is closest to:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 3.0 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> 4.2 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> 5.9 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> 17.6 m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Which statement defines a conservative force?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> A force that always acts downwards</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> A force for which the work done between two points is independent of the path taken</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> A force that does no work at all</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> A force that converts kinetic energy into internal energy</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A spring of spring constant 620 N m⁻¹ is compressed by 3.7 cm. The elastic potential energy stored is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> 0.21 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> 0.42 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> 0.85 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> 23 J</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A box slides down a rough slope. Which quantity is <em>not</em> conserved?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> Total energy of box, slope and surroundings</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> Mass of the box</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> Total mechanical energy of the box</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> Charge of the box</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. The area under a force–extension graph for a stretched cord represents:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','D')"><span class="lc-opt-l">A</span> The spring constant</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','D')"><span class="lc-opt-l">B</span> The power delivered</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','D')"><span class="lc-opt-l">C</span> The average force</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','D')"><span class="lc-opt-l">D</span> The work done, i.e. the elastic potential energy stored</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. Two trolleys collide and stick together. Which is true?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','A')"><span class="lc-opt-l">A</span> Momentum is conserved, kinetic energy is not</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','A')"><span class="lc-opt-l">B</span> Kinetic energy is conserved, momentum is not</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','A')"><span class="lc-opt-l">C</span> Both are conserved</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','A')"><span class="lc-opt-l">D</span> Neither is conserved</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    In the absence of frictional resistive forces, the total mechanical energy of a system is <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:130px">. The three forms of mechanical energy are kinetic, gravitational potential and <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> potential energy. A force for which the work done between two points is independent of the path taken is called a <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:150px"> force. Frictional forces are described as <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:190px">. Energy dissipated by friction appears as <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:120px"> energy in the surfaces.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q22 · Calculate</div>
+  <div class="lc-exam-q">What is the maximum speed with which a mass can hit the ground after being dropped from a height of 1.80 m? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(v^2 = 2g\Delta h = 2 \times 9.8 \times 1.80 = 35.3\)<br>✓ \(v = 5.9\ \text{m s}^{-1}\) (maximum, because air resistance is neglected; mass is irrelevant)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q23 · Explain / Describe</div>
+  <div class="lc-exam-q">The ball shown in Figure A3.31 was released from rest in position A. It accelerated down the slope and had its highest speed at the lowest point. It then moved up the slope on the other side, reaching its highest point at B. <strong>(a)</strong> Explain why B is lower than A. <strong>(b)</strong> Describe the motion of the ball after leaving position B, explaining the energy transfers until it finally comes to rest at D. <span class="lc-exam-marks">[5 marks]</span></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-03-conservation-of-mechanical-energy-07.png" alt="Ball rolling down a valley-shaped slope with positions A, B, C and D marked">
+    <div class="lc-cap">Fig 7 — Figure A3.31: ball rolling down slope, positions A, B, C, D.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Friction with the surface and air resistance are non-conservative forces, so some mechanical energy is dissipated as internal energy.<br>✓ Less GPE is therefore available at B than the ball started with at A, so \(mg\Delta h\) — and hence the height — is smaller.<br>✓ (b) At B the ball is momentarily at rest, then rolls back down, GPE transferring to KE, reaching maximum speed at the lowest point.<br>✓ It climbs to C, lower than B, and continues to oscillate with a smaller amplitude each time as more energy is dissipated.<br>✓ Finally all the mechanical energy has been dissipated as internal (thermal) energy and it comes to rest at D, the lowest point of the track.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q24 · Sketch</div>
+  <div class="lc-exam-q">The large angle swing of a pendulum is interrupted by a peg as shown in Figure A3.32. Sketch a copy of the diagram and indicate the position of the pendulum after it has momentarily stopped moving on the right-hand side of the peg. <span class="lc-exam-marks">[2 marks]</span></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-03-conservation-of-mechanical-energy-08.png" alt="Pendulum swinging past a fixed peg which shortens the effective string length">
+    <div class="lc-cap">Fig 8 — Figure A3.32: pendulum whose string catches on a peg.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The string catches on the peg, so on the right-hand side the bob swings on a <em>shorter</em> radius, measured from the peg rather than the pivot.<br>✓ Assuming mechanical energy is conserved, the bob rises to the <strong>same vertical height</strong> as its release point — so it stops on a tighter arc, at that same height, i.e. at a much larger angle to the vertical (close to horizontal from the peg).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q25 · Outline / Determine / Show</div>
+  <div class="lc-exam-q">Figure A3.33 shows an experiment to measure the speed of a bullet fired into a block of wood. The bullet is embedded in the wood, so this was a totally inelastic collision. The block and bullet had kinetic energy and this was transferred to gravitational potential energy as they swung upwards through 12 cm. <strong>(a)</strong> Outline what is meant by a totally inelastic collision. <strong>(b)</strong> If the combined mass of block and bullet was 1.23 kg, determine their maximum gravitational potential energy. <strong>(c)</strong> Use the law of conservation of energy to show that the initial velocity of the combined block and bullet was 1.5 m s⁻¹. <strong>(d)</strong> If the bullet's mass was 15 g, use the law of conservation of momentum to determine its speed. <span class="lc-exam-marks">[8 marks]</span></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-03-conservation-of-mechanical-energy-09.png" alt="Bullet fired into a suspended wooden block which swings upwards through 12 cm">
+    <div class="lc-cap">Fig 9 — Figure A3.33: ballistic pendulum, vertical rise 12 cm.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) A collision in which the colliding objects stick together and move off with a common velocity; momentum is conserved but the maximum possible amount of kinetic energy is transformed into other forms.<br>✓ (b) \(\Delta E_{\text{p}} = mg\Delta h = 1.23 \times 9.8 \times 0.12 = 1.4\ \text{J}\)<br>✓ (c) \(\tfrac12 mv^2 = 1.45\) ⇒ \(v^2 = \dfrac{2 \times 1.45}{1.23} = 2.35\) ⇒ \(v = 1.5\ \text{m s}^{-1}\) (equivalently \(v=\sqrt{2g\Delta h}=\sqrt{2\times9.8\times0.12}\))<br>✓ (d) Momentum before = momentum after: \(0.015 \times u = 1.23 \times 1.53\)<br>✓ \(u = 1.3 \times 10^{2}\ \text{m s}^{-1}\) (about 126 m s⁻¹)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q26 · Determine / Calculate / State</div>
+  <div class="lc-exam-q">A 10 g steel sphere moving to the left at 2.0 m s⁻¹ collided with a similar sphere of mass 2.0 g moving in the opposite direction at 4.0 m s⁻¹. After the collision the 10 g sphere remained stationary. <strong>(a)</strong> Determine what happened to the other sphere. <strong>(b)</strong> Calculate the total kinetic energy (i) before and (ii) after the collision. <strong>(c)</strong> Was mechanical energy conserved in this collision? <strong>(d)</strong> State the term we use to describe collisions like this. <span class="lc-exam-marks">[7 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Taking left as positive: \(p = (0.010 \times 2.0) + (0.002 \times -4.0) = 0.012\ \text{kg m s}^{-1}\)<br>✓ After: \(0.002 \times v = 0.012\) ⇒ \(v = 6.0\ \text{m s}^{-1}\) — the 2.0 g sphere reverses direction and moves to the left at 6.0 m s⁻¹.<br>✓ (b)(i) \(\tfrac12(0.010)(2.0)^2 + \tfrac12(0.002)(4.0)^2 = 0.020 + 0.016 = 0.036\ \text{J}\)<br>✓ (b)(ii) \(\tfrac12(0.002)(6.0)^2 = 0.036\ \text{J}\)<br>✓ (c) Yes — the kinetic energy after equals the kinetic energy before, so mechanical energy was conserved.<br>✓ (d) An elastic collision.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q27 · Show / Calculate / State</div>
+  <div class="lc-exam-q">In a laboratory experiment an 8.6 g wooden sphere moving at 0.39 m s⁻¹ collided with a 5.7 g wooden sphere moving in the opposite direction with a speed of 0.72 m s⁻¹. After the collision they were both observed to move with a speed of 0.25 m s⁻¹, but in opposite directions. <strong>(a)</strong> Show that these results are in good agreement with the law of conservation of momentum. <strong>(b)</strong> Calculate the total kinetic energy (i) before and (ii) after the collision. <strong>(c)</strong> Was kinetic energy conserved in this collision? <strong>(d)</strong> State the term we use to describe collisions like this. <span class="lc-exam-marks">[7 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Before: \(p = (0.0086 \times 0.39) - (0.0057 \times 0.72) = 0.00335 - 0.00410 = -7.5 \times 10^{-4}\ \text{kg m s}^{-1}\)<br>✓ After (the 8.6 g sphere has reversed): \(p = -(0.0086 \times 0.25) + (0.0057 \times 0.25) = -7.3 \times 10^{-4}\ \text{kg m s}^{-1}\) — agreement to about 3%, within experimental uncertainty.<br>✓ (b)(i) \(\tfrac12(0.0086)(0.39)^2 + \tfrac12(0.0057)(0.72)^2 = 6.5\times10^{-4} + 1.48\times10^{-3} = 2.1 \times 10^{-3}\ \text{J}\)<br>✓ (b)(ii) \(\tfrac12(0.0086 + 0.0057)(0.25)^2 = 4.5 \times 10^{-4}\ \text{J}\)<br>✓ (c) No — only about 21% of the kinetic energy remains; the rest was transformed to internal energy and sound.<br>✓ (d) An inelastic collision.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q28 · Predict / Explain</div>
+  <div class="lc-exam-q">A rubber band of mass 1.2 g was extended by 8.4 cm. The extension was proportional to the force and the band had a spring constant of 280 N m⁻¹. <strong>(a)</strong> If the force was released and the band fired vertically upwards, predict the maximum theoretical height that it could reach. <strong>(b)</strong> Explain why, in practice, the height will be a lot less than your answer to part (a). <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(E_{\text{H}} = \tfrac12 k\Delta x^2 = 0.5 \times 280 \times 0.084^2 = 0.99\ \text{J}\)<br>✓ \(E_{\text{H}} = mg\Delta h\) ⇒ \(\Delta h = \dfrac{0.99}{0.0012 \times 9.8} = 84\ \text{m}\)<br>✓ (b) The band is very light, so air resistance is large compared with its weight and dissipates much of the energy.<br>✓ Rubber does not behave as an ideal spring — energy is dissipated internally within the rubber as it contracts (hysteresis), heating the band.<br>✓ Some of the energy also goes into the band tumbling and vibrating rather than rising, so not all \(E_{\text{H}}\) becomes GPE of the centre of mass.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q29 · Calculate / Discuss</div>
+  <div class="lc-exam-q">A long steel wire of mass 150 g was extended by 3.2 cm by a force which had increased slowly from 0 N to 240 N. <strong>(a)</strong> Assuming that the extension was proportional to the force, how much elastic potential energy was stored in the wire? <strong>(b)</strong> The wire then snapped and the stored energy was transferred to the kinetic energy of the wire. Calculate an average value for the speed of the wire. <strong>(c)</strong> Discuss why breaking some metal wires can be dangerous. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Average force = 120 N, so \(E_{\text{H}} = \tfrac12 F\Delta x = 0.5 \times 240 \times 0.032 = 3.8\ \text{J}\)<br>✓ (b) \(3.84 = \tfrac12 mv^2 = 0.5 \times 0.150 \times v^2\) ⇒ \(v^2 = 51.2\)<br>✓ \(v = 7.2\ \text{m s}^{-1}\)<br>✓ (c) A taut wire stores a lot of elastic potential energy, which is released almost instantaneously when it snaps.<br>✓ The ends whip through the air at several metres per second, and because a thin wire has a very small cross-sectional area the force is concentrated over a tiny area — it can cut skin or damage an eye.<br>✓ Precaution: use safety screens/goggles and keep clear of the plane of the wire when loading it.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q30 · Explain</div>
+  <div class="lc-exam-q">‘Crumple zones’ are a design feature of most vehicles (Figure A3.34). They are designed to compress and deform permanently if they are in a collision. Use the equation \(Fs = \tfrac12 mv^2\) to help explain why a vehicle should not be too stiff and rigid. <span class="lc-exam-marks">[4 marks]</span></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-03-conservation-of-mechanical-energy-10.png" alt="Car with a deformed front crumple zone and an intact passenger compartment">
+    <div class="lc-cap">Fig 10 — Figure A3.34: the front of the car is deformed but the passenger compartment is intact.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ In a collision the whole kinetic energy \(\tfrac12 mv^2\) of the vehicle and occupants must be removed by the work done by the stopping force, \(Fs\).<br>✓ \(\tfrac12 mv^2\) is fixed by the mass and the impact speed, so \(F\) and \(s\) are inversely related: \(F = \dfrac{mv^2}{2s}\).<br>✓ A crumple zone deforms, making the stopping distance \(s\) larger, which makes the average force \(F\) on the vehicle and its occupants smaller.<br>✓ A very stiff, rigid vehicle deforms only slightly (small \(s\)), so the force — and the deceleration experienced by the passengers — is much greater and more likely to cause serious injury.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q31 · Calculate / State / Describe / Estimate</div>
+  <div class="lc-exam-q">A bungee jumper (Figure A3.35) of mass 61 kg is moving at 23 m s⁻¹ when the rubber bungee cord begins to become stretched. <strong>(a)</strong> Calculate her kinetic energy at that moment. <strong>(b)</strong> Figure A3.36 shows how the extension of the cord varies with the applied force. State what quantity is represented by the area under this graph. <strong>(c)</strong> Describe the relationship between force and extension shown by this graph. <strong>(d)</strong> Use the graph to estimate how much the cord has extended by the time it has brought the jumper to a stop. <span class="lc-exam-marks">[7 marks]</span></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-03-conservation-of-mechanical-energy-11.png" alt="Force against extension graph for a bungee cord, force axis 0 to 2000 N, extension axis 0 to 30 m, curve of increasing gradient">
+    <div class="lc-cap">Fig 11 — Figure A3.36: force–extension graph for a bungee cord (0–2000 N, 0–30 m).</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(E_{\text{k}} = \tfrac12 mv^2 = 0.5 \times 61 \times 23^2 = 1.6 \times 10^{4}\ \text{J}\) (16 100 J)<br>✓ (b) The area under a force–extension graph is the work done stretching the cord, i.e. the elastic potential energy stored in it.<br>✓ (c) The force increases with extension but not proportionally: the gradient increases, so the cord becomes progressively stiffer and does not obey Hooke's law over this range.<br>✓ (d) Count squares / find the area until it equals the energy the cord must absorb. Neglecting further loss of GPE, an area of \(1.6\times10^{4}\ \text{J}\) is reached at an extension of roughly 22 m.<br>✓ Better answer: the jumper also falls a further \(x\) metres while stretching the cord, releasing an extra \(mgx = 598x\) J, so the cord must store about \(1.6\times10^{4} + 598x\) J — giving an extension nearer 28–30 m.<br>✓ Credit for any clearly-shown area estimate with the reasoning stated.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q32 · Calculate / Explain / Estimate</div>
+  <div class="lc-exam-q">A pole-vaulter of mass 59.7 kg falls from a height of 4.76 m onto foam. <strong>(a)</strong> Calculate the maximum possible kinetic energy on impact. <strong>(b)</strong> Will air resistance have had a significant effect in reducing the velocity of impact? Explain your answer. <strong>(c)</strong> If the foam deforms by 81 cm, estimate the average force exerted on the pole-vaulter. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(E_{\text{k(max)}} = mg\Delta h = 59.7 \times 9.8 \times 4.76 = 2.8 \times 10^{3}\ \text{J}\)<br>✓ (b) No, not significant. The fall lasts about 1 s and reaches only \(v=\sqrt{2g\Delta h}\approx 9.7\ \text{m s}^{-1}\), well below terminal speed.<br>✓ At that speed the drag force on a human body is a small fraction of the 585 N weight, so the loss of energy is only a few per cent.<br>✓ (c) The foam must do work equal to the kinetic energy: \(Fs = E_{\text{k}}\)<br>✓ \(F = \dfrac{2786}{0.81} = 3.4 \times 10^{3}\ \text{N}\) (about 6× her weight — which is why the deformation distance matters)</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'v = √(2gΔh) = √(2 × 9.8 × 1.80) = 5.9 m s⁻¹. The mass does not appear.' },
+    mcq2: { B: 'Path independence is the defining property; equivalently, no mechanical energy is dissipated.' },
+    mcq3: { B: 'E_H = ½kΔx² = 0.5 × 620 × 0.037² = 0.42 J. Using 3.7 instead of 0.037 is the classic slip.' },
+    mcq4: { C: 'Friction is non-conservative, so mechanical energy falls — but total energy, mass and charge are all conserved.' },
+    mcq5: { D: 'Area = force × extension = work done, which is stored as elastic potential energy. The gradient gives k.' },
+    mcq6: { A: 'Momentum is conserved in every collision. Sticking together makes it inelastic, so kinetic energy is not conserved.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'conserved', lf2:'elastic', lf3:'conservative', lf4:'non-conservative', lf5:'internal' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || (val.length > 2 && val.includes(ans[id]));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+</div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="02-kinetic-and-gravitational-potential-energy.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Kinetic and Gravitational Potential Energy</div>
+          </div>
+        </a>
+        <a href="04-power-and-efficiency.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Power and Efficiency</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

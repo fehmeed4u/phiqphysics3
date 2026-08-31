@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power and Efficiency — A.3 Work, Energy and Power — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+      overflow: hidden; min-width: 0;
+    }
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body img, #lesson-body table { max-width: 100%; }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#12203a"></rect><text x="100" y="118" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#4F9DFF" text-anchor="middle">P&#951;</text></svg>
+</template>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A3">A.3 Work, Energy and Power</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Power and Efficiency</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.3
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 4 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Power and Efficiency</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.3 Work, Energy and Power</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.3 overview
+      </a>
+      <div class="sidebar-title">A.3 Concepts</div>
+      <a href="01-work-done-by-a-force.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Work Done by a Force</span>
+        </a>
+      <a href="02-kinetic-and-gravitational-potential-energy.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Kinetic and Gravitational Potential Energy</span>
+        </a>
+      <a href="03-conservation-of-mechanical-energy.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Conservation of Mechanical Energy</span>
+        </a>
+      <a href="04-power-and-efficiency.html" class="sidebar-link active">
+          <span class="sidebar-num">04</span>
+          <span>Power and Efficiency</span>
+        </a>
+      <a href="05-elastic-and-inelastic-collisions.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Elastic and Inelastic Collisions</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+        <!-- ═══════════════════════════════════════════════
+             LESSON CONTENT GOES HERE
+             Replace this placeholder with your lesson HTML
+             ═══════════════════════════════════════════════ -->
+<div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:1rem 1.4rem;margin:0.85rem 0;
+  text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
+  margin-bottom:0.35rem;font-family:var(--font-sans); }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-model { overflow-x:auto; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:14pt;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:14pt;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:14pt;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 5 · A.3 Work, Energy and Power</div>
+<div class="lc-title">Power and Efficiency</div>
+<div class="lc-sub">How fast energy is transferred, how much of it does something useful, and how much energy is packed into each cubic metre of fuel.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the train track that saves energy by going downhill first</h3>
+  <p>The kinetic energy of a long, fast-moving train is considerable — values of \(10^{8}\ \text{J}\) or more are not unusual. When the train stops, all of that energy has to be transferred to other forms, and unless it can be recovered the <em>same</em> amount has to be transferred again to accelerate the train. That is very wasteful. When designing a new urban train system it has been suggested that energy could be saved by shaping the track as shown below, dipping between stations. <strong>Nothing is added — the track profile just recycles the train's own energy.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-04-power-and-efficiency-01.png" alt="Track profile dipping downhill after one station and rising up to the next station">
+    <div class="lc-cap">Fig 1 — Figure A3.38: possible track profile between two stations.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — What might be the advantages of such a track profile? Consider the energy transfers taking place as the train moves between stations. <em>Leaving the station the train runs downhill, so GPE transfers to KE and it accelerates with little energy from the motors. Approaching the next station it climbs, so KE transfers back to GPE and it decelerates without friction braking — the energy is stored, not dissipated, so less input energy is needed and brake wear falls.</em></div>
+</div>
+
+<div class="lc-section">Core knowledge</div>
+
+<div class="lc-card">
+  <h3>⚡ Power: the rate of energy transfer</h3>
+  <p>Syllabus statement: <strong>power, \(P\), is the rate of work done, or the rate of energy transfer</strong>, as given by \(P = \dfrac{E}{t} = Fv\).</p>
+  <p>When energy is transferred by people, animals or machines to do something useful, we are often concerned about how much <strong>time</strong> the change takes. If the same amount of useful work is done by two people (or machines), the one that does it faster is said to be more <strong>powerful</strong>. (In everyday use the word power is used more vaguely, often related to strength and without any connection to time.)</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Power · SI unit: watt, W</span>
+    $$P = \frac{E}{t}$$
+    $$P = \frac{\Delta W}{\Delta t}\ \text{(mechanical)}$$
+  </div>
+  <div class="lc-info">◆ <strong>Power, \(P\)</strong> — energy transferred ÷ time taken; or, for mechanical energies, work done ÷ time taken. ◆ <strong>Watt, W</strong> — derived SI unit of power. \(1\ \text{W} = 1\ \text{J s}^{-1}\). The units mW, kW, MW and GW are all in common use.</div>
+  <div class="lc-warn">⚠️ Avoid confusion between work done, \(W\), and the unit the watt, W.</div>
+  <p><strong>Some values of power in everyday life:</strong></p>
+  <table class="lc-table">
+    <thead><tr><th>Device / activity</th><th>Power</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td>Calculator</td><td>0.0001 W</td><td>transfers energy at a rate of 0.0001 J every second</td></tr>
+      <tr><td>Light bulb</td><td>7 W</td><td>transfers energy from electricity to light and thermal energy at 7 J every second</td></tr>
+      <tr><td>Girl walking upstairs</td><td>≈ 250 W</td><td>transfers chemical energy to gravitational energy at about 250 W</td></tr>
+      <tr><td>An average home</td><td>≈ 1 kW</td><td>in many countries, the average rate of use of electrical energy</td></tr>
+      <tr><td>Water heater</td><td>2 kW</td><td>electricity to internal energy at 2000 J every second</td></tr>
+      <tr><td>Family car</td><td>≈ 100 kW</td><td>typical maximum output power</td></tr>
+      <tr><td>Oil-fired power station</td><td>500 MW</td><td>chemical to electrical energy at 500 000 000 J every second</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-04-power-and-efficiency-02.png" alt="Girl walking up a flight of stairs with height and time labelled, transferring energy at about 250 W">
+    <div class="lc-cap">Fig 2 — Figure A3.39: transferring energy at a rate of about 250 W.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🚗 Power needed to maintain a constant speed</h3>
+  <p>It is common for a vehicle to maintain a constant velocity. Under those circumstances the forward force, \(F\), from the engines is <strong>equal in magnitude but opposite in direction</strong> to the total <strong>resistive forces</strong>. The power needed to maintain a constant velocity \(v\) against those forces follows directly from the definition:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Power at constant velocity</span>
+    $$P = \frac{\Delta W}{\Delta t} = \frac{F\Delta s}{\Delta t} = Fv$$
+  </div>
+  <div class="lc-info">◆ <strong>Resistive force, \(F\)</strong> — any force that opposes motion, for example friction, air resistance, drag.</div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-04-power-and-efficiency-03.png" alt="Car moving at constant velocity with equal and opposite forward driving force and resistive force arrows">
+    <div class="lc-cap">Fig 3 — At constant speed the driving force balances the resistive forces, so all the output power goes into overcoming resistance: \(P=Fv\).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📊 Efficiency: how much of the input does something useful</h3>
+  <p>Syllabus statement: <strong>efficiency, \(\eta\)</strong>, in terms of energy transfer or power, as given by \(\dfrac{E_{\text{output}}}{E_{\text{input}}} = \dfrac{P_{\text{output}}}{P_{\text{input}}}\).</p>
+  <p>It is an ever-present theme of physics that, whatever we do, some of the energy transferred is <strong>‘wasted’ (dissipated)</strong> because it is transferred to less ‘useful’ forms. In mechanics this is usually because friction, or air resistance, transfers kinetic energy to internal energy and thermal energy. <strong>The useful energy we get out of any energy transfer is always less than the total energy transferred.</strong></p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Efficiency (thermodynamic) · no units</span>
+    $$\eta = \frac{\text{useful energy output}}{\text{total energy input}}$$
+    $$\eta = \frac{E_{\text{output}}}{E_{\text{input}}} = \frac{P_{\text{output}}}{P_{\text{input}}}$$
+  </div>
+  <p>When an electrical water heater is used, nearly all of the energy transferred makes the water hotter and can therefore be described as ‘useful’. But when a mobile phone charger is used, only some of the energy is transferred to the battery — most of the rest is transferred to thermal energy. Driving a car involves transferring chemical energy from the fuel, and the useful energy is considered to be the kinetic energy of the vehicle, although at the end of the journey there is no kinetic energy remaining. A process that results in a greater useful energy output for a given input is described as being <strong>more efficient</strong>.</p>
+  <div class="lc-info">◆ <strong>Efficiency (thermodynamic), \(\eta\)</strong> — ratio of useful energy (or power) output to the total energy (or power) input. Because it is a ratio of two energies (or powers), efficiency has <strong>no units</strong>, and is often expressed as a percentage. Because of the principle of conservation of energy, efficiencies will always be less than 1 (or 100%).</div>
+  <p>It is possible to discuss the efficiency of any energy transfer, such as the efficiency with which our bodies transfer the chemical energy in food to other forms. However, the concept is most commonly used for electrical devices and engines, especially where the input energy or power is easily calculated. Sometimes we need to be clear exactly what we are talking about: when discussing the efficiency of a car, do we mean only the engine, or the whole car in motion along a road with all the energy dissipation due to resistive forces?</p>
+  <p>Efficiencies of machines and engines usually <strong>change with the operating conditions</strong>. There is a certain load at which an electric motor operates with maximum efficiency; if it is used to raise a very small or a very large mass it will be less efficient. Similarly, cars are designed to have their greatest efficiency at a certain speed, usually about 100 km h⁻¹ — driven faster or slower, efficiency decreases, so more fuel is used per kilometre.</p>
+  <p>Car engines, like all other engines that rely on burning fuels, are inefficient because of <strong>fundamental physics principles</strong> (see Topic B.4). There is nothing we can do to change that, although better engine design and maintenance can make some improvements. Improving the efficiency of such ‘heat engines’ has an important role to play in conserving the world's energy resources and limiting global warming (see Topic B.2). Power stations which use natural gas have the greatest overall efficiency, about 60% (Figure A3.40).</p>
+</div>
+
+<div class="lc-card">
+  <h3>⛽ Energy density and specific energy</h3>
+  <p>Syllabus statement: <strong>energy density of the fuel sources.</strong> One of the advantages of fossil fuels is the large amount of energy that can be transferred from each cubic metre of the fuel — although nuclear fuels are much more energy dense.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Energy density · specific energy</span>
+    $$\text{energy density} = \frac{E}{V}\ \ (\text{J m}^{-3})$$
+    $$\text{specific energy} = \frac{E}{m}\ \ (\text{J kg}^{-1})$$
+  </div>
+  <div class="lc-info">◆ <strong>Energy density</strong> — the energy transferred from unit volume of fuel (SI unit: J m⁻³). ◆ <strong>Specific energy</strong> — amount of energy that can be transferred from unit mass of an energy source (SI unit: J kg⁻¹). When discussing gaseous energy resources it is more common to use specific energy: for example, the specific energy of natural gas is 55 MJ kg⁻¹.</div>
+  <table class="lc-table">
+    <thead><tr><th>Source</th><th>Energy density / MJ m⁻³</th></tr></thead>
+    <tbody>
+      <tr><td>Reactor-grade uranium-235</td><td>66 000 000 000</td></tr>
+      <tr><td>Coal</td><td>43 000</td></tr>
+      <tr><td>Crude oil</td><td>37 000</td></tr>
+      <tr><td>Gasoline (petrol)</td><td>36 000</td></tr>
+      <tr><td>Ethanol</td><td>24 000</td></tr>
+      <tr><td>Wood</td><td>15 000</td></tr>
+      <tr><td>Electrical batteries</td><td>1000</td></tr>
+      <tr><td>Hydroelectric</td><td>1</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-cap" style="font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem">Table A3.4 — some approximate energy densities.</div>
+  <div class="lc-warn">⚠️ <strong>Common mistake</strong> — energy density and specific energy are often confused. Some sources define energy/mass as energy density. In this course, energy density is <strong>per cubic metre</strong>.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Energy–time</td><td>time \(t\) / s, energy transferred \(E\) / J</td><td>Straight line for constant power; curve if power changes</td><td><strong>Gradient = power.</strong> A steeper line means a more powerful device</td></tr>
+      <tr><td>Power–time</td><td>time \(t\) / s, power \(P\) / W</td><td>Flat line, or a curve for a varying load</td><td><strong>Area under the graph = total energy transferred</strong></td></tr>
+      <tr><td>Force–velocity at constant power</td><td>speed \(v\), driving force \(F\)</td><td>Hyperbola, \(F \propto 1/v\)</td><td>Read \(P = Fv\) at any point; explains why top gear gives low force</td></tr>
+      <tr><td>Energy-density bar chart</td><td>fuel source, energy density / MJ m⁻³</td><td>Bars spanning many orders of magnitude — usually a log scale</td><td>Compare fuels; nuclear is millions of times denser than chemical fuels</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-04-power-and-efficiency-04.png" alt="Energy against time graph with two straight lines of different gradients labelled more powerful and less powerful"><div class="lc-cap">Fig 4 — Gradient of an energy–time graph is the power.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-04-power-and-efficiency-05.png" alt="Bar chart of energy density for uranium, coal, oil, gasoline, ethanol, wood, batteries and hydroelectric on a logarithmic scale"><div class="lc-cap">Fig 5 — Energy densities from Table A3.4, log scale.</div></div>
+  </div>
+</div>
+
+<div class="lc-section">Worked examples</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example A3.11 – average power of a climber</h3>
+  <p>Calculate the average power of a 65 kg climber moving up a height of 40 m in 3 minutes.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the useful work done is the gain in gravitational potential energy, \(mg\Delta h\); power is that work divided by the time taken.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 65\ \text{kg}\), \(\Delta h = 40\ \text{m}\), \(\Delta t = 3 \times 60 = 180\ \text{s}\), \(g = 9.8\ \text{m s}^{-2}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(P = \dfrac{\Delta W}{\Delta t} = \dfrac{mg\Delta h}{\Delta t} = \dfrac{65 \times 9.8 \times 40}{3 \times 60}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(P = 1.4 \times 10^{2}\ \text{W}\) — about 140 W, roughly two old-fashioned light bulbs, sustained for three minutes.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example A3.12 – accelerating, then cruising</h3>
+  <p><strong>(a)</strong> What average power is needed to accelerate a 1600 kg car from rest to 25 m s⁻¹ in 12.0 s? <strong>(b)</strong> What power is needed to maintain the same speed if the resultant resistive force is a constant 2300 N?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>(a) Identify:</strong> the useful work is the kinetic energy gained, so \(P = \dfrac{\text{kinetic energy gained}}{\text{time taken}} = \dfrac{\tfrac12 mv^2}{\Delta t}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>(a) Calculate:</strong> \(P = \dfrac{0.5 \times 1600 \times 25^2}{12.0}\)<br>\(P = 4.2 \times 10^{4}\ \text{W} = 42\ \text{kW}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>(b) Identify:</strong> at constant speed the driving force equals the resistive force, so use \(P = Fv\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>(b) Answer:</strong> \(P = Fv = 2300 \times 25 = 5.8 \times 10^{4}\ \text{W} = 58\ \text{kW}\). Note that <em>cruising</em> at 25 m s⁻¹ needs more power than the <em>average</em> power used to reach it.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example A3.13 – efficiency of a small electric motor</h3>
+  <p>Figure A3.41 shows an experiment designed to measure the efficiency of a small electric motor. Electrical power was supplied to the motor at a rate of 0.72 W. The hanging mass (25 g) went up a distance of 1.12 m in 2.46 s. <strong>(a)</strong> Calculate how much gravitational potential energy was transferred to the mass. <strong>(b)</strong> How much electrical energy was transferred in this time? <strong>(c)</strong> Determine the efficiency of the motor. <strong>(d)</strong> How much energy was dissipated into the surroundings? <strong>(e)</strong> State the forms of this dissipated energy.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-04-power-and-efficiency-06.png" alt="Electric motor on a stand winding a thread that lifts a hanging mass beside a vertical ruler, connected to a power supply, with a stopwatch">
+    <div class="lc-cap">Fig 6 — Figure A3.41: experiment to measure the efficiency of a motor.</div>
+  </div>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>(a) Useful output:</strong> \(\Delta E_{\text{p}} = mg\Delta h\)<br>\(= 0.025 \times 9.8 \times 1.12 = 0.27\ \text{J}\) (seen on the calculator display as 0.2744…)</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>(b) Total input:</strong> \(P = \dfrac{E}{t}\) ⇒ \(E = P \times \Delta t = 0.72 \times 2.46 = 1.8\ \text{J}\) (calculator: 1.7712…)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>(c) Efficiency:</strong> \(\eta = \dfrac{0.2744}{1.7712} = 0.15\) (15%). Carry the unrounded values through — rounding first shifts the answer.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>(d) Dissipated:</strong> \(1.7712 - 0.2744 = 1.5\ \text{J}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">5</div><div class="lc-step-body"><strong>(e) Forms:</strong> internal energy, thermal energy (+ sound).</div></div>
+  <div class="lc-success">✓ We will see in Topic B.5 that the power input to any electric device can be determined from power = voltage × current.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🚆 Real-world: regenerative braking</h3>
+    <p>Most ways of stopping vehicles transfer the kinetic energy to <strong>internal energy</strong> through friction in the braking system and with the ground or track; that energy dissipates into the surroundings and cannot be recovered. A lot of research has gone into <strong>regenerative braking</strong>, usually involving generating an electric current which transfers energy to stored chemical changes in batteries, or operates on-board electrical equipment.</p>
+    <p>Converting the train's kinetic energy into electrical energy decelerates the train, so there is much less need for frictional braking — which also reduces brake wear and the thermal energy transferred to the environment. Small electric trains in large cities (for example the Light Rail Transit trains on the SBS network in Singapore) have stations every few kilometres or less, so regenerative braking and other energy-saving policies are very important. Large, fast trains instead save energy by stopping at as few stations as possible.</p>
+    <div class="lc-info">◆ <strong>Regenerative braking</strong> — decelerating a vehicle by transferring kinetic energy into a form that can be of later use (rather than dissipating the energy into the surroundings), for example by generating an electric current that charges a battery.</div>
+    <div class="lc-success">✓ Examiner tip: name the transfer chain explicitly — kinetic → electrical → chemical (battery) — and state that the alternative chain, kinetic → internal → dissipated thermal, is unrecoverable.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – why top speed is so expensive</h3>
+    <p>\(P=Fv\) hides a cube law. At speed, drag is roughly \(F \propto v^2\), so the power needed to overcome it is</p>
+    <div class="lc-formula">$$P = Fv \propto v^3$$</div>
+    <p>This is why doubling a car's cruising speed needs about <strong>eight times</strong> the power, and why efficiency peaks near 100 km h⁻¹ rather than at top speed. It is also why \(P=Fv\) with a fixed engine power predicts a maximum speed: as \(v\) rises the available driving force \(F=P/v\) falls until it can no longer exceed drag.<br>
+    <strong>Challenge:</strong> a car needs 12 kW to cruise at 20 m s⁻¹. Estimate the power needed at 40 m s⁻¹. (Answer: \(12 \times 2^3 = 96\ \text{kW}\), assuming \(F \propto v^2\).)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"Energy density is energy per kilogram"</td><td>Energy density is per <em>cubic metre</em> (J m⁻³); energy per kilogram is <em>specific energy</em> (J kg⁻¹). Some sources confuse the two.</td></tr>
+      <tr><td>"A more powerful machine transfers more energy"</td><td>It transfers energy <em>faster</em>. Total energy also depends on the time it runs.</td></tr>
+      <tr><td>"\(P=Fv\) can be used any time"</td><td>In this form \(F\) is the driving force at speed \(v\); for a vehicle at <em>constant</em> speed that equals the resistive force. While accelerating, use \(P = \Delta W/\Delta t\).</td></tr>
+      <tr><td>"Efficiency can be 100% with a good enough design"</td><td>Conservation of energy plus unavoidable dissipation means \(\eta &lt; 1\) always; heat engines are limited by fundamental principles (Topic B.4).</td></tr>
+      <tr><td>"Efficiency is a fixed property of a machine"</td><td>It changes with operating conditions — load for a motor, speed for a car (best at about 100 km h⁻¹).</td></tr>
+      <tr><td>Writing the unit of work as W</td><td>Work is measured in joules; W is the symbol for the watt <em>and</em> often for work — read the context.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: rounding \(E_{\text{output}}\) and \(E_{\text{input}}\) to 2 s.f. before dividing. In worked example A3.13 the unrounded 0.2744/1.7712 gives 0.15; using 0.27/1.8 changes the third figure and can cost the mark in a "show that" question.</div>
+</div>
+
+<div class="lc-kp">
+  <span>P = E/t = ΔW/Δt</span>
+  <span>P = Fv</span>
+  <span>1 W = 1 J s⁻¹</span>
+  <span>η = E_out/E_in = P_out/P_in</span>
+  <span>η &lt; 1, no units</span>
+  <span>energy density: J m⁻³</span>
+  <span>specific energy: J kg⁻¹</span>
+  <span>regenerative braking</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A machine transfers 6.0 kJ of energy in 30 s. Its average power output is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> 0.2 W</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> 200 W</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> 180 kW</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> 6000 W</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A car travels at a constant 30 m s⁻¹ against total resistive forces of 900 N. The output power of the engine is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> 30 W</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> 900 W</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> 27 kW</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> 27 MW</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A motor is supplied with 250 W and lifts a load, doing useful work at 40 W. Its efficiency is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> 16%</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> 40%</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> 62.5%</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> 210%</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. The gradient of a graph of energy transferred against time represents:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Efficiency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Power</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> Force</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Energy density</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Which quantity has the unit J m⁻³?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> Specific energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> Efficiency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> Energy density</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> Power</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. A train uses regenerative braking. Which energy transfer best describes it?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','D')"><span class="lc-opt-l">A</span> Kinetic → internal → thermal in the surroundings</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','D')"><span class="lc-opt-l">B</span> Chemical → kinetic → gravitational potential</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','D')"><span class="lc-opt-l">C</span> Kinetic → sound → internal</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','D')"><span class="lc-opt-l">D</span> Kinetic → electrical → chemical in a battery</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Power is the rate of <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:150px"> transfer, measured in the SI unit called the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px">, where 1 W = 1 J s⁻¹. For a vehicle moving at constant speed, \(P = F\) × <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px">. Efficiency is the ratio of useful output to total <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">, and it has <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:100px"> units. Energy transferred per cubic metre of fuel is called energy <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:120px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q33 · Calculate</div>
+  <div class="lc-exam-q"><strong>(a)</strong> How much useful energy must be transferred to lift twelve 1.7 kg bottles from the ground to a shelf that is 1.2 m higher? <strong>(b)</strong> If this task takes 18 s, what was the average useful power involved? <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Total mass \(= 12 \times 1.7 = 20.4\ \text{kg}\)<br>✓ \(E = mg\Delta h = 20.4 \times 9.8 \times 1.2 = 2.4 \times 10^{2}\ \text{J}\) (240 J)<br>✓ (b) \(P = \dfrac{E}{t} = \dfrac{240}{18}\)<br>✓ \(P = 13\ \text{W}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q34 · Estimate</div>
+  <div class="lc-exam-q">Estimate the output power of an electric motor that can raise an elevator of mass 800 kg and six passengers 38 floors in 52 s. (Assume there is no counterweight.) <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ State the estimates: six passengers at about 70 kg each ≈ 420 kg, so total mass ≈ 1220 kg; one floor ≈ 3 m, so height ≈ \(38 \times 3 = 114\ \text{m}\).<br>✓ \(E = mg\Delta h = 1220 \times 9.8 \times 114 = 1.4 \times 10^{6}\ \text{J}\)<br>✓ \(P = \dfrac{E}{t} = \dfrac{1.36\times10^{6}}{52}\)<br>✓ \(P \approx 2.6 \times 10^{4}\ \text{W}\) (about 26 kW). Any reasonable estimates clearly stated earn full credit.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q35 · Calculate / Compare</div>
+  <div class="lc-exam-q"><strong>(a)</strong> Calculate the average power needed for a cyclist of mass 72.0 kg to accelerate from 8.00 m s⁻¹ to 12.0 m s⁻¹ in 22.0 s on a horizontal road. Assume that the resistive forces are negligible and the bicycle has a mass of 8.00 kg. <strong>(b)</strong> Compare your answer to 6.5 W kg⁻¹ (using body mass) for the best athletes. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Total mass accelerated \(= 72.0 + 8.00 = 80.0\ \text{kg}\)<br>✓ \(\Delta E_{\text{k}} = \tfrac12 m(v^2-u^2) = 0.5 \times 80.0 \times (12.0^2 - 8.00^2) = 3200\ \text{J}\)<br>✓ \(P = \dfrac{3200}{22.0} = 145\ \text{W}\)<br>✓ (b) Per kilogram of body mass: \(\dfrac{145}{72.0} = 2.0\ \text{W kg}^{-1}\)<br>✓ This is less than a third of the 6.5 W kg⁻¹ of elite athletes — who also sustain it while overcoming real resistive forces, which were neglected here.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q36 · Determine</div>
+  <div class="lc-exam-q">A small boat is powered by an outboard motor with a maximum output power of 40 kW. The greatest speed of the boat is 27 knots (1 knot = 1.85 km h⁻¹). Determine the magnitude of the forward force provided by the motor at this speed. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Convert: \(27 \times 1.85 = 50.0\ \text{km h}^{-1} = \dfrac{50.0 \times 1000}{3600} = 13.9\ \text{m s}^{-1}\)<br>✓ \(P = Fv \Rightarrow F = \dfrac{P}{v} = \dfrac{40\,000}{13.9}\)<br>✓ \(F = 2.9 \times 10^{3}\ \text{N}\) (at top speed this also equals the total resistive force)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q37 · Calculate / State</div>
+  <div class="lc-exam-q"><strong>(a)</strong> What is the constant speed of a car which has an output power of 22 kW when the resistive forces are 2.0 kN? <strong>(b)</strong> What assumption did you make in answering part (a)? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(P = Fv \Rightarrow v = \dfrac{22\,000}{2000}\)<br>✓ \(v = 11\ \text{m s}^{-1}\)<br>✓ (b) That the car moves at constant speed on a level road, so the driving force exactly equals the 2.0 kN resistive force and <em>all</em> of the output power is used to overcome resistance (no gain in KE or GPE, no transmission losses).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q38 · Calculate</div>
+  <div class="lc-exam-q">What is the output power of a jet aircraft that has a forward thrust of 6.60 × 10⁵ N when travelling at its top speed of 950 km h⁻¹ (264 m s⁻¹) through still air? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(P = Fv = 6.60 \times 10^{5} \times 264\)<br>✓ \(P = 1.74 \times 10^{8}\ \text{W}\) (174 MW — comparable to a third of a small power station)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Q39 · Research / Suggest</div>
+  <div class="lc-exam-q"><strong>(a)</strong> Find out which countries of the world have the highest average power consumption per person. <strong>(b)</strong> Suggest reasons why they use so much energy. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Consistently near the top of per-capita primary energy use: Iceland, Qatar, Norway, the United Arab Emirates, Bahrain, Canada, Kuwait, the United States, Saudi Arabia. (Quote your source and its date — ATL A3C: how did you check the reliability of your online sources?)<br>✓ (b) Energy-intensive heavy industry, e.g. aluminium smelting in Iceland and Norway, powered by cheap electricity.<br>✓ Extreme climates: heating in Iceland/Canada/Norway, air conditioning and desalination in the Gulf states.<br>✓ Cheap domestic fossil fuel in oil- and gas-producing countries, plus energy used in extraction and refining itself; large distances and car dependence; high average incomes and large houses.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Inquiry 3 · Concluding and evaluating</div>
+  <div class="lc-exam-q">Figure A3.42 represents the apparatus used by a student to investigate the efficiency of a pulley system. The student measured the forces needed to lift loads of 0.5 kg, 1.0 kg, 4.0 kg and 5.0 kg: 0.6 N, 1.5 N, 7.5 N and 12.7 N. He assumed that the force always moves four times further than the load. His conclusion was a single value for the efficiency of the system. <strong>(1)</strong> Is this a correct conclusion from the data collected? <strong>(2)</strong> Discuss the quantity and range of readings taken by the student. <span class="lc-exam-marks">[6 marks]</span></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-04-power-and-efficiency-07.png" alt="Pulley system with an applied force on one side and a load hanging on the other">
+    <div class="lc-cap">Fig 7 — Figure A3.42: pulley system.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (1) No. With \(\eta = \dfrac{mg d}{F \times 4d} = \dfrac{mg}{4F}\), the four readings give η ≈ 2.0, 1.6, 1.3 and 0.96 — the efficiency is <em>not</em> constant, so a single value cannot be concluded.<br>✓ Three of the values exceed 1, which is impossible: the useful output cannot exceed the input, so there must be a systematic error — the assumed distance ratio of four is wrong for this arrangement, or the forces were misread / friction was not accounted for.<br>✓ A valid conclusion would be that efficiency increases with load, and that the method must be checked (measure the distances moved rather than assuming the ratio).<br>✓ (2) Only four readings — too few to establish a trend.<br>✓ The range is uneven: two readings clustered at 0.5–1.0 kg, then a large gap to 4.0–5.0 kg, so the middle of the range is untested.<br>✓ No repeats and no uncertainties are quoted, so random error cannot be judged. Take 8–10 loads spread evenly, repeat each and average.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Inquiry 1 · Exploring and designing</div>
+  <div class="lc-exam-q">Figure A3.43 shows how a student intended to investigate the energy density of ethanol. She knows that for every 4184 J of energy transferred to 1.0 kg of water, the temperature will rise by 1.0 °C. <strong>(1)</strong> Identify the student's choice of dependent, independent and control variables. How would the results be used to calculate energy density? <strong>(2)</strong> Suggest how the experiment (as shown) could be improved. <em>Hint: how much of the energy stored in the fuel is transferred to the water?</em> <strong>(3)</strong> What other energy transfers are taking place? <span class="lc-exam-marks">[8 marks]</span></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-04-power-and-efficiency-08.png" alt="Glass beaker of water with a thermometer held above a burning ethanol container">
+    <div class="lc-cap">Fig 8 — Figure A3.43: estimating the energy density or specific energy of a fuel.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (1) Independent variable: the volume of ethanol burned. Dependent variable: the temperature rise of the water. Controlled: mass (volume) of water, the beaker used, the distance from flame to beaker, the initial water temperature, the surroundings/draughts.<br>✓ Energy to the water \(= 4184 \times m_{\text{water}} \times \Delta T\); energy density \(= \dfrac{\text{energy transferred}}{\text{volume of ethanol burned}}\) in J m⁻³.<br>✓ (2) Only a small fraction of the fuel's energy reaches the water, so the result <em>underestimates</em> the energy density.<br>✓ Improvements: shield the flame from draughts, use a lid and insulate the container, use a thin copper calorimeter instead of glass, bring the flame closer, stir before reading the temperature, and find the mass of ethanol burned by weighing the burner before and after.<br>✓ Also repeat and take a larger temperature rise to reduce percentage uncertainty.<br>✓ (3) Energy is also transferred to the beaker, the thermometer and the stand.<br>✓ To the surrounding air by convection and to the room by radiation, and away by evaporating water.<br>✓ Incomplete combustion leaves soot and unburned fuel, and the fuel itself evaporates without burning — all of which mean less energy released per unit volume than the true value.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Tool 2 · Represent data graphically</div>
+  <div class="lc-exam-q">Use data from the internet to determine specific energies for a variety of different energy sources, then use a spreadsheet to present the information as a bar chart. <span class="lc-exam-marks">[skill task]</span></div>
+  <textarea class="lc-exam-input" placeholder="List your sources and the values you found…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show guidance</button>
+  <div class="lc-model">✓ Tabulate source, specific energy / MJ kg⁻¹, and the reference used — e.g. natural gas 55 MJ kg⁻¹ (given in the text), gasoline ≈ 46, coal ≈ 30, ethanol ≈ 30, wood ≈ 16, lithium-ion battery ≈ 0.5.<br>✓ Because the values span several orders of magnitude, use a logarithmic vertical axis, label it "specific energy / MJ kg⁻¹", and sort the bars in descending order.<br>✓ State clearly whether each figure is <em>specific energy</em> (per kg) or <em>energy density</em> (per m³) — many web sources mix them up (ATL A3C: check the reliability of your sources).</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { B: 'P = E/t = 6000 J ÷ 30 s = 200 W.' },
+    mcq2: { C: 'At constant speed P = Fv = 900 × 30 = 27 000 W = 27 kW.' },
+    mcq3: { A: 'η = P_out/P_in = 40/250 = 0.16 = 16%. Efficiency can never exceed 100%.' },
+    mcq4: { B: 'Energy ÷ time is power, so the gradient of an energy–time graph is the power.' },
+    mcq5: { C: 'Energy density is energy per unit volume (J m⁻³); specific energy is per kilogram (J kg⁻¹).' },
+    mcq6: { D: 'Regenerative braking generates an electric current, storing energy chemically in a battery instead of dissipating it as thermal energy.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'energy', lf2:'watt', lf3:'v', lf4:'input', lf5:'no', lf6:'density' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || (val.length > 2 && val.includes(ans[id]));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+</div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="03-conservation-of-mechanical-energy.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Conservation of Mechanical Energy</div>
+          </div>
+        </a>
+        <a href="05-elastic-and-inelastic-collisions.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Elastic and Inelastic Collisions</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

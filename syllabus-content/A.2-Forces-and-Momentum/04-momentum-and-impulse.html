@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Momentum and Impulse — A.2 Forces and Momentum — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A2">A.2 Forces and Momentum</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Momentum and Impulse</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.2
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 4 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Momentum and Impulse</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.2 Forces and Momentum</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.2 overview
+      </a>
+      <div class="sidebar-title">A.2 Concepts</div>
+      <a href="01-newton-s-laws-of-motion.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Newton's Laws of Motion</span>
+        </a>
+      <a href="02-free-body-diagrams.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Free Body Diagrams</span>
+        </a>
+      <a href="03-friction-and-normal-force.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Friction and Normal Force</span>
+        </a>
+      <a href="04-momentum-and-impulse.html" class="sidebar-link active">
+          <span class="sidebar-num">04</span>
+          <span>Momentum and Impulse</span>
+        </a>
+      <a href="05-conservation-of-momentum.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Conservation of Momentum</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 5 · A.2 Forces and Momentum</div>
+<div class="lc-title">Momentum and Impulse</div>
+<div class="lc-sub">Why the same change in motion can either break an egg or leave it whole — it depends entirely on how long you take.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the egg that survives</h3>
+  <p>Drop an egg 1 m onto a tiled floor and it shatters. Drop the identical egg from the same height onto a thick cushion and it survives. In both cases the egg arrives with the same momentum and ends at rest, so the <strong>change in momentum is identical</strong>. What differs is the <strong>time taken to stop</strong> — and the force is what pays the price.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-04-momentum-and-impulse-01.png" alt="An egg dropped onto a hard tiled floor breaking, and the same egg dropped onto a cushion surviving">
+    <div class="lc-cap">Fig 1 — Same drop, same change of momentum, very different stopping times.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — If the cushion increases the stopping time from 2 ms to 200 ms, by what factor is the average force reduced? <em>By 100. Force is change of momentum divided by time, so a hundredfold longer impact means a hundredth of the force.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Linear momentum</h3>
+  <p><strong>Linear momentum</strong> \(p\) is the product of an object's mass and its velocity. Because velocity is a vector, momentum is a vector too, and its direction always matters: before doing any momentum calculation you must choose a positive direction and stick to it.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Linear momentum</span>
+    $$p = mv \qquad \text{SI unit: kg m s}^{-1}$$
+  </div>
+  <p>A 6.0 kg object moving right at 2.0 m s⁻¹ has \(p = +12\) kg m s⁻¹; the same object moving left has \(p = -12\) kg m s⁻¹. The difference between these two states is a change of \(24\) kg m s⁻¹, not zero — a bounce involves a far bigger change of momentum than simply stopping.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-04-momentum-and-impulse-02.png" alt="A ball bouncing off a wall showing momentum vectors before and after and the vector change in momentum">
+    <div class="lc-cap">Fig 2 — For a ball that rebounds at the same speed, \(\Delta p = -mv - (+mv) = -2mv\). Signs, not just magnitudes.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚙️ Newton's second law as rate of change of momentum</h3>
+  <p>Starting from \(F = ma\) and \(a = (v-u)/t\), the resultant force can be rewritten in terms of momentum:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Newton's second law, general form</span>
+    $$F = \frac{\Delta p}{\Delta t}$$
+  </div>
+  <p>This version is more powerful than \(F = ma\), because \(F = ma\) quietly assumes the mass is constant. A rocket burning fuel, a conveyor belt being loaded or a raindrop growing as it falls all change mass while they move, and only \(F = \Delta p / \Delta t\) handles them.</p>
+  <p>Rearranging gives the definition of <strong>impulse</strong> \(J\): the product of the average resultant force and the time for which it acts.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Impulse</span>
+    $$J = F\Delta t = \Delta p \qquad \text{SI unit: N s}$$
+  </div>
+  <p>N s and kg m s⁻¹ are the same unit written two ways. The statement <strong>impulse equals change of momentum</strong> is the single most useful line in this topic: it converts a messy, varying force into a clean before-and-after calculation.</p>
+  <div class="lc-success">✓ Examiner tip: if a question gives you a force and a time, or asks about a collision lasting milliseconds, reach for impulse — not \(F = ma\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Force–time (impact)</td><td>Time \(t\), force \(F\)</td><td>Rises to a peak and falls back to zero</td><td><strong>Area under the graph = impulse = \(\Delta p\)</strong>. Peak = maximum force.</td></tr>
+      <tr><td>Average force rectangle</td><td>Time \(t\), force \(F\)</td><td>A rectangle of equal area drawn over the curve</td><td>Its height is \(F_{\text{av}}\); its width is the contact time \(\Delta t\)</td></tr>
+      <tr><td>Momentum–time</td><td>Time \(t\), momentum \(p\)</td><td>Sloping line or curve</td><td>Gradient = resultant force</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a2-04-momentum-and-impulse-03.png" alt="Force-time graph with shaded area under the curve and an equal-area average force rectangle"><div class="lc-cap">Fig 3 — The shaded area is the impulse; the rectangle of equal area gives \(F_{\text{av}}\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a2-04-momentum-and-impulse-04.png" alt="Two force-time curves of equal area, one tall and narrow for a hard impact and one low and wide for a cushioned impact"><div class="lc-cap">Fig 4 — Equal areas, so equal \(\Delta p\). The cushioned impact spreads it over longer time, lowering the peak force.</div></div>
+  </div>
+  <div class="lc-info">💡 To estimate the area of a curved impact graph, count squares or draw a rectangle that looks like it has the same area by eye. A rough triangle, \(\tfrac{1}{2} F_{\text{max}} \Delta t\), is usually accepted.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – returning a tennis serve</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> A 57 g tennis ball travelling right at 24 m s⁻¹ is struck by a racket moving the other way. The force–time graph of the impact (Fig 5) peaks at 200 N over a contact time of 24 ms. Find the impulse and the ball's velocity afterwards. This is an impulse–momentum problem, not an \(F=ma\) one.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 0.057\ \text{kg}\), \(u = +24\ \text{m s}^{-1}\) (taking right as positive), \(F_{\text{max}} = 200\ \text{N}\), \(\Delta t = 24\ \text{ms} = 0.024\ \text{s}\). Treating the curve as roughly triangular, area \(\approx \tfrac{1}{2} \times 200 \times 0.024\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(J = \text{area} = 2.4\ \text{N s}\), directed to the left, so \(J = -2.4\ \text{N s}\). Then \(J = \Delta p = m(v-u)\), giving \(-2.4 = 0.057(v - 24)\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(v - 24 = -42\), so \(v = -18\ \text{m s}^{-1}\) — the ball leaves at 18 m s⁻¹ to the left. Note the change of speed, 42 m s⁻¹, is far larger than either speed alone, because the ball reversed direction.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-04-momentum-and-impulse-05.png" alt="Force-time graph for a tennis ball impact peaking at 200 newtons over 24 milliseconds">
+    <div class="lc-cap">Fig 5 — Force on the ball during the 24 ms of racket contact.</div>
+  </div>
+  <div class="lc-warn">⚠️ Looser strings lengthen the contact time, so the same force delivers a larger impulse and a faster return — at the cost of less control over direction.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🚗 Real-world: crumple zones and airbags</h3>
+    <p>A car in a crash must lose all its momentum whatever happens, so \(\Delta p\) is fixed. Crumple zones, airbags and seatbelts all do the same job: they stretch \(\Delta t\). Doubling the stopping time halves the average force on the occupants.</p>
+    <div class="lc-success">✓ Examiner tip: never say safety features "reduce the change in momentum". They reduce the <em>force</em> by increasing the time over which the same change of momentum happens.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – rocket propulsion</h3>
+    <p>A rocket throws mass backwards to gain momentum forwards. Since the ejected gas has mass rate \(\Delta m/\Delta t\) leaving at speed \(v\):</p>
+    <div class="lc-formula">$$F = \frac{\Delta p}{\Delta t} = \frac{\Delta m}{\Delta t}\,v$$</div>
+    <p><strong>Challenge:</strong> Exhaust leaves at \(1.5\times10^{4}\ \text{kg s}^{-1}\) with a speed of \(2.3\times10^{3}\ \text{m s}^{-1}\). Find the thrust. (Answer: \(3.5\times10^{7}\ \text{N}\))</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/a2-04-momentum-and-impulse-06.png" alt="Rocket ejecting exhaust gas downwards with thrust arrow upwards">
+      <div class="lc-cap">Fig 6 — Momentum given to the gas equals momentum gained by the rocket.</div>
+    </div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Momentum is a scalar, so just multiply mass by speed</td><td>Momentum is a vector. Assign signs from a chosen positive direction before adding or subtracting.</td></tr>
+      <tr><td>A ball that bounces back has \(\Delta p = 0\) because the speed is unchanged</td><td>The velocity reversed, so \(\Delta p = -2mv\) — the largest possible change for that speed.</td></tr>
+      <tr><td>An airbag reduces the change of momentum</td><td>It increases the contact time. \(\Delta p\) is fixed; \(F = \Delta p/\Delta t\) falls.</td></tr>
+      <tr><td>The gradient of a force–time graph gives the impulse</td><td>The <em>area</em> gives the impulse. Gradient of a force–time graph has no standard meaning here.</td></tr>
+      <tr><td>\(F = ma\) works in every situation</td><td>It assumes constant mass. Use \(F = \Delta p/\Delta t\) for rockets, jets or any changing-mass system.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting the minus sign on the rebound velocity, which halves the calculated impulse and loses every mark that follows.</div>
+</div>
+
+<div class="lc-kp">
+  <span>p = mv</span>
+  <span>F = Δp/Δt</span>
+  <span>J = FΔt = Δp</span>
+  <span>N s ≡ kg m s⁻¹</span>
+  <span>area under F–t graph = impulse</span>
+  <span>F = (Δm/Δt)v (HL)</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A ball of mass 0.20 kg hits a wall at 6.0 m s⁻¹ and rebounds along the same line at 4.0 m s⁻¹. The magnitude of the change in momentum is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 0.40 kg m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> 1.2 kg m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> 2.0 kg m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> 20 kg m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. The area under a force–time graph for a collision represents</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> the work done on the object</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> the change in momentum of the object</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> the average force during the impact</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> the acceleration of the object</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Two identical cars stop from the same speed. Car X hits a rigid wall and stops in 0.10 s; car Y hits a crash barrier and stops in 0.50 s. Compared with car X, car Y experiences</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> a smaller change of momentum and a smaller average force</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> a smaller change of momentum and the same average force</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> the same change of momentum and a larger average force</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> the same change of momentum and an average force one fifth as large</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A resultant force of 15 N acts on a stationary 3.0 kg trolley for 4.0 s. The final speed of the trolley is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 5.0 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> 11 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> 20 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> 60 m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Linear momentum is defined as mass multiplied by <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:130px">, and it is a <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> quantity. Impulse is the product of average force and <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:100px">, and it is equal to the change in <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:140px">. On a force–time graph the impulse is found from the <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:100px"> under the line.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State / Explain</div>
+  <div class="lc-exam-q">(a) State what is meant by the impulse of a force. [1]<br>(b) Explain, in terms of momentum, how a crumple zone reduces the injuries suffered by a driver in a collision. [3]</div>
+  <div class="lc-exam-marks">4 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ The product of the average resultant force and the time for which it acts, equal to the change of momentum produced.<br>(b) ✓ The driver's change of momentum is the same whether or not the car crumples. ✓ The crumple zone increases the time over which that change occurs. ✓ Since \(F = \Delta p/\Delta t\), a longer time gives a smaller average force on the driver.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">A ball of mass 260 g falls vertically and hits the ground at 7.3 m s⁻¹. It rebounds vertically at 5.5 m s⁻¹.<br>(a) Calculate the change of momentum of the ball. [2]<br>(b) The impact lasts 0.38 s. Calculate the average force exerted on the ball by the ground. [2]<br>(c) Suggest why the maximum force is greater than your answer to (b). [1]</div>
+  <div class="lc-exam-marks">5 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Taking upwards as positive: \(\Delta p = 0.260(+5.5) - 0.260(-7.3)\). ✓ \(= 1.43 + 1.90 = 3.3\ \text{kg m s}^{-1}\) upwards.<br>(b) ✓ \(F = \Delta p/\Delta t = 3.3/0.38\). ✓ \(= 8.7\ \text{N}\) (this is the resultant; the contact force also supports the weight).<br>(c) ✓ The force is not constant during contact — it rises to a peak and falls again, so the peak exceeds the average.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch / Compare</div>
+  <div class="lc-exam-q">A soft ball and a hard ball of equal mass strike a wall at the same speed and rebound at the same speed.<br>(a) Sketch, on the same axes, force–time graphs for the two impacts. [3]<br>(b) Compare the impulse and the maximum force in the two cases. [2]</div>
+  <div class="lc-exam-marks">5 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Both curves start and finish at zero force, rising to a peak. ✓ The hard ball's curve is tall and narrow; the soft ball's is lower and wider. ✓ The two curves enclose equal areas.<br>(b) ✓ The impulse is the same for both, since the change of momentum is the same. ✓ The hard ball experiences the greater maximum force, because the same impulse is delivered in a shorter contact time.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'Momentum is a vector: \u0394p = 0.20(-4.0) - 0.20(+6.0) = -2.0 kg m s\u207b\u00b9, magnitude 2.0. The reversal is what makes it large.' },
+    mcq2: { B: 'Area = F\u0394t = impulse, and impulse equals the change of momentum.' },
+    mcq3: { D: 'Both cars lose the same momentum. Five times the stopping time means one fifth of the average force.' },
+    mcq4: { C: 'J = F\u0394t = 15 \u00d7 4.0 = 60 N s = \u0394p = mv, so v = 60/3.0 = 20 m s\u207b\u00b9.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '\u2713 ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '\u2717 Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'velocity', lf2:'vector', lf3:'time', lf4:'momentum', lf5:'area' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '\u2713 All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' \u00b7 ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+</div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="03-friction-and-normal-force.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Friction and Normal Force</div>
+          </div>
+        </a>
+        <a href="05-conservation-of-momentum.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Conservation of Momentum</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

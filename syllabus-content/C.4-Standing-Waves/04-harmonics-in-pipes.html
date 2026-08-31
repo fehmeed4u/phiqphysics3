@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harmonics in Pipes — C.4 Standing Waves and Resonance — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C4">C.4 Standing Waves and Resonance</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Harmonics in Pipes</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">C.4</span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 4 of 5</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Harmonics in Pipes</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">C.4 Standing Waves and Resonance</strong> · Unit C — IB Physics 2023</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">← Back to C.4 overview</a>
+      <div class="sidebar-title">C.4 Concepts</div>
+      <a href="01-formation-of-standing-waves.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Formation of Standing Waves</span>
+        </a>
+      <a href="02-nodes-and-antinodes.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Nodes and Antinodes</span>
+        </a>
+      <a href="03-harmonics-in-strings.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Harmonics in Strings</span>
+        </a>
+      <a href="04-harmonics-in-pipes.html" class="sidebar-link active">
+          <span class="sidebar-num">04</span>
+          <span>Harmonics in Pipes</span>
+        </a>
+      <a href="05-resonance.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Resonance</span>
+        </a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.75rem 1.1rem;margin:0.75rem 0;
+  font-family:var(--font-mono);font-size:1.05rem;
+  color:var(--accent);text-align:center; }
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<!-- ═══════════ LESSON HEADER ═══════════ -->
+<div class="lc-badge"><span>5</span> Lesson 5 · C.4</div>
+<div class="lc-title">Harmonics in Pipes</div>
+<div class="lc-sub">Standing wave patterns in open and closed pipes — boundary conditions, harmonic series, and resonant frequencies</div>
+
+<!-- ═══════════ HOOK ═══════════ -->
+<div class="lc-card">
+  <h3>🎵 The Big Question</h3>
+  <p>Why does your voice sound like a chipmunk when you breathe in helium, but like Darth Vader with sulfur hexafluoride? The speed of sound changes — but your vocal tract (a pipe!) stays the same length. The <strong>resonant frequencies</strong> shift because <em>f = v / λ</em>, and only <em>v</em> has changed.</p>
+  <p>This lesson is about how the length of a pipe and the conditions at its ends determine which standing wave patterns — and therefore which frequencies — can exist inside it.</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/RhBcRTsY/image.png" alt="A flute (open at both ends) compared to a panpipe (closed at one end), illustrating two types of resonant pipe">
+  <div class="lc-cap">Fig 1 — A flute is open at both ends (all harmonics), while a panpipe is closed at one end (odd harmonics only). The closed-end instrument produces a characteristically "hollow" timbre.</div>
+</div>
+
+<!-- ═══════════ CORE KNOWLEDGE ═══════════ -->
+<div class="lc-section">Core knowledge — boundary conditions</div>
+
+<div class="lc-card">
+  <h3>Key Definitions</h3>
+  <table class="lc-table">
+    <tr><td>Node (N)</td><td>A point of <strong>zero displacement amplitude</strong> — air molecules are stationary. Always found at a <strong>closed end</strong>.</td></tr>
+    <tr><td>Antinode (A)</td><td>A point of <strong>maximum displacement amplitude</strong> — air molecules oscillate with greatest amplitude. Always found at an <strong>open end</strong>.</td></tr>
+    <tr><td>Harmonic</td><td>A standing wave pattern whose frequency is an integer multiple of the fundamental frequency.</td></tr>
+    <tr><td>Fundamental (f₁)</td><td>The <strong>lowest possible resonant frequency</strong> that fits the boundary conditions of the pipe. Unit: Hz.</td></tr>
+  </table>
+</div>
+
+<div class="lc-card">
+  <h3>Why Do Pipes Resonate?</h3>
+  <p>A sound wave travels down a pipe, reflects off the ends, and travels back. For a loud, sustained sound (<strong>resonance</strong>), the reflected wave must constructively interfere with the incoming wave — forming a <strong>standing wave</strong>. Whether this "fit" works depends entirely on the <strong>boundary conditions</strong> at each end:</p>
+  <p><strong>Closed end</strong> → a rigid wall. Air molecules cannot move freely here → displacement <strong>node (N)</strong>.</p>
+  <p><strong>Open end</strong> → air is free to move. Molecules oscillate with maximum amplitude → displacement <strong>antinode (A)</strong>.</p>
+</div>
+
+<div class="lc-warn">⚠️ The sine-curve diagram inside a pipe represents <strong>displacement amplitude</strong> vs position — not a transverse wave. Sound in a pipe is longitudinal. The curve is a graph, not a photograph of the wave shape.</div>
+
+<div class="lc-img-row">
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/hP3X4r8b/image.png" alt="Resonance tube experiment: a tuning fork held over a water-filled tube, with the tube length adjusted to find resonance">
+    <div class="lc-cap">Fig 2 — A tuning fork vibrates over a tube partly filled with water. As the tube is raised, the effective air column lengthens and resonance occurs at specific lengths where a standing wave fits.</div>
+  </div>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/d3V0wkLr/image.png" alt="Diagram showing air molecule displacement at a node (no arrows) and at an antinode (large back-and-forth arrows)">
+    <div class="lc-cap">Fig 3 — At a node, molecules are stationary (zero displacement). At an antinode, molecules oscillate back and forth with maximum amplitude. Closed ends enforce nodes; open ends enforce antinodes.</div>
+  </div>
+</div>
+
+<!-- ═══════════ THE BIG RELATIONSHIP ═══════════ -->
+<div class="lc-section">The big relationship — fitting waves into pipes</div>
+
+<div class="lc-card">
+  <h3>Building the Logic Step by Step</h3>
+  <p>The pipe has a fixed length <strong>L</strong>. We must fit a standing wave between the boundary conditions (nodes and/or antinodes) at each end. Two key distances govern how standing waves fit:</p>
+  <p>The distance between two adjacent <strong>nodes</strong> (or two adjacent antinodes) is <strong>λ/2</strong>. The distance between a <strong>node</strong> and the nearest <strong>antinode</strong> is <strong>λ/4</strong>.</p>
+  <p>From these two facts, every formula in this topic follows.</p>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>Open–Open Pipe (e.g. Flute)</h3>
+    <p>Both ends are open → antinode at each end. The simplest pattern that fits is one half-wavelength: A—N—A.</p>
+    <p>The general condition is:</p>
+    <div class="lc-formula">L = n (λ / 2) &nbsp; where n = 1, 2, 3 …</div>
+    <p>Rearranging for frequency:</p>
+    <div class="lc-formula">fₙ = n v / (2L)</div>
+    <p><strong>All harmonics</strong> (n = 1, 2, 3 …) are present.</p>
+  </div>
+  <div class="lc-card">
+    <h3>Closed–Open Pipe (e.g. Clarinet)</h3>
+    <p>One end closed (node), one end open (antinode). The simplest pattern is one quarter-wavelength: N—A.</p>
+    <p>The general condition is:</p>
+    <div class="lc-formula">L = n (λ / 4) &nbsp; where n = 1, 3, 5 … (odd only)</div>
+    <p>Rearranging for frequency:</p>
+    <div class="lc-formula">fₙ = n v / (4L) &nbsp; (n odd only)</div>
+    <p><strong>Only odd harmonics</strong> (n = 1, 3, 5 …) are present.</p>
+  </div>
+</div>
+
+<div class="lc-info">💡 <strong>Why does a closed pipe sound "hollower"?</strong> The missing even harmonics remove a large portion of the overtone series, producing a thinner, more hollow timbre compared to an open pipe of the same length.</div>
+
+<div class="lc-img-row">
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/g0bkrBxb/image.png" alt="Standing wave displacement patterns for the first four harmonics inside an open-open pipe">
+    <div class="lc-cap">Fig 4 — Open–open pipe: the first four harmonics (n = 1, 2, 3, 4). Antinodes at both ends. Each successive harmonic adds one more node inside the pipe.</div>
+  </div>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/pdBxrVN8/image.png" alt="Standing wave displacement patterns for the first three odd harmonics inside a closed-open pipe">
+    <div class="lc-cap">Fig 5 — Closed–open pipe: harmonics n = 1, 3, 5. Node at the closed end, antinode at the open end. Even harmonics (n = 2, 4, …) cannot satisfy these boundary conditions and are absent.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>Proportionality Statements</h3>
+  <p>These are essential for qualitative exam answers:</p>
+  <div class="lc-formula">f ∝ 1/L &nbsp;&nbsp;·&nbsp;&nbsp; f ∝ v &nbsp;&nbsp;·&nbsp;&nbsp; f ∝ n</div>
+  <p>Longer pipe → lower pitch. Faster sound speed → higher pitch. Higher harmonic number → higher pitch.</p>
+</div>
+
+<div class="lc-kp">
+  <span>fₙ = nv/(2L)</span>
+  <span>fₙ = nv/(4L), n odd</span>
+  <span>Node–Node = λ/2</span>
+  <span>Node–Antinode = λ/4</span>
+  <span>f ∝ 1/L</span>
+  <span>f ∝ v</span>
+</div>
+
+<!-- ═══════════ GRAPHICAL MASTERY ═══════════ -->
+<div class="lc-section">Graphical analysis</div>
+
+<div class="lc-card">
+  <h3>Key Graphs You Must Know</h3>
+  <table class="lc-table">
+    <thead>
+      <tr><th>Graph</th><th>Axes</th><th>Shape</th><th>What it tells you</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>f vs n (open–open)</td><td>n (x), f (y)</td><td>Straight line through origin, slope = v/(2L)</td><td>f ∝ n; all harmonics present</td></tr>
+      <tr><td>f vs n (closed–open)</td><td>n (x), f (y)</td><td>Straight line but plotted only at n = 1, 3, 5 …</td><td>Only odd harmonics; slope = v/(4L)</td></tr>
+      <tr><td>f vs L</td><td>L (x), f (y)</td><td>Inverse curve (hyperbola)</td><td>Shorter pipe → higher frequency (non-linear)</td></tr>
+      <tr><td>f vs 1/L</td><td>1/L (x), f (y)</td><td>Straight line through origin</td><td>Linearised; slope = nv/2 or nv/4 → use to find v</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="lc-img-row">
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/0yRqCKP7/image.png" alt="Graph showing harmonic frequency spectrum for open-open and closed-open pipes plotted against harmonic number">
+    <div class="lc-cap">Fig 6 — Frequency vs harmonic number. For an open–open pipe, all integer values of n appear. For a closed–open pipe, only odd values of n are plotted — the even harmonics are missing.</div>
+  </div>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/B6wrPXm2/image.png" alt="Graph of frequency vs 1/L showing a straight-line relationship, used to determine the speed of sound experimentally">
+    <div class="lc-cap">Fig 7 — Plotting f vs 1/L linearises the hyperbolic relationship. The gradient equals nv/2 (open–open) or nv/4 (closed–open), allowing the speed of sound to be determined experimentally.</div>
+  </div>
+</div>
+
+<div class="lc-success">✓ <strong>Exam strategy:</strong> If a data-analysis question asks you to "determine the speed of sound", plot f vs 1/L, find the gradient, and equate it to v/2 (for n = 1, open–open) or v/4 (for n = 1, closed–open). Always state the relationship before substituting.</div>
+
+<!-- ═══════════ WORKED EXAMPLE ═══════════ -->
+<div class="lc-section">Worked example</div>
+
+<div class="lc-card">
+  <h3>Worked Example — Panpipe Closed at One End</h3>
+  <p><em>A panpipe is closed at one end and has a length of 0.45 m. The speed of sound is 340 m/s. (a) Calculate the fundamental frequency. (b) Calculate the frequency of the next harmonic that will resonate. (c) If the pipe were open at both ends, what would its fundamental frequency be?</em></p>
+  <div class="lc-step">
+    <div class="lc-step-num">1</div>
+    <div class="lc-step-body"><strong>Identify boundary conditions:</strong> Closed at one end → use fₙ = nv / (4L), with n = 1, 3, 5 … (odd only).</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">2</div>
+    <div class="lc-step-body"><strong>Fundamental frequency (n = 1):</strong> f₁ = (1 × 340) / (4 × 0.45) = 340 / 1.8 = <strong>188.9 Hz</strong></div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">3</div>
+    <div class="lc-step-body"><strong>Next resonant harmonic:</strong> The next odd integer is n = 3. f₃ = 3 × 188.9 = <strong>566.7 Hz</strong> (this is the 3rd harmonic, not the "2nd harmonic").</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">4</div>
+    <div class="lc-step-body"><strong>Open at both ends:</strong> Now use f₁ = v / (2L) = 340 / (2 × 0.45) = 340 / 0.9 = <strong>377.8 Hz</strong>. Note this is exactly double the closed-pipe fundamental.</div>
+  </div>
+</div>
+
+<div class="lc-warn">⚠️ <strong>Terminology trap:</strong> For a closed–open pipe, the "second resonant frequency" is the 3rd harmonic (n = 3), not the 2nd harmonic (n = 2). The 2nd harmonic cannot exist in a closed pipe. Examiners test this distinction frequently.</div>
+
+<!-- ═══════════ COMMON MISCONCEPTIONS ═══════════ -->
+<div class="lc-section">Common misconceptions — trap corner</div>
+
+<div class="lc-card">
+  <h3>Misconceptions to Avoid</h3>
+  <table class="lc-table">
+    <thead>
+      <tr><th>Misconception</th><th>Correct View</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>"A closed pipe has no nodes"</td><td>All standing waves have nodes. A closed pipe has a node at the closed end — that is the whole point of the boundary condition.</td></tr>
+      <tr><td>"A pipe closed at both ends doesn't work"</td><td>It works fine (e.g. pressurised gas pipes). Both ends are nodes → same boundary type at each end → behaves identically to open–open: L = nλ/2, all harmonics present.</td></tr>
+      <tr><td>"The 2nd harmonic is always n = 2"</td><td>For a closed–open pipe, the second possible resonant frequency is the 3rd harmonic (n = 3). Always specify whether you mean "2nd harmonic" or "2nd resonant frequency".</td></tr>
+      <tr><td>"The wave diagram shows a transverse wave"</td><td>The sine curve shows displacement amplitude vs position along the pipe. The actual wave is longitudinal — air molecules vibrate parallel to the pipe axis.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="lc-info">💡 <strong>The helium voice explained:</strong> Your vocal tract is a closed–open pipe (vocal cords = closed end, mouth = open end). The resonant wavelengths are set by geometry (λ = 4L/n). In helium, v ≈ 970 m/s instead of 340 m/s, so f = v/λ roughly triples — chipmunk voice. The pipe hasn't changed; only the wave speed has.</div>
+
+<!-- ═══════════ MCQ ═══════════ -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A pipe open at both ends has a fundamental frequency of 200 Hz. What is the frequency of its second overtone?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> 400 Hz</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> 600 Hz</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> 800 Hz</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> 1000 Hz</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A pipe produces a 450 Hz fundamental. A second pipe of the same length but closed at one end produces a 225 Hz fundamental. What is the boundary condition of the first pipe?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','A')"><span class="lc-opt-l">A</span> Open–Open</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','A')"><span class="lc-opt-l">B</span> Closed–Closed</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','A')"><span class="lc-opt-l">C</span> Closed–Open</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','A')"><span class="lc-opt-l">D</span> Cannot be determined</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A closed–open pipe has a fundamental frequency of 120 Hz. What is the frequency of the next resonant mode that can exist in this pipe?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> 180 Hz</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> 240 Hz</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> 360 Hz</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> 480 Hz</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A student doubles the length of an open–open pipe while keeping the wave speed constant. What happens to the fundamental frequency?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> It doubles</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> It halves</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> It stays the same</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> It quadruples</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. At the open end of a resonating pipe, the displacement of air molecules is a:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> Node</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> Antinode</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> Neither — it depends on the harmonic</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> A pressure antinode</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<!-- ═══════════ FITB ═══════════ -->
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    At a closed end of a pipe, the displacement of air molecules is always a <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:90px">. At an open end, the displacement is always an <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px">. The distance between a node and the nearest antinode is <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:70px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- ═══════════ EXAM-STYLE ═══════════ -->
+<div class="lc-section">Exam-style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate &amp; Explain</div>
+  <div class="lc-exam-q">A pipe has a length of 1.32 m and is closed at both ends. (a) Draw the displacement wave pattern for the third harmonic. (b) Calculate the wavelength of this third harmonic. (c) The speed of sound is 330 m/s. Calculate the frequency. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> Closed at both ends → node at each end (same as open–open in structure). Third harmonic (n = 3) has 3 half-wavelengths fitting inside the pipe: three "loops" with nodes at both ends and one clear antinode in each loop. ✓✓<br><br>
+    <strong>(b)</strong> Closed–closed behaves as L = nλ/2. For n = 3: 1.32 = 3(λ/2) → λ = (2 × 1.32)/3 = <strong>0.88 m</strong> ✓✓<br><br>
+    <strong>(c)</strong> f = v/λ = 330/0.88 = <strong>375 Hz</strong> ✓
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Data Analysis</div>
+  <div class="lc-exam-q">A student varies the length L of a closed–open pipe and measures the fundamental frequency f. They plot f vs 1/L and obtain a straight line with gradient 82.5 m/s. (a) Explain why the graph is a straight line. (b) Use the gradient to determine the speed of sound. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> For the fundamental of a closed–open pipe, f₁ = v/(4L). Rearranging: f₁ = (v/4) × (1/L). This has the form y = mx, so f vs 1/L is a straight line through the origin with gradient v/4. ✓<br><br>
+    <strong>(b)</strong> Gradient = v/4 = 82.5 → v = 4 × 82.5 = <strong>330 m/s</strong> ✓✓
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">A didgeridoo is approximately 1.5 m long and is closed at one end (the player's lips). Explain why the instrument can produce high-pitched sounds despite having a very low fundamental frequency. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    The fundamental frequency is low because L is large and f₁ = v/(4L). ✓ However, higher odd harmonics (n = 3, 5, 7, 9 …) can also resonate in the pipe. ✓ Players excite these higher harmonics by adjusting their lip tension and airflow, producing frequencies that are 3×, 5×, 7× etc. the fundamental — which are perceived as high-pitched toots. ✓
+  </div>
+</div>
+
+<!-- ═══════════ SCORE ═══════════ -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1:{ B:'The 2nd overtone is the 3rd harmonic. For an open–open pipe all harmonics exist, so f₃ = 3 × 200 = 600 Hz.' },
+    mcq2:{ A:'For open–open: f = v/(2L). For closed–open: f\' = v/(4L) = f/2. Since 225 = 450/2, the first pipe must be open–open.' },
+    mcq3:{ C:'In a closed–open pipe only odd harmonics exist. The next after n = 1 is n = 3, so f₃ = 3 × 120 = 360 Hz.' },
+    mcq4:{ B:'f₁ = v/(2L). Doubling L halves the frequency, since f ∝ 1/L.' },
+    mcq5:{ B:'An open end allows maximum displacement of air molecules, so it is always a displacement antinode.' },
+  };
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    var block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(function(o){ o.classList.add('disabled'); });
+    var fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(function(o){
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+  window.lcFITB = function() {
+    var ans = { lf1:'node', lf2:'antinode', lf3:'λ/4' };
+    var correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(function(id){
+      var el = document.getElementById(id);
+      var val = el.value.trim().toLowerCase().replace(/\s+/g,'');
+      var target = ans[id].toLowerCase().replace(/\s+/g,'');
+      var ok = val === target || val.includes(target) || (id === 'lf3' && (val === 'lambda/4' || val === 'λ/4' || val === 'l/4' || val === 'quarter wavelength' || val.includes('λ/4')));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    var res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: node · antinode · λ/4';
+    }
+  };
+  window.lcToggleModel = function(btn) {
+    var ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <div class="lesson-nav">
+        <a href="03-harmonics-in-strings.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Harmonics in Strings</div>
+          </div>
+        </a>
+        <a href="05-resonance.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Resonance</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

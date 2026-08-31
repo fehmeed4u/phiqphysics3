@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Damping and Resonance — φQ Physics lesson</title>
+  <link rel="stylesheet" href="../../../shared/theme.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('phyq-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+  <style>
+    /* ── token bridge: map generator's foreign tokens → live φQ theme ── */
+    :root{
+      --color-background-primary: var(--surface2);
+      --color-background-secondary: var(--surface3);
+      --color-text-primary: #E8E4DB;
+      --color-text-secondary: var(--text-muted);
+      --color-border-primary: var(--border-2);
+      --color-border-tertiary: rgba(79,157,255,0.10);
+      --color-background-success: var(--green-dim);
+      --color-text-success: var(--green);
+      --color-background-danger: var(--red-dim);
+      --color-text-danger: var(--red);
+      --color-background-warning: var(--gold-dim);
+      --color-text-warning: var(--gold);
+      --color-background-info: var(--accent-dim);
+      --color-border-info: var(--border-2);
+      --color-border-warning: rgba(245,166,35,0.32);
+      --border-radius-lg: 10px;
+    }
+    /* cycle-breakers: light-theme overrides for tokens the lesson re-aliases */
+    [data-theme="light"]{
+      --color-text-primary: #1C1917;
+      --color-border-tertiary: rgba(0,0,0,0.07);
+    }
+    /* transparent so the page's surface card shows through */
+    html,body{ background:transparent !important; }
+    body{ padding:0; margin:0; }
+    /* font normalisation → site typography (Playfair / Inter), formulas keep mono */
+    body{ font-family: var(--font-sans) !important; }
+    h1,h2,h3,h4,h5,.chunk-title,.lesson-title,.lc-title{ font-family: var(--font-serif) !important; }
+  </style>
+</head>
+<body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #1a5fb4;
+  --accent2: #e8593c;
+  --accent3: #1c7d53;
+  --accent5: #c64600;
+  --bg: var(--color-background-primary);
+  --bg2: var(--color-background-secondary);
+  --text: var(--color-text-primary);
+  --muted: var(--color-text-secondary);
+  --border: var(--color-border-tertiary);
+  --success: var(--color-background-success);
+  --danger: var(--color-background-danger);
+  --success-text: var(--color-text-success);
+  --danger-text: var(--color-text-danger);
+  --radius: var(--border-radius-lg);
+}
+
+body { font-family: 'DM Sans', sans-serif; color: var(--text); background: transparent; }
+.lesson-wrap { max-width: 680px; margin: 0 auto; padding: 0 0 2rem; }
+
+.lesson-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.lesson-badge span { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: var(--accent5); color: #fff; font-size: 11px; font-weight: 500; text-align: center; line-height: 18px; }
+
+.chunk-header { margin-bottom: 1.5rem; }
+.chunk-title { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--text); line-height: 1.2; }
+.chunk-sub { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+.content-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+.content-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 10px; color: var(--text); }
+.content-card p { font-size: 14px; color: var(--text); line-height: 1.7; margin-bottom: 8px; }
+.content-card p:last-child { margin-bottom: 0; }
+
+.def-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.def-table th { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding: 6px 8px; border-bottom: 0.5px solid var(--border); text-align: left; }
+.def-table td { padding: 8px; border-bottom: 0.5px solid var(--border); vertical-align: top; }
+.def-table td:first-child { font-weight: 500; white-space: nowrap; color: var(--accent5); }
+.def-table tr:last-child td { border-bottom: none; }
+
+.formula-box { background: var(--bg2); border-left: 3px solid var(--accent5); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0; font-size: 15px; color: var(--text); font-family: Georgia, serif; text-align: center; }
+
+.key-points { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.kp { font-size: 12px; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 20px; padding: 4px 12px; color: var(--text); }
+
+.section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 1.5rem 0 0.75rem; display: flex; align-items: center; gap: 8px; }
+.section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+
+.img-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem; margin-bottom: 1rem; text-align: center; }
+.img-card img { max-width: 100%; border-radius: 8px; }
+.img-card .img-cap { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+.info-box { background: var(--color-background-info); border-left: 3px solid var(--color-border-info); border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 13px; color: var(--color-text-info); margin: 8px 0; line-height: 1.6; }
+.warn-box { background: var(--color-background-warning); border-left: 3px solid var(--color-border-warning); border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 13px; color: var(--color-text-warning); margin: 8px 0; line-height: 1.6; }
+
+.cmp-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.cmp-cell { background: var(--bg2); border-radius: 8px; padding: 12px; font-size: 13px; line-height: 1.6; }
+.cmp-cell h4 { font-size: 12px; font-weight: 500; margin-bottom: 6px; color: var(--accent5); }
+
+.mcq-block { margin-bottom: 1rem; }
+.mcq-q { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 10px; line-height: 1.5; }
+.mcq-opts { display: flex; flex-direction: column; gap: 6px; }
+.mcq-opt { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 0.5px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 13px; color: var(--text); transition: background 0.15s; background: var(--bg); }
+.mcq-opt:hover { background: var(--bg2); }
+.mcq-opt.correct { background: var(--success); border-color: var(--success-text); color: var(--success-text); }
+.mcq-opt.wrong { background: var(--danger); border-color: var(--danger-text); color: var(--danger-text); }
+.mcq-opt.disabled { cursor: default; pointer-events: none; }
+.opt-letter { font-weight: 500; min-width: 18px; }
+.mcq-feedback { font-size: 13px; margin-top: 8px; padding: 8px 12px; border-radius: 6px; display: none; }
+.mcq-feedback.show { display: block; }
+.mcq-feedback.correct { background: var(--success); color: var(--success-text); }
+.mcq-feedback.wrong { background: var(--danger); color: var(--danger-text); }
+
+.fitb-wrap { font-size: 14px; line-height: 2.4; color: var(--text); }
+.fitb-input { border: none; border-bottom: 2px solid var(--accent5); background: transparent; font-size: 14px; color: var(--text); padding: 0 4px; min-width: 80px; text-align: center; outline: none; font-family: 'DM Sans', sans-serif; }
+.fitb-input.correct { border-bottom-color: var(--success-text); color: var(--success-text); }
+.fitb-input.wrong { border-bottom-color: var(--danger-text); color: var(--danger-text); }
+.check-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; padding: 8px 18px; border: 0.5px solid var(--border); border-radius: 8px; background: var(--bg); cursor: pointer; font-size: 13px; color: var(--text); font-family: 'DM Sans', sans-serif; }
+.check-btn:hover { background: var(--bg2); }
+
+.exam-card { background: var(--bg); border: 1.5px solid var(--accent5); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+.exam-tag { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent5); margin-bottom: 8px; }
+.exam-q { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 10px; }
+.exam-marks { font-size: 11px; color: var(--muted); font-style: italic; }
+.exam-input { width: 100%; min-height: 70px; border: 0.5px solid var(--border); border-radius: 8px; background: var(--bg2); color: var(--text); font-size: 13px; font-family: 'DM Sans', sans-serif; padding: 10px; resize: vertical; outline: none; margin-top: 8px; }
+.reveal-btn { margin-top: 8px; padding: 7px 16px; border: 0.5px solid var(--border); border-radius: 8px; background: var(--bg); cursor: pointer; font-size: 12px; color: var(--muted); font-family: 'DM Sans', sans-serif; }
+.model-answer { margin-top: 10px; padding: 10px 14px; background: var(--bg2); border-left: 3px solid var(--accent3); border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text); line-height: 1.6; display: none; }
+.model-answer.show { display: block; }
+
+.score-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 6px 14px; border-radius: 20px; background: var(--bg2); border: 0.5px solid var(--border); color: var(--text); }
+.score-val { font-weight: 500; color: var(--accent5); }
+.nav-row { display: flex; gap: 10px; justify-content: flex-end; align-items: center; margin-top: 1.5rem; }
+</style>
+
+<div class="lesson-wrap">
+  <div class="chunk-header">
+    <div class="lesson-badge"><span>5</span> Lesson 5 of 5 · IB DP Physics</div>
+    <div class="chunk-title">Damping & Resonance</div>
+    <div class="chunk-sub">Damped oscillations, forced oscillations, natural frequency, and the resonance phenomenon</div>
+  </div>
+
+  <!-- Damping intro -->
+  <div class="content-card">
+    <h3>What is damping?</h3>
+    <p><strong>Damping</strong> is the progressive loss of energy from an oscillating system due to resistive forces (friction, air resistance, viscous drag). The amplitude gradually decreases over time, and the oscillation eventually ceases.</p>
+    <p>In a damped system, total mechanical energy is no longer conserved — it is dissipated as thermal energy (heat) in the surroundings.</p>
+    <div class="info-box">Damping reduces the <strong>amplitude</strong> of oscillation but does NOT significantly change the <strong>frequency</strong> (for light damping). The system still oscillates near its natural frequency.</div>
+  </div>
+
+  <!-- Three types of damping -->
+  <div class="content-card">
+    <h3>Three regimes of damping</h3>
+    <div class="cmp-grid">
+      <div class="cmp-cell">
+        <h4>Underdamped</h4>
+        Amplitude decreases gradually over many cycles.<br><br>
+        The system oscillates with an exponentially decaying envelope.<br><br>
+        <em>Example: a pendulum in air.</em>
+      </div>
+      <div class="cmp-cell">
+        <h4>Critically damped</h4>
+        System returns to equilibrium in the <strong>shortest possible time</strong> without oscillating.<br><br>
+        No overshoot past equilibrium.<br><br>
+        <em>Example: car shock absorbers.</em>
+      </div>
+      <div class="cmp-cell">
+        <h4>Overdamped</h4>
+        System returns to equilibrium slowly without oscillating.<br><br>
+        Takes longer than critical damping.<br><br>
+        <em>Example: door closer mechanism.</em>
+      </div>
+    </div>
+    <div class="key-points" style="margin-top:12px">
+      <span class="kp">Underdamped: oscillates, amplitude decays</span>
+      <span class="kp">Critical: fastest return, no oscillation</span>
+      <span class="kp">Overdamped: slow return, no oscillation</span>
+    </div>
+  </div>
+
+  <div class="img-card">
+    <img src="https://i.postimg.cc/PJXjYfQW/damping.png" alt="Displacement–time graph showing three damping regimes: underdamped (decaying oscillation), critically damped (fastest return without overshoot), and overdamped (slow return without oscillation)">
+    <div class="img-cap">Fig 1 — The three regimes of damping. Underdamped: amplitude decays exponentially over many cycles. Critically damped: fastest return to equilibrium without overshoot. Overdamped: slow return, no oscillation.</div>
+  </div>
+
+  <div class="warn-box">In IB exams, you should be able to sketch all three damping curves on the same displacement–time graph. Underdamped shows decaying sinusoidal oscillation; critically damped shows the fastest smooth return to zero; overdamped shows an even slower return.</div>
+
+  <!-- Natural frequency -->
+  <div class="content-card">
+    <h3>Natural frequency</h3>
+    <p>Every oscillating system has a <strong>natural frequency f₀</strong> — the frequency at which it oscillates freely when displaced and released with no driving force and no damping.</p>
+    <div class="formula-box">f₀ = 1/(2π) × √(k/m) &nbsp;&nbsp; (mass-spring) &nbsp;&nbsp;&nbsp; f₀ = 1/(2π) × √(g/l) &nbsp;&nbsp; (pendulum)</div>
+    <p>The natural frequency is determined only by the physical properties of the system (mass, spring constant, length, etc.), not by how it is driven or damped.</p>
+  </div>
+
+  <!-- Forced oscillations -->
+  <div class="content-card">
+    <h3>Forced oscillations</h3>
+    <p>A <strong>forced oscillation</strong> occurs when an external periodic force is applied to a system. The system is driven at a <strong>driving frequency f<sub>d</sub></strong> which may differ from its natural frequency f₀.</p>
+    <p>After initial transients die away, the system oscillates at the <strong>driving frequency</strong> f<sub>d</sub>, not its natural frequency. The amplitude of the steady-state oscillation depends on how close f<sub>d</sub> is to f₀.</p>
+  </div>
+
+  <!-- Resonance -->
+  <div class="content-card">
+    <h3>Resonance</h3>
+    <p><strong>Resonance</strong> occurs when the driving frequency equals the natural frequency of the system:</p>
+    <div class="formula-box">f<sub>d</sub> = f₀ &nbsp;&nbsp;⟹&nbsp;&nbsp; Resonance (maximum amplitude)</div>
+    <p>At resonance, energy transfer from driver to oscillator is most efficient. The amplitude reaches a maximum, limited only by damping. In the absence of damping, the amplitude would theoretically grow without bound.</p>
+    <div class="info-box">At resonance, the driving force is exactly <strong>π/2 radians (90°) out of phase</strong> with the displacement. This means the force is always in the direction of the velocity, maximizing power transfer.</div>
+  </div>
+
+  <!-- Resonance curve -->
+  <div class="content-card">
+    <h3>The resonance curve</h3>
+    <p>A graph of amplitude vs driving frequency shows a characteristic <strong>resonance peak</strong>:</p>
+    <table class="def-table" style="margin-top:8px">
+      <tr><th>Feature</th><th>Light damping</th><th>Heavy damping</th></tr>
+      <tr><td>Peak amplitude</td><td>Tall and sharp</td><td>Low and broad</td></tr>
+      <tr><td>Peak frequency</td><td>Very close to f₀</td><td>Slightly below f₀</td></tr>
+      <tr><td>Bandwidth</td><td>Narrow</td><td>Wide</td></tr>
+      <tr><td>Q factor</td><td>High</td><td>Low</td></tr>
+    </table>
+    <p style="margin-top:10px">As damping increases, the resonance peak becomes broader and lower, and the peak shifts slightly below f₀. With very heavy damping, resonance effectively disappears.</p>
+    <div class="key-points">
+      <span class="kp">Light damping → sharp peak</span>
+      <span class="kp">Heavy damping → broad, low peak</span>
+      <span class="kp">No damping → infinite amplitude (theory)</span>
+    </div>
+  </div>
+
+  <!-- Phase at resonance -->
+  <div class="content-card">
+    <h3>Phase relationship in forced oscillations</h3>
+    <table class="def-table">
+      <tr><th>Condition</th><th>Phase difference (driver vs displacement)</th></tr>
+      <tr><td>f<sub>d</sub> ≪ f₀</td><td>≈ 0 (in phase — system follows the driver)</td></tr>
+      <tr><td>f<sub>d</sub> = f₀ (resonance)</td><td>π/2 (90° — driver leads displacement by quarter cycle)</td></tr>
+      <tr><td>f<sub>d</sub> ≫ f₀</td><td>≈ π (antiphase — system opposes the driver)</td></tr>
+    </table>
+    <div class="info-box" style="margin-top:10px">The phase changes most rapidly near resonance. This smooth transition from 0 to π (through π/2 at resonance) is a key feature of the IB syllabus.</div>
+  </div>
+
+  <!-- Examples of resonance -->
+  <div class="content-card">
+    <h3>Real-world examples</h3>
+    <table class="def-table">
+      <tr><th>System</th><th>Resonance example</th><th>Useful or harmful?</th></tr>
+      <tr><td>Tuning fork</td><td>Vibrates strongly at its natural frequency when struck</td><td>Useful (musical)</td></tr>
+      <tr><td>Radio receiver</td><td>Electrical circuit tuned to match broadcast frequency</td><td>Useful</td></tr>
+      <tr><td>Microwave oven</td><td>Microwaves at the natural frequency of water molecules</td><td>Useful</td></tr>
+      <tr><td>Bridge / building</td><td>Wind or earthquake frequency matches structural f₀</td><td>Harmful (Tacoma Narrows)</td></tr>
+      <tr><td>Wine glass</td><td>Sound at glass's natural frequency causes shattering</td><td>Demonstration</td></tr>
+    </table>
+  </div>
+
+  <!-- PRACTICE CHECKS -->
+  <div class="section-label">Practice check — multiple choice</div>
+
+  <div class="content-card">
+    <div class="mcq-block" id="mcq1">
+      <div class="mcq-q">1. What happens to the amplitude and frequency of a lightly damped oscillation over time?</div>
+      <div class="mcq-opts">
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'A','B')"><span class="opt-letter">A</span> Both decrease.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'B','B')"><span class="opt-letter">B</span> Amplitude decreases; frequency stays approximately constant.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'C','B')"><span class="opt-letter">C</span> Amplitude stays constant; frequency decreases.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'D','B')"><span class="opt-letter">D</span> Both stay constant.</div>
+      </div>
+      <div class="mcq-feedback" id="mcq1-fb"></div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="mcq-block" id="mcq2">
+      <div class="mcq-q">2. Resonance occurs when:</div>
+      <div class="mcq-opts">
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'A','C')"><span class="opt-letter">A</span> The amplitude of the driving force is at its maximum.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'B','C')"><span class="opt-letter">B</span> The damping force is zero.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'C','C')"><span class="opt-letter">C</span> The driving frequency equals the natural frequency of the system.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'D','C')"><span class="opt-letter">D</span> The driving frequency is twice the natural frequency.</div>
+      </div>
+      <div class="mcq-feedback" id="mcq2-fb"></div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="mcq-block" id="mcq3">
+      <div class="mcq-q">3. At resonance, the phase difference between the driving force and the displacement is:</div>
+      <div class="mcq-opts">
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'A','B')"><span class="opt-letter">A</span> 0 (in phase)</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'B','B')"><span class="opt-letter">B</span> π/2 (quarter cycle)</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'C','B')"><span class="opt-letter">C</span> π (antiphase)</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'D','B')"><span class="opt-letter">D</span> 2π (full cycle)</div>
+      </div>
+      <div class="mcq-feedback" id="mcq3-fb"></div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="mcq-block" id="mcq4">
+      <div class="mcq-q">4. (Tricky) A system with heavy damping is driven at a range of frequencies. Compared to the same system with light damping, its resonance curve will be:</div>
+      <div class="mcq-opts">
+        <div class="mcq-opt" onclick="checkMCQ('mcq4',this,'A','C')"><span class="opt-letter">A</span> Taller and narrower.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq4',this,'B','C')"><span class="opt-letter">B</span> Same height but shifted to a higher frequency.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq4',this,'C','C')"><span class="opt-letter">C</span> Lower and broader, with the peak shifted slightly below f₀.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq4',this,'D','C')"><span class="opt-letter">D</span> Identical in shape but shifted to a lower frequency.</div>
+      </div>
+      <div class="mcq-feedback" id="mcq4-fb"></div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="mcq-block" id="mcq5">
+      <div class="mcq-q">5. Which type of damping returns a system to equilibrium in the shortest time without overshooting?</div>
+      <div class="mcq-opts">
+        <div class="mcq-opt" onclick="checkMCQ('mcq5',this,'A','B')"><span class="opt-letter">A</span> Underdamping</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq5',this,'B','B')"><span class="opt-letter">B</span> Critical damping</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq5',this,'C','B')"><span class="opt-letter">C</span> Overdamping</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq5',this,'D','B')"><span class="opt-letter">D</span> No damping</div>
+      </div>
+      <div class="mcq-feedback" id="mcq5-fb"></div>
+    </div>
+  </div>
+
+  <!-- Fill in blanks -->
+  <div class="section-label">Practice check — fill in the blanks</div>
+  <div class="content-card">
+    <p style="margin-bottom:10px;font-weight:500;font-size:14px">Complete the statements about damping and resonance:</p>
+    <div class="fitb-wrap">
+      Damping causes the <input class="fitb-input" id="f1" placeholder="?" style="width:90px"> of oscillation to decrease over time.
+      In a forced oscillation, the system oscillates at the <input class="fitb-input" id="f2" placeholder="?" style="width:80px"> frequency, not its natural frequency.
+      Resonance occurs when f<sub>d</sub> = <input class="fitb-input" id="f3" placeholder="?" style="width:50px">.
+      At resonance, the phase difference between force and displacement is <input class="fitb-input" id="f4" placeholder="?" style="width:50px"> radians.
+      Increasing damping makes the resonance peak <input class="fitb-input" id="f5" placeholder="?" style="width:80px"> and lower.
+    </div>
+    <button class="check-btn" onclick="checkFITB()">Check answers</button>
+    <div id="fitb-result" style="font-size:13px;margin-top:8px;display:none"></div>
+  </div>
+
+  <!-- Exam style -->
+  <div class="section-label">Exam-style questions</div>
+
+  <div class="exam-card">
+    <div class="exam-tag">Exam question · Theory / Explain</div>
+    <div class="exam-q">(a) Define the terms <em>natural frequency</em> and <em>resonance</em>. <span class="exam-marks">[2 marks]</span><br><br>
+    (b) Explain why the amplitude at resonance is limited in real systems. <span class="exam-marks">[2 marks]</span></div>
+    <textarea class="exam-input" placeholder="Write your answer here..."></textarea>
+    <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+    <div class="model-answer">(a) Natural frequency: the frequency at which a system oscillates freely when displaced from equilibrium, with no external driving force and no damping. ✓ Resonance: the condition in which the driving frequency equals the natural frequency, resulting in maximum amplitude of oscillation. ✓<br><br>(b) In real systems, damping forces (friction, air resistance) dissipate energy. ✓ At resonance, energy input from the driver equals energy dissipated by damping — this limits the amplitude to a finite maximum. Without damping, the amplitude would increase indefinitely. ✓</div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-tag">Exam question · Graph sketch</div>
+    <div class="exam-q">Sketch on the same axes the displacement–time graphs for:<br>
+    (i) an underdamped oscillation,<br>
+    (ii) a critically damped system, and<br>
+    (iii) an overdamped system.<br>
+    All three are released from the same initial displacement. Label each curve clearly. <span class="exam-marks">[4 marks]</span></div>
+    <textarea class="exam-input" placeholder="Describe the key features of each curve..."></textarea>
+    <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+    <div class="model-answer">(i) Underdamped: sinusoidal oscillation with exponentially decreasing amplitude envelope. The system passes through equilibrium multiple times before coming to rest. ✓<br><br>(ii) Critically damped: the system returns to equilibrium as fast as possible without crossing the equilibrium line (no overshoot). The curve approaches x = 0 smoothly from above. ✓<br><br>(iii) Overdamped: the system returns to equilibrium without oscillating, but more slowly than the critically damped case. The curve approaches x = 0 from above but takes longer. ✓<br><br>All three start from the same initial displacement. ✓ The underdamped curve should be the only one that crosses x = 0.</div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-tag">Exam question · Application (Hard)</div>
+    <div class="exam-q">A child sits on a swing and is pushed periodically by a parent. The natural frequency of the swing is 0.40 Hz.<br><br>
+    (i) The parent pushes with a frequency of 0.40 Hz. Describe what happens to the amplitude over several minutes. <span class="exam-marks">[2 marks]</span><br>
+    (ii) The parent increases the push frequency to 0.80 Hz. Predict and explain the effect on the swing's amplitude. <span class="exam-marks">[2 marks]</span><br>
+    (iii) Explain, using energy concepts, why the swing's amplitude does not grow infinitely even when pushed at f₀. <span class="exam-marks">[2 marks]</span></div>
+    <textarea class="exam-input" placeholder="Write your answer..." style="min-height:90px"></textarea>
+    <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+    <div class="model-answer">(i) The push frequency matches the natural frequency — this is resonance. The amplitude increases progressively as energy is transferred efficiently from parent to swing. ✓ The amplitude continues to grow until energy input per cycle equals energy lost to damping per cycle. ✓<br><br>(ii) At 0.80 Hz (2f₀), the driving frequency is far from f₀. The energy transfer is inefficient, so the swing oscillates at 0.80 Hz but with much smaller amplitude than at resonance. ✓ The system is being forced to oscillate at a non-resonant frequency. ✓<br><br>(iii) Energy is lost each cycle due to air resistance and friction at the pivot. At steady state, the energy input from each push exactly equals the energy dissipated per cycle. ✓ Since energy loss increases with amplitude (larger velocity → greater air resistance), an equilibrium amplitude is reached. ✓</div>
+  </div>
+
+  <div class="nav-row">
+    <div class="score-badge">Score: <span class="score-val" id="score-display">0</span> pts</div>
+  </div>
+</div>
+
+<script>
+let totalScore = 0;
+let answeredMCQ = {};
+
+const mcqFeedback = {
+  'mcq1': { B: 'Correct! Damping removes energy so amplitude decreases, but for light damping the frequency remains approximately constant.' },
+  'mcq2': { C: 'Correct! Resonance occurs when f_d = f₀, giving maximum energy transfer and amplitude.' },
+  'mcq3': { B: 'Correct! At resonance, the phase difference is π/2 — the driving force is in phase with the velocity, maximizing power transfer.' },
+  'mcq4': { C: 'Correct! Heavy damping broadens and lowers the resonance peak, and shifts it slightly below f₀.' },
+  'mcq5': { B: 'Correct! Critical damping returns the system to equilibrium in the minimum time without overshooting.' },
+};
+
+function checkMCQ(id, el, chosen, correct) {
+  if (answeredMCQ[id]) return;
+  answeredMCQ[id] = true;
+  const block = document.getElementById(id);
+  block.querySelectorAll('.mcq-opt').forEach(o => o.classList.add('disabled'));
+  const fb = document.getElementById(id + '-fb');
+  if (chosen === correct) {
+    el.classList.add('correct');
+    fb.textContent = '✓ ' + mcqFeedback[id][correct];
+    fb.className = 'mcq-feedback show correct';
+    totalScore += 2;
+  } else {
+    el.classList.add('wrong');
+    block.querySelectorAll('.mcq-opt').forEach(o => { if (o.querySelector('.opt-letter').textContent === correct) o.classList.add('correct'); });
+    fb.textContent = '✗ Incorrect. Answer: ' + correct + '. ' + mcqFeedback[id][correct];
+    fb.className = 'mcq-feedback show wrong';
+  }
+  updateScore();
+}
+
+function checkFITB() {
+  const checks = [
+    { id: 'f1', accept: ['amplitude'] },
+    { id: 'f2', accept: ['driving', 'driver'] },
+    { id: 'f3', accept: ['f0', 'f₀', 'natural'] },
+    { id: 'f4', accept: ['π/2', 'pi/2', '1.57'] },
+    { id: 'f5', accept: ['broader', 'wider', 'flatter'] }
+  ];
+  let correct = 0;
+  checks.forEach(c => {
+    const el = document.getElementById(c.id);
+    const val = el.value.trim().toLowerCase();
+    if (c.accept.some(a => val.includes(a))) { el.classList.add('correct'); el.classList.remove('wrong'); correct++; }
+    else { el.classList.add('wrong'); el.classList.remove('correct'); }
+  });
+  const res = document.getElementById('fitb-result');
+  res.style.display = 'block';
+  if (correct === 5) { res.textContent = '✓ All correct! (+2 pts)'; res.style.color = 'var(--success-text)'; totalScore += 2; }
+  else { res.textContent = correct + '/5. Answers: amplitude, driving, f₀, π/2, broader'; res.style.color = 'var(--danger-text)'; }
+  updateScore();
+}
+
+function toggleModel(btn) {
+  const ma = btn.nextElementSibling;
+  ma.classList.toggle('show');
+  btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+}
+
+function updateScore() {
+  document.getElementById('score-display').textContent = totalScore;
+}
+</script>
+
+  <script>
+    (function(){
+      window.addEventListener('storage', function(e){ if(e.key==='phyq-theme'){ document.documentElement.dataset.theme = e.newValue||'dark'; } });
+      function postH(){
+        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        parent.postMessage({ __lessonEmbed:true, h:h }, '*');
+      }
+      window.addEventListener('load', function(){ postH(); setTimeout(postH,250); setTimeout(postH,700); });
+      if (window.ResizeObserver) new ResizeObserver(postH).observe(document.body);
+      document.addEventListener('click', function(){ setTimeout(postH,90); });
+      document.addEventListener('input', function(){ setTimeout(postH,90); });
+    })();
+  </script>
+</body>
+</html>

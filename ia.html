@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA Guide — φQ Physics</title>
+<link rel="stylesheet" href="shared/theme.css">
+<style>
+.ia-hero{background:linear-gradient(135deg,var(--surface) 0%,var(--bg) 100%);border-bottom:1px solid var(--border);padding:3.5rem 0 2.5rem}
+.criteria-tab{padding:.5rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:600;border:1.5px solid var(--border);background:none;cursor:pointer;color:var(--text-muted);transition:var(--t);font-family:var(--font-sans)}
+.criteria-tab.active{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+.criteria-tab:hover:not(.active){border-color:var(--border-2);color:var(--text)}
+.criteria-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;margin-bottom:1rem}
+.score-display{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;text-align:center}
+.score-big{font-family:var(--font-serif);font-size:3.5rem;font-weight:700;line-height:1}
+.band-pill{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;font-weight:700;padding:.25rem .6rem;border-radius:100px;border:1px solid;white-space:nowrap}
+.band-dot{width:7px;height:7px;border-radius:50%}
+.ex-card{background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.ex-head{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.55rem .85rem;border-bottom:1px solid var(--border);background:var(--surface3)}
+.ex-id{font-family:var(--font-mono);font-size:.7rem;color:var(--text-dim)}
+.ex-body{padding:.9rem;font-size:.86rem;line-height:1.65;color:var(--text-2);flex:1}
+.ex-foot{padding:.75rem .9rem;border-top:1px dashed var(--border);font-size:.8rem;line-height:1.55;color:var(--text-muted);font-style:italic}
+.guess-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;padding:.75rem .9rem;border-top:1px dashed var(--border)}
+.guess-btn{padding:.4rem;border-radius:8px;font-size:.75rem;font-weight:700;border:1.5px solid var(--border-2);background:none;color:var(--text-muted);cursor:pointer;transition:var(--t);font-family:var(--font-sans)}
+.guess-btn:hover{border-color:var(--text-muted);color:var(--text)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.85rem}
+.mini-btn{padding:.35rem .8rem;border-radius:100px;font-size:.75rem;font-weight:600;border:1.5px solid var(--border-2);background:none;color:var(--text-muted);cursor:pointer;transition:var(--t);font-family:var(--font-sans)}
+.mini-btn:hover{border-color:var(--accent);color:var(--accent)}
+.kv-row{display:flex;align-items:baseline;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.kv-key{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);width:130px;flex-shrink:0}
+.trap-row{display:grid;grid-template-columns:36px 1fr 1fr;gap:1rem;border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.25rem;margin-bottom:.75rem;align-items:start}
+.lbl{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+a{color:var(--accent)}a:hover{color:var(--accent2)}
+@media(max-width:720px){.trap-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<script src="shared/nav.js"></script>
+
+<div class="ia-hero">
+<div class="container">
+<div class="section-label" style="color:var(--gold)">Internal Assessment</div>
+<h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:0.4rem">Cracking the IA Criteria</h1>
+<p style="max-width:600px;margin-bottom:1.5rem">You already know how to do the physics. This guide decodes the four things the examiner is actually looking for — with real student writing sorted into mark bands, so you can score your own IA before submitting it.</p>
+<div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+<span class="tag tag-gold">24 marks total</span>
+<span class="tag tag-blue">20% of grade</span>
+<span class="tag tag-green">4 criteria · 10 components</span>
+</div>
+</div>
+</div>
+
+<div class="section container" id="app-root">
+<div style="color:var(--text-muted);text-align:center;padding:4rem 0">Loading IA guide…</div>
+</div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+const BANDS = {
+  '1-2': { label:'1–2', name:'Stated',    short:'Vague. Missing specifics.', color:'#F5A623',
+           detail:"You mentioned it. That's it. The examiner can see the thing exists in your report, but nothing has been unpacked. No specifics, no reasoning." },
+  '3-4': { label:'3–4', name:'Described', short:'Specific. Says how.',       color:'#4F9DFF',
+           detail:"You explained how you did it. Specific numbers, specific choices, specific procedure. But the reader still asks: why those numbers? Why that choice?" },
+  '5-6': { label:'5–6', name:'Explained', short:'Justified. Says why.',      color:'#34D399',
+           detail:"You explained why — grounded in physics. Every choice is justified with reasoning. Every uncertainty is quantified. Every claim links back to theory." },
+};
+const BAND_IDS = ['1-2','3-4','5-6'];
+
+const CRITERIA = [
+  { id:'rd', name:'Research Design', short:'RD', color:'#7B6EF6',
+    anchor:'Simple pendulum: how does length affect period?',
+    intro:'Setting up the experiment so it can actually answer a clear scientific question. Everything before data is collected.',
+    components:[
+      { name:'Research Question', desc:'IV, DV, system, controls, relevant theory.', cards:[
+        { id:'RD-Q1', band:'1-2', text:"This investigation looks at pendulums and how they move when they swing back and forth. The aim is to test what happens when the length of the pendulum string is changed and to see how this affects the time taken.", why:"No system named, no theory, IV and DV not properly specified, no controls." },
+        { id:'RD-Q2', band:'3-4', text:"How does the length of a simple pendulum, varied from 0.20 m to 1.00 m, affect its period of oscillation when the bob is displaced by a constant 10° angle and released without any pushing force at room temperature?", why:"IV (with range), DV, system and one control — but no theory cited." },
+        { id:'RD-Q3', band:'5-6', text:"How does the length L (0.20 to 1.00 m) of a simple pendulum affect its period T at a constant 10° release angle, given the small-angle relationship T = 2π√(L/g) and assuming negligible string mass and air resistance?", why:"IV with range, DV, controls, specific system, and the theoretical equation — full scientific purpose." },
+      ]},
+      { name:'Methodological Considerations', desc:'Justifying range, intervals, repetitions, controls.', cards:[
+        { id:'RD-M1', band:'1-2', text:"I will use a stopwatch to time the pendulum and a metre rule to measure the length of the string accurately. The angle will be kept the same each time. I will repeat each measurement to make my results more reliable.", why:"Mentions equipment and that the angle is kept the same. No reasoning behind any choice." },
+        { id:'RD-M2', band:'3-4', text:"Length is varied in 0.10 m intervals from 0.20 m to 1.00 m, giving nine data points. Each length is timed across 10 oscillations and repeated three times to take an average. Release angle is set at 10° using a protractor.", why:"Says how (10 oscillations, 3 repeats, 10° angle) but does not quantify why." },
+        { id:'RD-M3', band:'5-6', text:"Timing 10 oscillations reduces the impact of the ~0.2 s reaction-time uncertainty to under 2% per measurement. The 5× length range cleanly resolves T² ∝ L. Three repeats expose outliers. The 10° release keeps small-angle approximation valid within 0.5%.", why:"Quantifies why each choice matters — timing impact, range, small-angle validity." },
+      ]},
+      { name:'Description of Methodology', desc:'A precise, reproducible procedure.', cards:[
+        { id:'RD-D1', band:'1-2', text:"Tie a piece of string to a clamp stand and attach a small weight to the bottom of the string. Pull the weight back to one side and release it. Use a stopwatch to time how long it takes to swing.", why:"No apparatus details, no measurements, no diagram. Not reproducible." },
+        { id:'RD-D2', band:'3-4', text:"Clamp a 1.00 m string to a retort stand using two corks at the pivot. Attach a 50 g brass bob to the end. Displace by 10° and release. Time 10 oscillations. Repeat across nine lengths from 0.20 to 1.00 m.", why:"Numbered enough to follow, but missing diagram, uncertainties, and exact measurement points." },
+        { id:'RD-D3', band:'5-6', text:"Apparatus listed with uncertainties: nylon string, 50 g brass bob (±0.1 g), retort stand, two corks defining pivot, metre rule (±0.5 mm), protractor (±0.5°), stopwatch (±0.01 s). Labelled diagram shown. Set L from pivot to bob centre, then displace, time, repeat.", why:"Full apparatus with uncertainties, labelled diagram, exact measurement points, numbered procedure." },
+      ]},
+    ]},
+  { id:'da', name:'Data Analysis', short:'DA', color:'#00D4FF',
+    anchor:'Resistivity of constantan wire: V and I across lengths 0.10–0.80 m.',
+    intro:'Once the data is collected, what was done with it? Clarity of tables and graphs, treatment of uncertainty, correctness of calculation.',
+    components:[
+      { name:'Communication of Data', desc:'Clarity of raw and processed data.', cards:[
+        { id:'DA-C1', band:'1-2', text:"We measured the voltage and current going through the wire to find the resistance value at each different length. Then we tried another length of wire and got another resistance. The numbers are written down in our results table for everyone to see.", why:"No units shown, no graph mentioned, no formatting — just narration." },
+        { id:'DA-C2', band:'3-4', text:"Length in metres versus Resistance in ohms is shown in a results table with three repeats per length averaged together. A graph of resistance against length is plotted, but axis labels are missing units and there are no error bars on the points.", why:"Table with units, graph plotted, repeats averaged — but minor formatting issues remain." },
+        { id:'DA-C3', band:'5-6', text:"Raw V (±0.01 V) and I (±0.001 A) tabulated for 8 lengths; mean R and half-range uncertainty shown to consistent significant figures. R vs L plotted with error bars on both axes; axes labelled with quantity and unit (R / Ω vs L / m).", why:"Full scientific conventions: units, uncertainties, error bars, proper axis labelling." },
+      ]},
+      { name:'Consideration of Uncertainties', desc:'Instrument limits, repeats, propagation.', cards:[
+        { id:'DA-U1', band:'1-2', text:"There was uncertainty in the measurements because the equipment we used is not perfect, and small mistakes can sometimes happen during readings we take. We tried our best to be careful, but some uncertainty was unavoidable in our final results for the resistivity value.", why:"Generic mention of uncertainty — no specific values, no treatment." },
+        { id:'DA-U2', band:'3-4', text:"The voltmeter has ±0.01 V uncertainty, the ammeter has ±0.001 A, and the metre rule has ±0.001 m. Three repeats were averaged for each length value. The final resistivity was given with uncertainty using the largest single instrument reading as a rough guide.", why:"Instrument uncertainties listed and repeats averaged, but no propagation." },
+        { id:'DA-U3', band:'5-6', text:"Instrument uncertainties stated for V, I, L. Half-range exceeded propagated value for R, so half-range used and justified. ΔR/R = ΔV/V + ΔI/I propagated, giving 1.5 to 4% per point. Final ρ uncertainty combined: Δρ/ρ ≈ ΔR/R + ΔA/A + ΔL/L.", why:"All uncertainties treated, decision rule justified, full propagation to the final value." },
+      ]},
+      { name:'Relevant & Accurate Processing', desc:'Correct calculations and gradient analysis.', cards:[
+        { id:'DA-P1', band:'1-2', text:"I divided one of my resistance values by one of my length values from the table and used the answer to work out the resistivity of the wire. The number I got was close to what I expected, so the experiment seems to have worked.", why:"Uses one data point — not actually data processing. Major omission." },
+        { id:'DA-P2', band:'3-4', text:"R = V/I is calculated for each length, then R plotted against L. The gradient of the resulting straight line gives ρ/A, where A is the wire cross-sectional area calculated from diameter using A = πd²/4, measured with a micrometer screw gauge.", why:"Correct method with gradient — but no max/min slope, no uncertainty in ρ, no comparison." },
+        { id:'DA-P3', band:'5-6', text:"R = V/I per trial; mean R per length used. R vs L plotted; line forced through origin, justified physically (at L = 0, R = 0). Max/min slope analysis gives ρ = (5.0 ± 0.4) × 10⁻⁷ Ω·m; literature value is 4.9 × 10⁻⁷.", why:"Best-fit justified physically, max/min slopes, full uncertainty, comparison to literature." },
+      ]},
+    ]},
+  { id:'cn', name:'Conclusion', short:'CN', color:'#C084FC',
+    anchor:"Boyle's Law: P vs 1/V at constant temperature.",
+    intro:'Did the analysis actually answer the research question, and how does the result compare to accepted physics?',
+    components:[
+      { name:'Conclusion Relevant & Consistent', desc:'Directly answers the RQ, supported by analysis.', cards:[
+        { id:'CN-R1', band:'1-2', text:"The pressure and the volume of the gas are related to each other in some way during our experiment. When one of them goes up in value, the other one goes down at the same time. Boyle's law works for the gas we measured.", why:"Correct intuition but no data, no graph, no quantitative support. Weakly supported." },
+        { id:'CN-R2', band:'3-4', text:"P plotted against 1/V gave a straight line passing through the origin, showing that pressure is inversely proportional to volume. This directly answers the research question and supports Boyle's Law for a fixed amount of gas at constant temperature throughout the trial.", why:"Answers RQ using shape of graph — missing R², gradient value, uncertainty." },
+        { id:'CN-R3', band:'5-6', text:"P vs 1/V is a straight line through the origin (R² = 0.998), gradient k = 1.42 ± 0.04 ×10² Pa·m³. Intercept (3 ± 12) Pa is consistent with zero, supporting P = k/V. Fully consistent with propagated uncertainties in section 4.", why:"Uses gradient with uncertainty, R², intercept analysis, references propagated uncertainties." },
+      ]},
+      { name:'Comparison with Scientific Context', desc:'Compares result to theory or published values.', cards:[
+        { id:'CN-T1', band:'1-2', text:"This result agrees with what scientists already know about how gases behave under different conditions in the laboratory setting. The behaviour we saw is the same as Boyle's law and other gas laws found in the textbook chapters about thermodynamics and pressure.", why:"Vague — no specific theory equation, no published value, no calculation." },
+        { id:'CN-T2', band:'3-4', text:"The result agrees with Boyle's Law, which states that P × V equals a constant at fixed temperature for a fixed amount of gas. The gradient nRT calculated from our experiment was similar to the theoretical value, suggesting good agreement with established textbook physics.", why:"States the right theory and notes gradient is 'similar' — but no calculation or % difference." },
+        { id:'CN-T3', band:'5-6', text:"Theory: PV = nRT predicts a gradient of nRT for P vs 1/V. With n = 0.0410 mol and T = 295 K, predicted gradient = 100.6 Pa·m³. Measured (142 ± 4) Pa·m³: 41% positive systematic deviation, attributed to under-estimation of n from sealing leakage.", why:"Calculates predicted value, gives % difference, identifies systematic deviation with cause." },
+      ]},
+    ]},
+  { id:'ev', name:'Evaluation', short:'EV', color:'#F5A623',
+    anchor:'Trolley on inclined ramp: acceleration vs ramp angle.',
+    intro:'What were the real weaknesses of the investigation, and how would you fix them next time? Specific, physics-grounded thinking.',
+    components:[
+      { name:'Weaknesses & Limitations', desc:'Specific weaknesses and their impact on validity.', cards:[
+        { id:'EV-W1', band:'1-2', text:"There was human error during the experiment which could have caused some of our results to be slightly inaccurate at certain points in the lesson. The equipment we used was old and may not have worked perfectly. Room conditions changed slightly during our trials.", why:"Classic 1–2 mark answer. 'Human error' is not specific to anything." },
+        { id:'EV-W2', band:'3-4', text:"Reaction time when starting and stopping the stopwatch caused timing errors during each trial. The ramp angle may have changed slightly between trials when adjusting the height. Friction between the trolley wheels and the ramp surface was not measured but affected results.", why:"Specific weaknesses linked to method — but no impact, no random/systematic distinction." },
+        { id:'EV-W3', band:'5-6', text:"Stopwatch reaction time of about 0.2 s gave about 13% per measurement (random error; the dominant source). Friction varied with angle (small at 5°, larger at 25°): systematic, biasing the gradient of a vs sin θ below g. Hand-release imparted small initial velocity.", why:"Weaknesses quantified, classified as random or systematic, linked to effect on gradient." },
+      ]},
+      { name:'Realistic Improvements', desc:'Specific fixes linked to weaknesses.', cards:[
+        { id:'EV-I1', band:'1-2', text:"Use better and more accurate equipment in any future experiments to reduce the errors in the timing measurements and the acceleration values that we calculated. Be more careful when handling the trolley and stopwatch to avoid the mistakes that affected our final results here.", why:"'Be more careful' — the classic 1–2 mark improvement. Generic, not linked to any weakness." },
+        { id:'EV-I2', band:'3-4', text:"Replace the stopwatch with a light gate to reduce timing error caused by reaction time when measuring trolley speed each trial. Use a smoother ramp surface or a low-friction track to reduce friction effects on the trolley as it moves down the slope.", why:"Improvements linked to specific weaknesses, but no quantification of how much they help." },
+        { id:'EV-I3', band:'5-6', text:"Replace stopwatch with two light gates 0.50 m apart linked to a data-logger: timing 0.2 s becomes under 0.001 s, dropping per-point uncertainty from about 13% to under 0.1%. Air-track removes systematic friction underestimate. Electromagnet trigger eliminates the initial-velocity error entirely.", why:"Each improvement quantified, linked to error type, explains how it strengthens the conclusion." },
+      ]},
+    ]},
+];
+
+const VERBS = [
+  { band:'1-2', verbs:['uses','is','measures','will','be careful','good','try'],
+    example:'"I will use a stopwatch to time the pendulum carefully."' },
+  { band:'3-4', verbs:['because','by [doing X]','in order to','each','across'],
+    example:'"I timed 10 oscillations to reduce the effect of reaction time."' },
+  { band:'5-6', verbs:['reduces uncertainty by Y%','systematic because…','valid within Z%','±'],
+    example:'"Timing 10 oscillations drops the 0.2 s reaction-time uncertainty to <2% per point."' },
+];
+
+const TRAPS = [
+  { quote:'"There was human error in the experiment."', why:"Doesn't say what kind of error, where, or how much. Every physics experiment has 'human error'.", fix:'Name it: "Reaction time of ~0.2 s when starting the stopwatch."' },
+  { quote:'"We could have used better equipment."', why:"Doesn't say which piece, or what problem it would fix, or by how much.", fix:'Name it: "Replace stopwatch with light gate — drops timing error from 0.2 s to <0.001 s."' },
+  { quote:'"We should have been more careful."', why:"Care isn't a measurable improvement. The examiner can't score 'trying harder'.", fix:'Name the mechanism: "Use an electromagnet trigger to remove the initial-velocity error."' },
+  { quote:'"The results agree with theory."', why:"Which theory? Which equation? What percentage difference?", fix:'Cite it: "Measured gradient (142 ± 4) Pa·m³ vs predicted nRT = 100.6 Pa·m³ (41% deviation)."' },
+];
+
+const ACTIONS = [
+  { label:'Read your own RQ', task:"Does it name the IV, DV, controls, and the equation you're testing? If not, edit it now." },
+  { label:'Audit your methodology', task:'For every choice (range, intervals, repeats), can you write "because…" after it? If not, add a reason.' },
+  { label:'Test your conclusion', task:"Does it contain a number with an uncertainty and a comparison to theory? If not, it's not scoring 5–6." },
+  { label:'Delete "human error"', task:'Search your evaluation for "human error", "be more careful", "better equipment". Rewrite each one specifically.' },
+];
+
+/* ── shared bits ───────────────────────────────────────────── */
+function BandPill({ id }) {
+  const b = BANDS[id];
+  return <span className="band-pill" style={{ color:b.color, borderColor:`${b.color}66`, background:`${b.color}14` }}>
+    <span className="band-dot" style={{ background:b.color }}></span>{b.label} {b.name}
+  </span>;
+}
+function Label({ children, color }) {
+  return <div className="lbl" style={{ color: color || 'var(--text-muted)' }}>{children}</div>;
+}
+
+/* ── example card, with optional quiz mode ─────────────────── */
+function ExampleCard({ card, quiz, guess, onGuess }) {
+  const revealed = !quiz || guess;
+  const correct = guess === card.band;
+  const border = !revealed ? 'var(--border)' : quiz ? (correct ? 'var(--green)' : 'var(--red)') : `${BANDS[card.band].color}55`;
+  return (
+    <div className="ex-card" style={{ borderColor: border }}>
+      <div className="ex-head">
+        <span className="ex-id">{card.id}</span>
+        {revealed
+          ? <BandPill id={card.band} />
+          : <span className="ex-id">Which band?</span>}
+      </div>
+      <div className="ex-body">{card.text}</div>
+      {revealed
+        ? <div className="ex-foot">
+            {quiz && <span style={{ fontStyle:'normal', fontWeight:700, color: correct ? 'var(--green)' : 'var(--red)' }}>{correct ? '✓ Correct — ' : '✗ Not quite — '}</span>}
+            {card.why}
+          </div>
+        : <div className="guess-row">
+            {BAND_IDS.map(id => (
+              <button key={id} className="guess-btn" onClick={() => onGuess(id)}>{BANDS[id].label}</button>
+            ))}
+          </div>}
+    </div>
+  );
+}
+
+function ComponentBlock({ comp, anchor, color, index, total }) {
+  const [quiz, setQuiz] = useState(false);
+  const [guesses, setGuesses] = useState({});
+  const start = () => { setGuesses({}); setQuiz(true); };
+  return (
+    <div style={{ marginBottom:'2.25rem' }}>
+      <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', gap:'1rem', flexWrap:'wrap', marginBottom:'.4rem' }}>
+        <div style={{ display:'flex', alignItems:'baseline', gap:'.6rem' }}>
+          <span style={{ fontFamily:'var(--font-mono)', fontWeight:700, color }}>{index + 1}.</span>
+          <h4 style={{ fontSize:'1.02rem', color:'var(--text)' }}>{comp.name}</h4>
+        </div>
+        <div style={{ display:'flex', alignItems:'center', gap:'.5rem' }}>
+          <span style={{ fontFamily:'var(--font-mono)', fontSize:'.72rem', color:'var(--text-dim)' }}>Component {index + 1} of {total}</span>
+          <button className="mini-btn" onClick={quiz ? () => setQuiz(false) : start}>{quiz ? 'Show answers' : 'Test me'}</button>
+        </div>
+      </div>
+      <p style={{ fontSize:'.86rem', color:'var(--text-muted)', marginBottom:'.9rem' }}>
+        {comp.desc} All three examples are about the same physics — {anchor.toLowerCase()} What differs is <em>how</em> the student wrote it.
+      </p>
+      <div className="card-grid">
+        {comp.cards.map(card => (
+          <ExampleCard key={card.id} card={card} quiz={quiz} guess={guesses[card.id]}
+            onGuess={b => setGuesses(g => ({ ...g, [card.id]: b }))} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CriterionPanel({ c, score, setScore }) {
+  return (
+    <div className="criteria-card">
+      <div style={{ display:'flex', alignItems:'flex-start', justifyContent:'space-between', flexWrap:'wrap', gap:'1rem', marginBottom:'1.5rem' }}>
+        <div>
+          <div style={{ display:'flex', alignItems:'center', gap:'.75rem', marginBottom:'.5rem' }}>
+            <span style={{ fontFamily:'var(--font-mono)', fontSize:'.75rem', fontWeight:700, color:c.color, background:`${c.color}18`, padding:'.2rem .6rem', borderRadius:6 }}>{c.short}</span>
+            <h3 style={{ fontSize:'1.25rem', color:'var(--text)' }}>{c.name}</h3>
+            <span style={{ fontFamily:'var(--font-mono)', fontSize:'.75rem', color:'var(--text-dim)' }}>/6 marks</span>
+          </div>
+          <p style={{ fontSize:'.92rem', maxWidth:560 }}>{c.intro}</p>
+          <p style={{ fontSize:'.82rem', color:'var(--text-muted)', marginTop:'.5rem' }}>
+            <strong style={{ color:'var(--text-2)' }}>Anchor experiment:</strong> {c.anchor}
+          </p>
+        </div>
+        <div className="score-display" style={{ minWidth:120 }}>
+          <div style={{ fontSize:'.7rem', color:'var(--text-muted)', textTransform:'uppercase', letterSpacing:'.1em', marginBottom:'.35rem' }}>Your score</div>
+          <div className="score-big" style={{ color:c.color }}>{score}</div>
+          <div style={{ fontSize:'.8rem', color:'var(--text-muted)' }}>/ 6</div>
+          <div style={{ display:'flex', gap:4, justifyContent:'center', marginTop:10, flexWrap:'wrap' }}>
+            {Array.from({ length:7 }, (_, i) => (
+              <button key={i} onClick={() => setScore(i)}
+                style={{ width:24, height:24, borderRadius:'50%', border:`1.5px solid ${score >= i && i > 0 ? c.color : 'var(--border-2)'}`,
+                  background: score >= i && i > 0 ? c.color : 'none', color: score >= i && i > 0 ? '#fff' : 'var(--text-muted)',
+                  cursor:'pointer', fontSize:'.7rem', fontWeight:700, transition:'var(--t)' }}>{i}</button>
+            ))}
+          </div>
+        </div>
+      </div>
+      {c.components.map((comp, i) => (
+        <ComponentBlock key={comp.name} comp={comp} anchor={c.anchor} color={c.color} index={i} total={c.components.length} />
+      ))}
+    </div>
+  );
+}
+
+/* ── overview ──────────────────────────────────────────────── */
+function OverviewPanel({ scores, goTo }) {
+  const total = scores.reduce((a, b) => a + b, 0);
+  const pct = Math.round(total / 24 * 100);
+  const grade = pct >= 88 ? 7 : pct >= 75 ? 6 : pct >= 60 ? 5 : pct >= 45 ? 4 : pct >= 30 ? 3 : pct >= 16 ? 2 : 1;
+  const gradeColor = grade >= 6 ? 'var(--green)' : grade >= 4 ? 'var(--gold)' : 'var(--red)';
+  return (
+    <div>
+      <div className="criteria-card">
+        <Label>What actually gets marked</Label>
+        <h3 style={{ fontSize:'1.25rem', marginBottom:'.6rem' }}>The examiner never marks "the experiment."</h3>
+        <p style={{ fontSize:'.92rem', maxWidth:620, marginBottom:'1.25rem' }}>They mark four written criteria on your final report — six marks each, twenty-four in total.</p>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))', gap:'2rem' }}>
+          <div>
+            {[['Weighting','20% of your final Physics grade'],['Length','~3,000 words'],['Time in class','~10 hours'],['Individual work','Yes — group data is fine, group analysis is not'],['What examiners see','Only your written report']].map(([k, v]) => (
+              <div key={k} className="kv-row"><div className="kv-key">{k}</div><div style={{ fontSize:'.88rem', color:'var(--text-2)' }}>{v}</div></div>
+            ))}
+          </div>
+          <div>
+            <Label>The scorecard</Label>
+            {CRITERIA.map((c, i) => (
+              <div key={c.id} onClick={() => goTo(c.id)} style={{ display:'flex', alignItems:'center', gap:'.9rem', padding:'.6rem 0', borderBottom:'1px solid var(--border)', cursor:'pointer' }}>
+                <span style={{ fontFamily:'var(--font-mono)', fontSize:'.75rem', color:'var(--text-dim)' }}>0{i + 1}</span>
+                <div style={{ flex:1 }}>
+                  <div style={{ fontSize:'.92rem', color:'var(--text)' }}>{c.name}</div>
+                  <div style={{ fontSize:'.75rem', color:'var(--text-muted)' }}>{c.components.length} components</div>
+                </div>
+                <span style={{ fontFamily:'var(--font-serif)', fontWeight:700, fontSize:'1.15rem', color:c.color }}>/6</span>
+              </div>
+            ))}
+            <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', paddingTop:'.75rem' }}>
+              <span style={{ fontSize:'.8rem', color:'var(--text-muted)' }}>Total</span>
+              <span style={{ fontFamily:'var(--font-serif)', fontWeight:700, fontSize:'1.6rem' }}>/24</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="criteria-card">
+        <Label>How the marking actually works</Label>
+        <h3 style={{ fontSize:'1.25rem', marginBottom:'.6rem' }}>The same three bands, every time.</h3>
+        <p style={{ fontSize:'.92rem', maxWidth:620, marginBottom:'1.25rem' }}>Every component in every criterion is judged against these three levels. The difference isn't <em>how much</em> you write. It's <em>what</em> you say.</p>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))', gap:'1rem' }}>
+          {BAND_IDS.map(id => {
+            const b = BANDS[id];
+            return (
+              <div key={id} style={{ background:'var(--surface2)', border:'1px solid var(--border)', borderTop:`3px solid ${b.color}`, borderRadius:'var(--radius)', padding:'1.25rem' }}>
+                <div style={{ display:'flex', alignItems:'baseline', justifyContent:'space-between', marginBottom:'.5rem' }}>
+                  <span style={{ fontFamily:'var(--font-serif)', fontWeight:700, fontSize:'2rem', color:'var(--text)' }}>{b.label}</span>
+                  <span style={{ fontFamily:'var(--font-mono)', fontSize:'.72rem', color:'var(--text-dim)' }}>/6</span>
+                </div>
+                <div style={{ fontSize:'1.05rem', fontWeight:600, color:b.color, marginBottom:'.5rem' }}>{b.name}</div>
+                <div style={{ fontSize:'.78rem', color:'var(--text-muted)', marginBottom:'.75rem' }}>{b.short}</div>
+                <p style={{ fontSize:'.85rem', color:'var(--text-2)', lineHeight:1.65 }}>{b.detail}</p>
+              </div>
+            );
+          })}
+        </div>
+        <div style={{ marginTop:'1.5rem', background:'var(--surface2)', borderLeft:'3px solid var(--gold)', borderRadius:'0 var(--radius) var(--radius) 0', padding:'1rem 1.25rem', maxWidth:760 }}>
+          <Label color="var(--gold)">The lie students believe</Label>
+          <p style={{ fontSize:'.88rem', color:'var(--text-2)', lineHeight:1.7 }}>
+            More words ≠ more marks. A three-word phrase like <span style={{ fontFamily:'var(--font-mono)', color:'var(--green)' }}>"±0.2 s reaction time"</span> can lift you a whole band. A four-sentence paragraph saying <span style={{ fontFamily:'var(--font-mono)', color:'var(--gold)' }}>"we tried our best"</span> keeps you at 1–2.
+          </p>
+        </div>
+      </div>
+
+      <div className="criteria-card">
+        <Label>Self-assessment</Label>
+        <h3 style={{ fontSize:'1.25rem', marginBottom:'1.25rem' }}>Score your own draft</h3>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))', gap:'1rem', marginBottom:'1.5rem' }}>
+          <div className="score-display"><div style={{ fontSize:'.7rem', color:'var(--text-muted)', textTransform:'uppercase', letterSpacing:'.08em', marginBottom:'.3rem' }}>Total score</div><div className="score-big" style={{ color:'var(--accent)' }}>{total}</div><div style={{ fontSize:'.82rem', color:'var(--text-muted)' }}>/ 24</div></div>
+          <div className="score-display"><div style={{ fontSize:'.7rem', color:'var(--text-muted)', textTransform:'uppercase', letterSpacing:'.08em', marginBottom:'.3rem' }}>Percentage</div><div className="score-big" style={{ color:'var(--accent2)' }}>{pct}%</div><div style={{ fontSize:'.82rem', color:'var(--text-muted)' }}>of 24 marks</div></div>
+          <div className="score-display"><div style={{ fontSize:'.7rem', color:'var(--text-muted)', textTransform:'uppercase', letterSpacing:'.08em', marginBottom:'.3rem' }}>Predicted grade</div><div className="score-big" style={{ color:gradeColor }}>{grade}</div><div style={{ fontSize:'.82rem', color:'var(--text-muted)' }}>out of 7</div></div>
+        </div>
+        {CRITERIA.map((c, i) => (
+          <div key={c.id} style={{ display:'flex', alignItems:'center', gap:'1rem', padding:'.7rem 0', borderBottom:'1px solid var(--border)' }}>
+            <span style={{ fontFamily:'var(--font-mono)', fontSize:'.78rem', fontWeight:700, color:c.color, minWidth:30 }}>{c.short}</span>
+            <span style={{ flex:1, fontSize:'.9rem', color:'var(--text-2)' }}>{c.name}</span>
+            <div style={{ width:120, height:6, background:'var(--surface2)', borderRadius:100, overflow:'hidden' }}>
+              <div style={{ height:'100%', background:c.color, borderRadius:100, width:`${scores[i] / 6 * 100}%`, transition:'width .5s ease' }} />
+            </div>
+            <span style={{ fontFamily:'var(--font-mono)', fontSize:'.8rem', color:c.color, minWidth:38, textAlign:'right' }}>{scores[i]}/6</span>
+          </div>
+        ))}
+        <div style={{ marginTop:'1.5rem', display:'flex', gap:'.5rem', flexWrap:'wrap' }}>
+          {[['7','88–100%','var(--green)'],['6','75–87%','var(--green)'],['5','60–74%','var(--gold)'],['4','45–59%','var(--gold)'],['3','30–44%','var(--red)'],['2','16–29%','var(--red)'],['1','0–15%','var(--text-dim)']].map(([g, r, col]) => (
+            <div key={g} style={{ background:'var(--surface2)', borderRadius:8, padding:'.5rem .9rem', border:`1px solid ${grade === parseInt(g) ? col : 'var(--border)'}` }}>
+              <div style={{ fontFamily:'var(--font-serif)', fontWeight:700, color:col, fontSize:'1.1rem' }}>{g}</div>
+              <div style={{ fontSize:'.72rem', color:'var(--text-muted)' }}>{r}</div>
+            </div>
+          ))}
+        </div>
+        <p style={{ fontSize:'.78rem', color:'var(--text-dim)', marginTop:'.9rem' }}>Grade boundaries are approximate and vary by session.</p>
+      </div>
+    </div>
+  );
+}
+
+/* ── language / traps / actions ────────────────────────────── */
+function LanguagePanel() {
+  return (
+    <div className="criteria-card">
+      <Label>What to listen for</Label>
+      <h3 style={{ fontSize:'1.25rem', marginBottom:'.6rem' }}>The verbs give it away.</h3>
+      <p style={{ fontSize:'.92rem', maxWidth:620, marginBottom:'1.5rem' }}>You can almost hear the band from the vocabulary a student uses. Learn to spot the signal words — you'll spot them in your own writing too.</p>
+      {VERBS.map(v => {
+        const b = BANDS[v.band];
+        return (
+          <div key={v.band} style={{ display:'grid', gridTemplateColumns:'minmax(110px,1fr) 2fr 2fr', gap:'1.25rem', padding:'1.25rem 0', borderBottom:'1px solid var(--border)', alignItems:'start' }}>
+            <div>
+              <div style={{ display:'flex', alignItems:'center', gap:'.5rem' }}>
+                <span className="band-dot" style={{ background:b.color }}></span>
+                <span style={{ fontFamily:'var(--font-serif)', fontWeight:700, fontSize:'1.5rem' }}>{b.label}</span>
+              </div>
+              <div style={{ fontSize:'.72rem', textTransform:'uppercase', letterSpacing:'.1em', color:'var(--text-muted)', marginTop:'.2rem' }}>{b.name}</div>
+            </div>
+            <div>
+              <Label>Signal words</Label>
+              <div style={{ display:'flex', flexWrap:'wrap', gap:'.4rem' }}>
+                {v.verbs.map(w => (
+                  <span key={w} style={{ fontFamily:'var(--font-mono)', fontSize:'.74rem', padding:'.25rem .55rem', borderRadius:6, color:b.color, background:`${b.color}14`, border:`1px solid ${b.color}44` }}>{w}</span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <Label>Sounds like</Label>
+              <div style={{ fontSize:'.86rem', fontStyle:'italic', color:'var(--text-2)', borderLeft:`2px solid ${b.color}`, paddingLeft:'.9rem', lineHeight:1.65 }}>{v.example}</div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function TrapsPanel() {
+  return (
+    <div className="criteria-card">
+      <Label color="var(--red)">Examiner red flags</Label>
+      <h3 style={{ fontSize:'1.25rem', marginBottom:'.6rem' }}>Phrases that lock you at 1–2.</h3>
+      <p style={{ fontSize:'.92rem', maxWidth:620, marginBottom:'1.5rem' }}>Every examiner has a mental blocklist. These four phrases show up in every low-scoring IA. Learn to catch them in your own writing — and swap them for something specific.</p>
+      {TRAPS.map((t, i) => (
+        <div key={i} className="trap-row">
+          <div style={{ fontFamily:'var(--font-mono)', fontSize:'1.6rem', fontWeight:700, color:'var(--red)' }}>{i + 1}</div>
+          <div>
+            <Label color="var(--red)">Never write</Label>
+            <div style={{ fontFamily:'var(--font-serif)', fontSize:'1.02rem', fontStyle:'italic', color:'var(--text)', lineHeight:1.5 }}>{t.quote}</div>
+            <div style={{ fontSize:'.78rem', color:'var(--text-muted)', marginTop:'.5rem' }}>{t.why}</div>
+          </div>
+          <div>
+            <Label color="var(--green)">Instead write</Label>
+            <div style={{ fontFamily:'var(--font-mono)', fontSize:'.8rem', color:'var(--text-2)', lineHeight:1.65 }}>{t.fix}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ActionPanel() {
+  return (
+    <div className="criteria-card">
+      <Label>Now it's your turn</Label>
+      <h3 style={{ fontSize:'1.25rem', marginBottom:'.6rem' }}>Four things to do tonight.</h3>
+      <p style={{ fontSize:'.92rem', maxWidth:620, marginBottom:'1.5rem' }}>You've seen the bands. You've sorted the examples. The last step is turning the pattern-recognition into a habit you use on your own writing.</p>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:'1rem', marginBottom:'1.5rem' }}>
+        {ACTIONS.map((a, i) => (
+          <div key={i} style={{ border:'1px solid var(--border)', borderRadius:'var(--radius)', padding:'1.1rem 1.25rem', background:'var(--surface2)' }}>
+            <div style={{ display:'flex', alignItems:'baseline', gap:'.55rem', marginBottom:'.5rem' }}>
+              <span style={{ fontFamily:'var(--font-mono)', fontSize:'.74rem', color:'var(--text-dim)' }}>0{i + 1}</span>
+              <h4 style={{ fontSize:'1rem', color:'var(--text)' }}>{a.label}</h4>
+            </div>
+            <p style={{ fontSize:'.86rem', color:'var(--text-2)', lineHeight:1.65 }}>{a.task}</p>
+          </div>
+        ))}
+      </div>
+      <div style={{ background:'var(--surface2)', borderLeft:'3px solid var(--gold)', borderRadius:'0 var(--radius) var(--radius) 0', padding:'1.25rem 1.4rem' }}>
+        <div style={{ fontFamily:'var(--font-serif)', fontSize:'1.15rem', fontWeight:700, marginBottom:'.5rem' }}>The one habit that lifts you a whole band</div>
+        <p style={{ fontSize:'.9rem', color:'var(--text-2)', lineHeight:1.7 }}>After every sentence you write in your IA, ask yourself: <em>"Could a Physics teacher tell me why I said that?"</em> If not, add the reason.</p>
+      </div>
+    </div>
+  );
+}
+
+/* ── app ───────────────────────────────────────────────────── */
+function App() {
+  const [tab, setTab] = useState('overview');
+  const [scores, setScores] = useState(() => {
+    try {
+      const v = JSON.parse(localStorage.getItem('phyq-ia-scores-v2') || '[0,0,0,0]');
+      return Array.isArray(v) && v.length === 4 ? v : [0, 0, 0, 0];
+    } catch { return [0, 0, 0, 0]; }
+  });
+  useEffect(() => { localStorage.setItem('phyq-ia-scores-v2', JSON.stringify(scores)); }, [scores]);
+  const setScore = (idx, val) => { const n = [...scores]; n[idx] = val; setScores(n); };
+
+  const tabs = [{ id:'overview', label:'Overview & Score' }, ...CRITERIA.map(c => ({ id:c.id, label:c.name })),
+                { id:'language', label:'Band Language' }, { id:'traps', label:'Red Flags' }, { id:'action', label:'Action Plan' }];
+
+  let body;
+  if (tab === 'overview') body = <OverviewPanel scores={scores} goTo={setTab} />;
+  else if (tab === 'language') body = <LanguagePanel />;
+  else if (tab === 'traps') body = <TrapsPanel />;
+  else if (tab === 'action') body = <ActionPanel />;
+  else {
+    const idx = CRITERIA.findIndex(c => c.id === tab);
+    body = <CriterionPanel c={CRITERIA[idx]} score={scores[idx]} setScore={v => setScore(idx, v)} />;
+  }
+
+  return (
+    <div>
+      <div style={{ display:'flex', gap:'.4rem', flexWrap:'wrap', marginBottom:'2rem', paddingBottom:'1rem', borderBottom:'1px solid var(--border)' }}>
+        {tabs.map(t => (
+          <button key={t.id} className={`criteria-tab${tab === t.id ? ' active' : ''}`} onClick={() => setTab(t.id)}>{t.label}</button>
+        ))}
+      </div>
+      {body}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('app-root')).render(<App />);
+</script>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topics — φQ Physics</title>
+  <link rel="stylesheet" href="shared/theme.css">
+  <style>
+    .topics-hero {
+      background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 0 1rem;
+    }
+    .unit-tabs {
+      display: flex; gap: 0.4rem; flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+    .unit-tab {
+      padding: 0.5rem 1.1rem; border-radius: 100px;
+      font-size: 0.85rem; font-weight: 600;
+      border: 1.5px solid var(--border);
+      background: none; cursor: pointer;
+      color: var(--text-muted);
+      transition: var(--t); font-family: var(--font-sans);
+    }
+    .unit-tab:hover { border-color: var(--border-2); color: var(--text); }
+    .unit-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    .search-topics {
+      width: 100%; max-width: 380px;
+      padding: 0.65rem 1rem 0.65rem 2.5rem;
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 100px; color: var(--text);
+      font-family: var(--font-sans); font-size: 0.9rem;
+      outline: none; transition: var(--t);
+    }
+    .search-topics:focus { border-color: var(--accent); box-shadow: var(--glow-sm); }
+    .search-topics::placeholder { color: var(--text-dim); }
+    .search-wrap { position: relative; display: inline-block; }
+    .search-wrap svg { position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+
+    /* TOPIC ACCORDION */
+    .topic-accord {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 0.6rem;
+      overflow: hidden;
+      transition: border-color var(--t), box-shadow var(--t);
+    }
+    .topic-accord.open { border-color: var(--border-2); }
+    .topic-accord-hd {
+      width: 100%; display: flex; align-items: center;
+      gap: 1rem; padding: 1.2rem 1.5rem;
+      background: none; border: none;
+      cursor: pointer; text-align: left;
+      color: var(--text); font-family: var(--font-sans);
+      transition: background var(--t);
+    }
+    .topic-accord-hd:hover { background: var(--surface2); }
+    .topic-code {
+      font-family: var(--font-mono); font-size: 0.8rem;
+      font-weight: 700; color: var(--accent);
+      background: var(--accent-dim);
+      padding: 0.2rem 0.55rem; border-radius: 6px;
+      flex-shrink: 0; min-width: 38px; text-align: center;
+    }
+    .topic-title-wrap { flex: 1; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .topic-name { font-weight: 600; font-size: 1rem; color: var(--text); }
+    .topic-level-dots { font-size: 0.6rem; color: var(--gold); letter-spacing: 3px; }
+    .topic-chevron {
+      flex-shrink: 0; color: var(--text-muted);
+      transition: transform 0.25s ease;
+    }
+    .topic-accord.open .topic-chevron { transform: rotate(180deg); }
+    .topic-done-btn {
+      flex-shrink: 0;
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 1.5px solid var(--border-2);
+      background: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--t); font-size: 0.8rem;
+      user-select: none;
+    }
+    .topic-done-btn.done { background: var(--green); border-color: var(--green); color: #fff; }
+    .topic-done-btn:hover:not(.done) { border-color: var(--green); color: var(--green); }
+
+    .topic-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .topic-accord.open .topic-body { max-height: 1200px; }
+    .topic-content {
+      padding: 0 1.5rem 1.5rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    @media(max-width:680px){ .topic-content{ grid-template-columns: 1fr; } }
+
+    .tc-box {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem 1.1rem;
+    }
+    .tc-box-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.6rem;
+    }
+    .tc-box ul { padding-left: 1rem; }
+    .lesson-links { display: grid; gap: 0.35rem; }
+    .lesson-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      font-size: 0.88rem; color: var(--text); text-decoration: none;
+      transition: var(--t); line-height: 1.35;
+    }
+    .lesson-link:hover { border-color: var(--accent); box-shadow: var(--glow-sm); opacity: 1; }
+    .ll-num {
+      flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700;
+    }
+    .ll-arrow { margin-left: auto; color: var(--text-dim); font-size: 0.85rem; }
+    .lesson-link:hover .ll-arrow { color: var(--accent); }
+    .tc-box li {
+      font-size: 0.88rem; color: var(--text-2);
+      line-height: 1.6; margin-bottom: 0.2rem;
+    }
+    .eq-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .eq-row {
+      font-family: var(--font-mono); font-size: 0.88rem;
+      color: var(--accent); background: var(--surface);
+      padding: 0.4rem 0.7rem; border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    .topic-footer {
+      display: flex; align-items: center;
+      gap: 1rem; flex-wrap: wrap;
+      padding: 0.75rem 1.5rem 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* PROGRESS */
+    .progress-bar-wrap {
+      background: var(--surface2); border-radius: 100px;
+      height: 6px; overflow: hidden; flex: 1;
+    }
+    .progress-bar-fill {
+      height: 100%; background: var(--green);
+      border-radius: 100px;
+      transition: width 0.5s ease;
+    }
+    .unit-header-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem; flex-wrap: wrap; gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+<script src="shared/nav.js"></script>
+
+<!-- Hero -->
+<div class="topics-hero">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
+          <span class="section-label" style="margin-bottom:0">IB Physics 2023</span>
+          <h1 style="font-size:1.6rem;margin:0;display:inline">Syllabus Topics</h1>
+          <span style="color:var(--text-muted);font-size:0.88rem">— 25 topics · HL &amp; SL · click to expand</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
+        <div class="search-wrap">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="topic-search" class="search-topics" type="text" placeholder="Search topics…" autocomplete="off">
+        </div>
+        <div id="progress-label" style="font-size:0.85rem;color:var(--text-muted);white-space:nowrap">Loading…</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="container" style="padding-top:1.5rem;padding-bottom:3rem" id="app-root">
+  <div style="color:var(--text-muted);text-align:center;padding:4rem 0">Loading topics…</div>
+</div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="shared/lessons.js"></script>
+
+<script type="text/babel">
+const { useState, useEffect, useCallback } = React;
+
+/* ── DATA ─────────────────────────────────────────────────────── */
+const UNITS = [
+  {
+    id: 'A', label: 'Unit A', name: 'Space, Time and Motion', color: '#4F9DFF',
+    topics: [
+      {
+        code:'A.1', name:'Kinematics', level:'●', id:'A1',
+        concepts:['Displacement, velocity, acceleration','Uniform and non-uniform motion','SUVAT equations','Projectile motion','Relative velocity'],
+        equations:['v = u + at','s = ut + ½at²','v² = u² + 2as','s = ½(u+v)t'],
+        hl:[],
+        note:'The foundation of all mechanics — master SUVAT before everything else.'
+      },
+      {
+        code:'A.2', name:'Forces and Momentum', level:'●', id:'A2',
+        concepts:["Newton's 1st, 2nd and 3rd laws",'Free body diagrams','Normal force, friction, tension','Impulse and momentum','Conservation of momentum'],
+        equations:['F = ma','p = mv','J = FΔt = Δp','F_f ≤ μN'],
+        hl:[],
+        note:'Draw free body diagrams for every dynamics problem — examiners reward them.'
+      },
+      {
+        code:'A.3', name:'Work, Energy and Power', level:'●', id:'A3',
+        concepts:['Work done by a force','Kinetic and potential energy','Conservation of mechanical energy','Power and efficiency','Elastic and inelastic collisions'],
+        equations:['W = Fs cosθ','KE = ½mv²','GPE = mgh','P = Fv','efficiency = W_useful / W_total'],
+        hl:[],
+        note:'Energy methods often give the quickest route to an answer in exam problems.'
+      },
+      {
+        code:'A.4', name:'Rigid Body Mechanics', level:'●●●', id:'A4',
+        concepts:['Torque and moment of force','Angular velocity and acceleration','Rotational kinetic energy','Moment of inertia','Angular momentum'],
+        equations:['τ = Fr sinθ','L = Iω','E_rot = ½Iω²','τ = Iα'],
+        hl:['Moment of inertia for different shapes','Rolling without slipping','Conservation of angular momentum'],
+        note:'HL only — link τ = Iα directly to F = ma; same structure, rotational frame.'
+      },
+      {
+        code:'A.5', name:'Galilean & Special Relativity', level:'●●●', id:'A5',
+        concepts:["Galilean relativity and Newton's laws","Einstein's two postulates",'Time dilation','Length contraction','Spacetime diagrams','Mass-energy equivalence'],
+        equations:['t\' = γt₀','l\' = l₀/γ','γ = 1/√(1−v²/c²)','E = mc²','E² = (pc)² + (m₀c²)²'],
+        hl:['Spacetime intervals','Muon decay experiments','Relativistic momentum and energy'],
+        note:'HL only — visualise events on spacetime diagrams before applying formulas.'
+      },
+    ]
+  },
+  {
+    id: 'B', label: 'Unit B', name: 'The Particulate Nature of Matter', color: '#7B6EF6',
+    topics: [
+      {
+        code:'B.1', name:'Thermal Energy Transfers', level:'●', id:'B1',
+        concepts:['Specific heat capacity','Specific latent heat','Conduction, convection, radiation','Thermal resistance','Black-body radiation'],
+        equations:['Q = mcΔT','Q = mL','P = σAT⁴ (Stefan-Boltzmann)','P = kA(ΔT/d)'],
+        hl:[],
+        note:'Know which processes involve a temperature change and which do not (latent heat).'
+      },
+      {
+        code:'B.2', name:'Greenhouse Effect', level:'●', id:'B2',
+        concepts:['Solar constant and albedo','Energy balance of Earth','Greenhouse gases','Enhanced greenhouse effect','Climate modelling'],
+        equations:['T_e = [S(1−α)/4σ]^(1/4)','P_in = P_out at equilibrium'],
+        hl:[],
+        note:'Know how to calculate Earth\'s effective temperature from first principles.'
+      },
+      {
+        code:'B.3', name:'Gas Laws', level:'●', id:'B3',
+        concepts:["Boyle's, Charles's, Gay-Lussac's laws",'Ideal gas equation','Kinetic theory assumptions','Internal energy of a gas','Molar quantities'],
+        equations:['pV = nRT','pV = NkT','p₁V₁/T₁ = p₂V₂/T₂','E_k = 3/2 kT'],
+        hl:[],
+        note:'Always convert temperature to Kelvin. Standard: T(K) = T(°C) + 273.'
+      },
+      {
+        code:'B.4', name:'Thermodynamics', level:'●●●', id:'B4',
+        concepts:['First law of thermodynamics','Isothermal, adiabatic, isochoric processes','Carnot cycle and efficiency','Entropy','Second law — heat engines'],
+        equations:['ΔU = Q − W','W = ∫p dV','η_Carnot = 1 − T_cold/T_hot','ΔS = Q_rev/T'],
+        hl:['p-V diagrams for cycles','Entropy and disorder','Refrigerators and heat pumps'],
+        note:'HL only — sketch p-V diagrams clearly; area enclosed = work done per cycle.'
+      },
+      {
+        code:'B.5', name:'Current and Circuits', level:'●', id:'B5',
+        concepts:["Ohm's law and resistance","Kirchhoff's current and voltage laws",'Series and parallel circuits','EMF and internal resistance','Power dissipation'],
+        equations:['V = IR','P = IV = I²R = V²/R','ε = I(R+r)','R_series = ΣR','1/R_parallel = Σ(1/R)'],
+        hl:[],
+        note:'Kirchhoff\'s laws solve any circuit — label every current direction clearly first.'
+      },
+    ]
+  },
+  {
+    id: 'C', label: 'Unit C', name: 'Wave Behaviour', color: '#00D4FF',
+    topics: [
+      {
+        code:'C.1', name:'Simple Harmonic Motion', level:'●●', id:'C1',
+        concepts:['Restoring force and SHM definition','Amplitude, period, frequency','Displacement, velocity, acceleration in SHM','Simple pendulum and mass-spring','Energy in SHM'],
+        equations:['a = −ω²x','x = x₀ sin(ωt)','T = 2π√(m/k)','T = 2π√(L/g)','E_total = ½kx₀²'],
+        hl:['Damped oscillations','Resonance and driving frequency','Phase relationships'],
+        note:'The hallmark of SHM: acceleration is always proportional to and opposite to displacement.'
+      },
+      {
+        code:'C.2', name:'Wave Model', level:'●', id:'C2',
+        concepts:['Transverse and longitudinal waves','Wavefronts and rays','Speed, frequency, wavelength relationship','Wave intensity','Electromagnetic spectrum'],
+        equations:['v = fλ','I ∝ A²','I = P/4πr² (point source)'],
+        hl:[],
+        note:'Intensity ∝ amplitude² — double the amplitude, quadruple the intensity.'
+      },
+      {
+        code:'C.3', name:'Wave Phenomena', level:'●●', id:'C3',
+        concepts:['Transmission, absorption and scattering of waves','Reflection of waves and rays','Refraction of waves','Principle of superposition','Interference: constructive and destructive','Double-slit experiment (Young)','Single-slit diffraction','Polarisation','Diffraction gratings'],
+        equations:['nλ = d sinθ (diffraction grating)','sλ/d = Δy (double slit fringe)'],
+        hl:['Thin-film interference','Resolution criteria (Rayleigh)','Diffraction grating details'],
+        note:'Path difference determines interference: nλ = constructive, (n+½)λ = destructive.'
+      },
+      {
+        code:'C.4', name:'Standing Waves and Resonance', level:'●', id:'C4',
+        concepts:['Formation of standing waves','Nodes and antinodes','Harmonics in strings and pipes','Resonance condition'],
+        equations:['f_n = nv/2L (string/closed pipe)','f_n = (2n−1)v/4L (open pipe)'],
+        hl:[],
+        note:'Sketch the mode clearly — always start with the fundamental (n=1) harmonic.'
+      },
+      {
+        code:'C.5', name:'Doppler Effect', level:'●●', id:'C5',
+        concepts:['Doppler shift for sound','Doppler shift for light (redshift)','Applications: radar, ultrasound, astronomy'],
+        equations:["f' = f(v±v_o)/(v∓v_s)",'Δf/f ≈ v/c (low-speed light)','z = Δλ/λ'],
+        hl:['Shock waves and Mach number','Relativistic Doppler (HL link to A.5)'],
+        note:"Upper signs when observer/source approach; lower when receding. Don't mix them up."
+      },
+    ]
+  },
+  {
+    id: 'D', label: 'Unit D', name: 'Fields', color: '#F5A623',
+    topics: [
+      {
+        code:'D.1', name:'Gravitational Fields', level:'●●', id:'D1',
+        concepts:["Newton's law of gravitation",'Gravitational field strength','Gravitational potential energy','Orbital mechanics',"Kepler's laws"],
+        equations:['F = Gm₁m₂/r²','g = GM/r²','V_grav = −GM/r','T² ∝ r³ (Kepler 3rd)','v_orbit = √(GM/r)'],
+        hl:['Gravitational potential gradient','Escape velocity derivation','Binary star systems'],
+        note:'Gravitational potential is always negative — closer to the mass means more negative (lower).'
+      },
+      {
+        code:'D.2', name:'Electric and Magnetic Fields', level:'●●', id:'D2',
+        concepts:["Coulomb's law",'Electric field and potential','Magnetic field and flux density','Force on current-carrying conductors','Magnetic flux'],
+        equations:['F = kq₁q₂/r²','E = kQ/r² = V/d (uniform)','F = BIL sinθ','Φ = BA cosθ'],
+        hl:['Electric field lines and equipotentials','Biot-Savart law (qualitative)','Magnetic flux linkage'],
+        note:'Electric field points from + to − and is perpendicular to equipotential surfaces.'
+      },
+      {
+        code:'D.3', name:'Motion in EM Fields', level:'●', id:'D3',
+        concepts:['Lorentz force on moving charge','Circular motion in magnetic fields','Velocity selector','Hall effect','Mass spectrometer'],
+        equations:['F = qv × B = qvB sinθ','r = mv/qB (circular motion)','qE = qvB (velocity selector)'],
+        hl:[],
+        note:'In a uniform B field, a charged particle moves in a circle — centripetal force = Lorentz force.'
+      },
+      {
+        code:'D.4', name:'Induction', level:'●●●', id:'D4',
+        concepts:["Faraday's law of induction","Lenz's law",'EMF and rate of flux change','AC generators','Transformers'],
+        equations:['ε = −N ΔΦ/Δt (Faraday)','ε = BLv (motional EMF)','N_s/N_p = V_s/V_p (transformer)'],
+        hl:['Self-induction and inductors','RL and LC circuits (qualitative)','Energy stored in inductor: E = ½LI²'],
+        note:"HL only — Lenz's law: induced current opposes the change that causes it."
+      },
+    ]
+  },
+  {
+    id: 'E', label: 'Unit E', name: 'Nuclear and Quantum Physics', color: '#34D399',
+    topics: [
+      {
+        code:'E.1', name:'Structure of the Atom', level:'●●', id:'E1',
+        concepts:['Rutherford scattering experiment','Nuclear model of the atom','Energy levels and atomic spectra','Emission and absorption spectra','Bohr model'],
+        equations:['E_n = −13.6/n² eV (hydrogen)','ΔE = hf = hc/λ'],
+        hl:['Atomic spectra and line series','Limitations of the Bohr model','Evidence from scattering experiments'],
+        note:'The line spectrum is your fingerprint for atomic structure — each line = one photon.'
+      },
+      {
+        code:'E.2', name:'Quantum Physics', level:'●●●', id:'E2',
+        concepts:['Photoelectric effect','Photon model of light','de Broglie wavelength','Heisenberg uncertainty principle','Wave-particle duality'],
+        equations:['E = hf','KE_max = hf − φ','λ = h/mv (de Broglie)','ΔxΔp ≥ ℏ/2'],
+        hl:['Electron diffraction','Davisson-Germer experiment','Tunnel effect (qualitative)','Quantum tunnelling'],
+        note:'HL only — stopping voltage in photoelectric effect gives KE_max directly.'
+      },
+      {
+        code:'E.3', name:'Radioactive Decay', level:'●●', id:'E3',
+        concepts:['Alpha, beta, gamma radiation','Radioactive decay law','Half-life','Activity and decay constant','Nuclear equations and conservation laws'],
+        equations:['N = N₀ e^(−λt)','A = λN','T_½ = ln2/λ = 0.693/λ'],
+        hl:['Radioactive series','Binding energy and stability','Mass defect: E = Δmc²'],
+        note:'In a decay equation: top numbers (nucleon) and bottom numbers (proton) must both balance.'
+      },
+      {
+        code:'E.4', name:'Fission', level:'●', id:'E4',
+        concepts:['Nuclear binding energy','Mass defect and energy release','Chain reaction','Critical mass','Fission reactors'],
+        equations:['E = Δmc²','BE per nucleon = total BE / A'],
+        hl:[],
+        note:'Energy released per fission is ~200 MeV — far greater than any chemical reaction.'
+      },
+      {
+        code:'E.5', name:'Fusion and Stars', level:'●', id:'E5',
+        concepts:['Nuclear fusion reactions','Stellar evolution and the HR diagram','Main sequence, red giants, white dwarfs','Chandrasekhar limit','Neutron stars and black holes'],
+        equations:['Mass-energy: E = Δmc²','Luminosity: L = 4πr²σT⁴'],
+        hl:[],
+        note:'The HR diagram is your map of stellar evolution — know the axes and key regions.'
+      },
+    ]
+  },
+];
+
+/* Lesson pages for a topic id, from shared/lessons.js */
+const LESSON_DIR = {};
+(window.PHYQ_TOPICS || []).forEach(t => { LESSON_DIR[t.id] = t; });
+
+/* ── COMPONENTS ───────────────────────────────────────────────── */
+function TopicAccordion({ topic, unitColor, isOpen, onToggle, isDone, onToggleDone }) {
+  return (
+    <div className={`topic-accord${isOpen ? ' open' : ''}`} id={topic.id}>
+      <button
+        className="topic-accord-hd"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+      >
+        <span className="topic-code" style={{ color: unitColor, background: `${unitColor}18` }}>
+          {topic.code}
+        </span>
+        <span className="topic-title-wrap">
+          <span className="topic-name">{topic.name}</span>
+          <span className="topic-level-dots">{topic.level}</span>
+          {topic.hl.length > 0 && (
+            <span className="tag tag-purple" style={{ fontSize: '0.67rem', padding: '0.1rem 0.5rem' }}>HL</span>
+          )}
+        </span>
+        <div
+          className={`topic-done-btn${isDone ? ' done' : ''}`}
+          onClick={e => { e.stopPropagation(); onToggleDone(); }}
+          title={isDone ? 'Marked as done' : 'Mark as done'}
+          role="checkbox"
+          aria-checked={isDone}
+          tabIndex={0}
+          onKeyDown={e => { if(e.key===' '||e.key==='Enter'){e.stopPropagation();onToggleDone();} }}
+        >
+          {isDone ? '✓' : ''}
+        </div>
+        <svg className="topic-chevron" width="18" height="18" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" strokeWidth="2.2">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+
+      <div className="topic-body">
+        <div className="topic-content">
+          <div>
+            <div className="tc-box">
+              <div className="tc-box-title">
+                {LESSON_DIR[topic.id] ? 'Lessons — click to open' : 'Key Concepts'}
+              </div>
+              {LESSON_DIR[topic.id]
+                ? <div className="lesson-links">
+                    {LESSON_DIR[topic.id].lessons.map((l,i) => (
+                      <a key={i} className="lesson-link"
+                         href={`syllabus-content/${LESSON_DIR[topic.id].folder}/${l.f}`}>
+                        <span className="ll-num" style={{ background: `${unitColor}22`, color: unitColor }}>{l.f.slice(0,2)}</span>
+                        <span>{l.t}</span>
+                        <span className="ll-arrow">→</span>
+                      </a>
+                    ))}
+                  </div>
+                : <ul>
+                    {topic.concepts.map((c,i) => <li key={i}>{c}</li>)}
+                  </ul>}
+            </div>
+            {topic.hl.length > 0 && (
+              <div className="tc-box" style={{ marginTop: '0.75rem', borderColor: 'var(--accent2)', background: 'var(--accent2-dim)' }}>
+                <div className="tc-box-title" style={{ color: 'var(--accent2)' }}>HL Extensions</div>
+                <ul>
+                  {topic.hl.map((h,i) => <li key={i} style={{ color: 'var(--accent2)' }}>{h}</li>)}
+                </ul>
+              </div>
+            )}
+          </div>
+          <div>
+            <div className="tc-box">
+              <div className="tc-box-title">Key Equations</div>
+              <div className="eq-list">
+                {topic.equations.map((eq,i) => (
+                  <div key={i} className="eq-row">{eq}</div>
+                ))}
+              </div>
+            </div>
+            {topic.note && (
+              <div className="tc-box" style={{ marginTop: '0.75rem', borderLeft: `3px solid ${unitColor}` }}>
+                <div className="tc-box-title">📌 Examiner Note</div>
+                <p style={{ fontSize: '0.86rem', color: 'var(--text-2)', lineHeight: '1.6' }}>{topic.note}</p>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="topic-footer">
+          {LESSON_DIR[topic.id] &&
+            <a href={`syllabus-content/${LESSON_DIR[topic.id].folder}/index.html`} className="btn btn-primary btn-sm">
+              Open {LESSON_DIR[topic.id].lessons.length} lessons →
+            </a>}
+          <a href={`practice.html?topic=${topic.id}`} className="btn btn-ghost btn-sm">
+            Practice questions →
+          </a>
+          <a href={`resources.html#formulas`} className="btn btn-secondary btn-sm">
+            Formula sheet
+          </a>
+          {isDone
+            ? <span className="tag tag-green" style={{ marginLeft: 'auto' }}>✓ Mastered</span>
+            : <button className="btn btn-sm" onClick={e => { e.stopPropagation(); onToggleDone(); }}
+                style={{ marginLeft: 'auto', background: 'var(--green-dim)', color: 'var(--green)' }}>
+                Mark as mastered
+              </button>
+          }
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function UnitSection({ unit, doneTopics, toggleDone, openTopics, toggleOpen, query }) {
+  const filtered = unit.topics.filter(t =>
+    !query ||
+    t.name.toLowerCase().includes(query) ||
+    t.code.toLowerCase().includes(query) ||
+    t.concepts.some(c => c.toLowerCase().includes(query))
+  );
+  if (!filtered.length) return null;
+
+  const doneCount = unit.topics.filter(t => doneTopics.has(t.id)).length;
+  const pct = Math.round(doneCount / unit.topics.length * 100);
+
+  return (
+    <div style={{ marginBottom: '3rem' }} id={`unit-${unit.id}`}>
+      <div className="unit-header-row">
+        <div>
+          <div className="section-label" style={{ color: unit.color }}>
+            Unit {unit.id} — {unit.label}
+          </div>
+          <h2 style={{ color: unit.color, fontSize: '1.5rem', marginBottom: '0.25rem' }}>
+            {unit.name}
+          </h2>
+          <p style={{ fontSize: '0.85rem' }}>
+            {unit.topics.length} topics &nbsp;·&nbsp; {doneCount} mastered
+          </p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', minWidth: '160px' }}>
+          <div className="progress-bar-wrap" style={{ flex: 1 }}>
+            <div className="progress-bar-fill" style={{ width: `${pct}%`, background: unit.color }} />
+          </div>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: unit.color, minWidth: '32px' }}>
+            {pct}%
+          </span>
+        </div>
+      </div>
+
+      {filtered.map(topic => (
+        <TopicAccordion
+          key={topic.id}
+          topic={topic}
+          unitColor={unit.color}
+          isOpen={openTopics.has(topic.id)}
+          onToggle={() => toggleOpen(topic.id)}
+          isDone={doneTopics.has(topic.id)}
+          onToggleDone={() => toggleDone(topic.id)}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ── APP ──────────────────────────────────────────────────────── */
+function App() {
+  const DONE_KEY = 'phyq-done-topics';
+  const [doneTopics, setDoneTopics] = useState(() => {
+    try { return new Set(JSON.parse(localStorage.getItem(DONE_KEY) || '[]')); }
+    catch { return new Set(); }
+  });
+  const [openTopics, setOpenTopics] = useState(new Set());
+  const [query, setQuery]     = useState('');
+  const [activeUnit, setActiveUnit] = useState('all');
+
+  const allTopics = UNITS.flatMap(u => u.topics);
+  const totalDone = doneTopics.size;
+
+  useEffect(() => {
+    localStorage.setItem(DONE_KEY, JSON.stringify([...doneTopics]));
+    // Update progress label
+    const el = document.getElementById('progress-label');
+    if (el) el.textContent = `${totalDone} / ${allTopics.length} topics mastered`;
+  }, [doneTopics]);
+
+  // Handle URL hash on load
+  useEffect(() => {
+    const hash = window.location.hash.replace('#','');
+    if (hash) {
+      setOpenTopics(s => new Set([...s, hash]));
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+    // Wire search input
+    const searchEl = document.getElementById('topic-search');
+    if (searchEl) searchEl.addEventListener('input', e => setQuery(e.target.value.toLowerCase().trim()));
+  }, []);
+
+  const toggleDone = useCallback(id => {
+    setDoneTopics(s => {
+      const next = new Set(s);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+  }, []);
+
+  const toggleOpen = useCallback(id => {
+    setOpenTopics(s => {
+      const next = new Set(s);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+  }, []);
+
+  const shownUnits = activeUnit === 'all'
+    ? UNITS
+    : UNITS.filter(u => u.id === activeUnit);
+
+  return (
+    <div>
+      {/* Unit tab filter */}
+      <div className="unit-tabs">
+        {['all','A','B','C','D','E'].map(u => (
+          <button
+            key={u}
+            className={`unit-tab${activeUnit === u ? ' active' : ''}`}
+            onClick={() => setActiveUnit(u)}
+          >
+            {u === 'all' ? 'All Units' : `Unit ${u}`}
+          </button>
+        ))}
+        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div className="progress-bar-wrap" style={{ width: '120px' }}>
+            <div className="progress-bar-fill" style={{ width: `${Math.round(totalDone/allTopics.length*100)}%` }} />
+          </div>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--green)' }}>
+            {totalDone}/{allTopics.length}
+          </span>
+        </div>
+      </div>
+
+      {/* Units */}
+      {shownUnits.map(unit => (
+        <UnitSection
+          key={unit.id}
+          unit={unit}
+          doneTopics={doneTopics}
+          toggleDone={toggleDone}
+          openTopics={openTopics}
+          toggleOpen={toggleOpen}
+          query={query}
+        />
+      ))}
+
+      {shownUnits.every(u => u.topics.filter(t =>
+        !query || t.name.toLowerCase().includes(query) || t.code.toLowerCase().includes(query)
+      ).length === 0) && (
+        <div style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '3rem' }}>
+          No topics match "{query}" — try a different search term.
+        </div>
+      )}
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('app-root'));
+root.render(<App />);
+</script>
+</body>
+</html>

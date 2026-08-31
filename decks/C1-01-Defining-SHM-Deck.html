@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C.1 Lesson 1 — Defining Simple Harmonic Motion — Teaching Deck</title>
+<meta name="omelette-owns-print" content="1">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body data-deck="c1-01">
+<div id="deck">
+
+<section class="slide title" data-document-role="page" data-label="Title" data-screen-label="01">
+<div class="eyebrow">C.1 Simple Harmonic Motion · SL / HL · Lesson 1 of 5</div>
+<div class="body" style="justify-content:center;gap:34px">
+<h1 style="font-size:104px">Defining Simple<br>Harmonic Motion</h1>
+<p style="font-size:36px;max-width:1200px">Oscillations are everywhere — hearts, atoms, tides, currents. This lesson builds the one idealised model that describes them all, and the single equation that defines it.</p>
+<div class="pills"><span>T = 1/f</span><span>ω = 2πf</span><span>a = −ω²x</span></div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">01</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Starter" data-screen-label="02">
+<div class="eyebrow">Retrieval starter · 5 questions · 8 minutes</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:92px">Starter</h2>
+<p style="max-width:1250px">Five multiple-choice questions on the physics you already have — forces, Hooke's law, radians and energy. Everything today is built on them. Answer on your fingers on a count of three.</p>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">02</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Starter Q1" data-screen-label="03">
+<div class="eyebrow">Starter · question 1 of 5</div>
+<h2>Equilibrium</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A book rests in equilibrium on a horizontal bench. The resultant force acting on the book is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> equal to the weight of the book</div>
+<div class="opt right" data-step="2"><span class="l">B</span> zero</div>
+<div class="opt" data-step="2"><span class="l">C</span> directed vertically upwards</div>
+<div class="opt" data-step="2"><span class="l">D</span> constantly changing in size</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p>The equilibrium position is the position in which there is <strong>no resultant force</strong> acting on the object. This is the position an oscillator returns to, and the definition we use all lesson.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>The weight is balanced by the normal contact force — it is one of the forces, not the resultant</td></tr>
+<tr><td>C</td><td>If there were a net upward force the book would accelerate upwards</td></tr>
+<tr><td>D</td><td>In equilibrium the resultant stays zero; nothing is changing</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">03</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Starter Q2" data-screen-label="04">
+<div class="eyebrow">Starter · question 2 of 5</div>
+<h2>Hooke's law</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A spring extends by 4.0 cm when a force of 2.0 N is applied to it. The spring constant is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 0.50 N m⁻¹</div>
+<div class="opt" data-step="2"><span class="l">B</span> 8.0 N m⁻¹</div>
+<div class="opt right" data-step="2"><span class="l">C</span> 50 N m⁻¹</div>
+<div class="opt" data-step="2"><span class="l">D</span> 500 N m⁻¹</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p class="mono" style="font-size:34px;color:var(--primary)">k = F / x = 2.0 / 0.040 = 50 N m⁻¹</p><p>The spring constant is a measure of the spring's stiffness: force divided by deformation.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>x / F instead of F / x — inverted</td></tr>
+<tr><td>B</td><td>F × x — multiplying rather than dividing</td></tr>
+<tr><td>D</td><td>4.0 cm read as 4.0 mm; a factor of ten in the unit conversion</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">04</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Starter Q3" data-screen-label="05">
+<div class="eyebrow">Starter · question 3 of 5</div>
+<h2>Radians</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">One complete revolution corresponds to an angle of</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> π/2 rad</div>
+<div class="opt" data-step="2"><span class="l">B</span> π rad</div>
+<div class="opt right" data-step="2"><span class="l">C</span> 2π rad</div>
+<div class="opt" data-step="2"><span class="l">D</span> 360 rad</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p>One complete cycle is equivalent to <strong>2π radians</strong>. Hold on to this — it is the reason ω = 2π/T and the reason phase differences are quoted in π.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>A quarter of a cycle — 90°</td></tr>
+<tr><td>B</td><td>Half a cycle — 180°</td></tr>
+<tr><td>D</td><td>360 is the value in <em>degrees</em>; in radians it is 2π ≈ 6.28</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">05</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Starter Q4" data-screen-label="06">
+<div class="eyebrow">Starter · question 4 of 5</div>
+<h2>Newton's second law</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A resultant force of 2.0 N acts on a mass of 0.50 kg. The acceleration of the mass is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 0.25 m s⁻²</div>
+<div class="opt" data-step="2"><span class="l">B</span> 1.0 m s⁻²</div>
+<div class="opt right" data-step="2"><span class="l">C</span> 4.0 m s⁻²</div>
+<div class="opt" data-step="2"><span class="l">D</span> 9.8 m s⁻²</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p class="mono" style="font-size:34px;color:var(--primary)">a = F / m = 2.0 / 0.50 = 4.0 m s⁻²</p><p>F = ma for a constant mass is what lets us turn the SHM <em>force</em> condition into the SHM <em>motion</em> definition later in the lesson.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>m / F instead of F / m</td></tr>
+<tr><td>B</td><td>F × m — 2.0 × 0.50</td></tr>
+<tr><td>D</td><td>g is not involved; the resultant force is given</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">06</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Starter Q5" data-screen-label="07">
+<div class="eyebrow">Starter · question 5 of 5</div>
+<h2>Energy in a swing</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A pendulum bob is pulled to one side and released from rest. Its speed is greatest</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> immediately after release</div>
+<div class="opt right" data-step="2"><span class="l">B</span> at the lowest point of the swing</div>
+<div class="opt" data-step="2"><span class="l">C</span> at the highest point of the swing</div>
+<div class="opt" data-step="2"><span class="l">D</span> at the moment it reverses direction</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p>Gravitational potential energy is transferred to kinetic energy on the way down, so the kinetic energy is greatest at the lowest point. That point is the <strong>equilibrium position</strong> — and today you will meet it as the point of zero acceleration and maximum speed.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>It starts from rest, so the speed just after release is small</td></tr>
+<tr><td>C</td><td>At the highest point the bob is momentarily stationary</td></tr>
+<tr><td>D</td><td>Reversing direction means the velocity passes through zero</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">07</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Objectives" data-screen-label="08">
+<div class="eyebrow">Learning objectives</div>
+<h2>By the end of this lesson you can</h2>
+<div class="body">
+<div class="steps">
+<div class="step" data-step="1"><div class="n">1</div><div class="tx"><strong>Describe an oscillation</strong> and explain why simple harmonic motion is used as the model for all oscillations.</div></div>
+<div class="step" data-step="2"><div class="n">2</div><div class="tx"><strong>Define and use</strong> displacement, amplitude, cycle, time period, frequency and angular frequency, including T = 1/f and ω = 2πf.</div></div>
+<div class="step" data-step="3"><div class="n">3</div><div class="tx"><strong>Apply the period equations</strong> of the mass–spring system and the simple pendulum, and linearise their graphs to find k and g.</div></div>
+<div class="step" data-step="4"><div class="n">4</div><div class="tx"><strong>State the defining condition</strong> a = −ω²x and interpret displacement, velocity and acceleration graphs, including phase difference.</div></div>
+</div>
+<div class="note success" data-step="5"><p>✓ <strong>The skill this lesson is really examined on:</strong> reading a gradient off a linearised graph (T² against m, T² against l) and keeping the minus sign and the metres in a = −ω²x.</p></div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">08</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Roadmap" data-screen-label="09">
+<div class="eyebrow">How the lesson runs</div>
+<h2>Three chunks, three checks</h2>
+<div class="body">
+<div class="chunkmap">
+<div data-step="1"><div class="k">CHUNK 1</div><h3>Oscillations and the language of time</h3><p>What an oscillation is, why we model it as SHM, and the six terms every question uses: x, x₀, T, f, ω and the cycle.</p><div class="pills"><span>T = 1/f</span><span>ω = 2πf</span></div></div>
+<div data-step="2"><div class="k">CHUNK 2</div><h3>The two laboratory oscillators</h3><p>Mass–spring and simple pendulum: their period equations, what each depends on, and how their graphs are linearised.</p><div class="pills"><span>T = 2π√(m/k)</span><span>T = 2π√(l/g)</span></div></div>
+<div data-step="3"><div class="k">CHUNK 3</div><h3>The defining condition</h3><p>Why a ∝ −x defines SHM, the displacement–velocity–acceleration graphs, and phase difference.</p><div class="pills"><span>a = −ω²x</span><span>π/2 · π</span></div></div>
+</div>
+<div class="note" data-step="4"><p>Each chunk ends with <strong>four exam-style multiple-choice questions</strong>. The lesson closes with one full exam question and its mark scheme.</p></div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">09</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Hook" data-screen-label="10">
+<div class="eyebrow">Hook</div>
+<h2>The hummingbird that beats 2600 times a minute</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-01.png" alt="Hummingbird hovering with wings drawn at the top and bottom of a wingbeat"><div class="cap">Fig 1 — One wingbeat = one oscillation: repeated motion about a central point, along the same path.</div></div>
+<div class="col">
+<div class="card" data-step="2"><p>ω = <strong>272 rad s⁻¹</strong> → about 43 wing cycles per second, <strong>2.6 × 10³ beats a minute</strong> — every beat taking the same time as the last.</p></div>
+<div class="card" data-step="3"><p>Same time every time = <strong>isochronous</strong>. The property that turned pendulums into clocks.</p></div>
+<div class="note warn" data-step="4"><p>💡 <strong>Diagnostic — think, don't answer.</strong> A pendulum is pulled back twice as far. Does each swing take longer?</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">10</span></div>
+</section>
+
+<section class="slide center" data-document-role="page" data-label="SHM definition" data-screen-label="11">
+<div class="eyebrow">The definition we are working towards</div>
+<div class="body" style="justify-content:center">
+<p class="statement" data-step="1">Simple harmonic motion is an oscillation in which the acceleration is proportional to the displacement, but in the opposite direction — always directed back towards the equilibrium position.</p>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">11</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Chunk 1" data-screen-label="12">
+<div class="eyebrow">Chunk 1 of 3</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:86px">Oscillations and the<br>language of time</h2>
+<p style="max-width:1250px">What an oscillation is, why physics models it as SHM, and the six terms every SHM question is written in.</p>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">12</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="What an oscillation is" data-screen-label="13">
+<div class="eyebrow">Chunk 1 · oscillations</div>
+<h2>Oscillations, and why we model them</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="card" data-step="1"><h3>Oscillation</h3><p>A regularly repeated backwards-and-forwards movement about the same central point, along the same path.</p></div>
+<div class="card" data-step="2"><h3>Where we find them</h3><div class="pills"><span>planets</span><span>the heart</span><span>clocks</span><span>engines</span><span>atoms in molecules</span><span>instruments</span><span>speech · eardrum</span><span>water waves</span><span>light</span><span>tides</span><span>a.c. currents</span></div></div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Simple harmonic motion</h3><p>A simplified theoretical model of oscillations — the starting point for all of them. Perfect SHM: no resistive forces, constant amplitude, every oscillation the same time (<strong>isochronous</strong>).</p></div>
+<div class="note tight" data-step="4"><p>🔬 <strong>Nature of science</strong> — a model is a simplified representation of something more complex. Almost no real oscillator is perfectly simple harmonic; we understand the simple version first.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">13</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Restoring force" data-screen-label="14">
+<div class="eyebrow">Chunk 1 · the mechanism</div>
+<h2>Equilibrium, and the restoring force</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-02.png" alt="Mass between two horizontal springs, part a at equilibrium, part b displaced"><div class="cap">Fig 2 — In <strong>a</strong> the spring forces balance; in <strong>b</strong> the displaced mass feels a resultant restoring force.</div></div>
+<div class="col">
+<div class="card" data-step="2"><h3>Equilibrium position</h3><p>Where the resultant force is zero. A perfect oscillator is treated as a <strong>point mass</strong>.</p></div>
+<div class="card" data-step="3"><h3>Restoring force</h3><p>Once displaced, a resultant force always pulls the mass back towards equilibrium.</p></div>
+<div class="card tight" data-step="4"><p>Released at B: accelerates inwards → <strong>fastest at the centre</strong> → inertia carries it through → decelerates → stops and reverses. KE ⇄ PE.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">14</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="The six terms" data-screen-label="15">
+<div class="eyebrow">Chunk 1 · vocabulary</div>
+<h2>The terms every SHM question uses</h2>
+<div class="body">
+<div class="card tight" style="flex:1;justify-content:center">
+<table class="t"><thead><tr><th>Term</th><th>Symbol</th><th>Meaning and unit</th></tr></thead><tbody>
+<tr data-step="1"><td>Equilibrium position</td><td class="mono">—</td><td>Position in which there is no resultant force acting on the object</td></tr>
+<tr data-step="2"><td>Displacement</td><td class="mono">x</td><td>Distance from equilibrium in a specified direction; a vector, varying continuously in size and direction. Unit: m</td></tr>
+<tr data-step="3"><td>Amplitude</td><td class="mono">x₀</td><td>Maximum displacement while oscillating. Unit: m</td></tr>
+<tr data-step="4"><td>Cycle</td><td class="mono">—</td><td>One complete oscillation: the mass returns to a certain position moving in the same direction. An object that oscillates is an <em>oscillator</em></td></tr>
+<tr data-step="5"><td>Time period</td><td class="mono">T</td><td>Time taken for one complete oscillation. Unit: s</td></tr>
+<tr data-step="6"><td>Frequency</td><td class="mono">f</td><td>Number of oscillations per unit time. Unit: hertz, Hz. 1 Hz means one oscillation per second</td></tr>
+<tr data-step="7"><td>Angular frequency</td><td class="mono">ω</td><td>Frequency expressed as an angle swept per second. Unit: rad s⁻¹</td></tr>
+</tbody></table>
+</div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">15</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Period and frequency" data-screen-label="16">
+<div class="eyebrow">Chunk 1 · equation</div>
+<h2>Period and frequency</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="formula" data-step="1"><span class="lab">Period, frequency and angular frequency</span><div class="eq">T = 1/f</div><div class="eq">T = 2π/ω</div></div>
+<div class="card" data-step="2"><p>T and f carry <strong>the same information</strong>; quote whichever is greater than one. Both stay constant even as amplitude decays — isochronous.</p></div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Units in common use</h3><div class="pills"><span>kHz = 10³ Hz</span><span>MHz = 10⁶ Hz</span><span>GHz = 10⁹ Hz</span></div></div>
+<div class="note warn" data-step="4"><p>⚠️ Amplitude is <em>not</em> the distance between the extremes — that is <strong>2x₀</strong>. Extreme to extreme is <strong>half</strong> an oscillation.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">16</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="SHM and circular motion" data-screen-label="17">
+<div class="eyebrow">Chunk 1 · the analogy</div>
+<h2>SHM and motion in a circle</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-03.png" alt="Circle with a particle on the circumference and its projection point P on the horizontal diameter"><div class="cap">Fig 3 — P oscillates along the diameter with amplitude r.</div></div>
+<div class="col">
+<div class="card" data-step="2"><p>Circular motion seen edge-on <strong>is</strong> an oscillation. P, the projection of the particle onto the diameter, oscillates with the same frequency and amplitude r.</p></div>
+<div class="card" data-step="3"><p>One oscillation of P = the particle sweeping <strong>2π radians</strong>.</p></div>
+<div class="card tight" data-step="4"><p>ω was <em>angular velocity</em> in A.2. In SHM the same quantity is called <strong>angular frequency</strong>, rad s⁻¹.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">17</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Angular frequency" data-screen-label="18">
+<div class="eyebrow">Chunk 1 · equation</div>
+<h2>Angular frequency</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="formula" data-step="1"><span class="lab">Angular frequency</span><div class="eq">ω = 2π/T</div><div class="eq">ω = 2πf</div></div>
+<div class="card" data-step="2"><p>Period, frequency and angular frequency are three different ways of representing exactly the same information. Any one of them can be converted into either of the others in a single line.</p><div class="pills"><span>T = 1/f</span><span>ω = 2πf</span><span>T = 2π/ω</span></div></div>
+</div>
+<div class="col">
+<div class="note" data-step="3"><p>🧠 <strong>TOK — analogies, correlations and causal relationships</strong> — An analogy compares a process in one area of knowledge to a seemingly unrelated one, and we see similarities. If an analogy proves useful but has little other validity, does that justify its use, and does it increase our knowledge of the system it is applied to? What is the difference between a correlation, a causal link and an analogy? Consider applying the mathematics of oscillations to animal populations, or to economic cycles.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">18</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Worked example C1.1" data-screen-label="19">
+<div class="eyebrow">Worked example C1.1 · question</div>
+<h2>Amplitude, displacement and frequency</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-15.png" alt="Geometry for worked example: mass of length 12 cm between two springs, extreme positions A and B 18 cm apart"><div class="cap">Fig 14 — The 18 cm span contains the 12 cm mass, leaving 6 cm of travel.</div></div>
+<div class="col">
+<div class="card" data-step="2"><p class="stem">The mass is 12 cm long; A to B is 18 cm.</p><p>(a) Calculate the amplitude.<br>(b) Determine the displacement at B.<br>(c) State when the KE is greatest.<br>(d) T = 1.5 s: find (i) f and (ii) ω.</p></div>
+<div class="note warn" data-step="3"><p>Two minutes on your own. Watch the geometry in (a).</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">19</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="C1.1 solution" data-screen-label="20">
+<div class="eyebrow">Worked example C1.1 · solution</div>
+<h2>Identify → Data → Equation → Answer</h2>
+<div class="body">
+<div class="steps">
+<div class="step" data-step="1"><div class="n">1</div><div class="tx"><strong>Identify:</strong> A and B are the two extreme positions of the <em>same end</em> of the mass, so the 18 cm span includes the 12 cm length of the mass itself. Amplitude is measured from equilibrium, so it is half of the remaining distance.</div></div>
+<div class="step" data-step="2"><div class="n">2</div><div class="tx"><strong>Data:</strong> length of mass = 12 cm; A to B = 18 cm; T = 1.5 s.</div></div>
+<div class="step" data-step="3"><div class="n">3</div><div class="tx mono"><strong>Equation:</strong> (a) x₀ = (18 − 12)/2 = 3 cm · (d i) f = 1/T = 1.0/1.5 = 0.67 Hz · (d ii) ω = 2πf = 2π × 0.67 = 4.2 rad s⁻¹</div></div>
+<div class="step" data-step="4"><div class="n">4</div><div class="tx"><strong>Answer:</strong> (a) amplitude = 3 cm. (b) displacement = <strong>3 cm to the right</strong>. (c) Greatest kinetic energy <strong>when it passes through its equilibrium position</strong>. (d) f = 0.67 Hz, ω = 4.2 rad s⁻¹.</div></div>
+</div>
+<div class="note success" data-step="5"><p>✓ <strong>Examiner tip</strong> — amplitude is always measured <em>from the equilibrium position</em>, and the greatest kinetic energy is always at equilibrium, where the speed is maximum.</p></div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">20</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Check 1" data-screen-label="21">
+<div class="eyebrow">Formative check · chunk 1</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:86px">Check 1 — four questions</h2>
+<p style="max-width:1250px">Amplitude, cycles, period, frequency and angular frequency. Fingers up on a count of three; no writing.</p>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">21</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Amplitude" data-screen-label="22">
+<div class="eyebrow">Check 1 · question 1 of 4</div>
+<h2>Amplitude</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">The extreme positions of an oscillating mass are 8.0 cm apart. The amplitude of the oscillation is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 2.0 cm</div>
+<div class="opt right" data-step="2"><span class="l">B</span> 4.0 cm</div>
+<div class="opt" data-step="2"><span class="l">C</span> 8.0 cm</div>
+<div class="opt" data-step="2"><span class="l">D</span> 16 cm</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p>Amplitude is the <strong>maximum displacement from the equilibrium position</strong>. Equilibrium is halfway between the extremes, so x₀ = 8.0/2 = 4.0 cm.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>A quarter of the span — halved twice</td></tr>
+<tr><td>C</td><td>That is the distance between the extremes, which equals 2x₀</td></tr>
+<tr><td>D</td><td>The span doubled instead of halved</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">22</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Frequency" data-screen-label="23">
+<div class="eyebrow">Check 1 · question 2 of 4</div>
+<h2>Frequency</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A pendulum completes 30 complete oscillations in 45 s. Its frequency is</p></div>
+<div class="opts">
+<div class="opt right" data-step="2"><span class="l">A</span> 0.67 Hz</div>
+<div class="opt" data-step="2"><span class="l">B</span> 1.5 Hz</div>
+<div class="opt" data-step="2"><span class="l">C</span> 30 Hz</div>
+<div class="opt" data-step="2"><span class="l">D</span> 0.022 Hz</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — A</h3><p class="mono" style="font-size:34px;color:var(--primary)">f = 30 / 45 = 0.67 Hz</p><p>Frequency is the number of oscillations per second.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>B</td><td>1.5 s is the <em>time period</em> (45/30), not the frequency</td></tr>
+<tr><td>C</td><td>30 is the number of oscillations, not a rate</td></tr>
+<tr><td>D</td><td>1/45 — treats the whole 45 s as one period</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">23</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Angular frequency" data-screen-label="24">
+<div class="eyebrow">Check 1 · question 3 of 4</div>
+<h2>Angular frequency</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">An oscillation has a frequency of 50 Hz. Its angular frequency is</p></div>
+<div class="opts">
+<div class="opt right" data-step="2"><span class="l">A</span> 3.1 × 10² rad s⁻¹</div>
+<div class="opt" data-step="2"><span class="l">B</span> 1.6 × 10² rad s⁻¹</div>
+<div class="opt" data-step="2"><span class="l">C</span> 50 rad s⁻¹</div>
+<div class="opt" data-step="2"><span class="l">D</span> 8.0 rad s⁻¹</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — A</h3><p class="mono" style="font-size:34px;color:var(--primary)">ω = 2πf = 2π × 50 = 3.1 × 10² rad s⁻¹</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>B</td><td>π × 50 — the factor of 2 dropped</td></tr>
+<tr><td>C</td><td>f quoted unchanged; ω is an angle swept per second</td></tr>
+<tr><td>D</td><td>50/2π — divided instead of multiplied</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">24</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="One complete cycle" data-screen-label="25">
+<div class="eyebrow">Check 1 · question 4 of 4</div>
+<h2>One complete cycle</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">Which statement about one complete cycle of an oscillation is correct?</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> A single movement from one extreme position to the other</div>
+<div class="opt right" data-step="2"><span class="l">B</span> The mass returns to a given position moving in the same direction</div>
+<div class="opt" data-step="2"><span class="l">C</span> The mass has travelled a distance equal to its amplitude</div>
+<div class="opt" data-step="2"><span class="l">D</span> The mass has passed through the equilibrium position once</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p>A cycle is <strong>one complete oscillation</strong>: the mass returns to a certain position moving in the same direction.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>That is half an oscillation</td></tr>
+<tr><td>C</td><td>In one cycle it travels four amplitudes, 4x₀</td></tr>
+<tr><td>D</td><td>It passes through equilibrium twice in every cycle</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">25</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Chunk 2" data-screen-label="26">
+<div class="eyebrow">Chunk 2 of 3</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:86px">The two laboratory<br>oscillators</h2>
+<p style="max-width:1250px">Mass–spring and simple pendulum: what each period depends on, and how each graph is linearised to give k and g.</p>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">26</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Why these two oscillators" data-screen-label="27">
+<div class="eyebrow">Chunk 2 · the two standard systems</div>
+<h2>Why every laboratory uses these two</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="card" data-step="1"><h3>Why these two</h3><p>· force ∝ displacement, easily understood<br>· periods convenient to measure<br>· good approximations to SHM</p></div>
+<div class="card" data-step="2"><p>· energy dissipated slowly, so oscillations last<br>· starting points for far more complex oscillators</p></div>
+</div>
+<div class="col" style="justify-content:center">
+<div class="note" data-step="3"><p>💡 Examined as a <strong>practical</strong>: a graph, a gradient, and a value of k or g read off it.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">27</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Mass-spring system" data-screen-label="28">
+<div class="eyebrow">Chunk 2 · oscillator 1</div>
+<h2>The mass–spring system</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-04.png" alt="Four stages of a mass on a vertical spring: no load, equilibrium, lowest point and highest point"><div class="cap">Fig 4 — Amplitude is measured from the equilibrium position, not from the unloaded length.</div></div>
+<div class="col">
+<div class="card" data-step="2"><p>Mass on a vertical spring. Weight is <strong>constant</strong>, so it shifts the equilibrium position but does not affect the period.</p></div>
+<div class="note success tight" data-step="3"><p>✓ Same period at a location with a different gravitational field strength.</p></div>
+<div class="card tight" data-step="4"><p>Assume the spring is never overstretched and obeys <strong>Hooke's law</strong> (A.2). Spring constant k = stiffness = force / deformation.</p></div>
+<div class="formula" data-step="5"><span class="lab">Hooke's law (restoring force)</span><div class="eq">F_H = −kx</div></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">28</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="T against m" data-screen-label="29">
+<div class="eyebrow">Chunk 2 · the experiment</div>
+<h2>Measuring the period against mass</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-05.png" alt="Graph of time period T against mass, a curve of decreasing gradient from the origin"><div class="cap">Fig 5 — T against m for a spring: a curve of decreasing gradient, not a straight line.</div></div>
+<div class="col">
+<div class="card" data-step="2"><p>Vary the mass on one spring; vary the spring for one mass. A <strong>position sensor</strong> under the mass feeds a computer — <strong>data logging</strong>.</p></div>
+<div class="note" data-step="3"><p>📊 <strong>Tool 3 — linearise.</strong> Plot T² against m (uncertainty in T ± 0.05 s): a straight line through the origin, gradient 4π²/k, giving k.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">29</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Mass-spring period" data-screen-label="30">
+<div class="eyebrow">Chunk 2 · equation</div>
+<h2>Period of a mass–spring system</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="formula" data-step="1"><span class="lab">Time period of a mass–spring system</span><div class="eq">T = 2π√(m/k)</div></div>
+<div class="formula" data-step="2"><span class="lab">Same relationship, using ω = 2π/T</span><div class="eq">ω² = k/m</div></div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><p>Only m and k appear: <strong>no g, no amplitude</strong>. ×4 mass → ×2 period; ×4 stiffness → ÷2 period.</p></div>
+<div class="card" data-step="4"><p>Exact only for a point mass on a massless spring of well-defined k. Buildings, bridges and a clamped <strong>oscillating ruler</strong> are the same idea, more complex.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">30</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Oscillating ruler inquiry" data-screen-label="31">
+<div class="eyebrow">Chunk 2 · Inquiry 3 — concluding and evaluating</div>
+<h2>When the model does not quite fit</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="card tight" data-step="1"><p>Masses taped to the free end of an oscillating ruler. Prediction: the same equation as a mass on a spring.</p><table class="t"><thead><tr><th>Mass / g</th><th>T / s</th></tr></thead><tbody>
+<tr><td class="mono">0</td><td>too quick to measure</td></tr>
+<tr><td class="mono">40</td><td class="mono">0.55</td></tr>
+<tr><td class="mono">80</td><td class="mono">0.76</td></tr>
+<tr><td class="mono">120</td><td class="mono">0.91</td></tr>
+<tr><td class="mono">160</td><td class="mono">1.04</td></tr>
+<tr><td class="mono">200</td><td class="mono">1.15</td></tr>
+</tbody></table></div>
+</div>
+<div class="col" style="justify-content:center">
+<div class="note success" data-step="2"><p>✓ T² = 0.303, 0.578, 0.828, 1.082, 1.323 s² — a good straight line, but a <strong>positive intercept of about 0.03 s²</strong>.</p></div>
+<div class="card" data-step="3"><p>So the prediction is only partly right: the ruler's own distributed mass oscillates too, adding effective mass. The point-mass model does not apply exactly.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">31</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Simple pendulum" data-screen-label="32">
+<div class="eyebrow">Chunk 2 · oscillator 2</div>
+<h2>The simple pendulum</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-06.png" alt="Simple pendulum hanging from a rigid support with equilibrium position and amplitude labelled"><div class="cap">Fig 6 — Rigid frictionless support, rod or string of negligible mass, mass m.</div></div>
+<div class="col">
+<div class="card" data-step="2"><h3>Simple pendulum</h3><p>A spherical mass — the <strong>bob</strong> — on a rod or string of negligible mass, from a rigid frictionless support.</p></div>
+<div class="card" data-step="3"><p>All the mass acts as a <strong>point mass at the centre of the sphere</strong>. Displacement is the angle to the vertical. Gravity provides the restoring force.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">32</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Resolving the weight" data-screen-label="33">
+<div class="eyebrow">Chunk 2 · where the restoring force comes from</div>
+<h2>Resolving the weight</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-07.png" alt="Pendulum displaced by angle theta with weight resolved into mg sin theta and mg cos theta"><div class="cap">Fig 7 — mg sinθ restores, mg cosθ tensions the string.</div></div>
+<div class="col">
+<div class="card" data-step="2"><p>Resolve the weight mg into two perpendicular components:</p><div class="pills"><span>mg sinθ → restoring force</span><span>mg cosθ → tension</span></div></div>
+<div class="card tight" data-step="3"><p>Only two forces act — tension and weight. Their resultant <em>is</em> the restoring force mg sinθ.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">33</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Pendulum period" data-screen-label="34">
+<div class="eyebrow">Chunk 2 · equation</div>
+<h2>Period of a simple pendulum</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-08.png" alt="Graph of time period T against pendulum length, a curve of decreasing gradient from the origin"><div class="cap">Fig 8 — T against l for a pendulum: a curve of decreasing gradient.</div></div>
+<div class="col">
+<div class="card" data-step="2"><p><strong>Small amplitudes only.</strong> T depends on length l alone, measured from the support to the centre of mass. <strong>Not affected by mass</strong> — doubling m doubles the restoring force too.</p></div>
+<div class="formula" data-step="3"><span class="lab">Time period of a simple pendulum</span><div class="eq">T = 2π√(l/g)</div></div>
+<div class="note success tight" data-step="4"><p>📈 Linearise: T² against l is straight through the origin, gradient 4π²/g — so a pendulum measures <strong>g</strong>.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">34</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Small angle" data-screen-label="35">
+<div class="eyebrow">Chunk 2 · Tool 3 — approximation and estimation</div>
+<h2>How small is a "small angle"?</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="card" data-step="1"><p>SHM needs mg sinθ ∝ θ. For small angles sinθ, tanθ and θ (in rad) are almost identical; the difference grows with angle.</p></div>
+<div class="card" data-step="2"><p><strong>Task:</strong> find the minimum angle at which sinθ, tanθ and θ differ by at least 1%.</p></div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>HL extension</h3><p class="mono" style="color:var(--primary);font-size:31px">sinθ ≈ θ − θ³/6 &nbsp; tanθ ≈ θ + θ³/3</p><p>Errors grow as θ², so the approximation fails suddenly, not gradually.</p></div>
+<div class="note success" data-step="4"><p>✓ tanθ is 1% above θ at ≈ <strong>10°</strong>; sinθ is 1% below θ at ≈ <strong>14°</strong>. Keep amplitudes under about 10°.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">35</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Worked example C1.2" data-screen-label="36">
+<div class="eyebrow">Worked example C1.2 · question</div>
+<h2>Spring constant and frequency</h2>
+<div class="body">
+<div class="card" data-step="1"><p class="stem">A 200 g mass was placed on the end of a long spring and increased its length by 5.4 cm.</p><p>(a) Determine the spring constant k.<br>(b) If the mass is displaced a small distance and undergoes SHM, calculate the frequency.<br>(c) Suggest why oscillations of greater amplitude may not be simple harmonic.</p></div>
+<div class="note warn" data-step="2"><p>Start from the equilibrium condition: at rest, the spring force balances the weight.</p></div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">36</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="C1.2 solution" data-screen-label="37">
+<div class="eyebrow">Worked example C1.2 · solution</div>
+<h2>Identify → Data → Equation → Answer</h2>
+<div class="body">
+<div class="steps">
+<div class="step" data-step="1"><div class="n">1</div><div class="tx"><strong>Identify:</strong> At the new equilibrium the spring force balances the weight, so Hooke's law gives k; then the mass–spring period equation gives T and hence f.</div></div>
+<div class="step" data-step="2"><div class="n">2</div><div class="tx mono"><strong>Data:</strong> m = 0.200 kg; x = 5.4 × 10⁻² m; g = 9.8 N kg⁻¹.</div></div>
+<div class="step" data-step="3"><div class="n">3</div><div class="tx mono"><strong>Equation:</strong> F_H = −kx → 0.200 × 9.8 = −k × (5.4 × 10⁻²) → k = −36 N m⁻¹ · T = 2π√(0.200/36) = 0.47 s · f = 1/0.47 = 2.1 Hz</div></div>
+<div class="step" data-step="4"><div class="n">4</div><div class="tx"><strong>Answer:</strong> (a) k = −36 N m⁻¹ — the negative sign shows that force and displacement are in opposite directions. (b) f = 2.1 Hz. (c) The spring may become <strong>overstretched, so Hooke's law is no longer applicable</strong>.</div></div>
+</div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">37</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Worked example C1.3" data-screen-label="38">
+<div class="eyebrow">Worked example C1.3 · question</div>
+<h2>The same pendulum on the Moon</h2>
+<div class="body">
+<div class="card" data-step="1"><p class="stem">Determine the time period of a simple pendulum of length 85.6 cm where the gravitational field strength is (a) 9.81 N kg⁻¹, (b) 1.63 N kg⁻¹ (on the Moon's surface).</p><p>(c) The equation predicts that the ratio of the periods at two locations is √(g₁/g₂). Do the answers confirm that?</p></div>
+<div class="note warn" data-step="2"><p>Note what is <em>not</em> given: the mass of the bob. It is not needed.</p></div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">38</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="C1.3 solution" data-screen-label="39">
+<div class="eyebrow">Worked example C1.3 · solution</div>
+<h2>Identify → Data → Equation → Answer</h2>
+<div class="body">
+<div class="steps">
+<div class="step" data-step="1"><div class="n">1</div><div class="tx"><strong>Identify:</strong> Only l and g matter — the bob's mass is irrelevant. Apply the pendulum period equation twice, then compare ratios.</div></div>
+<div class="step" data-step="2"><div class="n">2</div><div class="tx mono"><strong>Data:</strong> l = 0.856 m; g_E = 9.81 N kg⁻¹; g_M = 1.63 N kg⁻¹.</div></div>
+<div class="step" data-step="3"><div class="n">3</div><div class="tx mono"><strong>Equation:</strong> T = 2π√(0.856/9.81) = 1.86 s · T = 2π√(0.856/1.63) = 4.55 s</div></div>
+<div class="step" data-step="4"><div class="n">4</div><div class="tx"><strong>Answer:</strong> (a) 1.86 s, (b) 4.55 s. (c) T_M/T_E = 4.55/1.86 = 2.45 and √(g_E/g_M) = √(9.81/1.63) = 2.45. <strong>Yes — the same ratio is confirmed.</strong></div></div>
+</div>
+<div class="note success" data-step="5"><p>✓ The pendulum is the oscillator that cares about g. Take a mass–spring system to the Moon and its period does not change at all.</p></div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">39</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Check 2" data-screen-label="40">
+<div class="eyebrow">Formative check · chunk 2</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:86px">Check 2 — four questions</h2>
+<p style="max-width:1250px">Mass–spring and pendulum periods, what each depends on, and reading a linearised gradient.</p>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">40</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Four times the mass" data-screen-label="41">
+<div class="eyebrow">Check 2 · question 1 of 4</div>
+<h2>Four times the mass</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A mass on a spring oscillates with period T. The mass is replaced by one four times larger, on the same spring. The new period is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> T/2</div>
+<div class="opt right" data-step="2"><span class="l">B</span> 2T</div>
+<div class="opt" data-step="2"><span class="l">C</span> 4T</div>
+<div class="opt" data-step="2"><span class="l">D</span> 16T</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p class="mono" style="font-size:34px;color:var(--primary)">T = 2π√(m/k) → T ∝ √m</p><p>Four times the mass gives √4 = 2, so the period doubles.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>A larger mass cannot give a shorter period</td></tr>
+<tr><td>C</td><td>That would be T ∝ m — the square root has been ignored</td></tr>
+<tr><td>D</td><td>That would be T ∝ m²</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">41</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Both taken to the Moon" data-screen-label="42">
+<div class="eyebrow">Check 2 · question 2 of 4</div>
+<h2>Both taken to the Moon</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A simple pendulum and a mass–spring system are both taken to the Moon. Compared with on Earth, their periods</p></div>
+<div class="opts">
+<div class="opt right" data-step="2"><span class="l">A</span> pendulum increases, mass–spring unchanged</div>
+<div class="opt" data-step="2"><span class="l">B</span> pendulum unchanged, mass–spring increases</div>
+<div class="opt" data-step="2"><span class="l">C</span> both increase</div>
+<div class="opt" data-step="2"><span class="l">D</span> both unchanged</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — A</h3><p>The pendulum period depends on g, so a weaker field gives a longer period. The mass–spring period depends only on m and k, so it is unchanged.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>B</td><td>The two oscillators the wrong way round</td></tr>
+<tr><td>C</td><td>The spring does not know about g — weight only shifts its equilibrium position</td></tr>
+<tr><td>D</td><td>T = 2π√(l/g) contains g explicitly</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">42</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Reading a linearised gradient" data-screen-label="43">
+<div class="eyebrow">Check 2 · question 3 of 4</div>
+<h2>Reading a linearised gradient</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A student plots T² against l for a simple pendulum and finds a gradient of 4.0 s² m⁻¹. The value of g is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 0.10 N kg⁻¹</div>
+<div class="opt right" data-step="2"><span class="l">B</span> 9.9 N kg⁻¹</div>
+<div class="opt" data-step="2"><span class="l">C</span> 39 N kg⁻¹</div>
+<div class="opt" data-step="2"><span class="l">D</span> 158 N kg⁻¹</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p class="mono" style="font-size:34px;color:var(--primary)">gradient = 4π²/g → g = 4π²/4.0 = 9.9 N kg⁻¹</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>gradient/4π² — the expression inverted</td></tr>
+<tr><td>C</td><td>4π² alone, the gradient never divided in</td></tr>
+<tr><td>D</td><td>4π² × 4.0 — multiplied instead of divided</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">43</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="A stiffer spring" data-screen-label="44">
+<div class="eyebrow">Check 2 · question 4 of 4</div>
+<h2>A stiffer spring</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">The same mass is transferred to a spring of twice the spring constant. Its new period is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 2T</div>
+<div class="opt" data-step="2"><span class="l">B</span> T√2</div>
+<div class="opt right" data-step="2"><span class="l">C</span> T/√2</div>
+<div class="opt" data-step="2"><span class="l">D</span> T/2</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p class="mono" style="font-size:34px;color:var(--primary)">T = 2π√(m/k) → T ∝ 1/√k</p><p>Doubling k divides the period by √2 — a stiffer spring pulls the mass back harder, so the oscillation is faster.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>A stiffer spring gives a shorter, not a longer, period</td></tr>
+<tr><td>B</td><td>Right factor, wrong direction</td></tr>
+<tr><td>D</td><td>That would be T ∝ 1/k, ignoring the square root</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">44</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Chunk 3" data-screen-label="45">
+<div class="eyebrow">Chunk 3 of 3</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:86px">The defining condition</h2>
+<p style="max-width:1250px">Why a ∝ −x is what makes an oscillation simple harmonic, what the three graphs look like, and what phase difference means.</p>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">45</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Force condition" data-screen-label="46">
+<div class="eyebrow">Chunk 3 · the condition</div>
+<h2>The condition that produces SHM</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="card" data-step="1"><p>SHM occurs if the restoring force F is proportional to the displacement x, and always acts back towards equilibrium.</p></div>
+<div class="formula" data-step="2"><span class="lab">Force condition</span><div class="eq">F ∝ −x</div></div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><p>The minus sign matters: an increasing force <strong>opposes</strong> increasing displacement.</p></div>
+<div class="card" data-step="4"><p>Spring: F_H = −kx satisfies it exactly. Pendulum: mg sinθ ∝ θ only while θ is small.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">46</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="From force to motion" data-screen-label="47">
+<div class="eyebrow">Chunk 3 · the definition</div>
+<h2>From force to motion</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-09.png" alt="Acceleration against displacement graph for SHM: straight line of negative gradient through the origin"><div class="cap">Fig 9 — a against x: straight line through the origin, negative gradient, from a_max at −x₀ to −a_max at +x₀.</div></div>
+<div class="col">
+<div class="card" data-step="2"><p>Define SHM by the <em>motion</em>, not the force. Since F = ma:</p></div>
+<div class="formula" data-step="3"><span class="lab">Definition of SHM</span><div class="eq">a ∝ −x</div></div>
+<div class="card tight" data-step="4"><p><strong>SHM: the acceleration is proportional to the displacement, in the opposite direction, always towards equilibrium.</strong> A straight line through the origin here <em>proves</em> SHM.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">47</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Amplitude and period" data-screen-label="48">
+<div class="eyebrow">Chunk 3 · the consequence</div>
+<h2>Why amplitude does not affect period</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="card" data-step="1"><p>Double the amplitude → the restoring force and the acceleration double.</p></div>
+<div class="card" data-step="2"><p>Twice the distance at twice the average speed → <strong>the same time per oscillation</strong>.</p></div>
+<div class="note success" data-step="3"><p>✓ <strong>Amplitude does not affect time period</strong> — and that answers the diagnostic question.</p></div>
+</div>
+<div class="col">
+<div class="card" data-step="4"><p>Write a = −constant × x. The constant must grow with frequency; it can be shown to equal ω².</p></div>
+<div class="formula" data-step="5"><span class="lab">Defining equation of SHM</span><div class="eq">a = −ω²x</div></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">48</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Worked example C1.4" data-screen-label="49">
+<div class="eyebrow">Worked example C1.4 · question</div>
+<h2>Using a = −ω²x</h2>
+<div class="body">
+<div class="card" data-step="1"><p class="stem">A mass oscillates horizontally between two springs with a frequency of 1.4 Hz.</p><p>(a) Calculate its angular frequency.<br>(b) Determine its acceleration when (i) its displacement is 1.0 cm to the right, (ii) its displacement is 4.0 cm to the left, (iii) it passes through its equilibrium position.</p></div>
+<div class="note warn" data-step="2"><p>⚠️ Convert every displacement to metres and keep its sign. Take right as positive.</p></div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">49</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="C1.4 solution" data-screen-label="50">
+<div class="eyebrow">Worked example C1.4 · solution</div>
+<h2>Identify → Data → Equation → Answer</h2>
+<div class="body">
+<div class="steps">
+<div class="step" data-step="1"><div class="n">1</div><div class="tx"><strong>Identify:</strong> Convert f to ω, then substitute signed displacements in metres into the defining equation. Right is taken as positive.</div></div>
+<div class="step" data-step="2"><div class="n">2</div><div class="tx mono"><strong>Data:</strong> f = 1.4 Hz; x = +0.010 m, −0.040 m, 0.0 m.</div></div>
+<div class="step" data-step="3"><div class="n">3</div><div class="tx mono"><strong>Equation:</strong> ω = 2πf = 2π × 1.4 = 8.8 rad s⁻¹ · a = −(8.8)² × (+0.010) = −0.77 m s⁻² · a = −(8.8)² × (−0.040) = +3.1 m s⁻²</div></div>
+<div class="step" data-step="4"><div class="n">4</div><div class="tx"><strong>Answer:</strong> (a) ω = 8.8 rad s⁻¹. (b i) −0.77 m s⁻² (to the left). (b ii) +3.1 m s⁻² (to the right). (b iii) 0.0 m s⁻² — zero displacement means zero restoring force and zero acceleration, but maximum speed.</div></div>
+</div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">50</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Displacement-time graph" data-screen-label="51">
+<div class="eyebrow">Chunk 3 · graphs</div>
+<h2>The displacement–time graph</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-10.png" alt="Displacement against time graph for SHM with amplitude and period marked"><div class="cap">Fig 10 — x–t for perfect SHM, timing started at zero displacement. Amplitude x₀, period T.</div></div>
+<div class="col">
+<div class="card" data-step="2"><p>A pen on the oscillating mass draws on a card pulled past at constant speed. The <strong>trace</strong> is a displacement–time graph; a sensor and data logging does it better.</p></div>
+<div class="card" data-step="3"><p>The shape is <strong>sinusoidal</strong> — a sine wave, or equivalently a cosine wave.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">51</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Three graphs" data-screen-label="52">
+<div class="eyebrow">Chunk 3 · graphs</div>
+<h2>Displacement, velocity, acceleration</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-11.png" alt="Three stacked graphs against time for SHM: displacement, velocity and acceleration"><div class="cap">Fig 11 — Starting at x = 0: (a) x–t, (b) v–t, (c) a–t. Zero gradient on one graph gives zero on the next.</div></div>
+<div class="col">
+<div class="card tight" data-step="2"><p>v is the gradient of x–t; a is the gradient of v–t.</p><div class="pills"><span>v = Δx/Δt</span><span>a = Δv/Δt</span></div></div>
+<div class="card tight" data-step="3"><p><strong>v maximum at x = 0</strong>, zero at ±x₀. <strong>a maximum at ±x₀</strong>, zero at x = 0 — the restoring force is greatest where displacement is greatest.</p></div>
+<div class="note warn tight" data-step="4"><p>⚠️ The three amplitudes are arbitrary — do not compare them.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">52</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Phase difference" data-screen-label="53">
+<div class="eyebrow">Chunk 3 · phase</div>
+<h2>Phase difference</h2>
+<div class="body"><div class="two wide-l">
+<div class="fig" data-step="1"><img src="../assets/lesson-images/c1-01-defining-simple-harmonic-motion-12.png" alt="Four identical swings side by side, each at a different point of its oscillation"><div class="cap">Fig 12 — Four oscillations out of phase: same frequency, different points in the cycle.</div></div>
+<div class="col">
+<div class="card" data-step="2"><p>Identical swings, so the same frequency — but each at a different point of its oscillation. They are <strong>out of phase</strong>.</p></div>
+<div class="card" data-step="3"><h3>Phase difference</h3><p>Between two oscillations of the same frequency whose maximum values do not occur at the same time.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">53</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Quantifying phase" data-screen-label="54">
+<div class="eyebrow">Chunk 3 · phase</div>
+<h2>Quantifying the phase difference</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="card tight" data-step="1"><p>Measure it as the fraction of a period between the peaks. One cycle = 2π rad, so phase differences are quoted in π.</p><table class="t"><thead><tr><th>Fraction of a cycle</th><th>Phase difference</th><th>Degrees</th></tr></thead><tbody>
+<tr><td class="mono">T/4</td><td class="mono">π/2 rad</td><td class="mono">90°</td></tr>
+<tr><td class="mono">T/2</td><td class="mono">π rad</td><td class="mono">180°</td></tr>
+<tr><td class="mono">3T/4</td><td class="mono">3π/2 rad</td><td class="mono">270°</td></tr>
+</tbody></table></div>
+</div>
+<div class="col" style="justify-content:center">
+<div class="card" data-step="2"><p>3π/2 is equal in magnitude to π/2, but sometimes which peak came first matters. Phase differences run from 0 to 2π rad.</p></div>
+<div class="note success" data-step="3"><p>✓ <strong>Learn these two:</strong> x to v is <strong>π/2</strong>; x to a is <strong>π</strong>.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">54</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Graph mastery" data-screen-label="55">
+<div class="eyebrow">Chunk 3 · graphs every examiner uses</div>
+<h2>Six graphs, and what to read off them</h2>
+<div class="body">
+<div class="card tight" style="flex:1;justify-content:center">
+<table class="t"><thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead><tbody>
+<tr data-step="1"><td>Acceleration–displacement</td><td class="mono">x / m, a / m s⁻²</td><td>Straight line through the origin, negative gradient</td><td>Gradient = −ω²; a straight line through the origin proves SHM</td></tr>
+<tr data-step="2"><td>Displacement–time</td><td class="mono">t / s, x / m</td><td>Sinusoidal</td><td>Amplitude x₀ from the peak, period T peak-to-peak; gradient gives v</td></tr>
+<tr data-step="3"><td>T against m (spring)</td><td class="mono">m / kg, T / s</td><td>Curve of decreasing gradient from the origin</td><td>Not linear — must be linearised before use</td></tr>
+<tr data-step="4"><td>T² against m (spring)</td><td class="mono">m / kg, T² / s²</td><td>Straight line through the origin</td><td>Gradient = 4π²/k, so k = 4π²/gradient</td></tr>
+<tr data-step="5"><td>T² against l (pendulum)</td><td class="mono">l / m, T² / s²</td><td>Straight line through the origin</td><td>Gradient = 4π²/g, so g = 4π²/gradient</td></tr>
+<tr data-step="6"><td>T against k</td><td class="mono">k / N m⁻¹, T / s</td><td>Decreasing curve, T ∝ k⁻¹ᐟ², approaching but never touching either axis</td><td>Stiffer spring gives a shorter period for the same mass</td></tr>
+</tbody></table>
+</div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">55</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Check 3" data-screen-label="56">
+<div class="eyebrow">Formative check · chunk 3</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:86px">Check 3 — four questions</h2>
+<p style="max-width:1250px">The definition, the graphs, phase difference, and the gradient of an acceleration–displacement graph.</p>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">56</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="The definition" data-screen-label="57">
+<div class="eyebrow">Check 3 · question 1 of 4</div>
+<h2>The definition</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">Which statement defines simple harmonic motion?</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> The velocity is proportional to the displacement and in the same direction</div>
+<div class="opt" data-step="2"><span class="l">B</span> The acceleration is constant and directed towards the equilibrium position</div>
+<div class="opt right" data-step="2"><span class="l">C</span> The acceleration is proportional to the displacement and in the opposite direction</div>
+<div class="opt" data-step="2"><span class="l">D</span> The period is proportional to the amplitude of the oscillation</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p>SHM is defined by a ∝ −x: the acceleration is proportional to displacement and directed back towards equilibrium, written a = −ω²x.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Velocity is π/2 out of phase with displacement, not proportional to it</td></tr>
+<tr><td>B</td><td>The acceleration is not constant — it grows with displacement</td></tr>
+<tr><td>D</td><td>Period is independent of amplitude; that is the defining feature</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">57</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="At maximum displacement" data-screen-label="58">
+<div class="eyebrow">Check 3 · question 2 of 4</div>
+<h2>At maximum displacement</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A particle in SHM is at maximum displacement. At that instant</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> velocity and acceleration are both maximum</div>
+<div class="opt" data-step="2"><span class="l">B</span> velocity and acceleration are both zero</div>
+<div class="opt" data-step="2"><span class="l">C</span> velocity is maximum and acceleration is zero</div>
+<div class="opt right" data-step="2"><span class="l">D</span> velocity is zero and acceleration is maximum</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — D</h3><p>At ±x₀ the oscillator has momentarily stopped, so v = 0, but the restoring force and therefore the acceleration are greatest.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>The velocity is zero at the extremes</td></tr>
+<tr><td>B</td><td>Zero acceleration would mean no restoring force at the point where it is largest</td></tr>
+<tr><td>C</td><td>That describes the equilibrium position instead</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">58</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Phase difference" data-screen-label="59">
+<div class="eyebrow">Check 3 · question 3 of 4</div>
+<h2>Phase difference</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">The phase difference between the displacement and the acceleration of a particle in SHM is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 0</div>
+<div class="opt" data-step="2"><span class="l">B</span> π/2 rad</div>
+<div class="opt right" data-step="2"><span class="l">C</span> π rad</div>
+<div class="opt" data-step="2"><span class="l">D</span> 2π rad</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p>Acceleration is always opposite in sign to displacement, so the two curves are exactly antiphase: π rad (180°).</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>That would mean the two peak together</td></tr>
+<tr><td>B</td><td>π/2 is displacement against <em>velocity</em></td></tr>
+<tr><td>D</td><td>2π is a whole cycle — indistinguishable from being in phase</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">59</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Reading the a–x gradient" data-screen-label="60">
+<div class="eyebrow">Check 3 · question 4 of 4</div>
+<h2>Reading the a–x gradient</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">The acceleration–displacement graph for an oscillator is a straight line of gradient −16 s⁻². The time period of the oscillation is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 0.40 s</div>
+<div class="opt right" data-step="2"><span class="l">B</span> 1.6 s</div>
+<div class="opt" data-step="2"><span class="l">C</span> 2.5 s</div>
+<div class="opt" data-step="2"><span class="l">D</span> 6.3 s</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p class="mono" style="font-size:34px;color:var(--primary)">gradient = −ω² → ω = 4.0 rad s⁻¹<br>T = 2π/ω = 2π/4.0 = 1.6 s</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>1/ω rather than 2π/ω</td></tr>
+<tr><td>C</td><td>ω taken as 16 and then 2π forgotten</td></tr>
+<tr><td>D</td><td>2π/1 — the square root of the gradient never taken</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">60</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Traps 1" data-screen-label="61">
+<div class="eyebrow">Trap corner · 1 of 2</div>
+<h2>Common mistakes</h2>
+<div class="body">
+<div class="card tight" style="flex:1;justify-content:center">
+<table class="t traps"><thead><tr><th>Misconception</th><th>Correct view</th></tr></thead><tbody>
+<tr data-step="1"><td>Amplitude is the distance between the extreme positions</td><td>That distance equals <em>twice</em> the amplitude; amplitude is measured from the equilibrium position</td></tr>
+<tr data-step="2"><td>Moving from one extreme to the other is one oscillation</td><td>That is half an oscillation; a cycle ends when the mass returns to a position moving in the <em>same</em> direction</td></tr>
+<tr data-step="3"><td>A bigger amplitude means a longer period</td><td>Amplitude does not affect period: the force and acceleration scale with displacement, so the mass covers twice the distance at twice the average speed</td></tr>
+<tr data-step="4"><td>A vertical mass–spring period depends on g</td><td>Weight is constant, so it shifts the equilibrium position but not the period; only m and k matter. The <em>pendulum</em> is the one that depends on g</td></tr>
+</tbody></table>
+</div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">61</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Traps 2" data-screen-label="62">
+<div class="eyebrow">Trap corner · 2 of 2</div>
+<h2>Common mistakes</h2>
+<div class="body">
+<div class="card tight" data-step="1">
+<table class="t traps"><thead><tr><th>Misconception</th><th>Correct view</th></tr></thead><tbody>
+<tr><td>Heavier pendulum bob, longer period</td><td>Period is independent of mass — doubling the mass doubles the restoring force too. Only l and g matter</td></tr>
+<tr><td>Acceleration is zero at the extremes because the mass has stopped</td><td>At ±x₀ the <em>velocity</em> is zero but the acceleration is maximum, since the restoring force is greatest there</td></tr>
+<tr><td>T against m or T against l should be a straight line</td><td>Both are curves; you must plot T² to linearise and take a gradient</td></tr>
+</tbody></table>
+</div>
+<div class="note warn" data-step="2"><p>⚠️ <strong>Most common slip:</strong> dropping the minus sign in a = −ω²x, or substituting displacement in centimetres. Always convert x to metres and keep its sign — the sign of a is what tells the examiner the acceleration points back towards equilibrium.</p></div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">62</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Wrap-up" data-screen-label="63">
+<div class="eyebrow">Wrap-up · exam-style question</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:86px">One question, five marks</h2>
+<p style="max-width:1250px">Written answer, on your own, five minutes. Then we mark it together, one mark at a time.</p>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">63</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Exam question" data-screen-label="64">
+<div class="eyebrow">Exam question · Explain</div>
+<h2>Conditions and amplitude</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">(a) State the two conditions that must be satisfied for an oscillation to be simple harmonic.</p><p class="stem">(b) Explain why the time period of a simple harmonic oscillator does not depend on its amplitude.</p><p class="cap" style="font-size:26px;font-style:italic">[5 marks]</p></div>
+</div>
+<div class="col">
+<div class="note warn" data-step="2"><p>Five marks means five separate statements. Part (a) carries two; part (b) carries three, and each one must be a step in a chain of reasoning.</p></div>
+<div class="card" data-step="3"><p>Five minutes. Write in full sentences, and use the words <em>proportional</em>, <em>equilibrium</em> and <em>average speed</em>.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">64</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Mark scheme" data-screen-label="65">
+<div class="eyebrow">Mark scheme · one click per mark</div>
+<h2>Mark your own answer</h2>
+<div class="body">
+<div class="marks">
+<div data-step="1"><span class="tick">✓</span><span>(a) The restoring force (and so the acceleration) is proportional to the displacement from equilibrium</span></div>
+<div data-step="2"><span class="tick">✓</span><span>(a) and is always directed towards the equilibrium position: a = −ω²x</span></div>
+<div data-step="3"><span class="tick">✓</span><span>(b) Doubling the amplitude doubles the displacement at every equivalent point</span></div>
+<div data-step="4"><span class="tick">✓</span><span>(b) so the restoring force and the acceleration double, and the average speed doubles</span></div>
+<div data-step="5"><span class="tick">✓</span><span>(b) the oscillator covers twice the distance at twice the average speed, so the time for one cycle is unchanged</span></div>
+</div>
+<div class="note success" data-step="6"><p>✓ <strong>Examiner tip</strong> — "Explain" questions are marked in links, not in conclusions. Writing only "because period is independent of amplitude" scores zero: it restates the question.</p></div>
+</div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">65</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Real world" data-screen-label="66">
+<div class="eyebrow">Context · why this mattered</div>
+<h2>Solving the problem of longitude</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="card tight" data-step="1"><p>Galileo found that pendulums keep constant time. Huygens built the first pendulum clock in <strong>1656</strong>. By 1800 the best were out by under a second a day — the world's most accurate timekeepers for over 250 years.</p></div>
+<div class="card tight" data-step="2"><p>Longitude needed the exact time of a star sighting, but a pendulum cannot cope with a moving ship. The British reward was won by the clockmaker James Harrison, using <strong>oscillating spheres on springs</strong> instead of a pendulum.</p></div>
+</div>
+<div class="col">
+<div class="note success" data-step="3"><p>✓ <strong>Examiner tip</strong> — in "discuss the impact" questions, link <em>isochronous oscillation</em> to a named benefit: navigation, longitude, standardised time.</p></div>
+<div class="note tight" data-step="4"><p>🔗 <strong>Linking questions</strong> — greenhouse gases as simple harmonic oscillators (B.2); SHM applied to the wave model (C.2).</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span class="mono">66</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Recap" data-screen-label="67">
+<div class="eyebrow">Recap</div>
+<h2>Carry these out of the room</h2>
+<div class="body"><div class="two">
+<div class="col">
+<div class="card tight" data-step="1"><table class="t"><tbody>
+<tr><td>Amplitude x₀</td><td>Maximum displacement from equilibrium / m</td></tr>
+<tr><td>Time period T</td><td>Time for one complete oscillation / s</td></tr>
+<tr><td>Frequency f</td><td>Oscillations per second / Hz</td></tr>
+<tr><td>Angular frequency ω</td><td>Angle swept per second / rad s⁻¹</td></tr>
+</tbody></table></div>
+<div class="formula" data-step="2"><span class="lab">The one equation to carry forward</span><div class="eq">a = −ω²x</div></div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Keywords</h3><div class="pills"><span>T = 1/f = 2π/ω</span><span>ω = 2πf</span><span>F_H = −kx</span><span>T = 2π√(m/k)</span><span>ω² = k/m</span><span>T = 2π√(l/g)</span><span>a = −ω²x</span><span>isochronous</span><span>phase difference π/2</span></div></div>
+<div class="note" data-step="4"><p><strong>Homework</strong> — the lesson page for C.1 Lesson 1: source questions 1 to 12, plus the Tool 3 and Inquiry 3 tasks, with model answers to check against.</p></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · Defining Simple Harmonic Motion</span><span>Next lesson — C.1 Lesson 2: SHM equations, displacement, velocity and acceleration</span><span class="mono">67</span></div>
+</section>
+
+</div>
+<script src="deck.js"></script>
+</body>
+</html>

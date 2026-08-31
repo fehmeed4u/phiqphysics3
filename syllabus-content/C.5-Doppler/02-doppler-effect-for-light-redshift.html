@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doppler Effect for Light — Redshift — C.5 Doppler Effect — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C5">C.5 Doppler Effect</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Doppler Effect for Light — Redshift</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">C.5</span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 2 of 3</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Doppler Effect for Light — Redshift</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">C.5 Doppler Effect</strong> · Unit C — IB Physics 2023</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">← Back to C.5 overview</a>
+      <div class="sidebar-title">C.5 Concepts</div>
+      <a href="01-doppler-effect-for-sound.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Doppler Effect for Sound</span>
+        </a>
+      <a href="02-doppler-effect-for-light-redshift.html" class="sidebar-link active">
+          <span class="sidebar-num">02</span>
+          <span>Doppler Effect for Light — Redshift</span>
+        </a>
+      <a href="03-applications-of-the-doppler-effect.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Applications of the Doppler Effect</span>
+        </a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:1rem 1.4rem;margin:0.85rem 0;
+  text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .katex { font-size:1.35rem;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
+  margin-bottom:0.35rem;font-family:var(--font-sans); }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+
+.lc-slider-lab { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem; }
+.lc-slider-lab h4 { font-size:0.95rem;font-weight:600;margin:0 0 0.5rem 0;color:var(--accent); }
+.lc-slider-lab canvas { width:100%;height:auto;background:var(--surface);
+  border-radius:8px;margin-top:0.5rem;border:1px solid var(--border); }
+.lc-slider-lab input[type=range] { width:100%;margin:0.5rem 0;accent-color:var(--accent); }
+.lc-slider-lab .lc-slider-value { font-family:var(--font-mono);font-size:0.85rem;
+  text-align:center;color:var(--text-2); }
+</style>
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 8 · D.4 Doppler</div>
+<div class="lc-title">Doppler Effect and Light</div>
+<div class="lc-sub">Explore how tiny shifts in the colour of light reveal the motion of stars, galaxies, and even the expansion of the Universe.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – The cosmic speed gun</h3>
+  <p>A police radar gun can measure the speed of a car using reflected microwaves. Astronomers use exactly the same Doppler physics to measure the speed of galaxies billions of light-years away. A tiny shift in wavelength reveals whether a star is approaching or receding from Earth. <strong>The colour shift of light becomes a cosmic speedometer.</strong></p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/RZ1jWTpd/image.png" alt="Police radar gun and expanding universe illustration">
+    <div class="lc-cap">Fig 1 — Doppler measurements connect radar speed detection on Earth to the expansion of distant galaxies.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — If a star moves toward Earth, what changes about its light: brightness, colour, or the speed of light itself? <em>Answer: the colour/frequency changes — the speed of light remains constant.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Spectral fingerprints of atoms</h3>
+  <p>Every element emits light at specific frequencies, producing a unique <strong>line spectrum</strong>. These spectral lines act like fingerprints that allow astronomers to identify the composition and motion of stars.</p>
+
+  <div class="lc-formula">
+    <span class="lc-formula-label">Wave relationship</span>
+    $$c = f\lambda$$
+  </div>
+
+  <p>If the source moves relative to the observer, the observed wavelength \(\lambda\) changes while the speed of light \(c\) remains constant.</p>
+
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/2SwrsmYS/image.png" alt="Emission and absorption spectra comparison">
+    <div class="lc-cap">Fig 2 — Emission spectra produce bright lines, while absorption spectra show dark lines where wavelengths are absorbed.</div>
+  </div>
+
+  <div class="lc-formula">
+    $$\frac{\Delta \lambda}{\lambda} \approx \frac{v}{c}$$
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🌌 Redshift and blueshift</h3>
+  <p>A <strong>redshift</strong> occurs when wavelengths increase because the source is moving away. A <strong>blueshift</strong> occurs when wavelengths decrease because the source moves closer.</p>
+
+  <div class="lc-formula">
+    <span class="lc-formula-label">Approximation for low speeds</span>
+    $$\frac{\Delta f}{f} = \frac{\Delta \lambda}{\lambda} \approx \frac{v}{c} \qquad (v \ll c)$$
+  </div>
+
+  <p>This approximation is only valid when the relative speed is much less than the speed of light.</p>
+
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/8cMVtgwN/image.png" alt="Redshift and blueshift wavelength comparison">
+    <div class="lc-cap">Fig 3 — Spectral lines shift toward the red end when receding and toward the blue end when approaching.</div>
+  </div>
+
+  <div class="lc-info">💡 Astronomers compare observed spectral lines with laboratory values to determine recession speed.</div>
+</div>
+
+<div class="lc-slider-lab">
+  <h4>🔬 Interactive lab 1 – Spectral shifter</h4>
+  <p style="font-size:0.86rem;color:var(--text-2);margin-bottom:0.25rem">Drag the velocity slider and observe how spectral lines move across the visible spectrum.</p>
+  <canvas id="dopplerCanvas1" width="600" height="220"></canvas>
+  <input type="range" id="dopplerSlider1" min="-0.2" max="0.2" value="0" step="0.01">
+  <div class="lc-slider-value">Relative velocity = <span id="dopplerVal1">0</span>c &nbsp;|&nbsp; Shifted wavelength = <span id="dopplerShift1">486</span> nm</div>
+  <div class="lc-info" style="margin-top:0.5rem">💡 <strong>What to notice:</strong> Negative velocity produces a blueshift while positive velocity produces a redshift. Compare the observed shift with \(\frac{\Delta \lambda}{\lambda} \approx \frac{v}{c}\).</div>
+</div>
+
+<div class="lc-slider-lab">
+  <h4>🔬 Interactive lab 2 – Classical vs relativistic Doppler</h4>
+  <p style="font-size:0.86rem;color:var(--text-2);margin-bottom:0.25rem">Increase the speed toward relativistic values and compare the classical approximation with the relativistic prediction.</p>
+  <canvas id="dopplerCanvas2" width="600" height="220"></canvas>
+  <input type="range" id="dopplerSlider2" min="0" max="0.9" value="0.1" step="0.01">
+  <div class="lc-slider-value">Velocity = <span id="dopplerVal2">0.1</span>c &nbsp;|&nbsp; Error = <span id="dopplerErr2">0</span>%</div>
+  <div class="lc-info" style="margin-top:0.5rem">💡 <strong>What to notice:</strong> At low speeds the curves overlap closely, but near \(0.9c\) the classical approximation becomes highly inaccurate.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead>
+      <tr>
+        <th>Graph type</th>
+        <th>Axes (X, Y)</th>
+        <th>Shape</th>
+        <th>What to read</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Redshift vs distance</td>
+        <td>Distance, \(\Delta \lambda\)</td>
+        <td>Linear increase</td>
+        <td>Further galaxies recede faster → expanding universe</td>
+      </tr>
+      <tr>
+        <td>Linearized Doppler graph</td>
+        <td>\(\lambda v\), \(\Delta \lambda\)</td>
+        <td>Straight line through origin</td>
+        <td>Gradient equals \(\frac{1}{c}\)</td>
+      </tr>
+      <tr>
+        <td>Observed spectrum</td>
+        <td>Intensity, wavelength</td>
+        <td>Shifted peaks or dips</td>
+        <td>Direction and speed of motion</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="lc-img-row">
+    <div class="lc-img">
+      <img src="https://i.postimg.cc/RFnrZxk5/image.png" alt="Redshift versus distance graph">
+      <div class="lc-cap">Fig 4 — A linear increase in redshift with distance supports universal expansion.</div>
+    </div>
+
+    <div class="lc-img">
+      <img src="https://i.postimg.cc/qMrf4YjT/image.png" alt="Linearized Doppler graph">
+      <div class="lc-cap">Fig 5 — The gradient of the graph is linked directly to the speed of light.</div>
+    </div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – Measuring a galaxy's recession speed</h3>
+
+  <div class="lc-step">
+    <div class="lc-step-num">1</div>
+    <div class="lc-step-body"><strong>Identify:</strong> This is a Doppler redshift problem. We compare emitted and observed wavelengths to determine recession speed.</div>
+  </div>
+
+  <div class="lc-step">
+    <div class="lc-step-num">2</div>
+    <div class="lc-step-body"><strong>Data:</strong> Laboratory wavelength \(= 587.6 \text{ nm}\). Observed wavelength \(= 612.0 \text{ nm}\). Therefore \(\Delta\lambda = 24.4 \text{ nm}\).</div>
+  </div>
+
+  <div class="lc-step">
+    <div class="lc-step-num">3</div>
+    <div class="lc-step-body"><strong>Equation:</strong> Use \(v = \frac{\Delta \lambda}{\lambda}c\). Substituting gives \(v = \frac{24.4}{587.6}(3.00 \times 10^8)\).</div>
+  </div>
+
+  <div class="lc-step">
+    <div class="lc-step-num">4</div>
+    <div class="lc-step-body"><strong>Answer:</strong> \(v \approx 1.25 \times 10^7 \text{ m s}^{-1}\). The galaxy is moving away because the wavelength increased.</div>
+  </div>
+
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/2SHgd5mW/image.png" alt="Helium spectral line shift example">
+    <div class="lc-cap">Fig 6 — Comparing laboratory and galactic spectra reveals the recession speed.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: The expanding universe</h3>
+    <p>Most galaxies show a redshift in their spectra, meaning they are moving away from Earth. Edwin Hubble discovered that more distant galaxies move faster, providing evidence that the universe itself is expanding.</p>
+
+    <div class="lc-img">
+      <img src="https://i.postimg.cc/rsLHy0GY/image.png" alt="Hubble expansion illustration">
+      <div class="lc-cap">Fig 7 — The recession of galaxies provides evidence for the Big Bang model.</div>
+    </div>
+
+    <div class="lc-success">✓ Examiner tip: Always connect redshift evidence to expansion of space, not galaxies moving through empty space alone.</div>
+  </div>
+
+  <div class="lc-card">
+    <h3>🚀 HL Extension – Relativistic Doppler effect</h3>
+    <p>At speeds approaching \(c\), the approximation formula fails. The relativistic Doppler equation accounts for time dilation effects.</p>
+
+    <div class="lc-formula">
+      $$f_{\text{obs}} = f_s \frac{\sqrt{1-\beta^2}}{1+\beta\cos\theta}$$
+    </div>
+
+    <p><strong>Challenge:</strong> Why does the observed frequency still change when motion is perpendicular to the observer? (Answer: time dilation causes the transverse Doppler effect.)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+
+  <table class="lc-table">
+    <thead>
+      <tr>
+        <th>Misconception</th>
+        <th>Correct view</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Redshift means the star appears red.</td>
+        <td>Only the spectral lines shift toward longer wavelengths.</td>
+      </tr>
+
+      <tr>
+        <td>The speed of light changes when the source moves.</td>
+        <td>\(c\) remains constant; frequency and wavelength change instead.</td>
+      </tr>
+
+      <tr>
+        <td>The approximation works at all speeds.</td>
+        <td>\(\frac{\Delta \lambda}{\lambda} \approx \frac{v}{c}\) only works when \(v \ll c\).</td>
+      </tr>
+
+      <tr>
+        <td>All galaxies are redshifted.</td>
+        <td>Nearby galaxies like Andromeda show blueshift because they approach Earth.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="lc-warn">⚠️ Most common slip: forgetting to convert \(\text{km s}^{-1}\) into \(\text{m s}^{-1}\) before using \(c = 3.00 \times 10^8 \text{ m s}^{-1}\).</div>
+</div>
+
+<div class="lc-kp">
+  <span>\(\frac{\Delta \lambda}{\lambda} \approx \frac{v}{c}\)</span>
+  <span>Redshift → source receding</span>
+  <span>Blueshift → source approaching</span>
+  <span>\(c = f\lambda\)</span>
+  <span>Line spectra = atomic fingerprints</span>
+  <span>Evidence for expansion of universe</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A star shows a redshift in its absorption spectrum. What does this mean?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span>The star is getting hotter</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span>The star is moving away from Earth</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span>The star is moving toward Earth</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span>The speed of light has increased</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. The approximation \(\frac{\Delta \lambda}{\lambda} \approx \frac{v}{c}\) is valid when:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span>\(v = c\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span>The source emits sound waves</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span>\(v \ll c\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span>\(\lambda = 0\)</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Which quantity remains constant for all observers?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span>Frequency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span>Wavelength</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span>Brightness</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span>Speed of light</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A blueshift means that observed wavelength:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','A')"><span class="lc-opt-l">A</span>Decreases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','A')"><span class="lc-opt-l">B</span>Increases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','A')"><span class="lc-opt-l">C</span>Becomes zero</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','A')"><span class="lc-opt-l">D</span>Does not change</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+
+  <div class="lc-fitb">
+    A source moving away produces a <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px"> while a source moving closer produces a <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px">. The Doppler approximation is valid only when \(v\) is much less than <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:80px">.
+  </div>
+
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam-style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">(a) A spectral line emitted at \(486 \text{ nm}\) is observed at \(500 \text{ nm}\). Calculate the recession speed of the galaxy. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+
+  <div class="lc-model">
+    ✓ Calculate wavelength shift: \(\Delta\lambda = 14 \text{ nm}\)<br>
+    ✓ Use \(\frac{\Delta \lambda}{\lambda} = \frac{v}{c}\)<br>
+    ✓ \(v = \frac{14}{486}(3.00 \times 10^8) \approx 8.64 \times 10^6 \text{ m s}^{-1}\)
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">(b) Explain why the observation of redshifted galaxies supports the Big Bang theory. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+
+  <div class="lc-model">
+    ✓ Most galaxies show redshifted spectra<br>
+    ✓ Redshift indicates galaxies are moving away<br>
+    ✓ More distant galaxies recede faster<br>
+    ✓ This implies the universe is expanding from an earlier denser state
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Compare</div>
+  <div class="lc-exam-q">(c) Compare the Doppler effect for sound with the Doppler effect for light. [5 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+
+  <div class="lc-model">
+    ✓ Both involve observed frequency changes due to relative motion<br>
+    ✓ Approaching sources increase observed frequency<br>
+    ✓ Receding sources decrease observed frequency<br>
+    ✓ Sound requires a medium whereas light does not<br>
+    ✓ Speed of light is constant for all observers, unlike sound speed
+  </div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+
+  const lcFeedback = {
+    mcq1: { B:'Redshift means wavelength increases because the source is moving away.' },
+    mcq2: { C:'The approximation only works accurately when the speed is much less than the speed of light.' },
+    mcq3: { D:'The speed of light in vacuum remains constant for all observers.' },
+    mcq4: { A:'Blueshift corresponds to shorter observed wavelengths.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+
+    const fb = document.getElementById(id+'-fb');
+
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = {
+      lf1:'redshift',
+      lf2:'blueshift',
+      lf3:'c'
+    };
+
+    let correct = 0, total = Object.keys(ans).length;
+
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || val.includes(ans[id]);
+
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+
+      if (ok) correct++;
+    });
+
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: redshift · blueshift · c';
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+
+})();
+
+// ── THEME-AWARE HELPER ──
+function getThemeColor(varName) {
+  return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+}
+
+// ── LAB 1 ──
+const dopplerCanvas1 = document.getElementById('dopplerCanvas1');
+const dopplerCtx1 = dopplerCanvas1.getContext('2d');
+
+function drawSpectralShift(v) {
+  const w = dopplerCanvas1.width;
+  const h = dopplerCanvas1.height;
+
+  dopplerCtx1.clearRect(0,0,w,h);
+
+  dopplerCtx1.fillStyle = getThemeColor('--surface3') || '#e8e6e2';
+  dopplerCtx1.fillRect(0,0,w,h);
+
+  const centerY = h/2;
+
+  dopplerCtx1.strokeStyle = getThemeColor('--border-2');
+  dopplerCtx1.setLineDash([5,5]);
+  dopplerCtx1.beginPath();
+  dopplerCtx1.moveTo(40, centerY);
+  dopplerCtx1.lineTo(w-40, centerY);
+  dopplerCtx1.stroke();
+
+  dopplerCtx1.setLineDash([]);
+
+  const baseX = 250;
+  const shiftedX = baseX + v*400;
+
+  dopplerCtx1.strokeStyle = getThemeColor('--gold');
+  dopplerCtx1.lineWidth = 3;
+  dopplerCtx1.beginPath();
+  dopplerCtx1.moveTo(baseX, 40);
+  dopplerCtx1.lineTo(baseX, 180);
+  dopplerCtx1.stroke();
+
+  dopplerCtx1.strokeStyle = getThemeColor('--accent');
+  dopplerCtx1.lineWidth = 5;
+  dopplerCtx1.beginPath();
+  dopplerCtx1.moveTo(shiftedX, 40);
+  dopplerCtx1.lineTo(shiftedX, 180);
+  dopplerCtx1.stroke();
+
+  dopplerCtx1.fillStyle = getThemeColor('--text-muted');
+  dopplerCtx1.font = '14px sans-serif';
+  dopplerCtx1.fillText('Rest wavelength', baseX-40, 30);
+  dopplerCtx1.fillText('Observed wavelength', shiftedX-55, 200);
+
+  const shiftedLambda = (486*(1+v)).toFixed(1);
+
+  document.getElementById('dopplerVal1').textContent = v.toFixed(2);
+  document.getElementById('dopplerShift1').textContent = shiftedLambda;
+}
+
+document.getElementById('dopplerSlider1').addEventListener('input', function() {
+  drawSpectralShift(parseFloat(this.value));
+});
+
+drawSpectralShift(0);
+
+// ── LAB 2 ──
+const dopplerCanvas2 = document.getElementById('dopplerCanvas2');
+const dopplerCtx2 = dopplerCanvas2.getContext('2d');
+
+function drawRelativisticGraph(v) {
+  const w = dopplerCanvas2.width;
+  const h = dopplerCanvas2.height;
+
+  dopplerCtx2.clearRect(0,0,w,h);
+
+  dopplerCtx2.fillStyle = getThemeColor('--surface3') || '#e8e6e2';
+  dopplerCtx2.fillRect(0,0,w,h);
+
+  dopplerCtx2.strokeStyle = getThemeColor('--border-2');
+  dopplerCtx2.setLineDash([5,5]);
+
+  dopplerCtx2.beginPath();
+  dopplerCtx2.moveTo(40,h-40);
+  dopplerCtx2.lineTo(w-20,h-40);
+  dopplerCtx2.moveTo(40,20);
+  dopplerCtx2.lineTo(40,h-40);
+  dopplerCtx2.stroke();
+
+  dopplerCtx2.setLineDash([]);
+
+  dopplerCtx2.strokeStyle = getThemeColor('--gold');
+  dopplerCtx2.lineWidth = 2;
+  dopplerCtx2.beginPath();
+
+  for(let x=0;x<=500;x++){
+    const beta = x/500*0.9;
+    const y = beta;
+    const px = 40 + x;
+    const py = h-40 - y*140;
+    if(x===0) dopplerCtx2.moveTo(px,py);
+    else dopplerCtx2.lineTo(px,py);
+  }
+
+  dopplerCtx2.stroke();
+
+  dopplerCtx2.strokeStyle = getThemeColor('--green');
+  dopplerCtx2.lineWidth = 4;
+  dopplerCtx2.beginPath();
+
+  for(let x=0;x<=500;x++){
+    const beta = x/500*0.9;
+    const rel = Math.sqrt((1+beta)/(1-beta))-1;
+    const px = 40 + x;
+    const py = h-40 - rel*70;
+    if(x===0) dopplerCtx2.moveTo(px,py);
+    else dopplerCtx2.lineTo(px,py);
+  }
+
+  dopplerCtx2.stroke();
+
+  dopplerCtx2.fillStyle = getThemeColor('--text-muted');
+  dopplerCtx2.font = '14px sans-serif';
+  dopplerCtx2.fillText('Classical approximation', 70, 40);
+  dopplerCtx2.fillText('Relativistic prediction', 320, 70);
+
+  const classical = v;
+  const relativistic = Math.sqrt((1+v)/(1-v))-1;
+  const error = Math.abs((relativistic-classical)/relativistic*100).toFixed(1);
+
+  document.getElementById('dopplerVal2').textContent = v.toFixed(2);
+  document.getElementById('dopplerErr2').textContent = error;
+}
+
+document.getElementById('dopplerSlider2').addEventListener('input', function() {
+  drawRelativisticGraph(parseFloat(this.value));
+});
+
+drawRelativisticGraph(0.1);
+
+window.drawSpectralShift = drawSpectralShift;
+window.drawRelativisticGraph = drawRelativisticGraph;
+
+// ── KATEX AUTO-RENDER ──
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '\\(', right: '\\)', display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+</script>
+      </div>
+      </div>
+
+      <div class="lesson-nav">
+        <a href="01-doppler-effect-for-sound.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Doppler Effect for Sound</div>
+          </div>
+        </a>
+        <a href="03-applications-of-the-doppler-effect.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Applications of the Doppler Effect</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

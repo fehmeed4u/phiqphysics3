@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Displacement, Velocity and Acceleration — A.1 Kinematics — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A1">A.1 Kinematics</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Displacement, Velocity and Acceleration</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.1
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 1 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Displacement, Velocity and Acceleration</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.1 Kinematics</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.1 overview
+      </a>
+      <div class="sidebar-title">A.1 Concepts</div>
+      <a href="01-displacement-velocity-and-acceleration.html" class="sidebar-link active">
+          <span class="sidebar-num">01</span>
+          <span>Displacement, Velocity and Acceleration</span>
+        </a>
+      <a href="02-uniformly-accelerated-motion-suvat.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Uniformly Accelerated Motion — SUVAT</span>
+        </a>
+      <a href="03-graphs-of-motion.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Graphs of Motion</span>
+        </a>
+      <a href="04-projectile-motion.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Projectile Motion</span>
+        </a>
+      <a href="05-relative-motion.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Relative Motion</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true
+  },
+  svg: {
+    fontCache: 'global',
+    scale: 1.15
+  },
+  startup: {
+    pageReady: function () {
+      return MathJax.startup.defaultPageReady();
+    }
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:1rem 1.4rem;margin:0.85rem 0;
+  text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
+  margin-bottom:0.35rem;font-family:var(--font-sans); }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:14pt;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:14pt;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:14pt;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<!-- SECTION A — HEADER -->
+<div class="lc-badge"><span>1</span> Lesson 1 of 12 · A1 Kinematics</div>
+<div class="lc-title">Distance, displacement & acceleration</div>
+<div class="lc-sub">How do we describe motion precisely? Learn the difference between distance and displacement, master scalars vs vectors, and see how acceleration links changes in velocity to time.</div>
+
+<!-- SECTION B — HOOK & DIAGNOSTIC -->
+<div class="lc-card">
+  <h3>🚗 Hook – The New York–Boston paradox</h3>
+  <p>A family drives from New York City to Boston. Their car’s odometer reads 384 km. However, a straight line on a map shows only 300 km. Which number is the <strong>distance</strong> travelled, and which is the <strong>displacement</strong>? How can two different measurements describe the same trip? Understanding this distinction is the first step to analysing motion in physics.</p>
+  <div class="lc-img">
+    <img src="https://i.ibb.co/WvnW1PLD/image.png" alt="Map showing travel distance vs displacement from New York to Boston">
+    <div class="lc-cap">Fig 1 — Travel distance (curved road) 384 km vs displacement (straight arrow) 300 km northeast.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — If a runner completes one lap of a 400 m track and returns to the start, what are the distance and displacement? <em>Answer: distance = 400 m, displacement = 0 m (because final position = initial position).</em></div>
+</div>
+
+<!-- SECTION C — CORE KNOWLEDGE (3 cards) -->
+<!-- Card 1: Scalars & vectors, distance vs displacement -->
+<div class="lc-card">
+  <h3>📐 Scalars, vectors, and the difference between distance and displacement</h3>
+  <p><strong>Scalars</strong> have only magnitude (size). Examples: mass, time, speed, distance. <strong>Vectors</strong> have both magnitude and direction. Examples: displacement, velocity, acceleration, force.</p>
+  <p><strong>Distance</strong> is the total length of a path travelled – a scalar. <strong>Displacement</strong> is the straight‑line distance from a reference point in a specified direction – a vector.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Distance (scalar) & displacement (vector)</span>
+    $$s_{\text{distance}} = \text{total path length} \qquad \vec{s}_{\text{disp}} = \text{final position} - \text{initial position}$$
+  </div>
+  <div class="lc-img">
+    <img src="https://i.ibb.co/Mk6z8s8k/image.png" alt="Walk in a park showing displacement vectors a–e from start point">
+    <div class="lc-cap">Fig 2 — A 4 km walk returns to start → total distance = 4 km, final displacement = 0.</div>
+  </div>
+</div>
+
+<!-- Card 2: Speed and velocity, instantaneous vs average, reaction time -->
+<div class="lc-card">
+  <h3>⏱️ Speed, velocity & measuring motion</h3>
+  <p><strong>Speed</strong> = distance / time (scalar). <strong>Velocity</strong> = displacement / time (vector). Average values are over a finite time; instantaneous values are measured over an infinitesimally small interval (e.g., from a light gate).</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Average speed & average velocity</span>
+    $$v_{\text{avg speed}} = \frac{\text{distance}}{\Delta t} \qquad \vec{v}_{\text{avg}} = \frac{\Delta \vec{s}}{\Delta t}$$
+  </div>
+  <p>Human reaction times (~0.25 s) introduce uncertainty when using stopwatches. Light gates provide precise timing by detecting when a beam is interrupted.</p>
+  <div class="lc-img-row">
+    <div class="lc-img">
+      <img src="https://i.ibb.co/4n9T0sL5/image.png" alt="Ruler drop reaction time measurement">
+      <div class="lc-cap">Fig 3 — Measuring reaction time: catch a falling ruler; distance fallen gives time from \(s = 5t^2\).</div>
+    </div>
+    <div class="lc-img">
+      <img src="https://i.ibb.co/V0hmrFgM/image.png" alt="Air track with light gate measuring speed">
+      <div class="lc-cap">Fig 4 — Air track & light gate: speed = card length / time through gate (instantaneous approximation).</div>
+    </div>
+  </div>
+</div>
+
+<!-- Card 3: Acceleration -->
+<div class="lc-card">
+  <h3>📈 Acceleration – changing velocity</h3>
+  <p><strong>Acceleration</strong> is the rate of change of velocity. It is a vector. Speeding up, slowing down (deceleration), and changing direction are all forms of acceleration. Uniform acceleration means constant magnitude and direction.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Definition of acceleration</span>
+    $$a = \frac{\Delta \vec{v}}{\Delta t} = \frac{v - u}{t} \quad (\text{SI unit: } \mathrm{m\,s^{-2}})$$
+  </div>
+  <p>If acceleration is opposite to velocity (negative sign), speed decreases. In everyday language we call this <strong>deceleration</strong>.</p>
+  <div class="lc-info">💡 Example: A train slows from \(84\,\mathrm{m\,s^{-1}}\) to rest in 60 s → \(a = (0-84)/60 = -1.4\,\mathrm{m\,s^{-2}}\). The negative sign shows decreasing velocity.</div>
+</div>
+
+<!-- SECTION D — GRAPH MASTERY TABLE -->
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Displacement–time</td><td>Time (s), Displacement (m)</td><td>Straight line → constant velocity; curve → changing velocity</td><td>Gradient = instantaneous velocity</td></tr>
+      <tr><td>Velocity–time</td><td>Time (s), Velocity (m/s)</td><td>Horizontal line → constant acceleration; slope = acceleration</td><td>Gradient = acceleration; area under graph = displacement</td></tr>
+      <tr><td>Acceleration–time</td><td>Time (s), Acceleration (m/s²)</td><td>Horizontal line for uniform a; area under graph = change in velocity</td><td>Area = \(\Delta v\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img">
+      <img src="https://i.ibb.co/SD0T4RFL/image.png" alt="Displacement-time graph with three lines: constant positive velocity, zero velocity, constant negative velocity">
+      <div class="lc-cap">Fig 5 — Displacement–time graphs. Line A: constant positive velocity; Line B: stationary; Line C: constant negative velocity (moving back).</div>
+    </div>
+    <div class="lc-img">
+      <!-- No image 8 provided; we use a placeholder description but do not include an actual image due to skip instruction. Use a simple note instead. -->
+      <div class="lc-cap"><em>(Curved s–t graph for non‑uniform motion would show parabolic shape; linearising \(s \propto t^2\) gives straight line.)</em></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION E — WORKED EXAMPLE (satellite from page 6) -->
+<div class="lc-card">
+  <h3>✍️ Worked example – Satellite in circular orbit</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> A satellite moves at constant distance \(6.7\times10^3\,\mathrm{km}\) from Earth’s centre. Each orbit takes 90 min. We need average speed, instantaneous velocity description, and displacement after certain times.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(r = 6.7\times10^6\,\mathrm{m}\), \(T = 90\times60 = 5400\,\mathrm{s}\). Circumference \(= 2\pi r\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> Average speed \(v = \frac{\text{circumference}}{T}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(v = \frac{2\pi (6.7\times10^6)}{5400} = 7.8\times10^3\,\mathrm{m\,s^{-1}}\). The instantaneous velocity has constant magnitude but direction is always tangent to the circle. After 360 min (4 orbits) displacement = 0 (back to start). After 405 min (4.5 orbits) displacement = \( -6.7\times10^3\,\mathrm{km}\) (opposite side of Earth).</div></div>
+  <div class="lc-img">
+    <img src="https://i.ibb.co/WSqfQ8v/image.png" alt="Satellite in circular orbit with tangent velocity vector">
+    <div class="lc-cap">Fig 6 — Satellite instantaneous velocity is tangent to the orbit; displacement measured from Earth’s centre.</div>
+  </div>
+</div>
+
+<!-- SECTION F — REAL-WORLD + HL EXTENSION (two-column) -->
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: GPS and displacement</h3>
+    <p>GPS devices calculate your displacement from the destination, not the distance along roads. They need vector maths (velocity and acceleration) to predict arrival times. Fighter pilots and athletes also use acceleration data to optimise performance.</p>
+    <div class="lc-success">✓ Examiner tip: Always state the reference point and direction when giving a displacement or velocity vector – marks are lost if direction is omitted.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – Instantaneous acceleration as derivative</h3>
+    <p>In calculus terms, \(a = \frac{dv}{dt}\) and \(v = \frac{ds}{dt}\). For non‑uniform motion, the slope of the velocity–time graph at a point gives instantaneous acceleration. <strong>Challenge:</strong> If \(v(t) = 5t^2 + 2t\), find \(a(t)\). (Answer: \(a(t) = 10t + 2\,\mathrm{m\,s^{-2}}\).)</p>
+  </div>
+</div>
+
+<!-- SECTION G — MISCONCEPTIONS / TRAP CORNER -->
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"Distance and displacement are the same."</td><td>Displacement depends only on start and end points; distance depends on the path taken. They are equal only for straight‑line motion in one direction.</td></tr>
+      <tr><td>"If speed is constant, velocity is constant."</td><td>Velocity can change direction (e.g., circular motion) while speed stays constant → acceleration exists.</td></tr>
+      <tr><td>"Negative acceleration always means slowing down."</td><td>Negative acceleration means velocity is becoming more negative. If velocity is also negative, the object speeds up.</td></tr>
+      <tr><td>"An object at rest has zero acceleration."</td><td>At the top of a thrown ball, instantaneous velocity is zero but acceleration is \(g\) downward (not zero).</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: Confusing distance with displacement in vector calculations. Always include direction (e.g., "300 km northeast") for displacement, and do not use direction for distance.</div>
+</div>
+
+<!-- SECTION H — KEY POINTS PILLS -->
+<div class="lc-kp">
+  <span>\( \text{Scalar} = \text{magnitude only} \)</span>
+  <span>\( \text{Vector} = \text{magnitude + direction} \)</span>
+  <span>\( \text{distance} \ge |\text{displacement}| \)</span>
+  <span>\( v = \frac{\Delta s}{\Delta t} \)</span>
+  <span>\( a = \frac{\Delta v}{\Delta t} \)</span>
+  <span>Instantaneous = slope of tangent</span>
+</div>
+
+<!-- SECTION I — MCQ PRACTICE (4 questions) -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A car travels 10 m north, then 10 m east. What is the magnitude of its displacement?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','A')"><span class="lc-opt-l">A</span> 0 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','A')"><span class="lc-opt-l">B</span> 10 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','A')"><span class="lc-opt-l">C</span> 14.1 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','A')"><span class="lc-opt-l">D</span> 20 m</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Which quantity is a vector?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> Mass</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> Velocity</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> Temperature</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> Speed</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A runner completes a 200 m lap on a circular track and finishes at the starting line. The runner’s average speed is 8 m s⁻¹. What is the magnitude of the average velocity?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> 0 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> 8 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> 16 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> 200 m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A car accelerates from rest at \(2.0\,\mathrm{m\,s^{-2}}\) for 5.0 s. What is its final velocity?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 2.5 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> 5.0 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> 10 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> 25 m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<!-- SECTION J — FILL IN THE BLANKS -->
+<div class="lc-section">Practice check — fill in the blanks</div>
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:90px"> is a quantity with only magnitude, whereas a <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> has both magnitude and direction. The average velocity equals total <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> divided by time.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- SECTION K — EXAM-STYLE QUESTIONS (3) -->
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">(a) Define displacement. [1 mark]<br>(b) A student walks 12 m east, then 5 m west. Calculate the total distance travelled and the magnitude of the displacement. [2 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Displacement is the straight‑line distance from a fixed reference point in a specified direction (vector).<br>✓ (b) Distance = 12 m + 5 m = 17 m. Displacement = 12 m east + 5 m west = 7 m east → magnitude = 7 m.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain & graph</div>
+  <div class="lc-exam-q">Sketch a displacement–time graph for an object moving with constant positive velocity for 4 s, then stationary for 2 s. Label axes and indicate the slope. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Axes: time (s) on x, displacement (m) on y.<br>✓ Line from (0,0) to (4, positive value) – straight upward slope.<br>✓ Horizontal line from t=4 to t=6 (constant displacement). Slope of first part = velocity (positive constant).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Acceleration analysis</div>
+  <div class="lc-exam-q">A train moving at \(20\,\mathrm{m\,s^{-1}}\) brakes uniformly and stops in 10 s. Calculate (a) its acceleration, (b) the distance travelled during braking. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(a = (v-u)/t = (0-20)/10 = -2.0\,\mathrm{m\,s^{-2}}\)<br>✓ (b) average speed \(= (20+0)/2 = 10\,\mathrm{m\,s^{-1}}\); distance \(= 10\times10 = 100\,\mathrm{m}\)<br>✓ Or use \(s = ut + \frac12 at^2 = 20\times10 + \frac12(-2)(100) = 200 -100 = 100\,\mathrm{m}\).</div>
+</div>
+
+<!-- SECTION L — SCORE DISPLAY -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<!-- SECTION M — JAVASCRIPT (IIFE) -->
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { 'C': 'Displacement magnitude = √(10²+10²) ≈ 14.1 m, northeast. The distance is 20 m, but displacement is shorter. Correct answer: C (14.1 m).' },
+    mcq2: { 'B': 'Velocity has direction; mass, temperature, speed are scalars. Correct: B.' },
+    mcq3: { 'A': 'Displacement = 0 because start and end are same point. Average velocity = 0 m s⁻¹. Correct: A.' },
+    mcq4: { 'C': 'v = u + at = 0 + (2.0)(5.0) = 10 m s⁻¹. Correct: C.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'scalar', lf2:'vector', lf3:'displacement' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id];
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <div></div>
+        <a href="02-uniformly-accelerated-motion-suvat.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Uniformly Accelerated Motion — SUVAT</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

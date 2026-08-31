@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C.1 Lesson 2 — SHM Equations — Teaching Deck</title>
+<meta name="omelette-owns-print" content="1">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body data-deck="c1-02">
+<div id="deck">
+
+<section class="slide title" data-document-role="page" data-label="Title" data-screen-label="01">
+<div class="eyebrow">C.1 Simple Harmonic Motion · SL / HL · Lesson 2 of 5</div>
+<div class="body" style="justify-content:center;gap:34px">
+<h1 style="font-size:96px">SHM Equations —<br>Displacement, Velocity, Acceleration</h1>
+<p style="font-size:36px;max-width:1200px">Last lesson gave us a = −ω²x. This lesson solves it — the sinusoidal functions for x, v and a, how they lead and lag each other, and the one equation that links speed to displacement directly.</p>
+<div class="pills"><span>x = x₀cos(ωt)</span><span>v = ±ω√(x₀² − x²)</span><span>a = −ω²x</span></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">01</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Starter" data-screen-label="02">
+<div class="eyebrow">Retrieval starter · 5 questions · 8 minutes</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:92px">Starter</h2>
+<p style="max-width:1250px">Five multiple-choice questions on last lesson's definition of SHM — the defining equation, the two model oscillators, and phase. Today's equations grow directly out of them. Answer on your fingers on a count of three.</p>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">02</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Starter Q1" data-screen-label="03">
+<div class="eyebrow">Starter · question 1 of 5</div>
+<h2>Defining SHM</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">Which statement defines simple harmonic motion?</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> The velocity is proportional to the displacement and in the same direction</div>
+<div class="opt" data-step="2"><span class="l">B</span> The acceleration is constant and directed towards the equilibrium position</div>
+<div class="opt right" data-step="2"><span class="l">C</span> The acceleration is proportional to the displacement and in the opposite direction</div>
+<div class="opt" data-step="2"><span class="l">D</span> The period is proportional to the amplitude of the oscillation</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p>SHM is defined by a ∝ −x: the acceleration is proportional to displacement and directed back towards equilibrium, written a = −ω²x.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Describes velocity, not acceleration — and gets the direction wrong too</td></tr>
+<tr><td>B</td><td>Acceleration is not constant — it changes with displacement</td></tr>
+<tr><td>D</td><td>Period does not depend on amplitude at all</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">03</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Starter Q2" data-screen-label="04">
+<div class="eyebrow">Starter · question 2 of 5</div>
+<h2>Mass and period</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A mass on a spring oscillates with period T. The mass is replaced by one four times larger, on the same spring. The new period is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> T/2</div>
+<div class="opt right" data-step="2"><span class="l">B</span> 2T</div>
+<div class="opt" data-step="2"><span class="l">C</span> 4T</div>
+<div class="opt" data-step="2"><span class="l">D</span> 16T</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p>T = 2π√(m/k), so T ∝ √m. Four times the mass gives √4 = 2, so the period doubles.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Treats T as inversely proportional to m</td></tr>
+<tr><td>C</td><td>Treats T as directly proportional to m, skipping the square root</td></tr>
+<tr><td>D</td><td>Squares the mass ratio instead of taking its square root</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">04</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Starter Q3" data-screen-label="05">
+<div class="eyebrow">Starter · question 3 of 5</div>
+<h2>At maximum displacement</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A particle in SHM is at maximum displacement. At that instant</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> velocity and acceleration are both maximum</div>
+<div class="opt" data-step="2"><span class="l">B</span> velocity and acceleration are both zero</div>
+<div class="opt" data-step="2"><span class="l">C</span> velocity is maximum and acceleration is zero</div>
+<div class="opt right" data-step="2"><span class="l">D</span> velocity is zero and acceleration is maximum</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — D</h3><p>At ±x₀ the oscillator has momentarily stopped, so v = 0, but the restoring force — and therefore the acceleration — is greatest there.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Velocity cannot be maximum where the particle has just stopped to reverse</td></tr>
+<tr><td>B</td><td>Confuses zero velocity with zero acceleration — they occur at opposite points</td></tr>
+<tr><td>C</td><td>Swaps the two — this describes the equilibrium position instead</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">05</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Starter Q4" data-screen-label="06">
+<div class="eyebrow">Starter · question 4 of 5</div>
+<h2>Pendulum and spring on the Moon</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A simple pendulum and a mass–spring system are both taken to the Moon. Compared with on Earth, their periods</p></div>
+<div class="opts">
+<div class="opt right" data-step="2"><span class="l">A</span> pendulum increases, mass–spring unchanged</div>
+<div class="opt" data-step="2"><span class="l">B</span> pendulum unchanged, mass–spring increases</div>
+<div class="opt" data-step="2"><span class="l">C</span> both increase</div>
+<div class="opt" data-step="2"><span class="l">D</span> both unchanged</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — A</h3><p>The pendulum period depends on g, so a weaker field gives a longer period. The mass–spring period depends only on m and k, so it is unchanged.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>B</td><td>Swaps which oscillator depends on g</td></tr>
+<tr><td>C</td><td>The mass–spring period has no g in its equation, so it cannot change</td></tr>
+<tr><td>D</td><td>Ignores that T = 2π√(l/g) changes when g changes</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">06</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Starter Q5" data-screen-label="07">
+<div class="eyebrow">Starter · question 5 of 5</div>
+<h2>Phase of displacement and acceleration</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">The phase difference between the displacement and the acceleration of a particle in SHM is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 0</div>
+<div class="opt" data-step="2"><span class="l">B</span> π/2 rad</div>
+<div class="opt right" data-step="2"><span class="l">C</span> π rad</div>
+<div class="opt" data-step="2"><span class="l">D</span> 2π rad</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p>Acceleration is always opposite in sign to displacement, so the two curves are exactly antiphase: π rad (180°).</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Would mean a and x always have the same sign — the opposite of a = −ω²x</td></tr>
+<tr><td>B</td><td>This is the phase difference between x and v, not x and a</td></tr>
+<tr><td>D</td><td>A full cycle apart is no phase difference at all</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">07</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Objectives" data-screen-label="08">
+<div class="eyebrow">Learning objectives</div>
+<h2>By the end of this lesson you can</h2>
+<div class="body">
+<div class="steps">
+<div class="step" data-step="1"><div class="n">1</div><div class="tx"><strong>Write the displacement equation</strong> for SHM, choosing x = x₀cos(ωt) or x = x₀sin(ωt) from the starting condition.</div></div>
+<div class="step" data-step="2"><div class="n">2</div><div class="tx"><strong>Derive and apply</strong> the velocity and acceleration equations, and state v<sub>max</sub> = ωx₀ and a<sub>max</sub> = ω²x₀.</div></div>
+<div class="step" data-step="3"><div class="n">3</div><div class="tx"><strong>State the phase relationships</strong> between x, v and a — v leads x by π/2, a is in antiphase with x.</div></div>
+<div class="step" data-step="4"><div class="n">4</div><div class="tx"><strong>Use v = ±ω√(x₀² − x²)</strong> to find the speed at any displacement without needing time.</div></div>
+</div>
+<div class="note success" data-step="5"><p>✓ <strong>The skill this lesson is really examined on:</strong> picking the right form of x(t) from the initial condition, and substituting displacement correctly — sign and all — into a = −ω²x.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">08</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Roadmap" data-screen-label="09">
+<div class="eyebrow">How the lesson runs</div>
+<h2>Three chunks, three checks</h2>
+<div class="body">
+<div class="chunkmap">
+<div data-step="1"><div class="k">CHUNK 1</div><h3>Angular frequency and displacement</h3><p>Recapping ω, then the two sinusoidal forms of x(t) and how to choose between them.</p><div class="pills"><span>ω = 2π/T</span><span>x = x₀cos(ωt)</span></div></div>
+<div data-step="2"><div class="k">CHUNK 2</div><h3>Velocity, acceleration and phase</h3><p>Differentiating to get v(t) and a(t), their maximum values, and how the three graphs lead and lag each other.</p><div class="pills"><span>v<sub>max</sub> = ωx₀</span><span>a<sub>max</sub> = ω²x₀</span></div></div>
+<div data-step="3"><div class="k">CHUNK 3</div><h3>Velocity without time</h3><p>The v–x equation that bypasses time entirely, and a full worked example putting it all together.</p><div class="pills"><span>v = ±ω√(x₀² − x²)</span></div></div>
+</div>
+<div class="note" data-step="4"><p>Each chunk ends with <strong>four exam-style multiple-choice questions</strong>. The lesson closes with one full exam question and its mark scheme.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">09</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Hook" data-screen-label="10">
+<div class="eyebrow">Hook</div>
+<h2>Turning a ∝ −x into three curves</h2>
+<div class="body">
+<div class="card" data-step="1"><p>Clamp a marker pen to an oscillating mass and pull a card past it at constant speed. The trace is a smooth, sinusoidal wave — the displacement–time graph draws itself.</p></div>
+<div class="card" data-step="2"><p>Last lesson we only had the defining <em>equation</em>, a = −ω²x. Today we solve it: exact functions for x, v and a, all sinusoidal, all at the same frequency, but each one shifted from the last.</p></div>
+<div class="note warn" data-step="3"><p>💡 <strong>Diagnostic — think, don't answer.</strong> If displacement is zero, is velocity also zero at that instant? What about acceleration?</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">10</span></div>
+</section>
+
+<section class="slide center" data-document-role="page" data-label="Statement" data-screen-label="11">
+<div class="eyebrow">Statement</div>
+<div class="body"><p class="statement">Displacement, velocity and acceleration all vary sinusoidally with time — each one a quarter cycle out of phase with the one before it.</p></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">11</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Chunk 1 divider" data-screen-label="12">
+<div class="eyebrow">Chunk 1 of 3</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:80px">Angular frequency and displacement</h2>
+<p style="max-width:1150px">Recapping ω, then choosing the right sinusoidal form of x(t).</p>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">12</span></div>
+</section>
+
+<section class="slide center" data-document-role="page" data-label="Angular frequency recap" data-screen-label="13">
+<div class="eyebrow">Chunk 1 · equation</div>
+<h2>Angular frequency, again</h2>
+<div class="body" style="justify-content:center;gap:28px">
+<div class="formula" data-step="1"><span class="lab">Angular frequency</span><span class="eq">ω = 2π/T = 2πf</span></div>
+<div class="note" data-step="2"><p>ω tells us how rapidly the phase of the oscillation changes — one full cycle is a phase change of 2π radians. It is measured in rad s⁻¹, not Hz.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">13</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Two displacement forms" data-screen-label="14">
+<div class="eyebrow">Chunk 1 · equation</div>
+<h2>Two forms of displacement</h2>
+<div class="body"><div class="two">
+<div class="formula" data-step="1"><span class="lab">Starts at the extreme (x = x₀ at t = 0)</span><span class="eq sm">x = x₀ cos(ωt)</span></div>
+<div class="formula" data-step="2"><span class="lab">Starts at the mean position (x = 0 at t = 0)</span><span class="eq sm">x = x₀ sin(ωt)</span></div>
+</div>
+<div class="note" data-step="3"><p>Displacement varies sinusoidally with time, with amplitude x₀ and angular frequency ω. The IB data booklet gives both forms — pick the one that matches the starting condition.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">14</span></div>
+</section>
+
+<section class="slide center" data-document-role="page" data-label="Choosing the form" data-screen-label="15">
+<div class="eyebrow">Chunk 1 · note</div>
+<h2>Which form do I use?</h2>
+<div class="body" style="justify-content:center;gap:24px">
+<table class="t" style="max-width:1400px;align-self:center">
+<tr data-step="1"><td>x = x₀ at t = 0</td><td>x = x₀ cos(ωt)</td></tr>
+<tr data-step="2"><td>x = 0 at t = 0</td><td>x = x₀ sin(ωt)</td></tr>
+</table>
+<div class="note warn" data-step="3"><p>Both are accepted on the IB syllabus. Be comfortable using either, depending on the initial conditions stated in the question.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">15</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Check 1 divider" data-screen-label="16">
+<div class="eyebrow">Check 1 — four questions</div>
+<div class="body" style="justify-content:center;gap:24px"><h2 style="font-size:88px">Check 1</h2></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">16</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 1 Q1" data-screen-label="17">
+<div class="eyebrow">Check 1 · question 1 of 4</div>
+<h2>Angular frequency and period</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A particle undergoes SHM described by x = 0.05 cos(4πt). What is the angular frequency and period?</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> ω = 4π rad s⁻¹, T = 4π s</div>
+<div class="opt right" data-step="2"><span class="l">B</span> ω = 4π rad s⁻¹, T = 0.50 s</div>
+<div class="opt" data-step="2"><span class="l">C</span> ω = 2π rad s⁻¹, T = 1.0 s</div>
+<div class="opt" data-step="2"><span class="l">D</span> ω = 4π rad s⁻¹, T = 2.0 s</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p class="mono" style="font-size:34px;color:var(--primary)">ω = 4π, T = 2π/ω = 0.50 s</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Sets T equal to ω's numeric value directly, instead of using T = 2π/ω</td></tr>
+<tr><td>C</td><td>Reads ω = 2π, halving the coefficient of t</td></tr>
+<tr><td>D</td><td>T = 2π/ω computed incorrectly, doubling the correct period</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">17</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 1 Q2" data-screen-label="18">
+<div class="eyebrow">Check 1 · question 2 of 4</div>
+<h2>Starting from the mean position</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A particle undergoes SHM starting at its mean position (x = 0 at t = 0). Which equation correctly describes its displacement?</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> x = x₀ cos(ωt)</div>
+<div class="opt right" data-step="2"><span class="l">B</span> x = x₀ sin(ωt)</div>
+<div class="opt" data-step="2"><span class="l">C</span> x = x₀ tan(ωt)</div>
+<div class="opt" data-step="2"><span class="l">D</span> x = x₀ cos(ωt) + x₀</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p>sin(0) = 0, so x₀sin(ωt) correctly gives x = 0 at t = 0 and then rises sinusoidally.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>cos(0) = 1, so this gives x = x₀ at t = 0 — the extreme, not the mean position</td></tr>
+<tr><td>C</td><td>tan is not one of the two accepted SHM solutions and is not bounded like a real oscillation</td></tr>
+<tr><td>D</td><td>Shifts the whole graph up by x₀, so it no longer oscillates about x = 0</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">18</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 1 Q3" data-screen-label="19">
+<div class="eyebrow">Check 1 · question 3 of 4</div>
+<h2>Displacement at t = 0</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">For a particle with x = x₀ cos(ωt), the displacement at t = 0 is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> zero</div>
+<div class="opt right" data-step="2"><span class="l">B</span> x₀</div>
+<div class="opt" data-step="2"><span class="l">C</span> −x₀</div>
+<div class="opt" data-step="2"><span class="l">D</span> ωx₀</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p>cos(0) = 1, so x = x₀ cos(0) = x₀. This form always starts at the positive extreme.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>That's the starting displacement for the sine form, not the cosine form</td></tr>
+<tr><td>C</td><td>Would need cos(0) = −1, which is not true</td></tr>
+<tr><td>D</td><td>Confuses displacement with the maximum speed, v<sub>max</sub> = ωx₀</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">19</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 1 Q4" data-screen-label="20">
+<div class="eyebrow">Check 1 · question 4 of 4</div>
+<h2>Finding the period</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A particle has x = 0.020 cos(10t). Its period is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 0.10 s</div>
+<div class="opt right" data-step="2"><span class="l">B</span> 0.63 s</div>
+<div class="opt" data-step="2"><span class="l">C</span> 1.6 s</div>
+<div class="opt" data-step="2"><span class="l">D</span> 0.31 s</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p class="mono" style="font-size:34px;color:var(--primary)">T = 2π/ω = 2π/10 = 0.63 s</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Uses T = 1/ω, forgetting the factor of 2π</td></tr>
+<tr><td>C</td><td>Uses T = 1/f = ω/2π (inverted), reading off the frequency's numeric form instead</td></tr>
+<tr><td>D</td><td>Uses T = π/ω, forgetting to double π</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">20</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Chunk 2 divider" data-screen-label="21">
+<div class="eyebrow">Chunk 2 of 3</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:80px">Velocity, acceleration and phase</h2>
+<p style="max-width:1150px">Differentiating x(t) twice, and reading the phase relationships that come out of it.</p>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">21</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Velocity equation" data-screen-label="22">
+<div class="eyebrow">Chunk 2 · equation</div>
+<h2>Velocity as a function of time</h2>
+<div class="body"><div class="two">
+<div class="formula" data-step="1"><span class="lab">From x = x₀cos(ωt): v = dx/dt</span><span class="eq sm">v = −ωx₀ sin(ωt)</span></div>
+<div class="formula" data-step="2"><span class="lab">From x = x₀sin(ωt): v = dx/dt</span><span class="eq sm">v = ωx₀ cos(ωt)</span></div>
+</div>
+<div class="note" data-step="3"><p>Velocity is the time derivative of displacement — the gradient of the x–t graph at every instant.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">22</span></div>
+</section>
+
+<section class="slide center" data-document-role="page" data-label="Maximum speed and phase" data-screen-label="23">
+<div class="eyebrow">Chunk 2 · equation</div>
+<h2>Maximum speed</h2>
+<div class="body" style="justify-content:center;gap:28px">
+<div class="formula" data-step="1"><span class="lab">Maximum speed, when sin or cos = ±1</span><span class="eq">v<sub>max</sub> = ωx₀</span></div>
+<div class="note warn" data-step="2"><p>⚠️ Velocity leads or lags displacement by π/2 radians (a quarter cycle). When displacement is at its maximum, velocity is zero — and vice versa.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">23</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Acceleration equation" data-screen-label="24">
+<div class="eyebrow">Chunk 2 · equation</div>
+<h2>Acceleration as a function of time</h2>
+<div class="body">
+<div class="formula" data-step="1"><span class="lab">From v = −ωx₀sin(ωt): a = dv/dt</span><span class="eq">a = −ω²x₀ cos(ωt) = −ω²x</span></div>
+<div class="note success" data-step="2"><p>✓ This confirms last lesson's defining equation, a = −ω²x — derived, not assumed.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">24</span></div>
+</section>
+
+<section class="slide center" data-document-role="page" data-label="Maximum acceleration" data-screen-label="25">
+<div class="eyebrow">Chunk 2 · equation</div>
+<h2>Maximum acceleration</h2>
+<div class="body" style="justify-content:center;gap:28px">
+<div class="formula" data-step="1"><span class="lab">At the extremes, x = ±x₀</span><span class="eq">a<sub>max</sub> = ω²x₀</span></div>
+<div class="note warn" data-step="2"><p>Acceleration is in antiphase with displacement (π radians out of phase): when displacement is maximum positive, acceleration is maximum negative.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">25</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Phase relationships summary" data-screen-label="26">
+<div class="eyebrow">Chunk 2 · summary</div>
+<h2>Phase relationships — summary</h2>
+<div class="body">
+<table class="t">
+<tr data-step="1"><td>Displacement x</td><td>x₀cos(ωt) — reference phase</td></tr>
+<tr data-step="2"><td>Velocity v</td><td>−ωx₀sin(ωt) — leads x by π/2</td></tr>
+<tr data-step="3"><td>Acceleration a</td><td>−ω²x₀cos(ωt) — antiphase with x (π rad); leads v by π/2</td></tr>
+</table>
+<div class="pills" data-step="4"><span>v leads x by π/2</span><span>a is π out of phase with x</span><span>a leads v by π/2</span><span>v<sub>max</sub> = ωx₀</span><span>a<sub>max</sub> = ω²x₀</span></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">26</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Check 2 divider" data-screen-label="27">
+<div class="eyebrow">Check 2 — four questions</div>
+<div class="body" style="justify-content:center;gap:24px"><h2 style="font-size:88px">Check 2</h2></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">27</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 2 Q1" data-screen-label="28">
+<div class="eyebrow">Check 2 · question 1 of 4</div>
+<h2>When is velocity zero?</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">In SHM, when is the velocity zero?</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> At the mean position only</div>
+<div class="opt" data-step="2"><span class="l">B</span> When acceleration is zero</div>
+<div class="opt right" data-step="2"><span class="l">C</span> At the extreme positions (x = ±x₀)</div>
+<div class="opt" data-step="2"><span class="l">D</span> Velocity is never zero in SHM</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p>At x = ±x₀ the object momentarily stops before reversing direction. v = ω√(x₀² − x₀²) = 0.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>The opposite of the truth — velocity is maximum at the mean position</td></tr>
+<tr><td>B</td><td>Acceleration is zero at the mean position, a different point from where v = 0</td></tr>
+<tr><td>D</td><td>SHM always reverses direction, which requires v = 0 momentarily</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">28</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 2 Q2" data-screen-label="29">
+<div class="eyebrow">Check 2 · question 2 of 4</div>
+<h2>Phase of velocity and acceleration</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">The phase difference between velocity and acceleration in SHM is:</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 0 (in phase)</div>
+<div class="opt right" data-step="2"><span class="l">B</span> π/2 rad (quarter cycle)</div>
+<div class="opt" data-step="2"><span class="l">C</span> π rad (antiphase)</div>
+<div class="opt" data-step="2"><span class="l">D</span> 2π rad (full cycle)</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p>Velocity leads displacement by π/2, and acceleration leads velocity by another π/2 — so a leads v by π/2.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Confuses v and a with each being in phase — true only of displacement with itself</td></tr>
+<tr><td>C</td><td>π rad is the phase difference between displacement and acceleration, not v and a</td></tr>
+<tr><td>D</td><td>A full cycle apart is no phase lag at all</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">29</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 2 Q3" data-screen-label="30">
+<div class="eyebrow">Check 2 · question 3 of 4</div>
+<h2>Velocity from the sine form</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">For x = x₀ sin(ωt), the velocity is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> v = ωx₀ sin(ωt)</div>
+<div class="opt" data-step="2"><span class="l">B</span> v = −ωx₀ sin(ωt)</div>
+<div class="opt right" data-step="2"><span class="l">C</span> v = ωx₀ cos(ωt)</div>
+<div class="opt" data-step="2"><span class="l">D</span> v = −ωx₀ cos(ωt)</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p>v = dx/dt of x₀sin(ωt) is ωx₀cos(ωt) — the derivative of sin is cos, with no sign change.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Keeps sin instead of switching to cos on differentiation</td></tr>
+<tr><td>B</td><td>This is the velocity for the cosine form of x, not the sine form</td></tr>
+<tr><td>D</td><td>Adds a minus sign that does not belong here</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">30</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 2 Q4" data-screen-label="31">
+<div class="eyebrow">Check 2 · question 4 of 4</div>
+<h2>Maximum speed, given x(t)</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A particle undergoes SHM with x = 0.10 sin(5.0t). What is its maximum speed?</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 0.10 m s⁻¹</div>
+<div class="opt right" data-step="2"><span class="l">B</span> 0.50 m s⁻¹</div>
+<div class="opt" data-step="2"><span class="l">C</span> 2.5 m s⁻¹</div>
+<div class="opt" data-step="2"><span class="l">D</span> 5.0 m s⁻¹</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p class="mono" style="font-size:34px;color:var(--primary)">v<sub>max</sub> = ωx₀ = 5.0 × 0.10 = 0.50 m s⁻¹</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Uses x₀ alone, ignoring ω</td></tr>
+<tr><td>C</td><td>Uses ω²x₀ — the formula for maximum acceleration, not speed</td></tr>
+<tr><td>D</td><td>Uses ω alone, ignoring x₀</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">31</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Chunk 3 divider" data-screen-label="32">
+<div class="eyebrow">Chunk 3 of 3</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:80px">Velocity without time</h2>
+<p style="max-width:1150px">The equation that gives speed directly from displacement, and a full worked example.</p>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">32</span></div>
+</section>
+
+<section class="slide center" data-document-role="page" data-label="Velocity-displacement equation" data-screen-label="33">
+<div class="eyebrow">Chunk 3 · equation</div>
+<h2>Velocity as a function of displacement</h2>
+<div class="body" style="justify-content:center;gap:28px">
+<div class="formula" data-step="1"><span class="lab">Using sin²θ + cos²θ = 1 to eliminate t</span><span class="eq">v = ±ω√(x₀² − x²)</span></div>
+<div class="note" data-step="2"><p>A critical equation that <strong>bypasses time</strong> entirely — it gives the speed at any displacement x directly.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">33</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Position vs speed" data-screen-label="34">
+<div class="eyebrow">Chunk 3 · table</div>
+<h2>Key deductions</h2>
+<div class="body">
+<table class="t">
+<tr data-step="1"><td>Mean position, x = 0</td><td>Speed = ωx₀ (maximum)</td></tr>
+<tr data-step="2"><td>Extremes, x = ±x₀</td><td>Speed = 0</td></tr>
+<tr data-step="3"><td>Halfway, x = x₀/2</td><td>Speed = ω√(3/4)·x₀ ≈ 0.866 ωx₀</td></tr>
+</table>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">34</span></div>
+</section>
+
+<section class="slide center" data-document-role="page" data-label="Meaning of the plus-minus sign" data-screen-label="35">
+<div class="eyebrow">Chunk 3 · note</div>
+<h2>What does the ± mean?</h2>
+<div class="body" style="justify-content:center;gap:24px">
+<div class="note warn" data-step="1"><p>⚠️ The ± sign indicates the object passes through most positions <strong>twice per cycle</strong> — once going one way, once returning.</p></div>
+<div class="note" data-step="2"><p>The speed is the same both times; only the direction of the velocity differs.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">35</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Worked example — set-up" data-screen-label="36">
+<div class="eyebrow">Chunk 3 · worked example</div>
+<h2>Finding v<sub>max</sub>, a<sub>max</sub> and speed at a displacement</h2>
+<div class="body">
+<div class="card" data-step="1"><p class="stem">A particle oscillates in SHM with amplitude 0.040 m and frequency 3.0 Hz. Find its maximum speed, its maximum acceleration, and its speed when x = 0.030 m.</p></div>
+<div class="card tight" data-step="2"><h3>Identify</h3><p>Find ω first, then apply v<sub>max</sub> = ωx₀, a<sub>max</sub> = ω²x₀, and v = ω√(x₀² − x²) for the last part.</p></div>
+<div class="card tight" data-step="3"><h3>Data</h3><p class="mono" style="font-size:28px">x₀ = 0.040 m · f = 3.0 Hz · x = 0.030 m</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">36</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Worked example — solving" data-screen-label="37">
+<div class="eyebrow">Chunk 3 · worked example</div>
+<h2>Solving for ω, v<sub>max</sub>, a<sub>max</sub> and v</h2>
+<div class="body">
+<div class="steps">
+<div class="step" data-step="1"><div class="n">1</div><div class="tx"><strong>Find ω:</strong> ω = 2πf = 2π × 3.0 = 18.85 rad s⁻¹</div></div>
+<div class="step" data-step="2"><div class="n">2</div><div class="tx"><strong>Maximum speed:</strong> v<sub>max</sub> = ωx₀ = 18.85 × 0.040 = 0.754 m s⁻¹</div></div>
+<div class="step" data-step="3"><div class="n">3</div><div class="tx"><strong>Maximum acceleration:</strong> a<sub>max</sub> = ω²x₀ = (18.85)² × 0.040 = 14.2 m s⁻²</div></div>
+<div class="step" data-step="4"><div class="n">4</div><div class="tx"><strong>Speed at x = 0.030 m:</strong> v = ω√(x₀² − x²) = 18.85 × √(0.0016 − 0.0009) = 0.499 m s⁻¹</div></div>
+</div>
+<div class="note success" data-step="5"><p>✓ Always show your substitution step clearly — examiners award marks for correct substitution even if the final numerical answer is wrong.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">37</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Check 3 divider" data-screen-label="38">
+<div class="eyebrow">Check 3 — four questions</div>
+<div class="body" style="justify-content:center;gap:24px"><h2 style="font-size:88px">Check 3</h2></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">38</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 3 Q1" data-screen-label="39">
+<div class="eyebrow">Check 3 · question 1 of 4</div>
+<h2>Speed at half amplitude</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">For a particle in SHM, which correctly gives the speed at x = x₀/2?</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> v = ωx₀/2</div>
+<div class="opt" data-step="2"><span class="l">B</span> v = ωx₀/4</div>
+<div class="opt right" data-step="2"><span class="l">C</span> v = ωx₀√3/2 ≈ 0.866 ωx₀</div>
+<div class="opt" data-step="2"><span class="l">D</span> v = ωx₀√2/2 ≈ 0.707 ωx₀</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p class="mono" style="font-size:32px;color:var(--primary)">v = ω√(x₀² − (x₀/2)²) = ω√(3x₀²/4) = ωx₀√3/2</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Treats speed as falling linearly with x, not by the square-root relationship</td></tr>
+<tr><td>B</td><td>The same linear error, over-divided</td></tr>
+<tr><td>D</td><td>This is the value for x = x₀/√2, not x₀/2</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">39</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 3 Q2" data-screen-label="40">
+<div class="eyebrow">Check 3 · question 2 of 4</div>
+<h2>Speed at equilibrium</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">The speed of a particle in SHM at the equilibrium position (x = 0) is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> ω²x₀</div>
+<div class="opt right" data-step="2"><span class="l">B</span> ωx₀</div>
+<div class="opt" data-step="2"><span class="l">C</span> x₀/ω</div>
+<div class="opt" data-step="2"><span class="l">D</span> ω/x₀</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p>v = ω√(x₀² − 0²) = ωx₀ — the maximum speed, reached at the mean position.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>This is a<sub>max</sub>, the formula for maximum acceleration, not speed</td></tr>
+<tr><td>C</td><td>Inverts the relationship between ω and x₀</td></tr>
+<tr><td>D</td><td>Also inverts the relationship, the wrong way round</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">40</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 3 Q3" data-screen-label="41">
+<div class="eyebrow">Check 3 · question 3 of 4</div>
+<h2>Maximum acceleration, given A and f</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A particle oscillates in SHM with amplitude 0.040 m and frequency 3.0 Hz. Its maximum acceleration is closest to</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> 0.75 m s⁻²</div>
+<div class="opt" data-step="2"><span class="l">B</span> 3.6 m s⁻²</div>
+<div class="opt right" data-step="2"><span class="l">C</span> 14 m s⁻²</div>
+<div class="opt" data-step="2"><span class="l">D</span> 3.6 × 10² m s⁻²</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — C</h3><p class="mono" style="font-size:30px;color:var(--primary)">ω = 2π×3.0 = 18.85; a<sub>max</sub> = ω²x₀ = 14.2 m s⁻²</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Uses ω instead of ω² — a factor of ω too small</td></tr>
+<tr><td>B</td><td>Confuses this with v<sub>max</sub> = ωx₀ = 0.75 m s⁻¹, the wrong quantity entirely</td></tr>
+<tr><td>D</td><td>Uses ω² alone, forgetting to multiply by the amplitude x₀</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">41</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Check 3 Q4" data-screen-label="42">
+<div class="eyebrow">Check 3 · question 4 of 4</div>
+<h2>Same speed, twice a cycle</h2>
+<div class="body"><div class="two wide-l">
+<div class="col">
+<div class="card" data-step="1"><p class="stem">A particle in SHM passes through x = +0.020 m twice in every cycle — once moving right, once moving left. Its speed at those two instants is</p></div>
+<div class="opts">
+<div class="opt" data-step="2"><span class="l">A</span> different, because velocity is a vector</div>
+<div class="opt right" data-step="2"><span class="l">B</span> the same, since v = ±ω√(x₀² − x²) gives equal magnitude</div>
+<div class="opt" data-step="2"><span class="l">C</span> zero, since it's not at an extreme</div>
+<div class="opt" data-step="2"><span class="l">D</span> undefined without knowing the initial phase</div>
+</div>
+<div class="hands" data-step="2">Fingers up on three</div>
+</div>
+<div class="col">
+<div class="card" data-step="3"><h3>Answer — B</h3><p>The ± sign only flips the direction of travel. The magnitude, ω√(x₀² − x²), is fixed by x alone — so the speed is identical both times.</p></div>
+<div class="card tight" data-step="4"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Confuses velocity (which does differ in direction) with speed (which does not)</td></tr>
+<tr><td>C</td><td>Speed is only zero at the extremes, ±x₀ — not at every non-extreme point</td></tr>
+<tr><td>D</td><td>The speed–displacement relationship needs only x, x₀ and ω — no phase information</td></tr>
+</tbody></table></div>
+</div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">42</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Traps" data-screen-label="43">
+<div class="eyebrow">Common mistakes</div>
+<h2>Trap corner</h2>
+<div class="body">
+<table class="t traps"><thead><tr><th>Misconception</th><th>Correct view</th></tr></thead><tbody>
+<tr data-step="1"><td>The same sin/cos form works whatever the starting condition</td><td>The form depends on it: x = x₀cos(ωt) starts at the extreme, x = x₀sin(ωt) starts at the mean position</td></tr>
+<tr data-step="2"><td>The ± in v = ±ω√(x₀² − x²) means two different speeds</td><td>It means two different <em>directions</em> at the same speed — the object passes through each point twice per cycle</td></tr>
+<tr data-step="3"><td>Velocity is zero wherever acceleration is zero</td><td>They are zero at opposite points: v = 0 at the extremes (where a is maximum), a = 0 at the mean position (where v is maximum)</td></tr>
+</tbody></table>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">43</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Wrap-up divider" data-screen-label="44">
+<div class="eyebrow">Wrap-up</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:88px">One question, six marks</h2>
+<p style="max-width:1100px">8 minutes, no notes. Then we mark it together against the scheme.</p>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">44</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Exam question" data-screen-label="45">
+<div class="eyebrow">Exam question · Calculate</div>
+<h2>A full pass through the equations</h2>
+<div class="body">
+<div class="card" data-step="1"><p class="stem">A particle of mass 0.200 kg undergoes SHM with amplitude 0.060 m and period 0.80 s. (i) Calculate the angular frequency ω. (ii) Write an expression for the displacement as a function of time if the particle starts at x = +x₀ at t = 0. (iii) Calculate the maximum speed and the maximum acceleration. (iv) Calculate the speed when the displacement is 0.040 m.</p></div>
+<div class="note" data-step="2"><p class="mono" style="color:var(--primary)">[6 marks]</p></div>
+<div class="note tight" data-step="3"><p><strong>(i)</strong> 1 mark. <strong>(ii)</strong> 1 mark for the correct form and substitution. <strong>(iii)</strong> 2 marks — one for each maximum value. <strong>(iv)</strong> 2 marks — one for substitution, one for the final value.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">45</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Mark scheme" data-screen-label="46">
+<div class="eyebrow">Mark scheme [6]</div>
+<h2>What each mark is for</h2>
+<div class="body">
+<div class="marks">
+<div data-step="1"><span class="tick">✓</span> (i) ω = 2π/T = 2π/0.80 = 7.85 rad s⁻¹</div>
+<div data-step="2"><span class="tick">✓</span> (ii) x = 0.060 cos(7.85t) [accept x = 0.060 cos(2πt/0.80)]</div>
+<div data-step="3"><span class="tick">✓</span> (iii) v<sub>max</sub> = ωx₀ = 7.85 × 0.060 = 0.471 m s⁻¹</div>
+<div data-step="4"><span class="tick">✓</span> (iii) a<sub>max</sub> = ω²x₀ = (7.85)² × 0.060 = 3.70 m s⁻²</div>
+<div data-step="5"><span class="tick">✓</span> (iv) v = ω√(x₀² − x²) = 7.85 × √(0.0036 − 0.0016) = 7.85 × 0.0447</div>
+<div data-step="6"><span class="tick">✓</span> (iv) = 0.351 m s⁻¹</div>
+</div>
+<div class="note success" data-step="7"><p>✓ Examiner tip: substitute before you simplify — a correct substitution earns the mark even when the final arithmetic slips.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">46</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Context" data-screen-label="47">
+<div class="eyebrow">Context</div>
+<h2>Where this goes next</h2>
+<div class="body"><div class="two">
+<div class="card" data-step="1"><h3>Real-world</h3><p>Every sensor that reports a smooth oscillation — a seismometer, a microphone diaphragm, an accelerometer in your phone — is reporting exactly these three curves, just with real damping added.</p></div>
+<div class="card" data-step="2"><h3>Next lesson</h3><p>C.1.3 asks what happens to the <em>energy</em> stored and released as x, v and a cycle through these same equations — and what damping does to the flat total-energy line.</p></div>
+</div></div>
+<div class="foot"><span>C.1 · SHM Equations</span><span class="mono">47</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Recap" data-screen-label="48">
+<div class="eyebrow">Recap</div>
+<h2>SHM equations — the one page version</h2>
+<div class="body">
+<table class="t">
+<tr><td>x</td><td>x₀cos(ωt) or x₀sin(ωt)</td><td>m</td></tr>
+<tr><td>v</td><td>±ω√(x₀² − x²); v<sub>max</sub> = ωx₀</td><td>m s⁻¹</td></tr>
+<tr><td>a</td><td>−ω²x; a<sub>max</sub> = ω²x₀</td><td>m s⁻²</td></tr>
+</table>
+<div class="formula"><span class="lab">The one equation to carry forward</span><span class="eq sm">v = ±ω√(x₀² − x²)</span></div>
+<div class="pills"><span>v leads x by π/2</span><span>a antiphase with x</span><span>v<sub>max</sub> = ωx₀</span><span>a<sub>max</sub> = ω²x₀</span><span>bypasses time</span></div>
+<div class="note tight"><p><strong>Homework:</strong> the Describe (phase graphs) and Deduce (Hard) exam questions — model answers on the lesson page.</p></div>
+</div>
+<div class="foot"><span>C.1 · SHM Equations — next: C.1.3 Energy in SHM</span><span class="mono">48</span></div>
+</section>
+
+</div>
+<script src="deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transmission, Absorption and Scattering of Waves — C.3 Wave Phenomena — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C3">C.3 Wave Phenomena</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Transmission, Absorption and Scattering of Waves</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">
+            C.3
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 1 of 9
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Transmission, Absorption and Scattering of Waves</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">C.3 Wave Phenomena</strong>
+          · Unit C — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to C.3 overview
+      </a>
+      <div class="sidebar-title">C.3 Concepts</div>
+      <a href="01-transmission-absorption-and-scattering-of-waves.html" class="sidebar-link active">
+          <span class="sidebar-num">01</span>
+          <span>Transmission, Absorption and Scattering of Waves</span>
+        </a>
+      <a href="02-reflection-of-waves-and-rays.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Reflection of Waves and Rays</span>
+        </a>
+      <a href="03-refraction-of-waves.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Refraction of Waves</span>
+        </a>
+      <a href="04-principle-of-superposition.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Principle of Superposition</span>
+        </a>
+      <a href="05-constructive-and-destructive-interference.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Constructive and Destructive Interference</span>
+        </a>
+      <a href="06-young-s-double-slit-experiment.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
+          <span>Young's Double-Slit Experiment</span>
+        </a>
+      <a href="07-single-slit-diffraction.html" class="sidebar-link">
+          <span class="sidebar-num">07</span>
+          <span>Single-Slit Diffraction</span>
+        </a>
+      <a href="08-polarisation.html" class="sidebar-link">
+          <span class="sidebar-num">08</span>
+          <span>Polarisation</span>
+        </a>
+      <a href="09-diffraction-gratings.html" class="sidebar-link">
+          <span class="sidebar-num">09</span>
+          <span>Diffraction Gratings</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 9 &middot; C.3 Wave Phenomena</div>
+<div class="lc-title">Transmission, Absorption and Scattering of Waves</div>
+<div class="lc-sub">How we draw waves in two and three dimensions &mdash; and what happens to their energy when they cross into a new medium or simply spread out.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook &ndash; the ripple tank</h3>
+  <p>A <strong>ripple tank</strong> is a tank of shallow water used for investigating wave properties. Small waves (ripples) can be made by touching the surface of shallow water at a point, or with a wooden bar. Usually a motor is attached to the bar to make it vibrate and produce continuous parallel waves at various frequencies. The light above enables the moving waves to be seen on the screen below the tank, and a <strong>stroboscope</strong> is often used to make the waves appear stationary. <strong>The bright lines you see on the screen are the positions of the wave crests.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-01-transmission-absorption-and-scattering-of-waves-01.png" alt="Ripple tank with lamp above, vibrating wooden bar on elastic bands driven by an electric motor, and viewing screen below">
+    <div class="lc-cap">Fig 1 &mdash; Ripple tank (Fig C3.1): lamp support, wooden bar on elastic bands, electric motor to the power supply, shallow water, viewing screen underneath.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think &ndash; then read on)</strong> &mdash; the four basic behaviours of all waves are reflection, refraction, diffraction and interference. Before any of them can be discussed, what two pictures do we use to represent a travelling wave on paper? <em>Answer: wavefronts and rays.</em></div>
+  <div class="lc-info">📋 <strong>Guiding questions for C.3</strong> &mdash; How are observations of wave behaviours at a boundary between different media explained? How is the behaviour of waves passing through apertures represented? What happens when two waves meet at a point in space?</div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Wavefronts and rays</h3>
+  <p><em>Syllabus content: waves travelling in two and three dimensions can be described through the concepts of wavefronts and rays.</em></p>
+  <p>A <strong>wavefront</strong> is a line joining neighbouring points moving in phase with each other (for example, crests). Wavefronts are <strong>one wavelength apart</strong> and perpendicular to the rays that represent them.</p>
+  <p>Regular disturbances of the water at a point P send waves out with equal speed in all directions, so in two dimensions the pattern is <strong>circular</strong>. Wave speed depends on the depth of the water, which is usually constant if the tank is horizontal.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-01-transmission-absorption-and-scattering-of-waves-02.png" alt="Circular wavefronts spreading from point P with radial rays and wavelength marked">
+    <div class="lc-cap">Fig 2 &mdash; Circular wavefronts and radial rays spreading from a point source (Fig C3.2). The spacing marked \(\lambda\) is one wavelength; the rays are <strong>radial</strong> &mdash; diverging in straight lines from P.</div>
+  </div>
+  <p>A <strong>ray</strong> is a line showing the direction in which wavefronts are moving and energy is transferred. <strong>Rays and wavefronts are always perpendicular to each other.</strong> The other common possibility is <strong>parallel</strong> wavefronts, made in a ripple tank with a wooden bar; their movement is represented by parallel rays.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-01-transmission-absorption-and-scattering-of-waves-03.png" alt="Parallel wavefronts one wavelength apart with parallel rays that do not spread out">
+    <div class="lc-cap">Fig 3 &mdash; Parallel wavefronts and parallel rays that are not spreading out (Fig C3.3).</div>
+  </div>
+  <p>In three dimensions, waves spreading from a point with constant speed are represented by <strong>spherical wavefronts</strong>. If the source is a very long way away compared with the wavelength, the wavefronts will be (almost) straight and parallel: such waves are <strong>plane waves</strong> &mdash; waves travelling in three dimensions with parallel wavefronts, which can be represented by parallel rays. Light from a distant point is a common example; the Sun is an obvious source of plane waves.</p>
+  <div class="lc-info">🧠 <strong>TOK &mdash; different ways of describing the same thing.</strong> Wavefronts and rays describe the movement of the same waves, but they are not normally used at the same time. Wavefronts suit visible water waves; rays are preferred for the invisible passage of light through air, even though rays have no physical reality. <strong>Visualization</strong> means helping understanding by using images, mental or graphic &mdash; how might such visualizations extend, affect, or perhaps limit our understanding of the natural world?</div>
+</div>
+
+<div class="lc-card">
+  <h3>🌫️ Transmission, absorption and scattering</h3>
+  <p><em>Syllabus content: wave behaviour at boundaries in terms of transmission.</em></p>
+  <p>The process in which waves are able to travel through a medium is described as wave <strong>transmission</strong> &mdash; passage through a medium without absorption or scattering. For example, light and sound can be transmitted through air and water.</p>
+  <p>During transmission there is often <strong>absorption</strong> of energy: some or all of the wave energy is transferred to internal energy within the medium. Waves may also be randomly misdirected by interactions with irregularities within the medium; this is called <strong>scattering</strong>. In reality, all three processes can occur with the same waves.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-01-transmission-absorption-and-scattering-of-waves-04.png" alt="Waves crossing from medium 1 into medium 2, with separate arrows labelled transmission, absorption and scattering">
+    <div class="lc-cap">Fig 4 &mdash; Transmission, absorption and scattering (Fig C3.6): waves are transmitted by medium 1, then enter medium 2, where they are each either transmitted, absorbed or scattered.</div>
+  </div>
+  <p>A medium through which light can be transmitted, and through which we can see clearly, is described as being <strong>transparent</strong>. A medium through which light cannot be transmitted is described as <strong>opaque</strong> &mdash; unable to transmit light (or other forms of energy).</p>
+</div>
+
+<div class="lc-card">
+  <h3>📉 Wave power, intensity and amplitude</h3>
+  <p>As waves spread out, and/or their energy is dissipated, the power that they transfer is reduced. We usually describe this as a reduction of wave <strong>intensity</strong>:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Intensity &mdash; SI unit W m⁻²</span>
+    $$I = \frac{P}{A}$$
+  </div>
+  <p>Speaking generally, the energy transferred by a wave is proportional to its amplitude squared (Topic C.2). More precisely:</p>
+  <div class="lc-formula">
+    $$I \propto x_0^{2}$$
+  </div>
+  <div class="lc-warn">⚠️ <strong>Common mistake.</strong> Some books use the symbol \(A\) to represent amplitude, but this can cause confusion with the symbol for area. We will use \(A\) for <strong>area</strong> and \(x_0\) for <strong>amplitude</strong>.</div>
+  <p><strong>Spreading from a point without absorption.</strong> There are reasons why waves lose energy during transmission through a medium, but if the waves spread out from a point source (that is, they are not plane waves), their intensity will decrease for that reason alone, without any absorption.</p>
+  <p><strong>In two dimensions (surface waves):</strong> as surface waves spread away from a point source the wavefronts extend over greater and greater lengths. If a circular wavefront increases its distance from its centre from \(r\) to \(2r\), its circumference increases from \(2\pi r\) to \(4\pi r\). The same amount of energy is spread over a greater length, so the wave amplitude decreases. Far from the source the wavefronts become almost parallel, so no loss of energy / power may be noticeable.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-01-transmission-absorption-and-scattering-of-waves-05.png" alt="Circular wavefronts at radii r, 2r and 3r from a point source, drawn with decreasing amplitude">
+    <div class="lc-cap">Fig 5 &mdash; Amplitude of circular wavefronts decreases with distance from the source (Fig C3.7): the circumference grows from \(2\pi r\) to \(4\pi r\) to \(6\pi r\).</div>
+  </div>
+  <p><strong>In three dimensions (such as light and sound):</strong> the intensity of any waves spreading radially in three dimensions, without absorption, from a point source follows an <strong>inverse square relationship</strong>:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Inverse square law</span>
+    $$I \propto \frac{1}{d^{2}}$$
+  </div>
+  <p>Again, if the waves are a great distance from their point source the wavefronts become almost parallel / plane waves, so no loss of energy or power due to spreading may be noticeable.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Inverse square curve</td><td>X: distance (r, 2r, 3r &hellip; 10r); Y: relative intensity 0&ndash;1.0</td><td>Falling curve, steep then flattening, never touching the axis</td><td>Ordinates \(I\), \(I/4\), \(I/9\), \(I/16\) &hellip; \(I/100\) at \(r, 2r, 3r\) &hellip; \(10r\)</td></tr>
+      <tr><td>Linearised inverse square</td><td>X: \(1/d^2\); Y: intensity</td><td>Straight line through the origin</td><td>Gradient \(= I d^2\) (constant) &mdash; proof of the inverse square relationship</td></tr>
+      <tr><td>Intensity&ndash;amplitude</td><td>X: amplitude \(x_0\); Y: intensity</td><td>Curve of increasing gradient (parabolic)</td><td>Doubling \(x_0\) quadruples \(I\)</td></tr>
+      <tr><td>Amplitude&ndash;distance (2-D)</td><td>X: distance from point source; Y: amplitude</td><td>Falling curve, tending to a constant far from the source</td><td>Same energy spread over a longer wavefront; almost parallel wavefronts far away</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-01-transmission-absorption-and-scattering-of-waves-06.png" alt="Relative intensity against distance from r to 10r showing inverse square fall"><div class="lc-cap">Fig 6 &mdash; Inverse square relationship (Fig C3.8): relative intensity falls to \(I/4\) at \(2r\) and \(I/100\) at \(10r\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-01-transmission-absorption-and-scattering-of-waves-07.png" alt="Intensity plotted against one over distance squared giving a straight line through the origin"><div class="lc-cap">Fig 7 &mdash; The same data linearised: \(I\) against \(1/d^2\) is a straight line through the origin.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example &ndash; Tool 3: is the relationship an inverse square?</h3>
+  <p>Check the data shown in Table C3.1 to determine if there is an inverse square relationship between \(x\) and \(y\), (i) numerically and (ii) graphically.</p>
+  <table class="lc-table">
+    <thead><tr><th>x</th><th>y</th><th>y x²</th></tr></thead>
+    <tbody>
+      <tr><td>1.34</td><td>9</td><td>16.2</td></tr>
+      <tr><td>0.96</td><td>17</td><td>15.7</td></tr>
+      <tr><td>0.81</td><td>24</td><td>15.7</td></tr>
+      <tr><td>0.70</td><td>32</td><td>15.7</td></tr>
+      <tr><td>0.64</td><td>38</td><td>15.6</td></tr>
+      <tr><td>0.59</td><td>45</td><td>15.7</td></tr>
+      <tr><td>0.55</td><td>52</td><td>15.7</td></tr>
+      <tr><td>0.52</td><td>58</td><td>15.7</td></tr>
+      <tr><td>0.49</td><td>66</td><td>15.8</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> an inverse square relationship means \(y \propto 1/x^2\), so the product \(y x^2\) must be constant, and a plot of \(y\) against \(1/x^2\) must be a straight line through the origin.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data (numerical test):</strong> \(9 \times 1.34^2 = 16.2\)<br>\(32 \times 0.70^2 = 15.7\)<br>\(66 \times 0.49^2 = 15.8\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (graphical test):</strong> \(y = k/x^2\)<br>so \(y = k \times (1/x^2)\), gradient \(k \approx 15.7\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> every value of \(y x^2\) lies within about 3% of 15.7, and \(y\) against \(1/x^2\) is a straight line through the origin. The relationship <strong>is</strong> an inverse square one, \(y \approx 15.7/x^2\). Plotting \(y\) against \(x\) alone would only give a falling curve, which is not proof.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-01-transmission-absorption-and-scattering-of-waves-08.png" alt="Two small graphs of the Table C3.1 data: y against x as a falling curve, and y against one over x squared as a straight line">
+    <div class="lc-cap">Fig 8 &mdash; Table C3.1 plotted both ways. Only the linear plot against \(1/x^2\) proves the relationship.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: the atmosphere and a blue sky</h3>
+    <p>Sunlight reaching the top of the atmosphere has intensity 1360 W m⁻² and is about 40% visible, 50% infrared and 10% ultraviolet. By the surface the intensity is about 1000 W m⁻², in the proportions 44% visible, 53% infrared and 3% ultraviolet &mdash; the atmosphere transmits most of the visible light but absorbs or scatters the great majority of the ultraviolet. Scattering also explains why the sky is blue: shorter wavelengths are scattered far more strongly by air molecules, so blue light reaches your eye from all directions in the sky.</p>
+    <div class="lc-success">✓ Examiner tip: transmitted, absorbed and scattered are separate fates for the energy. In a "use this data" question, work out the actual intensity of each radiation at both heights before comparing percentages.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension &ndash; why 2-D and 3-D differ</h3>
+    <p>Spreading dilutes energy over the wavefront. In two dimensions the wavefront is a circle of circumference \(2\pi r\), so \(I \propto 1/r\); in three dimensions it is a sphere of area \(4\pi r^2\), so \(I \propto 1/r^2\). Since \(I \propto x_0^{2}\), amplitude falls as \(1/\sqrt{r}\) on a water surface but as \(1/r\) for light or sound.<br>
+    <strong>Challenge:</strong> a point source of sound gives 0.44 W m⁻² at 2.10 m. At what distance is the amplitude halved? (Answer: amplitude halves when \(I\) falls to one quarter, so at \(2 \times 2.10 = 4.20\) m)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner &ndash; common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"\(A\) is the amplitude in \(I = P/A\)"</td><td>\(A\) is the <strong>area</strong>. Amplitude is written \(x_0\), and \(I \propto x_0^{2}\)</td></tr>
+      <tr><td>Rays are drawn parallel to the wavefronts</td><td>Rays are always <strong>perpendicular</strong> to the wavefronts, and show the direction of energy transfer</td></tr>
+      <tr><td>Wavefronts and rays are drawn on the same diagram</td><td>They are two descriptions of the same waves and are not normally used at the same time</td></tr>
+      <tr><td>Any drop in intensity means energy has been absorbed</td><td>Waves from a point source lose intensity by <strong>spreading</strong> alone, with no absorption at all</td></tr>
+      <tr><td>Scattering and absorption are the same thing</td><td>Absorption transfers wave energy to internal energy of the medium; scattering randomly <strong>misdirects</strong> the waves</td></tr>
+      <tr><td>The inverse square law applies to every source</td><td>It applies to a <strong>point</strong> source radiating in three dimensions. Plane waves show no spreading loss</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting to convert areas to m² (0.48 cm² = 4.8 × 10⁻⁵ m², 50 × 80 cm = 0.40 m²). Every intensity in W m⁻² needs the area in square metres.</div>
+</div>
+
+<div class="lc-kp">
+  <span>I = P/A (W m⁻²)</span>
+  <span>I ∝ x₀²</span>
+  <span>I ∝ 1/d²</span>
+  <span>wavefront ⟂ ray</span>
+  <span>wavefronts λ apart</span>
+  <span>transmission · absorption · scattering</span>
+  <span>transparent / opaque</span>
+  <span>plane waves</span>
+</div>
+
+<div class="lc-section">Practice check &mdash; multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which statement about wavefronts and rays is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> Rays are parallel to the wavefronts they represent</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Wavefronts join points that are exactly out of phase</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> Wavefronts join neighbouring points in phase and are perpendicular to the rays</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Wavefronts are half a wavelength apart</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Wave energy is transferred to internal energy within a medium. This process is called</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> transmission</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> absorption</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> scattering</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> diffraction</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A point source emits sound equally in all directions with no absorption. The distance from the source is trebled. The intensity becomes</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> three times larger</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> one third</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> one sixth</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> one ninth</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Parallel wavefronts in a ripple tank move perpendicularly into shallower water. The wavefronts become</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> further apart, because the speed increases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> closer together, because the speed decreases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> unchanged in spacing, because the frequency is unchanged</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> curved, because the rays are radial</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Light waves reaching Earth from the Sun are best described as</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> circular wavefronts with radial rays</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> spherical wavefronts with strongly diverging rays</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> plane waves with parallel rays</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> scattered waves with no defined wavefront</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check &mdash; fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A line joining neighbouring points moving in phase is a <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:150px">, and such lines are one <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:150px"> apart. A line showing the direction of energy transfer is a <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:100px">. Waves randomly misdirected by irregularities in a medium have been <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:150px">. A medium that cannot transmit light is <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:130px">. Intensity is proportional to amplitude <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:130px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam&#8209;style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Describe / Discuss</div>
+  <div class="lc-exam-q">1 (a) Describe and explain how parallel wavefronts in a ripple tank appear if they are moving perpendicularly into shallower water. (b) Discuss how the wavefronts from a point source would appear if the tank was raised on one side. Explain your answer. [5 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Wave speed depends on the depth of the water, and is lower in shallower water.<br>✓ The frequency is set by the vibrating bar and is unchanged, so with \(v = f\lambda\) a smaller \(v\) gives a smaller \(\lambda\).<br>✓ The wavefronts stay parallel and perpendicular to the direction of travel, but become closer together.<br>(b) ✓ The depth now varies across the tank, so the speed varies: the wavefronts travel faster in the deeper part and slower in the shallower part.<br>✓ The circular pattern is distorted &mdash; the spacing is larger on the deep side and smaller on the shallow side, and the fronts are no longer concentric circles (the rays bend towards the shallow region).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Explain / Sketch / State</div>
+  <div class="lc-exam-q">2 Figure C3.4 represents some light wavefronts passing from left to right through a lens (not to scale). (a) Explain how you know that the source of light is a long way away. (b) Make a sketch of the lens and show the path of five rays to represent the movement of the wavefronts. (c) State which word we use to describe the effect of the lens on the light rays. [5 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ The incoming wavefronts are straight and parallel, one wavelength apart.<br>✓ Only a source a very long way away compared with the wavelength gives (almost) plane wavefronts &mdash; spherical fronts would still be noticeably curved.<br>(b) ✓ Five parallel rays drawn left of the lens, perpendicular to the incoming wavefronts.<br>✓ After the lens the rays converge to a single point (the focal point) on the axis; the central ray passes straight through.<br>(c) ✓ Refraction (the lens refracts the light; the effect on the rays is convergence).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Suggest</div>
+  <div class="lc-exam-q">3 Figure C3.5 shows ocean waves as they approach the coast. Suggest possible reasons why the separation and direction of the waves change. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The water becomes shallower towards the beach, so the wave speed decreases; with unchanged frequency the wavelength decreases, so the wavefronts move closer together.<br>✓ Parts of a wavefront in deeper water travel faster than parts in shallower water, so the wavefronts turn (refract) and become more nearly parallel to the shoreline.<br>✓ Diffraction around headlands, rocks or through gaps also changes the direction and spacing of the wavefronts.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Calculate / Explain</div>
+  <div class="lc-exam-q">4 Light and infrared radiation arriving perpendicularly on a solar panel have a total intensity of 780 W m⁻². (a) If the panel has dimensions of 50 × 80 cm, calculate the incident power. (b) Explain why this power will change during the course of the day. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ \(A = 0.50 \times 0.80 = 0.40\ \text{m}^2\)<br>✓ \(P = IA = 780 \times 0.40\)<br>✓ \(P = 312\ \text{W}\), about \(3.1 \times 10^2\ \text{W}\)<br>(b) ✓ The Sun's altitude changes, so the radiation is no longer perpendicular to the panel: the same power is spread over a larger effective area, reducing the intensity received (and the path through the atmosphere lengthens, so more energy is absorbed and scattered; cloud also varies).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Show that</div>
+  <div class="lc-exam-q">5 A girl is reading a book at night using the light from a single lamp, which may be assumed to be a point source. If the lamp was originally 1.80 m away from the book, show that the intensity of the light on the book doubles if it is moved 0.53 m closer to the lamp. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Point source in three dimensions, so \(I \propto 1/d^2\).<br>✓ New distance \(d_2 = 1.80 - 0.53 = 1.27\ \text{m}\)<br>✓ \(I_2/I_1 = (1.80/1.27)^2\)<br>✓ \(= 1.42^2 = 2.0\), so the intensity doubles.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Explain / Suggest</div>
+  <div class="lc-exam-q">6 Figure C3.9 shows some typical aerials used for transmitting (and receiving) signals to mobile phones. (a) Explain why it is desirable that the waves from these aerials are not emitted equally in all directions. (b) Suggest which feature of the aerials limits the vertical spreading of the waves. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Waves spreading in all directions obey \(I \propto 1/d^2\), so most of the transmitted power would be wasted upwards and into the ground where no phones are.<br>✓ Concentrating the power into a horizontal beam gives a greater intensity at the phones for the same emitted power &mdash; longer range, weaker transmitter, less interference with other cells.<br>(b) ✓ The tall, flat panel shape: the aerial is many wavelengths long in the vertical direction.<br>✓ A long vertical aperture diffracts very little vertically, so the beam is narrow in the vertical plane and wide horizontally.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Estimate</div>
+  <div class="lc-exam-q">7 The radiation from the Sun which reaches the top of the Earth's atmosphere has an intensity of 1360 W m⁻². It is approximately 40% visible light, 50% infrared and 10% ultraviolet. The intensity reaching the Earth's surface is approximately 1000 W m⁻². The approximate proportions reaching the Earth's surface are 44% visible light, 53% infrared and 3% ultraviolet. Use this data to estimate the percentages of these three radiations which are: (a) transmitted by the Earth's atmosphere; (b) absorbed / scattered by the Earth's atmosphere. [6 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Top of atmosphere: visible \(0.40 \times 1360 = 544\ \text{W m}^{-2}\); infrared \(0.50 \times 1360 = 680\); ultraviolet \(0.10 \times 1360 = 136\).<br>✓ Surface: visible \(0.44 \times 1000 = 440\); infrared \(0.53 \times 1000 = 530\); ultraviolet \(0.03 \times 1000 = 30\).<br>(a) ✓ visible \(440/544 \approx 81\%\) transmitted<br>✓ infrared \(530/680 \approx 78\%\) transmitted<br>✓ ultraviolet \(30/136 \approx 22\%\) transmitted<br>(b) ✓ absorbed / scattered: visible about \(19\%\), infrared about \(22\%\), ultraviolet about \(78\%\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Explain</div>
+  <div class="lc-exam-q">8 Why is the sky blue? (Research on the internet if necessary.) [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Sunlight passing through the atmosphere is scattered by air molecules, which are much smaller than the wavelength of light.<br>✓ This scattering is much stronger for shorter wavelengths (Rayleigh scattering, \(\propto 1/\lambda^4\)), so blue is scattered far more than red.<br>✓ Scattered blue light arrives at the observer from all directions in the sky, so the sky looks blue; looking directly towards a low Sun, the remaining transmitted light is reddened.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Calculate / Estimate / Discuss</div>
+  <div class="lc-exam-q">9 It is considered to be a health risk to expose our ears to sounds of intensity greater than 10 mW m⁻² for more than a few minutes. (a) Calculate the total power received on an eardrum of area 0.48 cm² from this intensity. (b) If the sound intensity 2.10 m from a loudspeaker at a rock concert was 0.44 W m⁻², estimate how far away you would need to be in order to reduce the intensity to 100 mW m⁻². (c) State two assumptions that you made in answering (b). Discuss whether these assumptions are reasonable. [7 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ \(A = 0.48\ \text{cm}^2 = 4.8 \times 10^{-5}\ \text{m}^2\)<br>✓ \(P = IA = 0.010 \times 4.8 \times 10^{-5}\)<br>✓ \(P = 4.8 \times 10^{-7}\ \text{W}\)<br>(b) ✓ \(I \propto 1/d^2\), so \(d_2 = d_1\sqrt{I_1/I_2}\)<br>✓ \(d_2 = 2.10\sqrt{0.44/0.100}\)<br>✓ \(d_2 \approx 4.4\ \text{m}\)<br>(c) ✓ Assumption 1: the loudspeaker behaves as a point source radiating equally in all directions. ✓ Assumption 2: no energy is absorbed or scattered on the way (and no reflected sound adds to the intensity).<br>✓ Discussion: both are only roughly reasonable &mdash; a loudspeaker is directional and forms a beam, air absorbs high frequencies, and reflections from the ground, walls and crowd add extra intensity, so the real distance needed would be larger.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'A wavefront joins neighbouring points moving in phase, is one wavelength from the next, and is always perpendicular to the rays.' },
+    mcq2: { B: 'Absorption transfers some or all of the wave energy to internal energy within the medium; scattering only misdirects it.' },
+    mcq3: { D: 'For a point source in three dimensions I is proportional to 1/d², so trebling d divides the intensity by nine.' },
+    mcq4: { B: 'Wave speed depends on depth, so v falls; frequency is fixed by the source, so λ falls and the wavefronts crowd together.' },
+    mcq5: { C: 'The Sun is so far away compared with the wavelength that its wavefronts are almost straight and parallel — plane waves.' }
+  };
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+  window.lcFITB = function() {
+    const ans = { lf1:'wavefront', lf2:'wavelength', lf3:'ray', lf4:'scattered', lf5:'opaque', lf6:'squared' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || (val.length > 2 && val.includes(ans[id]));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <div class="lesson-nav">
+        <a href="../C.2-Wave-Model/index.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">C.2 Wave Model</div>
+          </div>
+        </a>
+        <a href="02-reflection-of-waves-and-rays.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Reflection of Waves and Rays</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

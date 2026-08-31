@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinetic and Gravitational Potential Energy — A.3 Work, Energy and Power — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A3">A.3 Work, Energy and Power</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Kinetic and Gravitational Potential Energy</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.3
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 2 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Kinetic and Gravitational Potential Energy</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.3 Work, Energy and Power</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.3 overview
+      </a>
+      <div class="sidebar-title">A.3 Concepts</div>
+      <a href="01-work-done-by-a-force.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Work Done by a Force</span>
+        </a>
+      <a href="02-kinetic-and-gravitational-potential-energy.html" class="sidebar-link active">
+          <span class="sidebar-num">02</span>
+          <span>Kinetic and Gravitational Potential Energy</span>
+        </a>
+      <a href="03-conservation-of-mechanical-energy.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Conservation of Mechanical Energy</span>
+        </a>
+      <a href="04-power-and-efficiency.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Power and Efficiency</span>
+        </a>
+      <a href="05-elastic-and-inelastic-collisions.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Elastic and Inelastic Collisions</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 5 · A.3 Work, Energy and Power</div>
+<div class="lc-title">Kinetic and Gravitational Potential Energy</div>
+<div class="lc-sub">Work done on an object becomes stored energy. The three mechanical stores — kinetic, gravitational and elastic — are the accounting system of mechanics.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the cost of speed</h3>
+  <p>A car travelling at 60 km h⁻¹ that doubles its speed to 120 km h⁻¹ does not need twice the braking distance. It needs <strong>four times</strong> the distance, because kinetic energy depends on the <em>square</em> of the speed. This single fact explains most of the physics behind speed limits.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-02-kinetic-and-gravitational-potential-energy-01.png" alt="Two identical cars braking, one at 60 km per hour with a short stopping distance and one at 120 km per hour with a stopping distance four times as long">
+    <div class="lc-cap">Fig 1 — Double the speed, quadruple the kinetic energy — and quadruple the distance needed to remove it.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — A book rests on a table. Is its gravitational potential energy zero? <em>The question is incomplete. \(\Delta E_{\text{p}} = mg\Delta h\) only ever gives a <strong>change</strong> relative to some other position, so "zero" depends entirely on where you measure from.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Mechanical energy</h3>
+  <p><strong>Mechanical energy</strong> is the energy of a macroscopic object that can do useful work. It is the sum of three stores:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Mechanical energy</span>
+    $$E_{\text{mech}} = E_{\text{k}} + E_{\text{p}} + E_{\text{H}}$$
+  </div>
+  <p>Work is the mechanism that moves energy between stores, which gives the central statement of this topic: <strong>the work done by the resultant force on a system equals the change in the energy of the system</strong>. Do work on a body and it gains energy; let it do work on something else and it loses energy.</p>
+  <div class="lc-success">✓ The symbol \(E\) always carries a subscript naming the store: \(E_{\text{k}}\) kinetic, \(E_{\text{p}}\) gravitational potential, \(E_{\text{H}}\) elastic potential.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🏃 Kinetic energy</h3>
+  <p>Consider a mass \(m\) accelerated from rest across a horizontal distance \(s\) by a constant resultant force \(F\). From \(v^2 = u^2 + 2as\) with \(u = 0\) we get \(s = v^2/2a\), so the work done is</p>
+  <div class="lc-formula">$$W = Fs = ma \times \frac{v^2}{2a} = \tfrac{1}{2}mv^2$$</div>
+  <p>That energy has been transferred to the moving mass as <strong>kinetic energy</strong>. Rewriting \(\tfrac12 mv^2\) as \((mv)^2/2m\) and using \(p = mv\) gives a second, equivalent form, most often used for atomic particles:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Translational kinetic energy</span>
+    $$E_{\text{k}} = \tfrac{1}{2}mv^2 = \frac{p^2}{2m}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-02-kinetic-and-gravitational-potential-energy-02.png" alt="A mass at rest with a force arrow, then the same mass after moving a distance s with speed v, showing work becoming kinetic energy">
+    <div class="lc-cap">Fig 2 — Doing work to increase movement: all the work done becomes kinetic energy.</div>
+  </div>
+  <p>These equations give <strong>translational</strong> kinetic energy only — the energy of travelling from place to place. Vibrating and rotating objects also have kinetic energy, but need different equations (Topics A.4 and C.1).</p>
+  <table class="lc-table">
+    <thead><tr><th>Object</th><th>Order of magnitude of \(E_{\text{k}}\) / J</th></tr></thead>
+    <tbody>
+      <tr><td>A molecule in air at 20 °C</td><td>10⁻²⁰</td></tr>
+      <tr><td>A falling snowflake</td><td>10⁻⁷</td></tr>
+      <tr><td>A boy running a 100 m race</td><td>10³</td></tr>
+      <tr><td>A bullet from a rifle</td><td>10⁴</td></tr>
+      <tr><td>A car on an open road</td><td>10⁵</td></tr>
+      <tr><td>A large meteor approaching Earth</td><td>10¹⁷</td></tr>
+      <tr><td>The Earth orbiting the Sun</td><td>10³³</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-info">💡 These are <strong>orders of magnitude</strong> — values rounded to the nearest power of ten. A boy in a 100 m race could plausibly have anything from 90 J to 2800 J, so quoting three significant figures would be misleading. Estimation to 1 significant figure, or to the nearest power of ten, is the honest answer.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – work becoming kinetic energy</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> A constant resultant horizontal force of 40 N accelerates a box over 50 cm. Find the work done, the kinetic energy gained, and the mass of the box if it started at rest and reached 2.9 m s⁻¹.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(F = 40\ \text{N}\), \(s = 0.50\ \text{m}\), \(u = 0\), \(v = 2.9\ \text{m s}^{-1}\). Assumption: the force acts in the same direction as the motion, so \(\theta = 0\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(W = Fs = 40 \times 0.50 = 20\ \text{J}\). Since the box started at rest and this is the <em>resultant</em> force, all 20 J becomes kinetic energy: \(E_{\text{k}} = 20\ \text{J}\). Then \(20 = \tfrac12 m (2.9)^2\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(m = 2 \times 20 / 2.9^2 = 4.8\ \text{kg}\).</div></div>
+  <div class="lc-success">✓ Examiner tip: the phrase "resultant force" is what licenses \(W = \Delta E_{\text{k}}\). If friction also acted, only part of the applied work would appear as kinetic energy.</div>
+</div>
+
+<div class="lc-card">
+  <h3>⛰️ Gravitational potential energy</h3>
+  <p>To raise a mass \(m\) through a vertical height \(\Delta h\) at constant velocity, the minimum force needed equals the weight, \(mg\). The work done is therefore \(W = mg\Delta h\), and that energy is stored as <strong>gravitational potential energy</strong>:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Gravitational potential energy near the Earth's surface</span>
+    $$\Delta E_{\text{p}} = mg\Delta h$$
+  </div>
+  <p>Allow the mass to fall back the same distance and the same energy becomes available to do useful work. A hydroelectric power station is exactly this principle at scale.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-02-kinetic-and-gravitational-potential-energy-03.png" alt="A mass being raised through a vertical height delta h, gaining gravitational potential energy m g delta h">
+    <div class="lc-cap">Fig 3 — Only the <em>vertical</em> height matters. The path taken is irrelevant.</div>
+  </div>
+  <div class="lc-warn">⚠️ Two limits on this equation. First, \(g\) must be effectively constant over the distance involved — \(g = 9.8\ \text{N kg}^{-1}\) cannot be used for a satellite launched hundreds of kilometres up. Second, it gives a <strong>change</strong> only: a mass on a table does not have "zero" gravitational potential energy, it simply has whatever value we choose to measure from.</div>
+  <div class="lc-step"><div class="lc-step-num">✍️</div><div class="lc-step-body"><strong>Worked example:</strong> Estimate the gravitational potential energy gained by a 40 kg teenager riding to the 124th floor of the Burj Khalifa, taking each floor as 3.5 m. Height \(\Delta h = 124 \times 3.5 = 434\ \text{m}\), so \(\Delta E_{\text{p}} = 40 \times 9.8 \times 434 \approx 1.7 \times 10^{5}\ \text{J}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>🪢 Elastic potential energy</h3>
+  <p>When a spring or elastic material is deformed from its natural shape it becomes a store of <strong>elastic potential energy</strong>, released when it returns to that shape. Recall Hooke's law from A.2, \(F_{\text{H}} = -k\Delta x\), where \(k\) is the spring constant.</p>
+  <p>If the force rises steadily from 0 to \(F_{\text{H}}\), the average force is \(\tfrac12 F_{\text{H}}\), so</p>
+  <div class="lc-formula">$$W = \tfrac{1}{2}F_{\text{H}}\Delta x = \tfrac{1}{2}(k\Delta x)\Delta x$$</div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Elastic potential energy</span>
+    $$E_{\text{H}} = \tfrac{1}{2}k\Delta x^{2}$$
+  </div>
+  <p>No negative sign is needed, because work is not a vector quantity. As always, the work done also equals the area under the force–extension graph — here a triangle.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-02-kinetic-and-gravitational-potential-energy-04.png" alt="A spring with no force and then stretched by a force, beside a force against extension graph with the triangular area under the line labelled work done">
+    <div class="lc-cap">Fig 4 — For a Hooke's law spring the graph is a straight line, so the stored energy is the triangle \(\tfrac12 F_{\text{H}}\Delta x\).</div>
+  </div>
+  <div class="lc-step"><div class="lc-step-num">✍️</div><div class="lc-step-body"><strong>Worked example:</strong> A compression spring 5.64 cm long is shortened to 5.30 cm by a 59.0 N force. (a) \(k = F/\Delta x = 59.0/0.34 = 174\ \text{N cm}^{-1} = 1.74\times10^{4}\ \text{N m}^{-1}\). (b) \(W = \tfrac12 F\Delta x = 29.5 \times 3.4\times10^{-3} = 0.100\ \text{J}\). (c) Check: \(E_{\text{H}} = \tfrac12 (1.74\times10^{4})(3.4\times10^{-3})^2 = 0.100\ \text{J}\) — the two routes agree, as they must.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Kinetic energy against speed</td><td>Speed \(v\), \(E_{\text{k}}\)</td><td>Upward parabola through the origin</td><td>Doubling \(v\) quadruples \(E_{\text{k}}\)</td></tr>
+      <tr><td>Kinetic energy against \(v^2\)</td><td>\(v^{2}\), \(E_{\text{k}}\)</td><td>Straight line through the origin</td><td>Gradient \(= \tfrac12 m\) — the standard way to find a mass experimentally</td></tr>
+      <tr><td>Force–extension (spring)</td><td>Extension \(\Delta x\), force \(F\)</td><td>Straight line through the origin</td><td>Gradient \(= k\); area \(= E_{\text{H}}\)</td></tr>
+      <tr><td>\(E_{\text{p}}\) against height</td><td>Height \(\Delta h\), \(E_{\text{p}}\)</td><td>Straight line</td><td>Gradient \(= mg\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-02-kinetic-and-gravitational-potential-energy-05.png" alt="Two graphs side by side, kinetic energy against speed as a parabola and kinetic energy against speed squared as a straight line with gradient half m"><div class="lc-cap">Fig 5 — Squaring the axis linearises the relationship; the gradient then gives \(\tfrac12 m\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-02-kinetic-and-gravitational-potential-energy-06.png" alt="Three simple machines, a ramp, a lever and a pulley system, each with a reduced force arrow labelled F"><div class="lc-cap">Fig 6 — Simple machines reduce the force needed but increase the distance moved. The energy transferred is unchanged.</div></div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔧 Real-world: simple machines</h3>
+    <p>Raising a 50 kg mass by 1 m needs about 500 J — not much work, but it demands a 500 N force. Ramps, levers and pulleys reduce that force at the cost of a longer distance moved, so the product \(Fs\) stays roughly the same. Friction means a machine always transfers <em>more</em> total energy than lifting directly; we accept that because ease matters more than efficiency.</p>
+    <div class="lc-warn">⚠️ Power and strength are different things, and everyday language confuses them. A machine changes the force you need; it does not change the energy the job requires.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🔬 Nature of science: uncertainty</h3>
+    <p>Because \(E_{\text{k}}\) depends on \(v^2\), the percentage uncertainty in speed counts <strong>twice</strong> when propagating into energy. In a trolley-on-a-slope experiment, a 14% uncertainty in timing alone pushed the uncertainty in kinetic energy above 30%, and the uncertainty in the <em>difference</em> between two energies reached 58%.</p>
+    <div class="lc-success">✓ A result like that is a signal to redesign the experiment — light gates instead of a stopwatch — not to quote more decimal places.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Doubling the speed doubles the kinetic energy</td><td>\(E_{\text{k}} \propto v^{2}\), so doubling \(v\) gives four times the energy.</td></tr>
+      <tr><td>An object on the ground has zero gravitational potential energy</td><td>\(\Delta E_{\text{p}} = mg\Delta h\) gives only a change relative to a chosen reference position.</td></tr>
+      <tr><td>\(\Delta E_{\text{p}} = mg\Delta h\) works at any altitude</td><td>Only where \(g\) is effectively constant. For a satellite launch, \(g\) falls measurably with height.</td></tr>
+      <tr><td>Use the distance travelled along a slope for \(\Delta h\)</td><td>Use the <em>vertical</em> height gained. A cable car rising 700 m over 6.0 km of track has \(\Delta h = 700\ \text{m}\).</td></tr>
+      <tr><td>A machine such as a pulley reduces the energy needed</td><td>It reduces the <em>force</em>. The distance increases, and friction means slightly more total energy is transferred.</td></tr>
+      <tr><td>Batteries store electrical energy</td><td>They store chemical energy, which is transferred to an electric current when the circuit is completed.</td></tr>
+      <tr><td>\(E_{\text{k}} = \tfrac12 mv^2\) covers every kind of kinetic energy</td><td>It gives translational kinetic energy only. Rotation and vibration need other equations.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting to square the speed, or squaring only the numerical part and not the power of ten.</div>
+</div>
+
+<div class="lc-kp">
+  <span>E_mech = E_k + E_p + E_H</span>
+  <span>W_resultant = ΔE</span>
+  <span>E_k = ½mv² = p²/2m</span>
+  <span>ΔE_p = mgΔh</span>
+  <span>E_H = ½kΔx²</span>
+  <span>E_k ∝ v²</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. The kinetic energy of a 57 g tennis ball served at 50 m s⁻¹ is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 1.4 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> 2.9 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> 71 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> 143 J</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A car's speed increases from 15 m s⁻¹ to 30 m s⁻¹. Its kinetic energy increases by a factor of</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> √2</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> 2</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> 4</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> 8</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A spring of spring constant 384 N m⁻¹ obeying Hooke's law is stretched by 2.0 cm. The elastic potential energy stored is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> 0.038 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> 0.077 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> 3.8 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> 7.7 J</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A cable car climbs a vertical height of 700 m along 6.0 km of cable. To find the gravitational potential energy gained you should use</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Δh = 6000 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Δh = 700 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> Δh = 6700 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Δh = 5300 m</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Which statement about a graph of \(E_{\text{k}}\) against \(v^{2}\) for a moving object is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','D')"><span class="lc-opt-l">A</span> It is a parabola with gradient \(m\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','D')"><span class="lc-opt-l">B</span> It is a straight line with gradient \(2m\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','D')"><span class="lc-opt-l">C</span> It is a straight line with an intercept equal to \(mg\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','D')"><span class="lc-opt-l">D</span> It is a straight line through the origin with gradient \(\tfrac12 m\)</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Mechanical energy is the sum of kinetic, gravitational potential and <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> potential energy. The work done by the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:120px"> force on a system equals the change in the energy of the system. Kinetic energy is proportional to the <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:100px"> of the speed. The equation ΔE_p = mgΔh may only be used where <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:60px"> is constant. A simple machine such as a pulley reduces the <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:90px"> required, not the energy.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Derive / Calculate</div>
+  <div class="lc-exam-q">(a) A constant resultant force \(F\) accelerates a mass \(m\) from rest through a distance \(s\) to a speed \(v\). Show that the work done is \(\tfrac12 mv^2\). [3]<br>(b) Determine the work needed to accelerate a 1800 kg car from rest to 20 m s⁻¹. [2]<br>(c) Calculate the average resultant force needed to do this over a horizontal distance of 100 m. [2]</div>
+  <div class="lc-exam-marks">7 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Using \(v^2 = u^2 + 2as\) with \(u = 0\) gives \(s = v^2/2a\). ✓ \(W = Fs = ma \times v^2/2a\). ✓ The accelerations cancel, leaving \(W = \tfrac12 mv^2\).<br>(b) ✓ \(W = \Delta E_{\text{k}} = \tfrac12 (1800)(20)^2\). ✓ \(= 3.6\times10^{5}\ \text{J}\).<br>(c) ✓ \(F = W/s = 3.6\times10^{5}/100\). ✓ \(F = 3.6\times10^{3}\ \text{N}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q">A cable car of mass 1800 kg carries six passengers of average mass 47 kg. It rises a vertical height of 700 m over a total distance travelled of 6.0 km.<br>(a) Show that approximately 15 MJ of gravitational potential energy is transferred during the journey. [3]<br>(b) Suggest why considerably more energy than this must actually be supplied. [2]</div>
+  <div class="lc-exam-marks">5 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Total mass \(= 1800 + 6(47) = 2082\ \text{kg}\). ✓ \(\Delta E_{\text{p}} = mg\Delta h = 2082 \times 9.8 \times 700\). ✓ \(= 1.43\times10^{7} \approx 15\ \text{MJ}\) (using the vertical height, not the 6.0 km).<br>(b) ✓ Energy is dissipated as thermal energy by friction in the cables, pulleys and bearings, and by air resistance. ✓ Kinetic energy must also be supplied to get the car moving, and the motor itself is not 100% efficient.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Outline / Predict</div>
+  <div class="lc-exam-q">A rocket launches a 500 kg satellite to a height of 400 km above the Earth's surface.<br>(a) Outline why \(\Delta E_{\text{p}} = mg\Delta h\) with \(g = 9.8\ \text{N kg}^{-1}\) cannot be used to determine the gravitational potential energy transferred accurately. [2]<br>(b) Given that \(g\) falls from 9.8 to 8.7 N kg⁻¹ over this height, predict the gravitational potential energy gained. [3]</div>
+  <div class="lc-exam-marks">5 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ The equation assumes \(g\) is constant over the height involved. ✓ Over 400 km \(g\) decreases appreciably, so using 9.8 N kg⁻¹ throughout would overestimate the energy required.<br>(b) ✓ Use a mean value, \(g_{\text{av}} = (9.8 + 8.7)/2 = 9.25\ \text{N kg}^{-1}\). ✓ \(\Delta E_{\text{p}} = 500 \times 9.25 \times 4.00\times10^{5}\). ✓ \(= 1.9\times10^{9}\ \text{J}\).</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'E_k = \u00bd \u00d7 0.057 \u00d7 50\u00b2 = \u00bd \u00d7 0.057 \u00d7 2500 = 71 J.' },
+    mcq2: { C: 'E_k \u221d v\u00b2. Doubling the speed multiplies the kinetic energy by 2\u00b2 = 4.' },
+    mcq3: { B: 'E_H = \u00bdk\u0394x\u00b2 = 0.5 \u00d7 384 \u00d7 (0.020)\u00b2 = 0.077 J. Convert cm to m before squaring.' },
+    mcq4: { B: 'Only the vertical height counts, so \u0394h = 700 m. The 6.0 km along the cable is irrelevant to \u0394E_p.' },
+    mcq5: { D: 'E_k = \u00bdmv\u00b2, so plotting E_k against v\u00b2 gives a straight line through the origin of gradient \u00bdm.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '\u2713 ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '\u2717 Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'elastic', lf2:'resultant', lf3:'square', lf4:'g', lf5:'force' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || (id!=='lf4' && val.includes(ans[id]));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '\u2713 All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' \u00b7 ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+</div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="01-work-done-by-a-force.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Work Done by a Force</div>
+          </div>
+        </a>
+        <a href="03-conservation-of-mechanical-energy.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Conservation of Mechanical Energy</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

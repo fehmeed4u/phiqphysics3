@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Defining Simple Harmonic Motion — C.1 Simple Harmonic Motion — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C1">C.1 Simple Harmonic Motion</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Defining Simple Harmonic Motion</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">
+            C.1
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 1 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Defining Simple Harmonic Motion</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">C.1 Simple Harmonic Motion</strong>
+          · Unit C — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to C.1 overview
+      </a>
+      <div class="sidebar-title">C.1 Concepts</div>
+      <a href="01-defining-simple-harmonic-motion.html" class="sidebar-link active">
+          <span class="sidebar-num">01</span>
+          <span>Defining Simple Harmonic Motion</span>
+        </a>
+      <a href="02-shm-equations-displacement-velocity-acceleration.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>SHM Equations — Displacement, Velocity, Acceleration</span>
+        </a>
+      <a href="03-energy-in-shm.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Energy in SHM</span>
+        </a>
+      <a href="04-the-simple-pendulum-and-mass-spring-system.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>The Simple Pendulum and Mass-Spring System</span>
+        </a>
+      <a href="05-damping-and-resonance.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Damping and Resonance</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+        <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 5 · C.1 Simple Harmonic Motion</div>
+<div class="lc-title">Defining Simple Harmonic Motion</div>
+<div class="lc-sub">Oscillations are everywhere — hearts, atoms, tides, currents. This lesson builds the one idealised model that describes them all, and the single equation that defines it.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the hummingbird that beats 2600 times a minute</h3>
+  <p>Slow-motion video of a hummingbird's wings gives an angular frequency of <strong>272 rad s⁻¹</strong>. That is about 43 complete wing cycles every second, and roughly <strong>2.6 × 10³ beats in a single minute</strong> — yet every one of those beats takes almost exactly the same time as the last.</p>
+  <p>That "same time every time" property has a name: the motion is <strong>isochronous</strong>. It is the property that made pendulums into clocks, and it is the first clue that a single simple model can describe oscillations as different as a wingbeat, a guitar string and the tides.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-01.png" alt="Hummingbird hovering with wings drawn at the top and bottom of a wingbeat, arrows showing repeated motion about a central line">
+    <div class="lc-cap">Fig 1 — Each wingbeat is one oscillation: a regularly repeated backwards-and-forwards movement about the same central point, along the same path.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — A pendulum is pulled back twice as far and released. Does each swing now take longer? <em>No. Doubling the amplitude doubles the restoring force and so doubles the acceleration: the mass covers twice the distance at twice the average speed, and the time period is unchanged. Amplitude does not affect time period.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🔁 Oscillations, and why we model them with SHM</h3>
+  <p>An <strong>oscillation</strong> is a regularly repeated backwards-and-forwards movement about the same central point, and along the same path — repetitive motion about a fixed point.</p>
+  <p>The importance of studying oscillations is clear from how wide the range of examples is. In physics and beyond, there are oscillations of: the planets around the Sun; the human heart; clocks (mechanical and electronic); engines and motors; atoms within molecules; musical instruments; human speech and the eardrum; waves on water; light and other electromagnetic waves; tides on the ocean; electric currents.</p>
+  <p><strong>Simple harmonic motion (SHM)</strong> is a simplified theoretical model representing oscillations. It is the starting point for the study of all oscillations. In perfect SHM the oscillations always take the same time and there are no resistive forces, so they continue indefinitely with no loss of energy and constant amplitude. This time-keeping property is described as being <strong>isochronous</strong>.</p>
+  <div class="lc-info">🔬 <strong>Nature of science: models</strong> — A model in science is a simplified representation of a more complex situation, and may take many forms: a description in words, a drawing, a theory, an equation, a 3-D construction, a computer program or simulation. We are surrounded by oscillations, but few, if any, are perfect simple harmonic oscillators. Real oscillators are complex and various; to understand them we first understand the simplified version. Such models should not be dismissed because of their basic assumptions.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 The six terms every SHM question uses</h3>
+  <p>Although we talk about oscillating masses or objects, a discussion of perfect SHM often refers to a <strong>point mass</strong>, or a "particle".</p>
+  <p>Until a mass is displaced by a resultant force it stays at its <strong>equilibrium position</strong>, where the resultant force is zero. Once displaced, oscillations occur if there is always a resultant <strong>restoring force</strong> pushing or pulling it back towards equilibrium. The mass gains kinetic energy as it returns, passes through equilibrium because of its inertia, so the displacement is then in the opposite direction. Kinetic energy is transferred to some form of potential energy in the system, and when the kinetic energy has fallen to zero the mass stops and reverses. And so on.</p>
+  <p>A mass between two springs on a friction-free surface is a good visualisation. At all times the springs are stretched, but in part <strong>a</strong> the forces from the springs on the mass are equal and opposite. In part <strong>b</strong> there is a resultant force to the right. When released, the mass accelerates, reaches its greatest speed in the centre, then decelerates until it stops at B.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-02.png" alt="Mass between two horizontal springs, part a at equilibrium with balanced forces, part b displaced with a resultant force">
+    <div class="lc-cap">Fig 2 — Oscillations of a mass between two springs. In <strong>a</strong> the spring forces balance; in <strong>b</strong> the displaced mass feels a resultant restoring force.</div>
+  </div>
+  <table class="lc-table">
+    <thead><tr><th>Term</th><th>Symbol</th><th>Meaning and unit</th></tr></thead>
+    <tbody>
+      <tr><td>Equilibrium position</td><td>—</td><td>Position in which there is no resultant force acting on the object</td></tr>
+      <tr><td>Displacement</td><td>\(x\)</td><td>Distance from equilibrium in a specified direction; a vector, varying continuously in size and direction. Unit: m</td></tr>
+      <tr><td>Amplitude</td><td>\(x_0\)</td><td>Maximum displacement while oscillating. Unit: m</td></tr>
+      <tr><td>Cycle</td><td>—</td><td>One complete oscillation: the mass returns to a certain position moving in the same direction. An object that oscillates is an <em>oscillator</em></td></tr>
+      <tr><td>Time period</td><td>\(T\)</td><td>Time taken for one complete oscillation. Unit: s</td></tr>
+      <tr><td>Frequency</td><td>\(f\)</td><td>Number of oscillations per unit time (per second). Unit: hertz, Hz. 1 Hz means one oscillation per second</td></tr>
+      <tr><td>Angular frequency</td><td>\(\omega\)</td><td>Frequency expressed as an angle swept per second. Unit: rad s⁻¹</td></tr>
+    </tbody>
+  </table>
+  <p>In the idealised case (SHM) with no energy dissipation the amplitude stays constant. More realistically, each oscillation has an amplitude less than the one before, assuming there is no driving force.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Period, frequency and angular frequency</span>
+    $$T = \frac{1}{f}$$
+    $$T = \frac{2\pi}{\omega}$$
+  </div>
+  <p>Time period and frequency provide exactly the same information; typically we prefer whichever is greater than one. Both remain constant for most practical oscillations (they are isochronous) even when the amplitude reduces because of energy dissipation. Because physics often deals with high frequencies, these units are in common use: kHz (10³ Hz), MHz (10⁶ Hz), GHz (10⁹ Hz).</p>
+  <div class="lc-warn">⚠️ <strong>Common mistake</strong> — The amplitude of an oscillation is <em>not</em> the distance between its extreme positions (that equals twice the amplitude). A single movement between the extremes is not a complete oscillation — it is half an oscillation.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔄 The link between SHM and circular motion</h3>
+  <p>Sometimes we describe circular motion as an oscillation, and frequency and time period should already be familiar from the circular motion sub-topic in A.2. Viewed from the side, motion in a circle has exactly the same pattern of movement as a simple oscillation.</p>
+  <p>Consider a particle moving in a circle at constant speed, and let point P be the projection of the particle's position onto the diameter of the circle. As the particle moves round, <strong>P oscillates backwards and forwards along the diameter</strong> with the same frequency as the circular motion, and with an amplitude equal to the radius, \(r\), of the circle. One complete oscillation of P is equivalent to the particle moving through an angle of \(2\pi\) radians.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-03.png" alt="Circle with a particle on the circumference and its projection point P on the horizontal diameter, radius r and displacement x marked">
+    <div class="lc-cap">Fig 3 — Comparing SHM to motion in a circle: P oscillates along the diameter with amplitude \(r\).</div>
+  </div>
+  <p>Angular velocity, \(\omega\), was introduced in A.2 for motion in a circle. Because of this close analogy, \(\omega\) is also central to the mathematics of SHM — but in the study of SHM it is called <strong>angular frequency</strong>, measured in rad s⁻¹.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Angular frequency</span>
+    $$\omega = \frac{2\pi}{T}$$
+    $$\omega = 2\pi f$$
+  </div>
+  <p>Period, frequency and angular frequency are three different ways of representing exactly the same information.</p>
+  <div class="lc-info">🧠 <strong>TOK — analogies, correlations and causal relationships</strong> — An <strong>analogy</strong> compares a process in one area of knowledge to a seemingly unrelated one, and we see similarities. If an analogy proves useful but has little other validity, does that justify its use, and does it increase our knowledge of the system it is applied to? What is the difference between a correlation, a causal link and an analogy? Consider applying the mathematics of oscillations to animal populations, or to economic cycles.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🪀 Oscillator 1 — the mass–spring system</h3>
+  <p>A mass–spring system and a simple pendulum are the two oscillators studied in every laboratory, for good reasons: the proportional relationships between force and displacement are easily understood; their periods are convenient to measure in a school laboratory; they are good approximations to SHM; energy is dissipated slowly, so oscillations continue long enough for accurate measurements; and they are starting points for understanding many similar but more complex oscillators.</p>
+  <p>The common arrangement is a mass hanging on a vertical spring. The force of gravity (the weight of the mass) also acts vertically, but it does not affect the results because it is constant — the system would have the <strong>same time period at a location with a different gravitational field strength</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-04.png" alt="Four stages of a mass on a vertical spring: no load, equilibrium, lowest point and highest point, with amplitude marked">
+    <div class="lc-cap">Fig 4 — Different positions of a mass, \(m\), oscillating on a spring. Amplitude is measured from the equilibrium position, not from the unloaded length.</div>
+  </div>
+  <p>We assume the spring is never overstretched and that it obeys <strong>Hooke's law</strong> (Topic A.2): the size of the restoring force on the mass equals the spring constant multiplied by the displacement from equilibrium. The <strong>spring constant</strong> is a measure of the spring's stiffness (force / deformation).</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Hooke's law (restoring force)</span>
+    $$F_{\text{H}} = -kx$$
+  </div>
+  <p>Laboratory investigation is straightforward, especially using different masses on the same spring; different springs, or combinations of springs, with the same mass investigate the effect of \(k\) on the period. Modern setups use a <strong>position sensor</strong> below the mass, feeding an interface and computer so digital data can be collected and processed later — this is <strong>data logging</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-05.png" alt="Graph of time period T against mass in grams, a curve of decreasing gradient from the origin">
+    <div class="lc-cap">Fig 5 — Variation of time period, \(T\), with mass, \(m\), on a spring: a curve of decreasing gradient, not a straight line.</div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Time period of a mass–spring system</span>
+    $$T = 2\pi\sqrt{\frac{m}{k}}$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Same relationship, using \(\omega = 2\pi/T\)</span>
+    $$\omega^2 = \frac{k}{m}$$
+  </div>
+  <p>This equation applies perfectly only to a point mass acted on by a separate simple spring system that has a well-defined stiffness \(k\) and no significant mass. A very large number of other oscillating mechanical systems are similar to this model but much more complex — oscillations in buildings and bridges, for example. A simpler example is an <strong>oscillating ruler</strong> clamped at one end, in which the mass is spread uniformly along the oscillating system.</p>
+  <div class="lc-info">📊 <strong>Tool 3: linearise the graph</strong> — Fig 5 looks as though it might represent \(T^2 \propto m\). Check it by using values from the graph to plot \(T^2\) against \(m\) (uncertainties in \(T\) are ± 0.05 s). It should give a straight line through the origin, of gradient \(4\pi^2/k\), from which \(k\) can be found.</div>
+  <p><strong>Inquiry 3 — concluding and evaluating.</strong> A student investigated an oscillating ruler, varying the mass by taping masses near its free end. She predicted that the time period could be found from the same equation as for a mass on a spring. Her raw data (uncertainties low):</p>
+  <table class="lc-table">
+    <thead><tr><th>Mass on end of blade / g</th><th>Time period / s</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>too quick to measure</td></tr>
+      <tr><td>40</td><td>0.55</td></tr>
+      <tr><td>80</td><td>0.76</td></tr>
+      <tr><td>120</td><td>0.91</td></tr>
+      <tr><td>160</td><td>1.04</td></tr>
+      <tr><td>200</td><td>1.15</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-success">✓ <strong>Conclusion</strong> — Plotting \(T^2\) against \(m\) gives 0.303, 0.578, 0.828, 1.082 and 1.323 s²: a good straight line, but with a <em>positive intercept</em> of about 0.03 s², so it does not pass through the origin. The prediction was therefore only partly correct: the ruler's own distributed mass oscillates too, acting as an extra effective mass, so the point-mass-on-a-massless-spring equation does not apply exactly.</div>
+</div>
+
+<div class="lc-card">
+  <h3>⏳ Oscillator 2 — the simple pendulum</h3>
+  <p>There are many designs of pendulum, all involving a mass swinging from side to side under gravity. A <strong>simple pendulum</strong> is the simplest possible model: a spherical mass swinging on a rod or string of negligible mass, from a rigid, frictionless support. The mass is often called the pendulum <strong>bob</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-06.png" alt="Simple pendulum hanging from a rigid support, with equilibrium position, path of oscillation and amplitude labelled">
+    <div class="lc-cap">Fig 6 — The simple pendulum: rigid frictionless support, rod or string of negligible mass, mass \(m\).</div>
+  </div>
+  <p>Because the mass is spherical and the rod or string has negligible mass, all the mass can be assumed to act as a <strong>point mass at the centre of the sphere</strong>. The displacement can be taken as the angle between the rod or string and the vertical. The restoring force is provided by gravity.</p>
+  <p>The weight, \(mg\), is conveniently resolved into two perpendicular components: a force \(mg\sin\theta\) provides the <strong>restoring force</strong> bringing the pendulum back towards equilibrium, and a force \(mg\cos\theta\) keeps the rod or string in tension. Looked at another way, only two forces act — tension and weight — and their resultant is the restoring force \(mg\sin\theta\).</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-07.png" alt="Pendulum displaced by angle theta with weight mg resolved into mg sin theta along the arc and mg cos theta along the string, tension marked">
+    <div class="lc-cap">Fig 7 — Components of the weight of the pendulum: \(mg\sin\theta\) restores, \(mg\cos\theta\) tensions the string.</div>
+  </div>
+  <p>Practical investigations confirm that, <strong>for small amplitudes</strong>, the time period depends only on the length \(l\), measured from the point of support to the centre of mass. The period is <strong>not affected by the mass</strong>: doubling the mass also doubles the restoring force.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-08.png" alt="Graph of time period T against pendulum length l, a curve of decreasing gradient from the origin">
+    <div class="lc-cap">Fig 8 — Results of a simple pendulum investigation: \(T\) against \(l\), a curve of decreasing gradient.</div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Time period of a simple pendulum (small amplitudes)</span>
+    $$T = 2\pi\sqrt{\frac{l}{g}}$$
+  </div>
+  <div class="lc-info">📈 <strong>Top tip</strong> — The data of Fig 8 can be linearised: a graph of \(T^2\) against \(l\) is a straight line through the origin with gradient \(4\pi^2/g\), so a simple pendulum experiment can be used to determine the gravitational field strength, \(g\).</div>
+  <p><strong>Tool 3 — approximation and estimation.</strong> For a pendulum to be a good example of SHM we need the restoring force \(mg\sin\theta\) to be proportional to the displacement \(\theta\). For very small angles the values of \(\sin\theta\), \(\tan\theta\) and \(\theta\) (in rad) are almost identical, so the condition is satisfied; as the angle increases the difference grows. Determine the minimum angle for which there is at least a 1% difference between \(\sin\theta\), \(\tan\theta\) and \(\theta\) in rad.</p>
+  <div class="lc-info">🌍 <strong>ATL C1A — research and reasoning</strong> — The pendulum equation shows the period would change at a location where \(g\) had a different value. Research how the strength of the gravitational field varies around the Earth, then state and explain whether school laboratory experiments could measure those differences. Mount Nevado Huascarán in Peru is reported to have the lowest gravitational field strength on Earth; its 6768 m summit is one of the farthest points on the Earth's surface from the Earth's centre.</div>
+</div>
+
+<div class="lc-card">
+  <h3>⚖️ The conditions that produce SHM — and the defining equation</h3>
+  <p>SHM occurs if the restoring force, \(F\), is proportional to the displacement, \(x\), but the force always acts back towards the equilibrium position.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Force condition</span>
+    $$F \propto -x$$
+  </div>
+  <p>The negative sign is important: the force acts in the opposite direction to the displacement, so an increasing force opposes increasing displacement. For a mass on a spring obeying Hooke's law (\(F_{\text{H}} = -kx\)) this condition is obviously satisfied. For a simple pendulum the restoring force \(mg\sin\theta\) is almost proportional to the displacement angle \(\theta\), provided the angle is small.</p>
+  <p>To <em>define</em> SHM we refer to the motion rather than the force. Since \(F = ma\) for a constant mass, we can write:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Definition of SHM</span>
+    $$a \propto -x$$
+  </div>
+  <p><strong>Simple harmonic motion is defined as an oscillation in which the acceleration is proportional to the displacement, but in the opposite direction — always directed back towards the equilibrium position.</strong> A graph of restoring force against displacement looks similar to the acceleration–displacement graph.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-09.png" alt="Acceleration against displacement graph for SHM: straight line of negative gradient through the origin from plus a max at minus x zero to minus a max at plus x zero">
+    <div class="lc-cap">Fig 9 — Acceleration–displacement graph for SHM: a straight line through the origin with negative gradient, running from \(a_{\text{max}}\) at \(-x_0\) to \(-a_{\text{max}}\) at \(+x_0\).</div>
+  </div>
+  <p>If the amplitude of an SHM is doubled, the restoring force and the acceleration also double. The mass then takes the same time for each oscillation, because it moves twice the distance at twice the average speed. This explains the defining feature of SHM: <strong>amplitude does not affect time period</strong>.</p>
+  <p>We can rewrite the definition as \(a = -\text{constant} \times x\). The constant must involve frequency, because the magnitude of the acceleration is greater if the frequency is higher; it can be shown to equal \(\omega^2\).</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Defining equation of SHM</span>
+    $$a = -\omega^2 x$$
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📉 Graphs of SHM</h3>
+  <p>A mass oscillating on a spring can carry a marker pen that draws on a card pulled past it at constant speed. The record, or <strong>trace</strong>, produced is effectively a graph of displacement against time; data logging with an appropriate sensor improves the experiment. The waveform is described as <strong>sinusoidal</strong> — in the shape of a sine wave (usually equivalent to a cosine wave).</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-10.png" alt="Displacement against time graph for SHM starting at zero displacement, with amplitude x zero and time period T marked">
+    <div class="lc-cap">Fig 10 — Displacement–time graph for perfect SHM, timing started when the particle had zero displacement. Amplitude \(x_0\), period \(T\). The graph could equally have been drawn starting at maximum displacement.</div>
+  </div>
+  <p>Using knowledge from A.2, the velocity at any moment is the gradient of the displacement–time graph, and the acceleration is the gradient of the velocity–time graph.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Velocity from the displacement graph</span>
+    $$v = \frac{\Delta x}{\Delta t}$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Acceleration from the velocity graph</span>
+    $$a = \frac{\Delta v}{\Delta t}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-11.png" alt="Three stacked graphs against time for SHM: displacement, velocity and acceleration, with zero and maximum gradient points marked">
+    <div class="lc-cap">Fig 11 — Graphs for SHM starting at \(x = 0\): (a) displacement–time, (b) velocity–time, (c) acceleration–time. Zero gradient on one graph gives zero on the next.</div>
+  </div>
+  <p>The velocity graph has its maximum value, \(v_0\), when the displacement is zero, and the velocity is zero when the displacement is at its maximum, \(\pm x_0\). The acceleration has its maximum value when the velocity is zero and the displacement is greatest — as expected, because when the displacement is greatest the restoring force, acting in the opposite direction, is greatest. All three graphs are sinusoidal, but their maximum values occur at different times.</p>
+  <div class="lc-warn">⚠️ When all three curves are drawn on the same axes for comparison, remember that <strong>the amplitudes of the three graphs are arbitrary</strong>: they are not interconnected and should not be compared.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🌀 Phase difference</h3>
+  <p>Four children on identical swings all oscillate with the same frequency, because all the swings are the same length — but they are each at different points in their oscillations. We say they are <strong>out of phase</strong> with each other.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-12.png" alt="Four identical swings side by side, each at a different point of its oscillation, showing oscillations out of phase">
+    <div class="lc-cap">Fig 12 — Four oscillations out of phase: same frequency, different points in the cycle.</div>
+  </div>
+  <p>A <strong>phase difference</strong> occurs between two similar oscillations if they have the same frequency, but their maximum values do not occur at the same time. The three graphs of Fig 11 all have the same frequency and sinusoidal shape, but their peaks occur at different times.</p>
+  <p>This can be quantified as the fraction of a time period between the peaks. The first peak of the displacement graph occurs \(T/4\) after the first peak of the velocity graph; the first peak of the acceleration graph occurs \(3T/4\) after the first peak of the velocity graph. Since one complete oscillation is equivalent to \(2\pi\) radians, phase differences are more usually quoted in terms of \(\pi\).</p>
+  <table class="lc-table">
+    <thead><tr><th>Fraction of a cycle</th><th>Phase difference</th><th>In degrees</th></tr></thead>
+    <tbody>
+      <tr><td>\(T/4\)</td><td>\(\pi/2\) rad</td><td>90°</td></tr>
+      <tr><td>\(T/2\)</td><td>\(\pi\) rad</td><td>180°</td></tr>
+      <tr><td>\(3T/4\)</td><td>\(3\pi/2\) rad</td><td>270°</td></tr>
+    </tbody>
+  </table>
+  <p>A phase difference of \(3\pi/2\) is equal in magnitude to one of \(\pi/2\), but in some circumstances we care which peak came first. Phase differences can be between 0 and \(2\pi\) radians. From Fig 11: there is a phase difference of \(\pi/2\) between displacement and velocity, and of \(\pi\) between displacement and acceleration.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Acceleration–displacement</td><td>\(x\) / m, \(a\) / m s⁻²</td><td>Straight line through the origin, negative gradient</td><td>Gradient \(= -\omega^2\); a straight line through the origin proves SHM</td></tr>
+      <tr><td>Displacement–time</td><td>\(t\) / s, \(x\) / m</td><td>Sinusoidal</td><td>Amplitude \(x_0\) from the peak, period \(T\) peak-to-peak; gradient gives \(v\)</td></tr>
+      <tr><td>\(T\) against \(m\) (spring)</td><td>\(m\) / kg, \(T\) / s</td><td>Curve of decreasing gradient from the origin</td><td>Not linear — must be linearised before use</td></tr>
+      <tr><td>\(T^2\) against \(m\) (spring)</td><td>\(m\) / kg, \(T^2\) / s²</td><td>Straight line through the origin</td><td>Gradient \(= 4\pi^2/k\), so \(k = 4\pi^2/\text{gradient}\)</td></tr>
+      <tr><td>\(T^2\) against \(l\) (pendulum)</td><td>\(l\) / m, \(T^2\) / s²</td><td>Straight line through the origin</td><td>Gradient \(= 4\pi^2/g\), so \(g = 4\pi^2/\text{gradient}\)</td></tr>
+      <tr><td>\(T\) against \(k\)</td><td>\(k\) / N m⁻¹, \(T\) / s</td><td>Decreasing curve, \(T \propto k^{-1/2}\), approaching but never touching either axis</td><td>Stiffer spring gives a shorter period for the same mass</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img"><img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-14.png" alt="Graph of time period against spring constant k, a decreasing curve approaching both axes"><div class="lc-cap">Fig 13 — \(T\) against \(k\) for a fixed mass (source question 8): a decreasing curve, since \(T \propto k^{-1/2}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C1.1 – amplitude, displacement and frequency</h3>
+  <p>The oscillating mass between two springs has a length of 12 cm and the distance between A and B is 18 cm. (a) Calculate the amplitude. (b) Determine the displacement when its end is in position B. (c) State when the mass has its greatest kinetic energy. (d) If the period is 1.5 s, calculate (i) the frequency and (ii) the angular frequency.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> A and B are the two extreme positions of the <em>same end</em> of the mass, so the 18 cm span includes the 12 cm length of the mass itself. Amplitude is measured from equilibrium, so it is half of the remaining distance.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> length of mass = 12 cm; A to B = 18 cm; \(T = 1.5\ \text{s}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> (a) \(x_0 = \frac{(18-12)}{2}\)<br>\(= 3\ \text{cm}\)<br>(d i) \(f = \frac{1}{T} = \frac{1.0}{1.5}\)<br>\(= 0.67\ \text{Hz}\)<br>(d ii) \(\omega = 2\pi f = 2\pi \times 0.67\)<br>\(= 4.2\ \text{rad s}^{-1}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) amplitude = 3 cm. (b) displacement = <strong>3 cm to the right</strong>. (c) Greatest kinetic energy <strong>when it passes through its equilibrium position</strong>. (d) \(f = 0.67\ \text{Hz}\), \(\omega = 4.2\ \text{rad s}^{-1}\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-01-defining-simple-harmonic-motion-15.png" alt="Geometry for worked example: mass of length 12 cm between two springs, extreme positions A and B 18 cm apart, amplitude 3 cm marked">
+    <div class="lc-cap">Fig 14 — Geometry for Worked example C1.1: the 18 cm span contains the 12 cm mass, leaving 6 cm of travel, so the amplitude is 3 cm.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C1.2 – spring constant and frequency</h3>
+  <p>A 200 g mass was placed on the end of a long spring and increased its length by 5.4 cm. (a) Determine the spring constant \(k\). (b) If the mass is displaced a small distance and undergoes SHM, calculate the frequency. (c) Suggest why oscillations of greater amplitude may not be simple harmonic.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> At the new equilibrium the spring force balances the weight, so Hooke's law gives \(k\); then the mass–spring period equation gives \(T\) and hence \(f\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 0.200\ \text{kg}\); \(x = 5.4 \times 10^{-2}\ \text{m}\); \(g = 9.8\ \text{N kg}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(F_{\text{H}} = -kx\)<br>\(0.200 \times 9.8 = -k \times (5.4\times10^{-2})\)<br>\(k = -36\ \text{N m}^{-1}\)<br>\(T = 2\pi\sqrt{0.200/36}\)<br>\(= 0.47\ \text{s}\)<br>\(f = 1/0.47 = 2.1\ \text{Hz}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(k = -36\ \text{N m}^{-1}\) — the negative sign shows that force and displacement are in opposite directions. (b) \(f = 2.1\ \text{Hz}\). (c) The spring may become <strong>overstretched, so Hooke's law is no longer applicable</strong>.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C1.3 – the same pendulum on the Moon</h3>
+  <p>Determine the time period of a simple pendulum of length 85.6 cm where the gravitational field strength is (a) 9.81 N kg⁻¹, (b) 1.63 N kg⁻¹ (on the Moon's surface). (c) The equation predicts that the ratio of the periods at two locations is \(\sqrt{g_1/g_2}\). Do the answers confirm that?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Only \(l\) and \(g\) matter — the bob's mass is irrelevant. Apply the pendulum period equation twice, then compare ratios.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(l = 0.856\ \text{m}\); \(g_{\text{E}} = 9.81\ \text{N kg}^{-1}\); \(g_{\text{M}} = 1.63\ \text{N kg}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(T = 2\pi\sqrt{0.856/9.81}\)<br>\(= 1.86\ \text{s}\)<br>\(T = 2\pi\sqrt{0.856/1.63}\)<br>\(= 4.55\ \text{s}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) 1.86 s, (b) 4.55 s. (c) \(T_{\text{M}}/T_{\text{E}} = 4.55/1.86 = 2.45\) and \(\sqrt{g_{\text{E}}/g_{\text{M}}} = \sqrt{9.81/1.63} = 2.45\). <strong>Yes — the same ratio is confirmed.</strong></div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C1.4 – using \(a = -\omega^2 x\)</h3>
+  <p>A mass oscillates horizontally between two springs with a frequency of 1.4 Hz. (a) Calculate its angular frequency. (b) Determine its acceleration when (i) its displacement is 1.0 cm to the right, (ii) its displacement is 4.0 cm to the left, (iii) it passes through its equilibrium position.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Convert \(f\) to \(\omega\), then substitute signed displacements in metres into the defining equation. Right is taken as positive.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(f = 1.4\ \text{Hz}\); \(x = +0.010\ \text{m}\), \(-0.040\ \text{m}\), \(0.0\ \text{m}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\omega = 2\pi f = 2\pi \times 1.4\)<br>\(= 8.8\ \text{rad s}^{-1}\)<br>\(a = -(8.8)^2 \times (+0.010)\)<br>\(= -0.77\ \text{m s}^{-2}\)<br>\(a = -(8.8)^2 \times (-0.040)\)<br>\(= +3.1\ \text{m s}^{-2}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(\omega = 8.8\ \text{rad s}^{-1}\). (b i) \(-0.77\ \text{m s}^{-2}\) (to the left). (b ii) \(+3.1\ \text{m s}^{-2}\) (to the right). (b iii) \(0.0\ \text{m s}^{-2}\) — zero displacement means zero restoring force and zero acceleration, but maximum speed.</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🕰️ Real-world: solving the problem of longitude</h3>
+    <p>Galileo was the first to discover the constant time periods of pendulums, but the first pendulum clock came about sixty years later, in 1656, from the young Dutch scientist Christiaan Huygens. By the end of the eighteenth century the best pendulum clocks were inaccurate by less than one second a day, and they were the world's most accurate timekeepers for more than 250 years.</p>
+    <p>Accurate clocks were also essential for navigation. East–west distance (longitude) could be found from observations of stars or planets combined with the exact time of observation — but pendulum clocks were not designed to cope with the motion of a ship. The British government offered a valuable reward for a clock that stayed accurate at sea, and it was won by the clockmaker James Harrison, whose design used <strong>oscillating spheres on springs rather than a pendulum</strong>. Before pendulum clocks, most people did not know the time to the nearest hour.</p>
+    <div class="lc-success">✓ Examiner tip: the physics principle behind the pendulum clock is simple, but the manufacture demanded great technological skill. In "discuss the impact" questions, credit goes for linking <em>isochronous oscillation</em> to a named benefit — navigation, longitude, standardised time.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – how small is "small angle"?</h3>
+    <p>SHM needs the restoring force \(mg\sin\theta\) to be proportional to \(\theta\). Writing the spring result as \(\omega^2 = k/m\) and the pendulum result the same way gives \(\omega^2 = g/l\), so both oscillators share the form \(a = -\omega^2 x\).</p>
+    <p>Expanding for small \(\theta\): \(\sin\theta \approx \theta - \theta^3/6\) and \(\tan\theta \approx \theta + \theta^3/3\), so the fractional errors grow as \(\theta^2\) — which is why the approximation fails suddenly rather than gradually.<br>
+    <strong>Challenge:</strong> find the minimum angle at which \(\sin\theta\), \(\tan\theta\) and \(\theta\) differ by at least 1%. (Answer: \(\tan\theta\) is 1% above \(\theta\) at about 0.17 rad ≈ <strong>10°</strong>; \(\sin\theta\) is 1% below \(\theta\) at about 0.24 rad ≈ <strong>14°</strong> — so keep pendulum amplitudes under roughly 10°.)</p>
+    <div class="lc-info">🔗 <strong>Linking questions</strong> — How can greenhouse gases be modelled as simple harmonic oscillators, and what physical explanation leads to the enhanced greenhouse effect? (Topic B.2.) How can the understanding of SHM apply to the wave model? (Topic C.2.)</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Amplitude is the distance between the extreme positions</td><td>That distance equals <em>twice</em> the amplitude; amplitude is measured from the equilibrium position</td></tr>
+      <tr><td>Moving from one extreme to the other is one oscillation</td><td>That is half an oscillation; a cycle ends when the mass returns to a position moving in the <em>same</em> direction</td></tr>
+      <tr><td>A bigger amplitude means a longer period</td><td>Amplitude does not affect period: the force and acceleration scale with displacement, so the mass covers twice the distance at twice the average speed</td></tr>
+      <tr><td>A vertical mass–spring period depends on \(g\)</td><td>Weight is constant, so it shifts the equilibrium position but not the period; only \(m\) and \(k\) matter. The <em>pendulum</em> is the one that depends on \(g\)</td></tr>
+      <tr><td>Heavier pendulum bob, longer period</td><td>Period is independent of mass — doubling the mass doubles the restoring force too. Only \(l\) and \(g\) matter</td></tr>
+      <tr><td>Acceleration is zero at the extremes because the mass has stopped</td><td>At \(\pm x_0\) the <em>velocity</em> is zero but the acceleration is maximum, since the restoring force is greatest there</td></tr>
+      <tr><td>\(T\) against \(m\) or \(T\) against \(l\) should be a straight line</td><td>Both are curves; you must plot \(T^2\) to linearise and take a gradient</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: dropping the minus sign in \(a = -\omega^2 x\), or substituting displacement in centimetres. Always convert \(x\) to metres and keep its sign — the sign of \(a\) is what tells the examiner the acceleration points back towards equilibrium.</div>
+</div>
+
+<div class="lc-kp">
+  <span>T = 1/f = 2π/ω</span>
+  <span>ω = 2πf</span>
+  <span>F_H = −kx</span>
+  <span>T = 2π√(m/k)</span>
+  <span>ω² = k/m</span>
+  <span>T = 2π√(l/g)</span>
+  <span>a = −ω²x</span>
+  <span>isochronous</span>
+  <span>phase difference π/2</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which statement defines simple harmonic motion?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> The velocity is proportional to the displacement and in the same direction</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> The acceleration is constant and directed towards the equilibrium position</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> The acceleration is proportional to the displacement and in the opposite direction</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> The period is proportional to the amplitude of the oscillation</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A mass on a spring oscillates with period \(T\). The mass is replaced by one four times larger, on the same spring. The new period is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> \(T/2\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> \(2T\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> \(4T\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> \(16T\)</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A particle in SHM is at maximum displacement. At that instant</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> velocity and acceleration are both maximum</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> velocity and acceleration are both zero</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> velocity is maximum and acceleration is zero</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> velocity is zero and acceleration is maximum</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A simple pendulum and a mass–spring system are both taken to the Moon. Compared with on Earth, their periods</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','A')"><span class="lc-opt-l">A</span> pendulum increases, mass–spring unchanged</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','A')"><span class="lc-opt-l">B</span> pendulum unchanged, mass–spring increases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','A')"><span class="lc-opt-l">C</span> both increase</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','A')"><span class="lc-opt-l">D</span> both unchanged</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. The phase difference between the displacement and the acceleration of a particle in SHM is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> 0</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> \(\pi/2\) rad</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> \(\pi\) rad</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> \(2\pi\) rad</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. A student plots \(T^2\) against \(l\) for a simple pendulum and finds a gradient of 4.0 s² m⁻¹. The value of \(g\) is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','B')"><span class="lc-opt-l">A</span> 0.10 N kg⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','B')"><span class="lc-opt-l">B</span> 9.9 N kg⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','B')"><span class="lc-opt-l">C</span> 39 N kg⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','B')"><span class="lc-opt-l">D</span> 158 N kg⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    An oscillation whose period is always the same is described as <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:150px">. The maximum displacement of an oscillation is called its <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px">. In SHM the acceleration is proportional to the displacement but in the <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:130px"> direction. The period of a mass–spring system depends on \(m\) and <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:60px">, while the period of a simple pendulum depends on \(l\) and <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:60px">. The phase difference between displacement and velocity is <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:90px"> radians.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 1 · Express / Calculate</div>
+  <div class="lc-exam-q">The central processing unit of a lap-top computer operates at 3.2 × 10⁹ cycles per second. (a) Express this frequency in (i) megahertz (ii) gigahertz. (b) Calculate the time period of each cycle. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a i) 1 MHz = 10⁶ Hz, so 3.2 × 10⁹ Hz = <strong>3.2 × 10³ MHz</strong><br>✓ (a ii) 1 GHz = 10⁹ Hz, so <strong>3.2 GHz</strong><br>✓ (b) \(T = 1/f = 1/(3.2\times10^{9})\)<br>\(= 3.1 \times 10^{-10}\ \text{s}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 2 · Determine / Suggest</div>
+  <div class="lc-exam-q">When a guitar string was plucked (once) it oscillated with a frequency of 196 Hz. (a) Determine the angular frequency of this oscillation. (b) Suggest how you would expect the frequency and amplitude to change in the next few seconds. Explain your answer. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\omega = 2\pi f = 2\pi \times 196\)<br>\(= 1.23 \times 10^{3}\ \text{rad s}^{-1}\)<br>✓ (b) The frequency stays (very nearly) constant — the oscillation is isochronous, and frequency does not depend on amplitude<br>✓ The amplitude decreases<br>✓ because energy is dissipated from the string as sound and as internal energy, so the maximum displacement of each successive oscillation is smaller</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 3 · Show that / Determine</div>
+  <div class="lc-exam-q">(a) Show that the angular frequency of the Earth spinning on its axis is approximately 7 × 10⁻⁵ rad s⁻¹. (b) Determine the total angle (rad) through which it will rotate in 100 hours. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) One rotation takes \(T = 24 \times 3600 = 86400\ \text{s}\)<br>✓ \(\omega = 2\pi/T = 2\pi/86400\)<br>\(= 7.3 \times 10^{-5}\ \text{rad s}^{-1} \approx 7\times10^{-5}\)<br>✓ (b) \(t = 100 \times 3600 = 3.6\times10^{5}\ \text{s}\)<br>✓ \(\theta = \omega t = 7.27\times10^{-5} \times 3.6\times10^{5}\)<br>\(= 26\ \text{rad}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 4 · Calculate</div>
+  <div class="lc-exam-q">A car engine was measured to have 3755 rpm (revolutions per minute). Calculate its angular frequency. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(f = 3755/60 = 62.6\ \text{Hz}\)<br>✓ \(\omega = 2\pi \times 62.6\)<br>\(= 3.9 \times 10^{2}\ \text{rad s}^{-1}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 5 · Determine</div>
+  <div class="lc-exam-q">Using slow-motion video replay, the angular frequency of the oscillations of a humming bird's wings was found to be 272 rad s⁻¹. Determine how many times it beat its wings in one minute. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(f = \omega/2\pi = 272/2\pi\)<br>\(= 43.3\ \text{Hz}\)<br>✓ beats in 60 s \(= 43.3 \times 60\)<br>✓ \(= 2.6 \times 10^{3}\) wing beats per minute</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 6 · Determine</div>
+  <div class="lc-exam-q">Determine what mass will have a period of exactly one second when oscillating on the end of a spring which has a spring constant of 84 N m⁻¹. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(T = 2\pi\sqrt{m/k}\), so \(m = kT^2/4\pi^2\)<br>✓ \(m = (84 \times 1.0^2)/(4\pi^2)\)<br>✓ \(= 2.1\ \text{kg}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 7 · Calculate</div>
+  <div class="lc-exam-q">Calculate the angular frequency of a mass–spring system which involves a mass of 1000 g and a spring with \(k\) = 100 N m⁻¹. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\omega^2 = k/m = 100/1.000\)<br>✓ \(\omega = 10\ \text{rad s}^{-1}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 8 · Sketch</div>
+  <div class="lc-exam-q">A student investigated the effect of using springs of different stiffness (\(k\)) on the periods of oscillations, \(T\), of the same mass. Sketch the \(T\)–\(k\) graph that should be obtained. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Axes labelled \(k\) / N m⁻¹ horizontally and \(T\) / s vertically<br>✓ A smooth decreasing curve, steep at small \(k\) and flattening as \(k\) increases, since \(T \propto k^{-1/2}\)<br>✓ The curve approaches but never touches either axis (it is not a straight line and does not reach zero) — see Fig 13</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 9 · Calculate / Suggest</div>
+  <div class="lc-exam-q">Perhaps the world's most famous pendulum was made by Léon Foucault in Paris in 1851. The bob had a mass of 28 kg and its length was 67 m. (a) Calculate the period of this pendulum (\(g\) in Paris is 9.81 N kg⁻¹). (b) Suggest reasons why it could continue to swing for a long time without any continuous energy input. (c) Why was this pendulum so important? <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(T = 2\pi\sqrt{67/9.81}\)<br>✓ \(= 16.4\ \text{s}\)<br>✓ (b) The large mass and large amplitude mean a very large energy store, while the resistive forces (air resistance on a compact bob, friction at the support) are small<br>✓ so the fraction of energy dissipated per oscillation is tiny and the amplitude decays very slowly<br>✓ (c) The plane of its swing slowly rotates relative to the building, which was the first simple laboratory demonstration that the Earth itself rotates</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 10 · Calculate / Determine</div>
+  <div class="lc-exam-q">Fig 8 shows the results of an investigation into a simple pendulum. (a) Calculate the angular frequency which describes oscillations of a pendulum of length 0.50 m. (b) Determine a value for the strength of the gravitational field from these results. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) From the graph, at \(l = 0.50\ \text{m}\), \(T \approx 1.4\ \text{s}\)<br>✓ \(\omega = 2\pi/T = 2\pi/1.42\)<br>\(= 4.4\ \text{rad s}^{-1}\)<br>✓ (b) \(T^2 = 2.0\ \text{s}^2\) at \(l = 0.50\ \text{m}\), so the gradient of \(T^2\) against \(l\) is about 4.0 s² m⁻¹<br>✓ gradient \(= 4\pi^2/g\)<br>✓ \(g = 4\pi^2/4.0 = 9.8\ \text{N kg}^{-1}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 11 · Calculate / Determine</div>
+  <div class="lc-exam-q">A girl starts to bounce on a trampoline. To begin with, her feet remain in contact with the rubber sheet and her movement can be considered to be SHM. The girl has a mass of 38 kg and the sheet stretched down by 33 cm when she was standing still in the middle. (a) Calculate a value for the spring constant of the trampoline. (b) Determine the time period of her bounces while she remains in contact with the surface. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) At rest the sheet's force balances her weight: \(k = mg/x\)<br>✓ \(k = (38 \times 9.8)/0.33\)<br>\(= 1.1 \times 10^{3}\ \text{N m}^{-1}\)<br>✓ (b) \(T = 2\pi\sqrt{38/1128}\)<br>✓ \(= 1.2\ \text{s}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 12 · Estimate / Discuss</div>
+  <div class="lc-exam-q">A spring is part of a car's suspension system. (a) Estimate its spring constant by considering how much the wing of a car will depress if you push down hard on it (or sit on it). (b) By considering that the wheel effectively oscillates on the spring, estimate (i) its time period of oscillation (ii) how far a car travelling at 12 m s⁻¹ moves during one oscillation. (c) The suspension also incorporates a shock absorber (damper). Discuss why this is necessary. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Pushing with a force of order 700 N depresses the wing by about 2 cm, so \(k \approx 700/0.02\)<br>\(\approx 4 \times 10^{4}\ \text{N m}^{-1}\)<br>✓ (b i) Taking the effective oscillating mass as roughly a quarter of the car, about 350 kg: \(T = 2\pi\sqrt{350/4\times10^{4}}\)<br>\(\approx 0.6\ \text{s}\)<br>✓ (any consistent estimate with stated assumptions earns the marks)<br>✓ (b ii) \(d = vT = 12 \times 0.6\)<br>\(\approx 7\ \text{m}\)<br>✓ (c) Without a damper the spring alone would keep oscillating for many cycles after every bump, because little energy is dissipated<br>✓ The damper dissipates that energy so the oscillation dies away in about one cycle, keeping the tyres in contact with the road and the ride comfortable; it also prevents large-amplitude resonance when bumps arrive at the natural frequency</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Tool 3 task · Linearise</div>
+  <div class="lc-exam-q">Using values read from Fig 5 (uncertainties in \(T\) are ± 0.05 s), explain how a \(T^2\)–\(m\) graph is used to find the spring constant \(k\), and state the expected shape of the graph. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Squaring \(T = 2\pi\sqrt{m/k}\) gives \(T^2 = (4\pi^2/k)m\)<br>✓ so \(T^2\) against \(m\) is a straight line through the origin<br>✓ of gradient \(4\pi^2/k\)<br>✓ hence \(k = 4\pi^2/\text{gradient}\); error bars of ± 0.05 s on \(T\) become \(\pm 2T\times0.05\) on \(T^2\), and the steepest and shallowest lines through the bars give the uncertainty in \(k\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Inquiry 3 task · Conclude and evaluate</div>
+  <div class="lc-exam-q">Process the oscillating-ruler results in Table C1.1 and reach a conclusion. State whether the student predicted correctly that the ruler obeys the same equation as a mass on a spring. If not, suggest a possible reason. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(T^2\) values: 0.303, 0.578, 0.828, 1.082, 1.323 s² for 40–200 g<br>✓ Plotted against mass these lie on a good straight line<br>✓ but the line has a positive intercept of about 0.03 s² rather than passing through the origin<br>✓ so the prediction is not fully correct — with zero added mass the period is small but not zero (it was "too quick to measure")<br>✓ because the mass of the ruler itself oscillates and is distributed along the blade, adding an effective mass; the equation assumes a point mass on a massless spring</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">(a) State the two conditions that must be satisfied for an oscillation to be simple harmonic. (b) Explain why the time period of a simple harmonic oscillator does not depend on its amplitude. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The restoring force (and so the acceleration) is proportional to the displacement from equilibrium<br>✓ and is always directed towards the equilibrium position: \(a = -\omega^2 x\)<br>✓ (b) Doubling the amplitude doubles the displacement at every equivalent point<br>✓ so the restoring force and the acceleration double, and the average speed doubles<br>✓ the oscillator covers twice the distance at twice the average speed, so the time for one cycle is unchanged</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch / Compare</div>
+  <div class="lc-exam-q">A particle performs SHM of amplitude \(x_0\) and period \(T\), with \(x = 0\) at \(t = 0\). (a) Sketch, on the same time axis, graphs of displacement, velocity and acceleration for one complete oscillation. (b) State the phase difference between displacement and velocity, and between displacement and acceleration. (c) Compare the positions in the cycle at which speed and acceleration are maximum. <span class="lc-exam-marks">[7 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Displacement: sine curve from the origin, amplitude \(x_0\), one full cycle in time \(T\)<br>✓ Velocity: sinusoidal, peak \(v_0\) at \(t = 0\) where the displacement gradient is greatest, zero at \(t = T/4\) and \(3T/4\)<br>✓ Acceleration: sinusoidal, zero at \(t = 0\), maximum magnitude when displacement is \(\pm x_0\), always opposite in sign to displacement<br>✓ (b) displacement and velocity: \(\pi/2\) rad<br>✓ displacement and acceleration: \(\pi\) rad<br>✓ (c) Speed is maximum at the equilibrium position, where displacement and acceleration are zero<br>✓ Acceleration is maximum at the extremes \(\pm x_0\), where the speed is zero and the restoring force is greatest</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss</div>
+  <div class="lc-exam-q">Discuss why SHM, despite being an idealised model that few real oscillators obey exactly, is a useful starting point for the study of oscillations. Refer to at least two real examples. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ A model is a simplified representation of a more complex situation; SHM assumes no resistive forces and constant amplitude and frequency<br>✓ Many real systems are close approximations over small amplitudes — a pendulum below about 10°, a mass on a spring within its Hooke's law region<br>✓ so their periods can be predicted with the simple equations \(T = 2\pi\sqrt{l/g}\) and \(T = 2\pi\sqrt{m/k}\)<br>✓ and more complex oscillators (buildings, bridges, an oscillating ruler, atoms in molecules, greenhouse gas molecules) are then treated as modifications of the simple model rather than from scratch</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'SHM is defined by a ∝ −x: the acceleration is proportional to displacement and directed back towards equilibrium, written a = −ω²x.' },
+    mcq2: { B: 'T = 2π√(m/k), so T ∝ √m. Four times the mass gives √4 = 2, so the period doubles.' },
+    mcq3: { D: 'At ±x₀ the oscillator has momentarily stopped, so v = 0, but the restoring force and therefore the acceleration are greatest.' },
+    mcq4: { A: 'The pendulum period depends on g, so a weaker field gives a longer period. The mass–spring period depends only on m and k, so it is unchanged.' },
+    mcq5: { C: 'Acceleration is always opposite in sign to displacement, so the two curves are exactly antiphase: π rad (180°).' },
+    mcq6: { B: 'Gradient = 4π²/g, so g = 4π²/4.0 = 9.9 N kg⁻¹.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'isochronous', lf2:'amplitude', lf3:'opposite', lf4:'k', lf5:'g', lf6:'pi/2' };
+    const alt = { lf6:['π/2','pi/2','0.5π','π/2 rad'] };
+    let correct = 0;
+    const total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      let ok = val === ans[id] || (val.length > 0 && val.includes(ans[id]));
+      if (!ok && alt[id]) ok = alt[id].some(a => val === a.toLowerCase());
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: isochronous · amplitude · opposite · k · g · π/2';
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+
+        </div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="../B.5-Circuits/index.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Current and Circuits</div>
+          </div>
+        </a>
+        <a href="02-shm-equations-displacement-velocity-acceleration.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">SHM Equations — Displacement, Velocity, Acceleration</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

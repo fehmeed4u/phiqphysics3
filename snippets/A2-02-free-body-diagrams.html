@@ -1,0 +1,373 @@
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 5 · A.2 Forces and Momentum</div>
+<div class="lc-title">Free Body Diagrams</div>
+<div class="lc-sub">One object, every force acting on it, nothing else. Draw it correctly and the rest of the mechanics question follows almost mechanically.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – Draw less, understand more</h3>
+  <p>Even the simplest of force diagrams can get confusing if all the forces are shown. So we do something that looks like cheating: draw <strong>only one object</strong>, and show <strong>only the forces acting on that one object</strong>. Everything else — the table, the string, the Earth — disappears. What is left is a <strong>free-body diagram</strong>, and it contains everything you need.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-02-free-body-diagrams-01.png" alt="Four free-body diagrams: box on the ground, Moon orbiting Earth, swinging pendulum, box pulled along the ground at constant speed">
+    <div class="lc-cap">Fig 1 — Four standard cases. The object has a solid outline; every arrow is a force acting <em>on</em> that object. Note the Moon has only one force on it.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — A box is pulled along the ground at constant speed. How many forces are on the free-body diagram, and what is the resultant? <em>Four — weight, normal force, pulling force and friction. The resultant is zero, because the velocity is constant.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Point particles and the rules of the diagram</h3>
+  <p>Diagrams are often simplified further by representing the object as a small square or circle and treating it as a <strong>point particle</strong>. A point particle is an idealised representation of an object whatever its actual size and shape: it has no dimensions and occupies no space. Typically the point is located at the <strong>centre of mass</strong>.</p>
+  <p>The payoff is that all forces then act through the same point, so the analysis can ignore any rotational effects the forces might cause. Sometimes it is preferred to draw the object with its real shape — but that can cause confusion about exactly where each force acts.</p>
+  <table class="lc-table">
+    <thead><tr><th>Rule</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td>One object only</td><td>Forces on the table, the string or the Earth belong on <em>their</em> diagrams, not this one</td></tr>
+      <tr><td>Only forces acting <em>on</em> the object</td><td>The force the box exerts on the ground never appears on the box's diagram</td></tr>
+      <tr><td>Arrow length shows magnitude</td><td>Equal forces must be drawn equal; a zero resultant should look like a zero resultant</td></tr>
+      <tr><td>Label every arrow with the force's name</td><td>"Force" earns no marks — weight, tension, normal contact force, friction, drag do</td></tr>
+      <tr><td>No velocity or acceleration arrows</td><td>A free-body diagram shows forces only; adding \(v\) or \(a\) arrows loses marks</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ There is no such thing as a "force of motion". If a question's diagram shows an object coasting, the only horizontal force is resistive — nothing pushes it along.</div>
+</div>
+
+<div class="lc-card">
+  <h3>➕ Resultants and components</h3>
+  <p>A free-body diagram can be analysed to find the <strong>resultant force</strong> on a system — the vector sum of the forces acting, sometimes called the unbalanced or net force. For two forces, the resultant is represented in size and direction by the diagonal of the parallelogram (or rectangle) which has the two original force vectors as adjacent sides.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-02-free-body-diagrams-02.png" alt="Parallelogram of two force vectors R1 and R2 with the diagonal drawn as the resultant force">
+    <div class="lc-cap">Fig 2 — Adding two forces: the resultant is the diagonal of the parallelogram built on them. For perpendicular forces this is a rectangle, so Pythagoras gives the magnitude.</div>
+  </div>
+  <p>The opposite process is just as useful. A single force \(F\) can be considered equivalent to two smaller forces at right angles to each other, called its <strong>components</strong>. This is <strong>resolving</strong> a force, and it is used whenever the original force does not act in a direction convenient for analysis. Because the two components are perpendicular, their effects can be considered separately.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Perpendicular components of a force</span>
+    $$F\cos\theta \qquad F\sin\theta$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-02-free-body-diagrams-03.png" alt="A force F at angle theta resolved into a component F cos theta along one axis and F sin theta perpendicular to it">
+    <div class="lc-cap">Fig 3 — Resolving \(F\) into perpendicular components. \(\cos\theta\) goes with the side <em>adjacent</em> to the angle — identify the angle before writing anything down.</div>
+  </div>
+  <div class="lc-info">💡 On an <strong>inclined plane</strong> — a flat surface at an angle to the horizontal — resolve <em>along</em> and <em>perpendicular to the slope</em> rather than horizontally and vertically. The motion is along the slope, so those axes turn a two-dimensional problem into two one-dimensional ones.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Component of weight against slope angle</td><td>\(\theta\), \(mg\sin\theta\)</td><td>Rising curve, zero at 0°, maximum at 90°</td><td>Where the down-slope component exceeds maximum friction, the object slips</td></tr>
+      <tr><td>Normal force against slope angle</td><td>\(\theta\), \(mg\cos\theta\)</td><td>Falling curve, \(mg\) at 0°, zero at 90°</td><td>Why friction weakens as a slope steepens — \(F_{\text{f}}\) depends on \(F_{\text{N}}\)</td></tr>
+      <tr><td>Friction against applied force</td><td>applied \(F\), \(F_{\text{f}}\)</td><td>Straight line \(y = x\), then a horizontal plateau after slipping</td><td>The peak is the maximum static friction; the plateau is kinetic friction</td></tr>
+      <tr><td>Tension against angle (pendulum)</td><td>\(\theta\), \(T\)</td><td>Falls as \(\theta\) grows</td><td>\(T = mg\cos\theta\) at the extremes of the swing — greatest at the lowest point</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a2-02-free-body-diagrams-04.png" alt="Two curves against slope angle from 0 to 90 degrees: mg sin theta rising and mg cos theta falling, crossing at 45 degrees"><div class="lc-cap">Fig 4 — The two components of weight on a slope. They cross at 45°, where the down-slope pull and the normal force are equal.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a2-02-free-body-diagrams-05.png" alt="Graph of frictional force against applied force: a straight line rising to a peak then dropping to a horizontal plateau"><div class="lc-cap">Fig 5 — Friction matches the applied force exactly until the object slips. The peak value gives the coefficient of <em>static</em> friction.</div></div>
+  </div>
+  <div class="lc-success">✓ Examiner tip: label the angle on your diagram before resolving. Most lost marks in slope questions come from swapping sin and cos, not from arithmetic.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – an object on the point of slipping</h3>
+  <p>An object of mass 12.7 kg is stationary on a slope inclined at 35° to the horizontal, and just begins to slide at that angle. Taking \(g = 9.81\ \text{N kg}^{-1}\), find the components of the weight down and into the slope, the frictional and normal forces, and the coefficient of static friction.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the object is in equilibrium, so the resultant contact force from the slope must be equal and opposite to the weight \(F_{\text{g}}\). That contact force is the combination of \(F_{\text{N}}\) perpendicular to the slope and \(F_{\text{f}}\) up the slope.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 12.7\ \text{kg}\), \(\theta = 35^\circ\), \(g = 9.81\ \text{N kg}^{-1}\). Resolve along and perpendicular to the slope, so \(\sin 35^\circ = 0.574\) and \(\cos 35^\circ = 0.819\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> down the slope, \(mg\sin 35^\circ = 12.7 \times 9.81 \times 0.574 = 71.5\ \text{N}\). Into the slope, \(mg\cos 35^\circ = 12.7 \times 9.81 \times 0.819 = 102\ \text{N}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> friction is 71.5 N up the slope and the normal force is 102 N — each equal and opposite to the corresponding component. Then \(F_{\text{f}} = \mu_{\text{s}}F_{\text{N}}\) gives \(\mu_{\text{s}} = 71.5/102 = 0.70\), which is exactly \(\tan 35^\circ\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-02-free-body-diagrams-06.png" alt="Free-body diagram of a block on a 35 degree slope showing weight, its components mg sin theta and mg cos theta, the normal force and friction">
+    <div class="lc-cap">Fig 6 — Geometry for the worked example. The angle between the weight and the perpendicular to the slope equals the slope angle — that is why \(\cos\theta\) goes with the normal component.</div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">On the point of slipping</span>
+    $$\mu_{\text{s}} = \frac{F_{\text{f}}}{F_{\text{N}}} = \frac{mg\sin\theta}{mg\cos\theta} = \tan\theta$$
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔧 Real-world: ramps and wheelchair gradients</h3>
+    <p>An inclined plane is a simple device that reduces the force needed to raise a load: pushing a load up a ramp needs only \(mg\sin\theta\) rather than \(mg\). Accessibility standards cap ramp gradients near 1 in 12 — about 4.8° — which keeps that component below a tenth of the weight.</p>
+    <div class="lc-success">✓ Examiner tip: "draw a free-body diagram" is worth marks on its own. Draw it even when the question does not ask, then read the physics off it.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – the swinging pendulum</h3>
+    <p>For a pendulum of mass 158 g at 20° to the vertical, resolving along the string gives \(T = mg\cos 20^\circ = 0.158 \times 9.81 \times 0.940 = 1.5\ \text{N}\). The other component, \(mg\sin\theta\), is unbalanced and acts as the restoring force along the arc.<br>
+    <strong>Challenge:</strong> where in the swing is the tension greatest? (Answer: at the lowest point — \(\cos\theta\) is largest there, and the string must also supply the centripetal force)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Both members of a Newton's third law pair go on the diagram</td><td>Only forces acting <em>on</em> the chosen object. Its reaction on the ground belongs on the ground's diagram.</td></tr>
+      <tr><td>The normal force always equals the weight</td><td>Only on a horizontal surface with no vertical acceleration. On a slope \(F_{\text{N}} = mg\cos\theta\), which is smaller.</td></tr>
+      <tr><td>A moving object needs a forward force on its diagram</td><td>Constant velocity means zero resultant. A coasting object has only resistive horizontal forces.</td></tr>
+      <tr><td>Weight <em>and</em> its components both belong on the diagram</td><td>Draw one or the other. Showing all three double-counts the weight.</td></tr>
+      <tr><td>Resolve horizontally and vertically on a slope</td><td>Resolve along and perpendicular to the slope — that is the direction the motion can happen in.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: swapping \(\sin\theta\) and \(\cos\theta\) on an inclined plane. Check with a limiting case — at \(\theta = 0\) the slope is flat, so the down-slope component must be zero, and only \(mg\sin\theta\) gives that.</div>
+</div>
+
+<div class="lc-kp">
+  <span>one object, forces on it only</span>
+  <span>point particle</span>
+  <span>F cos θ · F sin θ</span>
+  <span>mg sin θ down slope</span>
+  <span>mg cos θ into slope</span>
+  <span>μ_s = tan θ</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which force should <strong>not</strong> appear on a free-body diagram of a book resting on a table?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> The weight of the book</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> The normal contact force from the table on the book</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> The force of the book pressing down on the table</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> None — all three belong on the diagram</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A block of mass 2.7 kg rests on a slope at 22° to the horizontal (\(g = 9.81\ \text{m s}^{-2}\)). What is the component of its weight down the slope?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 26.5 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 9.9 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 24.6 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 1.0 N</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Two perpendicular forces of 4.7 N and 5.9 N act on a point mass. What is the magnitude of the resultant?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> 1.2 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> 10.6 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> 7.5 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> 5.3 N</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A block just begins to slide down a slope when the angle reaches 30°. What is the coefficient of static friction?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> 0.50</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> 0.58</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> 0.87</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> 1.73</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. As a slope is made steeper, what happens to the normal contact force on a block resting on it?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> It stays equal to the weight</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> It increases, because more of the weight presses on the surface</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> It decreases, because \(\cos\theta\) decreases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> It is unchanged, because the mass is unchanged</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A free-body diagram shows all the forces acting on a <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px"> object. Splitting one force into two perpendicular parts is called <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:140px">. On a slope of angle \(\theta\), the component of weight down the slope is \(mg\) times <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> \(\theta\). An object treated as having no size is a point <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:120px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw</div>
+  <div class="lc-exam-q">Draw fully labelled free-body diagrams for each of the following: (a) a car moving horizontally with constant velocity [2] (b) a boat decelerating after its engine has been switched off [2] (c) a car accelerating up a hill. [3] <span class="lc-exam-marks">[7 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Weight down and normal contact force up, equal in length; driving force forward and drag plus friction backward, equal in length ✓ resultant zero in both directions.<br>✓ (b) Weight down balanced by upthrust; a single horizontal arrow — water resistance — pointing <em>backwards</em>, against the motion ✓ no forward force at all.<br>✓ (c) Weight vertically down; normal contact force perpendicular to the hill surface ✓ driving force up the slope, longer than the sum of the resistive force and the down-slope component of weight ✓ so there is a net force up the slope.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">A wooden block of mass 2.7 kg rests on a slope inclined at 22° to the horizontal. (a) Calculate the components of its weight down the slope and perpendicular to the slope. [3] (b) State the frictional force and normal contact force acting on the block. [2] (c) If the angle is increased the block begins to slide when \(\theta = 26^\circ\). Calculate the coefficient of friction and state whether it is static or kinetic. [3] <span class="lc-exam-marks">[8 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(mg = 2.7 \times 9.81 = 26.5\ \text{N}\) ✓ down slope \(= 26.5\sin 22^\circ = 9.9\ \text{N}\) ✓ into slope \(= 26.5\cos 22^\circ = 24.6\ \text{N}\)<br>✓ (b) Friction \(= 9.9\ \text{N}\) up the slope ✓ normal force \(= 24.6\ \text{N}\) perpendicular to and away from the surface — each equal and opposite to the corresponding component.<br>✓ (c) \(\mu = \tan 26^\circ\) ✓ \(= 0.49\) ✓ this is the <em>static</em> coefficient, because it is measured at the instant sliding is about to begin.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q">A pendulum bob of mass 158 g hangs on a string. (a) Draw a free-body diagram for the bob when the string makes an angle of 20° to the vertical. [2] (b) By resolving the weight, show that the tension in the string at this position is 1.5 N. [3] (c) State the effect of the other component of the weight on the pendulum. [1] (d) Show that a mass on an inclined plane just begins to slip when \(\tan\theta\) equals the coefficient of static friction. [3] <span class="lc-exam-marks">[9 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Two forces only: weight \(mg\) vertically downwards from the bob ✓ and tension \(T\) along the string towards the pivot.<br>✓ (b) Resolve the weight along the string: component \(= mg\cos 20^\circ\) ✓ \(= 0.158 \times 9.81 \times 0.940\) ✓ \(= 1.46 \approx 1.5\ \text{N}\), and the tension balances it at the extreme of the swing.<br>✓ (c) The perpendicular component \(mg\sin\theta\) is unbalanced and accelerates the bob along the arc back towards the centre — it is the restoring force.<br>✓ (d) At the point of slipping, friction is at its maximum: \(F_{\text{f}} = \mu_{\text{s}}F_{\text{N}}\) ✓ and in equilibrium \(F_{\text{f}} = mg\sin\theta\), \(F_{\text{N}} = mg\cos\theta\) ✓ so \(\mu_{\text{s}} = \dfrac{mg\sin\theta}{mg\cos\theta} = \tan\theta\) — the mass and \(g\) cancel.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'That force acts on the table, not on the book. A free-body diagram of the book shows only forces acting on the book.' },
+    mcq2: { B: 'mg = 2.7 × 9.81 = 26.5 N, and the down-slope component is mg sin 22° = 26.5 × 0.375 = 9.9 N. Option C is the perpendicular component (cos), option A is the full weight.' },
+    mcq3: { C: 'Perpendicular forces add by Pythagoras: √(4.7² + 5.9²) = √(22.1 + 34.8) = √56.9 = 7.5 N. Option B adds them as if parallel.' },
+    mcq4: { B: 'At the point of slipping μ_s = tan θ = tan 30° = 0.58. Option A is sin 30°, option C is cos 30°.' },
+    mcq5: { C: 'F_N = mg cos θ, and cos θ falls as θ grows. Less of the weight presses into the surface, which is also why friction weakens on a steeper slope.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'single', lf2:'resolving', lf3:'sin', lf4:'particle' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>

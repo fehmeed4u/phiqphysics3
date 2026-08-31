@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formation of Standing Waves — C.4 Standing Waves and Resonance — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C4">C.4 Standing Waves and Resonance</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Formation of Standing Waves</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">
+            C.4
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 1 of 4
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Formation of Standing Waves</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">C.4 Standing Waves and Resonance</strong>
+          · Unit C — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to C.4 overview
+      </a>
+      <div class="sidebar-title">C.4 Concepts</div>
+      <a href="01-formation-of-standing-waves.html" class="sidebar-link active">
+          <span class="sidebar-num">01</span>
+          <span>Formation of Standing Waves</span>
+        </a>
+      <a href="02-nodes-and-antinodes.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Nodes and Antinodes</span>
+        </a>
+      <a href="03-harmonics-in-strings.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Harmonics in Strings</span>
+        </a>
+      <a href="04-harmonics-in-pipes.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Harmonics in Pipes</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<style>
+/* All colours use CSS variables from the site theme — do NOT hardcode hex colours */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.75rem 1.1rem;margin:0.75rem 0;
+  font-family:var(--font-mono);font-size:1.05rem;
+  color:var(--accent);text-align:center; }
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<!-- ═══════════════ LESSON HEADER ═══════════════ -->
+<div class="lc-badge"><span>3</span> Lesson 3 of 5 · C.4</div>
+<div class="lc-title">Standing Waves in Strings</div>
+<div class="lc-sub">How two travelling waves create a stationary pattern of nodes and antinodes — and the physics behind every guitar string, piano wire, and violin.</div>
+
+<!-- ═══════════════ HOOK ═══════════════ -->
+<div class="lc-card">
+  <h3>Question to Ponder</h3>
+  <p>Why does a guitar string seem to "freeze" into a shape with multiple motionless points when you lightly touch it at the 12th fret? And why does a jump rope form a loop that stays in one place instead of travelling along the rope?</p>
+  <p>The answer lies in the <strong>superposition</strong> of two identical waves travelling in opposite directions — producing a <strong>standing wave</strong>.</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/KYyDSz58/image.png" alt="Photograph of guitar strings vibrating on a guitar fretboard, showing the real-world context of standing waves on strings.">
+  <div class="lc-cap">Fig 1 — Guitar strings vibrate in standing wave patterns. Pressing a fret changes the effective length L, changing the pitch. Lightly touching at the 12th fret forces a node at the midpoint, producing the second harmonic.</div>
+</div>
+
+<!-- ═══════════════ CORE KNOWLEDGE ═══════════════ -->
+<div class="lc-section">Core knowledge — how standing waves form</div>
+
+<div class="lc-card">
+  <h3>How a Standing Wave Forms</h3>
+  <p>Imagine sending a wave pulse along a string towards a <strong>fixed end</strong>. When the pulse arrives, it <strong>reflects</strong> and returns inverted (flipped). Now picture a continuous wave: the original wave travels to the right while the reflected wave travels to the left. You have two identical waves moving in opposite directions.</p>
+  <p>These two waves <strong>interfere</strong>. At certain points, a crest from one wave always meets a trough from the other — they cancel permanently. These points of zero displacement are called <strong>nodes (N)</strong>. At other points, a crest always meets a crest — they reinforce to maximum amplitude. These points are called <strong>antinodes (A)</strong>.</p>
+  <p>The result is a wave pattern that does not travel — it simply vibrates up and down in place. This is a <strong>standing wave</strong> (or stationary wave).</p>
+</div>
+
+<div class="lc-img-row">
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/L8y2GYSj/image.png" alt="Diagram showing a wave pulse travelling right along a string, hitting a fixed boundary, and reflecting as an inverted pulse travelling left.">
+    <div class="lc-cap">Fig 2 — A pulse reflects off a fixed end and returns inverted. This is the starting point for understanding standing wave formation.</div>
+  </div>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/L5hzBZmL/image.png" alt="Diagram showing two travelling waves moving in opposite directions superposing to form a standing wave pattern with nodes and antinodes.">
+    <div class="lc-cap">Fig 3 — Two identical waves travelling in opposite directions interfere to produce a standing wave. The resultant pattern does not move along the string.</div>
+  </div>
+</div>
+
+<div class="lc-info">💡 A standing wave stores energy — it does not transmit it. The energy oscillates between kinetic (at zero displacement) and elastic potential (at maximum displacement), but it stays in the same region of the string.</div>
+
+<!-- ═══════════════ KEY DEFINITIONS ═══════════════ -->
+<div class="lc-card">
+  <h3>Key Definitions</h3>
+  <table class="lc-table">
+    <tr><th>Term</th><th>Definition</th><th>Unit</th></tr>
+    <tr><td>Standing wave</td><td>A wave pattern that remains in a fixed position. Energy is stored, not transmitted.</td><td>—</td></tr>
+    <tr><td>Node (N)</td><td>A point of permanently zero displacement on the standing wave.</td><td>m (position)</td></tr>
+    <tr><td>Antinode (A)</td><td>A point of maximum displacement (amplitude = 2A₀) on the standing wave.</td><td>m (position)</td></tr>
+    <tr><td>Fundamental (f₁)</td><td>The lowest frequency at which a string will naturally resonate — the first harmonic.</td><td>Hz</td></tr>
+    <tr><td>Harmonic</td><td>An integer multiple of the fundamental frequency: f₁, 2f₁, 3f₁, …</td><td>Hz</td></tr>
+  </table>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/7Yw46MYc/image.png" alt="Diagram of a standing wave on a string showing the envelope of maximum displacement as a solid curve and the minimum displacement half a period later as a dotted curve. Nodes labelled N and antinodes labelled A.">
+  <div class="lc-cap">Fig 4 — The standing wave envelope. The solid curve shows maximum displacement; the dotted curve shows displacement half a period later. Nodes (N) never move. Antinodes (A) have the largest amplitude. All points between two adjacent nodes vibrate in phase with each other.</div>
+</div>
+
+<div class="lc-warn">⚠️ <strong>Common mistake:</strong> "A standing wave doesn't move." The <em>pattern</em> doesn't move, but the particles of the string are oscillating up and down rapidly. Think of a Mexican wave in a stadium — the pattern moves, but each person only stands and sits.</div>
+
+<!-- ═══════════════ THE BIG RELATIONSHIP ═══════════════ -->
+<div class="lc-section">The big relationship — harmonics on a string</div>
+
+<div class="lc-card">
+  <h3>Condition for Standing Waves on a String</h3>
+  <p>A string fixed at both ends must have a <strong>node at each end</strong>. This means only certain wavelengths "fit" on the string. The length L must equal a whole number of half-wavelengths:</p>
+  <div class="lc-formula">L = n · (λₙ / 2) &nbsp; → &nbsp; λₙ = 2L / n &nbsp;&nbsp; (n = 1, 2, 3, …)</div>
+  <p>Here <strong>n</strong> is the harmonic number: n = 1 is the fundamental (first harmonic), n = 2 is the second harmonic, and so on.</p>
+</div>
+
+<div class="lc-card">
+  <h3>From Wavelength to Frequency</h3>
+  <p>The wave speed v on a string is fixed by the physical properties of the string (tension and mass density) — it does not change with harmonic number. Using v = fλ:</p>
+  <div class="lc-formula">fₙ = v / λₙ = n · (v / 2L) = n · f₁</div>
+  <p>So the resonant frequencies are simply integer multiples of the fundamental: f₁, 2f₁, 3f₁, 4f₁, …</p>
+</div>
+
+<div class="lc-card">
+  <h3>Wave Speed on a String</h3>
+  <p>The speed of a transverse wave on a string depends on the <strong>tension T</strong> (in Newtons) and the <strong>linear mass density μ</strong> (in kg/m, where μ = mass / length):</p>
+  <div class="lc-formula">v = √(T / μ)</div>
+  <p>Combining everything gives the <strong>master equation</strong> for standing waves on a string:</p>
+  <div class="lc-formula">fₙ = (n / 2L) · √(T / μ)</div>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/2SyPbHpb/image.png" alt="Diagram showing the first four harmonics on a string fixed at both ends. n=1 has one antinode, n=2 has two antinodes, n=3 has three antinodes, n=4 has four antinodes. Nodes and antinodes are clearly labelled.">
+  <div class="lc-cap">Fig 5 — The first four harmonics on a string fixed at both ends. Notice: the harmonic number n equals the number of antinodes, and the number of nodes is always n + 1 (including the two fixed ends).</div>
+</div>
+
+<div class="lc-card">
+  <h3>Proportionality Statements</h3>
+  <p>From the master equation fₙ = (n / 2L) · √(T / μ), we can extract four key proportionalities:</p>
+  <table class="lc-table">
+    <tr><th>Relationship</th><th>Meaning</th><th>Real-world example</th></tr>
+    <tr><td>fₙ ∝ n</td><td>Harmonics are equally spaced in frequency</td><td>Overtone series of any string instrument</td></tr>
+    <tr><td>fₙ ∝ √T</td><td>Higher tension → higher pitch (square-root relationship)</td><td>Turning a tuning peg tightens the string</td></tr>
+    <tr><td>fₙ ∝ 1/L</td><td>Shorter string → higher pitch</td><td>Pressing a guitar fret shortens the vibrating length</td></tr>
+    <tr><td>fₙ ∝ 1/√μ</td><td>Lighter string → higher pitch</td><td>Thin treble strings vs. thick bass strings</td></tr>
+  </table>
+  <div class="lc-kp">
+    <span>λₙ = 2L/n</span>
+    <span>fₙ = n·f₁</span>
+    <span>v = √(T/μ)</span>
+    <span>fₙ = (n/2L)·√(T/μ)</span>
+  </div>
+</div>
+
+<div class="lc-success">✓ <strong>Exam tip:</strong> When asked "what happens to f when T is doubled?", write: f ∝ √T, so f_new = √2 · f_old. The frequency increases by a factor of √2 ≈ 1.41 — it does NOT double.</div>
+
+<!-- ═══════════════ GRAPHICAL MASTERY ═══════════════ -->
+<div class="lc-section">Graphical mastery</div>
+
+<div class="lc-card">
+  <h3>Key Graphs You Must Know</h3>
+  <p>Examiners test your understanding of standing waves through graphs. Each graph below linearises one of the proportionality relationships. A straight line through the origin confirms a directly proportional relationship.</p>
+</div>
+
+<div class="lc-img-row">
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/mDyd6MfW/image.png" alt="Graph of frequency f on the y-axis versus harmonic number n on the x-axis, showing a straight line through the origin. The slope equals the fundamental frequency f1.">
+    <div class="lc-cap">Fig 6 — f vs n: a straight line through the origin. The gradient equals the fundamental frequency f₁. This confirms fₙ = n · f₁.</div>
+  </div>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/xdKgcHd8/image.png" alt="Graph of frequency f on the y-axis versus 1/L (inverse length) on the x-axis, showing a straight line through the origin with gradient v/2.">
+    <div class="lc-cap">Fig 7 — f vs 1/L: a straight line through the origin. The gradient equals v/2. This confirms f ∝ 1/L — shorter strings produce higher frequencies.</div>
+  </div>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/bNsT14v4/image.png" alt="Graph of frequency f on the y-axis versus square root of tension on the x-axis, showing a straight line through the origin with gradient 1/(2L√μ).">
+  <div class="lc-cap">Fig 8 — f vs √T: a straight line through the origin. The gradient equals 1/(2L√μ). This confirms f ∝ √T. Plotting f vs T directly would give a curve — always linearise by plotting f vs √T.</div>
+</div>
+
+<div class="lc-warn">⚠️ <strong>Examiner's trap:</strong> If asked to plot the relationship between f and T, many students plot f vs T (which gives a curve). The linearised version is f vs √T. Similarly, f vs L gives a curve — linearise as f vs 1/L.</div>
+
+<!-- ═══════════════ WORKED EXAMPLE ═══════════════ -->
+<div class="lc-section">Worked example</div>
+
+<div class="lc-card">
+  <h3>Worked Example — Guitar String Frequencies</h3>
+  <p>A guitar string of length 0.65 m has a mass of 2.6 g and is under a tension of 720 N. Calculate: (a) the wave speed, (b) the fundamental frequency, and (c) the frequency of the 3rd harmonic.</p>
+  <div class="lc-step">
+    <div class="lc-step-num">1</div>
+    <div class="lc-step-body"><strong>State the known values:</strong> L = 0.65 m, m = 2.6 g = 0.0026 kg, T = 720 N.</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">2</div>
+    <div class="lc-step-body"><strong>Calculate linear mass density:</strong> μ = m / L = 0.0026 kg / 0.65 m = 0.004 kg/m.</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">3</div>
+    <div class="lc-step-body"><strong>(a) Calculate wave speed:</strong> v = √(T / μ) = √(720 / 0.004) = √(180 000) = <strong>424 m/s</strong>.</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">4</div>
+    <div class="lc-step-body"><strong>(b) Calculate fundamental frequency:</strong> f₁ = v / (2L) = 424.3 / (2 × 0.65) = 424.3 / 1.3 = <strong>326 Hz</strong>.</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">5</div>
+    <div class="lc-step-body"><strong>(c) Calculate the 3rd harmonic:</strong> f₃ = 3 × f₁ = 3 × 326.4 = <strong>979 Hz</strong>.</div>
+  </div>
+</div>
+
+<div class="lc-info">💡 <strong>Units check on v = √(T/μ):</strong> T is in kg·m/s² and μ is in kg/m. So T/μ = (kg·m/s²)/(kg/m) = m²/s², and √(m²/s²) = m/s ✓. Always convert grams to kilograms before calculating μ.</div>
+
+<!-- ═══════════════ REAL-WORLD APPLICATION ═══════════════ -->
+<div class="lc-section">Real-world application — the piano</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>Bass Strings (Low Notes)</h3>
+    <p>Bass strings on a piano are thick and wrapped in copper wire. This increases μ (linear mass density), which lowers the frequency without requiring the piano to be several metres long. Since f ∝ 1/√μ, a heavier string vibrates at a lower pitch for the same length and tension.</p>
+  </div>
+  <div class="lc-card">
+    <h3>Treble Strings (High Notes)</h3>
+    <p>Treble strings are thin and under high tension. Since f ∝ √T and f ∝ 1/√μ, a thin string under large tension produces a high frequency. This is why the rightmost strings on a piano are short, thin, and very taut.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ MISCONCEPTIONS ═══════════════ -->
+<div class="lc-section">Common misconceptions — trap corner</div>
+
+<div class="lc-card">
+  <h3>Misconceptions to Avoid</h3>
+  <table class="lc-table">
+    <tr><th>Misconception</th><th>Correct View</th></tr>
+    <tr><td>"Standing waves don't move"</td><td>The pattern is stationary, but the string particles oscillate up and down at high speed. Energy is stored, not absent.</td></tr>
+    <tr><td>"All points have the same amplitude"</td><td>Amplitude varies from zero (nodes) to maximum (antinodes). All points share the same frequency, but not the same amplitude.</td></tr>
+    <tr><td>"Energy disappears in a standing wave"</td><td>Energy is stored in the oscillation (kinetic + elastic potential). It is not transmitted along the string, but it is very much present.</td></tr>
+    <tr><td>"Harmonics are separate waves"</td><td>Harmonics are different modes of vibration that can coexist simultaneously on the same string. A guitar's rich tone comes from a mixture of f₁, f₂, f₃, …</td></tr>
+  </table>
+</div>
+
+<div class="lc-success">✓ <strong>Phase rule:</strong> All points between two adjacent nodes vibrate in phase (same direction at the same time). Points in adjacent segments — separated by a node — are in antiphase (180° out of phase). This is a favourite exam question.</div>
+
+<!-- ═══════════════ MCQs ═══════════════ -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A string of length L vibrates in its 3rd harmonic. What is the wavelength of the standing wave on the string?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> L / 3</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> 2L / 3</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> L</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> 3L / 2</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A student doubles the tension in a guitar string while keeping length and mass constant. The fundamental frequency will:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> Double</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> Halve</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> Increase by a factor of √2</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> Stay the same</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Two points on a standing wave are located on opposite sides of a node. What is the phase difference between them?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> 0°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> 90°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> 180°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> 360°</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A string vibrating in its 4th harmonic has how many nodes (including the two fixed ends)?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 3</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> 4</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> 5</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> 8</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. When two identical waves travel in opposite directions and form a standing wave, what happens at an antinode?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> Permanent destructive interference (zero amplitude)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> Constructive interference producing maximum amplitude</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> The waves pass through each other without effect</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> The wave speed doubles at that point</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ FILL IN THE BLANKS ═══════════════ -->
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The points of zero amplitude in a standing wave are called <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:90px">. The distance between two consecutive nodes equals <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px">. A string fixed at both ends must have a <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px"> at each end. The lowest possible frequency of a standing wave is the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px"> frequency.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- ═══════════════ EXAM-STYLE QUESTIONS ═══════════════ -->
+<div class="lc-section">Exam-style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate &amp; Determine</div>
+  <div class="lc-exam-q">A guitar string of length 0.80 m vibrates in its fundamental mode with a frequency of 200 Hz.<br>(a) Calculate the wave speed on the string. <span class="lc-exam-marks">[2 marks]</span><br>(b) The tension in the string is 150 N. Determine the linear mass density μ of the string. <span class="lc-exam-marks">[2 marks]</span><br>(c) The string is now pressed at the midpoint (L = 0.40 m). State the new fundamental frequency. <span class="lc-exam-marks">[1 mark]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> f₁ = v/(2L) → v = f₁ × 2L ✓<br>
+    v = 200 × 2 × 0.80 = <strong>320 m/s</strong> ✓<br><br>
+    <strong>(b)</strong> v = √(T/μ) → μ = T/v² ✓<br>
+    μ = 150 / (320)² = 150 / 102400 = <strong>1.46 × 10⁻³ kg/m</strong> ✓<br><br>
+    <strong>(c)</strong> f₁ ∝ 1/L. Halving L doubles f₁ → new f₁ = <strong>400 Hz</strong> ✓
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State &amp; Explain</div>
+  <div class="lc-exam-q">A graph of fundamental frequency f against √T for a string of fixed length gives a straight line through the origin with a gradient of 20 Hz/√N.<br>(a) State the relationship between f and T shown by this graph. <span class="lc-exam-marks">[1 mark]</span><br>(b) The string has a length of 0.50 m. Using the gradient, calculate the linear mass density μ. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> f is directly proportional to √T (or f ∝ √T). ✓<br><br>
+    <strong>(b)</strong> Gradient = 1/(2L√μ) ✓<br>
+    20 = 1/(2 × 0.50 × √μ) = 1/(1.0 × √μ) ✓<br>
+    √μ = 1/20 = 0.05 → μ = (0.05)² = <strong>2.5 × 10⁻³ kg/m</strong> ✓
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">Explain how a standing wave is formed on a string that is fixed at both ends. In your answer, describe the role of reflection, superposition, and boundary conditions. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    A travelling wave moves along the string and reflects at the fixed end ✓, returning inverted (phase change of π) ✓. The incident and reflected waves, which have the same frequency and amplitude, undergo superposition ✓. Because the ends are fixed, only wavelengths that produce nodes at both boundaries can persist — this is the boundary condition that selects the allowed harmonics (λₙ = 2L/n) ✓.
+  </div>
+</div>
+
+<!-- ═══════════════ SCORE ═══════════════ -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<!-- ═══════════════ JAVASCRIPT ═══════════════ -->
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1:{ B:'For the nth harmonic, λ = 2L/n. So for n = 3: λ₃ = 2L/3.' },
+    mcq2:{ C:'f ∝ √T. Doubling T multiplies f by √2 ≈ 1.41, not by 2.' },
+    mcq3:{ C:'Points on opposite sides of a node are in antiphase — they always move in opposite directions, giving a phase difference of π radians (180°).' },
+    mcq4:{ C:'The number of nodes for harmonic n is n + 1 (including both fixed ends). For n = 4: nodes = 5.' },
+    mcq5:{ B:'At an antinode, the two waves always arrive in phase and constructively interfere, producing the maximum possible displacement (twice the individual amplitude).' }
+  };
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    var block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(function(o){ o.classList.add('disabled'); });
+    var fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(function(o){
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct answer: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+  window.lcFITB = function(){
+    var ans = { lf1:'nodes', lf2:'λ/2', lf3:'node', lf4:'fundamental' };
+    var correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(function(id){
+      var el = document.getElementById(id);
+      var val = el.value.trim().toLowerCase().replace(/\s+/g,' ');
+      var target = ans[id].toLowerCase();
+      var ok = (val === target) || val.includes(target) || (id === 'lf2' && (val.includes('half') || val.includes('lambda/2') || val.includes('λ/2') || val.includes('0.5') || val === 'half a wavelength'));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    var res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      if (!window._fitbScored) { lcScore += 2; window._fitbScored = true; }
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: nodes · λ/2 · node · fundamental';
+    }
+  };
+  window.lcToggleModel = function(btn){
+    var ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="../C.3-Wave-Phenomena/index.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Wave Phenomena</div>
+          </div>
+        </a>
+        <a href="02-nodes-and-antinodes.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Nodes and Antinodes</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

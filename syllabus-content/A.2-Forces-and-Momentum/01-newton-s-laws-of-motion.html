@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newton's Laws of Motion — A.2 Forces and Momentum — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A2">A.2 Forces and Momentum</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Newton's Laws of Motion</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.2
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 1 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Newton's Laws of Motion</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.2 Forces and Momentum</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.2 overview
+      </a>
+      <div class="sidebar-title">A.2 Concepts</div>
+      <a href="01-newton-s-laws-of-motion.html" class="sidebar-link active">
+          <span class="sidebar-num">01</span>
+          <span>Newton's Laws of Motion</span>
+        </a>
+      <a href="02-free-body-diagrams.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Free Body Diagrams</span>
+        </a>
+      <a href="03-friction-and-normal-force.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Friction and Normal Force</span>
+        </a>
+      <a href="04-momentum-and-impulse.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Momentum and Impulse</span>
+        </a>
+      <a href="05-conservation-of-momentum.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Conservation of Momentum</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 5 · A.2 Forces and Momentum</div>
+<div class="lc-title">Newton's Laws of Motion</div>
+<div class="lc-sub">Three laws, stated over three hundred years ago, that still govern every motion you will meet in this course below the speed of light.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – Aristotle was wrong for two thousand years</h3>
+  <p>"Forces are needed to keep an object moving and, without those forces, movement will stop." That accepted fact was the basis of theories of motion from Aristotle, about 2350 years ago, until the seventeenth century. It is not true — and it is still widely believed. <strong>What actually stops moving objects is friction, not the absence of a driving force.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-01-newton-s-laws-of-motion-01.png" alt="A puck sliding on a rough surface slowing to a stop beside an identical puck on a frictionless surface continuing at constant velocity">
+    <div class="lc-cap">Fig 1 — Remove friction and the motion never stops. Aristotle only ever observed the left-hand case, which is why the theory survived so long.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — A spacecraft far from any star has its engines switched off. What happens to it? <em>It continues in a straight line at constant speed indefinitely. No resultant force means no acceleration — motion needs no maintaining.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 First law: equilibrium and inertia</h3>
+  <p><strong>Newton's first law of motion</strong> states that an object will remain at rest or continue to move in a straight line at a constant speed, unless a resultant force acts on it. In other words, a resultant force will produce an acceleration — a change in velocity.</p>
+  <p>When the influences on a system are balanced so that the system does not change, we describe it as being in <strong>equilibrium</strong>. When there is no resultant force on an object, we say it is in <strong>translational equilibrium</strong>: it remains at rest or continues to move with a constant velocity. The term translational refers to movement from place to place.</p>
+  <div class="lc-warn">⚠️ If equal forces act in opposite directions the object is in translational equilibrium, but if those forces are <em>not aligned</em> the object may start to rotate — so it is not in rotational equilibrium. Rotational dynamics is Topic A.4.</div>
+  <p>Because all objects on Earth have weight, no object is in equilibrium through having no forces on it. All translational equilibrium arises when two or more forces are <strong>balanced</strong>:</p>
+  <table class="lc-table">
+    <thead><tr><th>Situation</th><th>What balances what</th></tr></thead>
+    <tbody>
+      <tr><td>Book on a table</td><td>Downwards weight balanced by the upwards normal contact force</td></tr>
+      <tr><td>Block resting on a slope</td><td>Component of weight down the slope balanced by friction up the slope; component into the slope balanced by the normal contact force</td></tr>
+      <tr><td>Cyclist at constant speed</td><td>Weight balanced by the two normal contact forces; drag balanced by the frictional force from the road</td></tr>
+      <tr><td>Ball at terminal speed</td><td>Weight balanced by air resistance, which has grown with speed until it is equal and opposite</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-01-newton-s-laws-of-motion-02.png" alt="Three stages of a falling ball: weight only, weight with smaller air resistance, and weight balanced by equal air resistance at terminal speed">
+    <div class="lc-cap">Fig 2 — A falling ball. At (a) there is no drag; at (b) drag has grown but a resultant force remains; at (c) drag equals weight, the resultant is zero and the ball falls at its <strong>terminal speed</strong>.</div>
+  </div>
+  <p>If two forces acting on an object do not produce equilibrium, a third force can be added that is equal in size to the resultant of the other two but in the opposite direction. <strong>All three forces must act through the same point.</strong></p>
+</div>
+
+<div class="lc-card">
+  <h3>⚖️ Second law: F = ma</h3>
+  <p>The first law establishes that resultant force and acceleration are connected. <strong>Newton's second law</strong> gives the mathematical connection: when a resultant force acts on a constant mass, the acceleration is proportional to the resultant force, \(a \propto F\). Both are vectors, and the acceleration is in the same direction as the force.</p>
+  <p>Experiments also show that for the same resultant force on different masses, the acceleration is inversely proportional to the mass: \(a \propto 1/m\). Combining these, \(a \propto F/m\), so \(F \propto ma\). Defining the <strong>newton</strong> as the force that accelerates 1 kg by 1 m s⁻²:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Newton's second law of motion</span>
+    $$F = ma$$
+  </div>
+  <p>This version assumes the mass is constant; a version allowing for changing mass comes later in this topic. For a gravitational force the acceleration involved is \(g\), so \(F = ma\) becomes the familiar:</p>
+  <div class="lc-formula">
+    $$F_{\text{g}} = mg$$
+  </div>
+  <p>The second law also gives a different way of understanding mass. Larger masses accelerate less than smaller masses under the same resultant force, so mass is a measure of an object's resistance to acceleration. Physicists use the term <strong>inertia</strong> for an object's resistance to a change of motion: <strong>mass is a measure of inertia</strong>.</p>
+  <div class="lc-info">💡 <strong>Non-mathematical uses of the second law</strong> — a glass breaks when dropped on the floor but may survive a sofa. The collision with the floor lasts a much shorter time, so the deceleration is greater and, by \(F = ma\), so is the force. The same argument explains air bags, crumple zones and landing a long jump in sand.</div>
+</div>
+
+<div class="lc-card">
+  <h3>↔️ Third law: forces come in pairs</h3>
+  <p><strong>Newton's third law of motion</strong> states that whenever one body exerts a force on another body, the second body exerts a force of the same magnitude on the first body, but in the opposite direction. Newton's own phrasing: to every action there is an equal and opposite reaction.</p>
+  <p>Forces therefore always occur in equal pairs — but the two forces <strong>act on different bodies</strong>, so only one of each pair can appear in any free-body diagram. The two forces are always of the same type: gravity with gravity, friction with friction. In everyday terms, it is not possible to push something that does not push back on you.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-01-newton-s-laws-of-motion-03.png" alt="Two bodies A and B in contact, each with an arrow of equal length pointing away from the other, labelled F sub A and F sub B">
+    <div class="lc-cap">Fig 3 — When two bodies interact, \(F_{\text{A}} = -F_{\text{B}}\): equal magnitude, opposite direction, acting on different bodies.</div>
+  </div>
+  <table class="lc-table">
+    <thead><tr><th>If…</th><th>then…</th></tr></thead>
+    <tbody>
+      <tr><td>you pull a rope</td><td>the rope pulls you</td></tr>
+      <tr><td>the Earth pulls a person</td><td>the person pulls the Earth</td></tr>
+      <tr><td>you push on the ground</td><td>the ground pushes on you</td></tr>
+      <tr><td>an aircraft pushes down on the air</td><td>the air pushes up on the aircraft</td></tr>
+      <tr><td>the Sun attracts the Earth</td><td>the Earth attracts the Sun</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ A book's weight and the table's normal contact force are <em>not</em> a third-law pair. They act on the <em>same</em> body (the book) and are of different types. They are equal here only because the book is in equilibrium — tilt the table and they are no longer equal.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Acceleration against force (constant \(m\))</td><td>\(F\), \(a\)</td><td>Straight line through the origin</td><td>Gradient \(= 1/m\), so the mass is the reciprocal of the gradient</td></tr>
+      <tr><td>Acceleration against \(1/m\) (constant \(F\))</td><td>\(1/m\), \(a\)</td><td>Straight line through the origin</td><td>Gradient = the resultant force applied</td></tr>
+      <tr><td>Velocity–time for a falling body with drag</td><td>\(t\), \(v\)</td><td>Curve of decreasing gradient, levelling off</td><td>The plateau is the terminal speed; the initial gradient is \(g\)</td></tr>
+      <tr><td>Extension against force (spring)</td><td>\(F\), length</td><td>Linear but <em>not</em> through the origin</td><td>Gradient = force constant; horizontal intercept = original length</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a2-01-newton-s-laws-of-motion-04.png" alt="Graph of acceleration against resultant force: straight line through the origin with data points and uncertainty bars, plus maximum and minimum gradient lines"><div class="lc-cap">Fig 4 — A proportional relationship passes through the origin. The lines of maximum and minimum gradient through the uncertainty bars give the uncertainty in the mass.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a2-01-newton-s-laws-of-motion-05.png" alt="Velocity-time graph for a falling object with air resistance, curving and levelling off at terminal speed"><div class="lc-cap">Fig 5 — Falling with drag: the gradient (acceleration) falls as drag grows, reaching zero when the body is in translational equilibrium at its terminal speed.</div></div>
+  </div>
+  <div class="lc-success">✓ Examiner tip: a linear graph that does <em>not</em> pass through the origin is not a proportional relationship. Questions asking you to "verify that \(a \propto F\)" want you to comment on the intercept as well as the straightness.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – accelerating a car</h3>
+  <p>A car of mass 1450 kg is accelerated from rest by an initial resultant force of 3800 N. Calculate its acceleration, its speed after 4.0 s, the distance travelled in that time, and the force needed to maintain the same acceleration once resistive forces reach 1800 N.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the second law gives the acceleration from the <em>resultant</em> force; the SUVAT equations then give speed and distance. The last part is a force-balance, not a new law.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 1450\ \text{kg}\), \(F = 3800\ \text{N}\), \(u = 0\), \(t = 4.0\ \text{s}\), and later a resistive force of 1800 N.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(a = \dfrac{F}{m} = \dfrac{3800}{1450} = 2.62\ \text{m s}^{-2}\). Then \(v = u + at = 0 + (2.62 \times 4.0) = 10.5\ \text{m s}^{-1}\) and \(s = \dfrac{(u+v)}{2}t = \dfrac{(0+10.5)}{2} \times 4.0 = 21.0\ \text{m}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(a = 2.62\ \text{m s}^{-2}\), \(v = 10.5\ \text{m s}^{-1}\), \(s = 21.0\ \text{m}\). To keep the same acceleration the engine must overcome the resistive forces as well: \(3800 + 1800 = 5600\ \text{N} \approx 5.5\ \text{kN}\). The 3800 N was always the <em>resultant</em>, never the applied force.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-01-newton-s-laws-of-motion-06.png" alt="Free-body diagram of a car: forward driving force arrow, backward resistive force arrow of 1800 newtons, weight down and normal contact force up">
+    <div class="lc-cap">Fig 6 — Free-body diagram for the final part: the resultant along the road is driving force minus 1800 N, and it is that resultant which must stay at 3800 N.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔧 Real-world: crumple zones and sand pits</h3>
+    <p>A long jumper lands in sand because the sand extends the duration of the impact. The same change in velocity spread over a longer time means a smaller deceleration and, by \(F = ma\), a smaller force on the athlete. Car crumple zones, air bags and seat belts all work the same way.</p>
+    <div class="lc-success">✓ Examiner tip: the force when an object hits the ground is <em>not</em> its weight. It depends on the impact: the longer the duration, the smaller the force.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – pulleys and connected masses</h3>
+    <p>Treat two connected masses as one system: the resultant force is the difference in the weights, and the mass is their sum. For 500 g and 100 g over a frictionless pulley, \(F = (0.500 - 0.100)(9.8) = 3.9\ \text{N}\) and \(a = 3.9/0.600 = 6.5\ \text{m s}^{-2}\).<br>
+    <strong>Challenge:</strong> find the tension in the string. (Answer: for the 100 g mass, \(T - 0.98 = 0.100 \times 6.5\), so \(T = 1.6\ \text{N}\) — the same from either mass)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>A moving object must have a force pushing it along</td><td>Constant velocity means <em>zero</em> resultant force. Force causes acceleration, not motion.</td></tr>
+      <tr><td>The force when an object hits the ground is its weight</td><td>The impact force depends on the duration of the collision. A shorter impact gives a larger force.</td></tr>
+      <tr><td>Weight and normal contact force are a third-law pair</td><td>They act on the same body and are different types of force. A third-law pair acts on <em>two different</em> bodies.</td></tr>
+      <tr><td>In \(F = ma\), \(F\) is the applied force</td><td>\(F\) is the <em>resultant</em> force. Subtract friction and drag before dividing by the mass.</td></tr>
+      <tr><td>Equal and opposite forces must have equal effects</td><td>A fist and a cheek feel the same magnitude of force, but the damage depends on area, duration and what is being deformed.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: putting the applied force into \(F = ma\) when resistive forces are given. In the worked example, using 5600 N with 1450 kg gives 3.9 m s⁻² and loses every subsequent mark.</div>
+</div>
+
+<div class="lc-kp">
+  <span>F = ma</span>
+  <span>F_g = mg</span>
+  <span>F_A = −F_B</span>
+  <span>resultant force → acceleration</span>
+  <span>mass = inertia</span>
+  <span>translational equilibrium</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A laboratory trolley accelerates at 0.80 m s⁻² when a resultant force of 1.7 N is applied. What is its mass?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 0.47 kg</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> 1.4 kg</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> 2.1 kg</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> 21 kg</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A force of 6.4 N is applied to a 2.1 kg mass on a horizontal surface and it accelerates at 1.9 m s⁻². What is the average frictional force?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 0 N — friction is negligible</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 2.4 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 4.0 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 10.4 N</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A book of weight 2 N rests on a table, which pushes up on it with a normal contact force of 2 N. Which statement is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> They are a Newton's third law pair because they are equal and opposite</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> They are a third law pair because both involve the table and the book</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> They cannot be a third law pair because they are not equal in magnitude</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> They cannot be a third law pair because both act on the book</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A trolley containing sand is pulled across a frictionless surface by a small constant resultant force. Sand leaks out through a hole in the base. What happens to the motion?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> The acceleration stays constant because the force is constant</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> The trolley decelerates as it loses sand</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> The acceleration increases as the mass falls</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> The trolley moves at constant velocity</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A man of mass 82.5 kg stands in an elevator accelerating upwards at 1.50 m s⁻². What is the normal contact force from the floor? (\(g = 9.8\ \text{m s}^{-2}\))</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> 124 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> 932 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> 809 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> 685 N</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    An object with no resultant force on it is in translational <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:160px">. In \(F = ma\) the force must be the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:140px"> force. An object's resistance to a change of motion is called its <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:120px">. A third-law force pair always acts on <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:150px"> bodies.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">A hollow rubber ball of mass 120 g is dropped on a concrete floor. Its impact velocity is 8.0 m s⁻¹ and its speed reduces to zero in 0.44 s. (a) Calculate the average deceleration. [2] (b) Calculate the average force exerted on the ball. [2] (c) A solid steel ball of the same size but ten times the mass hits the floor at the same speed and stops in 0.080 s. Outline why the steel ball can do more damage. [3] <span class="lc-exam-marks">[7 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(a = \Delta v/\Delta t = (0 - 8.0)/0.44\) ✓ \(= -18\ \text{m s}^{-2}\) (a deceleration of 18 m s⁻²)<br>✓ (b) \(F = ma = 0.120 \times 18\) ✓ \(= 2.2\ \text{N}\)<br>✓ (c) For the steel ball \(a = 8.0/0.080 = 100\ \text{m s}^{-2}\) and \(F = 1.20 \times 100 = 120\ \text{N}\) ✓ the mass is ten times greater <em>and</em> the impact time is about five times shorter ✓ so by \(F = ma\) the force is roughly fifty times larger, and it acts over a small contact area.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q">A small aircraft of mass 520 kg must take off with a speed of 30 m s⁻¹ from a runway 200 m long. (a) Show that the aircraft needs an average acceleration of 2.3 m s⁻². [2] (b) Determine the average resultant force needed during take-off. [2] (c) State one reason why the force the engine must provide is greater than your answer to (b). [1] <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(v^2 = u^2 + 2as \Rightarrow 30^2 = 0 + 2a(200)\) ✓ \(a = 900/400 = 2.25 \approx 2.3\ \text{m s}^{-2}\)<br>✓ (b) \(F = ma = 520 \times 2.25\) ✓ \(= 1.2 \times 10^3\ \text{N}\) (1170 N)<br>✓ (c) The engine must also overcome drag and rolling friction — 1170 N is the <em>resultant</em> force, not the applied force.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">(a) State Newton's third law of motion. [2] (b) A person stands still on the ground. Identify the Newton's third law pair to the gravitational force of the Earth on the person, stating its size, direction and the body it acts on. [3] (c) Explain why air bags reduce injuries to car passengers in a collision. [3] <span class="lc-exam-marks">[8 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Whenever one body exerts a force on another body, the second body exerts a force of the same magnitude on the first ✓ in the opposite direction.<br>✓ (b) The gravitational force of the person on the Earth ✓ equal in magnitude to the person's weight ✓ directed upwards (towards the person) and acting on the Earth, not on the person.<br>✓ (c) The air bag increases the time over which the passenger's velocity is reduced to zero ✓ so the deceleration is smaller ✓ and since \(F = ma\) the force on the passenger is smaller. It also spreads that force over a larger area.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'm = F/a = 1.7/0.80 = 2.1 kg. Option A divides the wrong way round; option D comes from using 80 cm s⁻² as 0.080 m s⁻².' },
+    mcq2: { B: 'The resultant force is ma = 2.1 × 1.9 = 4.0 N. Friction is the difference between applied and resultant: 6.4 − 4.0 = 2.4 N.' },
+    mcq3: { D: 'Both forces act on the book, and they are different types (gravitational and contact). A third-law pair acts on two different bodies and is always the same type of force.' },
+    mcq4: { C: 'The resultant force stays constant while the mass falls, so a = F/m increases. The trolley speeds up at an ever-increasing rate.' },
+    mcq5: { B: 'Resultant force = ma = 82.5 × 1.50 = 124 N upwards. So N − mg = 124, giving N = (82.5 × 9.8) + 124 = 809 + 124 = 932 N. Option A gives only the resultant; option C is the weight alone.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'equilibrium', lf2:'resultant', lf3:'inertia', lf4:'different' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="../A.1-Kinematics/index.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Kinematics</div>
+          </div>
+        </a>
+        <a href="02-free-body-diagrams.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Free Body Diagrams</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

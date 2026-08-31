@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intensity and Amplitude of Waves — φQ Physics lesson</title>
+  <link rel="stylesheet" href="../../../shared/theme.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('phyq-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+  <style>
+    html,body{ background:transparent !important; }
+    body{ padding:0; margin:0; font-family: var(--font-sans) !important; }
+    h1,h2,h3,h4,h5,.lc-title{ font-family: var(--font-serif) !important; }
+  </style>
+</head>
+<body>
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-formula { background:var(--surface3);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.75rem 1.1rem;margin:0.75rem 0;
+  font-family:var(--font-mono);font-size:1.05rem;
+  color:var(--accent);text-align:center; }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-step { display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 5 · C.2 Wave Model</div>
+<div class="lc-title">Intensity and Amplitude of Waves</div>
+<div class="lc-sub">From energy concepts to the I ∝ A² relationship — build intuition, read graphs, and conquer exam‑style questions.</div>
+
+<div class="lc-card">
+  <h3>Why does turning up the volume feel so much louder?</h3>
+  <p>A tiny ripple carries almost no energy; a tsunami can destroy coastlines. A whisper is barely audible; a rock concert can shake your chest. The difference is not just in how high the wave is (its <strong>amplitude</strong>), but in how much energy it delivers per second per square metre — its <strong>intensity</strong>.</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/7Z60CXyv/image.png" alt="Small ripple vs large tsunami — everyday amplitude comparison">
+    <div class="lc-cap">Fig 1 — Everyday extremes: from a tiny ripple to a giant wave. The amplitude increase means far greater energy.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>1. Amplitude — a quick recap</h3>
+  <p><strong>Amplitude (<i>A</i>)</strong> is the maximum displacement of a particle from its equilibrium position. For a sound wave it can be measured as pressure variation; for an electromagnetic wave it’s the maximum electric field strength.</p>
+  <div class="lc-img">
+    <img src="https://i0.wp.com/primaryscienceonline.org.uk/wp-content/uploads/2021/08/Amplitude.jpg" alt="Sine wave with amplitude labelled">
+    <div class="lc-cap">Fig 2 — A sinusoidal wave. The amplitude A is the distance from the rest position to a crest (or trough).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>2. What is intensity?</h3>
+  <p><strong>Intensity (<i>I</i>)</strong> is the <strong>power transmitted per unit area</strong>, measured in watts per square metre (W m⁻²).</p>
+  <div class="lc-formula">I = P / A</div>
+  <p>Imagine a light bulb radiating energy. The same total power is spread over an ever‑larger spherical surface as you move away. That’s why a star looks dim from Earth — not because it emits less power, but because the intensity is tiny when the light reaches us.</p>
+  <div class="lc-img">
+    <img src="https://cdn.savemyexams.com/cdn-cgi/image/f=auto,width=1920/https://cdn.savemyexams.com/uploads/2020/09/7.1.1.7-Intensity-of-a-spherical-wave.png" alt="Spherical wavefronts from a point source, showing surface area 4πr²">
+    <div class="lc-cap">Fig 3 — For a point source, power P is spread over a sphere of area 4πr², so I = P / (4πr²). Intensity drops with the inverse‑square of distance.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>3. Energy in a wave and the I ∝ A² law</h3>
+  <p>The energy carried by a wave is proportional to the square of its amplitude. For a sinusoidal mechanical wave, the intensity can be derived as:</p>
+  <div class="lc-formula">I = 2π² ρ v f² A²</div>
+  <p>where ρ is the density of the medium, v the wave speed, f the frequency. For a given medium and frequency, <strong>intensity is directly proportional to amplitude squared</strong>:</p>
+  <div class="lc-formula">I ∝ A²</div>
+  <div class="lc-info">💡 <strong>Examiner insight:</strong> You’ll rarely need the full constant. Most IB questions expect you to use the proportionality I₁/I₂ = (A₁/A₂)² — this works for any wave type (sound, water, light) when only amplitude changes.</div>
+  <div class="lc-warn">⚠️ <strong>Common mistake:</strong> “If intensity doubles, amplitude doubles.” No — because of the square root: √2 ≈ 1.41. Doubling I only multiplies amplitude by about 1.4.</div>
+  <div class="lc-success">✓ <strong>Exam tip:</strong> Always write I₁/I₂ = (A₁/A₂)² before plugging numbers. It avoids confusion and shows the examiner you understand the proportionality.</div>
+</div>
+
+<div class="lc-card">
+  <h3>4. Reading the relationship from graphs</h3>
+  <p>The square‑law is best understood by looking at different graphs.</p>
+  <div class="lc-img-row">
+    <div class="lc-img">
+      <img src="https://i.postimg.cc/HWcNM4dV/image.png" alt="Graph of intensity versus amplitude — a parabola">
+      <div class="lc-cap">Fig 4 — I vs A: a parabolic curve through the origin, because I ∝ A².</div>
+    </div>
+    <div class="lc-img">
+      <img src="https://i.postimg.cc/5t2728s2/image.png" alt="Log-log plot of intensity vs amplitude, showing a straight line with slope 2">
+      <div class="lc-cap">Fig 5 — log I vs log A: a straight line of gradient exactly 2, confirming the square relationship.</div>
+    </div>
+  </div>
+  <p>To make the relationship linear, plot <strong>I vs A²</strong> — a straight line through the origin. The slope gives the constant 2π²ρv f².</p>
+  <div class="lc-kp">
+    <span>I vs A² → straight line</span>
+    <span>log I vs log A → gradient = 2</span>
+  </div>
+
+  <h3 style="margin-top:1.25rem">5. Inverse‑square law for a point source</h3>
+  <p>When waves spread spherically from a source, amplitude also decreases with distance. Because I ∝ 1/r² and I ∝ A², it follows that <strong>A ∝ 1/r</strong>.</p>
+  <div class="lc-img">
+    <img src="https://www.wifi-professionals.com/wp-content/uploads/2018/11/intensity.png" alt="Graph showing intensity decreasing with distance according to inverse-square law">
+    <div class="lc-cap">Fig 6 — Intensity vs distance from a point source: the rapid fall‑off follows 1/r². Amplitude would fall as 1/r.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Extension (HL):</strong> The fact that A ∝ 1/r for a spherical wave comes directly from energy conservation: power through any spherical shell is constant, so 4πr₁² I₁ = 4πr₂² I₂ ⇒ I ∝ 1/r² ⇒ A ∝ 1/r.</div>
+</div>
+
+<div class="lc-card">
+  <h3>Worked Example — Comparing two waves</h3>
+  <div class="lc-img">
+    <img src="https://cdn.savemyexams.com/cdn-cgi/image/f=auto,width=1920/https://cdn.savemyexams.com/uploads/2021/05/WE-Intensity-question-image.png" alt="Two displacement-time graphs: Wave P with amplitude X₀, Wave Q with amplitude 2X₀">
+    <div class="lc-cap">Fig 7 — Wave P (top) and Wave Q (bottom). Both have the same frequency and travel in the same medium.</div>
+  </div>
+  <p>Wave P has amplitude <i>X</i>₀, Wave Q has amplitude 2<i>X</i>₀. They travel in the same medium with identical frequency. Find the ratio of their intensities, I_Q / I_P.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>State the known values:</strong> A_Q = 2 X₀, A_P = X₀. Frequency and medium are identical, so the constant 2π²ρv f² cancels.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Write the proportional equation:</strong> I ∝ A² ⇒ I_Q / I_P = (A_Q / A_P)².</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Substitute:</strong> I_Q / I_P = (2 X₀ / X₀)² = 2² = 4.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>State the answer:</strong> Wave Q has 4 times the intensity of Wave P. Doubling amplitude quadruples intensity.</div></div>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which graph best represents the relationship between intensity I and amplitude A for a wave?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> Straight line through origin</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> Parabola (curve upward from origin)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> Rectangular hyperbola (I decreasing)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> Horizontal straight line</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. The amplitude of a sound wave is doubled while frequency and medium remain unchanged. By what factor does its intensity change?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> 2</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> √2</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> 4</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> 8</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. For a point source emitting spherical waves, how does the intensity I vary with distance r from the source?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> I ∝ 1/r</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> I ∝ 1/r²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> I ∝ r</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> I is constant</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A wave’s intensity is reduced to 1/9 of its original value. What happens to its amplitude?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Reduces to 1/9</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Reduces to 1/3</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> Reduces to 1/81</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Stays constant</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements below using the key vocabulary:</p>
+  <div class="lc-fitb">
+    The intensity of a wave is proportional to the square of its <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px">. Mathematically, I ∝ <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px">. The SI unit of intensity is the <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> (W m⁻²).
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">A wave has an amplitude of 0.5 mm and an intensity of 2.0 W m⁻². Calculate its intensity when the amplitude is increased to 1.5 mm, assuming the frequency and medium remain the same. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>Model answer:</strong><br>
+    ✓ I₁/I₂ = (A₁/A₂)²<br>
+    ✓ I₂ = I₁ × (A₂/A₁)² = 2.0 × (1.5/0.5)² = 2.0 × 9 = <strong>18 W m⁻²</strong> (accept 2 s.f.)
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">Explain why a graph of intensity against amplitude is not a straight line. Use the relationship I ∝ A² in your answer. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>Model answer:</strong><br>
+    ✓ Because I ∝ A², the relationship is quadratic, so a graph of I vs A produces a <strong>parabola</strong>, not a straight line.<br>
+    ✓ To obtain a straight‑line graph, one must plot I against A² (or log I vs log A).
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Apply</div>
+  <div class="lc-exam-q">A point source emits sound with a power of 50 W. Calculate the intensity at a distance of 2.0 m from the source. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>Model answer:</strong><br>
+    ✓ I = P / (4πr²)<br>
+    ✓ I = 50 / (4π × 2.0²) = 50 / (16π) ≈ <strong>1.0 W m⁻²</strong> (2 s.f.)
+  </div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1:{ B:'Correct — I ∝ A² gives a parabolic curve through the origin (see Fig 4).' },
+    mcq2:{ C:'Correct — doubling amplitude multiplies intensity by 2² = 4, because I ∝ A².' },
+    mcq3:{ B:'Correct — for a point source, power is spread over a sphere of area 4πr², so I ∝ 1/r².' },
+    mcq4:{ B:'Correct — amplitude is proportional to √I, so √(1/9) = 1/3.' },
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'amplitude', lf2:'a²', lf3:'w m⁻²' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = (id==='lf2') ? (val==='a²' || val==='a^2' || val==='a2') : (val.includes(ans[id]));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: amplitude · A² · W m⁻²';
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+
+<script>
+  (function(){
+    window.addEventListener('storage', function(e){ if(e.key==='phyq-theme'){ document.documentElement.dataset.theme = e.newValue||'dark'; } });
+    function postH(){
+      var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      parent.postMessage({ __lessonEmbed:true, h:h }, '*');
+    }
+    window.addEventListener('load', function(){ postH(); setTimeout(postH,250); setTimeout(postH,700); });
+    if (window.ResizeObserver) new ResizeObserver(postH).observe(document.body);
+    document.addEventListener('click', function(){ setTimeout(postH,90); });
+    document.addEventListener('input', function(){ setTimeout(postH,90); });
+  })();
+</script>
+</body>
+</html>

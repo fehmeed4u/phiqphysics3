@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview — Projectile Motion Lesson</title>
+  <link rel="stylesheet" href="shared/theme.css">
+
+  <!-- KaTeX (from pasted lesson) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    /* Site chrome around the lesson body */
+    .preview-banner {
+      background: var(--gold-dim);
+      border-bottom: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.55rem 1rem;
+      text-align: center;
+    }
+    .preview-banner strong { color: var(--text); margin-right: 0.4rem; }
+
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.25rem;
+      min-height: 500px;
+    }
+    @media(max-width:600px){ .lesson-content{ padding: 1.5rem 1.25rem; } }
+
+    /* === Pasted lesson styles (verbatim) === */
+    .lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+    .lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+    .lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+    .lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+    .lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+    .lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+    .lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+    .lc-card p:last-child { margin-bottom:0; }
+    .lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+    .lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+    .lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+    .lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+    .lc-table tr:last-child td { border-bottom:none; }
+    .lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center; }
+    .lc-formula .katex { font-size:1.35rem;color:var(--accent); }
+    .lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem; }
+    .lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+    .lc-img img { max-width:100%;border-radius:8px; }
+    .lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+    .lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+    @media(max-width:600px){ .lc-img-row{grid-template-columns:1fr;} }
+    .lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+    .lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+    .lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+    .lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:0.86rem;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+    .lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:0.86rem;color:var(--text-2);margin:0.6rem 0; }
+    .lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:0.86rem;color:var(--text-2);margin:0.6rem 0; }
+    .lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+    @media(max-width:600px){ .lc-two-col{grid-template-columns:1fr;} }
+    .lc-step { display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+    .lc-step:last-child { border-bottom:none; }
+    .lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700; }
+    .lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+    .lc-step-body strong { color:var(--text); }
+    .lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);margin-bottom:0.65rem; }
+    .lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+    .lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:0.87rem;color:var(--text-2);background:var(--surface); }
+    .lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+    .lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+    .lc-opt.disabled { cursor:default;pointer-events:none; }
+    .lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+    .lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+    .lc-fb.show { display:block; }
+    .lc-fb.correct { background:var(--green-dim);color:var(--green); }
+    .lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+    .lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+    .lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:0.9rem;color:var(--text);padding:0 4px;min-width:80px;text-align:center; }
+    .lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+    .lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+    .lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted); }
+    .lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+    .lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+    .lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+    .lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:0.86rem;padding:0.65rem 0.85rem;resize:vertical;font-family:var(--font-sans); }
+    .lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted); }
+    .lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+    .lc-model.show { display:block; }
+    .lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+    .lc-score strong { color:var(--accent); }
+    .lc-slider-lab { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem; }
+    .lc-slider-lab h4 { font-size:0.95rem;font-weight:600;margin:0 0 0.5rem 0;color:var(--accent); }
+    .lc-slider-lab canvas { width:100%;height:auto;background:var(--surface);border-radius:8px;margin-top:0.5rem;border:1px solid var(--border); }
+    .lc-slider-lab input[type=range] { width:100%;margin:0.5rem 0;accent-color:var(--accent); }
+    .lc-slider-lab .lc-slider-value { font-family:var(--font-mono);font-size:0.85rem;text-align:center;color:var(--text-2); }
+  </style>
+</head>
+<body>
+<script src="shared/nav.js"></script>
+
+<div class="preview-banner">
+  <strong>Preview Mode</strong> Rendering the pasted lesson code inside the site chrome — not yet saved as an actual lesson page.
+</div>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Projectile Motion (Lesson Preview)</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">
+            LESSON 4.1
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">A-Level</span>
+          <span class="tag tag-gold" style="font-size:0.7rem">Preview</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.15;margin-bottom:0.75rem">Projectile Motion</h1>
+        <p style="max-width:580px;font-size:0.95rem">
+          Sample lesson layout — checking how the pasted lesson template (badge / hook / formula / interactive lab / MCQ / FITB / exam questions) renders inside the site theme.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar (sample, not wired to real topic) -->
+    <aside class="lesson-sidebar">
+      <div class="sidebar-title">Lesson Sections</div>
+      <a href="#hook" class="sidebar-link"><span class="sidebar-num">A</span><span>Hook &amp; Diagnostic</span></a>
+      <a href="#core" class="sidebar-link active"><span class="sidebar-num">B</span><span>Core Knowledge</span></a>
+      <a href="#lab"  class="sidebar-link"><span class="sidebar-num">C</span><span>Interactive Lab</span></a>
+      <a href="#graphs" class="sidebar-link"><span class="sidebar-num">D</span><span>Graph Mastery</span></a>
+      <a href="#worked" class="sidebar-link"><span class="sidebar-num">E</span><span>Worked Example</span></a>
+      <a href="#real"  class="sidebar-link"><span class="sidebar-num">F</span><span>Real‑World / HL</span></a>
+      <a href="#mis"   class="sidebar-link"><span class="sidebar-num">G</span><span>Misconceptions</span></a>
+      <a href="#mcq"   class="sidebar-link"><span class="sidebar-num">H</span><span>Practice MCQ</span></a>
+      <a href="#fitb"  class="sidebar-link"><span class="sidebar-num">I</span><span>Fill the Blanks</span></a>
+      <a href="#exam"  class="sidebar-link"><span class="sidebar-num">J</span><span>Exam Questions</span></a>
+    </aside>
+
+    <!-- Main content area: pasted lesson body -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+
+        <!-- A. HEADER -->
+        <div class="lc-badge"><span>1</span> LESSON 4.1</div>
+        <div class="lc-title">Projectile Motion</div>
+        <div class="lc-sub">Topic Code: PHY101 | Level: A-Level</div>
+
+        <!-- B. HOOK & DIAGNOSTIC -->
+        <div class="lc-section" id="hook">HOOK &amp; DIAGNOSTIC</div>
+        <div class="lc-card">
+          <div class="lc-img">
+            <img src="https://placehold.co/640x280/0d1221/4F9DFF?text=Projectile+Animation+%E2%80%94+Placeholder" alt="Projectile trajectory animation">
+            <div class="lc-cap">Figure 1: A ball launched at an angle follows a parabolic path.</div>
+          </div>
+          <div class="lc-info">
+            <strong>Think about it:</strong> If you throw a ball at 30° above horizontal, what shape is its path? Why does it not continue in a straight line?
+          </div>
+        </div>
+
+        <!-- C. CORE KNOWLEDGE -->
+        <div class="lc-section" id="core">CORE KNOWLEDGE</div>
+        <div class="lc-card">
+          <h3>Independence of Horizontal and Vertical Motion</h3>
+          <p>Projectile motion can be analysed by considering the horizontal and vertical components separately. The horizontal motion has constant velocity (no acceleration, ignoring air resistance), while the vertical motion has constant acceleration due to gravity.</p>
+          <div class="lc-formula">
+            <span class="lc-formula-label">Key Equations</span>
+            $$v_{x} = u \cos\theta$$
+            $$v_{y} = u \sin\theta - g t$$
+            $$x = u \cos\theta \cdot t$$
+            $$y = u \sin\theta \cdot t - \frac{1}{2} g t^{2}$$
+          </div>
+          <div class="lc-img">
+            <img src="https://placehold.co/640x280/0d1221/4F9DFF?text=Trajectory+Graph+%E2%80%94+Placeholder" alt="Graph of projectile trajectory">
+            <div class="lc-cap">Figure 2: Parabolic trajectory showing velocity components.</div>
+          </div>
+        </div>
+
+        <div class="lc-card">
+          <h3>Time of Flight &amp; Range</h3>
+          <p>The total time the projectile stays in the air, \(T = \frac{2u\sin\theta}{g}\). The horizontal range, \(R = \frac{u^{2}\sin 2\theta}{g}\). Maximum height, \(H = \frac{u^{2}\sin^{2}\theta}{2g}\).</p>
+        </div>
+
+        <!-- D. INTERACTIVE SLIDER LAB -->
+        <div class="lc-section" id="lab">INTERACTIVE LAB</div>
+        <div class="lc-slider-lab">
+          <h4>Projectile Motion Simulator</h4>
+          <p style="font-size:0.9rem;color:var(--text-2);">Adjust the launch angle and initial speed to see the path change.</p>
+          <div>
+            <label style="font-size:0.82rem;color:var(--text-muted);">Launch Angle (\(\theta\)): <span id="angle-val">45°</span></label>
+            <input type="range" id="angle-slider" min="0" max="90" value="45" step="1">
+          </div>
+          <div>
+            <label style="font-size:0.82rem;color:var(--text-muted);">Initial Speed (\(u\)): <span id="speed-val">20 m/s</span></label>
+            <input type="range" id="speed-slider" min="5" max="50" value="20" step="1">
+          </div>
+          <canvas id="canvas-lab" width="600" height="400"></canvas>
+          <div class="lc-slider-value">Horizontal Range: <span id="range-display">—</span> m</div>
+        </div>
+
+        <!-- E. GRAPH MASTERY TABLE -->
+        <div class="lc-section" id="graphs">GRAPH MASTERY</div>
+        <table class="lc-table">
+          <thead>
+            <tr><th>Graph Type</th><th>Shape &amp; Explanation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>\(x\) vs \(t\)</td><td>Straight line (constant horizontal velocity).</td></tr>
+            <tr><td>\(y\) vs \(t\)</td><td>Parabola (uniform acceleration).</td></tr>
+            <tr><td>\(v_x\) vs \(t\)</td><td>Horizontal line (constant).</td></tr>
+            <tr><td>\(v_y\) vs \(t\)</td><td>Straight line with negative slope (linear deceleration then acceleration).</td></tr>
+            <tr><td>\(v\) vs \(t\) (speed)</td><td>V-shaped (minimum at apex).</td></tr>
+          </tbody>
+        </table>
+
+        <!-- F. WORKED EXAMPLE -->
+        <div class="lc-section" id="worked">WORKED EXAMPLE</div>
+        <div class="lc-card">
+          <h3>Projectile launched at 60°</h3>
+          <div class="lc-step">
+            <div class="lc-step-num">1</div>
+            <div class="lc-step-body"><strong>Identify</strong> – A ball is thrown with initial velocity \(u = 25\,\text{m/s}\) at an angle \(\theta = 60^\circ\) from ground level. Find the range \(R\).</div>
+          </div>
+          <div class="lc-step">
+            <div class="lc-step-num">2</div>
+            <div class="lc-step-body"><strong>Data</strong> – \(u = 25\), \(\theta = 60^\circ\), \(g = 9.81\,\text{m/s}^2\).</div>
+          </div>
+          <div class="lc-step">
+            <div class="lc-step-num">3</div>
+            <div class="lc-step-body"><strong>Equation</strong> – Use \(R = \frac{u^{2}\sin 2\theta}{g}\).</div>
+          </div>
+          <div class="lc-step">
+            <div class="lc-step-num">4</div>
+            <div class="lc-step-body"><strong>Answer</strong> – \(R = \frac{25^{2}\sin 120^\circ}{9.81} = \frac{625 \times 0.8660}{9.81} \approx 55.2\,\text{m}\).</div>
+          </div>
+        </div>
+
+        <!-- G. REAL-WORLD + HL EXTENSION -->
+        <div class="lc-section" id="real">REAL-WORLD &amp; HL EXTENSION</div>
+        <div class="lc-two-col">
+          <div class="lc-card">
+            <h3>Real‑World: Sports</h3>
+            <div class="lc-img">
+              <img src="https://placehold.co/400x200/0d1221/F5A623?text=Basketball+%E2%80%94+Placeholder" alt="Basketball free throw">
+              <div class="lc-cap">Figure 3: Basketball free‑throw trajectory.</div>
+            </div>
+            <p>In basketball, players adjust launch angle and speed to maximise chance of scoring. Optimal angle is near 45° for maximum range, but height of release changes the best angle.</p>
+          </div>
+          <div class="lc-card">
+            <h3>HL Extension: Air Resistance</h3>
+            <p>With drag, the path is no longer a perfect parabola. Range decreases and the descent becomes steeper. The equations become differential and require numerical methods.</p>
+          </div>
+        </div>
+
+        <!-- H. MISCONCEPTIONS -->
+        <div class="lc-section" id="mis">COMMON MISCONCEPTIONS</div>
+        <table class="lc-table">
+          <thead>
+            <tr><th>Misconception</th><th>Correction</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Horizontal motion stops at the top.</td><td>Horizontal velocity remains constant (if no air resistance).</td></tr>
+            <tr><td>Vertical velocity is zero at launch.</td><td>Only at the apex; at launch it is \(u\sin\theta\).</td></tr>
+            <tr><td>Heavier objects fall faster.</td><td>Without air resistance, all objects fall at the same rate (g independent of mass).</td></tr>
+          </tbody>
+        </table>
+        <div class="lc-warn">
+          <strong>Warning:</strong> Many students forget that the vertical acceleration is constant \((-g)\) throughout the flight. The sign matters.
+        </div>
+
+        <!-- I. KEY POINTS PILLS -->
+        <div class="lc-section">KEY POINTS</div>
+        <div class="lc-kp">
+          <span>Parabolic path</span>
+          <span>Independence of axes</span>
+          <span>\(a_x = 0\)</span>
+          <span>\(a_y = -g\)</span>
+          <span>\(R = u^2\sin2\theta/g\)</span>
+          <span>Time of flight formula</span>
+          <span>Maximum height</span>
+          <span>Apex velocity = \(u\cos\theta\)</span>
+        </div>
+
+        <!-- J. MCQ PRACTICE -->
+        <div class="lc-section" id="mcq">PRACTICE: MULTIPLE CHOICE</div>
+        <div id="mcq-container">
+          <div id="mcq1" class="lc-card"></div>
+          <div id="mcq2" class="lc-card"></div>
+          <div id="mcq3" class="lc-card"></div>
+          <div id="mcq4" class="lc-card"></div>
+        </div>
+
+        <!-- K. FILL IN THE BLANKS -->
+        <div class="lc-section" id="fitb">FILL IN THE BLANKS</div>
+        <div id="fitb-container" class="lc-card">
+          <div class="lc-fitb" id="fitb1">For projectile motion, the horizontal component of velocity is ______.</div>
+          <div class="lc-fitb" id="fitb2">The vertical acceleration is always ______ m/s² downward.</div>
+          <div class="lc-fitb" id="fitb3">At the highest point, the vertical velocity is ______.</div>
+          <button class="lc-check-btn" onclick="checkFITB()">Check Answers</button>
+        </div>
+
+        <!-- L. EXAM-STYLE QUESTIONS -->
+        <div class="lc-section" id="exam">EXAM‑STYLE QUESTIONS</div>
+        <div id="exam-container">
+          <div class="lc-exam" id="exam1">
+            <div class="lc-exam-tag">EXAM QUESTION 1</div>
+            <div class="lc-exam-q">A projectile is launched from ground at 30° with speed 20 m/s. Determine the maximum height reached. Use \(g = 10\,\text{m/s}^2\).</div>
+            <textarea class="lc-exam-input" placeholder="Your working..."></textarea>
+            <button class="lc-reveal-btn" onclick="toggleModel('exam1')">Show Model Answer</button>
+            <div class="lc-model" id="exam1-model">\(H = \frac{u^2\sin^2\theta}{2g} = \frac{400 \times 0.25}{20} = 5\,\text{m}\).</div>
+          </div>
+          <div class="lc-exam" id="exam2">
+            <div class="lc-exam-tag">EXAM QUESTION 2</div>
+            <div class="lc-exam-q">Explain why the horizontal range is maximum for a launch angle of 45° (in the absence of air resistance).</div>
+            <textarea class="lc-exam-input" placeholder="Your explanation..."></textarea>
+            <button class="lc-reveal-btn" onclick="toggleModel('exam2')">Show Model Answer</button>
+            <div class="lc-model" id="exam2-model">\(R = \frac{u^2\sin 2\theta}{g}\). \(\sin 2\theta\) is maximum (=1) when \(2\theta = 90^\circ\), i.e. \(\theta = 45^\circ\).</div>
+          </div>
+          <div class="lc-exam" id="exam3">
+            <div class="lc-exam-tag">EXAM QUESTION 3</div>
+            <div class="lc-exam-q">A cannon fires a shell at 40° with speed 100 m/s. Find the time of flight and the horizontal range. (\(g=9.81\))</div>
+            <textarea class="lc-exam-input" placeholder="Your working..."></textarea>
+            <button class="lc-reveal-btn" onclick="toggleModel('exam3')">Show Model Answer</button>
+            <div class="lc-model" id="exam3-model">\(T = \frac{2u\sin\theta}{g} = \frac{2\times 100 \times 0.643}{9.81} \approx 13.1\,\text{s}\). \(R = u\cos\theta \cdot T = 100 \times 0.766 \times 13.1 \approx 1003\,\text{m}\).</div>
+          </div>
+        </div>
+
+        <!-- M. SCORE DISPLAY -->
+        <div style="margin-top:1.5rem">
+          <div class="lc-score" id="lc-score-display">
+            Score: <strong id="score-value">0</strong> / <span id="total-value">0</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- N. JAVASCRIPT (from pasted lesson) -->
+<script>
+// ===================== QUIZ IIFE =====================
+(function() {
+  window.lcMCQ = function(containerId, question, options, correctIndex) {
+    const c = document.getElementById(containerId);
+    if (!c) return;
+    const qDiv = document.createElement('div');
+    qDiv.className = 'lc-mcq-q';
+    qDiv.textContent = question;
+    c.appendChild(qDiv);
+    const optsDiv = document.createElement('div');
+    optsDiv.className = 'lc-opts';
+    const letters = ['A', 'B', 'C', 'D'];
+    options.forEach((txt, i) => {
+      const opt = document.createElement('div');
+      opt.className = 'lc-opt';
+      opt.dataset.index = i;
+      opt.innerHTML = `<span class="lc-opt-l">${letters[i]}</span><span>${txt}</span>`;
+      opt.addEventListener('click', function() {
+        if (this.classList.contains('disabled')) return;
+        const parent = this.closest('.lc-opts');
+        const allOpts = parent.querySelectorAll('.lc-opt');
+        allOpts.forEach(o => o.classList.add('disabled'));
+        const fb = parent.parentElement.querySelector('.lc-fb');
+        if (parseInt(this.dataset.index) === correctIndex) {
+          this.classList.add('correct');
+          if (fb) { fb.textContent = '✓ Correct!'; fb.className = 'lc-fb correct show'; }
+          updateScore(1, 1);
+        } else {
+          this.classList.add('wrong');
+          allOpts[correctIndex].classList.add('correct');
+          if (fb) { fb.textContent = `✗ Incorrect. The correct answer was ${letters[correctIndex]}.`; fb.className = 'lc-fb wrong show'; }
+          updateScore(0, 1);
+        }
+        // re-render KaTeX inside newly classed options
+        if (typeof renderMathInElement === 'function') {
+          renderMathInElement(parent, { delimiters: [{left:"\\(",right:"\\)",display:false}] });
+        }
+      });
+      optsDiv.appendChild(opt);
+    });
+    c.appendChild(optsDiv);
+    const fb = document.createElement('div');
+    fb.className = 'lc-fb';
+    c.appendChild(fb);
+  };
+
+  window.toggleModel = function(examId) {
+    const model = document.getElementById(examId + '-model');
+    if (model) model.classList.toggle('show');
+  };
+
+  let correctCount = 0;
+  let totalAttempted = 0;
+  function updateScore(correct, attempted) {
+    correctCount += correct;
+    totalAttempted += attempted;
+    document.getElementById('score-value').textContent = correctCount;
+    document.getElementById('total-value').textContent = totalAttempted;
+  }
+  window.__lcUpdateScore = updateScore;
+
+  lcMCQ('mcq1', 'What is the shape of the trajectory of a projectile (ignoring air resistance)?', ['Straight line', 'Parabola', 'Circle', 'Hyperbola'], 1);
+  lcMCQ('mcq2', "At the highest point of its flight, the projectile's velocity is:", ['Zero', 'Horizontal', 'Vertical', 'Maximum'], 1);
+  lcMCQ('mcq3', 'The horizontal range of a projectile depends on:', ['\\(u\\) only', '\\(\\theta\\) only', '\\(u\\) and \\(\\theta\\)', 'Mass of projectile'], 2);
+  lcMCQ('mcq4', 'If the launch angle is increased from 30° to 60° (same speed), the range will:', ['Increase', 'Decrease', 'Stay the same', 'First increase then decrease'], 2);
+
+  window.checkFITB = function() {
+    const answers = ['constant', '9.81', 'zero'];
+    const fitbInputs = document.querySelectorAll('.lc-fitb-input');
+    fitbInputs.forEach((input, idx) => {
+      if (input.value.trim().toLowerCase() === answers[idx].toLowerCase()) {
+        input.classList.add('correct'); input.classList.remove('wrong');
+        window.__lcUpdateScore(1, 1);
+      } else {
+        input.classList.add('wrong'); input.classList.remove('correct');
+        window.__lcUpdateScore(0, 1);
+      }
+    });
+  };
+
+  // Insert input fields into FITB prompts
+  document.querySelectorAll('.lc-fitb').forEach((el) => {
+    el.innerHTML = el.innerHTML.replace('______',
+      '<input type="text" class="lc-fitb-input" placeholder="______">');
+  });
+})();
+
+// ===================== CANVAS DRAWING =====================
+(function() {
+  const canvas = document.getElementById('canvas-lab');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const angleSlider = document.getElementById('angle-slider');
+  const speedSlider = document.getElementById('speed-slider');
+  const angleVal = document.getElementById('angle-val');
+  const speedVal = document.getElementById('speed-val');
+  const rangeDisplay = document.getElementById('range-display');
+
+  function getThemeColor(name, fallback) {
+    const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    return v || fallback;
+  }
+
+  function drawProjectile(angleDeg, speed) {
+    const w = canvas.width, h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+    const bg     = getThemeColor('--surface', '#0d1221');
+    const axis   = getThemeColor('--text-muted', '#7A8699');
+    const trajColor = getThemeColor('--accent', '#4F9DFF');
+    const pointColor= getThemeColor('--accent3', '#00D4FF');
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = axis; ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(50, 30); ctx.lineTo(50, h - 30); ctx.lineTo(w - 30, h - 30);
+    ctx.stroke();
+    ctx.fillStyle = axis; ctx.font = '12px sans-serif';
+    ctx.fillText('x', w - 20, h - 20); ctx.fillText('y', 10, 20);
+
+    // Scale so trajectory fills available canvas regardless of speed
+    const theta = angleDeg * Math.PI / 180;
+    const u = speed;
+    const g = 9.81;
+    const T = 2 * u * Math.sin(theta) / g || 0.01;
+    const R = u * u * Math.sin(2 * theta) / g;
+    const H = u * u * Math.sin(theta) ** 2 / (2 * g);
+    const usableW = w - 80;
+    const usableH = h - 60;
+    const sx = R > 0 ? usableW / R : 1;
+    const sy = H > 0 ? usableH / H : 1;
+    const s = Math.min(sx, sy);
+
+    ctx.strokeStyle = trajColor; ctx.lineWidth = 2; ctx.beginPath();
+    const x0 = 50, y0 = h - 30;
+    const dt = T / 200;
+    let t = 0;
+    for (let i = 0; i <= 200; i++) {
+      const px = u * Math.cos(theta) * t;
+      const py = u * Math.sin(theta) * t - 0.5 * g * t * t;
+      const X = x0 + px * s, Y = y0 - py * s;
+      if (i === 0) ctx.moveTo(X, Y); else ctx.lineTo(X, Y);
+      t += dt;
+    }
+    ctx.stroke();
+
+    ctx.fillStyle = pointColor;
+    ctx.beginPath(); ctx.arc(x0, y0, 4, 0, 2 * Math.PI); ctx.fill();
+
+    rangeDisplay.textContent = R.toFixed(1);
+  }
+
+  angleSlider.addEventListener('input', function() {
+    angleVal.textContent = this.value + '°';
+    drawProjectile(parseFloat(this.value), parseFloat(speedSlider.value));
+  });
+  speedSlider.addEventListener('input', function() {
+    speedVal.textContent = this.value + ' m/s';
+    drawProjectile(parseFloat(angleSlider.value), parseFloat(this.value));
+  });
+  drawProjectile(45, 20);
+})();
+
+// ===================== KaTeX AUTO-RENDER =====================
+document.addEventListener('DOMContentLoaded', function() {
+  function render() {
+    if (typeof renderMathInElement === 'function') {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    } else {
+      setTimeout(render, 100);
+    }
+  }
+  render();
+});
+</script>
+</body>
+</html>

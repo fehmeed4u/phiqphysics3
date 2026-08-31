@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Damping and Resonance — C.1 Simple Harmonic Motion — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C1">C.1 Simple Harmonic Motion</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Damping and Resonance</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">
+            C.1
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 5 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Damping and Resonance</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">C.1 Simple Harmonic Motion</strong>
+          · Unit C — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to C.1 overview
+      </a>
+      <div class="sidebar-title">C.1 Concepts</div>
+      <a href="01-defining-simple-harmonic-motion.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Defining Simple Harmonic Motion</span>
+        </a>
+      <a href="02-shm-equations-displacement-velocity-acceleration.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>SHM Equations — Displacement, Velocity, Acceleration</span>
+        </a>
+      <a href="03-energy-in-shm.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Energy in SHM</span>
+        </a>
+      <a href="04-the-simple-pendulum-and-mass-spring-system.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>The Simple Pendulum and Mass-Spring System</span>
+        </a>
+      <a href="05-damping-and-resonance.html" class="sidebar-link active">
+          <span class="sidebar-num">05</span>
+          <span>Damping and Resonance</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+        <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>5</span> Lesson 5 of 5 · C.1 Simple Harmonic Motion</div>
+<div class="lc-title">Damping and Resonance</div>
+<div class="lc-sub">In practice every oscillator stops. This lesson covers the resistive forces that drain energy from an oscillating system, the three degrees of damping and their graphs, and what damping does to the resonance curve.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the swing that never keeps going</h3>
+  <p>In practice, all oscillators eventually stop oscillating. Their amplitudes may decrease rapidly or gradually. This happens due to resistive forces, such as friction or air resistance, which act in the opposite direction to the motion of an oscillator. Resistive forces acting on an oscillating simple harmonic system cause <strong>damping</strong>, and the resulting motion is called <strong>damped oscillations</strong>. <strong>Damping continues until the oscillator comes to rest at the equilibrium position.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-05-damping-and-resonance-01.png" alt="Mass on a spring oscillating, with a resistive force arrow acting in the opposite direction to the motion arrow, and the amplitude decaying to zero">
+    <div class="lc-cap">Fig 1 — Damping on a mass on a spring is caused by a resistive force (\(F_{\text{R}}\)) acting in the opposite direction to the motion (blue arrow). This continues until the amplitude of the oscillations reaches zero.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — A child on a swing loses half of their amplitude over a minute. Does each swing now take less time? <em>No. A key feature of simple harmonic motion is that the frequency of damped oscillations does not change as the amplitude decreases. The child can oscillate back and forth once every second, and the time remains the same regardless of the amplitude.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Defining damping</h3>
+  <p>Damping is defined as:</p>
+  <div class="lc-info">📖 <strong>Damping</strong> — The reduction in energy and amplitude of oscillations due to resistive forces on the oscillating system.</div>
+  <p>Two consequences follow, and examiners test both. First, the energy of the system falls, so the amplitude falls. Second, the <strong>frequency is unchanged</strong>: successive peaks and troughs stay equally spaced in time even as they shrink.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Damped oscillation — amplitude decays, period does not</span>
+    $$A(t) = A_0\,e^{-\lambda t}$$
+    $$T = \text{constant}$$
+  </div>
+  <div class="lc-warn">⚠️ Make sure not to confuse resistive force and restoring force. <strong>Resistive force</strong> is what opposes the motion of the oscillator and causes damping. <strong>Restoring force</strong> is what brings the oscillator back to the equilibrium position.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📉 Light damping</h3>
+  <p>There are three degrees of damping, depending on how quickly the amplitude of the oscillations decreases: <strong>light damping</strong>, <strong>critical damping</strong> and <strong>heavy damping</strong>.</p>
+  <p>When oscillations are lightly damped, the amplitude does not decrease linearly — it <strong>decays exponentially with time</strong>. When a lightly damped oscillator is displaced from the equilibrium, it will oscillate with gradually decreasing amplitude. For example, a swinging pendulum decreases in amplitude until it comes to a stop. A graph for a lightly damped system consists of oscillations decreasing exponentially.</p>
+  <p><strong>Key features of a displacement–time graph for a lightly damped system:</strong> there are many oscillations represented by a sine or cosine curve with gradually decreasing amplitude over time; this is shown by the height of the curve decreasing in both the positive and negative displacement values; the amplitude decreases exponentially; the frequency of the oscillations remains constant, which means the time period of oscillations must stay the same, and each peak and trough are equally spaced.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-05-damping-and-resonance-02.png" alt="Displacement against time graph for a lightly damped oscillator: many equally spaced oscillations inside an exponentially decaying envelope">
+    <div class="lc-cap">Fig 2 — Light damping. Read off the equal spacing of the peaks (constant period) and the exponential envelope on both the positive and negative sides.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🚗 Critical damping</h3>
+  <p>When a critically damped oscillator is displaced from the equilibrium, it will <strong>return to rest at its equilibrium position in the shortest possible time without oscillating</strong>. For example, car suspension systems prevent the car from oscillating after travelling over a bump in the road. The graph for a critically damped system shows no oscillations and the displacement returns to zero in the quickest possible time.</p>
+  <p><strong>Key features of a displacement–time graph for a critically damped system:</strong> this system does not oscillate, meaning the displacement falls to 0 straight away; the graph has a fast decreasing gradient when the oscillator is first displaced until it reaches the x-axis; when the oscillator reaches the equilibrium position (\(x = 0\)), the graph is a horizontal line at \(x = 0\) for the remaining time.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-05-damping-and-resonance-03.png" alt="Displacement against time graph for a critically damped system: a fast smooth fall to zero with no overshoot, then a horizontal line along the time axis">
+    <div class="lc-cap">Fig 3 — Critical damping. No oscillation, a fast decreasing gradient to the x-axis, then a horizontal line at \(x = 0\).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🚪 Heavy damping</h3>
+  <p>When a heavily damped oscillator is displaced from its equilibrium position, it will take a <strong>long time to return to its equilibrium position without oscillating</strong>. The system returns to equilibrium more slowly than the critical damping case. For example, door dampers prevent doors from slamming shut. A heavy damping curve has no oscillations, and the displacement returns to zero after a long period of time.</p>
+  <p><strong>Key features of a displacement–time graph for a heavily damped system:</strong> there are no oscillations, which means the displacement does not pass 0; the graph has a slow decreasing gradient from when the oscillator is first displaced until it reaches the x-axis; the oscillator reaches the equilibrium position (\(x = 0\)) after a long period of time, after which the graph remains a horizontal line for the remaining time.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-05-damping-and-resonance-04.png" alt="Displacement against time graph for a heavily damped system: a slow decreasing gradient reaching zero only after a long time, with no oscillation">
+    <div class="lc-cap">Fig 4 — Heavy damping. The gradient is slow throughout and the displacement never passes 0.</div>
+  </div>
+  <div class="lc-kp">
+    <span>light: oscillates, exponential decay</span>
+    <span>critical: fastest, no oscillation</span>
+    <span>heavy: slow, no oscillation</span>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔊 Effects of damping — the resonance curve</h3>
+  <p>The effects of damping can be seen on a <strong>resonance curve</strong>. This is a graph of driving frequency \(f\) against amplitude \(A\) of oscillations. The graph peaks at the <strong>natural frequency</strong> \(f_0\) of the oscillator.</p>
+  <p>It has the following key features: when \(f &lt; f_0\), the amplitude of oscillations increases; at the peak, where \(f = f_0\), the amplitude is at its maximum — this is <strong>resonance</strong>; when \(f &gt; f_0\), the amplitude of oscillations starts to decrease. The maximum amplitude of the oscillations occurs when the driving frequency is equal to the natural frequency of the oscillator.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Condition for resonance</span>
+    $$f = f_0$$
+  </div>
+  <p><strong>Damping reduces the amplitude of resonance vibrations.</strong> The height and shape of the resonance curve will therefore change slightly depending on the degree of damping. Note: the natural frequency \(f_0\) of the oscillator will remain the same.</p>
+  <p>As the degree of damping is increased, the resonance graph is altered in the following ways: the amplitude of resonance vibrations decreases, meaning the peak of the curve lowers; the resonance peak broadens; the resonance peak moves slightly to the left of the natural frequency when heavily damped. Therefore, damping reduces the sharpness of the resonance and the amplitude of oscillations at the resonant frequency.</p>
+  <div class="lc-info">💡 The <strong>resonant frequency</strong> — the frequency of vibrations of the oscillator — can change with damping. The <strong>natural frequency</strong> of an oscillator is the frequency it naturally or normally oscillates at when it is not damped. Therefore, damping does not affect the natural frequency.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Light damping</td><td>time \(t\), displacement \(x\)</td><td>Sine/cosine curve with exponentially decreasing amplitude, symmetric about \(x = 0\)</td><td>Constant period (equally spaced peaks and troughs); amplitude decaying exponentially in both directions</td></tr>
+      <tr><td>Critical damping</td><td>time \(t\), displacement \(x\)</td><td>No oscillation; fast decreasing gradient to the x-axis, then horizontal at \(x = 0\)</td><td>Shortest possible time to equilibrium with no overshoot</td></tr>
+      <tr><td>Heavy damping</td><td>time \(t\), displacement \(x\)</td><td>No oscillation; slow decreasing gradient, reaching \(x = 0\) after a long time</td><td>Displacement never passes 0; slower return than critical damping</td></tr>
+      <tr><td>Resonance curve</td><td>driving frequency \(f\), amplitude \(A\)</td><td>Rises for \(f &lt; f_0\), peaks at \(f = f_0\), falls for \(f &gt; f_0\)</td><td>Position of the peak (\(f_0\)); peak height and sharpness give the degree of damping</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c1-05-damping-and-resonance-05.png" alt="Resonance curve of amplitude against driving frequency, rising to a peak at the natural frequency f0 and falling after it"><div class="lc-cap">Fig 5 — A resonance curve. The peak sits at the natural frequency \(f_0\), where the amplitude is maximum.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c1-05-damping-and-resonance-06.png" alt="Family of three resonance curves for increasing damping, each lower and broader, with the peak shifting slightly left of f0"><div class="lc-cap">Fig 6 — As damping is increased, the resonance peak lowers, the curve broadens and moves slightly to the left.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – the mechanical weighing scale</h3>
+  <p>A mechanical weighing scale consists of a needle which moves to a position on a numerical scale depending on the weight applied. Sometimes the needle moves to the equilibrium position after oscillating slightly, making it difficult to read the number on the scale to which it is pointing. Suggest, with a reason, whether light, critical or heavy damping should be applied to the mechanical weighing scale to read the scale more easily.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> this is a damping-selection question. The needle is currently lightly damped — it oscillates before settling. We must choose the degree of damping that makes the reading easiest.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data (requirements):</strong> ideally, the needle should not oscillate before settling — this means the scale should have either critical or heavy damping. Since the scale is read straight away after a weight is applied, ideally, the needle should settle as quickly as possible.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Compare the two candidates:</strong> heavy damping would mean the needle will take some time to settle on the scale. Critical damping returns the needle to rest at equilibrium in the shortest possible time without oscillating.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> therefore, <strong>critical damping</strong> should be applied to the weighing scale so the needle can settle as quickly as possible to read from the scale.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-05-damping-and-resonance-07.png" alt="Mechanical weighing scale dial with a needle, shown lightly damped oscillating past the reading and critically damped settling straight onto it">
+    <div class="lc-cap">Fig 7 — Geometry for the worked example: the lightly damped needle overshoots the reading; the critically damped needle settles straight onto it.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔧 Real-world: suspension, doors and dials</h3>
+    <p>Engineers choose the degree of damping to suit the job. Car suspension systems are critically damped so the car does not oscillate after travelling over a bump in the road. Door dampers are heavily damped to prevent doors from slamming shut. A weighing-scale needle is critically damped so it settles quickly enough to read.</p>
+    <div class="lc-success">✓ Examiner tip: when asked to justify a choice of damping, always give both halves of the mark — no oscillation <em>and</em> the time taken to settle.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – sharpness of resonance</h3>
+    <p>The sharpness of a resonance peak is described by the quality factor, the ratio of the resonant frequency to the width of the peak. Light damping gives a tall, narrow peak and a high \(Q\); heavy damping gives a low, broad peak and a low \(Q\).<br>
+    <strong>Challenge:</strong> two identical pendulums are driven at a range of frequencies, one in air and one in water. Which has the taller, narrower resonance peak, and does its peak sit at the same frequency? (Answer: the one in air — less damping, so a taller and sharper peak; the natural frequency \(f_0\) is unchanged, but the heavily damped pendulum in water peaks slightly to the left of \(f_0\).)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Damping lengthens \(T\)</td><td>Damping does not slow the oscillation down: the frequency of damped oscillations does not change as the amplitude decreases; each peak and trough stay equally spaced</td></tr>
+      <tr><td>Resistive = restoring</td><td>They are different forces. Resistive force opposes the motion of the oscillator and causes damping; restoring force brings the oscillator back to the equilibrium position</td></tr>
+      <tr><td>Amplitude falls linearly</td><td>For light damping, The amplitude does not decrease linearly — it decays exponentially with time</td></tr>
+      <tr><td>Heavy stops it fastest</td><td>Heavy damping is not the fastest: Critical damping returns the oscillator to rest at equilibrium in the shortest possible time; heavy damping is slower than critical</td></tr>
+      <tr><td>Damping shifts \(f_0\)</td><td>Damping does not affect the natural frequency; \(f_0\) stays the same, though the resonance peak moves slightly to the left when heavily damped</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: writing that the amplitude at resonance is maximum "when damping is zero" instead of when the driving frequency equals the natural frequency. An exam question can include any damping scenario, so make sure you can interpret the amplitude–frequency graph depending on the type of oscillation.</div>
+</div>
+
+<div class="lc-kp">
+  <span>damping = energy + amplitude loss</span>
+  <span>frequency unchanged by damping</span>
+  <span>light · critical · heavy</span>
+  <span>resonance at f = f₀</span>
+  <span>more damping → lower, broader peak</span>
+  <span>peak shifts left when heavy</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A pendulum oscillating in air loses amplitude over time. What happens to the time period of its oscillations?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> It increases as the amplitude falls</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> It decreases as the amplitude falls</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> It stays the same</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> It falls to zero when the oscillator stops</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Which displacement–time graph belongs to a critically damped system?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> Oscillations with an exponentially decaying amplitude</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> A fast decreasing gradient to the x-axis, then a horizontal line at \(x = 0\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> A slow decreasing gradient reaching \(x = 0\) only after a long time</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> A straight line of constant negative gradient</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A resonance curve is plotted for an oscillator, and then the experiment is repeated with more damping. Compared with the first curve, the second curve is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> Taller and narrower, peaking at the same frequency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> The same height, but shifted to a higher frequency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> Lower and narrower, peaking well above \(f_0\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> Lower and broader, with the peak slightly to the left of \(f_0\)</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Which force is responsible for damping?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> The restoring force, which brings the oscillator back to equilibrium</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> The resistive force, which acts in the opposite direction to the motion</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> The weight of the oscillating mass</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> The driving force applied by the oscillator's driver</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A door damper is fitted so the door does not slam. Which degree of damping does it use, and why?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> Light — so the door swings back and forth a few times first</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> Critical — so the door reaches the frame in the shortest possible time</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> Heavy — so the door takes a long time to reach the frame, without oscillating</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> None — the door is undamped</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Damping is the reduction in energy and <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:130px"> of oscillations due to <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px"> forces.
+    In a lightly damped system the amplitude decays <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:150px"> with time, while the frequency stays <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:120px">.
+    A <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:120px"> damped system returns to equilibrium in the shortest possible time without oscillating.
+    A resonance curve peaks at the <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:120px"> frequency, and increasing the damping makes that peak lower and <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:120px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State / Explain</div>
+  <div class="lc-exam-q">(a) State what is meant by damping. <span class="lc-exam-marks">[2 marks]</span><br>(b) A child on a swing oscillates back and forth once every second. Explain what happens to the amplitude and to the time period of the oscillations as the swing is damped. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ The reduction in energy and amplitude of oscillations ✓ due to resistive forces on the oscillating system.<br><br>(b) ✓ The amplitude decreases over time, because resistive forces act in the opposite direction to the motion and remove energy, until the oscillator comes to rest at the equilibrium position. ✓ The time period is unchanged — the frequency of damped oscillations does not change as the amplitude decreases, so the swing still takes one second regardless of the amplitude.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q">Three identical oscillators are released from the same initial displacement, one lightly damped, one critically damped and one heavily damped. Sketch, on the same displacement–time axes, the curve for each, and label the key feature of each. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Describe the key features of each curve…" style="min-height:90px"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ All three start at the same positive displacement.<br>✓ Light damping: many oscillations, a sine or cosine curve with gradually decreasing amplitude, decaying exponentially in both the positive and negative displacement values, with each peak and trough equally spaced (constant period).<br>✓ Critical damping: no oscillation; the displacement falls to 0 straight away with a fast decreasing gradient, then a horizontal line at \(x = 0\).<br>✓ Heavy damping: no oscillation; a slow decreasing gradient reaching \(x = 0\) only after a long period of time, then horizontal.<br>✓ The heavily damped curve reaches \(x = 0\) later than the critically damped curve, and only the lightly damped curve passes below \(x = 0\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss</div>
+  <div class="lc-exam-q">An oscillator is driven over a range of frequencies and the amplitude of oscillation is recorded. (a) Sketch the resonance curve and label the natural frequency \(f_0\). <span class="lc-exam-marks">[2 marks]</span><br>(b) Discuss how the curve changes when the degree of damping is increased. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…" style="min-height:90px"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Axes: driving frequency \(f\) on the horizontal, amplitude \(A\) on the vertical; the amplitude increases for \(f &lt; f_0\) and decreases for \(f &gt; f_0\). ✓ The peak, where the amplitude is at its maximum, is at \(f = f_0\) — this is resonance.<br><br>(b) ✓ The amplitude of resonance vibrations decreases, so the peak of the curve lowers. ✓ The resonance peak broadens. ✓ The peak moves slightly to the left of the natural frequency when heavily damped; the natural frequency \(f_0\) itself is unchanged, so damping reduces the sharpness of the resonance and the amplitude at the resonant frequency.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Suggest</div>
+  <div class="lc-exam-q">A mechanical weighing scale consists of a needle which moves to a position on a numerical scale depending on the weight applied. Sometimes the needle moves to the equilibrium position after oscillating slightly, making it difficult to read the number on the scale to which it is pointing. Suggest, with a reason, whether light, critical or heavy damping should be applied to the mechanical weighing scale to read the scale more easily. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Ideally, the needle should not oscillate before settling — this means the scale should have either critical or heavy damping.<br>✓ Since the scale is read straight away after a weight is applied, ideally the needle should settle as quickly as possible; heavy damping would mean the needle will take some time to settle on the scale.<br>✓ Therefore, critical damping should be applied to the weighing scale so the needle can settle as quickly as possible to read from the scale.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'The frequency of damped oscillations does not change as the amplitude decreases, so the period stays the same and the peaks remain equally spaced.' },
+    mcq2: { B: 'A critically damped system does not oscillate: the displacement falls to 0 straight away with a fast decreasing gradient, then stays horizontal at x = 0.' },
+    mcq3: { D: 'Increasing damping lowers the peak, broadens it, and moves it slightly to the left of the natural frequency when heavily damped.' },
+    mcq4: { B: 'Resistive forces such as friction or air resistance act in the opposite direction to the motion and cause damping. The restoring force is what returns the oscillator to equilibrium.' },
+    mcq5: { C: 'Door dampers are heavily damped: the door returns without oscillating but takes a long time, which is exactly what stops it slamming.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'amplitude', lf2:'resistive', lf3:'exponentially', lf4:'constant', lf5:'critically', lf6:'natural', lf7:'broader' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val.length > 0 && (val === ans[id] || val.includes(ans[id]) || ans[id].includes(val));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+        </div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="04-the-simple-pendulum-and-mass-spring-system.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">The Simple Pendulum and Mass-Spring System</div>
+          </div>
+        </a>
+        <a href="../C.2-Wave-Model/index.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Wave Model</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Simple Pendulum and Mass-Spring System — φQ Physics lesson</title>
+  <link rel="stylesheet" href="../../../shared/theme.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('phyq-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+  <style>
+    /* ── token bridge: map generator's foreign tokens → live φQ theme ── */
+    :root{
+      --color-background-primary: var(--surface2);
+      --color-background-secondary: var(--surface3);
+      --color-text-primary: #E8E4DB;
+      --color-text-secondary: var(--text-muted);
+      --color-border-primary: var(--border-2);
+      --color-border-tertiary: rgba(79,157,255,0.10);
+      --color-background-success: var(--green-dim);
+      --color-text-success: var(--green);
+      --color-background-danger: var(--red-dim);
+      --color-text-danger: var(--red);
+      --color-background-warning: var(--gold-dim);
+      --color-text-warning: var(--gold);
+      --color-background-info: var(--accent-dim);
+      --color-border-info: var(--border-2);
+      --color-border-warning: rgba(245,166,35,0.32);
+      --border-radius-lg: 10px;
+    }
+    /* cycle-breakers: light-theme overrides for tokens the lesson re-aliases */
+    [data-theme="light"]{
+      --color-text-primary: #1C1917;
+      --color-border-tertiary: rgba(0,0,0,0.07);
+    }
+    /* transparent so the page's surface card shows through */
+    html,body{ background:transparent !important; }
+    body{ padding:0; margin:0; }
+    /* font normalisation → site typography (Playfair / Inter), formulas keep mono */
+    body{ font-family: var(--font-sans) !important; }
+    h1,h2,h3,h4,h5,.chunk-title,.lesson-title,.lc-title{ font-family: var(--font-serif) !important; }
+  </style>
+</head>
+<body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #1a5fb4;
+  --accent2: #e8593c;
+  --accent3: #1c7d53;
+  --accent4: #7b3fa0;
+  --bg: var(--color-background-primary);
+  --bg2: var(--color-background-secondary);
+  --text: var(--color-text-primary);
+  --muted: var(--color-text-secondary);
+  --border: var(--color-border-tertiary);
+  --success: var(--color-background-success);
+  --danger: var(--color-background-danger);
+  --success-text: var(--color-text-success);
+  --danger-text: var(--color-text-danger);
+  --radius: var(--border-radius-lg);
+}
+
+body { font-family: 'DM Sans', sans-serif; color: var(--text); background: transparent; }
+.lesson-wrap { max-width: 680px; margin: 0 auto; padding: 0 0 2rem; }
+
+.lesson-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.lesson-badge span { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: var(--accent4); color: #fff; font-size: 11px; font-weight: 500; text-align: center; line-height: 18px; }
+
+.chunk-header { margin-bottom: 1.5rem; }
+.chunk-title { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--text); line-height: 1.2; }
+.chunk-sub { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+.content-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+.content-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 10px; color: var(--text); }
+.content-card p { font-size: 14px; color: var(--text); line-height: 1.7; margin-bottom: 8px; }
+.content-card p:last-child { margin-bottom: 0; }
+
+.def-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.def-table th { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding: 6px 8px; border-bottom: 0.5px solid var(--border); text-align: left; }
+.def-table td { padding: 8px; border-bottom: 0.5px solid var(--border); vertical-align: top; }
+.def-table td:first-child { font-weight: 500; white-space: nowrap; color: var(--accent4); }
+.def-table tr:last-child td { border-bottom: none; }
+
+.formula-box { background: var(--bg2); border-left: 3px solid var(--accent4); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0; font-size: 15px; color: var(--text); font-family: Georgia, serif; text-align: center; }
+
+.img-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem; margin-bottom: 1rem; text-align: center; }
+.img-card img { max-width: 100%; border-radius: 8px; }
+.img-card .img-cap { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+.key-points { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.kp { font-size: 12px; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 20px; padding: 4px 12px; color: var(--text); }
+
+.section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 1.5rem 0 0.75rem; display: flex; align-items: center; gap: 8px; }
+.section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+
+.info-box { background: var(--color-background-info); border-left: 3px solid var(--color-border-info); border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 13px; color: var(--color-text-info); margin: 8px 0; line-height: 1.6; }
+.warn-box { background: var(--color-background-warning); border-left: 3px solid var(--color-border-warning); border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 13px; color: var(--color-text-warning); margin: 8px 0; line-height: 1.6; }
+
+.cmp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cmp-cell { background: var(--bg2); border-radius: 8px; padding: 12px; font-size: 13px; line-height: 1.6; }
+.cmp-cell h4 { font-size: 12px; font-weight: 500; margin-bottom: 6px; color: var(--accent4); }
+
+.mcq-block { margin-bottom: 1rem; }
+.mcq-q { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 10px; line-height: 1.5; }
+.mcq-opts { display: flex; flex-direction: column; gap: 6px; }
+.mcq-opt { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 0.5px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 13px; color: var(--text); transition: background 0.15s; background: var(--bg); }
+.mcq-opt:hover { background: var(--bg2); }
+.mcq-opt.correct { background: var(--success); border-color: var(--success-text); color: var(--success-text); }
+.mcq-opt.wrong { background: var(--danger); border-color: var(--danger-text); color: var(--danger-text); }
+.mcq-opt.disabled { cursor: default; pointer-events: none; }
+.opt-letter { font-weight: 500; min-width: 18px; }
+.mcq-feedback { font-size: 13px; margin-top: 8px; padding: 8px 12px; border-radius: 6px; display: none; }
+.mcq-feedback.show { display: block; }
+.mcq-feedback.correct { background: var(--success); color: var(--success-text); }
+.mcq-feedback.wrong { background: var(--danger); color: var(--danger-text); }
+
+.fitb-wrap { font-size: 14px; line-height: 2.4; color: var(--text); }
+.fitb-input { border: none; border-bottom: 2px solid var(--accent4); background: transparent; font-size: 14px; color: var(--text); padding: 0 4px; min-width: 80px; text-align: center; outline: none; font-family: 'DM Sans', sans-serif; }
+.fitb-input.correct { border-bottom-color: var(--success-text); color: var(--success-text); }
+.fitb-input.wrong { border-bottom-color: var(--danger-text); color: var(--danger-text); }
+.check-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; padding: 8px 18px; border: 0.5px solid var(--border); border-radius: 8px; background: var(--bg); cursor: pointer; font-size: 13px; color: var(--text); font-family: 'DM Sans', sans-serif; }
+.check-btn:hover { background: var(--bg2); }
+
+/* Drag & Drop */
+.dnd-wrap { display: flex; flex-direction: column; gap: 1rem; }
+.dnd-banks { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px; background: var(--bg2); border-radius: 8px; min-height: 48px; }
+.dnd-chip { padding: 6px 14px; background: var(--bg); border: 0.5px solid var(--border); border-radius: 20px; font-size: 13px; cursor: grab; user-select: none; color: var(--text); }
+.dnd-chip:active { cursor: grabbing; }
+.dnd-chip.dragging { opacity: 0.4; }
+.dnd-rows { display: flex; flex-direction: column; gap: 6px; }
+.dnd-row { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 0.5px solid var(--border); border-radius: 8px; background: var(--bg); font-size: 13px; }
+.dnd-zone { min-width: 110px; min-height: 32px; border: 1.5px dashed var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 4px 8px; font-size: 12px; color: var(--muted); transition: border-color 0.15s; }
+.dnd-zone.over { border-color: var(--accent4); background: var(--bg2); }
+.dnd-zone .dnd-chip { margin: 0; }
+.dnd-label { flex: 1; color: var(--text); }
+.dnd-chip.correct-chip { background: var(--success); border-color: var(--success-text); color: var(--success-text); }
+.dnd-chip.wrong-chip { background: var(--danger); border-color: var(--danger-text); color: var(--danger-text); }
+
+.exam-card { background: var(--bg); border: 1.5px solid var(--accent4); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+.exam-tag { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent4); margin-bottom: 8px; }
+.exam-q { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 10px; }
+.exam-marks { font-size: 11px; color: var(--muted); font-style: italic; }
+.exam-input { width: 100%; min-height: 70px; border: 0.5px solid var(--border); border-radius: 8px; background: var(--bg2); color: var(--text); font-size: 13px; font-family: 'DM Sans', sans-serif; padding: 10px; resize: vertical; outline: none; margin-top: 8px; }
+.reveal-btn { margin-top: 8px; padding: 7px 16px; border: 0.5px solid var(--border); border-radius: 8px; background: var(--bg); cursor: pointer; font-size: 12px; color: var(--muted); font-family: 'DM Sans', sans-serif; }
+.model-answer { margin-top: 10px; padding: 10px 14px; background: var(--bg2); border-left: 3px solid var(--accent3); border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text); line-height: 1.6; display: none; }
+.model-answer.show { display: block; }
+
+.score-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 6px 14px; border-radius: 20px; background: var(--bg2); border: 0.5px solid var(--border); color: var(--text); }
+.score-val { font-weight: 500; color: var(--accent4); }
+.nav-row { display: flex; gap: 10px; justify-content: flex-end; align-items: center; margin-top: 1.5rem; }
+</style>
+
+<div class="lesson-wrap">
+  <div class="chunk-header">
+    <div class="lesson-badge"><span>4</span> Lesson 4 of 5 · IB DP Physics</div>
+    <div class="chunk-title">The Simple Pendulum & Mass–Spring System</div>
+    <div class="chunk-sub">Deriving the period equations, conditions for SHM, and comparing the two key systems</div>
+  </div>
+
+  <!-- Mass-spring -->
+  <div class="content-card">
+    <h3>System 1 — Mass on a spring</h3>
+    <p>Conditions: spring mass negligible, Hooke's law obeyed (spring constant k), air friction negligible, g constant, fixed support.</p>
+    <p>When displaced x from equilibrium, the restoring force is F = −kx. Applying Newton's second law: ma = −kx, so a = −(k/m)x.</p>
+    <p>Comparing with a = −ω²x gives:</p>
+    <div class="formula-box">ω² = k/m &nbsp;&nbsp;⟹&nbsp;&nbsp; T = 2π√(m/k)</div>
+    <p>T increases with greater mass m (heavier → slower) and decreases with stiffer spring k (stiffer → faster).</p>
+    <div class="info-box">The period T of a mass–spring system does NOT depend on amplitude (isochronous) or on gravitational field strength g. It works identically on Earth, the Moon, or in space.</div>
+  </div>
+
+  <div class="img-card">
+    <img src="https://i.postimg.cc/Wz80h5gb/Image-2.jpg" alt="Mass on a spring diagram showing restoring force arrow pointing back to equilibrium">
+    <div class="img-cap">Fig 1 — Mass on a spring. When displaced x from equilibrium, F = −kx always points back towards the mean position.</div>
+  </div>
+
+  <!-- Pendulum -->
+  <div class="content-card">
+    <h3>System 2 — Simple pendulum</h3>
+    <p>Conditions: string mass negligible, air friction negligible, angle of swing &lt; 5° (0.1 rad), g constant, fixed pivot, string length l constant.</p>
+    <p>The restoring force is the component of gravity along the arc: F = −mg sinθ. For small angles, sinθ ≈ θ = x/l, so F ≈ −mg(x/l) = −(mg/l)x.</p>
+    <p>This gives a = −(g/l)x, hence:</p>
+    <div class="formula-box">ω² = g/l &nbsp;&nbsp;⟹&nbsp;&nbsp; T = 2π√(l/g)</div>
+    <div class="info-box">The mass of the bob does NOT appear in the formula — it cancels in the derivation. T depends only on l and g.</div>
+  </div>
+
+  <div class="img-card">
+    <img src="https://i.postimg.cc/NGk6JjSQ/Image-3.jpg" alt="Simple pendulum diagram showing bob displaced by small angle theta">
+    <div class="img-cap">Fig 2 — Simple pendulum. For small angles, mg sinθ ≈ mgθ, making the restoring force proportional to displacement.</div>
+  </div>
+
+  <div class="warn-box">A pendulum released from 30° does NOT undergo SHM. At large angles sinθ ≠ θ, so F is not proportional to x. SHM is only a valid approximation for θ &lt; 5°.</div>
+
+  <!-- Comparison -->
+  <div class="content-card">
+    <h3>Comparing the two systems</h3>
+    <div class="cmp-grid">
+      <div class="cmp-cell">
+        <h4>Mass–spring</h4>
+        T = 2π√(m/k)<br><br>
+        T ∝ √m (heavier → longer T)<br>
+        T ∝ 1/√k (stiffer → shorter T)<br>
+        Independent of g<br>
+        Works in any orientation
+      </div>
+      <div class="cmp-cell">
+        <h4>Simple pendulum</h4>
+        T = 2π√(l/g)<br><br>
+        T ∝ √l (longer → longer T)<br>
+        T ∝ 1/√g (stronger g → shorter T)<br>
+        Independent of mass m<br>
+        Requires small angle (&lt; 5°)
+      </div>
+    </div>
+    <div class="key-points" style="margin-top:12px">
+      <span class="kp">Both are isochronous (T independent of A)</span>
+      <span class="kp">Spring: T depends on m and k</span>
+      <span class="kp">Pendulum: T depends on l and g</span>
+    </div>
+  </div>
+
+  <!-- Worked example -->
+  <div class="content-card" style="border-left: 3px solid var(--accent4);">
+    <h3>Worked example</h3>
+    <p>A 600 g mass is attached to a spring with k = 30 N m⁻¹. Calculate the frequency of oscillation.</p>
+    <div class="formula-box" style="text-align:left; padding:10px 16px">
+      T = 2π√(m/k) = 2π√(0.6/30) = 2π√(0.02) = 0.889 s<br>
+      f = 1/T = 1/0.889 ≈ <strong>1.1 Hz</strong>
+    </div>
+  </div>
+
+  <!-- PRACTICE — Drag and drop -->
+  <div class="section-label">Practice check — drag and drop</div>
+  <div class="content-card">
+    <p style="font-size:14px;font-weight:500;margin-bottom:10px">Match each change to its effect on the period of a mass-spring system (T = 2π√(m/k)):</p>
+    <div class="dnd-wrap" id="dnd1">
+      <div class="dnd-banks" id="dnd1-bank">
+        <div class="dnd-chip" draggable="true" id="chip-inc">T increases</div>
+        <div class="dnd-chip" draggable="true" id="chip-dec">T decreases</div>
+        <div class="dnd-chip" draggable="true" id="chip-unc1">T unchanged</div>
+        <div class="dnd-chip" draggable="true" id="chip-unc2">T unchanged</div>
+        <div class="dnd-chip" draggable="true" id="chip-unc3">T unchanged</div>
+      </div>
+      <div class="dnd-rows">
+        <div class="dnd-row"><span class="dnd-label">Mass is doubled (k constant)</span><div class="dnd-zone" id="zone-1" data-answer="T increases" ondragover="dzOver(event)" ondrop="dzDrop(event,'zone-1')">drop here</div></div>
+        <div class="dnd-row"><span class="dnd-label">Spring constant is quadrupled (m constant)</span><div class="dnd-zone" id="zone-2" data-answer="T decreases" ondragover="dzOver(event)" ondrop="dzDrop(event,'zone-2')">drop here</div></div>
+        <div class="dnd-row"><span class="dnd-label">Amplitude is doubled (m, k constant)</span><div class="dnd-zone" id="zone-3" data-answer="T unchanged" ondragover="dzOver(event)" ondrop="dzDrop(event,'zone-3')">drop here</div></div>
+        <div class="dnd-row"><span class="dnd-label">Taken to a planet where g is halved</span><div class="dnd-zone" id="zone-4" data-answer="T unchanged" ondragover="dzOver(event)" ondrop="dzDrop(event,'zone-4')">drop here</div></div>
+        <div class="dnd-row"><span class="dnd-label">Mass halved AND spring constant halved</span><div class="dnd-zone" id="zone-5" data-answer="T unchanged" ondragover="dzOver(event)" ondrop="dzDrop(event,'zone-5')">drop here</div></div>
+      </div>
+      <button class="check-btn" onclick="checkDND()">Check answers</button>
+      <div id="dnd-result" style="font-size:13px;margin-top:8px;display:none"></div>
+    </div>
+  </div>
+
+  <!-- MCQs -->
+  <div class="section-label">Practice check — multiple choice</div>
+
+  <div class="content-card">
+    <div class="mcq-block" id="mcq1">
+      <div class="mcq-q">1. A pendulum of length l has period T on Earth (g = 9.81 m s⁻²). On the Moon (g = 1.62 m s⁻²), its new period is:</div>
+      <div class="mcq-opts">
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'A','C')"><span class="opt-letter">A</span> T/6</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'B','C')"><span class="opt-letter">B</span> T × 6</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'C','C')"><span class="opt-letter">C</span> T × √(9.81/1.62) ≈ 2.46T</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'D','C')"><span class="opt-letter">D</span> T × (1.62/9.81) ≈ 0.165T</div>
+      </div>
+      <div class="mcq-feedback" id="mcq1-fb"></div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="mcq-block" id="mcq2">
+      <div class="mcq-q">2. (Tricky) A mass-spring system and a pendulum both have period T. If the mass and spring constant are both doubled, and the pendulum length is also doubled, how do their new periods compare?</div>
+      <div class="mcq-opts">
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'A','B')"><span class="opt-letter">A</span> Both remain T.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'B','B')"><span class="opt-letter">B</span> Spring stays at T; pendulum becomes T√2.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'C','B')"><span class="opt-letter">C</span> Both become T√2.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'D','B')"><span class="opt-letter">D</span> Spring becomes 2T; pendulum stays at T.</div>
+      </div>
+      <div class="mcq-feedback" id="mcq2-fb"></div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="mcq-block" id="mcq3">
+      <div class="mcq-q">3. Which quantity does the period of a simple pendulum depend on?</div>
+      <div class="mcq-opts">
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'A','D')"><span class="opt-letter">A</span> Mass of the bob.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'B','D')"><span class="opt-letter">B</span> Amplitude of swing.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'C','D')"><span class="opt-letter">C</span> Both mass and length.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'D','D')"><span class="opt-letter">D</span> Length of the string and gravitational field strength.</div>
+      </div>
+      <div class="mcq-feedback" id="mcq3-fb"></div>
+    </div>
+  </div>
+
+  <!-- Fill in blanks -->
+  <div class="section-label">Practice check — fill in the blanks</div>
+  <div class="content-card">
+    <p style="margin-bottom:10px;font-weight:500;font-size:14px">Complete the equations and conditions:</p>
+    <div class="fitb-wrap">
+      For a mass m on a spring k, ω = √(<input class="fitb-input" id="f1" placeholder="?" style="width:50px">/<input class="fitb-input" id="f2" placeholder="?" style="width:40px">).
+      For a pendulum, T = 2π√(<input class="fitb-input" id="f3" placeholder="?" style="width:40px">/<input class="fitb-input" id="f4" placeholder="?" style="width:40px">).
+      The pendulum approximates SHM only for angles less than <input class="fitb-input" id="f5" placeholder="?" style="width:40px"> degrees.
+    </div>
+    <button class="check-btn" onclick="checkFITB()">Check answers</button>
+    <div id="fitb-result" style="font-size:13px;margin-top:8px;display:none"></div>
+  </div>
+
+  <!-- Exam style -->
+  <div class="section-label">Exam-style questions</div>
+
+  <div class="exam-card">
+    <div class="exam-tag">Exam question · Mathematical</div>
+    <div class="exam-q">A 0.250 kg mass is suspended from a spring of spring constant 40.0 N m⁻¹ and displaced 0.050 m from equilibrium.<br><br>
+    (i) Show that the system undergoes SHM. <span class="exam-marks">[2 marks]</span><br>
+    (ii) Calculate the period. <span class="exam-marks">[2 marks]</span><br>
+    (iii) Calculate ω. <span class="exam-marks">[1 mark]</span></div>
+    <textarea class="exam-input" placeholder="Show working..." style="min-height:90px"></textarea>
+    <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+    <div class="model-answer">(i) Displaced x: net force = kx = 40x toward equilibrium. F ∝ −x ✓ and directed toward mean position ✓ — both SHM conditions met.<br><br>(ii) T = 2π√(m/k) = 2π√(0.250/40.0) = 2π × 0.0791 = 0.497 s ≈ 0.50 s ✓✓<br><br>(iii) ω = 2π/T = 2π/0.497 = 12.6 rad s⁻¹ ✓</div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-tag">Exam question · Reason/Explain</div>
+    <div class="exam-q">A student argues that a pendulum released from 30° is undergoing SHM because it oscillates. Explain why the student is incorrect. <span class="exam-marks">[3 marks]</span></div>
+    <textarea class="exam-input" placeholder="Write your answer here..."></textarea>
+    <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+    <div class="model-answer">At 30°, sinθ ≈ 0.500 while θ (in rad) ≈ 0.524. Since sinθ ≠ θ, the restoring force mg sinθ is NOT proportional to the arc displacement x = lθ. ✓ The condition F ∝ −x is not met, so the motion is NOT SHM. ✓ A pendulum approximates SHM only for angles below ~5° (0.1 rad), where sinθ ≈ θ to within ~0.5%. ✓</div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-tag">Exam question · Proportional reasoning (Hard)</div>
+    <div class="exam-q">A student measures the period of a pendulum on Earth as 2.00 s. They want to design a mass-spring system that has the same period.<br><br>
+    (i) Calculate the required pendulum length. <span class="exam-marks">[2 marks]</span><br>
+    (ii) If the spring constant is 50.0 N m⁻¹, calculate the mass needed for the spring system. <span class="exam-marks">[2 marks]</span><br>
+    (iii) Explain what happens to each system's period if both are taken to the Moon (g<sub>Moon</sub> = 1.62 m s⁻²). <span class="exam-marks">[2 marks]</span></div>
+    <textarea class="exam-input" placeholder="Show working..." style="min-height:100px"></textarea>
+    <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+    <div class="model-answer">(i) T = 2π√(l/g) ⟹ l = gT²/(4π²) = 9.81 × 4.00/(4π²) = 0.994 m ≈ 0.99 m ✓✓<br><br>(ii) T = 2π√(m/k) ⟹ m = kT²/(4π²) = 50.0 × 4.00/(4π²) = 5.07 kg ✓✓<br><br>(iii) The pendulum period increases because T ∝ 1/√g; new T = 2.00 × √(9.81/1.62) = 4.92 s. ✓ The spring system period is unchanged — T = 2π√(m/k) does not involve g. ✓</div>
+  </div>
+
+  <div class="nav-row">
+    <div class="score-badge">Score: <span class="score-val" id="score-display">0</span> pts</div>
+  </div>
+</div>
+
+<script>
+let totalScore = 0;
+let answeredMCQ = {};
+let dragChip = null;
+
+const mcqFeedback = {
+  'mcq1': { C: 'Correct! T ∝ 1/√g, so new T = T × √(g_Earth/g_Moon) = T√(9.81/1.62) ≈ 2.46T.' },
+  'mcq2': { B: 'Correct! Spring: 2m/2k = m/k unchanged ⟹ T stays. Pendulum: 2l/g ⟹ T = T₀√2.' },
+  'mcq3': { D: 'Correct! T = 2π√(l/g) depends only on length l and gravitational field strength g.' },
+};
+
+function checkMCQ(id, el, chosen, correct) {
+  if (answeredMCQ[id]) return;
+  answeredMCQ[id] = true;
+  const block = document.getElementById(id);
+  block.querySelectorAll('.mcq-opt').forEach(o => o.classList.add('disabled'));
+  const fb = document.getElementById(id + '-fb');
+  if (chosen === correct) {
+    el.classList.add('correct');
+    fb.textContent = '✓ ' + mcqFeedback[id][correct];
+    fb.className = 'mcq-feedback show correct';
+    totalScore += 2;
+  } else {
+    el.classList.add('wrong');
+    block.querySelectorAll('.mcq-opt').forEach(o => { if (o.querySelector('.opt-letter').textContent === correct) o.classList.add('correct'); });
+    fb.textContent = '✗ Incorrect. Answer: ' + correct + '. ' + mcqFeedback[id][correct];
+    fb.className = 'mcq-feedback show wrong';
+  }
+  updateScore();
+}
+
+function dzOver(e) { e.preventDefault(); e.currentTarget.classList.add('over'); }
+function dzDrop(e, zoneId) {
+  e.preventDefault();
+  const zone = document.getElementById(zoneId);
+  zone.classList.remove('over');
+  if (!dragChip) return;
+  const existing = zone.querySelector('.dnd-chip');
+  if (existing) document.getElementById('dnd1-bank').appendChild(existing);
+  zone.innerHTML = '';
+  zone.appendChild(dragChip);
+  dragChip = null;
+}
+
+function checkDND() {
+  const zones = ['zone-1','zone-2','zone-3','zone-4','zone-5'];
+  let correct = 0;
+  zones.forEach(zid => {
+    const zone = document.getElementById(zid);
+    const chip = zone.querySelector('.dnd-chip');
+    if (chip) {
+      if (chip.textContent.trim() === zone.dataset.answer) { chip.classList.add('correct-chip'); correct++; }
+      else chip.classList.add('wrong-chip');
+    }
+  });
+  const res = document.getElementById('dnd-result');
+  res.style.display = 'block';
+  if (correct === 5) { res.textContent = '✓ All correct! (+3 pts)'; res.style.color = 'var(--success-text)'; totalScore += 3; }
+  else { res.textContent = correct + '/5. Zones 3, 4, 5 are all "T unchanged" — isochronous, spring independent of g, and m/k ratio constant.'; res.style.color = 'var(--danger-text)'; }
+  updateScore();
+}
+
+function checkFITB() {
+  const answers = { f1: 'k', f2: 'm', f3: 'l', f4: 'g', f5: '5' };
+  let correct = 0;
+  ['f1','f2','f3','f4','f5'].forEach(id => {
+    const el = document.getElementById(id);
+    const val = el.value.trim().toLowerCase();
+    if (val === answers[id]) { el.classList.add('correct'); el.classList.remove('wrong'); correct++; }
+    else { el.classList.add('wrong'); el.classList.remove('correct'); }
+  });
+  const res = document.getElementById('fitb-result');
+  res.style.display = 'block';
+  if (correct === 5) { res.textContent = '✓ All correct! (+2 pts)'; res.style.color = 'var(--success-text)'; totalScore += 2; }
+  else { res.textContent = correct + '/5. Answers: k, m, l, g, 5'; res.style.color = 'var(--danger-text)'; }
+  updateScore();
+}
+
+function toggleModel(btn) {
+  const ma = btn.nextElementSibling;
+  ma.classList.toggle('show');
+  btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+}
+
+function updateScore() {
+  document.getElementById('score-display').textContent = totalScore;
+}
+
+setTimeout(() => {
+  document.querySelectorAll('.dnd-chip').forEach(chip => {
+    chip.addEventListener('dragstart', e => { dragChip = chip; chip.classList.add('dragging'); });
+    chip.addEventListener('dragend', () => chip.classList.remove('dragging'));
+  });
+}, 100);
+</script>
+
+  <script>
+    (function(){
+      window.addEventListener('storage', function(e){ if(e.key==='phyq-theme'){ document.documentElement.dataset.theme = e.newValue||'dark'; } });
+      function postH(){
+        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        parent.postMessage({ __lessonEmbed:true, h:h }, '*');
+      }
+      window.addEventListener('load', function(){ postH(); setTimeout(postH,250); setTimeout(postH,700); });
+      if (window.ResizeObserver) new ResizeObserver(postH).observe(document.body);
+      document.addEventListener('click', function(){ setTimeout(postH,90); });
+      document.addEventListener('input', function(){ setTimeout(postH,90); });
+    })();
+  </script>
+</body>
+</html>

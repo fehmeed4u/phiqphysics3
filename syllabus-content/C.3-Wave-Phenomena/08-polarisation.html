@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polarisation — C.3 Wave Phenomena — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C3">C.3 Wave Phenomena</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Polarisation</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">
+            C.3
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 8 of 9
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Polarisation</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">C.3 Wave Phenomena</strong>
+          · Unit C — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to C.3 overview
+      </a>
+      <div class="sidebar-title">C.3 Concepts</div>
+      <a href="01-transmission-absorption-and-scattering-of-waves.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Transmission, Absorption and Scattering of Waves</span>
+        </a>
+      <a href="02-reflection-of-waves-and-rays.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Reflection of Waves and Rays</span>
+        </a>
+      <a href="03-refraction-of-waves.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Refraction of Waves</span>
+        </a>
+      <a href="04-principle-of-superposition.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Principle of Superposition</span>
+        </a>
+      <a href="05-constructive-and-destructive-interference.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Constructive and Destructive Interference</span>
+        </a>
+      <a href="06-young-s-double-slit-experiment.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
+          <span>Young's Double-Slit Experiment</span>
+        </a>
+      <a href="07-single-slit-diffraction.html" class="sidebar-link">
+          <span class="sidebar-num">07</span>
+          <span>Single-Slit Diffraction</span>
+        </a>
+      <a href="08-polarisation.html" class="sidebar-link active">
+          <span class="sidebar-num">08</span>
+          <span>Polarisation</span>
+        </a>
+      <a href="09-diffraction-gratings.html" class="sidebar-link">
+          <span class="sidebar-num">09</span>
+          <span>Diffraction Gratings</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.75rem 1.1rem;margin:0.75rem 0;
+  font-family:var(--font-mono);font-size:1.05rem;
+  color:var(--accent);text-align:center; }
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<!-- LESSON HEADER -->
+<div class="lc-badge"><span>8</span> Lesson 8 of 9 &middot; C.3 Wave Phenomena</div>
+<div class="lc-title">Polarisation</div>
+<div class="lc-sub">How restricting the plane of oscillation proves light is a transverse wave &mdash; and the mathematics of Malus&rsquo;s Law.</div>
+
+<!-- CORE CONCEPTS -->
+<div class="lc-section">Core concepts &mdash; what is polarisation?</div>
+
+<div class="lc-card">
+  <h3>Why Only Transverse Waves Can Be Polarised</h3>
+  <p><strong>Polarisation</strong> is the restriction of wave oscillations to a single plane. This is only possible for <strong>transverse waves</strong>, where oscillations occur perpendicular to the direction of energy transfer. Because transverse oscillations can point in many different perpendicular directions, a filter can select just one plane and block the rest.</p>
+  <p><strong>Longitudinal waves</strong> (such as sound) oscillate parallel to their direction of travel. There is only one axis of vibration &mdash; along the propagation direction &mdash; so there is no additional plane to select or filter. This is why sound cannot be polarised, and why polarisation is direct evidence that light is a transverse wave.</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/4x9B6j44/image.png" alt="Comparison of transverse and longitudinal waves showing why only transverse waves can be polarised">
+  <div class="lc-cap">Fig 1 &mdash; Transverse waves oscillate perpendicular to propagation (multiple planes available for filtering). Longitudinal waves oscillate parallel to propagation (no plane to filter).</div>
+</div>
+
+<div class="lc-info">&#128161; Polarisation is one of the key pieces of evidence that light is a transverse electromagnetic wave. If light were longitudinal, polarising filters would have no effect at all.</div>
+
+<div class="lc-card">
+  <h3>Key Definitions</h3>
+  <table class="lc-table">
+    <tr><th>Term</th><th>Definition</th></tr>
+    <tr><td>Unpolarised light</td><td>Light whose electric field oscillates in <strong>all</strong> planes perpendicular to the direction of travel. Examples: sunlight, incandescent bulbs.</td></tr>
+    <tr><td>Plane-polarised light</td><td>Light whose electric field oscillates in a <strong>single</strong> plane only.</td></tr>
+    <tr><td>Polariser</td><td>The first filter that converts unpolarised light into plane-polarised light.</td></tr>
+    <tr><td>Analyser</td><td>A second polarising filter used to test the polarisation state or further filter polarised light.</td></tr>
+    <tr><td>Transmission axis</td><td>The direction along which the electric field component is allowed to pass through a polarising filter.</td></tr>
+  </table>
+</div>
+
+<div class="lc-img-row">
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/prCgt45R/image.png" alt="Diagram showing unpolarised light passing through a polariser to become plane-polarised light">
+    <div class="lc-cap">Fig 2 &mdash; Unpolarised light (oscillations in all perpendicular planes) passes through a polariser. Only the component aligned with the transmission axis emerges as plane-polarised light.</div>
+  </div>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/HkVFfSYC/image.png" alt="Picket fence analogy for polarisation showing parallel vibrations passing and perpendicular vibrations blocked">
+    <div class="lc-cap">Fig 3 &mdash; The &ldquo;picket fence&rdquo; analogy: only the component of the wave vibrating parallel to the slits passes through. The perpendicular component is absorbed.</div>
+  </div>
+</div>
+
+<div class="lc-kp">
+  <span>Transverse &rarr; can be polarised</span>
+  <span>Longitudinal &rarr; cannot be polarised</span>
+  <span>Polariser selects one plane</span>
+  <span>Analyser tests polarisation</span>
+</div>
+
+<!-- MALUS'S LAW -->
+<div class="lc-section">Malus&rsquo;s Law &mdash; the master equation</div>
+
+<div class="lc-card">
+  <h3>Building Malus&rsquo;s Law Step by Step</h3>
+  <p><strong>Step 1 &mdash; The polariser:</strong> When unpolarised light of intensity I&#8320; hits a polariser, the filter transmits only the component aligned with its axis. Since unpolarised light has oscillations spread equally across all planes, exactly half the intensity passes through:</p>
+  <div class="lc-formula">I&#8321; = I&#8320; / 2</div>
+  <p>This factor of &frac12; is a fixed result &mdash; it applies every time unpolarised light meets a polariser, regardless of the filter&rsquo;s orientation.</p>
+  <p><strong>Step 2 &mdash; The analyser:</strong> The polarised light (intensity I&#8321;, amplitude E&#8320;) now meets a second filter &mdash; the analyser &mdash; whose transmission axis is rotated by angle &theta; from the polariser&rsquo;s axis.</p>
+  <p><strong>Step 3 &mdash; Vector resolution:</strong> Only the component of the electric field parallel to the analyser&rsquo;s axis passes through. This component has amplitude E&#8320; cos &theta;. Since intensity is proportional to amplitude squared, the transmitted intensity is:</p>
+  <div class="lc-formula">I = I&#8321; cos&sup2;&theta;</div>
+  <p>Combining both steps for an unpolarised source:</p>
+  <div class="lc-formula">I = (I&#8320; / 2) cos&sup2;&theta;</div>
+  <p>where <strong>I</strong> = transmitted intensity (W m&minus;&sup2;), <strong>I&#8320;</strong> = incident unpolarised intensity (W m&minus;&sup2;), and <strong>&theta;</strong> = angle between the transmission axes of the polariser and analyser.</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/PxkcvT1Q/image.png" alt="Diagram showing Malus Law setup with unpolarised light, polariser, analyser at angle theta, and transmitted intensity labels">
+  <div class="lc-cap">Fig 4 &mdash; Malus&rsquo;s Law setup: unpolarised light I&#8320; passes through a polariser (emerging as I&#8321; = I&#8320;/2), then through an analyser rotated at angle &theta;. The final transmitted intensity is I = I&#8321; cos&sup2;&theta;.</div>
+</div>
+
+<div class="lc-warn">&#9888;&#65039; <strong>The most common exam trap:</strong> If the question states the intensity of <em>unpolarised</em> light, you must include the factor of &frac12; before applying cos&sup2;&theta;. If the question gives intensity <em>after</em> the polariser (already polarised), use I = I&#8321; cos&sup2;&theta; directly. Forgetting the &frac12; is the single most dropped mark on polarisation questions.</div>
+
+<div class="lc-success">&#10003; <strong>Exam strategy:</strong> Always ask yourself &mdash; &ldquo;Is this light unpolarised or already polarised?&rdquo; Write down I&#8321; = I&#8320;/2 as a separate line before applying Malus&rsquo;s Law. This earns you a method mark even if you make an arithmetic slip later.</div>
+
+<div class="lc-kp">
+  <span>I&#8321; = I&#8320; / 2</span>
+  <span>I = I&#8321; cos&sup2;&theta;</span>
+  <span>I = (I&#8320;/2) cos&sup2;&theta;</span>
+  <span>Intensity &prop; Amplitude&sup2;</span>
+</div>
+
+<!-- GRAPHICAL ANALYSIS -->
+<div class="lc-section">Graphical analysis</div>
+
+<div class="lc-card">
+  <h3>Graph 1: Transmitted Intensity vs Analyser Angle (I vs &theta;)</h3>
+  <p>Plotting the transmitted intensity I against the analyser angle &theta; produces a <strong>cos&sup2;&theta; curve</strong>. The intensity reaches maximum values at &theta; = 0&deg;, 180&deg;, and 360&deg; (axes aligned or anti-aligned) and falls to zero at &theta; = 90&deg; and 270&deg; (crossed polarisers).</p>
+  <p>Notice the curve is <strong>not linear</strong>: at &theta; = 45&deg;, the intensity is 50% of maximum (since cos&sup2;45&deg; = 0.5), not 50% of the way to zero. This non-linearity is a hallmark of the cos&sup2; relationship.</p>
+</div>
+
+<div class="lc-img-row">
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/vTYNXhqp/image.png" alt="Graph of transmitted intensity versus analyser angle showing the cos-squared curve shape">
+    <div class="lc-cap">Fig 5 &mdash; I vs &theta; graph: a cos&sup2;&theta; curve with maxima at 0&deg; and 180&deg;, and zeros at 90&deg; and 270&deg;.</div>
+  </div>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/yYNGZfSx/image.png" alt="Linearised graph of I versus cos-squared theta showing a straight line through the origin">
+    <div class="lc-cap">Fig 6 &mdash; Linearised graph: plotting I vs cos&sup2;&theta; gives a straight line through the origin with gradient equal to I&#8321;, confirming direct proportionality.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>Graph 2: Linearised Graph (I vs cos&sup2;&theta;)</h3>
+  <p>To verify Malus&rsquo;s Law experimentally, plot I on the y-axis against cos&sup2;&theta; on the x-axis. If the law holds, the result is a <strong>straight line through the origin</strong>. The gradient of this line equals I&#8321; (the intensity after the polariser). This linearisation technique is a very common exam question &mdash; you may be asked to determine the gradient and explain its physical significance.</p>
+</div>
+
+<div class="lc-info">&#128161; If an examiner asks you to &ldquo;estimate the angle at which the intensity is 25% of maximum,&rdquo; use cos&sup2;&theta; = 0.25, so cos &theta; = 0.5, giving &theta; = 60&deg;. Likewise, 50% of maximum occurs at &theta; = 45&deg; (since cos&sup2;45&deg; = 0.5).</div>
+
+<!-- POLARISATION BY REFLECTION -->
+<div class="lc-section">Polarisation by reflection</div>
+
+<div class="lc-card">
+  <h3>Glare and Polaroid Sunglasses</h3>
+  <p>When unpolarised light reflects off a non-metallic surface such as water, glass, or a road, the reflected light becomes <strong>partially plane-polarised in the horizontal plane</strong>. This is the source of glare.</p>
+  <p><strong>Polaroid sunglasses</strong> exploit this by having a <strong>vertical transmission axis</strong>. Since the glare is predominantly horizontally polarised, the vertical filter blocks most of it, reducing glare intensity dramatically.</p>
+  <p>At a specific angle of incidence called <strong>Brewster&rsquo;s angle</strong> (&theta;<sub>p</sub> = arctan n, where n is the refractive index), the reflected light is 100% horizontally polarised. At all other angles, the reflected light is only partially polarised.</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/Hnk6bxjG/image.png" alt="Diagram showing polarisation by reflection with unpolarised light hitting a surface and horizontally polarised reflected ray">
+  <div class="lc-cap">Fig 7 &mdash; Polarisation by reflection: unpolarised light strikes a non-metallic surface. The reflected ray is partially polarised in the horizontal plane. At Brewster&rsquo;s angle, the reflected ray is 100% horizontally polarised.</div>
+</div>
+
+<div class="lc-warn">&#9888;&#65039; <strong>Misconception alert:</strong> Reflected light is not always fully polarised &mdash; it is only <em>partially</em> polarised at most angles. Complete polarisation of the reflected ray occurs only at Brewster&rsquo;s angle.</div>
+
+<!-- THREE-FILTER PARADOX -->
+<div class="lc-section">Extension &mdash; the three-filter paradox</div>
+
+<div class="lc-card">
+  <h3>Adding a Filter Can Increase Transmission</h3>
+  <p>Consider two crossed polarisers (axes at 90&deg;): no light passes through. Now insert a third filter between them at angle &theta; to the first polariser. Remarkably, light now passes through the system.</p>
+  <p>The middle filter <strong>rotates the plane of polarisation</strong>. The polarised light emerging from the first filter has a component along the middle filter&rsquo;s axis (I&#8321; cos&sup2;&theta;). This re-polarised light then has a component along the final filter&rsquo;s axis [cos&sup2;(90&deg; &minus; &theta;)]. The resulting intensity is:</p>
+  <div class="lc-formula">I<sub>final</sub> = (I&#8320; / 2) &middot; cos&sup2;&theta; &middot; cos&sup2;(90&deg; &minus; &theta;)</div>
+  <p>Maximum transmission occurs when the middle filter is at <strong>&theta; = 45&deg;</strong>, giving I<sub>final</sub> = I&#8320;/8. This paradox beautifully illustrates that polarisation is about vector components, not simple &ldquo;blocking.&rdquo;</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/1zD7Q2b8/image.png" alt="Three-filter paradox diagram showing how inserting a middle filter between crossed polarisers allows light through">
+  <div class="lc-cap">Fig 8 &mdash; The three-filter paradox: crossed polarisers block all light, but inserting a middle filter at 45&deg; allows light through. The middle filter creates a new polarisation component that can pass the final filter.</div>
+</div>
+
+<!-- WORKED EXAMPLE -->
+<div class="lc-section">Worked example</div>
+
+<div class="lc-card">
+  <h3>Worked Example &mdash; Unpolarised Light Through Two Filters</h3>
+  <p style="margin-bottom:0.75rem;color:var(--text-2);font-size:0.88rem;">Unpolarised sunlight of intensity 950 W m&#8315;&sup2; passes through a vertical polariser. It then passes through an analyser rotated 30&deg; from vertical. Calculate the final transmitted intensity.</p>
+  <div class="lc-step">
+    <div class="lc-step-num">1</div>
+    <div class="lc-step-body"><strong>Identify the known values:</strong> I&#8320; = 950 W m&#8315;&sup2; (unpolarised), &theta; = 30&deg; (angle between transmission axes).</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">2</div>
+    <div class="lc-step-body"><strong>Apply the polariser rule:</strong> The light is unpolarised, so the polariser halves the intensity.<br>I&#8321; = I&#8320; / 2 = 950 / 2 = <strong>475 W m&#8315;&sup2;</strong>.<br>Do not apply cos&sup2;&theta; yet &mdash; that is only used at the analyser.</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">3</div>
+    <div class="lc-step-body"><strong>Apply Malus&rsquo;s Law at the analyser:</strong><br>I = I&#8321; cos&sup2;&theta; = 475 &times; cos&sup2;(30&deg;).<br>cos 30&deg; = &radic;3/2 &asymp; 0.866, so cos&sup2;30&deg; = 0.75.</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">4</div>
+    <div class="lc-step-body"><strong>Calculate and state answer with units:</strong><br>I = 475 &times; 0.75 = <strong>356 W m&#8315;&sup2;</strong> (3 s.f.).</div>
+  </div>
+</div>
+
+<!-- MISCONCEPTIONS TABLE -->
+<div class="lc-section">Common misconceptions &mdash; trap corner</div>
+
+<div class="lc-card">
+  <h3>Misconceptions to Avoid</h3>
+  <table class="lc-table">
+    <tr><th>&#10060; Misconception</th><th>&#9989; Correct Physics</th></tr>
+    <tr><td>A polariser creates polarised light</td><td>A polariser <strong>filters</strong> existing light &mdash; it removes the component perpendicular to the transmission axis. It does not create new light.</td></tr>
+    <tr><td>Any wave can be polarised</td><td>Only <strong>transverse waves</strong> can be polarised. Longitudinal waves (e.g. sound) cannot, because oscillations occur along the propagation direction only.</td></tr>
+    <tr><td>I = I&#8320; cos&sup2;&theta; (missing the &frac12;)</td><td>This is only correct if I&#8320; is already polarised. If I&#8320; is unpolarised, you must write I = (I&#8320;/2) cos&sup2;&theta;.</td></tr>
+    <tr><td>Reflected light is always fully polarised</td><td>Reflected light is only <strong>partially</strong> polarised at most angles. Full polarisation occurs only at Brewster&rsquo;s angle (&theta;<sub>p</sub> = arctan n).</td></tr>
+  </table>
+</div>
+
+<!-- LCD SCREENS -->
+<div class="lc-section">Real-world application &mdash; LCD screens</div>
+
+<div class="lc-card">
+  <h3>How LCD Screens Use Polarisation</h3>
+  <p>A liquid crystal display works by sandwiching liquid crystal material between two crossed polarisers. A backlight shines through the first (vertical) polariser, producing plane-polarised light. The liquid crystal layer can <strong>twist the plane of polarisation</strong> by a controllable amount when a voltage is applied across it.</p>
+  <p>When no voltage is applied, the liquid crystals twist the polarisation by 90&deg;, allowing light to pass through the second (horizontal) polariser &mdash; the pixel appears <strong>bright</strong>. When voltage is applied, the crystals straighten, the plane is not rotated, and the crossed polariser blocks the light &mdash; the pixel appears <strong>dark</strong>. By varying the voltage, intermediate brightness levels are achieved.</p>
+</div>
+
+<!-- MCQ SECTION -->
+<div class="lc-section">Practice check &mdash; multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Unpolarised light of intensity I&#8320; passes through two polarising filters. The first is vertical and the second is at 60&deg; to vertical. What fraction of the original intensity is transmitted?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> cos&sup2;(60&deg;) = &frac14;</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> &frac12; cos&sup2;(60&deg;) = &frac18;</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> cos(60&deg;) = &frac12;</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> &frac12; cos(60&deg;) = &frac14;</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Which of the following is the best evidence that light is a transverse wave?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> Light can be diffracted through a narrow slit.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> Light travels at 3.0 &times; 10&#8312; m s&#8315;&sup1; in a vacuum.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> Light can be polarised.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> Light exhibits the photoelectric effect.</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Polarised light of intensity 200 W m&#8315;&sup2; is incident on an analyser. The transmission axis of the analyser is at 45&deg; to the plane of polarisation. What is the transmitted intensity?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> 50 W m&#8315;&sup2;</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> 100 W m&#8315;&sup2;</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> 141 W m&#8315;&sup2;</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> 200 W m&#8315;&sup2;</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Two crossed polarisers transmit no light. A third polariser is inserted between them with its axis at 45&deg; to both. What fraction of the original unpolarised intensity I&#8320; is now transmitted?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 0 (still no light)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> I&#8320; / 4</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> I&#8320; / 8</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> I&#8320; / 2</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Light reflected from a calm lake is partially polarised. In which plane is the reflected light predominantly polarised?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> Vertical</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> Horizontal</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> At 45&deg; to the surface</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> Parallel to the direction of propagation</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<!-- FILL IN THE BLANKS -->
+<div class="lc-section">Practice check &mdash; fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    1. Only <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:105px"> waves can be polarised because their oscillations are perpendicular to the direction of travel.
+  </div>
+  <div class="lc-fitb">
+    2. When unpolarised light passes through a single polariser, the transmitted intensity is reduced to <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:70px"> of the original intensity.
+  </div>
+  <div class="lc-fitb">
+    3. Polaroid sunglasses have a <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px"> transmission axis, which blocks horizontally polarised glare from reflective surfaces.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- EXAM-STYLE QUESTIONS -->
+<div class="lc-section">Exam-style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Explain</div>
+  <div class="lc-exam-q">Explain, with reference to the nature of waves, why sound cannot be polarised but light can. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here..."></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    &#10003; Polarisation requires oscillations to occur in multiple planes perpendicular to the direction of energy transfer.<br>
+    &#10003; Light is a transverse wave &mdash; its electric field oscillates perpendicular to the direction of propagation, so oscillations exist in many perpendicular planes.<br>
+    &#10003; Sound is a longitudinal wave &mdash; its oscillations (compressions and rarefactions) occur parallel to the direction of propagation.<br>
+    &#10003; Since sound oscillates in only one direction (along propagation), there is no perpendicular plane for a filter to select &mdash; hence sound cannot be polarised.
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Calculate</div>
+  <div class="lc-exam-q">A student uses a data logger to measure the transmitted intensity I through an analyser. The polarised light incident on the analyser has intensity I&#8321; = 120 W m&#8315;&sup2;.
+    <br><br>
+    <table class="lc-table" style="max-width:420px;">
+      <tr><th>&theta; (&deg;)</th><th>0</th><th>30</th><th>45</th><th>60</th><th>90</th></tr>
+      <tr><td style="font-weight:400;color:var(--text-2)">I (W m&#8315;&sup2;)</td><td style="font-weight:400;color:var(--text-2)">120</td><td style="font-weight:400;color:var(--text-2)">90</td><td style="font-weight:400;color:var(--text-2)">60</td><td style="font-weight:400;color:var(--text-2)">30</td><td style="font-weight:400;color:var(--text-2)">0</td></tr>
+    </table>
+    <br>
+    (a) Explain why plotting I against cos&sup2;&theta; would produce a straight line through the origin. [2 marks]<br>
+    (b) State the gradient of this straight line and explain its physical significance. [2 marks]<br>
+    (c) The original light source was unpolarised with intensity I&#8320;. Calculate I&#8320;. [1 mark]
+    <span class="lc-exam-marks">[5 marks total]</span>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here..."></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    <strong>(a)</strong> &#10003; Malus&rsquo;s Law states I = I&#8321; cos&sup2;&theta;. This has the form y = mx where y = I and x = cos&sup2;&theta;. &#10003; Since this is a direct proportionality (no constant offset), the graph passes through the origin and is linear.<br><br>
+    <strong>(b)</strong> &#10003; The gradient is 120 W m&#8315;&sup2;. &#10003; It represents I&#8321;, the intensity of the polarised light incident on the analyser.<br><br>
+    <strong>(c)</strong> &#10003; I&#8321; = I&#8320; / 2, so I&#8320; = 2 &times; I&#8321; = 2 &times; 120 = 240 W m&#8315;&sup2;.
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question &middot; Calculate</div>
+  <div class="lc-exam-q">Unpolarised light of intensity 800 W m&#8315;&sup2; is incident on a system of three polarising filters. The first filter has a vertical transmission axis. The second filter has its axis at 30&deg; to vertical. The third filter has its axis at 90&deg; to vertical (horizontal). Calculate the final transmitted intensity. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here..."></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    &#10003; After first polariser: I&#8321; = I&#8320; / 2 = 800 / 2 = 400 W m&#8315;&sup2;.<br>
+    &#10003; After second filter (30&deg; to first): I&#8322; = I&#8321; cos&sup2;(30&deg;) = 400 &times; (&radic;3/2)&sup2; = 400 &times; 0.75 = 300 W m&#8315;&sup2;.<br>
+    &#10003; Angle between second and third filters = 90&deg; &minus; 30&deg; = 60&deg;. After third filter: I&#8323; = I&#8322; cos&sup2;(60&deg;) = 300 &times; (0.5)&sup2; = 300 &times; 0.25 = 75 W m&#8315;&sup2;.<br>
+    &#10003; Final transmitted intensity = <strong>75 W m&#8315;&sup2;</strong>.
+  </div>
+</div>
+
+<!-- SCORE -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+(function(){
+  var lcScore = 0;
+  var lcAnswered = {};
+  var lcFeedback = {
+    mcq1:{ B:'The first polariser halves the unpolarised intensity (factor of 1/2), then Malus gives cos\u00B2(60\u00B0) = 0.25. Combined: 1/2 \u00D7 1/4 = 1/8 of I\u2080.' },
+    mcq2:{ C:'Polarisation is only possible for transverse waves. The fact that light can be polarised is direct evidence it is transverse. Diffraction, speed, and the photoelectric effect do not distinguish transverse from longitudinal.' },
+    mcq3:{ B:'The light is already polarised, so no 1/2 factor is needed. I = 200 \u00D7 cos\u00B2(45\u00B0) = 200 \u00D7 0.5 = 100 W m\u207B\u00B2. Option C (141) is the trap from using cos(45\u00B0) instead of cos\u00B2(45\u00B0).' },
+    mcq4:{ C:'After 1st filter: I\u2080/2. After middle filter (45\u00B0): (I\u2080/2) \u00D7 cos\u00B2(45\u00B0) = I\u2080/4. After 3rd filter (45\u00B0 from middle): (I\u2080/4) \u00D7 cos\u00B2(45\u00B0) = I\u2080/8.' },
+    mcq5:{ B:'Light reflected from a horizontal surface (like water) is predominantly polarised in the horizontal plane. This is why vertically-oriented Polaroid sunglasses reduce glare effectively.' }
+  };
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    var block = document.getElementById(id);
+    var opts = block.querySelectorAll('.lc-opt');
+    for (var i = 0; i < opts.length; i++) { opts[i].classList.add('disabled'); }
+    var fb = document.getElementById(id + '-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '\u2713 ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      for (var j = 0; j < opts.length; j++) {
+        if (opts[j].querySelector('.lc-opt-l').textContent === correct) opts[j].classList.add('correct');
+      }
+      fb.textContent = '\u2717 Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+  window.lcFITB = function() {
+    var ans = { lf1:'transverse', lf2:'half', lf3:'vertical' };
+    var keys = Object.keys(ans);
+    var correct = 0;
+    var total = keys.length;
+    for (var i = 0; i < keys.length; i++) {
+      var id = keys[i];
+      var el = document.getElementById(id);
+      var val = el.value.trim().toLowerCase();
+      var ok = (val === ans[id]) || (val.indexOf(ans[id]) !== -1);
+      if (ok) {
+        el.classList.add('correct');
+        el.classList.remove('wrong');
+        correct++;
+      } else {
+        el.classList.add('wrong');
+        el.classList.remove('correct');
+      }
+    }
+    var res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '\u2713 All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: transverse \u00B7 half \u00B7 vertical';
+    }
+  };
+  window.lcToggleModel = function(btn) {
+    var ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="07-single-slit-diffraction.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Single-Slit Diffraction</div>
+          </div>
+        </a>
+        <a href="09-diffraction-gratings.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Diffraction Gratings</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

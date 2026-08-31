@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHM Equations — Displacement, Velocity, Acceleration — φQ Physics lesson</title>
+  <link rel="stylesheet" href="../../../shared/theme.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('phyq-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+  <style>
+    /* ── token bridge: map generator's foreign tokens → live φQ theme ── */
+    :root{
+      --color-background-primary: var(--surface2);
+      --color-background-secondary: var(--surface3);
+      --color-text-primary: #E8E4DB;
+      --color-text-secondary: var(--text-muted);
+      --color-border-primary: var(--border-2);
+      --color-border-tertiary: rgba(79,157,255,0.10);
+      --color-background-success: var(--green-dim);
+      --color-text-success: var(--green);
+      --color-background-danger: var(--red-dim);
+      --color-text-danger: var(--red);
+      --color-background-warning: var(--gold-dim);
+      --color-text-warning: var(--gold);
+      --color-background-info: var(--accent-dim);
+      --color-border-info: var(--border-2);
+      --color-border-warning: rgba(245,166,35,0.32);
+      --border-radius-lg: 10px;
+    }
+    /* cycle-breakers: light-theme overrides for tokens the lesson re-aliases */
+    [data-theme="light"]{
+      --color-text-primary: #1C1917;
+      --color-border-tertiary: rgba(0,0,0,0.07);
+    }
+    /* transparent so the page's surface card shows through */
+    html,body{ background:transparent !important; }
+    body{ padding:0; margin:0; }
+    /* font normalisation → site typography (Playfair / Inter), formulas keep mono */
+    body{ font-family: var(--font-sans) !important; }
+    h1,h2,h3,h4,h5,.chunk-title,.lesson-title,.lc-title{ font-family: var(--font-serif) !important; }
+  </style>
+</head>
+<body>
+<style>
+/* All colours use CSS variables from the site theme — do NOT hardcode hex colours */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.75rem 1.1rem;margin:0.75rem 0;
+  font-family:var(--font-mono);font-size:1.05rem;
+  color:var(--accent);text-align:center; }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<!-- ═══════════ LESSON HEADER ═══════════ -->
+<div class="lc-badge"><span>2</span> Lesson 2 of 5 · C.1</div>
+<div class="lc-title">SHM Equations: Displacement, Velocity &amp; Acceleration</div>
+<div class="lc-sub">The sinusoidal solutions, phase relationships between x, v and a, and the velocity–displacement equation</div>
+
+<!-- ═══════════ ANGULAR FREQUENCY ═══════════ -->
+<div class="lc-card">
+  <h3>Angular frequency ω</h3>
+  <p>The constant <strong>ω (omega)</strong> links the defining equation a = −ω²x to the period and frequency of the motion. It tells us how rapidly the phase of the oscillation changes — one full cycle corresponds to a phase change of 2π radians.</p>
+  <div class="lc-formula">ω = 2π / T = 2πf &nbsp;&nbsp; (unit: rad s⁻¹)</div>
+  <div class="lc-info">💡 ω is not the same as frequency f. Angular frequency is measured in rad s⁻¹, while f is in Hz. They are related by ω = 2πf.</div>
+</div>
+
+<!-- ═══════════ DISPLACEMENT EQUATION ═══════════ -->
+<div class="lc-card">
+  <h3>Displacement as a function of time</h3>
+  <p>The solution to a = −ω²x is a <strong>sinusoidal function</strong>. The form depends on where the object starts at t = 0:</p>
+  <div class="lc-formula">x = x₀ cos(ωt) &nbsp;&nbsp; (starts at x = x₀ = A, i.e. extreme position)</div>
+  <div class="lc-formula">x = x₀ sin(ωt) &nbsp;&nbsp; (starts at x = 0, i.e. mean position)</div>
+  <p>In the IB syllabus, both forms are accepted. The key insight: displacement varies sinusoidally with time, with <strong>amplitude x₀</strong> (= A) and angular frequency ω.</p>
+  <div class="lc-info">💡 The IB data booklet gives both x = x₀ sin(ωt) and x = x₀ cos(ωt). You should be comfortable using either depending on initial conditions.</div>
+</div>
+
+<!-- ═══════════ VELOCITY EQUATION ═══════════ -->
+<div class="lc-card">
+  <h3>Velocity as a function of time</h3>
+  <p>Velocity is the time derivative of displacement. Starting from x = x₀ cos(ωt):</p>
+  <div class="lc-formula">v = dx/dt = −ωx₀ sin(ωt)</div>
+  <p>And from x = x₀ sin(ωt):</p>
+  <div class="lc-formula">v = dx/dt = ωx₀ cos(ωt)</div>
+  <p>The <strong>maximum speed</strong> occurs when the sine (or cosine) factor equals ±1:</p>
+  <div class="lc-formula">v_max = ωx₀ = ωA</div>
+  <div class="lc-warn">⚠️ Velocity leads or lags displacement by π/2 radians (a quarter cycle). When displacement is at its maximum (extreme), velocity is zero — and vice versa.</div>
+</div>
+
+<!-- ═══════════ ACCELERATION EQUATION ═══════════ -->
+<div class="lc-card">
+  <h3>Acceleration as a function of time</h3>
+  <p>Acceleration is the time derivative of velocity. Starting from v = −ωx₀ sin(ωt):</p>
+  <div class="lc-formula">a = dv/dt = −ω²x₀ cos(ωt) = −ω²x</div>
+  <p>This confirms the defining equation a = −ω²x. The <strong>maximum acceleration</strong> magnitude is:</p>
+  <div class="lc-formula">a_max = ω²x₀ = ω²A &nbsp;&nbsp; (at the extremes, x = ±A)</div>
+  <p>Acceleration is <strong>in antiphase</strong> with displacement (π radians out of phase) — when displacement is maximum positive, acceleration is maximum negative.</p>
+</div>
+
+<!-- ═══════════ PHASE RELATIONSHIPS — GRAPH ═══════════ -->
+<div class="lc-img">
+  <img src="https://i.postimg.cc/vTVxdtcC/image.png" alt="Graphs of displacement, velocity and acceleration versus time for SHM, showing cosine, negative sine and negative cosine waveforms with phase shifts of π/2 between each">
+  <div class="lc-cap">Fig 1 — Displacement (x), velocity (v) and acceleration (a) plotted against time. Note how v leads x by π/2, and a is in antiphase (π) with x. When x is at a maximum, v = 0 and a is at its most negative.</div>
+</div>
+
+<!-- ═══════════ PHASE SUMMARY ═══════════ -->
+<div class="lc-card">
+  <h3>Phase relationships — summary</h3>
+  <div class="lc-two-col">
+    <div class="lc-card">
+      <h3>Displacement x</h3>
+      <p>x₀ cos(ωt) — reference phase.</p>
+    </div>
+    <div class="lc-card">
+      <h3>Velocity v</h3>
+      <p>−ωx₀ sin(ωt) — leads x by π/2.</p>
+    </div>
+  </div>
+  <div class="lc-card">
+    <h3>Acceleration a</h3>
+    <p>−ω²x₀ cos(ωt) — in antiphase with x (π rad out of phase). Leads v by π/2.</p>
+  </div>
+  <div class="lc-kp">
+    <span>v leads x by π/2</span>
+    <span>a is π out of phase with x</span>
+    <span>a leads v by π/2</span>
+    <span>v_max = ωA</span>
+    <span>a_max = ω²A</span>
+  </div>
+</div>
+
+<!-- ═══════════ VELOCITY–DISPLACEMENT ═══════════ -->
+<div class="lc-card">
+  <h3>Velocity as a function of displacement</h3>
+  <p>A critical equation that <strong>bypasses time</strong> entirely. Using the identity sin²θ + cos²θ = 1:</p>
+  <div class="lc-formula">v = ±ω√(x₀² − x²)</div>
+  <p>This tells us the speed at any displacement x. Key deductions:</p>
+  <table class="lc-table">
+    <tr><th>Position</th><th>x</th><th>Speed |v|</th></tr>
+    <tr><td>Mean position</td><td>0</td><td>ωx₀ (maximum)</td></tr>
+    <tr><td>Extremes</td><td>±A</td><td>0</td></tr>
+    <tr><td>Halfway</td><td>A/2</td><td>ω√(3/4)·A ≈ 0.866 ωA</td></tr>
+  </table>
+  <div class="lc-warn">⚠️ The ± sign indicates the object passes through most positions twice per cycle — once going one way, once returning. The speed is the same, but velocity direction differs.</div>
+</div>
+
+<!-- ═══════════ V–X GRAPH ═══════════ -->
+<div class="lc-img">
+  <img src="https://i.postimg.cc/Zqb7HVRv/image.png" alt="Elliptical graph of velocity versus displacement for SHM, showing v = ±ω√(x₀² − x²) forming an ellipse with semi-axes A and ωA">
+  <div class="lc-cap">Fig 2 — The velocity–displacement relationship traces an ellipse. At x = 0 the speed is maximum (ωA); at x = ±A the speed is zero. The ± indicates two directions of travel through each point.</div>
+</div>
+
+<!-- ═══════════ WORKED EXAMPLE ═══════════ -->
+<div class="lc-card">
+  <h3>Worked Example — Finding v_max, a_max and speed at a given displacement</h3>
+  <p>A particle oscillates in SHM with amplitude 0.040 m and frequency 3.0 Hz.</p>
+  <div class="lc-step">
+    <div class="lc-step-num">1</div>
+    <div class="lc-step-body"><strong>Find ω:</strong> ω = 2πf = 2π × 3.0 = 18.85 rad s⁻¹</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">2</div>
+    <div class="lc-step-body"><strong>Maximum speed:</strong> v_max = ωA = 18.85 × 0.040 = 0.754 m s⁻¹</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">3</div>
+    <div class="lc-step-body"><strong>Maximum acceleration:</strong> a_max = ω²A = (18.85)² × 0.040 = 14.2 m s⁻²</div>
+  </div>
+  <div class="lc-step">
+    <div class="lc-step-num">4</div>
+    <div class="lc-step-body"><strong>Speed at x = 0.030 m:</strong> v = ω√(A² − x²) = 18.85 × √(0.0016 − 0.0009) = 18.85 × 0.02646 = 0.499 m s⁻¹</div>
+  </div>
+  <div class="lc-success">✓ Always show your substitution step clearly — examiners award marks for correct substitution even if the final numerical answer is wrong.</div>
+</div>
+
+<!-- ═══════════ MCQ SECTION ═══════════ -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A particle undergoes SHM described by x = 0.05 cos(4πt). What is the angular frequency and period?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> ω = 4π rad s⁻¹, T = 4π s</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> ω = 4π rad s⁻¹, T = 0.50 s</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> ω = 2π rad s⁻¹, T = 1.0 s</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> ω = 4π rad s⁻¹, T = 2.0 s</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. In SHM, when is the velocity zero?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> At the mean position only</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> When acceleration is zero</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> At the extreme positions (x = ±A)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> Velocity is never zero in SHM</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. The phase difference between velocity and acceleration in SHM is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> 0 (in phase)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> π/2 rad (quarter cycle)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> π rad (antiphase)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> 2π rad (full cycle)</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. For a particle in SHM, which correctly gives the speed at x = A/2?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> v = ωA/2</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> v = ωA/4</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> v = ωA√3/2 ≈ 0.866 ωA</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> v = ωA√2/2 ≈ 0.707 ωA</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A particle in SHM has x = 0.10 sin(5.0t). What is the maximum acceleration?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> 0.50 m s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> 2.5 m s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> 5.0 m s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> 25 m s⁻²</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<!-- ═══════════ FILL IN THE BLANKS ═══════════ -->
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements about SHM equations:</p>
+  <div class="lc-fitb">
+    The maximum speed in SHM equals ω multiplied by the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px">.
+    Velocity leads displacement by <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:55px"> radians.
+    Acceleration is in <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:100px"> with displacement.
+    At the mean position, velocity is <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:90px"> and acceleration is <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:65px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- ═══════════ EXAM-STYLE QUESTIONS ═══════════ -->
+<div class="lc-section">Exam-style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">A particle of mass 0.200 kg undergoes SHM with amplitude 0.060 m and period 0.80 s.<br><br>
+  (i) Calculate the angular frequency ω. <span class="lc-exam-marks">[1 mark]</span><br>
+  (ii) Write an expression for the displacement as a function of time if the particle starts at x = +A at t = 0. <span class="lc-exam-marks">[1 mark]</span><br>
+  (iii) Calculate the maximum speed and the maximum acceleration. <span class="lc-exam-marks">[2 marks]</span><br>
+  (iv) Calculate the speed when the displacement is 0.040 m. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Show full working…" style="min-height:100px"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(i) ω = 2π/T = 2π/0.80 = 7.85 rad s⁻¹ ✓<br><br>(ii) x = 0.060 cos(7.85t) ✓ [accept x = 0.060 cos(2πt/0.80)]<br><br>(iii) v_max = ωA = 7.85 × 0.060 = 0.471 m s⁻¹ ✓<br>a_max = ω²A = (7.85)² × 0.060 = 3.70 m s⁻² ✓<br><br>(iv) v = ω√(A² − x²) = 7.85 × √(0.0036 − 0.0016) = 7.85 × √(0.0020) = 7.85 × 0.0447 = 0.351 m s⁻¹ ✓✓</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe</div>
+  <div class="lc-exam-q">Sketch displacement–time and velocity–time graphs for the same SHM oscillation on the same time axis, where the particle starts from x = +A at t = 0. Describe the phase relationship between the two graphs. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Describe the graphs and phase relationship…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">The displacement graph is a cosine curve starting at x = +A at t = 0, crossing zero at T/4, reaching −A at T/2, crossing zero again at 3T/4, and returning to +A at T. ✓<br><br>The velocity graph is a negative sine curve starting at v = 0 at t = 0, reaching −v_max at T/4, returning to zero at T/2, reaching +v_max at 3T/4, and returning to zero at T. ✓<br><br>The velocity graph leads the displacement graph by π/2 radians (T/4 in time). ✓ When displacement is at a maximum or minimum, velocity is zero; when displacement passes through zero, velocity is at its maximum magnitude. ✓</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Deduce (Hard)</div>
+  <div class="lc-exam-q">Two particles P and Q undergo SHM with the same amplitude A. The angular frequency of P is twice that of Q (ω_P = 2ω_Q).<br><br>
+  (i) Find the ratio v_P,max : v_Q,max. <span class="lc-exam-marks">[1 mark]</span><br>
+  (ii) Find the ratio a_P,max : a_Q,max. <span class="lc-exam-marks">[1 mark]</span><br>
+  (iii) At what displacement does particle P have the same speed as the maximum speed of Q? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Show working…" style="min-height:90px"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(i) v_max = ωA, so v_P,max / v_Q,max = 2ωA / ωA = 2 : 1 ✓<br><br>(ii) a_max = ω²A, so a_P,max / a_Q,max = (2ω)²A / ω²A = 4 : 1 ✓<br><br>(iii) We need v_P = v_Q,max:<br>2ω√(A² − x²) = ωA ✓<br>2√(A² − x²) = A<br>4(A² − x²) = A²<br>4A² − 4x² = A² ✓<br>3A² = 4x²<br>x = A√3/2 ≈ 0.866A ✓</div>
+</div>
+
+<!-- ═══════════ SCORE ═══════════ -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1:{ B:'ω = 4π from the equation, and T = 2π/ω = 2π/(4π) = 0.50 s.' },
+    mcq2:{ C:'At x = ±A, the object momentarily stops before reversing direction. v = ω√(A² − A²) = 0.' },
+    mcq3:{ B:'Velocity leads displacement by π/2, and acceleration leads velocity by another π/2 — so a leads v by π/2.' },
+    mcq4:{ C:'v = ω√(A² − (A/2)²) = ω√(A² − A²/4) = ω√(3A²/4) = ωA√3/2.' },
+    mcq5:{ B:'a_max = ω²A = (5.0)² × 0.10 = 25 × 0.10 = 2.5 m s⁻².' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    var block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(function(o){ o.classList.add('disabled'); });
+    var fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(function(o){
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    var ans = {
+      lf1: 'amplitude',
+      lf2: 'π/2',
+      lf3: 'antiphase',
+      lf4: 'maximum',
+      lf5: 'zero'
+    };
+    var accept = {
+      lf1: ['amplitude', 'a'],
+      lf2: ['π/2', 'pi/2', '1.57'],
+      lf3: ['antiphase', 'anti-phase', 'anti phase'],
+      lf4: ['maximum', 'max', 'greatest'],
+      lf5: ['zero', '0']
+    };
+    var correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(function(id){
+      var el = document.getElementById(id);
+      var val = el.value.trim().toLowerCase();
+      var ok = accept[id].some(function(a){ return val.includes(a); });
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    var res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: amplitude · π/2 · antiphase · maximum · zero';
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    var ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+
+  <script>
+    (function(){
+      window.addEventListener('storage', function(e){ if(e.key==='phyq-theme'){ document.documentElement.dataset.theme = e.newValue||'dark'; } });
+      function postH(){
+        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        parent.postMessage({ __lessonEmbed:true, h:h }, '*');
+      }
+      window.addEventListener('load', function(){ postH(); setTimeout(postH,250); setTimeout(postH,700); });
+      if (window.ResizeObserver) new ResizeObserver(postH).observe(document.body);
+      document.addEventListener('click', function(){ setTimeout(postH,90); });
+      document.addEventListener('input', function(){ setTimeout(postH,90); });
+    })();
+  </script>
+</body>
+</html>

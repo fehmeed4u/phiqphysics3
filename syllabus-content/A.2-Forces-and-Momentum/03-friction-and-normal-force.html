@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friction and Normal Force — A.2 Forces and Momentum — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A2">A.2 Forces and Momentum</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Friction and Normal Force</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.2
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 3 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Friction and Normal Force</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.2 Forces and Momentum</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.2 overview
+      </a>
+      <div class="sidebar-title">A.2 Concepts</div>
+      <a href="01-newton-s-laws-of-motion.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Newton's Laws of Motion</span>
+        </a>
+      <a href="02-free-body-diagrams.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Free Body Diagrams</span>
+        </a>
+      <a href="03-friction-and-normal-force.html" class="sidebar-link active">
+          <span class="sidebar-num">03</span>
+          <span>Friction and Normal Force</span>
+        </a>
+      <a href="04-momentum-and-impulse.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Momentum and Impulse</span>
+        </a>
+      <a href="05-conservation-of-momentum.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Conservation of Momentum</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 5 · A.2 Forces and Momentum</div>
+<div class="lc-title">Friction and Normal Force</div>
+<div class="lc-sub">Why a box refuses to move until you push hard enough — and why it suddenly gets easier once it does.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the step you never think about</h3>
+  <p>Stand up and take one step. Your shoe pushes <strong>backwards</strong> on the floor; friction pushes your shoe <strong>forwards</strong> with an equal force, and that forward push is the only thing moving you. Take friction away — spill oil, or step onto wet ice — and the push still happens, but you go nowhere. <strong>Friction is not the enemy of motion; on land it is the source of it.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-03-friction-and-normal-force-01.png" alt="Shoe pushing backwards on the ground with an equal frictional force pushing the shoe forwards">
+    <div class="lc-cap">Fig 1 — The shoe pushes back on the ground; friction on the shoe points forwards. Vertical forces are not shown.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — A heavy crate sits on a floor and you push it horizontally with 40 N. It does not move. How big is the frictional force on it? <em>Exactly 40 N. Static friction is not a fixed number: it adjusts itself to match whatever you apply, up to a maximum.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Normal force, static friction and dynamic friction</h3>
+  <p>Surface friction is the collection of forces acting <strong>parallel to the plane of contact</strong> between two surfaces, opposing relative motion or attempted motion. It always acts alongside the <strong>normal contact force</strong> \(F_{\text{N}}\), which acts perpendicular to that same surface.</p>
+  <p>While the object is stationary the friction is <strong>static friction</strong>. It grows to match the applied force up to a limiting value \(F_{\text{max}}\). Once the object slides, the friction drops slightly and becomes <strong>dynamic friction</strong>, which is roughly constant regardless of speed.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Static friction (body at rest)</span>
+    $$F_{\text{f}} \le \mu_{\text{s}} F_{\text{N}}$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Dynamic friction (body sliding)</span>
+    $$F_{\text{f}} = \mu_{\text{d}} F_{\text{N}}$$
+  </div>
+  <p>The <strong>coefficient of friction</strong> \(\mu\) has no units — it is a ratio of two forces, and it describes the <em>pair</em> of surfaces, not either surface alone. For most pairs \(\mu_{\text{d}} &lt; \mu_{\text{s}}\), which is why a stuck box lurches forward the moment it breaks free.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-03-friction-and-normal-force-02.png" alt="Free body diagram of a block on a horizontal surface with weight, normal force, applied pull and friction">
+    <div class="lc-cap">Fig 2 — On a horizontal surface with no vertical pull, \(F_{\text{N}} = mg\). Friction acts parallel to the surface, opposite the (attempted) motion.</div>
+  </div>
+  <table class="lc-table">
+    <thead><tr><th>Surfaces</th><th>Approximate \(\mu_{\text{s}}\)</th></tr></thead>
+    <tbody>
+      <tr><td>Steel on ice</td><td>0.03</td></tr>
+      <tr><td>Wood on concrete</td><td>0.3</td></tr>
+      <tr><td>Rubber tyre on wet road</td><td>0.5</td></tr>
+      <tr><td>Rubber tyre on dry road</td><td>0.8</td></tr>
+      <tr><td>Glass on glass</td><td>0.9</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Contact area does not appear in either equation. Doubling the contact area halves the force pressing on each square centimetre, so the total friction stays about the same.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Friction vs applied force</td><td>Applied force \(F\), frictional force \(F_{\text{f}}\)</td><td>Straight line at 45° up to \(F_{\text{max}}\), then a drop to a lower horizontal line</td><td>Peak value = \(F_{\text{max}} = \mu_{\text{s}}F_{\text{N}}\); the flat part = dynamic friction</td></tr>
+      <tr><td>Maximum static friction vs normal force</td><td>\(F_{\text{N}}\), \(F_{\text{max}}\)</td><td>Straight line through the origin</td><td>Gradient = \(\mu_{\text{s}}\) (no units)</td></tr>
+      <tr><td>Dynamic friction vs speed</td><td>Speed \(v\), \(F_{\text{f}}\)</td><td>Horizontal line</td><td>Dynamic friction is independent of speed</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a2-03-friction-and-normal-force-03.png" alt="Graph of frictional force against applied force showing static region, peak and lower constant dynamic region"><div class="lc-cap">Fig 3 — Friction matches the applied force until motion begins, then settles at a lower constant value.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a2-03-friction-and-normal-force-04.png" alt="Graph of maximum static frictional force against normal force, a straight line through the origin"><div class="lc-cap">Fig 4 — \(F_{\text{max}} \propto F_{\text{N}}\); the gradient is \(\mu_{\text{s}}\).</div></div>
+  </div>
+  <div class="lc-info">💡 Read the gradient off a large triangle, not a single point. A line through \((10.0\,\text{N},\,4.0\,\text{N})\) gives \(\mu_{\text{s}} = 0.40\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – shifting a wooden crate</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> A 54 kg wooden box rests on a horizontal concrete floor. We want (a) the minimum horizontal force to start it sliding, and (b) the coefficient of dynamic friction if 120 N then keeps it moving at constant speed. Both parts need \(F_{\text{N}}\) first.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 54\ \text{kg}\), \(g = 9.8\ \text{m s}^{-2}\), \(\mu_{\text{s}} = 0.3\) (wood on concrete). Horizontal floor, no vertical pull, so \(F_{\text{N}} = mg = 54 \times 9.8 = 529\ \text{N}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(F_{\text{max}} = \mu_{\text{s}}F_{\text{N}} = 0.3 \times 529 = 159\ \text{N}\). For part (b), constant speed means the applied force equals dynamic friction: \(\mu_{\text{d}} = F_{\text{f}}/F_{\text{N}} = 120/529\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> About \(1.6 \times 10^{2}\ \text{N}\) is needed to break it free, and \(\mu_{\text{d}} = 0.23\). Since \(\mu_{\text{d}} &lt; \mu_{\text{s}}\), any force above 120 N leaves a resultant force and the box accelerates.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a2-03-friction-and-normal-force-05.png" alt="Laboratory setup: wooden block pulled by a force meter across a table with weights stacked on top">
+    <div class="lc-cap">Fig 5 — The standard lab arrangement: a force meter pulls the block while added weights vary \(F_{\text{N}}\).</div>
+  </div>
+  <div class="lc-success">✓ Quote \(\mu\) to 2 significant figures and never give it a unit — a unit costs the mark.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔧 Real-world: tyres and stopping distance</h3>
+    <p>Braking relies entirely on friction between tyre and road. Dry asphalt gives \(\mu_{\text{s}} \approx 0.8\); wet asphalt about 0.5. Tread grooves exist to disperse water so the rubber can still touch the road — a smooth tyre actually grips better when dry, which is why racing slicks are illegal in the rain.</p>
+    <div class="lc-success">✓ Examiner tip: maximum braking uses <em>static</em> friction — the tyre rolls without slipping. A skidding tyre uses the smaller dynamic coefficient, so it stops in a longer distance.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – viscous drag and Stokes's law</h3>
+    <p>Fluids resist motion too. For a small smooth sphere moving slowly enough to avoid turbulence, the drag force is</p>
+    <div class="lc-formula">$$F_{\text{d}} = 6\pi\eta r v$$</div>
+    <p>where \(\eta\) is the viscosity in Pa s. At terminal speed the sphere is in equilibrium: \(F_{\text{d}} + F_{\text{b}} = mg\).<br>
+    <strong>Challenge:</strong> A steel ball of radius 1.0 mm falls at 0.050 m s⁻¹ through oil of viscosity 0.70 Pa s. Find the viscous drag. (Answer: \(6\pi \times 0.70 \times 1.0\times10^{-3} \times 0.050 = 6.6\times10^{-4}\ \text{N}\))</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/a2-03-friction-and-normal-force-06.png" alt="Sphere falling through oil with viscous drag and buoyancy upwards and weight downwards">
+      <div class="lc-cap">Fig 6 — At terminal speed the three forces balance.</div>
+    </div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>A bigger contact area means more friction</td><td>Area cancels out. Double the area and the force per unit area halves, leaving \(F_{\text{f}}\) unchanged.</td></tr>
+      <tr><td>Static friction always equals \(\mu_{\text{s}}F_{\text{N}}\)</td><td>That is only its <em>maximum</em>. Below it, static friction equals the applied force exactly: \(F_{\text{f}} \le \mu_{\text{s}}F_{\text{N}}\).</td></tr>
+      <tr><td>\(F_{\text{N}}\) is always equal to \(mg\)</td><td>Only on a horizontal surface with no other vertical force. On an incline \(F_{\text{N}} = mg\cos\theta\); pushing down at an angle increases it.</td></tr>
+      <tr><td>Friction always slows things down</td><td>Friction opposes <em>relative sliding</em>. For walking, driving and cornering it is the force that produces the acceleration.</td></tr>
+      <tr><td>Dynamic friction grows with speed</td><td>It is taken as constant with speed. Speed-dependent resistance is fluid drag, not surface friction.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: using \(\mu_{\text{s}}\) when the body is already sliding. Read the question — "just about to move" means static; "moving at constant speed" means dynamic.</div>
+</div>
+
+<div class="lc-kp">
+  <span>F_f ≤ μ_s F_N</span>
+  <span>F_f = μ_d F_N</span>
+  <span>μ has no units</span>
+  <span>μ_d &lt; μ_s</span>
+  <span>F_N = mg (horizontal only)</span>
+  <span>F_d = 6πηrv (HL)</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A 5.0 kg block sits on a horizontal floor with \(\mu_{\text{s}} = 0.40\). A horizontal force of 12 N is applied and the block does not move. What is the frictional force on the block?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> 0 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> 12 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> 20 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> 49 N</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A graph of maximum static frictional force against normal force is a straight line through the origin. Its gradient represents</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> the weight of the block, in N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> the contact area, in m²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> the coefficient of static friction, with no unit</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> the coefficient of static friction, in N kg⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A block slides across a bench and is then turned onto a face of half the area before being slid again with the same normal force. The dynamic frictional force</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> halves</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> doubles</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> stays approximately the same</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> falls to zero</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A 2.0 kg block is pulled along a horizontal surface at constant velocity by a horizontal force of 4.9 N. The coefficient of dynamic friction is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> 0.10</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> 0.25</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> 0.50</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> 2.5</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The force acting perpendicular to the surfaces in contact is called the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px"> force. While a body is still at rest, the friction acting on it is called <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> friction, and once it slides the friction is called <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:120px"> friction. The coefficient of friction has <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:90px"> units.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State / Explain</div>
+  <div class="lc-exam-q">(a) State what is meant by the coefficient of static friction. [1]<br>(b) Explain why a car's braking distance is longer on a wet road than on a dry one. [3]</div>
+  <div class="lc-exam-marks">4 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ The ratio of the maximum frictional force to the normal contact force between two surfaces just before sliding begins.<br>(b) ✓ Water between tyre and road reduces the coefficient of friction. ✓ The maximum frictional force \(\mu F_{\text{N}}\) is therefore smaller. ✓ Smaller decelerating force means a smaller deceleration, so the car travels further before stopping.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">A crate of mass 25 kg rests on a horizontal floor. The coefficient of static friction between crate and floor is 0.45 and the coefficient of dynamic friction is 0.30.<br>(a) Calculate the minimum horizontal force needed to start the crate moving. [2]<br>(b) The crate is then pushed with a constant horizontal force of 110 N. Calculate its acceleration. [3]</div>
+  <div class="lc-exam-marks">5 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ \(F_{\text{N}} = mg = 25 \times 9.8 = 245\ \text{N}\). ✓ \(F_{\text{max}} = 0.45 \times 245 = 110\ \text{N}\).<br>(b) ✓ Now sliding, so \(F_{\text{f}} = 0.30 \times 245 = 73.5\ \text{N}\). ✓ Resultant \(= 110 - 73.5 = 36.5\ \text{N}\). ✓ \(a = F/m = 36.5/25 = 1.5\ \text{m s}^{-2}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch / Discuss</div>
+  <div class="lc-exam-q">A student slowly increases the horizontal pull on a block resting on a bench until the block moves off and accelerates.<br>(a) Sketch a graph of the frictional force on the block against the applied force, labelling \(F_{\text{max}}\). [3]<br>(b) Discuss one reason why the value of \(\mu_{\text{s}}\) obtained from this experiment may be unreliable. [2]</div>
+  <div class="lc-exam-marks">5 marks</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Straight line of gradient 1 from the origin while the block is stationary. ✓ Peak labelled \(F_{\text{max}}\) where motion begins. ✓ A drop to a lower horizontal line for dynamic friction. <br>(b) ✓ The pull is increased by hand, so the peak reading is hard to catch and is easily overshot or missed. ✓ Surface condition varies across the bench (dust, wear, uneven contact), so repeats scatter and \(\mu_{\text{s}}\) is not a single fixed value.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { B: 'Static friction adjusts to match the applied force. The maximum here is 0.40 × 49 = 20 N, and 12 N is below that, so friction is exactly 12 N.' },
+    mcq2: { C: 'F_max = \u03bc_s F_N, so the gradient is \u03bc_s. It is a ratio of two forces and therefore has no unit.' },
+    mcq3: { C: 'Contact area does not appear in F_f = \u03bc_d F_N. Halving the area doubles the force per unit area, leaving the total friction unchanged.' },
+    mcq4: { B: 'Constant velocity means the applied force equals friction: 4.9 N. F_N = 2.0 × 9.8 = 19.6 N, so \u03bc_d = 4.9/19.6 = 0.25.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '\u2713 ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '\u2717 Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'normal', lf2:'static', lf3:'dynamic', lf4:'no' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '\u2713 All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' \u00b7 ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+</div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="02-free-body-diagrams.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Free Body Diagrams</div>
+          </div>
+        </a>
+        <a href="04-momentum-and-impulse.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Momentum and Impulse</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

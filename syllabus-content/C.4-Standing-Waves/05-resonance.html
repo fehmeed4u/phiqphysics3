@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resonance — C.4 Standing Waves and Resonance — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C4">C.4 Standing Waves and Resonance</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Resonance</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">C.4</span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 5 of 5</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Resonance</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">C.4 Standing Waves and Resonance</strong> · Unit C — IB Physics 2023</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">← Back to C.4 overview</a>
+      <div class="sidebar-title">C.4 Concepts</div>
+      <a href="01-formation-of-standing-waves.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Formation of Standing Waves</span>
+        </a>
+      <a href="02-nodes-and-antinodes.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Nodes and Antinodes</span>
+        </a>
+      <a href="03-harmonics-in-strings.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Harmonics in Strings</span>
+        </a>
+      <a href="04-harmonics-in-pipes.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Harmonics in Pipes</span>
+        </a>
+      <a href="05-resonance.html" class="sidebar-link active">
+          <span class="sidebar-num">05</span>
+          <span>Resonance</span>
+        </a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<style>
+/* All colours use CSS variables from the site theme — do NOT hardcode hex colours */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.75rem 1.1rem;margin:0.75rem 0;
+  font-family:var(--font-mono);font-size:1.05rem;
+  color:var(--accent);text-align:center; }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<!-- LESSON HEADER -->
+<div class="lc-badge"><span>6</span> Lesson 6 of 10 · C4.06 Resonance</div>
+<div class="lc-title">Resonance</div>
+<div class="lc-sub">What happens when a driver matches a system’s natural rhythm – and why bridges can collapse in a gentle wind</div>
+
+<!-- HOOK IMAGE -->
+<div class="lc-img">
+  <img src="https://i.postimg.cc/LsxppHZs/image.png" alt="Tacoma Narrows Bridge twisting before collapse, a classic example of destructive resonance">
+  <div class="lc-cap">Fig 1 — The Tacoma Narrows Bridge in 1940. A steady wind, matching the bridge’s natural frequency, caused catastrophic oscillations.</div>
+</div>
+
+<!-- CORE KNOWLEDGE -->
+<div class="lc-card">
+  <h3>Natural frequency – the system’s own rhythm</h3>
+  <p>Every oscillating system has a <strong>natural frequency</strong>, <em>f</em>₀. It is determined by two things: the stiffness (springiness) that tries to restore equilibrium, and the inertia (mass) that resists changes in motion. For a mass‑spring system:</p>
+  <div class="lc-formula">f₀ = (1/(2π)) √(k/m)</div>
+  <p>When you displace the system and release it, it vibrates at this frequency – these are <strong>free vibrations</strong>. In the perfect (ideal) case with no energy loss, the motion is simple harmonic and never dies out.</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/DZtf92tr/image.png" alt="mass on spring labelled with k and m, arrow showing displacement">
+  <div class="lc-cap">Fig 2 — A mass–spring oscillator. The natural frequency depends on the spring constant <em>k</em> and the mass <em>m</em>.</div>
+</div>
+
+<div class="lc-card">
+  <h3>Damping – energy leaks out</h3>
+  <p>Real systems lose energy through friction, air resistance, or fluid drag. These <strong>damping forces</strong> remove mechanical energy, causing the amplitude to decrease. Three important cases appear on a displacement–time graph:</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/5NJbLk1j/image.png" alt="Three displacement-time graphs: under-damped oscillatory with exponential envelope, critically damped fastest return without overshoot, over-damped slow non-oscillatory">
+  <div class="lc-cap">Fig 3 — Damping types. Under‑damped: oscillations with exponentially decaying amplitude. Critically damped: fastest return to equilibrium without overshoot. Over‑damped: slow, non‑oscillatory return.</div>
+</div>
+
+<div class="lc-info">💡 <strong>Examiner insight:</strong> Critical damping is the most efficient way to stop oscillations – used in car shock absorbers and fire‑door closers. Over‑damping actually <em>slows</em> the system down.</div>
+
+<div class="lc-card">
+  <h3>Forced vibrations and resonance</h3>
+  <p>When an external driver (e.g. a motor, a push, a vibrating base) applies a periodic force, the system performs <strong>forced vibrations</strong>. The amplitude depends on how close the <strong>driving frequency</strong> is to the natural frequency.</p>
+  <p>When the driving frequency equals (or is very close to) the natural frequency, energy is transferred most efficiently – the amplitude becomes very large. This is <strong>resonance</strong>.</p>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/hGsCjsgJ/image.png" alt="Barton's pendulums: heavy driver pendulum and several lighter pendulums of different lengths, with paper cones for damping">
+  <div class="lc-cap">Fig 4 — Barton’s pendulum demonstration. The lighter pendulum with the same length as the heavy driver (pendulum 3) resonates with the largest amplitude. Cones provide adjustable damping.</div>
+</div>
+
+<div class="lc-success">✓ <strong>Key exam fact:</strong> At resonance, the driver leads the driven system by 90° (π/2 rad). Below resonance they are in phase; above resonance they are 180° out of phase.</div>
+
+<!-- GRAPH SECTION -->
+<div class="lc-section">Resonance curves – amplitude and phase</div>
+
+<div class="lc-two-col">
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/L6gLg591/image.png" alt="Amplitude vs driving frequency for zero, light, moderate, and heavy damping. Peaks shift left and broaden with increasing damping.">
+    <div class="lc-cap">Fig 5 — Amplitude–frequency resonance curves. With increasing damping the peak flattens, broadens, and shifts to a slightly lower frequency.</div>
+  </div>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/sXRVjVjj/image.png" alt="Phase difference vs driving frequency, sigmoid curves for light and heavy damping">
+    <div class="lc-cap">Fig 6 — Phase difference between driver and driven system. The transition sharpens for low damping. At resonance the phase difference is 90°.</div>
+  </div>
+</div>
+
+<div class="lc-img">
+  <img src="https://i.postimg.cc/0yTvn8Jc/image.png" alt="Maximum energy vs driving frequency; all damping curves peak at the same natural frequency unlike amplitude curves">
+  <div class="lc-cap">Fig 7 — Energy–frequency resonance curves. When resonance is defined by maximum energy (rather than amplitude), all curves peak at the natural frequency <em>f</em>₀, regardless of damping.</div>
+</div>
+
+<div class="lc-warn">⚠️ <strong>Common trap:</strong> Students often think the resonant frequency (amplitude peak) is exactly <em>f</em>₀. In fact, with damping the amplitude peak shifts <strong>below</strong> <em>f</em>₀. The energy peak, however, remains at <em>f</em>₀.</div>
+
+<!-- WORKED EXAMPLE -->
+<div class="lc-card">
+  <h3>Worked Example — Resonance in a mass‑spring system</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Known values:</strong> mass <em>m</em> = 0.250 kg, spring constant <em>k</em> = 25.0 N m⁻¹, negligible damping.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Calculate natural frequency:</strong> <em>f</em>₀ = (1/(2π))√(k/m) = (1/(2π))√(25.0 / 0.250) = 1.59 Hz.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Resonance condition:</strong> With negligible damping, resonance occurs when driving frequency <em>f</em><sub>d</sub> = <em>f</em>₀ = 1.59 Hz.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Phase:</strong> At resonance the driver leads the driven mass by 90° (π/2 rad).</div></div>
+</div>
+
+<!-- REAL-WORLD APPLICATIONS -->
+<div class="lc-card">
+  <h3>Resonance in practice</h3>
+  <p>Resonance is both useful and dangerous:</p>
+</div>
+<div class="lc-img">
+  <img src="https://i.postimg.cc/xd3ZmYvW/image.png" alt="collage showing microwave oven, MRI scanner, and Millennium Footbridge dampers">
+  <div class="lc-cap">Fig 8 — Microwave ovens use resonance to excite water molecules; MRI scanners detect proton resonance; tuned mass dampers suppress unwanted bridge vibrations.</div>
+</div>
+<div class="lc-card">
+  <p>Microwave ovens: the 2.45 GHz radiation matches the rotational resonance of water molecules, heating food efficiently. In MRI, hydrogen nuclei in the body resonate at radio frequencies in a strong magnetic field, producing images. The Millennium Footbridge in London swayed because pedestrians inadvertently walked in step with the bridge’s natural frequency – the problem was solved by adding damping.</p>
+</div>
+
+<!-- DATA-BASED GRAPH -->
+<div class="lc-card">
+  <h3>Graph-based analysis – gong sound decay</h3>
+  <p>The intensity of a struck gong decays exponentially. A convenient way to analyse this is to plot sound pressure level (in dB) versus time, because an exponential decay in amplitude gives a <strong>straight line</strong> on a dB–time graph. The slope tells us how quickly the energy leaks away.</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/V642x15H/image.png" alt="Graph of sound pressure level (dB) vs time with data points, error bars, and best-fit straight line">
+    <div class="lc-cap">Fig 9 — Gong sound pressure data. A drop of 3 dB corresponds to the sound intensity halving. The gradient of the best‑fit line gives the decay rate.</div>
+  </div>
+  <p>From the line <em>L = 88 − 1.9t</em> (where <em>L</em> is in dB and <em>t</em> in seconds): the slope magnitude is 1.9 dB s⁻¹, so the time for a 3 dB drop (half intensity) is Δ<em>t</em> = 3/1.9 ≈ 1.6 s. If the background noise is 30 dB, the gong is audible for about 30.5 s.</p>
+</div>
+
+<!-- KEY POINTS PILLS -->
+<div class="lc-kp">
+  <span>f₀ = (1/2π)√(k/m)</span>
+  <span>resonance</span>
+  <span>damping</span>
+  <span>phase 0° → 90° → 180°</span>
+  <span>3 dB = intensity half</span>
+  <span>critical damping</span>
+  <span>Barton’s pendulum</span>
+</div>
+
+<!-- PRACTICE CHECKS -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A lightly damped mass‑spring system is driven at its natural frequency. Which statement is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> The amplitude is at a minimum.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> The driver and driven system have a phase difference of 180°.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> The amplitude is large and the driver leads the driven system by 90°.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> The amplitude is large and the driven system is in phase with the driver.</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A system is critically damped. What does its displacement‑time graph look like after a single displacement?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> Oscillatory with exponentially decreasing amplitude.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> Exponential approach to equilibrium without overshoot, in the shortest possible time.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> Very slow non‑oscillatory return to equilibrium.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> Constant amplitude oscillation.</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. The graph shows amplitude vs driving frequency for three levels of damping X, Y, Z. Curve X has the narrowest, highest peak; Z has the broadest, lowest peak. Which damping level corresponds to curve Z?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> Zero damping</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> Light damping</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> Moderate damping</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> Heavy damping</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. In Barton’s pendulums, a heavy driver pendulum of length 30 cm drives several lighter ones. Which lighter pendulum shows the largest amplitude?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> One slightly shorter than 30 cm.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> One exactly 30 cm long.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> One slightly longer than 30 cm.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> All have equal amplitude.</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The natural frequency of a mass‑spring system is determined by the 
+    <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:90px"> and the 
+    <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px">.
+    If the damping is increased, the resonant frequency of the driven system becomes slightly 
+    <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px"> than the natural frequency.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam-style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · explain & calculate</div>
+  <div class="lc-exam-q">A car suspension can be modelled as a mass‑spring‑damper system. The body has a natural frequency of 1.2 Hz. When driving over evenly spaced bumps at 15 m s⁻¹, the car bounces noticeably.<br>(a) Explain why the shock absorber is designed to provide near‑critical damping. [2 marks]<br>(b) Estimate the distance between bumps. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) Energy dissipated as quickly as possible without oscillation ✓; ensures car body returns to equilibrium in shortest time after a bump, improving comfort and control ✓.<br>(b) At resonance, bump frequency = natural frequency = 1.2 Hz → period T = 1/1.2 ≈ 0.833 s ✓; bump spacing = v × T = 15 × 0.833 = 12.5 m ✓✓ (accept 12–13 m).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · data analysis</div>
+  <div class="lc-exam-q">A gong’s sound pressure level L (in dB) is recorded over time. The graph of L vs t is a straight line with equation L = 90 − 2.0t (t in seconds).<br>(a) Show that the sound intensity halves every 1.5 s. [2 marks]<br>(b) Determine the time taken for the intensity to fall to one‑eighth of its initial value. [2 marks]<br>(c) Discuss how an uncertainty of ±1 dB in each measurement affects the gradient uncertainty. [2 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) A drop of 3 dB halves the intensity. Slope = 2.0 dB s⁻¹, so time for 3 dB drop = 3/2.0 = 1.5 s ✓✓.<br>(b) One‑eighth = 3 half‑lives (1/2 → 1/4 → 1/8) ✓ → 3 × 1.5 s = 4.5 s ✓.<br>(c) Error bars of ±1 dB allow a range of possible slopes; max slope from worst‑case steep line, min slope from shallow line; gradient uncertainty = (max – min)/2; this propagates to an uncertainty in the half‑life ✓✓.</div>
+</div>
+
+<div class="lc-warn">⚠️ <strong>Don’t confuse amplitude and intensity:</strong> A 3 dB drop halves the <strong>intensity</strong> (power per area). The amplitude is proportional to the square root of intensity, so it decreases by a factor of √2.</div>
+
+<!-- SCORE DISPLAY -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1:{ C:'At resonance, maximum amplitude occurs and the driver leads the driven system by 90° (π/2 rad).' },
+    mcq2:{ B:'Critical damping provides the fastest return to equilibrium without overshoot.' },
+    mcq3:{ D:'Heavy damping gives the broadest, lowest resonance peak.' },
+    mcq4:{ B:'Pendulums of equal length have the same natural frequency as the driver → resonance.' },
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'mass', lf2:'spring constant', lf3:'lower' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: mass · spring constant · lower';
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <div class="lesson-nav">
+        <a href="04-harmonics-in-pipes.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Harmonics in Pipes</div>
+          </div>
+        </a>
+        <a href="../C.5-Doppler/index.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Doppler Effect</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

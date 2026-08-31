@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image paste tool — φQ Physics</title>
+<link rel="stylesheet" href="shared/theme.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+body{padding:0 0 6rem}
+.wrap{max-width:1080px;margin:0 auto;padding:2.5rem 1.5rem 0}
+h1{font-size:1.9rem;margin-bottom:.4rem}
+.lede{color:var(--text-muted);max-width:64ch;line-height:1.7;margin-bottom:1.75rem}
+.steps{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1.4rem;margin-bottom:2rem}
+.steps ol{margin:0;padding-left:1.2rem;display:grid;gap:.45rem;font-size:.9rem;color:var(--text-2);line-height:1.6}
+kbd{font-family:var(--font-mono);font-size:.75rem;background:var(--surface2);border:1px solid var(--border-2);border-bottom-width:2px;border-radius:5px;padding:.1rem .4rem;color:var(--text)}
+.unit{margin-bottom:2.25rem}
+.unit h2{display:flex;align-items:center;gap:.6rem;font-family:var(--font-mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text-muted);margin-bottom:.75rem}
+.cnt{color:var(--text-dim);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.75rem}
+.slot{position:relative;display:flex;flex-direction:column;gap:0;background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:var(--t);text-align:left;padding:0;font:inherit;color:inherit}
+.slot:hover{border-color:var(--border-2)}
+.slot.active{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-dim)}
+.slot.filled{border-color:var(--green)}
+.slot.drag{border-color:var(--accent);background:var(--accent-dim)}
+.shot{position:relative;aspect-ratio:16/10;background:var(--surface2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:contain;display:block}
+.ph{font-size:.72rem;color:var(--text-dim);font-family:var(--font-mono);letter-spacing:.06em}
+.badge{position:absolute;top:6px;left:6px;font-family:var(--font-mono);font-size:.62rem;font-weight:700;padding:.12rem .4rem;border-radius:4px;background:var(--surface3);color:var(--text-muted);letter-spacing:.04em}
+.slot.filled .badge{background:var(--green);color:#04140c}
+.meta{padding:.5rem .6rem .6rem;border-top:1px solid var(--border)}
+.fname{font-family:var(--font-mono);font-size:.68rem;color:var(--text-2);word-break:break-all;line-height:1.4}
+.ref{display:inline-block;margin-top:.3rem;font-size:.68rem;color:var(--text-dim);text-decoration:none}
+.ref:hover{color:var(--accent)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);border-top:1px solid var(--border);backdrop-filter:blur(8px)}
+.bar-in{max-width:1080px;margin:0 auto;padding:.85rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.prog{flex:1;min-width:200px}
+.prog-label{font-size:.8rem;color:var(--text-muted);margin-bottom:.35rem}
+.prog-track{height:5px;border-radius:3px;background:var(--surface3);overflow:hidden}
+.prog-fill{height:100%;background:var(--green);width:0;transition:width .25s}
+.acts{display:flex;gap:.6rem;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:5.5rem;transform:translate(-50%,12px);z-index:60;background:var(--surface3);border:1px solid var(--border-2);color:var(--text);padding:.55rem 1rem;border-radius:8px;font-size:.85rem;opacity:0;pointer-events:none;transition:var(--t)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+a{color:var(--accent)}a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Image paste tool</h1>
+<p class="lede">Fill every lesson diagram slot by pasting screenshots, then download them all as one correctly-named zip. Send me the zip and I will drop the images into <code>assets/lesson-images/</code>.</p>
+<div class="steps"><ol>
+<li>Click a slot to select it (the first empty one is selected automatically).</li>
+<li>Copy your screenshot, then press <kbd>Ctrl</kbd>+<kbd>V</kbd> / <kbd>⌘</kbd>+<kbd>V</kbd>. You can also drag an image file onto a slot.</li>
+<li>Selection jumps to the next empty slot, so you can paste straight through a batch.</li>
+<li>Hit <strong>Download zip</strong> when done. Your work is saved in this browser, so you can stop and come back.</li>
+</ol></div>
+<div id="units"></div>
+</div>
+
+<div class="bar"><div class="bar-in">
+<div class="prog">
+<div class="prog-label" id="prog-label">Loading…</div>
+<div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+</div>
+<div class="acts">
+<button class="btn btn-secondary btn-sm" id="btn-clear">Clear all</button>
+<button class="btn btn-primary btn-sm" id="btn-zip">Download zip</button>
+</div>
+</div></div>
+<div class="toast" id="toast"></div>
+<input type="file" id="picker" accept="image/*" multiple hidden>
+
+<script>
+const DB='phyq-image-paste',STORE='shots';let db,items=[],active=null;
+function open(){return new Promise((res,rej)=>{const r=indexedDB.open(DB,1);r.onupgradeneeded=()=>r.result.createObjectStore(STORE);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+function tx(mode){return db.transaction(STORE,mode).objectStore(STORE)}
+function put(k,v){return new Promise(r=>{const q=tx('readwrite').put(v,k);q.onsuccess=r})}
+function del(k){return new Promise(r=>{const q=tx('readwrite').delete(k);q.onsuccess=r})}
+function all(){return new Promise(r=>{const o=tx('readonly'),ks=o.getAllKeys(),vs=o.getAll();let a,b;ks.onsuccess=()=>{a=ks.result;if(b)r([a,b])};vs.onsuccess=()=>{b=vs.result;if(a)r([a,b])}})}
+function clearAll(){return new Promise(r=>{const q=tx('readwrite').clear();q.onsuccess=r})}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2200)}
+function unitOf(name){const p=name.split('-')[0].toUpperCase();return /^[A-Z]\d$/.test(p)?p[0]+'.'+p[1]:p}
+
+async function init(){
+  db=await open();
+  const man=await (await fetch('assets/lesson-images/manifest.json')).json();
+  items=Object.entries(man).map(([url,name])=>({url,name})).sort((a,b)=>a.name.localeCompare(b.name));
+  const [keys,vals]=await all();const saved={};keys.forEach((k,i)=>saved[k]=vals[i]);
+  const groups={};items.forEach(it=>{(groups[unitOf(it.name)]??=[]).push(it)});
+  const host=document.getElementById('units');
+  for(const g of Object.keys(groups).sort()){
+    const sec=document.createElement('div');sec.className='unit';
+    sec.innerHTML='<h2>Unit '+g+' <span class="cnt">'+groups[g].length+'</span></h2>';
+    const grid=document.createElement('div');grid.className='grid';
+    groups[g].forEach(it=>grid.appendChild(makeSlot(it,saved[it.name])));
+    sec.appendChild(grid);host.appendChild(sec);
+  }
+  update();selectNextEmpty();
+}
+function makeSlot(it,blob){
+  const el=document.createElement('button');el.type='button';el.className='slot';el.dataset.name=it.name;
+  el.innerHTML='<div class="shot"><span class="badge">'+(blob?'✓ saved':'empty')+'</span><span class="ph">click, then paste</span></div>'+
+    '<div class="meta"><div class="fname">'+it.name+'</div><a class="ref" href="'+it.url+'" target="_blank" rel="noopener">view original ↗</a></div>';
+  el.querySelector('.ref').addEventListener('click',e=>e.stopPropagation());
+  el.addEventListener('click',()=>select(el));
+  el.addEventListener('dragover',e=>{e.preventDefault();el.classList.add('drag')});
+  el.addEventListener('dragleave',()=>el.classList.remove('drag'));
+  el.addEventListener('drop',e=>{e.preventDefault();el.classList.remove('drag');const f=[...e.dataTransfer.files].find(f=>f.type.startsWith('image/'));if(f)fill(el,f)});
+  if(blob)paint(el,blob);
+  return el;
+}
+function paint(el,blob){
+  el.classList.add('filled');
+  const shot=el.querySelector('.shot');
+  const old=shot.querySelector('img');if(old){URL.revokeObjectURL(old.src);old.remove()}
+  const img=new Image();img.src=URL.createObjectURL(blob);img.alt='';shot.appendChild(img);
+  shot.querySelector('.badge').textContent='✓ saved';
+  const ph=shot.querySelector('.ph');if(ph)ph.style.display='none';
+}
+function select(el,scroll){document.querySelectorAll('.slot.active').forEach(s=>s.classList.remove('active'));el.classList.add('active');active=el;
+  if(scroll){const r=el.getBoundingClientRect();if(r.top<90||r.bottom>innerHeight-120)window.scrollTo({top:r.top+scrollY-160,behavior:'smooth'})}}
+function selectNextEmpty(scroll){const next=[...document.querySelectorAll('.slot:not(.filled)')][0];if(next)select(next,scroll);else{active=null;document.querySelectorAll('.slot.active').forEach(s=>s.classList.remove('active'))}}
+async function fill(el,blob){await put(el.dataset.name,blob);paint(el,blob);update();toast('Saved '+el.dataset.name);selectNextEmpty(true)}
+function update(){
+  const total=items.length,done=document.querySelectorAll('.slot.filled').length;
+  document.getElementById('prog-label').textContent=done+' of '+total+' images pasted'+(done<total?' · '+(total-done)+' to go':' · ready to download');
+  document.getElementById('prog-fill').style.width=(total?done/total*100:0)+'%';
+}
+document.addEventListener('paste',async e=>{
+  if(!active){toast('Select a slot first');return}
+  const it=[...(e.clipboardData?.items||[])].find(i=>i.type.startsWith('image/'));
+  if(!it)return;e.preventDefault();
+  const f=it.getAsFile();if(f)fill(active,f);
+});
+document.getElementById('btn-clear').addEventListener('click',async()=>{
+  if(!confirm('Remove every pasted image? This cannot be undone.'))return;
+  await clearAll();location.reload();
+});
+document.getElementById('btn-zip').addEventListener('click',async()=>{
+  const [keys,vals]=await all();
+  if(!keys.length){toast('Nothing pasted yet');return}
+  const zip=new JSZip();
+  keys.forEach((k,i)=>zip.file(k,vals[i]));
+  toast('Building zip…');
+  const blob=await zip.generateAsync({type:'blob'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='lesson-images.zip';a.click();
+  toast('Downloaded '+keys.length+' images');
+});
+init();
+</script>
+</body>
+</html>

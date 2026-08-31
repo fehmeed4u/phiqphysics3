@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grade 11 — Day 1 Welcome — Teaching Deck</title>
+<meta name="omelette-owns-print" content="1">
+<link rel="stylesheet" href="deck.css">
+<style>
+.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;flex:1}
+.tl .m{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--sh);padding:18px 16px;display:flex;flex-direction:column;gap:8px}
+.tl .m.hot{border-color:var(--warn);background:#B4791A0D}
+.tl .m .dt{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;color:var(--primary)}
+.tl .m.hot .dt{color:var(--warn)}
+.tl .m .lb{font-size:24px;line-height:1.35;color:var(--text2)}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;flex:1}
+.four>div{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--sh);padding:26px 22px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:16px}
+.four h3{font-size:42px}
+.four p{font-size:25px;line-height:1.4;color:var(--text2)}
+.tourcard{max-width:1400px;width:100%;display:flex;flex-direction:column;gap:20px;justify-content:center}
+.tourcard p{font-size:30px}
+.tourcard ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.tourcard li{font-size:26px;line-height:1.4;color:var(--text2);padding-left:28px;position:relative}
+.tourcard li::before{content:'—';position:absolute;left:0;color:var(--primary)}
+table.dates td:first-child{font-family:'JetBrains Mono',monospace;white-space:nowrap;font-size:25px}
+table.dates td{font-size:25px}
+table.dates tr.hl td:first-child{color:var(--warn)}
+table.dates tr.hl td:nth-child(2){color:var(--text);font-weight:600}
+.pracgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;flex:1;align-content:center}
+.pracgrid .p{display:flex;gap:16px;align-items:baseline;border-bottom:1px solid var(--border);padding-bottom:10px}
+.pracgrid .p b{font-family:'JetBrains Mono',monospace;font-size:23px;color:var(--primary);flex:none;width:150px}
+.pracgrid .p span{font-size:25px;line-height:1.35;color:var(--text2)}
+</style>
+</head>
+<body data-deck="g11-day1">
+<div id="deck">
+
+<section class="slide title" data-document-role="page" data-label="Title" data-screen-label="01">
+<div class="eyebrow">φQ Physics · IB Physics · Grade 11</div>
+<div class="body" style="justify-content:center;gap:34px">
+<h1 style="font-size:100px">Welcome to<br>IB Physics</h1>
+<p style="font-size:36px;max-width:1200px">Year 1 of two. This year builds the mechanics, thermal physics and waves that everything else in the course stands on — and the lab habits your IA will depend on.</p>
+</div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">01</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Reassurance" data-screen-label="02">
+<div class="eyebrow">Before anything else</div>
+<div class="body" style="justify-content:center;gap:26px;max-width:1400px">
+<h2 style="font-size:76px">This is a step up. You have two years to make it.</h2>
+<p style="font-size:34px">IB Physics asks more of you than what came before — more algebra, more uncertainty, more explaining <em>why</em> rather than quoting <em>what</em>. The first few topic tests may not go the way you want. That is information, not a verdict.</p>
+<p style="font-size:34px">The students who do well here are not the ones who found it easy in September. They are the ones who stayed on the timeline: work in on time, feedback acted on, reflection log actually written. Build that habit now, in Year 1, and Grade 12 — with the IA and the trials — is far easier to walk into.</p>
+</div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">02</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Year overview" data-screen-label="03">
+<div class="eyebrow">The year ahead</div>
+<h2>Shape of Year 1</h2>
+<div class="body">
+<div class="tl">
+<div class="m"><span class="dt">Sep W1</span><span class="lb">Induction — baseline diagnostic, lab safety, IA overview</span></div>
+<div class="m"><span class="dt">Sep–Dec</span><span class="lb">Term I — A.1 Kinematics, A.2 Forces &amp; Momentum, A.3 Work, Energy &amp; Power, B.1 Thermal</span></div>
+<div class="m"><span class="dt">16 Dec</span><span class="lb">Term I ends</span></div>
+<div class="m"><span class="dt">Jan–Mar</span><span class="lb">Term II — B.1–B.3, C.1 SHM, C.2 Wave Model</span></div>
+<div class="m hot"><span class="dt">17 Mar</span><span class="lb">Year 1 Progress Test — A.1 to C.2</span></div>
+<div class="m hot"><span class="dt">6–18 Apr</span><span class="lb">End of Year Examinations</span></div>
+<div class="m"><span class="dt">19–25 Apr</span><span class="lb">Exam feedback, reflection and target setting</span></div>
+<div class="m hot"><span class="dt">26 Apr–16 May</span><span class="lb">Internal Assessment block — plan, collect, write up</span></div>
+<div class="m"><span class="dt">May–Jun</span><span class="lb">C.3 Wave Phenomena, C.4 Standing Waves, C.5 Doppler</span></div>
+<div class="m"><span class="dt">23 Jun</span><span class="lb">Final topic test and Year 1 closing reflection</span></div>
+</div>
+</div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">03</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="How you are assessed" data-screen-label="04">
+<div class="eyebrow">Assessment</div>
+<h2>How you are assessed this year</h2>
+<div class="body"><div class="steps">
+<div class="step"><div class="n">1</div><div class="tx"><strong>Every topic closes the same way</strong> — a topic test in Paper 1 and Paper 2 style, then a feedback-and-reflection lesson where the script comes back and goes into your reflection log.</div></div>
+<div class="step"><div class="n">2</div><div class="tx"><strong>Two summative assessments per term</strong> are reported. The rest of the topic tests still count as evidence of where you are.</div></div>
+<div class="step"><div class="n">3</div><div class="tx"><strong>Nine practicals</strong> across the year. Each one is placed inside the topic it tests and feeds your IA skills log — uncertainty, repeats, graphing, evaluation.</div></div>
+<div class="step"><div class="n">4</div><div class="tx"><strong>End of Year Examinations in April</strong> — Papers 1A/1B and 2, a practical and data-analysis paper, and the extended paper for HL.</div></div>
+<div class="step"><div class="n">5</div><div class="tx"><strong>Thursdays are HL</strong>. HL students sit additional assessments on A.4, B.4, C.1 HL and A.5.</div></div>
+</div></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">04</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Dates Term I" data-screen-label="05">
+<div class="eyebrow">Assessment dates · Term I</div>
+<h2>September to December</h2>
+<div class="body"><table class="t dates"><thead><tr><th>Date</th><th>Assessment</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Wed 30 Sep</td><td>Topic test — A.1 Kinematics</td><td>45 min, Paper 1 &amp; 2 style</td></tr>
+<tr class="hl"><td>Wed 11 Nov</td><td>Summative 1 — A.2 Forces &amp; Momentum</td><td>60 min; reported grade</td></tr>
+<tr class="hl"><td>Tue 1 Dec</td><td>Summative 2 — A.3 Work, Energy &amp; Power</td><td>Reported grade</td></tr>
+<tr><td>Thu 3 Dec</td><td>HL — A.4 Rigid Body Mechanics</td><td>HL students only</td></tr>
+<tr><td>Tue 5 Jan</td><td>Topic test — B.1 Thermal Energy Transfers</td><td>Set before the break, sat after it</td></tr>
+</tbody></table>
+<div class="note tight"><p>A feedback-and-reflection lesson follows every one of these. Term I ends Wednesday 16 December.</p></div>
+</div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">05</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Dates Term II" data-screen-label="06">
+<div class="eyebrow">Assessment dates · Term II</div>
+<h2>January to March</h2>
+<div class="body"><table class="t dates"><thead><tr><th>Date</th><th>Assessment</th><th>Notes</th></tr></thead><tbody>
+<tr class="hl"><td>Tue 19 Jan</td><td>Summative 1 — B.2 Greenhouse Effect</td><td>Reported grade</td></tr>
+<tr><td>Wed 3 Feb</td><td>Topic test — B.3 Gas Laws</td><td>Follows the Boyle's law practical</td></tr>
+<tr><td>Thu 18 Feb</td><td>HL — B.4 Thermodynamics</td><td>HL students only</td></tr>
+<tr><td>Wed 24 Feb</td><td>Topic test — C.1 Simple Harmonic Motion</td><td></td></tr>
+<tr><td>Wed 10 Mar</td><td>Topic test — C.2 Wave Model</td><td></td></tr>
+<tr class="hl"><td>Wed 17 Mar</td><td>Summative 2 — Year 1 Progress Test</td><td>Everything from A.1 to C.2</td></tr>
+<tr><td>Thu 18 Mar</td><td>HL consolidation test</td><td>A.4 + B.4 + C.1 HL</td></tr>
+</tbody></table></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">06</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Dates Term III" data-screen-label="07">
+<div class="eyebrow">Assessment dates · Term III</div>
+<h2>April to June</h2>
+<div class="body"><table class="t dates"><thead><tr><th>Date</th><th>Assessment</th><th>Notes</th></tr></thead><tbody>
+<tr class="hl"><td>6–18 Apr</td><td>End of Year Examinations</td><td>Papers 1A/1B, 2, practical &amp; data analysis; HL extended paper</td></tr>
+<tr><td>19–25 Apr</td><td>Exam feedback and reflection</td><td>Scripts returned; one-to-one target setting</td></tr>
+<tr class="hl"><td>Thu 14 May</td><td>IA draft submitted</td><td>End of the three-week IA block</td></tr>
+<tr><td>Tue 1 Jun</td><td>Topic test — C.3 Wave Phenomena</td><td></td></tr>
+<tr><td>Tue 15 Jun</td><td>Topic test — C.4 Standing Waves &amp; Resonance</td><td></td></tr>
+<tr><td>Wed 23 Jun</td><td>Topic test — C.5 Doppler Effect</td><td>Plus the Year 1 closing reflection</td></tr>
+<tr><td>Thu 24 Jun</td><td>HL — A.5 Special Relativity</td><td>HL students only</td></tr>
+</tbody></table></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">07</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="IA block" data-screen-label="08">
+<div class="eyebrow">Internal Assessment</div>
+<h2>The IA block — 26 April to 16 May</h2>
+<div class="body" style="justify-content:center;gap:20px">
+<div class="note"><p><strong>Week 1 — Introduction.</strong> The Scientific Investigation: criteria and command terms, exemplar analysis, choosing a research question, variables and control, risk assessment, provisional methodology sign-off.</p></div>
+<div class="note"><p><strong>Week 2 — Data collection.</strong> Supervised lab time across all four periods. Raw-data tables with uncertainties, repeat trials, teacher checkpoint at the end of the week.</p></div>
+<div class="note warn"><p><strong>Week 3 — Write-up.</strong> Uncertainty processing and propagation, graphing and gradient analysis, conclusion and evaluation, referencing. <strong>Draft submitted Thursday 14 May.</strong></p></div>
+<p style="font-size:29px">Nothing about the IA is a surprise if you treat the nine practicals as rehearsal for it. That is what they are for.</p>
+</div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">08</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Practicals" data-screen-label="09">
+<div class="eyebrow">Nine practicals · IA skills log</div>
+<h2>Practical programme</h2>
+<div class="body"><div class="pracgrid">
+<div class="p"><b>PRAC 1 · Sep</b><span>Measuring <i>g</i> by free fall</span></div>
+<div class="p"><b>PRAC 2 · Oct</b><span>Verifying <i>F</i> = <i>ma</i> — trolley and datalogger</span></div>
+<div class="p"><b>PRAC 3 · Nov</b><span>Conservation of mechanical energy</span></div>
+<div class="p"><b>PRAC 4 · Dec</b><span>Specific heat capacity of a metal</span></div>
+<div class="p"><b>PRAC 5 · Feb</b><span>Boyle's law</span></div>
+<div class="p"><b>PRAC 6 · Feb</b><span>Period of a pendulum and a mass–spring system</span></div>
+<div class="p"><b>PRAC 7 · Mar</b><span>Measuring the speed of sound</span></div>
+<div class="p"><b>PRAC 8 · May</b><span>Refractive index of a glass block</span></div>
+<div class="p"><b>PRAC 9 · Jun</b><span>Resonance in an air column</span></div>
+<div class="p"><b>Every one</b><span>Written up with uncertainties and an evaluation</span></div>
+</div></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">09</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Expectations overview" data-screen-label="10">
+<div class="eyebrow">What I expect from you this year</div>
+<h2>Four things — prepared, adaptable, reflective, kind</h2>
+<div class="body">
+<div class="four">
+<div><h3>Prepared</h3><p>Ready before the lesson starts, not scrambling during it.</p></div>
+<div><h3>Adaptable</h3><p>Responds to feedback and setbacks by adjusting, not defending.</p></div>
+<div><h3>Reflective</h3><p>Turns every result into a named lesson, not just a mark.</p></div>
+<div><h3>Kind</h3><p>Looks out for classmates without being asked to.</p></div>
+</div>
+</div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">10</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Prepared" data-screen-label="11">
+<div class="eyebrow">Expectation 1 of 4</div>
+<h2>Prepared</h2>
+<div class="body"><div class="steps">
+<div class="step"><div class="n">1</div><div class="tx">Bring your data booklet, lab book and a charged calculator to every lesson.</div></div>
+<div class="step"><div class="n">2</div><div class="tx">Do the reading before the lesson it's set for, not after.</div></div>
+<div class="step"><div class="n">3</div><div class="tx">Read the practical method before you walk into the lab, not at the bench.</div></div>
+</div></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">11</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Adaptable" data-screen-label="12">
+<div class="eyebrow">Expectation 2 of 4</div>
+<h2>Adaptable</h2>
+<div class="body"><div class="steps">
+<div class="step"><div class="n">1</div><div class="tx">When feedback changes your method, change the method — don't defend the old one.</div></div>
+<div class="step"><div class="n">2</div><div class="tx">If a practical doesn't work first time, change one variable and try again.</div></div>
+<div class="step"><div class="n">3</div><div class="tx">Adjust how you revise based on your own test results, not on the syllabus order.</div></div>
+</div></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">12</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Reflective" data-screen-label="13">
+<div class="eyebrow">Expectation 3 of 4</div>
+<h2>Reflective</h2>
+<div class="body"><div class="steps">
+<div class="step"><div class="n">1</div><div class="tx">Complete the reflection log after every topic test — not the day it's checked.</div></div>
+<div class="step"><div class="n">2</div><div class="tx">Turn each returned script into a named list of mistakes, not just a mark.</div></div>
+<div class="step"><div class="n">3</div><div class="tx">Re-attempt the exact question you got wrong, not a different one.</div></div>
+</div></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">13</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Kind" data-screen-label="14">
+<div class="eyebrow">Expectation 4 of 4</div>
+<h2>Kind</h2>
+<div class="body"><div class="steps">
+<div class="step"><div class="n">1</div><div class="tx">Share notes with a classmate who missed a lesson.</div></div>
+<div class="step"><div class="n">2</div><div class="tx">In feedback discussions, comment on the physics, not the person.</div></div>
+<div class="step"><div class="n">3</div><div class="tx">Look after your lab partner — safety, equipment and their share of the data.</div></div>
+</div></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">14</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Tour intro" data-screen-label="15">
+<div class="eyebrow">Now — the website</div>
+<div class="body" style="justify-content:center;gap:24px">
+<h2 style="font-size:84px">φQ Physics</h2>
+<p style="max-width:1250px">Everything you need this year lives on one site — lessons, practice questions, past papers, the IA planning guide and the weekly plan. None of it is locked. Use it.</p>
+</div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">15</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Topics and Lessons" data-screen-label="16">
+<div class="eyebrow">Site tour · 1 of 5</div>
+<h2>Topics &amp; Lessons</h2>
+<div class="body"><div class="two">
+<div class="card"><h3>Topics</h3><p>All 25 syllabus topics, HL and SL, organised by unit. Click any topic to see exactly what's on the syllabus for it — this is your map of the course.</p><ul><li>25 topics across Units A–E</li><li>Organised by unit, HL and SL marked</li><li>Your reference for what's examinable</li></ul></div>
+<div class="card"><h3>Lessons</h3><p>Every lesson taught this year as a full page — worked examples, exam-style questions and diagrams. If you missed a lesson or want to revisit one, it's here in full, not just as slides.</p><ul><li>Full worked examples, not summaries</li><li>Exam-style questions with every lesson</li><li>The place to catch up on a missed class</li></ul></div>
+</div></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">16</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Practice" data-screen-label="17">
+<div class="eyebrow">Site tour · 2 of 5</div>
+<h2>Practice Questions</h2>
+<div class="body" style="justify-content:center"><div class="card tourcard"><p>A self-marking quiz bank — IB-style multiple choice and short answer questions with instant feedback and full explanations.</p><ul><li>Filter by unit or by difficulty</li><li>Instant marking with full explanations</li><li>Best used for retrieval practice between lessons, not just before a test</li></ul></div></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">17</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Resources" data-screen-label="18">
+<div class="eyebrow">Site tour · 3 of 5</div>
+<h2>Resources</h2>
+<div class="body" style="justify-content:center"><div class="card tourcard"><p>Everything else you need, in one place.</p><ul><li>Formula sheet and exam tips</li><li>Past papers and a video library</li><li>Worksheets, and how to contact me</li></ul></div></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">18</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Planning a Physics IA" data-screen-label="19">
+<div class="eyebrow">Site tour · 4 of 5</div>
+<h2>Planning a Physics IA</h2>
+<div class="body" style="justify-content:center"><div class="card tourcard"><p>A guide to getting the investigation right before you start collecting data — the part that decides most of your mark.</p><ul><li>Turning an interest into a measurable research question</li><li>Choosing variables, ranges and controls that will actually give you a gradient</li><li>Planning uncertainties and repeats before the lab, not after</li></ul><div class="hands">Goes live before the April IA block</div></div></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">19</span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Weekly Plan" data-screen-label="20">
+<div class="eyebrow">Site tour · 5 of 5</div>
+<h2>Weekly Plan</h2>
+<div class="body" style="justify-content:center"><div class="card tourcard"><p>The exact week-by-week scheme of work for the year — what's taught, what's assessed, and when.</p><ul><li>The source for every date in this deck</li><li>Printable, if you want a paper copy</li><li>Check it every week — not just today</li></ul></div></div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">20</span></div>
+</section>
+
+<section class="slide accent center" data-document-role="page" data-label="Closing" data-screen-label="21">
+<div class="eyebrow">To close</div>
+<div class="body" style="justify-content:center;gap:26px">
+<h2 style="font-size:80px">Two years. Start the habits now and Year 2 looks after itself.</h2>
+<p style="font-size:34px;max-width:1200px">Prepared, adaptable, reflective, kind — that's what I'm looking for. Everything else is physics, and physics is the part I can teach you.</p>
+</div>
+<div class="foot"><span>Grade 11 · Day 1</span><span class="mono">21</span></div>
+</section>
+
+</div>
+<script src="deck.js"></script>
+</body>
+</html>

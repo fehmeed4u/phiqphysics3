@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy in SHM — φQ Physics lesson</title>
+  <link rel="stylesheet" href="../../../shared/theme.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('phyq-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+  <style>
+    /* ── token bridge: map generator's foreign tokens → live φQ theme ── */
+    :root{
+      --color-background-primary: var(--surface2);
+      --color-background-secondary: var(--surface3);
+      --color-text-primary: #E8E4DB;
+      --color-text-secondary: var(--text-muted);
+      --color-border-primary: var(--border-2);
+      --color-border-tertiary: rgba(79,157,255,0.10);
+      --color-background-success: var(--green-dim);
+      --color-text-success: var(--green);
+      --color-background-danger: var(--red-dim);
+      --color-text-danger: var(--red);
+      --color-background-warning: var(--gold-dim);
+      --color-text-warning: var(--gold);
+      --color-background-info: var(--accent-dim);
+      --color-border-info: var(--border-2);
+      --color-border-warning: rgba(245,166,35,0.32);
+      --border-radius-lg: 10px;
+    }
+    /* cycle-breakers: light-theme overrides for tokens the lesson re-aliases */
+    [data-theme="light"]{
+      --color-text-primary: #1C1917;
+      --color-border-tertiary: rgba(0,0,0,0.07);
+    }
+    /* transparent so the page's surface card shows through */
+    html,body{ background:transparent !important; }
+    body{ padding:0; margin:0; }
+    /* font normalisation → site typography (Playfair / Inter), formulas keep mono */
+    body{ font-family: var(--font-sans) !important; }
+    h1,h2,h3,h4,h5,.chunk-title,.lesson-title,.lc-title{ font-family: var(--font-serif) !important; }
+  </style>
+</head>
+<body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #1a5fb4;
+  --accent2: #e8593c;
+  --accent3: #1c7d53;
+  --bg: var(--color-background-primary);
+  --bg2: var(--color-background-secondary);
+  --text: var(--color-text-primary);
+  --muted: var(--color-text-secondary);
+  --border: var(--color-border-tertiary);
+  --success: var(--color-background-success);
+  --danger: var(--color-background-danger);
+  --success-text: var(--color-text-success);
+  --danger-text: var(--color-text-danger);
+  --radius: var(--border-radius-lg);
+}
+
+body { font-family: 'DM Sans', sans-serif; color: var(--text); background: transparent; }
+.lesson-wrap { max-width: 680px; margin: 0 auto; padding: 0 0 2rem; }
+
+.lesson-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.lesson-badge span { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: var(--accent3); color: #fff; font-size: 11px; font-weight: 500; text-align: center; line-height: 18px; }
+
+.chunk-header { margin-bottom: 1.5rem; }
+.chunk-title { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--text); line-height: 1.2; }
+.chunk-sub { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+.content-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+.content-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 10px; color: var(--text); }
+.content-card p { font-size: 14px; color: var(--text); line-height: 1.7; margin-bottom: 8px; }
+.content-card p:last-child { margin-bottom: 0; }
+
+.def-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.def-table th { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding: 6px 8px; border-bottom: 0.5px solid var(--border); text-align: left; }
+.def-table td { padding: 8px; border-bottom: 0.5px solid var(--border); vertical-align: top; }
+.def-table td:first-child { font-weight: 500; white-space: nowrap; color: var(--accent3); }
+.def-table tr:last-child td { border-bottom: none; }
+
+.formula-box { background: var(--bg2); border-left: 3px solid var(--accent3); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 10px 0; font-size: 15px; color: var(--text); font-family: Georgia, serif; text-align: center; }
+
+.img-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem; margin-bottom: 1rem; text-align: center; }
+.img-card img { max-width: 100%; border-radius: 8px; }
+.img-card .img-cap { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+.key-points { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.kp { font-size: 12px; background: var(--bg2); border: 0.5px solid var(--border); border-radius: 20px; padding: 4px 12px; color: var(--text); }
+
+.section-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 1.5rem 0 0.75rem; display: flex; align-items: center; gap: 8px; }
+.section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+
+.info-box { background: var(--color-background-info); border-left: 3px solid var(--color-border-info); border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 13px; color: var(--color-text-info); margin: 8px 0; line-height: 1.6; }
+
+.mcq-block { margin-bottom: 1rem; }
+.mcq-q { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 10px; line-height: 1.5; }
+.mcq-opts { display: flex; flex-direction: column; gap: 6px; }
+.mcq-opt { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 0.5px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 13px; color: var(--text); transition: background 0.15s; background: var(--bg); }
+.mcq-opt:hover { background: var(--bg2); }
+.mcq-opt.correct { background: var(--success); border-color: var(--success-text); color: var(--success-text); }
+.mcq-opt.wrong { background: var(--danger); border-color: var(--danger-text); color: var(--danger-text); }
+.mcq-opt.disabled { cursor: default; pointer-events: none; }
+.opt-letter { font-weight: 500; min-width: 18px; }
+.mcq-feedback { font-size: 13px; margin-top: 8px; padding: 8px 12px; border-radius: 6px; display: none; }
+.mcq-feedback.show { display: block; }
+.mcq-feedback.correct { background: var(--success); color: var(--success-text); }
+.mcq-feedback.wrong { background: var(--danger); color: var(--danger-text); }
+
+.fitb-wrap { font-size: 14px; line-height: 2.4; color: var(--text); }
+.fitb-input { border: none; border-bottom: 2px solid var(--accent3); background: transparent; font-size: 14px; color: var(--text); padding: 0 4px; min-width: 80px; text-align: center; outline: none; font-family: 'DM Sans', sans-serif; }
+.fitb-input.correct { border-bottom-color: var(--success-text); color: var(--success-text); }
+.fitb-input.wrong { border-bottom-color: var(--danger-text); color: var(--danger-text); }
+.check-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; padding: 8px 18px; border: 0.5px solid var(--border); border-radius: 8px; background: var(--bg); cursor: pointer; font-size: 13px; color: var(--text); font-family: 'DM Sans', sans-serif; }
+.check-btn:hover { background: var(--bg2); }
+
+.graph-label-input { border: none; border-bottom: 1.5px solid var(--accent3); background: transparent; color: var(--text); text-align: center; outline: none; font-family: 'DM Sans', sans-serif; width: 140px; font-size: 13px; }
+.graph-label-input.correct { border-bottom-color: var(--success-text); color: var(--success-text); }
+.graph-label-input.wrong { border-bottom-color: var(--danger-text); color: var(--danger-text); }
+
+.exam-card { background: var(--bg); border: 1.5px solid var(--accent3); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+.exam-tag { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent3); margin-bottom: 8px; }
+.exam-q { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 10px; }
+.exam-marks { font-size: 11px; color: var(--muted); font-style: italic; }
+.exam-input { width: 100%; min-height: 70px; border: 0.5px solid var(--border); border-radius: 8px; background: var(--bg2); color: var(--text); font-size: 13px; font-family: 'DM Sans', sans-serif; padding: 10px; resize: vertical; outline: none; margin-top: 8px; }
+.reveal-btn { margin-top: 8px; padding: 7px 16px; border: 0.5px solid var(--border); border-radius: 8px; background: var(--bg); cursor: pointer; font-size: 12px; color: var(--muted); font-family: 'DM Sans', sans-serif; }
+.model-answer { margin-top: 10px; padding: 10px 14px; background: var(--bg2); border-left: 3px solid var(--accent3); border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text); line-height: 1.6; display: none; }
+.model-answer.show { display: block; }
+
+.score-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 6px 14px; border-radius: 20px; background: var(--bg2); border: 0.5px solid var(--border); color: var(--text); }
+.score-val { font-weight: 500; color: var(--accent3); }
+.nav-row { display: flex; gap: 10px; justify-content: flex-end; align-items: center; margin-top: 1.5rem; }
+</style>
+
+<div class="lesson-wrap">
+  <div class="chunk-header">
+    <div class="lesson-badge"><span>3</span> Lesson 3 of 5 · IB DP Physics</div>
+    <div class="chunk-title">Energy in SHM</div>
+    <div class="chunk-sub">Kinetic energy, potential energy, total energy, and their variation with displacement and time</div>
+  </div>
+
+  <div class="content-card">
+    <h3>Energy overview</h3>
+    <p>In SHM, energy continuously interchanges between kinetic (KE) and potential (PE) forms, while the <strong>total mechanical energy remains constant</strong> (assuming no damping).</p>
+    <p>The velocity of an object in SHM varies with displacement as:</p>
+    <div class="formula-box">v² = ω²(A² − x²) &nbsp;&nbsp;⟹&nbsp;&nbsp; v<sub>max</sub> = ωA (at x = 0)</div>
+    <p>From this, kinetic energy is:</p>
+    <div class="formula-box">KE = ½mv² = ½mω²(A² − x²)</div>
+    <p>Potential energy (stored in whichever store provides the restoring force):</p>
+    <div class="formula-box">PE = ½mω²x²</div>
+    <p>Total energy (constant, independent of x):</p>
+    <div class="formula-box">E<sub>total</sub> = ½mω²A²</div>
+  </div>
+
+  <div class="img-card">
+    <img src="https://i.postimg.cc/fTHxsgMP/Image-4.jpg" alt="Energy vs displacement graph for SHM showing KE as inverted parabola, PE as upward parabola, and total energy as a flat horizontal line">
+    <div class="img-cap">Fig 1 — Energy vs displacement for SHM. KE is maximum at x = 0 and zero at x = ±A. PE is the reverse. Total energy is constant.</div>
+  </div>
+
+  <div class="content-card">
+    <h3>Key energy relationships</h3>
+    <table class="def-table">
+      <tr><th>Position</th><th>x</th><th>KE</th><th>PE</th><th>Speed</th><th>Acceleration</th></tr>
+      <tr><td>Mean position</td><td>0</td><td>Maximum</td><td>Zero</td><td>Maximum (= ωA)</td><td>Zero</td></tr>
+      <tr><td>Extreme (±A)</td><td>±A</td><td>Zero</td><td>Maximum</td><td>Zero</td><td>Maximum (= ω²A)</td></tr>
+      <tr><td>Any position x</td><td>x</td><td>½mω²(A²−x²)</td><td>½mω²x²</td><td>ω√(A²−x²)</td><td>ω²x</td></tr>
+    </table>
+    <div class="info-box" style="margin-top:10px">Total energy E = ½mω²A² = ½kA² (for a spring). Total energy is proportional to A² — <strong>doubling the amplitude quadruples the energy</strong>.</div>
+  </div>
+
+  <div class="content-card">
+    <h3>Energy as a function of time</h3>
+    <p>If x = A cos(ωt), then:</p>
+    <div class="formula-box">KE = ½mω²A² sin²(ωt) &nbsp;&nbsp;&nbsp; PE = ½mω²A² cos²(ωt)</div>
+    <p>Both KE and PE oscillate at <strong>twice the frequency</strong> of the displacement — they complete two full cycles per period T. This is because energy depends on the square of displacement or velocity.</p>
+    <p>At every instant: KE + PE = ½mω²A² = constant.</p>
+  </div>
+
+  <div class="content-card">
+    <h3>Where does KE = PE?</h3>
+    <p>Setting KE = PE:</p>
+    <div class="formula-box">½mω²(A² − x²) = ½mω²x² &nbsp;⟹&nbsp; A² = 2x² &nbsp;⟹&nbsp; x = ±A/√2</div>
+    <p>At x = ±A/√2, the energy is equally split. Each form carries exactly half the total: KE = PE = ¼mω²A².</p>
+    <div class="key-points">
+      <span class="kp">KE = PE at x = A/√2</span>
+      <span class="kp">E ∝ A²</span>
+      <span class="kp">E ∝ ω²</span>
+      <span class="kp">KE + PE = constant</span>
+    </div>
+  </div>
+
+  <!-- Graph labelling -->
+  <div class="section-label">Practice check — graph labelling</div>
+  <div class="content-card">
+    <p style="font-size:14px;font-weight:500;margin-bottom:8px">Label the three curves on the energy–displacement graph:</p>
+    <div style="position:relative; width:100%;">
+      <svg viewBox="0 0 520 300" width="100%" style="border-radius:8px;background:var(--bg2)">
+        <line x1="60" y1="260" x2="480" y2="260" stroke="var(--color-border-primary)" stroke-width="1"/>
+        <line x1="60" y1="20" x2="60" y2="260" stroke="var(--color-border-primary)" stroke-width="1"/>
+        <text x="270" y="285" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">Displacement x</text>
+        <text x="18" y="145" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)" transform="rotate(-90,18,145)">Energy</text>
+        <text x="270" y="275" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)">0</text>
+        <text x="60" y="275" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)">−A</text>
+        <text x="480" y="275" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)">+A</text>
+        <line x1="60" y1="50" x2="480" y2="50" stroke="#1a5fb4" stroke-width="2" stroke-dasharray="6 3"/>
+        <path d="M60,50 Q270,260 480,50" fill="none" stroke="#e8593c" stroke-width="2"/>
+        <path d="M60,50 C130,50 200,260 270,260 C340,260 410,50 480,50" fill="none" stroke="#1c7d53" stroke-width="2"/>
+        <rect x="310" y="190" width="12" height="3" fill="#1a5fb4"/>
+        <text x="328" y="196" font-size="11" fill="var(--color-text-secondary)">Blue dashed</text>
+        <circle cx="316" cy="210" r="4" fill="#1c7d53"/>
+        <text x="328" y="214" font-size="11" fill="var(--color-text-secondary)">Green curve</text>
+        <circle cx="316" cy="228" r="4" fill="#e8593c"/>
+        <text x="328" y="232" font-size="11" fill="var(--color-text-secondary)">Red curve</text>
+      </svg>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;font-size:13px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="display:inline-block;width:12px;height:3px;background:#1a5fb4"></span>
+        <span style="color:var(--muted)">Blue dashed line:</span>
+        <input id="gl1" class="graph-label-input" placeholder="?">
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#1c7d53"></span>
+        <span style="color:var(--muted)">Green curve:</span>
+        <input id="gl2" class="graph-label-input" placeholder="?">
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#e8593c"></span>
+        <span style="color:var(--muted)">Red curve:</span>
+        <input id="gl3" class="graph-label-input" placeholder="?">
+      </div>
+    </div>
+    <button class="check-btn" onclick="checkGraphLabels()">Check labels</button>
+    <div id="gl-result" style="font-size:13px;margin-top:8px;display:none"></div>
+  </div>
+
+  <!-- MCQs -->
+  <div class="section-label">Practice check — multiple choice</div>
+
+  <div class="content-card">
+    <div class="mcq-block" id="mcq1">
+      <div class="mcq-q">1. At what position in an SHM cycle is the kinetic energy equal to the potential energy?</div>
+      <div class="mcq-opts">
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'A','C')"><span class="opt-letter">A</span> At x = 0.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'B','C')"><span class="opt-letter">B</span> At x = ±A.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'C','C')"><span class="opt-letter">C</span> At x = ±A/√2.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq1',this,'D','C')"><span class="opt-letter">D</span> KE and PE are never equal.</div>
+      </div>
+      <div class="mcq-feedback" id="mcq1-fb"></div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="mcq-block" id="mcq2">
+      <div class="mcq-q">2. The amplitude of a mass-spring SHM system is doubled. By what factor does the maximum speed and total energy change?</div>
+      <div class="mcq-opts">
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'A','C')"><span class="opt-letter">A</span> v<sub>max</sub> × 2; E × 2</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'B','C')"><span class="opt-letter">B</span> v<sub>max</sub> × 4; E × 4</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'C','C')"><span class="opt-letter">C</span> v<sub>max</sub> × 2; E × 4</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq2',this,'D','C')"><span class="opt-letter">D</span> v<sub>max</sub> × √2; E × 2</div>
+      </div>
+      <div class="mcq-feedback" id="mcq2-fb"></div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="mcq-block" id="mcq3">
+      <div class="mcq-q">3. How does the frequency of the KE oscillation compare to the frequency of the displacement oscillation?</div>
+      <div class="mcq-opts">
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'A','B')"><span class="opt-letter">A</span> Same frequency.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'B','B')"><span class="opt-letter">B</span> Twice the frequency.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'C','B')"><span class="opt-letter">C</span> Half the frequency.</div>
+        <div class="mcq-opt" onclick="checkMCQ('mcq3',this,'D','B')"><span class="opt-letter">D</span> Four times the frequency.</div>
+      </div>
+      <div class="mcq-feedback" id="mcq3-fb"></div>
+    </div>
+  </div>
+
+  <!-- Fill in blanks -->
+  <div class="section-label">Practice check — fill in the blanks</div>
+  <div class="content-card">
+    <p style="font-size:14px;font-weight:500;margin-bottom:10px">Complete the energy statements:</p>
+    <div class="fitb-wrap">
+      The total energy of an undamped SHM system equals ½mω²<input class="fitb-input" id="f1" placeholder="?" style="width:40px">². Maximum speed occurs at x = <input class="fitb-input" id="f2" placeholder="?" style="width:40px"> and equals ω<input class="fitb-input" id="f3" placeholder="?" style="width:40px">. If the amplitude is tripled, the total energy changes by a factor of <input class="fitb-input" id="f4" placeholder="?" style="width:40px">.
+    </div>
+    <button class="check-btn" onclick="checkFITB()">Check answers</button>
+    <div id="fitb-result" style="font-size:13px;margin-top:8px;display:none"></div>
+  </div>
+
+  <!-- Exam style -->
+  <div class="section-label">Exam-style questions</div>
+
+  <div class="exam-card">
+    <div class="exam-tag">Exam question · Mathematical / Multi-step</div>
+    <div class="exam-q">A particle of mass 0.150 kg undergoes SHM with amplitude 0.080 m and angular frequency 5.0 rad s⁻¹.<br><br>
+    (i) Calculate the total energy of the system. <span class="exam-marks">[2 marks]</span><br>
+    (ii) Calculate the speed when displacement is 0.060 m. <span class="exam-marks">[2 marks]</span><br>
+    (iii) Calculate the displacement at which KE = PE. <span class="exam-marks">[3 marks]</span></div>
+    <textarea class="exam-input" placeholder="Show full working..." style="min-height:100px"></textarea>
+    <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+    <div class="model-answer">(i) E = ½mω²A² = ½ × 0.150 × 25 × 0.0064 = 0.012 J ✓✓<br><br>(ii) v = ω√(A²−x²) = 5.0 × √(0.0064 − 0.0036) = 5.0 × √0.0028 = 0.265 m s⁻¹ ✓✓<br><br>(iii) KE = PE ⟹ ½mω²(A²−x²) = ½mω²x²<br>A²−x² = x² ⟹ A² = 2x² ⟹ x = A/√2 = 0.080/√2 = 0.0566 m ≈ 0.057 m ✓✓✓</div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-tag">Exam question · Theory / Explain</div>
+    <div class="exam-q">Explain, with reference to energy, why the speed of a particle in SHM is greatest at the mean position and zero at the extremes. <span class="exam-marks">[4 marks]</span></div>
+    <textarea class="exam-input" placeholder="Write your explanation here..."></textarea>
+    <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+    <div class="model-answer">At the extremes (x = ±A), all energy is PE (= ½mω²A²), so KE = 0 and speed = 0. ✓✓<br><br>At the mean position (x = 0), PE = 0 so all energy is KE (= ½mω²A²), giving maximum speed v<sub>max</sub> = ωA. ✓✓<br><br>On the energy graph, the KE curve peaks at x = 0 while PE peaks at x = ±A; their sum is always constant.</div>
+  </div>
+
+  <div class="exam-card">
+    <div class="exam-tag">Exam question · Proportional reasoning (Hard)</div>
+    <div class="exam-q">Two SHM systems A and B have the same mass m and the same total energy. System A has twice the amplitude of system B.<br><br>
+    (i) Show that ω<sub>A</sub> = ω<sub>B</sub>/2. <span class="exam-marks">[2 marks]</span><br>
+    (ii) Determine the ratio v<sub>A,max</sub> : v<sub>B,max</sub>. <span class="exam-marks">[2 marks]</span><br>
+    (iii) What does this tell you about the relationship between ω and A for equal-energy systems? <span class="exam-marks">[1 mark]</span></div>
+    <textarea class="exam-input" placeholder="Show working..." style="min-height:90px"></textarea>
+    <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+    <div class="model-answer">(i) E<sub>A</sub> = E<sub>B</sub>: ½mω<sub>A</sub>²(2A)² = ½mω<sub>B</sub>²A²<br>4ω<sub>A</sub>² = ω<sub>B</sub>² ⟹ ω<sub>A</sub> = ω<sub>B</sub>/2 ✓✓<br><br>(ii) v<sub>A,max</sub> = ω<sub>A</sub>·2A = (ω<sub>B</sub>/2)·2A = ω<sub>B</sub>A = v<sub>B,max</sub><br>Ratio = 1:1 ✓✓<br><br>(iii) For equal-energy systems, ωA = constant. Maximum speed is the same regardless of how energy is partitioned. ✓</div>
+  </div>
+
+  <div class="nav-row">
+    <div class="score-badge">Score: <span class="score-val" id="score-display">0</span> pts</div>
+  </div>
+</div>
+
+<script>
+let totalScore = 0;
+let answeredMCQ = {};
+
+const mcqFeedback = {
+  'mcq1': { C: 'Correct! Set KE = PE: ½mω²(A²−x²) = ½mω²x² ⟹ x = A/√2.' },
+  'mcq2': { C: 'Correct! v_max = ωA doubles, E = ½mω²A² quadruples (∝ A²). A common IB trap.' },
+  'mcq3': { B: 'Correct! KE = ½mω²A²sin²(ωt). Since sin² oscillates at 2ω, KE oscillates at twice the displacement frequency.' },
+};
+
+function checkMCQ(id, el, chosen, correct) {
+  if (answeredMCQ[id]) return;
+  answeredMCQ[id] = true;
+  const block = document.getElementById(id);
+  block.querySelectorAll('.mcq-opt').forEach(o => o.classList.add('disabled'));
+  const fb = document.getElementById(id + '-fb');
+  if (chosen === correct) {
+    el.classList.add('correct');
+    fb.textContent = '✓ ' + mcqFeedback[id][correct];
+    fb.className = 'mcq-feedback show correct';
+    totalScore += 2;
+  } else {
+    el.classList.add('wrong');
+    block.querySelectorAll('.mcq-opt').forEach(o => { if (o.querySelector('.opt-letter').textContent === correct) o.classList.add('correct'); });
+    fb.textContent = '✗ Incorrect. Answer: ' + correct + '. ' + mcqFeedback[id][correct];
+    fb.className = 'mcq-feedback show wrong';
+  }
+  updateScore();
+}
+
+function checkGraphLabels() {
+  const gl1 = document.getElementById('gl1').value.trim().toLowerCase();
+  const gl2 = document.getElementById('gl2').value.trim().toLowerCase();
+  const gl3 = document.getElementById('gl3').value.trim().toLowerCase();
+  let c = 0;
+  if (gl1.includes('total') || gl1.includes('constant')) { document.getElementById('gl1').classList.add('correct'); c++; } else document.getElementById('gl1').classList.add('wrong');
+  if (gl2.includes('kinetic') || gl2.includes('ke') || gl2.includes('k.e')) { document.getElementById('gl2').classList.add('correct'); c++; } else document.getElementById('gl2').classList.add('wrong');
+  if (gl3.includes('potential') || gl3.includes('pe') || gl3.includes('p.e')) { document.getElementById('gl3').classList.add('correct'); c++; } else document.getElementById('gl3').classList.add('wrong');
+  const res = document.getElementById('gl-result');
+  res.style.display = 'block';
+  if (c === 3) { res.textContent = '✓ Correct! (+2 pts)'; res.style.color = 'var(--success-text)'; totalScore += 2; }
+  else { res.textContent = c + '/3. Blue dashed = total energy, Green = KE, Red = PE'; res.style.color = 'var(--danger-text)'; }
+  updateScore();
+}
+
+function checkFITB() {
+  const checks = [
+    { id: 'f1', accept: ['a'] },
+    { id: 'f2', accept: ['0'] },
+    { id: 'f3', accept: ['a'] },
+    { id: 'f4', accept: ['9'] }
+  ];
+  let correct = 0;
+  checks.forEach(c => {
+    const el = document.getElementById(c.id);
+    const val = el.value.trim().toLowerCase();
+    if (c.accept.includes(val)) { el.classList.add('correct'); el.classList.remove('wrong'); correct++; }
+    else { el.classList.add('wrong'); el.classList.remove('correct'); }
+  });
+  const res = document.getElementById('fitb-result');
+  res.style.display = 'block';
+  if (correct === 4) { res.textContent = '✓ All correct! (+2 pts)'; res.style.color = 'var(--success-text)'; totalScore += 2; }
+  else { res.textContent = correct + '/4 correct. Answers: A, 0, A, 9 (3² = 9)'; res.style.color = 'var(--danger-text)'; }
+  updateScore();
+}
+
+function toggleModel(btn) {
+  const ma = btn.nextElementSibling;
+  ma.classList.toggle('show');
+  btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+}
+
+function updateScore() {
+  document.getElementById('score-display').textContent = totalScore;
+}
+</script>
+
+  <script>
+    (function(){
+      window.addEventListener('storage', function(e){ if(e.key==='phyq-theme'){ document.documentElement.dataset.theme = e.newValue||'dark'; } });
+      function postH(){
+        var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        parent.postMessage({ __lessonEmbed:true, h:h }, '*');
+      }
+      window.addEventListener('load', function(){ postH(); setTimeout(postH,250); setTimeout(postH,700); });
+      if (window.ResizeObserver) new ResizeObserver(postH).observe(document.body);
+      document.addEventListener('click', function(){ setTimeout(postH,90); });
+      document.addEventListener('input', function(){ setTimeout(postH,90); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>C.2.1 Wave Properties and Wave Speed — Lesson Slides</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#2563EB"/><path d="M60 150 Q110 60 160 150 T260 150 T360 150" fill="none" stroke="#F4EFE6" stroke-width="14" stroke-linecap="round"/><text x="200" y="248" font-family="Georgia,serif" font-size="46" fill="#F4EFE6" text-anchor="middle">C.2.1</text></svg></template>
+<style>
+:root{--bg:#F4EFE6;--card:#FFFFFF;--card2:#FBF8F2;--line:#E2DACB;--ink:#1C1917;--ink2:#44403C;--mute:#78716C;--acc:#2563EB;--acc-dim:#EAF1FE;--gold:#B4791A;--gold-dim:#FBF1DE;--green:#0F8A5F;--green-dim:#E6F5EF;--red:#C2413F;--red-dim:#FBEBEA;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#3A3A3A;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:var(--acc)}a:hover{color:#1D4FD7}
+.slide{position:relative;width:1920px;height:1080px;background:var(--bg);overflow:hidden;margin:0 auto 40px;display:flex;flex-direction:column;padding:84px 110px 80px}
+.eyebrow{display:flex;align-items:center;gap:16px;font-size:26px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:26px}
+.eyebrow b{font-family:var(--mono);font-size:24px;font-weight:700;color:var(--acc);background:var(--acc-dim);padding:6px 16px;border-radius:8px;letter-spacing:.06em}
+h1{font-family:var(--serif);font-size:104px;line-height:1.02;font-weight:700;letter-spacing:-.02em}
+h2{font-family:var(--serif);font-size:66px;line-height:1.06;font-weight:600;letter-spacing:-.015em;margin-bottom:34px}
+p{font-size:31px;line-height:1.55;color:var(--ink2);text-wrap:pretty}
+strong{color:var(--ink);font-weight:600}
+em{font-style:italic}
+.body{flex:1;min-height:0;display:flex;flex-direction:column;gap:26px}
+.row{display:grid;gap:34px;align-items:start}
+.row[style*="flex:1"]{align-items:stretch;min-height:0}
+.row[style*="flex:1"]>*{min-height:0;overflow:hidden}
+.r-5050{grid-template-columns:1fr 1fr}
+.r-6040{grid-template-columns:1.35fr 1fr}
+.r-4060{grid-template-columns:1fr 1.35fr}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 38px;box-shadow:0 2px 14px rgba(28,25,23,.05)}
+.card h3{font-size:30px;font-weight:700;letter-spacing:.01em;margin-bottom:16px;color:var(--ink)}
+.card p+p{margin-top:14px}
+.fig{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center;display:flex;flex-direction:column;justify-content:center;box-shadow:0 2px 14px rgba(28,25,23,.05)}
+.fig{overflow:hidden}
+.fig img{flex:1 1 auto;min-height:0;max-width:100%;object-fit:contain;border-radius:8px}
+.fig .cap{flex:none}
+.cap{font-size:22px;line-height:1.4;color:var(--mute);margin-top:16px}
+.formula{background:var(--acc-dim);border-left:7px solid var(--acc);border-radius:0 16px 16px 0;padding:30px 44px;text-align:center}
+.formula .lab{font-size:22px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:12px}
+.formula .eq{font-family:var(--serif);font-size:70px;font-weight:700;color:var(--acc);line-height:1.15}
+.formula .eq small{font-size:44px;font-weight:600}
+.note{border-left:7px solid var(--acc);background:var(--acc-dim);border-radius:0 14px 14px 0;padding:22px 30px;font-size:29px;line-height:1.5;color:var(--ink2)}
+.warn{border-left-color:var(--gold);background:var(--gold-dim)}
+.good{border-left-color:var(--green);background:var(--green-dim)}
+table{width:100%;border-collapse:collapse}
+th{font-size:23px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);text-align:left;padding:14px 18px;border-bottom:2px solid var(--line)}
+td{font-size:27px;line-height:1.45;color:var(--ink2);padding:18px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.k{font-weight:600;color:var(--acc);width:26%}
+td.x{color:var(--red);font-weight:500;width:34%}
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:none}
+.snum{flex:none;width:46px;height:46px;border-radius:50%;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700}
+.step div:last-child{font-size:29px;line-height:1.55;color:var(--ink2)}
+.chips{display:flex;flex-wrap:wrap;gap:14px}
+.chips span{font-family:var(--mono);font-size:26px;font-weight:500;color:var(--acc);background:var(--acc-dim);border:1px solid #C9DCFC;border-radius:100px;padding:10px 24px}
+.qlist{display:flex;flex-direction:column;gap:20px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 32px}
+.q .qt{font-size:29px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:14px}
+.opts{display:flex;flex-wrap:wrap;gap:12px}
+.opts span{font-size:26px;color:var(--ink2);border:1.5px solid var(--line);border-radius:10px;padding:10px 20px;background:var(--card2)}
+.opts span.ok{border-color:var(--green);background:var(--green-dim);color:var(--green);font-weight:600}
+.ans{display:flex;gap:18px;align-items:flex-start;font-size:29px;line-height:1.5;color:var(--ink2);padding:20px 0;border-bottom:1px solid var(--line)}
+.ans:last-child{border-bottom:none}
+.ans b{flex:none;width:52px;height:52px;border-radius:12px;background:var(--green-dim);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:27px;font-weight:700}
+.foot{display:flex;justify-content:space-between;align-items:baseline;font-size:22px;color:var(--mute);letter-spacing:.06em;padding-top:26px;margin-top:auto;border-top:1px solid var(--line)}
+.foot b{font-family:var(--mono);font-weight:700;color:var(--acc)}
+.hero{background:var(--ink);color:#F4EFE6;justify-content:center}
+.hero h1{color:#fff;max-width:1350px}
+.hero .eyebrow{color:#A8A29E}
+.hero .eyebrow b{color:#93BEFF;background:rgba(147,190,255,.14)}
+.hero p{color:#C8C2B8;font-size:34px;max-width:1150px;margin-top:34px}
+.hero .wave{position:absolute;left:0;right:0;bottom:-40px;opacity:.3}
+.divider{background:var(--acc);color:#fff;justify-content:center}
+.divider h1{color:#fff;font-size:92px}
+.divider .eyebrow{color:rgba(255,255,255,.7)}
+.divider .eyebrow b{color:#fff;background:rgba(255,255,255,.18)}
+.divider p{color:rgba(255,255,255,.85);font-size:34px;margin-top:28px;max-width:1200px}
+.obj{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.obj div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 32px;display:flex;gap:22px;align-items:flex-start;box-shadow:0 2px 14px rgba(28,25,23,.05)}
+.obj i{font-style:normal;font-family:var(--mono);font-size:26px;font-weight:700;color:var(--acc);flex:none}
+.obj p{font-size:29px}
+</style>
+</head>
+<body>
+
+<section class="slide hero" data-document-role="page" data-label="Title" data-screen-label="01">
+<div class="eyebrow"><b>C.2</b> Wave Model · Lesson 1 of 4 · SL / HL</div>
+<h1>Wave Properties<br>and Wave Speed</h1>
+<p>Everything a wave does is fixed by six numbers. This lesson defines each of them, links them through the wave equation, and works through exam calculations that read those numbers off graphs.</p>
+<svg class="wave" viewBox="0 0 1920 300" width="1920" height="300" preserveAspectRatio="none"><path d="M0 150 C160 20 320 20 480 150 S800 280 960 150 S1280 20 1440 150 S1760 280 1920 150" fill="none" stroke="#4F9DFF" stroke-width="7"/></svg>
+</section>
+
+<section class="slide" data-document-role="page" data-label="What you will be able to do" data-screen-label="02">
+<div class="eyebrow"><b>C.2.1</b> Lesson objectives</div>
+<h2>By the end of this lesson</h2>
+<div class="body">
+<div class="obj">
+<div><i>01</i><p>Define a <strong>travelling wave</strong> and explain why it transfers energy but not matter.</p></div>
+<div><i>02</i><p>Define <strong>displacement, wavelength, amplitude, period, frequency</strong> and <strong>wave speed</strong>, with SI units.</p></div>
+<div><i>03</i><p>Use <strong>f = 1/T</strong> and the wave equation <strong>v = fλ = λ/T</strong> in calculations.</p></div>
+<div><i>04</i><p>Read λ, T and A correctly off <strong>displacement–distance</strong> and <strong>displacement–time</strong> graphs.</p></div>
+</div>
+<div class="note">💡 The single most examined skill here: checking the <strong>x-axis label</strong> before you decide whether one repeat is a wavelength or a period.</div>
+</div>
+<div class="foot"><span>C.2 Wave Model — Unit C</span><span><b>02</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Hook: the cork that goes nowhere" data-screen-label="03">
+<div class="eyebrow"><b>Hook</b> Starter</div>
+<h2>The cork that goes nowhere</h2>
+<div class="body">
+<div class="row r-4060" style="flex:1;min-height:0">
+<div style="display:flex;flex-direction:column;gap:26px">
+<div class="card"><p>Drop a cork on a pond and send a ripple past it: the cork bobs up and down, then sits exactly where it started.</p><p>Something clearly travelled across the water, but <strong>the water did not</strong>.</p></div>
+<div class="note">💡 <strong>Think first:</strong> two waves travel at the same speed, but one has twice the wavelength. Which has the higher frequency?</div>
+</div>
+<div class="fig" style="height:100%"><img src="../assets/lesson-images/c2-01-wave-properties-and-wave-speed-01.png" alt="Ripple travelling past a floating cork; the cork bobs vertically in place while the wave moves horizontally"><div class="cap">Fig 1 — The wave moves right; the cork only oscillates up and down. Energy is transferred, matter is not.</div></div>
+</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>03</b></span></div>
+</section>
+
+<section class="slide divider" data-document-role="page" data-label="Definition: travelling wave" data-screen-label="04">
+<div class="eyebrow"><b>Definition</b> Learn this wording</div>
+<h1>Travelling waves are<br>oscillations that transfer<br>energy from one place to<br>another without<br>transferring matter.</h1>
+<p>Waves are generated by oscillating sources, and these oscillations travel away from the source. They can propagate through a <strong style="color:#fff">medium</strong> (air, water) or through a <strong style="color:#fff">vacuum</strong> — no particles at all — depending on the type of wave.</p>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Displacement, wavelength, amplitude" data-screen-label="05">
+<div class="eyebrow"><b>01</b> The three lengths</div>
+<h2>Displacement, wavelength and amplitude</h2>
+<div class="body">
+<div class="row r-5050" style="flex:1;min-height:0">
+<div class="card" style="height:100%">
+<p><strong>Displacement x</strong> — the distance of a point on the wave from its equilibrium position. A vector: it can be positive or negative. Unit: metres (m).</p>
+<p><strong>Wavelength λ</strong> — the length of one complete oscillation, measured from the same point on two consecutive waves: two crests, or two troughs. Unit: metres (m).</p>
+<p><strong>Amplitude A</strong> — the maximum displacement of an oscillating wave from its equilibrium position (x = 0). Unit: metres (m).</p>
+<p>The horizontal line of zero displacement is the <strong>equilibrium position</strong>.</p>
+</div>
+<div class="fig" style="height:100%"><img src="../assets/lesson-images/c2-01-wave-properties-and-wave-speed-02.png" alt="Sine wave against distance with amplitude marked from the equilibrium line to a crest and wavelength marked crest to crest"><div class="cap">Fig 2 — Amplitude is measured from the equilibrium position to a crest; wavelength from one crest to the next.</div></div>
+</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>05</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Period and frequency" data-screen-label="06">
+<div class="eyebrow"><b>02</b> The two times</div>
+<h2>Period and frequency</h2>
+<div class="body">
+<div class="row r-5050" style="flex:1;min-height:0">
+<div style="display:flex;flex-direction:column;gap:24px;height:100%">
+<div class="card"><p><strong>Period T</strong> — the time taken for a complete oscillation to pass a fixed point. Unit: seconds (s).</p><p><strong>Frequency f</strong> — the number of complete oscillations to pass a fixed point per second. Unit: hertz (Hz).</p></div>
+<div class="formula"><div class="lab">Frequency and period</div><div class="eq">f = 1 / T</div></div>
+<div class="note warn">⚠️ For a frequency in hertz, the period must be in <strong>seconds</strong> — never milliseconds.</div>
+</div>
+<div class="fig" style="height:100%"><img src="../assets/lesson-images/c2-01-wave-properties-and-wave-speed-03.png" alt="Displacement against time graph with the period marked between two consecutive crests"><div class="cap">Fig 3 — On a displacement–time graph, one full cycle spans the period T.</div></div>
+</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>06</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Wave speed and the wave equation" data-screen-label="07">
+<div class="eyebrow"><b>03</b> Putting them together</div>
+<h2>Wave speed and the wave equation</h2>
+<div class="body">
+<div class="row r-5050" style="flex:1;min-height:0">
+<div style="display:flex;flex-direction:column;gap:24px;height:100%">
+<div class="card"><p><strong>Wave speed v</strong> — the distance travelled by the wave per unit time. Unit: metres per second (m s⁻¹).</p></div>
+<div class="formula"><div class="lab">The wave equation</div><div class="eq">v = f λ<br><small>v = λ / T</small></div></div>
+<div class="note" style="font-size:27px">💡 For a wave of <strong>constant speed</strong>: as λ increases, f decreases. As λ decreases, f increases.</div>
+</div>
+<div class="fig" style="height:100%"><img src="../assets/lesson-images/c2-01-wave-properties-and-wave-speed-04.png" alt="Two waves of the same speed, the upper with a long wavelength and few cycles, the lower with a short wavelength and many cycles"><div class="cap">Fig 4 — Both waves travel at the same speed, so the shorter wavelength carries the higher frequency.</div></div>
+</div>
+<div class="chips"><span>v = fλ</span><span>v = λ/T</span><span>f = 1/T</span><span>λ ↑ ⇒ f ↓ (constant v)</span></div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>07</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Reading the graphs" data-screen-label="08">
+<div class="eyebrow"><b>04</b> Graphs every examiner uses</div>
+<h2>Which repeat have I just measured?</h2>
+<div class="body">
+<div class="card" style="padding:16px 30px">
+<table>
+<thead><tr><th>Graph type</th><th>Axes (x, y)</th><th>Shape</th><th>What to read</th></tr></thead>
+<tbody>
+<tr><td class="k">Snapshot</td><td>distance / m, displacement x</td><td>Sine curve in space, repeating every λ</td><td>Amplitude from the equilibrium line to a crest; <strong>wavelength</strong> crest-to-crest</td></tr>
+<tr><td class="k">Oscillation</td><td>time / s, displacement x</td><td>Sine curve in time, repeating every T</td><td>Amplitude as before; <strong>period</strong> crest-to-crest, then f = 1/T</td></tr>
+<tr><td class="k">Both together</td><td>read λ from one, T from the other</td><td>Two sine curves of the same amplitude</td><td><strong>v = λ/T</strong> — the only way to get the speed from graphs alone</td></tr>
+</tbody>
+</table>
+</div>
+<div class="note warn">⚠️ Calculating the period and the wavelength <em>looks identical</em> — both are the extent of one full wave. The <strong>axis label</strong> decides which one you have found.</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>08</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Distance axis vs time axis" data-screen-label="09">
+<div class="eyebrow"><b>04</b> Side by side</div>
+<h2>Same curve, different axis</h2>
+<div class="body">
+<div class="row r-5050" style="flex:1;min-height:0">
+<div class="fig" style="height:100%"><img src="../assets/lesson-images/c2-01-wave-properties-and-wave-speed-05.png" alt="Displacement against distance graph with the wavelength marked between two crests"><div class="cap">Fig 5 — Displacement against <em>distance</em>: the repeat length is the wavelength λ.</div></div>
+<div class="fig" style="height:100%"><img src="../assets/lesson-images/c2-01-wave-properties-and-wave-speed-06.png" alt="Displacement against time graph with the period marked between two crests"><div class="cap">Fig 6 — Displacement against <em>time</em>: the repeat length is the period T.</div></div>
+</div>
+<div class="note warn">⚠️ Most common slip in this topic: reading a wavelength off a displacement–time graph. Check the x-axis label <strong>before</strong> you write anything down.</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>09</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Worked example 1: the question" data-screen-label="10">
+<div class="eyebrow"><b>WE 1</b> Worked example</div>
+<h2>Amplitude and frequency from a graph</h2>
+<div class="body">
+<div class="row r-4060" style="flex:1;min-height:0">
+<div style="display:flex;flex-direction:column;gap:24px">
+<div class="card"><p>The graph shows a travelling wave. Determine:</p><p><strong>(a)</strong> the amplitude A of the wave, in m<br><strong>(b)</strong> the frequency f of the wave, in Hz</p></div>
+<div class="note">💡 Try it before the next slide. Watch the axis units: cm and ms.</div>
+</div>
+<div class="fig" style="height:100%"><img src="../assets/lesson-images/c2-01-wave-properties-and-wave-speed-07.png" alt="Displacement in centimetres against time in milliseconds, amplitude 10 cm, one full cycle per millisecond"><div class="cap">Fig 7 — Displacement / cm against time / ms.</div></div>
+</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>10</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Worked example 1: solution" data-screen-label="11">
+<div class="eyebrow"><b>WE 1</b> Solution</div>
+<h2>Worked example 1 — solution</h2>
+<div class="body">
+<div class="card" style="padding:12px 38px">
+<div class="steps">
+<div class="step"><div class="snum">1</div><div><strong>Identify.</strong> (a) The amplitude is the maximum displacement from the equilibrium position (x = 0). (b) The period is the time taken for one complete oscillation.</div></div>
+<div class="step"><div class="snum">2</div><div><strong>Data.</strong> Convert the amplitude from cm to m and the period from ms to s: A = 0.1 m, T = 1 × 10⁻³ s.</div></div>
+<div class="step"><div class="snum">3</div><div><strong>Equation.</strong> f = 1/T = 1 / (1 × 10⁻³)</div></div>
+<div class="step"><div class="snum">4</div><div><strong>Answer.</strong> (a) A = 0.1 m. (b) f = 1000 Hz — one thousand complete oscillations pass a fixed point every second.</div></div>
+</div>
+</div>
+<div class="note good">✓ Both conversions matter. Leaving the period in ms would give 1 Hz instead of 1000 Hz.</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>11</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Worked example 2" data-screen-label="12">
+<div class="eyebrow"><b>WE 2</b> Worked example</div>
+<h2>Wavelength from a period and a speed</h2>
+<div class="body">
+<div class="card" style="padding:26px 38px"><p>A travelling wave has a period of <strong>1.0 μs</strong> and travels at a velocity of <strong>100 cm s⁻¹</strong>. Calculate the wavelength of the wave, in m.</p></div>
+<div class="card" style="padding:12px 38px">
+<div class="steps">
+<div class="step"><div class="snum">1</div><div><strong>Known quantities.</strong> T = 1.0 μs = 1.0 × 10⁻⁶ s; v = 100 cm s⁻¹ = 1.0 m s⁻¹.</div></div>
+<div class="step"><div class="snum">2</div><div><strong>Frequency from the period.</strong> f = 1/T = 1 / (1 × 10⁻⁶) = 1 × 10⁶ Hz</div></div>
+<div class="step"><div class="snum">3</div><div><strong>Rearrange the wave equation.</strong> v = fλ, so λ = v / f</div></div>
+<div class="step"><div class="snum">4</div><div><strong>Substitute and answer.</strong> λ = 1.0 / (1.0 × 10⁶) = <strong>1.0 × 10⁻⁶ m</strong></div></div>
+</div>
+</div>
+<div class="note good" style="font-size:25px">✓ <strong>Examiner tip:</strong> convert every quantity to SI units <em>before</em> substituting.</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>12</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Real world and HL extension" data-screen-label="13">
+<div class="eyebrow"><b>05</b> Context</div>
+<h2>Why bass reaches you first through a wall</h2>
+<div class="body">
+<div class="row r-5050" style="flex:1;min-height:0">
+<div class="card" style="height:100%">
+<h3>🎧 Real-world</h3>
+<p>Sound in air travels at about <strong>340 m s⁻¹</strong> whatever its pitch, so v = fλ fixes the wavelength: a 40 Hz bass note is about <strong>8.5 m</strong> long, while a 4 kHz cymbal is about <strong>8.5 cm</strong>.</p>
+<p>Long wavelengths pass around and through obstacles far more easily than short ones — which is why a neighbour's music arrives as bass.</p>
+<div class="note good" style="margin-top:22px;font-size:27px">✓ State the wave equation before substituting, and quote the unit. Marks are given for v = fλ even when the arithmetic slips.</div>
+</div>
+<div class="card" style="height:100%">
+<h3>🚀 HL extension — speed is set by the medium</h3>
+<p>Frequency is set by the <strong>source</strong>; speed is set by the <strong>medium</strong>. When a wave crosses into a new medium its frequency cannot change, so v = fλ forces the <strong>wavelength</strong> to change instead. This is the basis of refraction in C.3.</p>
+<div class="note" style="margin-top:22px;font-size:27px"><strong>Challenge:</strong> a 500 Hz sound wave passes from air (340 m s⁻¹) into water (1500 m s⁻¹). What happens to its wavelength?<br><em>λ rises from 0.68 m to 3.0 m; the frequency stays at 500 Hz.</em></div>
+</div>
+</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>13</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Trap corner" data-screen-label="14">
+<div class="eyebrow"><b>06</b> Trap corner</div>
+<h2>Five mistakes that cost marks</h2>
+<div class="body">
+<div class="card" style="padding:16px 30px">
+<table>
+<thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+<tbody>
+<tr><td class="x">Waves carry matter</td><td>Travelling waves transfer energy from one place to another <em>without</em> transferring matter</td></tr>
+<tr><td class="x">Amplitude is crest to trough</td><td>Amplitude is the <em>maximum</em> displacement from the equilibrium position — half the crest-to-trough height</td></tr>
+<tr><td class="x">One repeat = wavelength</td><td>One repeat is the wavelength only if the x-axis is distance; if the x-axis is time, that repeat is the period</td></tr>
+<tr><td class="x">ms is fine in f = 1/T</td><td>For a frequency in hertz the period must be in seconds — 1 ms gives 1000 Hz, not 1 Hz</td></tr>
+<tr><td class="x">A louder wave travels faster</td><td>Amplitude does not affect the speed; speed is set by the medium, and v = fλ then links f and λ</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>14</b></span></div>
+</section>
+
+<section class="slide divider" data-document-role="page" data-label="Practice check" data-screen-label="15">
+<div class="eyebrow"><b>Check</b> Your turn</div>
+<h1>Practice check</h1>
+<p>Five multiple-choice questions. Answer all five before the solutions slide — no notes.</p>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Practice questions 1 to 3" data-screen-label="16">
+<div class="eyebrow"><b>Q1–3</b> Multiple choice</div>
+<h2 style="margin-bottom:26px">Questions 1 – 3</h2>
+<div class="body">
+<div class="qlist">
+<div class="q"><div class="qt">1. A travelling wave passes a floating cork. Which statement is correct?</div><div class="opts"><span>A The cork is carried along with the wave</span><span>B Energy is transferred past the cork, but matter is not</span><span>C Both energy and matter travel with the wave</span><span>D Neither energy nor matter is transferred</span></div></div>
+<div class="q"><div class="qt">2. A wave has a period of 4.0 ms. Its frequency is:</div><div class="opts"><span>A 0.25 Hz</span><span>B 4.0 Hz</span><span>C 250 Hz</span><span>D 4000 Hz</span></div></div>
+<div class="q" style="padding:20px 28px"><div class="qt" style="margin-bottom:12px">3. Two waves travel through the same medium at the same speed. Wave P has twice the wavelength of wave Q. Therefore:</div><div class="opts"><span>A P has twice the frequency of Q</span><span>B P has half the frequency of Q</span><span>C P and Q have the same frequency</span><span>D P has four times the frequency of Q</span></div></div>
+</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>16</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Practice questions 4 and 5" data-screen-label="17">
+<div class="eyebrow"><b>Q4–5</b> Multiple choice</div>
+<h2>Questions 4 – 5</h2>
+<div class="body">
+<div class="qlist">
+<div class="q"><div class="qt">4. A graph of displacement against distance shows one full repeat every 0.60 m, and the wave has a period of 0.20 s. The wave speed is:</div><div class="opts"><span>A 0.12 m s⁻¹</span><span>B 0.33 m s⁻¹</span><span>C 3.0 m s⁻¹</span><span>D 12 m s⁻¹</span></div></div>
+<div class="q"><div class="qt">5. On a displacement–distance graph, the vertical distance from the equilibrium line to a crest is 6.0 cm. The amplitude of the wave is:</div><div class="opts"><span>A 3.0 cm</span><span>B 6.0 cm</span><span>C 12 cm</span><span>D It cannot be found without the wavelength</span></div></div>
+</div>
+<div class="note">💡 Fill in the blanks: travelling waves transfer ______ without transferring ______. Wavelength is measured from the same point on two ______ waves. Amplitude is the maximum ______ from the equilibrium position.</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>17</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Practice answers" data-screen-label="18">
+<div class="eyebrow"><b>Answers</b> Q1–5</div>
+<h2>Practice check — answers</h2>
+<div class="body">
+<div class="card" style="padding:12px 38px">
+<div class="ans"><b>1 B</b><div>Travelling waves transfer energy from one place to another without transferring matter — the cork oscillates and stays put.</div></div>
+<div class="ans"><b>2 C</b><div>f = 1/T = 1 / (4.0 × 10⁻³ s) = <strong>250 Hz</strong>. The period must be in seconds, not milliseconds.</div></div>
+<div class="ans"><b>3 B</b><div>For constant speed, v = fλ means f is inversely proportional to λ: double the wavelength, half the frequency.</div></div>
+<div class="ans"><b>4 C</b><div>v = λ/T = 0.60 / 0.20 = <strong>3.0 m s⁻¹</strong>.</div></div>
+<div class="ans"><b>5 B</b><div>Amplitude is the maximum displacement from the equilibrium position — the 6.0 cm from the line to the crest, not the crest-to-trough height.</div></div>
+</div>
+<div class="note good" style="font-size:27px">✓ Blanks: energy · matter · consecutive · displacement · hertz · period · lower</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>18</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Exam question: determine the wavelength" data-screen-label="19">
+<div class="eyebrow"><b>Exam</b> Determine · [3 marks]</div>
+<h2>Exam-style question</h2>
+<div class="body">
+<div class="row r-4060" style="flex:1;min-height:0">
+<div style="display:flex;flex-direction:column;gap:24px">
+<div class="card"><p>The wave in the diagram has a speed of <strong>340 m s⁻¹</strong>.</p><p>Determine the wavelength of the wave.</p><p style="font-size:26px;color:var(--mute);font-style:italic">[3 marks]</p></div>
+<div class="note">💡 Start by reading the period off the graph — and mind the millisecond axis.</div>
+</div>
+<div class="fig" style="height:100%"><img src="../assets/lesson-images/c2-01-wave-properties-and-wave-speed-08.png" alt="Displacement against time graph for a sound wave with a period of 2.0 milliseconds"><div class="cap">Fig 8 — Displacement / cm against time / ms.</div></div>
+</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>19</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Exam question: model answer" data-screen-label="20">
+<div class="eyebrow"><b>Exam</b> Model answer</div>
+<h2 style="margin-bottom:24px">Mark scheme</h2>
+<div class="body">
+<div class="card" style="padding:12px 38px">
+<div class="ans"><b>✓</b><div>Read the period from the graph: one complete oscillation takes 2.0 ms, so <strong>T = 2.0 × 10⁻³ s</strong>.</div></div>
+<div class="ans"><b>✓</b><div>f = 1/T = <strong>500 Hz</strong> — or use v = λ/T directly.</div></div>
+<div class="ans"><b>✓</b><div>λ = v/f = 340 / 500 = <strong>0.68 m</strong>.</div></div>
+</div>
+<div class="row r-5050">
+<div class="card"><h3>Also expect: explain questions</h3><p>A loudspeaker emits 40 Hz then 4.0 kHz into the same room. The speed is fixed by the medium, so v = fλ applies with v constant: as f increases, λ decreases — from 340/40 = 8.5 m to 340/4000 = 0.085 m.</p></div>
+<div class="card"><h3>And the amplitude trap</h3><p>Make the 40 Hz note <em>louder</em> and the wavelength is unchanged. Louder means greater amplitude only; amplitude does not appear in v = fλ, and neither the speed nor the frequency has changed.</p></div>
+</div>
+</div>
+<div class="foot"><span>C.2.1 Wave Properties and Wave Speed</span><span><b>20</b></span></div>
+</section>
+
+<section class="slide" data-document-role="page" data-label="Recap" data-screen-label="21">
+<div class="eyebrow"><b>Recap</b> Take these away</div>
+<h2>Six numbers, one equation</h2>
+<div class="body">
+<div class="obj">
+<div><i>λ</i><p><strong>Wavelength</strong> — crest to crest, in metres. Read it off a <em>distance</em> axis.</p></div>
+<div><i>T</i><p><strong>Period</strong> — one full oscillation, in seconds. Read it off a <em>time</em> axis.</p></div>
+<div><i>A</i><p><strong>Amplitude</strong> — maximum displacement from equilibrium, not crest to trough.</p></div>
+<div><i>f</i><p><strong>Frequency</strong> — oscillations per second, in hertz. f = 1/T.</p></div>
+</div>
+<div class="formula"><div class="lab">The one equation to carry forward</div><div class="eq">v = f λ = λ / T</div></div>
+<div class="chips"><span>energy, not matter</span><span>λ = crest to crest</span><span>A = max displacement</span><span>f = 1/T</span><span>SI units before substituting</span><span>check the x-axis</span></div>
+</div>
+<div class="foot"><span>Next: C.2.2 Transverse and Longitudinal Waves</span><span><b>21</b></span></div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,477 @@
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 5 · C.1 Simple Harmonic Motion</div>
+<div class="lc-title">Energy in SHM</div>
+<div class="lc-sub">Every oscillation is a continuous trade between kinetic and potential energy. This lesson tracks that exchange through one cycle, graphs it against time and against displacement, and shows what damping does to it.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the pendulum that never quite comes back</h3>
+  <p>Pull a pendulum aside to position A and hold it there. It has <strong>zero kinetic energy</strong> and its change of gravitational potential energy, measured from the central position C, is at its greatest. Release it: gravity provides the restoring force, and the pendulum exchanges potential energy for kinetic energy as it swings through B to C.</p>
+  <p>At C the kinetic energy is maximum and the change in potential energy has fallen to zero. The pendulum then transfers kinetic energy back to potential energy through D to E. At E, like A, it has zero kinetic energy and a maximum change of potential energy. <strong>The process repeats every half time period.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-03-energy-in-shm-01.png" alt="Swinging pendulum drawn at five positions labelled A to E, with A and E at the extremes and C at the lowest central point">
+    <div class="lc-cap">Fig 1 — A swinging pendulum. A and E are the extremes; C is the equilibrium position. One full cycle is A → C → E → C → A.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — Release a real pendulum from A. Will it reach exactly the same height on the far side? <em>No. In perfect SHM there are no energy losses, so the sum of potential and kinetic energy is constant and it would reach the same maximum height and speed every oscillation. In practice frictional forces dissipate energy, so all the energies progressively decrease.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🔄 The energy exchange, one cycle at a time</h3>
+  <p>When an object that can oscillate is pushed or pulled away from its equilibrium position, <em>against</em> the action of the restoring force, work is done and <strong>potential energy</strong> is stored in the oscillator. A spring stores <strong>elastic potential energy</strong>; a simple pendulum stores <strong>gravitational potential energy</strong>.</p>
+  <p>When the object is released it gains kinetic energy and loses potential energy as the restoring force accelerates it back towards equilibrium. Its kinetic energy has a maximum value as it passes through the equilibrium position and, at the same moment, its potential energy is minimised. As it moves away from equilibrium again, kinetic energy decreases — the restoring force now opposes its motion — and potential energy increases.</p>
+  <div class="lc-info">⚡ <strong>The rule for every mechanical oscillation</strong> — All mechanical oscillations involve a continuous exchange of energy between kinetic energy and some form of potential energy.</div>
+  <table class="lc-table">
+    <thead><tr><th>Position</th><th>Kinetic energy</th><th>Potential energy</th><th>Speed</th></tr></thead>
+    <tbody>
+      <tr><td>Extremes (\(\pm x_0\))</td><td>Zero</td><td>Maximum</td><td>Zero — momentarily at rest</td></tr>
+      <tr><td>Between extreme and centre</td><td>Increasing</td><td>Decreasing</td><td>Increasing</td></tr>
+      <tr><td>Equilibrium (\(x = 0\))</td><td>Maximum</td><td>Minimum (taken as zero)</td><td>Maximum</td></tr>
+    </tbody>
+  </table>
+  <p>For a simple pendulum the potential energy is gravitational (see Topic A.3, where \(\Delta E_{\text{p}}\) was used instead of \(E_{\text{p}}\)):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Pendulum — gravitational potential energy</span>
+    $$E_{\text{p}} = mg\Delta h$$
+  </div>
+  <p>For a mass on a spring the potential energy is elastic (Topic A.3, where the symbol \(E_{\text{H}}\) was used instead of \(E_{\text{p}}\), and \(\Delta x\) instead of \(x\)):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Spring — elastic potential energy at displacement \(x\)</span>
+    $$E_{\text{p}} = \tfrac{1}{2}kx^2$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Its maximum value, at the amplitude</span>
+    $$E_{\text{p,max}} = \tfrac{1}{2}kx_0^{\,2}$$
+  </div>
+  <p>Since that maximum equals the total energy of the oscillation, this shows a general result:</p>
+  <div class="lc-success">✓ <strong>The total energy of an SHM is proportional to its amplitude squared.</strong> Double the amplitude and you need four times the energy.</div>
+  <p>The kinetic energy of the mass is found as in Topic A.3:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Kinetic energy</span>
+    $$E_{\text{k}} = \tfrac{1}{2}mv^2$$
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📉 Energy against time, and energy against displacement</h3>
+  <p>For perfect SHM the potential and kinetic energy curves are mirror images: each rises as the other falls, and their sum — the <strong>total energy</strong> — is a horizontal straight line. Both energy curves complete <strong>two</strong> full cycles for every one oscillation of the mass, because the mass passes through the equilibrium position twice per cycle.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-03-energy-in-shm-02.png" alt="Energy against time graph for perfect SHM showing potential and kinetic energy curves out of phase and a constant horizontal total energy line">
+    <div class="lc-cap">Fig 2 — Energy changes during oscillation of perfect SHM: potential, kinetic and total. Note the total is constant.</div>
+  </div>
+  <p>In more realistic situations the energies of the system decrease over time. <strong>Energy dissipation from an oscillating system is called damping.</strong> The total energy line is then no longer horizontal — it decays, and the peaks of the kinetic and potential curves shrink with it.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-03-energy-in-shm-03.png" alt="Energy against time graph for a practical oscillator showing a decaying total energy curve and shrinking energy oscillations beneath it">
+    <div class="lc-cap">Fig 3 — Energy dissipation in a practical oscillator: the total energy decays and the oscillating energy peaks decay with it.</div>
+  </div>
+  <p>Plotting the same energies against <em>displacement</em> rather than time gives a picture that is often more useful in exams. The potential energy is a parabola with its minimum at \(x = 0\), the kinetic energy is the inverted parabola, and the total energy is again a horizontal line at height \(\tfrac{1}{2}kx_0^{\,2}\). The two curves cross exactly halfway, where kinetic and potential energy are equal.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-03-energy-in-shm-04.png" alt="Energy against displacement graph showing potential energy as an upward parabola, kinetic energy as a downward parabola and total energy as a horizontal line between minus x zero and plus x zero">
+    <div class="lc-cap">Fig 4 — Variation of the energies of a simple harmonic oscillator with displacement, between \(-x_0\) and \(+x_0\).</div>
+  </div>
+  <div class="lc-warn">⚠️ Read the axis before you answer. Against <em>time</em>, both energy curves are sinusoidal at twice the frequency of the motion. Against <em>displacement</em>, they are parabolas and there is no frequency at all.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Energy–time (perfect SHM)</td><td>\(t\) / s, \(E\) / J</td><td>Two sinusoidal curves in antiphase, plus a horizontal total</td><td>Total energy from the flat line; energy cycles at twice the frequency of the motion</td></tr>
+      <tr><td>Energy–time (damped)</td><td>\(t\) / s, \(E\) / J</td><td>Decaying total energy curve, oscillating curves decaying beneath it</td><td>Fractional energy lost per oscillation; ratio of successive peaks</td></tr>
+      <tr><td>Energy–displacement</td><td>\(x\) / m, \(E\) / J</td><td>\(E_{\text{p}}\) upward parabola, \(E_{\text{k}}\) downward parabola, total horizontal</td><td>Total \(= \tfrac{1}{2}kx_0^{\,2}\); the crossing point is where \(E_{\text{k}} = E_{\text{p}}\)</td></tr>
+      <tr><td>Displacement–time</td><td>\(t\) / s, \(x\) / cm</td><td>Sinusoidal</td><td>Amplitude from the peak, period crest-to-crest, then any displacement at a stated time</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-03-energy-in-shm-05.png" alt="Displacement against time graph in centimetres and seconds for a mass oscillating on a spring, amplitude 4 cm and period 0.6 s">
+    <div class="lc-cap">Fig 5 — Motion of a mass oscillating on a spring: displacement / cm against time / s. Read the amplitude from the peaks and the period crest-to-crest, then use it for source question 16.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C1.5 – from maximum kinetic energy to spring constant</h3>
+  <p>A mass oscillating in a mass–spring system has a maximum kinetic energy of 0.047 J. (a) If its maximum speed was 85 cm s⁻¹, determine its mass. (b) State the maximum value of its potential energy. (c) Determine the spring constant if the amplitude of the oscillation was 1.9 cm.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Maximum kinetic energy occurs at the equilibrium position, where the speed is greatest. In perfect SHM the total energy is constant, so the maximum potential energy at the amplitude equals that maximum kinetic energy.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(E_{\text{k,max}} = 0.047\ \text{J}\); \(v = 0.85\ \text{m s}^{-1}\); \(x_0 = 1.9\times10^{-2}\ \text{m}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(E_{\text{k}} = \tfrac{1}{2}mv^2\)<br>\(0.047 = \tfrac{1}{2} \times m \times 0.85^2\)<br>\(m = 0.13\ \text{kg}\)<br>\(E_{\text{p,max}} = \tfrac{1}{2}kx_0^{\,2}\)<br>\(0.047 = \tfrac{1}{2} \times k \times (1.9\times10^{-2})^2\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(m = 0.13\ \text{kg}\). (b) \(E_{\text{p,max}} = 0.047\ \text{J}\) — equal to the maximum kinetic energy, because the total energy is constant. (c) \(k = 2.6 \times 10^{2}\ \text{N m}^{-1}\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c1-03-energy-in-shm-06.png" alt="Mass on a spring drawn at the amplitude and at the equilibrium position, labelled with amplitude 1.9 cm and maximum speed 85 cm per second">
+    <div class="lc-cap">Fig 6 — Geometry for Worked example C1.5: all the energy is potential at \(x_0 = 1.9\) cm and all kinetic at the equilibrium position, where \(v = 85\) cm s⁻¹.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔧 Real-world: why dampers exist</h3>
+    <p>Damping is not always the enemy. A car's shock absorber deliberately dissipates the suspension's oscillation energy so the body settles within about one cycle instead of bouncing for many. Building dampers do the same for earthquake and wind oscillations, and a door closer converts the door's kinetic energy into internal energy of a fluid.</p>
+    <p>The engineering choice is always about <em>how fast</em> the total energy line in Fig 3 should fall.</p>
+    <div class="lc-success">✓ Examiner tip: "describe where the energy has been transferred to" wants named destinations — internal (thermal) energy of the air and of the oscillating system, plus sound — not the word "lost".</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – energy as a function of \(x\)</h3>
+    <p>Combining \(E_{\text{total}} = \tfrac{1}{2}kx_0^{\,2}\) with \(E_{\text{p}} = \tfrac{1}{2}kx^2\) and \(\omega^2 = k/m\) gives the kinetic energy at any displacement:</p>
+    <div class="lc-formula">
+      $$E_{\text{k}} = \tfrac{1}{2}m\omega^2\!\left(x_0^{\,2} - x^2\right)$$
+    </div>
+    <p>which is exactly the downward parabola of Fig 4.<br>
+    <strong>Challenge:</strong> at what displacement is the kinetic energy equal to the potential energy? (Answer: \(\tfrac{1}{2}kx^2 = \tfrac{1}{2}k(x_0^2 - x^2)\), so \(x = x_0/\sqrt{2} \approx 0.71x_0\).)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>The energy curves have the same period as the motion</td><td>Against time they cycle <em>twice</em> per oscillation — the mass reaches maximum speed twice in every cycle</td></tr>
+      <tr><td>Total energy is proportional to the amplitude</td><td>It is proportional to the amplitude <em>squared</em>: \(E_{\text{total}} = \tfrac{1}{2}kx_0^{\,2}\)</td></tr>
+      <tr><td>At the extremes the acceleration is zero because the mass has stopped</td><td>Velocity and kinetic energy are zero there, but potential energy, restoring force and acceleration are all maximum</td></tr>
+      <tr><td>Energy is "lost" in a damped oscillator</td><td>Energy is <em>transferred</em> — dissipated as internal energy of the surroundings and the system, and as sound. The total energy of the universe is unchanged</td></tr>
+      <tr><td>\(E_{\text{p}} = \tfrac{1}{2}kx^2\) works for a pendulum</td><td>For a pendulum use \(E_{\text{p}} = mg\Delta h\); the elastic formula belongs to the spring</td></tr>
+      <tr><td>Energy–displacement curves are sinusoidal</td><td>They are parabolas — sinusoidal shapes only appear on energy–<em>time</em> axes</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: leaving \(x_0\) in centimetres in \(\tfrac{1}{2}kx_0^{\,2}\). Squaring a centimetre value gives an answer 10⁴ times too large — as in Worked example C1.5, where 1.9 cm must become \(1.9\times10^{-2}\) m.</div>
+</div>
+
+<div class="lc-kp">
+  <span>E_p = mgΔh</span>
+  <span>E_p = ½kx²</span>
+  <span>E_p,max = ½kx₀²</span>
+  <span>E_k = ½mv²</span>
+  <span>E_total ∝ x₀²</span>
+  <span>damping</span>
+  <span>E_k = E_p at 0.71x₀</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A mass oscillates with SHM. At the instant it passes through the equilibrium position,</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> kinetic and potential energy are both maximum</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> kinetic energy is maximum and potential energy is minimum</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> potential energy is maximum and kinetic energy is minimum</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> both energies are zero</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. The amplitude of a mass–spring oscillation is doubled. The total energy of the oscillation becomes</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> unchanged</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> twice as large</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> four times as large</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> eight times as large</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A graph of kinetic energy against displacement for SHM is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> a horizontal straight line</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> a sine curve</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> an upward parabola with a minimum at \(x = 0\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> a downward parabola with a maximum at \(x = 0\)</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. An oscillator of period \(T\) is undamped. The period of the variation of its kinetic energy is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> \(2T\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> \(T/2\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> \(T\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> \(T/4\)</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A pendulum bob of mass 0.20 kg is raised 4.0 cm above its lowest point and released. Its maximum speed is closest to</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> 0.28 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> 0.56 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> 0.89 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> 1.8 m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. Damping in an oscillating system</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','A')"><span class="lc-opt-l">A</span> dissipates energy, so the amplitude decreases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','A')"><span class="lc-opt-l">B</span> destroys energy, so the total energy of the universe falls</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','A')"><span class="lc-opt-l">C</span> increases the frequency without changing the amplitude</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','A')"><span class="lc-opt-l">D</span> converts potential energy into kinetic energy only</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    All mechanical oscillations involve a continuous exchange of energy between kinetic energy and some form of <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:150px"> energy. Kinetic energy is maximum at the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:170px"> position. The total energy of an SHM is proportional to the amplitude <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px">. Energy dissipation from an oscillating system is called <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:120px">. Against displacement, the potential energy graph is a <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:120px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 13 · Calculate</div>
+  <div class="lc-exam-q">An oscillator moves with SHM and has a time period of 2.34 s. How far must it be displaced from its equilibrium position in order that its acceleration is 1.00 m s⁻²? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\omega = 2\pi/T = 2\pi/2.34\)<br>\(= 2.69\ \text{rad s}^{-1}\)<br>✓ \(a = -\omega^2 x\), so \(x = a/\omega^2\)<br>✓ \(x = 1.00/2.69^2 = 0.139\ \text{m}\) (13.9 cm from equilibrium)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 14 · Calculate</div>
+  <div class="lc-exam-q">During SHM a mass moves with an acceleration of 3.4 m s⁻² when its displacement is 4.0 cm. Calculate its (a) angular frequency (b) time period. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\omega^2 = a/x = 3.4/0.040\)<br>\(= 85\ \text{s}^{-2}\)<br>✓ \(\omega = 9.2\ \text{rad s}^{-1}\)<br>✓ (b) \(T = 2\pi/\omega = 2\pi/9.22\)<br>✓ \(= 0.68\ \text{s}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 15 · Determine / State</div>
+  <div class="lc-exam-q">A mass oscillating on a spring performs exactly 20 oscillations in 15.8 s. (a) Determine its acceleration when it is displaced 62.3 mm from its equilibrium position. (b) State any assumption that you made when answering (a). <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(T = 15.8/20 = 0.790\ \text{s}\)<br>✓ \(\omega = 2\pi/0.790 = 7.95\ \text{rad s}^{-1}\)<br>✓ \(a = -\omega^2 x = -63.2 \times 0.0623\)<br>\(= -3.9\ \text{m s}^{-2}\) (3.9 m s⁻² directed back towards equilibrium)<br>✓ (b) That the motion is simple harmonic — the spring obeys Hooke's law and is not overstretched, and damping is negligible so the period is the same for every oscillation</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 16 · Determine</div>
+  <div class="lc-exam-q">Look at the graph in Fig 5, which shows the motion of a mass oscillating on a spring. Determine (a) the amplitude (b) the time period (c) the displacement after 0.15 s (d) the displacement after 1.4 s. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Amplitude = peak displacement = <strong>4.0 cm</strong><br>✓ (b) One complete cycle crest-to-crest = <strong>0.60 s</strong><br>✓ (c) 0.15 s is a quarter of a period after the start, so the mass is at its first peak: \(x = +4.0\ \text{cm}\)<br>✓ (d) \(1.4/0.60 = 2.33\) periods, so the motion is one-third of a cycle past a whole number of cycles<br>✓ \(x = 4.0\sin(120°) = +3.5\ \text{cm}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 17 · Sketch</div>
+  <div class="lc-exam-q">(a) Sketch a displacement–time graph showing two complete oscillations for a simple harmonic oscillator which has a time period of 2.0 s and an amplitude of 5.0 cm. (b) Add to the same axes the graph of an oscillator which has twice the frequency and the same amplitude. (c) Add to the same axes the graph of an oscillator that has an amplitude of 2.5 cm and the same frequency as the first but which is ¼ of an oscillation out of phase with it. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Axes labelled "Displacement / cm" (−5.0 to +5.0) and "Time / s" (0 to 4.0)<br>✓ A sine curve of peak 5.0 cm with crests 2.0 s apart, drawn for two full cycles (4.0 s)<br>✓ (b) A second sine curve, same peak 5.0 cm, but crests 1.0 s apart — four cycles in the same 4.0 s<br>✓ (c) A third curve of peak 2.5 cm<br>✓ with the same 2.0 s period as the first<br>✓ shifted along the time axis by 0.50 s (a phase difference of \(\pi/2\) rad)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 18 · Sketch</div>
+  <div class="lc-exam-q">(a) Sketch a velocity–time graph showing two complete oscillations for a simple harmonic oscillator which has a frequency of 4 Hz and a maximum speed of 4.0 cm s⁻¹. (b) On the same axes sketch graphs to show the variation of (i) displacement (ii) acceleration for the same oscillation. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(T = 1/f = 0.25\ \text{s}\), so two oscillations occupy 0.50 s<br>✓ Velocity axis from −4.0 to +4.0 cm s⁻¹, a cosine curve starting at \(+4.0\) cm s⁻¹ with crests 0.25 s apart<br>✓ (b i) Displacement: sinusoidal, starting at zero, lagging the velocity by \(T/4 = 0.0625\ \text{s}\) — a phase difference of \(\pi/2\) rad<br>✓ peaking where the velocity curve crosses zero<br>✓ (b ii) Acceleration: sinusoidal, in antiphase with displacement (\(\pi\) rad), zero where the displacement is zero<br>✓ Amplitudes of the three curves are arbitrary and should not be compared</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 19 · Calculate / Sketch</div>
+  <div class="lc-exam-q">A simple pendulum, of mass 100 g, is released from rest at its maximum displacement, which is 5.0 cm higher than its central position. It then swings with SHM and a frequency of 1.25 Hz. (a) Calculate its maximum potential energy. (b) Sketch a graph with fully labelled axes to show the variations in potential energy of the pendulum in the first 1.6 s after it was released. (c) Determine the maximum speed of the pendulum. <span class="lc-exam-marks">[7 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(E_{\text{p}} = mg\Delta h\)<br>\(= 0.100 \times 9.8 \times 0.050\)<br>✓ \(= 0.049\ \text{J}\)<br>✓ (b) \(T = 1/1.25 = 0.80\ \text{s}\), so 1.6 s contains two complete oscillations<br>✓ Axes "Potential energy / J" (0 to 0.049) and "Time / s" (0 to 1.6); curve starts at the maximum 0.049 J at \(t = 0\)<br>✓ falls to zero at 0.20 s and returns to 0.049 J at 0.40 s — four complete energy cycles in 1.6 s, never negative<br>✓ (c) Maximum kinetic energy = maximum potential energy = 0.049 J<br>✓ \(v = \sqrt{2E_{\text{k}}/m} = \sqrt{2\times0.049/0.100}\)<br>\(= 0.99\ \text{m s}^{-1}\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Source question 20 · Describe / State / Analyse</div>
+  <div class="lc-exam-q">The total energy seen in Fig 3 shows a nearly 90% decrease in six oscillations. (a) Describe where this energy has been transferred to. (b) If the oscillating mass was passing through its equilibrium position at time \(t = 0\), state what kind of energy is represented by the line that starts at a maximum. (c) It is suggested that the total energy decreases to the same fraction each oscillation. Analyse data from the graph to check if this is true. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Work is done against resistive forces, so energy is transferred to the internal (thermal) energy of the surrounding air and of the oscillating system itself<br>✓ and a small amount is transferred away as sound<br>✓ (b) At \(t = 0\) the mass is at the equilibrium position, where its speed is greatest — so the line starting at a maximum is <strong>kinetic energy</strong><br>✓ (c) Read the total energy at the end of each successive oscillation and calculate the ratio of each value to the one before<br>✓ If those ratios are equal, the decay is by a constant fraction (exponential); a 90% overall fall in six oscillations corresponds to a ratio of \(0.10^{1/6} \approx 0.68\), i.e. about 32% lost per oscillation<br>✓ A straight line on a graph of \(\ln(\text{total energy})\) against number of oscillations confirms it</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">A mass on a spring oscillates with SHM. (a) Explain, in terms of forces and energy, why the kinetic energy is maximum at the equilibrium position. (b) State and explain the relationship between the total energy of the oscillation and its amplitude. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Moving from the extreme towards equilibrium, the restoring force acts in the direction of motion<br>✓ so it does work on the mass, transferring stored elastic potential energy to kinetic energy<br>✓ at the equilibrium position the displacement, and so the stored potential energy, is zero, so all of the (constant) total energy is kinetic<br>✓ (b) \(E_{\text{total}} = \tfrac{1}{2}kx_0^{\,2}\), so the total energy is proportional to the square of the amplitude<br>✓ because the elastic potential energy stored at maximum displacement depends on \(x_0^2\)<br>✓ so doubling the amplitude requires four times the energy input</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch / Compare</div>
+  <div class="lc-exam-q">(a) Sketch, on one set of axes, graphs of kinetic energy, potential energy and total energy against displacement for an undamped oscillator of amplitude \(x_0\). (b) Compare these curves with the corresponding graphs plotted against time. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Axes "Energy / J" against "Displacement, \(x\)" from \(-x_0\) to \(+x_0\)<br>✓ Potential energy: upward parabola, zero at \(x = 0\), rising to the total energy at \(\pm x_0\)<br>✓ Kinetic energy: the inverted parabola, maximum at \(x = 0\), zero at \(\pm x_0\)<br>✓ Total energy: horizontal line at \(\tfrac{1}{2}kx_0^{\,2}\); the two curves cross at \(x = \pm x_0/\sqrt{2}\)<br>✓ (b) Against time both energies are sinusoidal rather than parabolic<br>✓ and each completes two cycles per oscillation of the mass, while the total energy is again a horizontal line</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss</div>
+  <div class="lc-exam-q">Discuss how the energy graphs of a real oscillator differ from those of a perfect simple harmonic oscillator, and identify one situation in which the difference is deliberately engineered. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ For perfect SHM the total energy line is horizontal and the amplitude is constant, because there are no resistive forces<br>✓ For a real oscillator resistive forces dissipate energy — damping — so the total energy decays and the peaks of the kinetic and potential curves shrink with it<br>✓ The frequency stays essentially unchanged while the amplitude falls<br>✓ Deliberate damping example: a car's shock absorber dissipates the suspension energy within about one cycle, keeping the tyres on the road (also acceptable: building dampers, door closers, measuring-balance damping)</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { B: 'At x = 0 the displacement, and so the stored potential energy, is zero, and the speed is greatest — all of the constant total energy is kinetic.' },
+    mcq2: { C: 'E_total = ½kx₀², so energy is proportional to amplitude squared: doubling x₀ gives four times the energy.' },
+    mcq3: { D: 'Kinetic energy is greatest at the equilibrium position and zero at ±x₀, giving an inverted parabola.' },
+    mcq4: { B: 'The mass passes through equilibrium twice per cycle, so the kinetic energy peaks twice per oscillation — its period is T/2.' },
+    mcq5: { C: 'E_p = mgΔh = 0.20 × 9.8 × 0.040 = 0.078 J; v = √(2E/m) = √(2 × 0.078/0.20) = 0.89 m s⁻¹.' },
+    mcq6: { A: 'Damping is dissipation of energy by resistive forces: the amplitude falls. Energy is transferred, not destroyed.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'potential', lf2:'equilibrium', lf3:'squared', lf4:'damping', lf5:'parabola' };
+    let correct = 0;
+    const total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val.length > 0 && (val === ans[id] || val.includes(ans[id]));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: potential · equilibrium · squared · damping · parabola';
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>

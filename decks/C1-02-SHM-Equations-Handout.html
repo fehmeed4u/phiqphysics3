@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C.1 Lesson 2 — SHM Equations — Student Handout</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{font-family:Inter,sans-serif;color:#1C1917}
+h1,h2{font-family:'Playfair Display',serif;letter-spacing:-.015em;line-height:1.15}
+h1{font-size:23pt;margin:0 0 2pt}
+.sub{font-size:10.5pt;color:#57534E;margin:0 0 16pt}
+h2{font-size:13pt;margin:20pt 0 8pt;padding-bottom:4pt;border-bottom:1px solid #D6CEBF}
+h2 .n{font-family:'JetBrains Mono',monospace;font-size:9.5pt;color:#2563EB;letter-spacing:.08em;display:block;margin-bottom:3pt}
+p,li,td{font-size:11pt;line-height:1.5;color:#292524}
+.q{margin:0 0 11pt;break-inside:avoid}
+.q>p{margin:0 0 4pt;font-weight:500}
+.qhead{display:flex;align-items:flex-start;gap:10pt}
+.qhead p{flex:1}
+.box{flex:none;width:26pt;height:26pt;border:1.2pt solid #2563EB;border-radius:4px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1.5pt}
+.box span{font-family:'JetBrains Mono',monospace;font-size:6pt;letter-spacing:.04em;color:#78716C}
+.opts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2pt 14pt}
+.opts li{font-size:10.5pt;color:#44403C}
+.opts .l{font-family:'JetBrains Mono',monospace;color:#78716C;margin-right:5pt;display:inline-flex;align-items:center;justify-content:center;width:12pt;height:12pt;border:.8pt solid #B8AF9E;border-radius:50%;font-size:8pt}
+.mono{font-family:'JetBrains Mono',monospace}
+.rule{border-bottom:1px solid #D6CEBF;height:20pt}
+.lines{display:grid;gap:0;margin-top:6pt}
+.exam{border:1px solid #2563EB;border-radius:8px;padding:12pt 14pt;break-inside:avoid}
+.exam .marks{font-size:9.5pt;font-style:italic;color:#78716C}
+.meta{display:flex;gap:22pt;font-size:10pt;color:#57534E;border-top:1px solid #D6CEBF;border-bottom:1px solid #D6CEBF;padding:7pt 0;margin-bottom:14pt}
+.meta span{flex:1}
+.key{break-before:page}
+.key table{width:100%;border-collapse:collapse;margin-bottom:12pt}
+.key th{font-size:8.5pt;text-transform:uppercase;letter-spacing:.07em;color:#78716C;text-align:left;padding:5pt 6pt;border-bottom:1px solid #D6CEBF}
+.key td{font-size:10pt;padding:5pt 6pt;border-bottom:1px solid #E7E1D6;vertical-align:top}
+.key td:first-child{font-family:'JetBrains Mono',monospace;color:#2563EB;white-space:nowrap}
+.tick{color:#0F8A5F}
+a{color:#2563EB}a:hover{color:#6D28D9}
+</style>
+</head>
+<body>
+<doc-page size="a4" margin="0.7in">
+<h1>SHM Equations</h1>
+<p class="sub">C.1 Simple Harmonic Motion · Lesson 2 of 5 · SL / HL · student answer sheet</p>
+<div class="meta"><span>Name</span><span>Class</span><span>Date</span></div>
+
+<h2><span class="n">STARTER</span>Retrieval — five questions on prior knowledge</h2>
+<div class="q"><div class="qhead"><p>1. Which statement defines simple harmonic motion?</p><div class="box"><span>ANS</span></div></div><ul class="opts" style="grid-template-columns:1fr"><li><span class="l">A</span>The velocity is proportional to the displacement and in the same direction</li><li><span class="l">B</span>The acceleration is constant and directed towards the equilibrium position</li><li><span class="l">C</span>The acceleration is proportional to the displacement and in the opposite direction</li><li><span class="l">D</span>The period is proportional to the amplitude of the oscillation</li></ul></div>
+<div class="q"><div class="qhead"><p>2. A mass on a spring oscillates with period T. The mass is replaced by one four times larger, on the same spring. The new period is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>T/2</li><li><span class="l">B</span>2T</li><li><span class="l">C</span>4T</li><li><span class="l">D</span>16T</li></ul></div>
+<div class="q"><div class="qhead"><p>3. A particle in SHM is at maximum displacement. At that instant</p><div class="box"><span>ANS</span></div></div><ul class="opts" style="grid-template-columns:1fr"><li><span class="l">A</span>velocity and acceleration are both maximum</li><li><span class="l">B</span>velocity and acceleration are both zero</li><li><span class="l">C</span>velocity is maximum and acceleration is zero</li><li><span class="l">D</span>velocity is zero and acceleration is maximum</li></ul></div>
+<div class="q"><div class="qhead"><p>4. A simple pendulum and a mass–spring system are both taken to the Moon. Compared with on Earth, their periods</p><div class="box"><span>ANS</span></div></div><ul class="opts" style="grid-template-columns:1fr"><li><span class="l">A</span>pendulum increases, mass–spring unchanged</li><li><span class="l">B</span>pendulum unchanged, mass–spring increases</li><li><span class="l">C</span>both increase</li><li><span class="l">D</span>both unchanged</li></ul></div>
+<div class="q"><div class="qhead"><p>5. The phase difference between the displacement and the acceleration of a particle in SHM is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>0</li><li><span class="l">B</span>π/2 rad</li><li><span class="l">C</span>π rad</li><li><span class="l">D</span>2π rad</li></ul></div>
+
+<h2><span class="n">CHECK 1</span>Angular frequency and displacement</h2>
+<div class="q"><div class="qhead"><p>1. A particle undergoes SHM described by x = 0.05 cos(4πt). What is the angular frequency and period?</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>ω = 4π rad s⁻¹, T = 4π s</li><li><span class="l">B</span>ω = 4π rad s⁻¹, T = 0.50 s</li><li><span class="l">C</span>ω = 2π rad s⁻¹, T = 1.0 s</li><li><span class="l">D</span>ω = 4π rad s⁻¹, T = 2.0 s</li></ul></div>
+<div class="q"><div class="qhead"><p>2. A particle undergoes SHM starting at its mean position (x = 0 at t = 0). Which equation correctly describes its displacement?</p><div class="box"><span>ANS</span></div></div><ul class="opts" style="grid-template-columns:1fr"><li><span class="l">A</span>x = x₀ cos(ωt)</li><li><span class="l">B</span>x = x₀ sin(ωt)</li><li><span class="l">C</span>x = x₀ tan(ωt)</li><li><span class="l">D</span>x = x₀ cos(ωt) + x₀</li></ul></div>
+<div class="q"><div class="qhead"><p>3. For a particle with x = x₀ cos(ωt), the displacement at t = 0 is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>zero</li><li><span class="l">B</span>x₀</li><li><span class="l">C</span>−x₀</li><li><span class="l">D</span>ωx₀</li></ul></div>
+<div class="q"><div class="qhead"><p>4. A particle has x = 0.020 cos(10t). Its period is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>0.10 s</li><li><span class="l">B</span>0.63 s</li><li><span class="l">C</span>1.6 s</li><li><span class="l">D</span>0.31 s</li></ul></div>
+
+<h2><span class="n">CHECK 2</span>Velocity, acceleration and phase</h2>
+<div class="q"><div class="qhead"><p>1. In SHM, when is the velocity zero?</p><div class="box"><span>ANS</span></div></div><ul class="opts" style="grid-template-columns:1fr"><li><span class="l">A</span>At the mean position only</li><li><span class="l">B</span>When acceleration is zero</li><li><span class="l">C</span>At the extreme positions (x = ±x₀)</li><li><span class="l">D</span>Velocity is never zero in SHM</li></ul></div>
+<div class="q"><div class="qhead"><p>2. The phase difference between velocity and acceleration in SHM is:</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>0 (in phase)</li><li><span class="l">B</span>π/2 rad (quarter cycle)</li><li><span class="l">C</span>π rad (antiphase)</li><li><span class="l">D</span>2π rad (full cycle)</li></ul></div>
+<div class="q"><div class="qhead"><p>3. For x = x₀ sin(ωt), the velocity is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>v = ωx₀ sin(ωt)</li><li><span class="l">B</span>v = −ωx₀ sin(ωt)</li><li><span class="l">C</span>v = ωx₀ cos(ωt)</li><li><span class="l">D</span>v = −ωx₀ cos(ωt)</li></ul></div>
+<div class="q"><div class="qhead"><p>4. A particle undergoes SHM with x = 0.10 sin(5.0t). What is its maximum speed?</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>0.10 m s⁻¹</li><li><span class="l">B</span>0.50 m s⁻¹</li><li><span class="l">C</span>2.5 m s⁻¹</li><li><span class="l">D</span>5.0 m s⁻¹</li></ul></div>
+
+<h2><span class="n">CHECK 3</span>Velocity without time</h2>
+<div class="q"><div class="qhead"><p>1. For a particle in SHM, which correctly gives the speed at x = x₀/2?</p><div class="box"><span>ANS</span></div></div><ul class="opts" style="grid-template-columns:1fr"><li><span class="l">A</span>v = ωx₀/2</li><li><span class="l">B</span>v = ωx₀/4</li><li><span class="l">C</span>v = ωx₀√3/2 ≈ 0.866 ωx₀</li><li><span class="l">D</span>v = ωx₀√2/2 ≈ 0.707 ωx₀</li></ul></div>
+<div class="q"><div class="qhead"><p>2. The speed of a particle in SHM at the equilibrium position (x = 0) is</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>ω²x₀</li><li><span class="l">B</span>ωx₀</li><li><span class="l">C</span>x₀/ω</li><li><span class="l">D</span>ω/x₀</li></ul></div>
+<div class="q"><div class="qhead"><p>3. A particle oscillates in SHM with amplitude 0.040 m and frequency 3.0 Hz. Its maximum acceleration is closest to</p><div class="box"><span>ANS</span></div></div><ul class="opts"><li><span class="l">A</span>0.75 m s⁻²</li><li><span class="l">B</span>3.6 m s⁻²</li><li><span class="l">C</span>14 m s⁻²</li><li><span class="l">D</span>3.6 × 10² m s⁻²</li></ul></div>
+<div class="q"><div class="qhead"><p>4. A particle in SHM passes through x = +0.020 m twice in every cycle — once moving right, once moving left. Its speed at those two instants is</p><div class="box"><span>ANS</span></div></div><ul class="opts" style="grid-template-columns:1fr"><li><span class="l">A</span>different, because velocity is a vector</li><li><span class="l">B</span>the same, since v = ±ω√(x₀² − x²) gives equal magnitude</li><li><span class="l">C</span>zero, since it's not at an extreme</li><li><span class="l">D</span>undefined without knowing the initial phase</li></ul></div>
+
+<h2><span class="n">WRAP-UP</span>Exam-style question</h2>
+<div class="exam">
+<p>A particle of mass 0.200 kg undergoes SHM with amplitude 0.060 m and period 0.80 s. (i) Calculate the angular frequency ω. (ii) Write an expression for the displacement as a function of time if the particle starts at x = +x₀ at t = 0. (iii) Calculate the maximum speed and the maximum acceleration. (iv) Calculate the speed when the displacement is 0.040 m.</p>
+<p class="marks">[6 marks]</p>
+</div>
+<div class="lines"><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div><div class="rule"></div></div>
+
+<div class="key">
+<h1>Answer key — teacher copy</h1>
+<p class="sub">C.1 Lesson 2 · SHM Equations</p>
+<h2><span class="n">MULTIPLE CHOICE</span>Answers and the reasoning to hear back</h2>
+<table><thead><tr><th>Q</th><th>Ans</th><th>Reasoning to hear from the class</th></tr></thead><tbody>
+<tr><td>S1</td><td>C</td><td>SHM is defined by a ∝ −x, written a = −ω²x</td></tr>
+<tr><td>S2</td><td>B</td><td>T ∝ √m, so ×4 mass gives ×2 period</td></tr>
+<tr><td>S3</td><td>D</td><td>At ±x₀, v = 0 but the restoring force and acceleration are greatest</td></tr>
+<tr><td>S4</td><td>A</td><td>Pendulum depends on g; mass–spring depends only on m and k</td></tr>
+<tr><td>S5</td><td>C</td><td>Acceleration is always opposite in sign to displacement — antiphase, π rad</td></tr>
+<tr><td>1.1</td><td>B</td><td>ω = 4π from the equation; T = 2π/ω = 0.50 s</td></tr>
+<tr><td>1.2</td><td>B</td><td>sin(0) = 0, so x₀sin(ωt) starts at the mean position</td></tr>
+<tr><td>1.3</td><td>B</td><td>cos(0) = 1, so x = x₀cos(0) = x₀</td></tr>
+<tr><td>1.4</td><td>B</td><td>T = 2π/ω = 2π/10 = 0.63 s</td></tr>
+<tr><td>2.1</td><td>C</td><td>At x = ±x₀ the object momentarily stops before reversing</td></tr>
+<tr><td>2.2</td><td>B</td><td>Velocity leads x by π/2; acceleration leads velocity by another π/2</td></tr>
+<tr><td>2.3</td><td>C</td><td>d/dt of x₀sin(ωt) is ωx₀cos(ωt)</td></tr>
+<tr><td>2.4</td><td>B</td><td>v<sub>max</sub> = ωx₀ = 5.0 × 0.10 = 0.50 m s⁻¹</td></tr>
+<tr><td>3.1</td><td>C</td><td>v = ω√(x₀² − (x₀/2)²) = ωx₀√3/2</td></tr>
+<tr><td>3.2</td><td>B</td><td>v = ω√(x₀² − 0²) = ωx₀, the maximum speed</td></tr>
+<tr><td>3.3</td><td>C</td><td>ω = 2π×3.0 = 18.85; a<sub>max</sub> = ω²x₀ = 14.2 m s⁻²</td></tr>
+<tr><td>3.4</td><td>B</td><td>The ± flips direction only; the magnitude ω√(x₀² − x²) is fixed by x alone</td></tr>
+</tbody></table>
+<h2><span class="n">WRAP-UP</span>Mark scheme [6]</h2>
+<p><span class="tick">✓</span> (i) ω = 2π/T = 2π/0.80 = 7.85 rad s⁻¹</p>
+<p><span class="tick">✓</span> (ii) x = 0.060 cos(7.85t) [accept x = 0.060 cos(2πt/0.80)]</p>
+<p><span class="tick">✓</span> (iii) v<sub>max</sub> = ωx₀ = 7.85 × 0.060 = 0.471 m s⁻¹</p>
+<p><span class="tick">✓</span> (iii) a<sub>max</sub> = ω²x₀ = (7.85)² × 0.060 = 3.70 m s⁻²</p>
+<p><span class="tick">✓</span> (iv) v = ω√(x₀² − x²) = 7.85 × √(0.0036 − 0.0016) = 7.85 × 0.0447</p>
+<p><span class="tick">✓</span> (iv) = 0.351 m s⁻¹</p>
+<p style="margin-top:10pt;color:#57534E;font-size:10pt">Common zero-scoring answer: quoting v<sub>max</sub> and a<sub>max</sub> with no working shown — substitution steps carry marks independently of the final numbers.</p>
+</div>
+</doc-page>
+<script src="doc-page.js"></script>
+</body>
+</html>

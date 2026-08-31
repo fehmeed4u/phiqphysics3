@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C.3 — Principle of Superposition · φQ Physics IB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ── SITE THEME TOKENS ── */
+:root {
+  --bg:         #f8f7f5;
+  --surface:    #ffffff;
+  --surface2:   #f2f1ef;
+  --surface3:   #e8e6e2;
+  --border:     #e0ddd8;
+  --border-2:   #c8c3bb;
+  --text:       #1a1916;
+  --text-2:     #3d3a35;
+  --text-muted: #7a7570;
+  --accent:     oklch(52% 0.18 255);
+  --accent-dim: oklch(96% 0.04 255);
+  --gold:       oklch(62% 0.15 80);
+  --gold-dim:   oklch(97% 0.04 80);
+  --green:      oklch(52% 0.15 155);
+  --green-dim:  oklch(96% 0.04 155);
+  --red:        oklch(52% 0.18 25);
+  --red-dim:    oklch(96% 0.05 25);
+  --radius:     8px;
+  --font-sans:  'Inter', sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-mono:  'JetBrains Mono', monospace;
+}
+[data-theme="dark"] {
+  --bg:         #141412;
+  --surface:    #1e1d1b;
+  --surface2:   #252422;
+  --surface3:   #2e2c29;
+  --border:     #353330;
+  --border-2:   #4a4744;
+  --text:       #f0ede8;
+  --text-2:     #c8c4bc;
+  --text-muted: #807b74;
+  --accent:     oklch(65% 0.18 255);
+  --accent-dim: oklch(20% 0.06 255);
+  --gold:       oklch(72% 0.15 80);
+  --gold-dim:   oklch(18% 0.05 80);
+  --green:      oklch(65% 0.15 155);
+  --green-dim:  oklch(18% 0.05 155);
+  --red:        oklch(65% 0.18 25);
+  --red-dim:    oklch(18% 0.06 25);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.25s, color 0.25s;
+}
+.theme-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.6rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem; color: var(--text-muted);
+}
+.site-brand { font-weight: 700; color: var(--accent); font-size: 0.9rem; }
+.theme-toggle {
+  display: flex; align-items: center; gap: 8px;
+  padding: 0.3rem 0.8rem; border: 1px solid var(--border);
+  border-radius: 100px; background: var(--surface);
+  color: var(--text-muted); cursor: pointer;
+  font-size: 0.78rem; font-family: var(--font-sans);
+  transition: all 0.15s;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.page-wrap { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+</style>
+</head>
+<body>
+
+<div class="theme-bar">
+  <span class="site-brand">φQ Physics IB</span>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light mode</button>
+</div>
+
+<div class="page-wrap">
+
+<!-- ═══════════════════════════════════════════════════════
+     LESSON SNIPPET — pasted verbatim from the generator
+════════════════════════════════════════════════════════ -->
+
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.75rem 1.1rem;margin:0.75rem 0;
+  font-family:var(--font-mono);font-size:1.05rem;
+  color:var(--accent);text-align:center; }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+
+/* Slider lab styles */
+.lc-slider-lab { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem; }
+.lc-slider-lab h4 { font-size:0.95rem;font-weight:600;margin:0 0 0.5rem 0;color:var(--accent);}
+.lc-slider-lab canvas { width:100%; height:auto; background:var(--surface); border-radius:8px; margin-top:0.5rem; border:1px solid var(--border);}
+.lc-slider-lab input[type=range] { width:100%; margin:0.5rem 0; accent-color: var(--accent); }
+.lc-slider-lab .lc-slider-value { font-family:var(--font-mono); font-size:0.85rem; text-align:center; color:var(--text-2); }
+</style>
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 12 · C.3 Wave Phenomena</div>
+<div class="lc-title">Principle of Superposition</div>
+<div class="lc-sub">When two waves meet, they add together – then continue unchanged. This simple rule explains interference, standing waves, and even noise‑cancelling headphones.</div>
+
+<!-- HOOK & DIAGNOSTIC -->
+<div class="lc-card">
+  <h3>🎯 Hook – The Slinky® surprise</h3>
+  <p>Watch two pulses on a Slinky® approach each other. When they meet, the rope briefly shows a much larger bump – then each pulse continues as if nothing happened. <strong>They don't bounce or destroy each other; they simply add.</strong></p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/8k94Mjbq/image.png" alt="Two positive pulses on a rope moving toward each other before, during and after overlap">
+    <div class="lc-cap">Fig B — Two identical pulses pass through each other. At the moment of overlap (middle), the resultant displacement is the sum of the two.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — What does the rope look like when a positive peak meets a negative trough of the same size? <em>(Answer: flat line – perfect cancellation, but only at that instant.)</em></div>
+</div>
+
+<!-- CORE KNOWLEDGE -->
+<div class="lc-card">
+  <h3>📐 The Principle of Superposition</h3>
+  <p>When two or more waves overlap at the same point in space and time, the <strong>resultant displacement</strong> is the <strong>vector sum</strong> of the individual displacements.</p>
+  <div class="lc-formula">s<sub>resultant</sub> = s<sub>1</sub> + s<sub>2</sub> + ... + s<sub>n</sub></div>
+  <p><strong>Constructive interference</strong> – waves 'in step' (phase difference 0°, 360°, …). Peaks align → A<sub>R</sub> = A<sub>1</sub> + A<sub>2</sub> (bigger wave).<br>
+  <strong>Destructive interference</strong> – waves 'out of step' (phase difference 180°, 540°, …). Peak meets trough → A<sub>R</sub> = |A<sub>1</sub> – A<sub>2</sub>| (smaller wave).</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/9QjrGpT2/image.png" alt="Two sine waves overlapping and their sum">
+    <div class="lc-cap">Fig A — Top: wave 1, middle: wave 2, bottom: resultant sum (superposition).</div>
+  </div>
+  <div class="lc-formula">Δφ = 2π · (Δx / λ) &nbsp;&nbsp; A<sub>R</sub> = 2A cos(Δφ/2) (for identical amplitudes)</div>
+</div>
+
+<!-- INTERACTIVE SLIDER LAB 1: Phase difference -->
+<div class="lc-slider-lab">
+  <h4>🔬 Interactive lab 1 – Phase difference explorer</h4>
+  <p style="font-size:0.86rem;color:var(--text-2);margin-bottom:0.25rem">Drag the slider to change the phase difference (Δφ) between two identical sine waves. Watch how the resultant amplitude changes.</p>
+  <canvas id="phaseCanvas" width="600" height="220"></canvas>
+  <input type="range" id="phaseSlider" min="0" max="360" value="0" step="1">
+  <div class="lc-slider-value">Phase difference Δφ = <span id="phaseValue">0</span>° &nbsp;|&nbsp; Resultant amplitude A<sub>R</sub> = <span id="ARvalue">2.00</span> · A</div>
+  <div class="lc-info" style="margin-top:0.5rem">💡 <strong>What to notice:</strong> At 0° → A<sub>R</sub> = 2A (constructive). At 180° → A<sub>R</sub> = 0 (destructive). At 120° → A<sub>R</sub> = 1.0A. Verify with A<sub>R</sub> = 2A cos(Δφ/2).</div>
+</div>
+
+<!-- INTERACTIVE SLIDER LAB 2: Two pulses collision -->
+<div class="lc-slider-lab">
+  <h4>🔬 Interactive lab 2 – Pulse collision (time slider)</h4>
+  <p style="font-size:0.86rem;color:var(--text-2);margin-bottom:0.25rem">Two identical positive triangular pulses move toward each other. Slide time from -1 (before meeting) to +1 (after passing). The <strong>resultant</strong> shows their sum.</p>
+  <canvas id="pulseCanvas" width="600" height="180"></canvas>
+  <input type="range" id="timeSlider" min="-1" max="1" value="-1" step="0.02">
+  <div class="lc-slider-value">Time = <span id="timeValue">-1.00</span> &nbsp; (t&lt;0 → approaching; t=0 → centred overlap)</div>
+  <div class="lc-info" style="margin-top:0.5rem">💡 <strong>What to notice:</strong> At t=0 the resultant is double the height, but as time moves forward the pulses separate unchanged. Superposition is <em>addition</em>, not an interaction.</div>
+</div>
+
+<!-- GRAPHICAL MASTERY TABLE -->
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Amplitude vs phase diff</td><td>Δφ (rad) vs A<sub>R</sub>/2A</td><td>|cos(Δφ/2)| (rectified cosine)</td><td>Maxima at 0, π, 2π; zeros at π/2, 3π/2</td></tr>
+      <tr><td>Beats</td><td>Time (s) vs Amplitude (m)</td><td>High‑frequency wave inside slow envelope</td><td>Beat period = distance between two envelope zeros</td></tr>
+      <tr><td>Standing wave snapshots</td><td>Position (m) vs Displacement (m)</td><td>Alternating: flat → max → flat → -max</td><td>Nodes always zero; antinodes oscillate ±max</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="https://i.postimg.cc/MpD1PTyH/image.png" alt="Graph of amplitude ratio vs phase difference"><div class="lc-cap">Fig E — Amplitude vs phase difference (full‑wave rectified cosine).</div></div>
+    <div class="lc-img"><img src="https://i.postimg.cc/ncKmrzS3/image.png" alt="Beats graph: high frequency inside envelope"><div class="lc-cap">Fig F — Beats: envelope period gives beat frequency.</div></div>
+  </div>
+</div>
+
+<!-- WORKED EXAMPLE -->
+<div class="lc-card">
+  <h3>✍️ Worked example – Two‑speaker interference</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Path difference → interference type. Use v = fλ.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> f = 343 Hz, v = 343 m/s → λ = 1.00 m. Δx = |1.80 – 1.50| = 0.30 m.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> Δx/λ = 0.30. Phase diff Δφ = 2π(0.30) = 0.6π rad. A<sub>R</sub> = 2A cos(0.3π) = 2A · 0.588 = 1.176A.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> Partial interference; resultant amplitude 1.18× single source amplitude.</div></div>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/Jhpcnnnk/image.png" alt="Two speakers and microphone path difference diagram">
+    <div class="lc-cap">Fig C — Geometry for the worked example. Δx = 0.30 m leads to partial interference.</div>
+  </div>
+</div>
+
+<!-- REAL WORLD & EXTENSION -->
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🎧 Real‑world: Noise‑cancelling headphones</h3>
+    <p>External mic picks up ambient noise (wave 1). Electronics create an identical wave shifted by 180° (wave 2). At your ear: wave 1 + wave 2 = <strong>silence</strong>. Superposition at work.</p>
+    <div class="lc-success">✓ Examiner tip: Destruction doesn't mean energy disappears – energy is redistributed to antinodes.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – Fourier synthesis</h3>
+    <p>A square wave = sin(ωt) + ⅓ sin(3ωt) + ⅕ sin(5ωt) + …<br>
+    <strong>Challenge:</strong> Sketch the sum of the first two harmonics. What shape emerges? (Answer: a rounded square – more harmonics make it sharper.)</p>
+  </div>
+</div>
+
+<!-- MISCONCEPTIONS -->
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Waves destroy each other during destructive interference.</td><td>Energy is redistributed – total energy conserved.</td></tr>
+      <tr><td>Path difference must be zero for constructive interference.</td><td>Any integer multiple of λ works (0, λ, 2λ…).</td></tr>
+      <tr><td>π phase difference always gives total destructive interference.</td><td>Only if amplitudes are equal. Otherwise A<sub>R</sub> = |A<sub>1</sub>–A<sub>2</sub>|.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting the 2π in Δφ = 2π(Δx/λ). Without 2π, phase difference is dimensionless – but radians are needed for cos(Δφ/2).</div>
+</div>
+
+<!-- KEY POINTS -->
+<div class="lc-kp">
+  <span>s<sub>R</sub> = s<sub>1</sub>+s<sub>2</sub></span>
+  <span>Δφ = 2π·Δx/λ</span>
+  <span>Constructive: Δx = nλ</span>
+  <span>Destructive: Δx = (n+½)λ</span>
+  <span>Nodes &amp; antinodes</span>
+</div>
+
+<!-- MCQ -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Two coherent waves, each of amplitude A, meet at a point. For complete destructive interference, the phase difference must be:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> 0°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> 180°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> 90°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> 360°</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Two speakers emit 680 Hz sound. Speed of sound = 340 m/s. What is the smallest path difference that gives constructive interference?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> 0.12 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> 0.25 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> 0.50 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> 1.00 m</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. In a standing wave on a string, the distance between two adjacent nodes is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> λ</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> λ/2</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> λ/4</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> 2λ</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A wave of amplitude 3.0 m interferes with another wave of amplitude 2.0 m. The minimum possible resultant amplitude is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> 5.0 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> 1.0 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> 0 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> 2.5 m</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<!-- FILL IN THE BLANKS -->
+<div class="lc-section">Practice check — fill in the blanks</div>
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The principle of superposition states that the resultant <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px"> is the vector sum of individual displacements. For a standing wave, points of zero amplitude are called <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:80px">, and points of maximum amplitude are called <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- EXAM-STYLE QUESTIONS -->
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">(a) State the principle of superposition of waves. [2 marks]<br>
+  (b) Two identical loudspeakers are connected to the same signal generator. A student walks along a line parallel to the line joining the speakers and hears alternating loud and quiet sounds. Explain why this happens. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) When two or more waves meet at a point, the resultant displacement is the sum of the individual displacements.<br>
+  ✓ (b) The waves from the two speakers are coherent. At different positions, the path difference changes. ✓ Where path difference = nλ → constructive (loud). ✓ Where path difference = (n+½)λ → destructive (quiet).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculation</div>
+  <div class="lc-exam-q">Two sources produce water waves of wavelength 0.12 m. At a point P, the path difference from the sources is 0.18 m. (i) State whether constructive or destructive interference occurs. (ii) If each source has amplitude 4.0 cm, calculate the resultant amplitude at P. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (i) Δx/λ = 0.18/0.12 = 1.5 = 1 + ½ → destructive interference.<br>
+  ✓ (ii) For destructive with equal amplitudes, A<sub>R</sub> = 0 cm. (If amplitudes were unequal, A<sub>R</sub> = |A<sub>1</sub> – A<sub>2</sub>|.)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Graph interpretation</div>
+  <div class="lc-exam-q">Sketch a graph of resultant amplitude against phase difference for two identical waves. Label the points where constructive and destructive interference occur. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Describe or sketch in words…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Curve: |cos(Δφ/2)| shape (full‑wave rectified cosine).<br>✓ Maxima (constructive) at Δφ = 0, 2π, 4π… ✓ Minima (destructive) at Δφ = π, 3π, 5π…</div>
+</div>
+
+<!-- SCORE -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<!-- END OF LESSON SNIPPET -->
+
+</div><!-- /page-wrap -->
+
+<script>
+// ── THEME TOGGLE ──
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  if (html.getAttribute('data-theme') === 'dark') {
+    html.removeAttribute('data-theme');
+    btn.textContent = '☀️ Light mode';
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    btn.textContent = '🌙 Dark mode';
+  }
+  // Redraw canvases with new theme colours
+  drawPhaseGraph(parseInt(document.getElementById('phaseSlider').value));
+  drawPulses(parseFloat(document.getElementById('timeSlider').value));
+}
+
+// ── LESSON IIFE ──
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { B: 'Two identical waves cancel completely only when opposite (180° phase difference).' },
+    mcq2: { C: 'λ = v/f = 340/680 = 0.50 m. Smallest path difference for constructive is λ = 0.50 m.' },
+    mcq3: { B: 'Nodes are λ/2 apart. Antinodes also λ/2 apart.' },
+    mcq4: { B: 'Minimum resultant = |3.0 – 2.0| = 1.0 m (destructive with different amplitudes).' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'displacement', lf2:'nodes', lf3:'antinodes' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || (ans[id] === 'nodes' && val === 'node') || (ans[id] === 'antinodes' && val === 'antinode');
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: displacement · nodes · antinodes.';
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+
+// ── PHASE DIFFERENCE CANVAS ──
+const phaseCanvas = document.getElementById('phaseCanvas');
+const ctxPhase = phaseCanvas.getContext('2d');
+
+function getThemeColor(varName) {
+  return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+}
+
+function drawPhaseGraph(phaseDeg) {
+  const w = phaseCanvas.width, h = phaseCanvas.height;
+  ctxPhase.clearRect(0, 0, w, h);
+  const bg = getThemeColor('--surface3') || '#e8e6e2';
+  ctxPhase.fillStyle = bg;
+  ctxPhase.fillRect(0, 0, w, h);
+
+  const phaseRad = phaseDeg * Math.PI / 180;
+  const points = 600;
+
+  // Wave 1
+  ctxPhase.beginPath();
+  ctxPhase.strokeStyle = getThemeColor('--gold') || '#c8940a';
+  ctxPhase.lineWidth = 1.5;
+  ctxPhase.setLineDash([4,3]);
+  for (let i = 0; i <= points; i++) {
+    const x = (i / points) * w;
+    const t = (i / points) * 4 * Math.PI;
+    const y = h/4 - Math.sin(t) * (h/6);
+    i === 0 ? ctxPhase.moveTo(x, y) : ctxPhase.lineTo(x, y);
+  }
+  ctxPhase.stroke();
+
+  // Wave 2
+  ctxPhase.beginPath();
+  ctxPhase.strokeStyle = getThemeColor('--accent') || '#3b82f6';
+  ctxPhase.setLineDash([4,3]);
+  for (let i = 0; i <= points; i++) {
+    const x = (i / points) * w;
+    const t = (i / points) * 4 * Math.PI;
+    const y = h/2 - Math.sin(t + phaseRad) * (h/6);
+    i === 0 ? ctxPhase.moveTo(x, y) : ctxPhase.lineTo(x, y);
+  }
+  ctxPhase.stroke();
+
+  // Resultant
+  ctxPhase.beginPath();
+  ctxPhase.strokeStyle = getThemeColor('--green') || '#16a34a';
+  ctxPhase.lineWidth = 2.5;
+  ctxPhase.setLineDash([]);
+  for (let i = 0; i <= points; i++) {
+    const x = (i / points) * w;
+    const t = (i / points) * 4 * Math.PI;
+    const sum = Math.sin(t) + Math.sin(t + phaseRad);
+    const y = (h * 3/4) - sum * (h/6);
+    i === 0 ? ctxPhase.moveTo(x, y) : ctxPhase.lineTo(x, y);
+  }
+  ctxPhase.stroke();
+
+  // Labels
+  const muted = getThemeColor('--text-muted') || '#7a7570';
+  ctxPhase.fillStyle = muted;
+  ctxPhase.font = '11px JetBrains Mono, monospace';
+  ctxPhase.fillText('wave 1', 6, h/4 - h/6 - 4);
+  ctxPhase.fillText('wave 2', 6, h/2 - h/6 - 4);
+  ctxPhase.fillText('resultant', 6, h*3/4 - h/6 - 4);
+
+  // AR value
+  const AR = 2 * Math.abs(Math.cos(phaseRad / 2));
+  document.getElementById('ARvalue').textContent = AR.toFixed(2);
+}
+
+document.getElementById('phaseSlider').addEventListener('input', function() {
+  document.getElementById('phaseValue').textContent = this.value;
+  drawPhaseGraph(parseInt(this.value));
+});
+drawPhaseGraph(0);
+
+// ── PULSE COLLISION CANVAS ──
+const pulseCanvas = document.getElementById('pulseCanvas');
+const ctxPulse = pulseCanvas.getContext('2d');
+
+function drawPulses(time) {
+  const w = pulseCanvas.width, h = pulseCanvas.height;
+  ctxPulse.clearRect(0, 0, w, h);
+  const bg = getThemeColor('--surface3') || '#e8e6e2';
+  ctxPulse.fillStyle = bg;
+  ctxPulse.fillRect(0, 0, w, h);
+
+  function pulseShape(x, center, width) {
+    const dx = Math.abs(x - center);
+    return dx > width ? 0 : 1 - dx / width;
+  }
+
+  const leftCentre  = -0.5 + (time + 1) * 0.5;
+  const rightCentre =  0.5 - (time + 1) * 0.5;
+  const midY = h / 2;
+
+  // Individual pulses (dim)
+  ctxPulse.beginPath();
+  ctxPulse.strokeStyle = getThemeColor('--gold') || '#c8940a';
+  ctxPulse.lineWidth = 1.5;
+  ctxPulse.setLineDash([3, 3]);
+  for (let i = 0; i <= 400; i++) {
+    const xNorm = -1 + 2 * i / 400;
+    const val = pulseShape(xNorm, leftCentre, 0.35);
+    const y = midY - val * (h / 2.8);
+    const x = (i / 400) * w;
+    i === 0 ? ctxPulse.moveTo(x, y) : ctxPulse.lineTo(x, y);
+  }
+  ctxPulse.stroke();
+
+  ctxPulse.beginPath();
+  ctxPulse.strokeStyle = getThemeColor('--accent') || '#3b82f6';
+  for (let i = 0; i <= 400; i++) {
+    const xNorm = -1 + 2 * i / 400;
+    const val = pulseShape(xNorm, rightCentre, 0.35);
+    const y = midY - val * (h / 2.8);
+    const x = (i / 400) * w;
+    i === 0 ? ctxPulse.moveTo(x, y) : ctxPulse.lineTo(x, y);
+  }
+  ctxPulse.stroke();
+
+  // Resultant
+  ctxPulse.beginPath();
+  ctxPulse.strokeStyle = getThemeColor('--green') || '#16a34a';
+  ctxPulse.lineWidth = 2.5;
+  ctxPulse.setLineDash([]);
+  for (let i = 0; i <= 400; i++) {
+    const xNorm = -1 + 2 * i / 400;
+    const sumVal = pulseShape(xNorm, leftCentre, 0.35) + pulseShape(xNorm, rightCentre, 0.35);
+    const y = midY - sumVal * (h / 2.8);
+    const x = (i / 400) * w;
+    i === 0 ? ctxPulse.moveTo(x, y) : ctxPulse.lineTo(x, y);
+  }
+  ctxPulse.stroke();
+
+  // Zero line
+  ctxPulse.beginPath();
+  ctxPulse.strokeStyle = getThemeColor('--border-2') || '#c8c3bb';
+  ctxPulse.lineWidth = 1;
+  ctxPulse.setLineDash([2, 4]);
+  ctxPulse.moveTo(0, midY);
+  ctxPulse.lineTo(w, midY);
+  ctxPulse.stroke();
+  ctxPulse.setLineDash([]);
+}
+
+document.getElementById('timeSlider').addEventListener('input', function() {
+  const t = parseFloat(this.value);
+  document.getElementById('timeValue').textContent = t.toFixed(2);
+  drawPulses(t);
+});
+drawPulses(-1);
+</script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson image paste — φQ Physics</title>
+<link rel="stylesheet" href="shared/theme.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+body{padding:0 0 6.5rem}
+.wrap{max-width:1100px;margin:0 auto;padding:2.5rem 1.5rem 0}
+h1{font-size:1.9rem;margin-bottom:.4rem}
+.lede{color:var(--text-muted);max-width:66ch;line-height:1.7;margin-bottom:1.75rem}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem 1.4rem;margin-bottom:1.5rem}
+.panel h2{font-family:var(--font-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.09em;color:var(--text-muted);margin-bottom:.9rem}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;align-items:end}
+label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted);margin-bottom:.3rem}
+input[type=text],input[type=number]{width:100%;background:var(--surface2);border:1px solid var(--border-2);border-radius:8px;color:var(--text);font:inherit;font-size:.9rem;padding:.55rem .7rem;outline:none}
+input:focus{border-color:var(--accent)}
+.hint{font-size:.75rem;color:var(--text-dim);margin-top:.6rem;font-family:var(--font-mono);word-break:break-all}
+.live{margin-top:.7rem;font-size:.8rem;color:var(--text-muted);line-height:1.6}
+.live b{color:var(--green)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--text-dim);margin-right:.45rem;vertical-align:middle}
+.dot.on{background:var(--green)}
+.tabs{display:flex;gap:.5rem;margin-bottom:1.25rem}
+.tab{padding:.5rem 1.1rem;border-radius:100px;border:1.5px solid var(--border-2);background:transparent;color:var(--text-muted);font:inherit;font-size:.84rem;cursor:pointer;transition:var(--t)}
+.tab.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.mode{display:none}.mode.on{display:block}
+.steps ol{margin:0;padding-left:1.2rem;display:grid;gap:.4rem;font-size:.88rem;color:var(--text-2);line-height:1.6}
+kbd{font-family:var(--font-mono);font-size:.75rem;background:var(--surface2);border:1px solid var(--border-2);border-bottom-width:2px;border-radius:5px;padding:.1rem .4rem;color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem}
+.slot{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;cursor:pointer;transition:var(--t);text-align:left;padding:0;font:inherit;color:inherit}
+.slot:hover{border-color:var(--border-2)}
+.slot.active{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-dim)}
+.slot.filled{border-color:var(--green)}
+.slot.drag{border-color:var(--accent);background:var(--accent-dim)}
+.shot{position:relative;aspect-ratio:16/10;background:var(--surface2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:contain;display:block}
+.ph{font-size:.72rem;color:var(--text-dim);font-family:var(--font-mono);letter-spacing:.06em}
+.badge{position:absolute;top:6px;left:6px;font-family:var(--font-mono);font-size:.62rem;font-weight:700;padding:.12rem .4rem;border-radius:4px;background:var(--surface3);color:var(--text-muted);letter-spacing:.04em;z-index:2}
+.slot.filled .badge{background:var(--green);color:#04140c}
+.role{position:absolute;top:6px;right:6px;font-size:.62rem;padding:.12rem .4rem;border-radius:4px;background:var(--surface3);color:var(--text-muted);z-index:2}
+.meta{padding:.5rem .6rem .6rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:.3rem}
+.fname{font-family:var(--font-mono);font-size:.68rem;color:var(--text-2);word-break:break-all;line-height:1.4}
+.slot-acts{display:flex;gap:.4rem}
+.mini{font-size:.66rem;padding:.15rem .45rem;border-radius:5px;border:1px solid var(--border-2);background:transparent;color:var(--text-muted);cursor:pointer;font:inherit;font-size:.66rem}
+.mini:hover{background:var(--accent-dim);color:var(--accent);border-color:var(--accent)}
+.cropzone{position:relative;background:var(--surface2);border:1px dashed var(--border-2);border-radius:10px;min-height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:1rem}
+.cropzone canvas{max-width:100%;display:block;cursor:crosshair}
+.cropzone .ph{padding:2rem;text-align:center;line-height:1.8}
+.sel{position:absolute;border:2px solid var(--accent);background:rgba(79,157,255,0.12);pointer-events:none}
+.next{font-size:.85rem;color:var(--text-2);margin-bottom:.75rem}
+.next strong{font-family:var(--font-mono);color:var(--accent)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);border-top:1px solid var(--border)}
+.bar-in{max-width:1100px;margin:0 auto;padding:.85rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.prog{flex:1;min-width:200px}
+.prog-label{font-size:.8rem;color:var(--text-muted);margin-bottom:.35rem}
+.prog-track{height:5px;border-radius:3px;background:var(--surface3);overflow:hidden}
+.prog-fill{height:100%;background:var(--green);width:0;transition:width .25s}
+.acts{display:flex;gap:.6rem;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:5.5rem;transform:translate(-50%,12px);z-index:60;background:var(--surface3);border:1px solid var(--border-2);color:var(--text);padding:.55rem 1rem;border-radius:8px;font-size:.85rem;opacity:0;pointer-events:none;transition:var(--t)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+a{color:var(--accent)}a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Lesson image paste</h1>
+<p class="lede">Paste the diagrams for one lesson and they land in <code>assets/lesson-images/</code> under the right names. Connect the folder once and every paste is written straight to disk — the lesson page picks it up on refresh. Nothing is uploaded anywhere.</p>
+
+<div class="panel">
+<h2>Lesson</h2>
+<div class="fields">
+<div><label for="f-topic">Topic code</label><input type="text" id="f-topic" value="A.1" placeholder="A.1" autocomplete="off"></div>
+<div><label for="f-lesson">Lesson no.</label><input type="number" id="f-lesson" value="2" min="1" max="99" autocomplete="off"></div>
+<div><label for="f-slug">Concept</label><input type="text" id="f-slug" value="Uniformly Accelerated Motion (SUVAT)" placeholder="Concept name" autocomplete="off"></div>
+<div><label for="f-count">Figures</label><input type="number" id="f-count" value="5" min="1" max="20" autocomplete="off"></div>
+<div><button class="btn btn-primary btn-sm" id="btn-build">Build slots</button></div>
+</div>
+<div class="hint" id="preview-name"></div>
+<div class="live" id="live-state"></div>
+</div>
+
+<div class="tabs">
+<button class="tab on" data-mode="slots">Paste one by one</button>
+<button class="tab" data-mode="crop">Crop from panel sheet</button>
+</div>
+
+<div class="mode on" id="mode-slots">
+<div class="panel steps"><ol>
+<li>Click a slot (the first empty one is already selected).</li>
+<li>Copy your image, then press <kbd>Ctrl</kbd>+<kbd>V</kbd> / <kbd>⌘</kbd>+<kbd>V</kbd>. Dragging an image file onto a slot works too.</li>
+<li>Selection jumps to the next empty slot, so you can paste straight through a batch.</li>
+<li><strong>Save all files</strong> downloads every PNG under its exact name — or connect the folder once and each paste is written into <code>assets/lesson-images/</code> as you go.</li>
+</ol></div>
+</div>
+
+<div class="mode" id="mode-crop">
+<div class="panel steps"><ol>
+<li>Paste the whole DALL·E panel sheet below (<kbd>Ctrl</kbd>+<kbd>V</kbd> / <kbd>⌘</kbd>+<kbd>V</kbd>) or drag the file in.</li>
+<li>Drag a rectangle around Panel A. It is saved as figure 01 and the target advances to 02.</li>
+<li>Repeat for each panel. Re-drag over a filled slot's target to redo it.</li>
+</ol></div>
+<div class="next" id="crop-next"></div>
+<div class="cropzone" id="cropzone"><div class="ph">Paste or drop the panel sheet here</div></div>
+</div>
+
+<div class="panel">
+<h2>Slots</h2>
+<div class="grid" id="grid"></div>
+</div>
+</div>
+
+<div class="bar"><div class="bar-in">
+<div class="prog">
+<div class="prog-label" id="prog-label">No slots yet</div>
+<div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+</div>
+<div class="acts">
+<button class="btn btn-secondary btn-sm" id="btn-clear">Clear all</button>
+<button class="btn btn-secondary btn-sm" id="btn-zip">Download zip</button>
+<button class="btn btn-ghost btn-sm" id="btn-folder">Connect image folder</button>
+<button class="btn btn-primary btn-sm" id="btn-save">Save all files</button>
+</div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DB='phyq-lesson-paste',STORE='shots';
+const ROLES=['Hook','Core concept','Graph 1','Graph 2','Worked example','Extra','Extra','Extra','Extra','Extra','Extra','Extra','Extra','Extra','Extra','Extra','Extra','Extra','Extra','Extra'];
+let db,items=[],active=null,sheet=null,dir=null;
+
+const $=id=>document.getElementById(id);
+function openDB(){return new Promise((res,rej)=>{const r=indexedDB.open(DB,1);r.onupgradeneeded=()=>r.result.createObjectStore(STORE);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+function tx(m){return db.transaction(STORE,m).objectStore(STORE)}
+function put(k,v){return new Promise(r=>{tx('readwrite').put(v,k).onsuccess=r})}
+function del(k){return new Promise(r=>{tx('readwrite').delete(k).onsuccess=r})}
+function get(k){return new Promise(r=>{const q=tx('readonly').get(k);q.onsuccess=()=>r(q.result)})}
+function all(){return new Promise(r=>{const o=tx('readonly'),ks=o.getAllKeys(),vs=o.getAll();let a,b;ks.onsuccess=()=>{a=ks.result;if(b)r([a,b])};vs.onsuccess=()=>{b=vs.result;if(a)r([a,b])}})}
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2200)}
+
+function slugify(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')}
+function baseName(){
+  const topic=slugify($('f-topic').value).replace(/-/g,'');
+  const n=String(parseInt($('f-lesson').value||'1',10)).padStart(2,'0');
+  return topic+'-'+n+'-'+slugify($('f-slug').value);
+}
+function fileName(i){return baseName()+'-'+String(i+1).padStart(2,'0')+'.png'}
+function refreshPreview(){$('preview-name').textContent='→ assets/lesson-images/'+fileName(0)+'  …  '+fileName(Math.max(0,(parseInt($('f-count').value||'1',10))-1));}
+['f-topic','f-lesson','f-slug','f-count'].forEach(id=>$(id).addEventListener('input',refreshPreview));
+
+async function build(){
+  const n=Math.max(1,Math.min(20,parseInt($('f-count').value||'1',10)));
+  items=Array.from({length:n},(_,i)=>({name:fileName(i),role:ROLES[i]}));
+  const grid=$('grid');grid.textContent='';
+  for(const it of items){grid.appendChild(makeSlot(it,await get(it.name)))}
+  update();selectNextEmpty();
+  localStorage.setItem('phyq-paste-spec',JSON.stringify({t:$('f-topic').value,l:$('f-lesson').value,s:$('f-slug').value,c:n}));
+}
+function makeSlot(it,blob){
+  const el=document.createElement('div');el.className='slot';el.dataset.name=it.name;
+  el.innerHTML='<div class="shot"><span class="badge">'+(blob?'✓ saved':'empty')+'</span><span class="role">'+it.role+'</span><span class="ph">click, then paste</span></div>'+
+    '<div class="meta"><div class="fname">'+it.name+'</div><div class="slot-acts"><button class="mini" data-act="save">Save PNG</button><button class="mini" data-act="clear">Clear</button></div></div>';
+  el.addEventListener('click',e=>{if(e.target.closest('.mini'))return;select(el)});
+  el.querySelector('[data-act=save]').addEventListener('click',async()=>{const b=await get(it.name);if(!b){toast('Nothing pasted here yet');return}download(b,it.name)});
+  el.querySelector('[data-act=clear]').addEventListener('click',async()=>{await del(it.name);unpaint(el);update();selectNextEmpty()});
+  el.addEventListener('dragover',e=>{e.preventDefault();el.classList.add('drag')});
+  el.addEventListener('dragleave',()=>el.classList.remove('drag'));
+  el.addEventListener('drop',e=>{e.preventDefault();el.classList.remove('drag');const f=[...e.dataTransfer.files].find(f=>f.type.startsWith('image/'));if(f)fill(el,f)});
+  if(blob)paint(el,blob);
+  return el;
+}
+function paint(el,blob){
+  el.classList.add('filled');
+  const shot=el.querySelector('.shot');
+  const old=shot.querySelector('img');if(old){URL.revokeObjectURL(old.src);old.remove()}
+  const img=new Image();img.src=URL.createObjectURL(blob);img.alt='';shot.appendChild(img);
+  shot.querySelector('.badge').textContent='✓ saved';
+  shot.querySelector('.ph').style.display='none';
+}
+function unpaint(el){
+  el.classList.remove('filled');
+  const shot=el.querySelector('.shot');const img=shot.querySelector('img');
+  if(img){URL.revokeObjectURL(img.src);img.remove()}
+  shot.querySelector('.badge').textContent='empty';
+  shot.querySelector('.ph').style.display='';
+}
+function select(el){document.querySelectorAll('.slot.active').forEach(s=>s.classList.remove('active'));el.classList.add('active');active=el;cropNext()}
+function selectNextEmpty(){const next=document.querySelector('.slot:not(.filled)');if(next)select(next);else{active=null;document.querySelectorAll('.slot.active').forEach(s=>s.classList.remove('active'));cropNext()}}
+async function fill(el,blob){
+  await put(el.dataset.name,blob);paint(el,blob);update();
+  const wrote=await writeToDir(el.dataset.name,blob);
+  toast(wrote?'→ assets/lesson-images/'+el.dataset.name:'Saved '+el.dataset.name+' (in browser)');
+  selectNextEmpty();
+}
+async function writeToDir(name,blob){
+  if(!dir)return false;
+  try{
+    if(await dir.queryPermission({mode:'readwrite'})!=='granted'){
+      if(await dir.requestPermission({mode:'readwrite'})!=='granted'){setLive();return false}
+    }
+    const fh=await dir.getFileHandle(name,{create:true});
+    const w=await fh.createWritable();await w.write(blob);await w.close();
+    return true;
+  }catch(err){console.warn(err);return false}
+}
+function setLive(){
+  const el=$('live-state');if(!el)return;
+  el.innerHTML=dir
+    ? '<span class="dot on"></span>Writing straight into <b>'+dir.name+'/</b> — pasted figures land in the lesson immediately.'
+    : '<span class="dot"></span>Not connected to a folder — pasted figures are kept in this browser. Hit <b style="color:var(--accent)">Connect image folder</b> to write each paste into assets/lesson-images/ as you go, or use Save all files to download them.';
+}
+async function connectDir(){
+  if(!window.showDirectoryPicker){toast('This browser cannot write to folders — use Save all files');return}
+  try{
+    dir=await window.showDirectoryPicker({id:'phyq-lesson-images',mode:'readwrite',startIn:'downloads'});
+    await put('__dir',dir);setLive();toast('Connected to '+dir.name);
+    let n=0;for(const it of items){const b=await get(it.name);if(b&&await writeToDir(it.name,b))n++}
+    if(n)toast('Wrote '+n+' existing figure'+(n>1?'s':'')+' to '+dir.name);
+  }catch(e){}
+}
+function update(){
+  const total=items.length,done=document.querySelectorAll('.slot.filled').length;
+  $('prog-label').textContent=total?done+' of '+total+' figures pasted'+(done<total?' · '+(total-done)+' to go':' · ready to save'):'No slots yet';
+  $('prog-fill').style.width=(total?done/total*100:0)+'%';
+  cropNext();
+}
+function download(blob,name){
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;
+  a.style.display='none';document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},8000);
+}
+
+document.addEventListener('paste',async e=>{
+  const it=[...(e.clipboardData?.items||[])].find(i=>i.type.startsWith('image/'));
+  if(!it)return;e.preventDefault();
+  const f=it.getAsFile();if(!f)return;
+  if(document.querySelector('.tab.on').dataset.mode==='crop'){loadSheet(f);return}
+  if(!active){toast('All slots filled — clear one first');return}
+  fill(active,f);
+});
+
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');
+  document.querySelectorAll('.mode').forEach(m=>m.classList.remove('on'));
+  $('mode-'+t.dataset.mode).classList.add('on');
+}));
+
+/* ---- crop mode ---- */
+const zone=$('cropzone');
+let cv,ctx,scale=1,dragStart=null,selBox=null;
+zone.addEventListener('dragover',e=>{e.preventDefault()});
+zone.addEventListener('drop',e=>{e.preventDefault();const f=[...e.dataTransfer.files].find(f=>f.type.startsWith('image/'));if(f)loadSheet(f)});
+function loadSheet(file){
+  const img=new Image();
+  img.onload=()=>{
+    sheet=img;zone.textContent='';
+    cv=document.createElement('canvas');
+    const maxW=Math.min(1000,zone.clientWidth-2);
+    scale=Math.min(1,maxW/img.width);
+    cv.width=img.width*scale;cv.height=img.height*scale;
+    ctx=cv.getContext('2d');ctx.drawImage(img,0,0,cv.width,cv.height);
+    zone.appendChild(cv);
+    selBox=document.createElement('div');selBox.className='sel';selBox.style.display='none';zone.appendChild(selBox);
+    cv.addEventListener('pointerdown',onDown);
+    toast('Now drag a box around each panel');
+    cropNext();
+  };
+  img.src=URL.createObjectURL(file);
+}
+function onDown(e){
+  if(!active){toast('All slots filled — clear one to re-crop');return}
+  cv.setPointerCapture(e.pointerId);
+  const r=cv.getBoundingClientRect();
+  dragStart={x:e.clientX-r.left,y:e.clientY-r.top,ox:r.left-zone.getBoundingClientRect().left,oy:r.top-zone.getBoundingClientRect().top};
+  selBox.style.display='block';drawSel(dragStart.x,dragStart.y);
+  cv.addEventListener('pointermove',onMove);
+  cv.addEventListener('pointerup',onUp,{once:true});
+}
+function onMove(e){const r=cv.getBoundingClientRect();drawSel(e.clientX-r.left,e.clientY-r.top)}
+function drawSel(x2,y2){
+  const x=Math.min(dragStart.x,x2),y=Math.min(dragStart.y,y2);
+  selBox.style.left=(dragStart.ox+x)+'px';selBox.style.top=(dragStart.oy+y)+'px';
+  selBox.style.width=Math.abs(x2-dragStart.x)+'px';selBox.style.height=Math.abs(y2-dragStart.y)+'px';
+  selBox._box={x,y,w:Math.abs(x2-dragStart.x),h:Math.abs(y2-dragStart.y)};
+}
+async function onUp(){
+  cv.removeEventListener('pointermove',onMove);
+  const b=selBox._box;selBox.style.display='none';
+  if(!b||b.w<12||b.h<12){toast('Drag a larger box');return}
+  const out=document.createElement('canvas');
+  out.width=Math.round(b.w/scale);out.height=Math.round(b.h/scale);
+  out.getContext('2d').drawImage(sheet,b.x/scale,b.y/scale,out.width,out.height,0,0,out.width,out.height);
+  const blob=await new Promise(r=>out.toBlob(r,'image/png'));
+  fill(active,blob);
+}
+function cropNext(){
+  const n=$('crop-next');if(!n)return;
+  n.innerHTML=active?'Next crop is saved as <strong>'+active.dataset.name+'</strong>'+(items.find(i=>i.name===active.dataset.name)?' · '+items.find(i=>i.name===active.dataset.name).role:''):'All slots filled.';
+}
+
+/* ---- bulk actions ---- */
+$('btn-build').addEventListener('click',build);
+$('btn-folder').addEventListener('click',connectDir);
+$('btn-save').addEventListener('click',async()=>{
+  let n=0;
+  for(const it of items){
+    const b=await get(it.name);if(!b)continue;
+    download(b,it.name);n++;
+    toast('Saving '+n+'… '+it.name);
+    await new Promise(r=>setTimeout(r,900));
+  }
+  toast(n?'Sent '+n+' downloads — if fewer arrived, allow multiple downloads for this site and retry, or use Download zip':'Nothing pasted yet');
+});
+$('btn-zip').addEventListener('click',async()=>{
+  const zip=new JSZip();let n=0;
+  for(const it of items){const b=await get(it.name);if(b){zip.file(it.name,b);n++}}
+  if(!n){toast('Nothing pasted yet');return}
+  toast('Building zip…');
+  download(await zip.generateAsync({type:'blob'}),baseName()+'-images.zip');
+});
+$('btn-clear').addEventListener('click',async()=>{
+  if(!confirm('Remove every pasted image for this lesson?'))return;
+  for(const it of items)await del(it.name);
+  build();
+});
+
+function setField(id,v){const el=$(id);el.value=v;el.setAttribute('value',v)}
+async function applyFileSpec(){
+  try{const r=await fetch('paste-spec.json',{cache:'no-store'});if(!r.ok)return;const s=await r.json();
+    if(s.topic)setField('f-topic',s.topic);
+    if(s.lesson)setField('f-lesson',s.lesson);
+    if(s.concept)setField('f-slug',s.concept);
+    if(s.figs)setField('f-count',s.figs);
+    refreshPreview();
+  }catch(e){}
+}
+function applySpec(){
+  try{const s=JSON.parse(localStorage.getItem('phyq-paste-spec')||'null');
+    if(s){setField('f-topic',s.t);setField('f-lesson',s.l);setField('f-slug',s.s);setField('f-count',s.c)}}catch(e){}
+  const q=new URLSearchParams(location.search);
+  if(q.get('topic'))setField('f-topic',q.get('topic'));
+  if(q.get('lesson'))setField('f-lesson',q.get('lesson'));
+  if(q.get('concept'))setField('f-slug',q.get('concept'));
+  if(q.get('figs'))setField('f-count',q.get('figs'));
+  refreshPreview();
+}
+
+(async function init(){
+  db=await openDB();
+  applySpec();
+  await applyFileSpec();
+  /* the browser restores old input values after load — reassert the spec */
+  addEventListener('load',async()=>{applySpec();await applyFileSpec();build()});
+  addEventListener('pageshow',async()=>{applySpec();await applyFileSpec()});
+  try{const saved=await get('__dir');if(saved&&await saved.queryPermission({mode:'readwrite'})==='granted')dir=saved}catch(e){}
+  setLive();build();
+})();
+</script>
+</body>
+</html>

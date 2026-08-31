@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravitational Field Strength — D.1 Gravitational Fields — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#D1">D.1 Gravitational Fields</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Gravitational Field Strength</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#F5A623;background:#F5A62318;padding:0.2rem 0.6rem;border-radius:6px">D.1</span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 2 of 5</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Gravitational Field Strength</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">D.1 Gravitational Fields</strong> · Unit D — IB Physics 2023</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">← Back to D.1 overview</a>
+      <div class="sidebar-title">D.1 Concepts</div>
+      <a href="01-newton-s-law-of-gravitation.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Newton's Law of Gravitation</span>
+        </a>
+      <a href="02-gravitational-field-strength.html" class="sidebar-link active">
+          <span class="sidebar-num">02</span>
+          <span>Gravitational Field Strength</span>
+        </a>
+      <a href="03-gravitational-potential.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Gravitational Potential</span>
+        </a>
+      <a href="04-orbital-mechanics.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Orbital Mechanics</span>
+        </a>
+      <a href="05-kepler-s-laws.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Kepler's Laws</span>
+        </a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+I will now generate the complete HTML lesson snippet for **D1.02 Gravitational Field Strength (IB Physics SL+HL)** using your images and the required structure.
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:1rem 1.4rem;margin:0.85rem 0;
+  text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.lc-formula .katex { font-size:1.35rem;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
+  margin-bottom:0.35rem;font-family:var(--font-sans); }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:0.86rem;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+
+.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:0.87rem;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:0.9rem;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model.show { display:block; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+
+/* ── Interactive slider lab ── */
+.lc-slider-lab { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem; }
+.lc-slider-lab h4 { font-size:0.95rem;font-weight:600;margin:0 0 0.5rem 0;color:var(--accent); }
+.lc-slider-lab canvas { width:100%;height:auto;background:var(--surface);
+  border-radius:8px;margin-top:0.5rem;border:1px solid var(--border); }
+.lc-slider-lab input[type=range] { width:100%;margin:0.5rem 0;accent-color:var(--accent); }
+.lc-slider-lab .lc-slider-value { font-family:var(--font-mono);font-size:0.85rem;
+  text-align:center;color:var(--text-2); }
+</style>
+
+<!-- HEADER -->
+<div class="lc-badge"><span>2</span> Lesson 2 of 8 · D1.02 Gravitational Field Strength</div>
+<div class="lc-title">Gravitational Field Strength</div>
+<div class="lc-sub">Why does a 1 kg rock weigh 9.8 N on Earth but only 1.6 N on the Moon? Learn how to predict gravity anywhere in the universe.</div>
+
+<!-- SECTION A: HOOK & DIAGNOSTIC -->
+<div class="lc-card">
+  <h3>🎯 Hook – Moon vs Earth gravity</h3>
+  <p>Watch an astronaut on the Moon: they can jump six times higher than on Earth with the same effort. The <strong>gravitational field strength</strong> <i>g</i> on the Moon is only about 1.6 N/kg, compared to 9.8 N/kg on Earth. This means every kilogram of mass experiences a much smaller pull.</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/wvPMyZHR/image.png" alt="Astronaut jumping on Moon vs struggling on Earth">
+    <div class="lc-cap">Fig 1 — Same astronaut, different worlds: field strength determines weight.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — If you travel to a planet with twice Earth's mass and the same radius, your weight would be: <em>twice as much (because g = GM/R²)</em>.</div>
+</div>
+
+<!-- SECTION B: CORE KNOWLEDGE (two cards) -->
+<div class="lc-card">
+  <h3>📐 Definition of gravitational field strength</h3>
+  <p><strong>Gravitational field strength</strong> <i>g</i> at a point is the force per unit mass experienced by a small point mass placed at that point. It is a vector quantity – direction is towards the mass creating the field.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Definition</span>
+    $$g = \frac{F}{m}$$
+  </div>
+  <p>Units: N kg⁻¹ (equivalent to m s⁻²). The test mass must be small so it does not disturb the original field.</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/W3R16KtB/image.png" alt="Test mass m near large mass M with force arrow">
+    <div class="lc-cap">Fig 2 — A small test mass m feels force F = mg; g depends only on M and r.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Field from a large mass – inverse‑square law</h3>
+  <p>Combine Newton's law of gravitation \(F = \frac{GMm}{r^2}\) with \(g = F/m\) to get the field due to a point mass or spherical mass M at distance r from its centre:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Gravitational field strength from a mass M</span>
+    $$g = \frac{GM}{r^2}$$
+  </div>
+  <p>Notice that the small mass m cancels – so all objects fall with the same acceleration in a given field. The field follows an <strong>inverse‑square law</strong>: doubling r reduces g to one‑quarter.</p>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/Qxg1BQYx/image.png" alt="Radial gravitational field lines around a planet">
+    <div class="lc-cap">Fig 3 — Radial field lines point toward the centre. Lines closer together = stronger field.</div>
+  </div>
+</div>
+
+<!-- SECTION C: INTERACTIVE SLIDER LABS -->
+<div class="lc-slider-lab">
+  <h4>🔬 Interactive lab 1 – Planet builder</h4>
+  <p style="font-size:0.86rem;color:var(--text-2);margin-bottom:0.25rem">Drag the sliders to change the planet's mass and radius. Watch how g (N/kg) changes in real time.</p>
+  <canvas id="planetCanvas" width="600" height="220" style="width:100%; height:auto; max-width:600px"></canvas>
+  <div style="margin-top:10px">
+    <label>Mass M (×10²⁴ kg): <input type="range" id="massSlider" min="0.5" max="10" value="5.97" step="0.01"></label>
+    <span id="massVal">5.97</span> ×10²⁴ kg &nbsp;|&nbsp;
+    <label>Radius R (×10⁶ m): <input type="range" id="radiusSlider" min="2" max="10" value="6.37" step="0.01"></label>
+    <span id="radiusVal">6.37</span> ×10⁶ m
+  </div>
+  <div class="lc-slider-value">g = <span id="gValue">9.81</span> N/kg</div>
+  <div class="lc-info" style="margin-top:0.5rem">💡 <strong>What to notice:</strong> Doubling M doubles g. Doubling R makes g drop to 1/4 of its previous value – verify with g = GM/R².</div>
+</div>
+
+<div class="lc-slider-lab">
+  <h4>🔬 Interactive lab 2 – The inverse‑square journey</h4>
+  <p style="font-size:0.86rem;color:var(--text-2);margin-bottom:0.25rem">Move the satellite from the surface up to 5 Earth radii. The graph shows g vs distance from centre.</p>
+  <canvas id="orbitCanvas" width="600" height="220" style="width:100%; height:auto; max-width:600px"></canvas>
+  <input type="range" id="heightSlider" min="1" max="5" value="1" step="0.02">
+  <div class="lc-slider-value">r / R_🜨 = <span id="rRatio">1.00</span> &nbsp;|&nbsp; g = <span id="gOrbit">9.81</span> N/kg</div>
+  <div class="lc-info" style="margin-top:0.5rem">💡 <strong>What to notice:</strong> When r = 2R, g = 9.81/4 = 2.45 N/kg. The graph is a smooth inverse‑square curve.</div>
+</div>
+
+<!-- SECTION D: GRAPH MASTERY TABLE -->
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Inverse‑square law</td><td>r (m), g (N/kg)</td><td>Steep drop, asymptotic to zero</td><td>g ∝ 1/r²; halving r → quadruples g</td></tr>
+      <tr><td>Linearised plot</td><td>1/r² (m⁻²), g (N/kg)</td><td>Straight line through origin</td><td>Gradient = G·M → find mass M</td></tr>
+      <tr><td>Inside a planet</td><td>r (centre to surface), g</td><td>Linear increase from 0 to surface g</td><td>Field zero at centre; only mass below matters</td></tr>
+      <tr><td>log‑log plot</td><td>log(r), log(g)</td><td>Straight line slope -2</td><td>Confirms power law g ∝ r⁻²</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="https://i.postimg.cc/05Vq9FxL/image.png" alt="Inverse square graph g vs r"><div class="lc-cap">Fig 4 — g decreases rapidly with distance.</div></div>
+    <div class="lc-img"><img src="https://i.postimg.cc/s2Ytq0w8/image.png" alt="Linearised graph g vs 1/r²"><div class="lc-cap">Fig 5 — Straight line proves inverse‑square relation.</div></div>
+  </div>
+</div>
+
+<!-- SECTION E: WORKED EXAMPLE -->
+<div class="lc-card">
+  <h3>✍️ Worked example – Mars surface gravity & height</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Use g = GM/r². For surface r = R; for height h, r = R + h.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> M = 6.39×10²³ kg, R = 3.39×10⁶ m, G = 6.67×10⁻¹¹ N m² kg⁻².</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (surface):</strong> g_s = GM/R² = (6.67e-11 × 6.39e23) / (3.39e6)² = 4.26e13 / 1.15e13 = 3.70 N/kg.<br>
+  <strong>For g = 1.0 N/kg:</strong> r = √(GM/g) = √(4.26e13 / 1.0) = 6.53×10⁶ m. Then h = r − R = 3.14×10⁶ m.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> Surface g = 3.70 N/kg. Height for g = 1.0 N/kg is 3.14×10⁶ m (≈3140 km above surface).</div></div>
+  <div class="lc-img">
+    <img src="https://i.postimg.cc/9fhkdYCb/image.png" alt="Mars with radius R and height h above surface">
+    <div class="lc-cap">Fig 6 — Distance from centre r = R + h. Field strength drops as 1/r².</div>
+  </div>
+</div>
+
+<!-- SECTION F: REAL-WORLD + HL EXTENSION (two-column) -->
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real‑world: GRACE satellites & gravity mapping</h3>
+    <p>NASA's GRACE mission measures tiny variations in Earth's g caused by changing water aquifers, ice sheets, and ocean currents. By mapping g, scientists monitor groundwater depletion and sea‑level rise.</p>
+    <div class="lc-success">✓ Examiner tip: In data‑analysis questions, a linearised plot (g vs 1/r²) gives a straight line; use its gradient = G·M to find the planet's mass.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – Field inside a uniform sphere</h3>
+    <p>For r < R, only the mass inside radius r contributes: \(g(r) = \frac{G M_{\text{inside}}}{r^2} = \frac{G \rho \frac{4}{3}\pi r^3}{r^2} = \frac{4}{3}\pi G \rho r\). Thus g increases linearly from 0 at centre to surface value.</p>
+    <p><strong>Challenge:</strong> Earth's average density ρ = 5510 kg/m³. Predict g at half the radius. (Answer: g ≈ 4.9 N/kg, half the surface value.)</p>
+  </div>
+</div>
+
+<!-- SECTION G: MISCONCEPTIONS / TRAP CORNER -->
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>g is constant everywhere</td><td>g varies with altitude, latitude, and local geology (g = GM/r²)</td></tr>
+      <tr><td>Heavier objects have bigger g</td><td>g is a property of the field, not the object – all masses feel the same g at a point</td></tr>
+      <tr><td>Doubling distance halves g</td><td>Inverse‑square: doubling distance quarters g</td></tr>
+      <tr><td>g = GM/r² works inside a planet</td><td>Only for r ≥ R. Inside, only mass below contributes → g ∝ r</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting to convert km to m in r. Always use metres (e.g., 7000 km = 7.0×10⁶ m) otherwise g will be off by a factor 10⁶.</div>
+</div>
+
+<!-- SECTION H: KEY POINTS PILLS -->
+<div class="lc-kp">
+  <span>g = F/m</span>
+  <span>g = GM/r²</span>
+  <span>Units: N/kg = m/s²</span>
+  <span>Inverse‑square</span>
+  <span>g ∝ 1/r²</span>
+  <span>Surface: g = GM/R²</span>
+</div>
+
+<!-- SECTION I: MCQ PRACTICE (4 questions) -->
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1"><div class="lc-mcq-q">1. A planet has radius R and mass M. At a distance of 2R from the planet's centre, the gravitational field strength is g. What is g at the surface?</div>
+<div class="lc-opts"><div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','D')"><span class="lc-opt-l">A</span> g/4</div><div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','D')"><span class="lc-opt-l">B</span> g/2</div><div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','D')"><span class="lc-opt-l">C</span> 2g</div><div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','D')"><span class="lc-opt-l">D</span> 4g</div></div><div class="lc-fb" id="mcq1-fb"></div></div></div>
+
+<div class="lc-card"><div id="mcq2"><div class="lc-mcq-q">2. The gravitational field strength on the surface of the Moon is about 1.6 N/kg. What is the weight of a 50 kg astronaut on the Moon?</div>
+<div class="lc-opts"><div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 50 N</div><div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 80 N</div><div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 500 N</div><div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 0.032 N</div></div><div class="lc-fb" id="mcq2-fb"></div></div></div>
+
+<div class="lc-card"><div id="mcq3"><div class="lc-mcq-q">3. A satellite orbits at a height 3R above Earth's surface (R = Earth radius). What is the gravitational field strength compared to its value at the surface?</div>
+<div class="lc-opts"><div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> 1/16</div><div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> 1/9</div><div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> 1/4</div><div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> 1/3</div></div><div class="lc-fb" id="mcq3-fb"></div></div></div>
+
+<div class="lc-card"><div id="mcq4"><div class="lc-mcq-q">4. Which graph shows the correct variation of g with distance r from the centre of a uniform planet (r ≥ R)?</div>
+<div class="lc-opts"><div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Constant horizontal line</div><div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Decreasing curve, g ∝ 1/r²</div><div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> Straight line decreasing</div><div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Increasing curve</div></div><div class="lc-fb" id="mcq4-fb"></div></div></div>
+
+<!-- SECTION J: FILL IN THE BLANKS -->
+<div class="lc-section">Practice check — fill in the blanks</div>
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The gravitational field strength at a point is defined as the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:70px"> per unit <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:60px">. 
+    Its SI units are <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:80px"> which are equivalent to m/s².
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<!-- SECTION K: EXAM-STYLE QUESTIONS (3 questions) -->
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Define</div>
+  <div class="lc-exam-q">(a) Define gravitational field strength. [2 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Force per unit mass ✓ experienced by a small point test mass placed at that point.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">The Moon has mass 7.35×10²² kg and radius 1.74×10⁶ m. (a) Calculate the gravitational field strength on the Moon's surface. (b) Determine the weight of a 70 kg astronaut on the Moon. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) g = GM/R² = (6.67×10⁻¹¹ × 7.35×10²²) / (1.74×10⁶)² = 4.90×10¹² / 3.03×10¹² = 1.62 N/kg ✓<br>(b) W = mg = 70 × 1.62 = 113 N ✓</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Graph analysis</div>
+  <div class="lc-exam-q">A student plots a graph of g (N/kg) against 1/r² (m⁻²) for a planet and obtains a straight line with gradient 5.0×10¹². Calculate the mass of the planet. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Gradient = G·M ✓ M = gradient / G = (5.0×10¹²) / (6.67×10⁻¹¹) ✓ M = 7.5×10²² kg</div>
+</div>
+
+<!-- SCORE DISPLAY -->
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+// ── PART 1: QUIZ & SCORING IIFE ──
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+
+  const lcFeedback = {
+    mcq1: { D: 'At surface r = R, at 2R field is g_surface/4, so surface field = 4g.' },
+    mcq2: { B: 'Weight = m × g = 50 × 1.6 = 80 N.' },
+    mcq3: { A: 'r = R + 3R = 4R from centre. g ∝ 1/r² → factor 1/16.' },
+    mcq4: { B: 'For r ≥ R, g = GM/r², a decreasing inverse‑square curve.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'force', lf2:'mass', lf3:'N/kg' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || (id==='lf3' && val === 'n/kg');
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: force · mass · N/kg';
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+
+// ── PART 2: CANVAS DRAWING (theme-aware) ──
+function getThemeColor(varName) {
+  return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+}
+
+// Lab 1: Planet builder
+const planetCanvas = document.getElementById('planetCanvas');
+const ctxPlanet = planetCanvas.getContext('2d');
+planetCanvas.width = 600; planetCanvas.height = 220;
+
+function drawPlanet(M, R) {
+  const w = planetCanvas.width, h = planetCanvas.height;
+  ctxPlanet.fillStyle = getThemeColor('--surface3') || '#e8e6e2';
+  ctxPlanet.fillRect(0, 0, w, h);
+  // Draw axes
+  ctxPlanet.beginPath();
+  ctxPlanet.strokeStyle = getThemeColor('--border-2') || '#aaa';
+  ctxPlanet.lineWidth = 1;
+  ctxPlanet.moveTo(40, h-30);
+  ctxPlanet.lineTo(w-20, h-30);
+  ctxPlanet.moveTo(40, 20);
+  ctxPlanet.lineTo(40, h-30);
+  ctxPlanet.stroke();
+  ctxPlanet.fillStyle = getThemeColor('--text-muted') || '#666';
+  ctxPlanet.font = "10px sans-serif";
+  ctxPlanet.fillText("r (×10⁶ m)", w-50, h-15);
+  ctxPlanet.fillText("g (N/kg)", 10, 30);
+  // Compute g values
+  const Gval = 6.67e-11;
+  let max_g = (Gval * M * 1e24) / ( (R*1e6)**2 );
+  // Plot from r = R to 2R (in m)
+  const r0 = R * 1e6;
+  const xScale = (w-80) / (r0);  // from r0 to 2r0 -> x range
+  for (let x=0; x<=w-80; x++) {
+    let r = r0 + (x/(w-80)) * r0;
+    let g = (Gval * M * 1e24) / (r*r);
+    let px = 40 + x;
+    let py = h-30 - (g/max_g)*(h-50);
+    if (x===0) ctxPlanet.beginPath(), ctxPlanet.moveTo(px, py);
+    else ctxPlanet.lineTo(px, py);
+  }
+  ctxPlanet.strokeStyle = getThemeColor('--accent') || '#0077be';
+  ctxPlanet.lineWidth = 2;
+  ctxPlanet.stroke();
+  ctxPlanet.fillStyle = getThemeColor('--accent') || '#0077be';
+  ctxPlanet.fillText("g = GM/r²", w-100, 50);
+}
+
+function updatePlanet() {
+  let M = parseFloat(document.getElementById('massSlider').value);
+  let R = parseFloat(document.getElementById('radiusSlider').value);
+  document.getElementById('massVal').innerText = M;
+  document.getElementById('radiusVal').innerText = R;
+  const g = (6.67e-11 * M * 1e24) / ( (R*1e6)**2 );
+  document.getElementById('gValue').innerText = g.toFixed(2);
+  drawPlanet(M, R);
+}
+document.getElementById('massSlider').addEventListener('input', updatePlanet);
+document.getElementById('radiusSlider').addEventListener('input', updatePlanet);
+updatePlanet();
+
+// Lab 2: Inverse‑square journey
+const orbitCanvas = document.getElementById('orbitCanvas');
+const ctxOrbit = orbitCanvas.getContext('2d');
+orbitCanvas.width = 600; orbitCanvas.height = 220;
+
+function drawOrbit(ratio) {
+  const w = orbitCanvas.width, h = orbitCanvas.height;
+  ctxOrbit.fillStyle = getThemeColor('--surface3') || '#e8e6e2';
+  ctxOrbit.fillRect(0, 0, w, h);
+  // axes
+  ctxOrbit.beginPath();
+  ctxOrbit.strokeStyle = getThemeColor('--border-2') || '#aaa';
+  ctxOrbit.moveTo(40, h-30);
+  ctxOrbit.lineTo(w-20, h-30);
+  ctxOrbit.moveTo(40, 20);
+  ctxOrbit.lineTo(40, h-30);
+  ctxOrbit.stroke();
+  ctxOrbit.fillStyle = getThemeColor('--text-muted') || '#666';
+  ctxOrbit.fillText("r / R_🜨", w-50, h-15);
+  ctxOrbit.fillText("g (N/kg)", 10, 30);
+  // g values for Earth: g_surface = 9.81
+  const maxX = 5;
+  for (let i=0; i<=w-80; i++) {
+    let rRatio = (i/(w-80)) * maxX;
+    if (rRatio < 1) rRatio = 1;
+    let g = 9.81 / (rRatio*rRatio);
+    let px = 40 + i;
+    let py = h-30 - (g/9.81)*(h-50);
+    if (i===0) ctxOrbit.beginPath(), ctxOrbit.moveTo(px, py);
+    else ctxOrbit.lineTo(px, py);
+  }
+  ctxOrbit.strokeStyle = getThemeColor('--green') || '#2c7a4d';
+  ctxOrbit.lineWidth = 2.5;
+  ctxOrbit.stroke();
+  // mark current point
+  let gCurr = 9.81 / (ratio*ratio);
+  let pxCurr = 40 + (ratio/maxX)*(w-80);
+  let pyCurr = h-30 - (gCurr/9.81)*(h-50);
+  ctxOrbit.beginPath();
+  ctxOrbit.fillStyle = getThemeColor('--gold') || '#d4af37';
+  ctxOrbit.arc(pxCurr, pyCurr, 5, 0, 2*Math.PI);
+  ctxOrbit.fill();
+  ctxOrbit.fillStyle = getThemeColor('--text') || '#000';
+  ctxOrbit.fillText("You are here", pxCurr+5, pyCurr-5);
+}
+
+function updateOrbit() {
+  let ratio = parseFloat(document.getElementById('heightSlider').value);
+  document.getElementById('rRatio').innerText = ratio.toFixed(2);
+  let g = 9.81 / (ratio*ratio);
+  document.getElementById('gOrbit').innerText = g.toFixed(2);
+  drawOrbit(ratio);
+}
+document.getElementById('heightSlider').addEventListener('input', updateOrbit);
+updateOrbit();
+
+window.drawPlanet = drawPlanet;
+window.drawOrbit = drawOrbit;
+
+// KaTeX auto-render
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '\\(', right: '\\)', display: false }
+      ],
+      throwOnError: false
+    });
+  }
+});
+</script>
+
+      </div>
+      </div>
+
+      <div class="lesson-nav">
+        <a href="01-newton-s-law-of-gravitation.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Newton's Law of Gravitation</div>
+          </div>
+        </a>
+        <a href="03-gravitational-potential.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Gravitational Potential</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
