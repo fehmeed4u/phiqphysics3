@@ -178,11 +178,425 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-      <div style="padding:2.5rem 1.75rem">
-        <div style="font-family:var(--font-mono);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.6rem">Concept 02 · C.3</div>
-        <h2 style="font-family:var(--font-serif);font-size:1.8rem;line-height:1.2;margin-bottom:0.5rem">Reflection of Waves and Rays</h2>
-        <p style="font-size:0.92rem;color:var(--text-muted);max-width:60ch;margin-bottom:1.5rem">The law of reflection for wavefronts and rays, phase changes on reflection, and image formation at plane surfaces.</p>
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;font-size:0.9rem;color:var(--text-2)">Lesson content not written yet. This page is the placeholder shell — run the lesson generator to fill it in.</div>
+      <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 9 · C.3 Wave Phenomena</div>
+<div class="lc-title">Reflection of Waves and Rays</div>
+<div class="lc-sub">Syllabus content: wave behaviour at boundaries in terms of reflection — from a single pulse on a string to the law of reflection, phase changes and images in a plane mirror.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the pulse that comes back upside down</h3>
+  <p>Flick one end of a rope whose far end is tied to a wall. The hump you sent races away, hits the knot, and comes back — but <strong>inverted</strong>. Nothing was lost at the wall; the energy was simply <strong>re-directed back into the medium it came from</strong>. That is <strong>reflection</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-02-reflection-of-waves-and-rays-01.png" alt="A pulse on a string travelling towards a fixed boundary and returning inverted">
+    <div class="lc-cap">Fig 1 — Reflection of a pulse off a fixed boundary. The <em>incident wave</em> travels right; the <em>reflected wave</em> returns inverted.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — the wall does no work on the rope, so where does the energy of the reflected pulse come from? <em>It is the same energy: at a fixed boundary there is no possibility of transmission, so all of the wave energy is reflected. Only the phase changes, not the amount of energy.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Reflection at a boundary — the definition</h3>
+  <p>When a wave meets a boundary between different media, <strong>some, or all, of the wave energy will be re-directed back into the first medium</strong>. This is called reflection.</p>
+  <div class="lc-info"><strong>Reflection (waves):</strong> change of direction that occurs when waves meet a boundary between two media such that the waves return into the medium from which they came.</div>
+  <p>A wave travelling towards a boundary is called an <strong>incident wave</strong>. At the fixed boundary of Fig 1 the reflected wave is <strong>inverted</strong>: there is a phase change on reflection.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Phase change at a fixed (non-transmitting) boundary</span>
+    $$\Delta\phi = \pi$$
+  </div>
+  <p>An inversion corresponds to a phase change of \(\pi\) (a shift of half a cycle). If the incident waves are <strong>continuous</strong> rather than a single pulse, they may combine with the reflected waves to produce a <strong>standing wave</strong> — the subject of the next topic, C.4.</p>
+  <div class="lc-warn">📖 <strong>Textbook note:</strong> the printed text for this section gives the phase change at a fixed boundary as \(\pi/2\). Physically, an inverted reflection is a phase change of \(\pi\) (180°), and that is what IB mark schemes expect. Quote \(\pi\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔗 Boundaries where some wave is transmitted</h3>
+  <p>Apart from fixed boundaries, where there is no possibility of transmission, waves may also reflect from a boundary where <strong>some transmission occurs</strong>. Usually the wave will have <strong>different speeds in the two different media</strong>.</p>
+  <p><strong>Case 1 — into a slower ('denser') medium.</strong> The 'denser' rope has a <strong>greater mass per unit length</strong>, so the wave travels more slowly through it. The reflected wave is <strong>still inverted</strong>. The energy is shared between the reflected wave and the transmitted wave, so <strong>both amplitudes are less than that of the incident wave</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-02-reflection-of-waves-and-rays-02.png" alt="Before and after diagram of a pulse passing from a less dense string into a more dense string">
+    <div class="lc-cap">Fig 2 — A pulse travelling into a 'denser' medium: inverted reflected pulse plus an upright transmitted pulse, both smaller than the incident pulse.</div>
+  </div>
+  <p><strong>Case 2 — into a faster medium.</strong> When a wave pulse meets a boundary with a medium in which its speed would <strong>increase</strong> (more dense → less dense string), there is <strong>no phase change</strong>: the reflected pulse is upright.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Phase change when the speed increases</span>
+    $$\Delta\phi = 0$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-02-reflection-of-waves-and-rays-03.png" alt="Before and after diagram of a pulse passing from a more dense string into a less dense string with no inversion">
+    <div class="lc-cap">Fig 3 — Reflection with no phase change. <strong>Longitudinal</strong> waves and pulses behave in a similar way to transverse waves.</div>
+  </div>
+  <div class="lc-success">✓ Everyday case: a window both reflects and transmits light — you see your own faint image in the glass at the same time as the view through it.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🌊 Reflected wavefronts, and the law of reflection</h3>
+  <p>Extending the discussion to two and three dimensions: when <strong>parallel wavefronts</strong> meet a plane (flat) boundary, some or all of them will be reflected so that <strong>the angle the incident wavefront makes with the boundary equals the angle the reflected wavefront makes with the boundary</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-02-reflection-of-waves-and-rays-04.png" alt="Parallel wavefronts reflecting from a straight boundary with angles i and r marked to the boundary">
+    <div class="lc-cap">Fig 4 — Reflection of parallel wavefronts from a straight boundary: angle of incidence = angle of reflection.</div>
+  </div>
+  <p>When discussing the reflection of light it is more common to refer to <strong>rays</strong> than wavefronts, as in a <strong>ray diagram</strong>. A <strong>normal</strong> is a line perpendicular to the surface at the point of incidence. The angle of incidence and the angle of reflection are measured between the ray and the <strong>normal</strong> — not the surface.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">The law of reflection</span>
+    $$\theta_{\text{i}} = \theta_{\text{r}}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-02-reflection-of-waves-and-rays-05.png" alt="Ray diagram showing incident ray, reflected ray, normal, angle of incidence and angle of reflection at a plane surface">
+    <div class="lc-cap">Fig 5 — Reflection of rays from a plane surface. Both angles are measured from the normal.</div>
+  </div>
+  <div class="lc-info">📘 <strong>Definitions to learn:</strong> <em>Ray diagrams</em> — drawings that represent the directions of different waves or particles as they pass through a system. <em>Angle of incidence</em> — the angle between an incident ray and the normal. <em>Angle of reflection</em> — the angle between a reflected ray and the normal. <em>Law of reflection</em> — angle of incidence = angle of reflection.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🪞 Images in a plane mirror</h3>
+  <p>Radial light rays spread out from a point source (an 'object'). When they strike a plane mirror, the law of reflection can be used to determine the directions of the reflected rays. An eye looking into the mirror sees an <strong>image located as far behind the mirror as the object is in front</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-02-reflection-of-waves-and-rays-06.png" alt="Point object in front of a plane mirror with reflected rays and the image behind the mirror, and the same case drawn with circular wavefronts">
+    <div class="lc-cap">Fig 6 — Left: image formed by reflection of rays in a plane mirror. Right: the same situation drawn with circular wavefronts — the reflected waves appear to come from a point as far behind the surface as the source S is in front.</div>
+  </div>
+  <div class="lc-warn">✏️ <strong>Top tip!</strong> When drawing wavefront diagrams, make sure that the wavefronts are <strong>continuous at the boundaries</strong>.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Reflection angles</td><td>X: angle of incidence / ° · Y: angle of reflection / °</td><td>Straight line through the origin, gradient exactly 1 (45° line), 0–90°</td><td>Gradient = 1 confirms \(\theta_{\text{i}} = \theta_{\text{r}}\); any offset means the angle was measured from the surface, not the normal</td></tr>
+      <tr><td>Pulse snapshot (displacement–distance)</td><td>X: distance along string / cm · Y: displacement / cm</td><td>Single hump; after reflection the hump is on the opposite side of the axis and travelling the other way</td><td>Distance moved \(= v t\); sign of the hump gives the phase change (\(\pi\) or 0)</td></tr>
+      <tr><td>Amplitude sharing at a boundary</td><td>X: position / cm · Y: displacement / cm</td><td>One large incident hump, then two smaller humps (reflected inverted + transmitted upright)</td><td>Both reflected and transmitted amplitudes are smaller than the incident amplitude — energy is shared</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-02-reflection-of-waves-and-rays-07.png" alt="Graph of angle of reflection against angle of incidence, straight line through the origin"><div class="lc-cap">Fig 7 — \(\theta_{\text{r}}\) against \(\theta_{\text{i}}\): a straight line through the origin of gradient 1.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-02-reflection-of-waves-and-rays-08.png" alt="Grid showing a pulse before and after reflection at a fixed end, one square equals 10 cm"><div class="lc-cap">Fig 8 — Snapshot of a pulse on a grid (1 square = 10 cm) before and after reflection at a fixed end.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – where is the pulse 0.8 s later?</h3>
+  <p>An idealized pulse on a string approaches a fixed end at a speed of 100 cm s⁻¹ (Fig 8, 1 square = 10 cm). Sketch the position of the pulse 0.8 s later.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> constant-speed travel of a pulse, plus reflection at a <em>fixed</em> boundary. The pulse shape is unchanged; only its position and its sign change.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(v = 100\ \text{cm s}^{-1}\)<br>\(t = 0.8\ \text{s}\)<br>1 square \(= 10\ \text{cm}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(d = vt\)<br>\(= 100 \times 0.8 = 80\ \text{cm}\)<br>\(80 \div 10 = 8\) squares of travel along the string.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> count 8 squares forward along the path of the pulse. Any part of that 8 squares that lies beyond the fixed end is folded back: the pulse travels to the wall, reflects, and returns, drawn with the <strong>same width and height but inverted</strong> (below the axis), moving away from the fixed end.</div></div>
+  <div class="lc-success">✓ Examiner tip: mark the wall position first, then step out the 8 squares. Most lost marks are for a reflected pulse drawn the right way up, or drawn with a different width.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🎧 Real-world: reverberation in large rooms</h3>
+    <p>Sound reflects well off hard surfaces like walls, whereas soft surfaces — curtains, carpets, cushions, clothes — tend to absorb sound. A sound that reaches our ears may be quite different from the sound emitted by the source because of the many and various reflections it has undergone. This is why singing in the shower sounds very different from singing outdoors, or in a furnished room.</p>
+    <p>In a large room designed for listening to music, such as an auditorium, sounds travel a long way between reflections. Since it is the reflections that are responsible for most of the absorption of the sound, a particular sound takes longer to fall to a level we cannot hear — an effect called <strong>reverberation</strong>. The longer reverberation times of bigger rooms mean a listener may still hear reverberation from a previous sound while a new sound arrives, so sounds 'overlap'. Reflections off the walls, floor and ceiling also matter in a recording studio, although some effects can be added or removed electronically after recording.</p>
+    <div class="lc-success">✓ Examiner tip: reverberation is <em>delayed absorption</em>, not extra energy. Say "more reflections before absorption ⇒ longer time to become inaudible".</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – phase change and impedance</h3>
+    <p>Whether a reflection inverts depends on which side of the boundary the wave slows down. Going into a slower medium (greater mass per unit length \(\mu\), since \(v = \sqrt{T/\mu}\)) inverts the pulse; going into a faster medium does not.</p>
+    <div class="lc-formula">
+      $$v = \sqrt{\frac{T}{\mu}}$$
+    </div>
+    <p>The same rule governs light: reflection off a medium in which light travels more slowly (higher refractive index, e.g. air → glass) gives a phase change of \(\pi\); glass → air gives none.<br>
+    <strong>Challenge:</strong> two strings are joined; the pulse reflects upright. Which string is denser? (Answer: the second string is <em>less</em> dense — the speed increases, so there is no phase change.)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Angles are measured from the mirror surface</td><td>Both the angle of incidence and the angle of reflection are measured from the <strong>normal</strong>, the line perpendicular to the surface at the point of incidence</td></tr>
+      <tr><td>Every reflection inverts the wave</td><td>Only reflection at a fixed boundary, or at a boundary into a slower medium, inverts it. Into a faster medium there is <strong>no phase change</strong></td></tr>
+      <tr><td>The reflected pulse has the same amplitude as the incident pulse whenever transmission happens</td><td>When some energy is transmitted, the energy is shared, so the reflected <em>and</em> transmitted amplitudes are both <strong>less</strong> than the incident amplitude</td></tr>
+      <tr><td>The image in a plane mirror sits on the mirror surface</td><td>It is as far <strong>behind</strong> the mirror as the object is in front; the reflected waves only <em>appear</em> to come from that point</td></tr>
+      <tr><td>Wavefronts can be drawn with a break at the boundary</td><td>Wavefront diagrams must be <strong>continuous at boundaries</strong></td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: writing "angle of incidence = angle of reflection" but then measuring both angles from the surface in the diagram, which turns a 30° answer into 60°.</div>
+</div>
+
+<div class="lc-kp">
+  <span>θi = θr</span>
+  <span>Δφ = π (fixed / slower)</span>
+  <span>Δφ = 0 (faster)</span>
+  <span>angles from the normal</span>
+  <span>image distance = object distance</span>
+  <span>energy shared ⇒ smaller amplitudes</span>
+  <span>reverberation</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A single pulse travels along a string towards an end that is clamped firmly to a wall. The reflected pulse is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> upright and of smaller amplitude</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> inverted and of the same amplitude</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> upright and of the same amplitude</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> inverted and of larger amplitude</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A pulse passes from a light string into a heavier string joined to it. Which statement about the reflected pulse is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> Upright, same amplitude as the incident pulse</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> Inverted, same amplitude as the incident pulse</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> Inverted, smaller amplitude than the incident pulse</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> Upright, larger amplitude than the incident pulse</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A ray strikes a plane mirror so that the angle between the ray and the mirror surface is 30°. The angle of reflection is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> 15°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> 30°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> 60°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> 120°</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. An object stands 1.4 m in front of a plane mirror. How far is the image from the object?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 0.70 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> 1.4 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> 2.8 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> It depends on where the eye is</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Two identical sounds are made in a bare hall and in a hall with thick curtains and carpets. The bare hall has the longer reverberation time because</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> sound travels faster off hard walls</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> hard surfaces reflect rather than absorb, so more reflections are needed before the sound becomes inaudible</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> hard walls add energy to the sound wave</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> the frequency of the sound increases on each reflection</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A wave travelling towards a boundary is called the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px"> wave. At a fixed boundary the reflected pulse is <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:120px">. Ray angles are measured from the <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px">, and the law of reflection states that the angle of incidence equals the angle of <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:130px">. In a plane mirror the image forms as far <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px"> the mirror as the object is in front.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q">An idealized pulse on a string approaches a fixed end at a speed of 100 cm s⁻¹ (1 square = 10 cm). Draw a sketch to show the position of this pulse 0.8 s later. <span class="lc-exam-marks">[1 mark]</span></div>
+  <textarea class="lc-exam-input" placeholder="Describe your sketch here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Pulse has travelled \(d = vt = 100 \times 0.8 = 80\ \text{cm} = 8\) squares along the string, so it reaches the fixed end and returns.<br>✓ Reflected pulse drawn <strong>inverted</strong>, with the same width and height, on the far side of the original position and moving away from the fixed end. [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Construct</div>
+  <div class="lc-exam-q">A man stands looking at a wall. Make a rough copy of the diagram and add to the wall the smallest mirror that would enable the man to see both the top of his head and his feet. Include light rays that explain your positioning of the mirror. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Ray from the top of the head reflects to the eye; by the law of reflection it strikes the mirror at the point <strong>halfway between eye level and the top of the head</strong> — this is the top edge of the mirror. [1]<br>✓ Ray from the feet reflects to the eye; it strikes the mirror <strong>halfway between eye level and the feet</strong> — this is the bottom edge. [1]<br>✓ Mirror length is therefore <strong>half the man's height</strong>, independent of how far he stands from the wall. [1]<br>✓ Rays drawn with equal angles of incidence and reflection at the mirror, measured from the normal. [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Predict / Explain</div>
+  <div class="lc-exam-q">Predict if there will be a phase change when light waves reflect off a glass surface. Explain your answer. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Yes — there is a phase change of \(\pi\) for light arriving from air. [1]<br>✓ Light travels <strong>more slowly</strong> in glass than in air, so glass is the 'denser' medium — the analogue of a pulse entering a heavier string. [1]<br>✓ Reflection at a boundary with a slower medium inverts the wave, exactly as for the string; some light is also transmitted, so the reflected amplitude is smaller than the incident amplitude. (If the light were travelling in glass and reflecting off the glass–air boundary, there would be <strong>no</strong> phase change.) [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe</div>
+  <div class="lc-exam-q">Light rays from the Sun are reflected to a focus by a parabolic reflector. Describe the shape of the wavefronts (a) arriving from the Sun, (b) being reflected to the focus. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The Sun is so distant that the wavefronts arriving are effectively <strong>plane (straight), parallel</strong> wavefronts, perpendicular to the incoming rays. [1]<br>✓ (b) After reflection the wavefronts are <strong>circular (spherical) arcs converging on the focus</strong>, centred on the focus, with decreasing radius as they approach it. [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">A pulse on a light string meets a junction with a heavier string. (a) State what happens to the speed of the pulse as it crosses into the heavier string. (b) Explain why the amplitude of the reflected pulse is less than that of the incident pulse. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The speed <strong>decreases</strong>, because the heavier string has a greater mass per unit length. [1]<br>✓ (b) Some transmission occurs at this boundary, so the energy of the incident pulse is <strong>shared</strong> between the reflected and transmitted pulses. [1]<br>✓ Amplitude increases with energy, so both the reflected and the transmitted amplitudes are smaller than the incident amplitude. [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Inquiry 1 · Exploring and designing</div>
+  <div class="lc-exam-q">Sound reflections in large rooms. (1) Research online (search terms such as 'sound reverberation') how professional designers adapt and design performance spaces to change reverberation, then inspect a performance space you can visit for installations that affect reverberation. (2) Discuss and suggest what measurements you could make to test the reverberation in the space. (3) Are there any improvements that could be made? State these and explain your reasoning. <span class="lc-exam-marks">[Inquiry task]</span></div>
+  <textarea class="lc-exam-input" placeholder="Notes for your investigation…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show guidance</button>
+  <div class="lc-model">✓ (1) Look for absorbing installations — acoustic panels, drapes, upholstered seating, diffusers, angled or perforated ceiling baffles — and note which surfaces remain hard and reflective.<br>✓ (2) Measurable quantity: reverberation time, the time for a loud short sound (a clap or balloon burst) to fall by 60 dB. Use a sound-level meter or phone app, record the decay, repeat at several positions, and average. Control the source loudness and the room occupancy.<br>✓ (3) Typical improvements: add soft furnishing to reduce an over-long reverberation time for speech, or remove absorbers / add reflectors if music sounds 'dead'. Justify each by the balance between reflection off hard surfaces and absorption by soft ones.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { B: 'A fixed boundary allows no transmission, so all the energy returns — same amplitude — but the pulse is inverted (phase change of π).' },
+    mcq2: { C: 'Into a heavier (slower) string the reflection is still inverted, and because some energy is transmitted the reflected amplitude is smaller.' },
+    mcq3: { C: 'Angles are measured from the normal. 30° to the surface means 60° to the normal, so the angle of reflection is 60°.' },
+    mcq4: { C: 'The image is 1.4 m behind the mirror, so object to image is 1.4 + 1.4 = 2.8 m, whatever the viewing position.' },
+    mcq5: { B: 'Most absorption happens at the surfaces. Hard walls reflect, so the sound undergoes many reflections before falling below the hearing threshold — a long reverberation time.' }
+  };
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+  window.lcFITB = function() {
+    const ans = { lf1:'incident', lf2:'inverted', lf3:'normal', lf4:'reflection', lf5:'behind' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || (val.length > 2 && val.includes(ans[id]));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
       </div>
       </div>
 
