@@ -178,11 +178,531 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-      <div style="padding:2.5rem 1.75rem">
-        <div style="font-family:var(--font-mono);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.6rem">Concept 03 · C.3</div>
-        <h2 style="font-family:var(--font-serif);font-size:1.8rem;line-height:1.2;margin-bottom:0.5rem">Refraction of Waves</h2>
-        <p style="font-size:0.92rem;color:var(--text-muted);max-width:60ch;margin-bottom:1.5rem">Snell's law, refractive index, change of wave speed and wavelength, critical angle and total internal reflection.</p>
-        <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;font-size:0.9rem;color:var(--text-2)">Lesson content not written yet. This page is the placeholder shell — run the lesson generator to fill it in.</div>
+      <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 9 · C.3 Wave Phenomena</div>
+<div class="lc-title">Refraction of Waves</div>
+<div class="lc-sub">Syllabus content: wave behaviour at boundaries in terms of refraction · wavefront–ray diagrams showing refraction · Snell's law, critical angle and total internal reflection.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – why the sea always arrives parallel to the beach</h3>
+  <p>Watch waves approach a beach at an angle. However crooked their line starts out, by the time they break they are almost parallel to the shore. Nothing steers them: <strong>the speed of waves on the surface of water generally decreases as they move into shallower water</strong>, and the shallow end of each wavefront falls behind. The wave pivots. That bending is <strong>refraction</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-03-refraction-of-waves-01.png" alt="Plan view of parallel water wavefronts bending as they cross into a shallow region">
+    <div class="lc-cap">Fig 1 — Parallel wavefronts crossing into shallow water. The spacing (wavelength) shrinks and the direction of travel swings towards the normal.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — if the wave slows down, does its frequency drop too? <em>No. The frequency is set by the source and is unchanged. Since \(v = f\lambda\), a smaller \(v\) at fixed \(f\) means a smaller wavelength \(\lambda\).</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Refraction: change of speed, change of direction</h3>
+  <p>Waves will usually <strong>change speed</strong> when they travel into a different medium, and such changes of speed may result in a <strong>change of direction</strong>.</p>
+  <div class="lc-info"><strong>Refraction:</strong> change of direction that can occur when a wave changes speed (most commonly when light passes through a boundary between two different media).</div>
+  <p><strong>Case 1 — normal incidence.</strong> If the wavefronts are <strong>parallel to the boundary</strong>, the ray representing the wave motion is perpendicular to the boundary. There is then <strong>no change of direction</strong>, but because the waves travel more slowly their <strong>wavelength decreases</strong> while their <strong>frequency is unchanged</strong>.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Wave equation — why λ shrinks</span>
+    $$v = f\lambda$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-03-refraction-of-waves-02.png" alt="Wavefronts slowing down at normal incidence, with closer spacing in the slower medium and no change of direction">
+    <div class="lc-cap">Fig 2 — Waves slowing down as they enter a different medium. For normal incidence there is no change of direction; only the wavelength changes.</div>
+  </div>
+  <p><strong>Case 2 — oblique incidence.</strong> If the wavefronts are <strong>not</strong> parallel to the boundary, different parts of the same wavefront reach the boundary at <strong>different times</strong> and consequently change speed at different times. The result is a change of direction — refraction. <strong>The greater the change of speed, the greater the change of direction.</strong></p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">The two rules to memorise</span>
+    $$v \downarrow \;\Rightarrow\; \text{towards the normal}$$
+    $$v \uparrow \;\Rightarrow\; \text{away from the normal}$$
+  </div>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-03-refraction-of-waves-03.png" alt="Wavefront and ray diagram of waves refracting towards the normal on entering a denser medium"><div class="lc-cap">Fig 3 — Entering a medium in which they travel <strong>more slowly</strong>: refracted <strong>towards</strong> the normal.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-03-refraction-of-waves-04.png" alt="Wavefront and ray diagram of waves refracting away from the normal on entering a less dense medium"><div class="lc-cap">Fig 4 — Entering a medium in which they travel <strong>faster</strong>: refracted <strong>away</strong> from the normal. Same as Fig 3 with the waves travelling the opposite way.</div></div>
+  </div>
+  <p>The refraction of light is a familiar topic in physics, especially in optics work on <strong>lenses</strong> and <strong>prisms</strong>, but <strong>all</strong> waves tend to refract when their speed changes. Often the change is sudden at a boundary between media, but it can also be gradual or irregular: differences in gas density produce <strong>irregular refraction</strong> and a blurred image above a fire, and stars twinkle in the night sky because of refraction in a shifting atmosphere.</p>
+  <div class="lc-info"><strong>Prism:</strong> a regularly shaped piece of transparent material (such as glass) with flat surfaces, which is used to refract and disperse light.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔢 Refractive index</h3>
+  <p>The amount of refraction that occurs when a light wave passes from one medium into another depends on the <strong>change of speed</strong> involved. This is represented numerically by the <strong>refractive index</strong>, \(n\), of a medium.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Refractive index</span>
+    $$n = \frac{c}{v}$$
+  </div>
+  <p>That is, the speed of light in vacuum divided by the speed of light in the medium. Refractive index is a <strong>ratio of speeds, so it has no unit</strong>. For water, the speed of light is \(2.26 \times 10^8\ \text{m s}^{-1}\), so:</p>
+  <div class="lc-formula">
+    $$n_{\text{water}} = \frac{3.00 \times 10^8}{2.26 \times 10^8}$$
+    $$= 1.33$$
+  </div>
+  <p>In practice we are not usually concerned with light travelling into or out of a vacuum, but the speed of light in <strong>air</strong> is almost identical to the speed in a vacuum. This means the same refractive indices can be used for light passing from air into, or out of, a medium.</p>
+  <table class="lc-table">
+    <thead><tr><th>Medium</th><th>Speed of light / 10⁸ m s⁻¹</th><th>Refractive index</th></tr></thead>
+    <tbody>
+      <tr><td>diamond</td><td>1.2</td><td>2.4</td></tr>
+      <tr><td>glass</td><td>1.8–2.0</td><td>1.5–1.7</td></tr>
+      <tr><td>plastic</td><td>1.9–2.3</td><td>1.3–1.6</td></tr>
+      <tr><td>lens in human eye</td><td>2.1</td><td>1.4</td></tr>
+      <tr><td>pure water</td><td>2.26</td><td>1.3</td></tr>
+      <tr><td>air</td><td>2.997</td><td>1.0</td></tr>
+      <tr><td>vacuum</td><td>2.998</td><td>–</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-info"><strong>Refractive index, n:</strong> the ratio of the speed of waves in vacuum (or air) to the speed of waves in a given medium.</div>
+  <p>Waves from all parts of the electromagnetic spectrum travel at exactly the same speed (\(c = 3.00 \times 10^8\ \text{m s}^{-1}\)) in free space, but they all travel slower in other media. There are also very small differences in wave speed within the <em>same</em> medium — for example <strong>yellow light travels very slightly faster than green light in glass</strong>. For many applications this is unimportant, but it results in the <strong>dispersion</strong> of white light into a spectrum.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📏 Snell's law</h3>
+  <p>When we observe the refraction of light, the only direct measurements that can be made are of the <strong>angles</strong> involved. In the standard experiment with a parallel-sided glass or plastic block, two measurements are possible: \(\theta_1\), the angle the incident ray makes with the normal, and \(\theta_2\), the angle the refracted ray makes with the normal.</p>
+  <p>The rays are refracted <strong>towards</strong> the normal because the speed of light in glass is less than in air. Because the block is <strong>parallel-sided</strong>, the same angles occur again as the ray emerges. A ray entering the lower surface follows exactly the same path as a ray entering the upper surface, but in the opposite direction. Some of the incident light is also reflected off the glass surface, although this is not drawn.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-03-refraction-of-waves-05.png" alt="Ray passing through a parallel-sided transparent block showing theta 1 and theta 2 at both surfaces">
+    <div class="lc-cap">Fig 5 — Light passing through a parallel-sided transparent block. The emerging ray is parallel to the incident ray.</div>
+  </div>
+  <p>The Dutch scientist <strong>Willebrord Snellius</strong> was the first to show how the angles are related to the wave speeds and the refractive indices, as light passes from a medium of refractive index \(n_1\), where its speed is \(v_1\), into a medium of refractive index \(n_2\), where the speed is \(v_2\).</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Snell's law (as given in the data booklet)</span>
+    $$\frac{n_1}{n_2} = \frac{\sin\theta_2}{\sin\theta_1} = \frac{v_2}{v_1}$$
+  </div>
+  <p>If medium 1 is <strong>air</strong>, this reduces to a form worth knowing by heart: for light entering from air, the refractive index is the sine of the angle of incidence divided by the sine of the angle of refraction.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">From air into medium 2</span>
+    $$n_2 = \frac{\sin\theta_1}{\sin\theta_2}$$
+    $$n_2 = \frac{c}{v_2}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-03-refraction-of-waves-06.png" alt="Wavefront diagram of light refracting a towards the normal and b away from the normal with media labelled n1 v1 and n2 v2">
+    <div class="lc-cap">Fig 6 — The same physics with wavefronts drawn in: (a) refracted towards the normal, (b) refracted away from the normal. Note \(n_1, v_1\) in medium 1 and \(n_2, v_2\) in medium 2.</div>
+  </div>
+  <div class="lc-info"><strong>Snell's law (of refraction):</strong> connects the sines of the angles of incidence and refraction to the refractive indices in the two media (or the wave speeds), \(\frac{n_1}{n_2} = \frac{\sin\theta_2}{\sin\theta_1} = \frac{v_2}{v_1}\). Here \(\theta\) is the angle between the <strong>normal</strong> and the ray.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔒 Critical angle and total internal reflection</h3>
+  <p>Consider again a ray entering an <strong>optically less dense</strong> medium — one in which light travels faster. As the angle of incidence is gradually increased, the refracted ray gets closer and closer to the boundary. At a certain angle the refracted ray emerges at exactly <strong>90°</strong>, running along the boundary. That angle of incidence is the <strong>critical angle</strong>, \(\theta_{\text{c}}\).</p>
+  <p>For <em>any</em> angle of incidence some light is reflected at the boundary, but for angles of incidence <strong>greater than the critical angle all</strong> the light is reflected back and remains in the denser medium. This is <strong>total internal reflection</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-03-refraction-of-waves-07.png" alt="Three rays at a boundary with a less dense medium: refracted, refracted along the boundary at the critical angle, and totally internally reflected">
+    <div class="lc-cap">Fig 7 — Total internal reflection occurs if the angle of incidence is greater than the critical angle \(\theta_{\text{c}}\).</div>
+  </div>
+  <p>Starting from Snell's law with \(\theta_1 = \theta_{\text{c}}\) and \(\theta_2 = 90^\circ\), so that \(\sin\theta_2 = 1\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Critical angle, general form</span>
+    $$\frac{n_1}{n_2} = \frac{1}{\sin\theta_{\text{c}}}$$
+  </div>
+  <p>Most commonly the light passes from an optically denser material (medium 1) such as glass, plastic or water into <strong>air</strong> (medium 2), where \(n_2 = n_{\text{air}} = 1\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Medium → air</span>
+    $$n_{\text{medium}} = \frac{1}{\sin\theta_{\text{c}}}$$
+  </div>
+  <div class="lc-info"><strong>Critical angle:</strong> largest angle at which a ray of light can strike a boundary with another medium of lower refractive index without being totally internally reflected. <strong>Total internal reflection:</strong> all waves are reflected back within the medium; can only occur when a wave meets a boundary with another medium of lower refractive index (in which it would travel faster). <strong>Optically dense:</strong> if light travels slower in medium A than in medium B, then A is described as more optically dense.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Snell's law plot</td><td>X: sin θ₂ · Y: sin θ₁</td><td>Straight line through the origin</td><td>Gradient \(= n_2/n_1\); with air as medium 1, gradient = refractive index of the block</td></tr>
+      <tr><td>Angle plot</td><td>X: θ₁ / ° · Y: θ₂ / °</td><td>Curve through the origin, gradient falling — flattens towards \(\theta_{\text{c}}\)'s partner value</td><td>Not a straight line, so never take a "gradient = n" from it; read pairs of angles only</td></tr>
+      <tr><td>Speed vs refractive index</td><td>X: n · Y: v / 10⁸ m s⁻¹</td><td>Falling curve (\(v = c/n\), a reciprocal)</td><td>Product \(nv = c\) at every point; use it to check a value from Table C3.2</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-03-refraction-of-waves-08.png" alt="Graph of sin theta 1 against sin theta 2, a straight line through the origin of gradient 1.5"><div class="lc-cap">Fig 8 — \(\sin\theta_1\) against \(\sin\theta_2\) for an air–glass boundary: gradient = \(n\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-03-refraction-of-waves-09.png" alt="Graph of angle of refraction against angle of incidence, a curve of decreasing gradient"><div class="lc-cap">Fig 9 — \(\theta_2\) against \(\theta_1\): a curve, not a straight line.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C3.1 – refractive index of a plastic block</h3>
+  <p>The angle of incidence on a plastic block was 48°, and the angle of refraction was 32°. (a) Determine the refractive index of the plastic. (b) Calculate the speed of light in the plastic.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> light entering from air, both angles measured from the normal — so the air form of Snell's law applies, then \(n = c/v\) for part (b).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\theta_1 = 48^\circ\), \(\theta_2 = 32^\circ\)<br>\(\sin 48^\circ = 0.743\)<br>\(\sin 32^\circ = 0.530\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(n = \dfrac{\sin\theta_1}{\sin\theta_2}\)<br>\(= \dfrac{0.743}{0.530} = 1.40\)<br>then \(1.40 = \dfrac{3.00 \times 10^8}{v}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(n_{\text{plastic}} = 1.40\) (no unit)<br>\(v_{\text{plastic}} = 2.14 \times 10^8\ \text{m s}^{-1}\)<br>Slower than in air, which is why the ray bent towards the normal.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C3.2 – water into glass</h3>
+  <p>A light ray travelling in water of refractive index 1.33 is incident upon a plane glass surface at an angle of 27° to the normal. Calculate the angle of refraction if the glass has a refractive index of 1.63.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> neither medium is air, so use the full Snell's law with \(n_1 = 1.33\) (water) and \(n_2 = 1.63\) (glass).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(n_1 = 1.33\), \(n_2 = 1.63\)<br>\(\theta_1 = 27^\circ\), \(\sin 27^\circ = 0.454\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\dfrac{n_1}{n_2} = \dfrac{\sin\theta_2}{\sin\theta_1}\)<br>\(\dfrac{1.33}{1.63} = \dfrac{\sin\theta_2}{\sin 27^\circ}\)<br>\(\sin\theta_2 = 0.3704\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\theta_2 = 22^\circ\)<br>Smaller than 27°, as expected: glass is optically denser than water, so the ray bends towards the normal.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C3.3 – two critical angles</h3>
+  <p>(a) Determine the critical angle for a water/air boundary (\(n_{\text{water}} = 1.33\)). (b) Determine the critical angle for a glass/water boundary (\(n_{\text{glass}} = 1.60\)).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> (a) medium → air, so \(n_{\text{medium}} = 1/\sin\theta_{\text{c}}\). (b) neither medium is air, so use \(n_1/n_2 = 1/\sin\theta_{\text{c}}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> (a) \(n_{\text{water}} = 1.33\), \(n_{\text{air}} = 1\)<br>(b) \(n_{\text{glass}} = 1.60\), \(n_{\text{water}} = 1.33\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> (a) \(1.33 = \dfrac{1}{\sin\theta_{\text{c}}}\)<br>(b) \(\dfrac{1.60}{1.33} = \dfrac{1}{\sin\theta_{\text{c}}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(\theta_{\text{c}} = 48.8^\circ\)<br>(b) \(\theta_{\text{c}} = 56.2^\circ\)<br>The closer the two refractive indices, the larger the critical angle.</div></div>
+  <div class="lc-success">✓ Examiner tip: the critical angle is always measured in the <strong>denser</strong> medium. If your answer comes out below 40° for a glass–water boundary, you have the ratio upside down.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: optical fibres and endoscopes</h3>
+    <p>One very important application of total internal reflection is <strong>digital communication</strong>. Light passing into a glass fibre can be 'trapped' within the fibre by <strong>multiple internal reflections</strong>, so it travels long distances following the shape of the fibre, and can be modified to transmit digital information very efficiently. Most of the data transferred around the world travels this way.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/c3-03-refraction-of-waves-10.png" alt="Light ray zig-zagging along a curved glass fibre by repeated total internal reflection">
+      <div class="lc-cap">Fig 10 — Total internal reflection along a glass fibre.</div>
+    </div>
+    <p>Total internal reflection is also used in <strong>endoscopes</strong> for medical examinations. Light from an outside source is sent along fibres to illuminate the inside of the body; other optical fibres, with lenses at each end, bring a focused image outside for viewing directly or via a camera and monitor.</p>
+    <div class="lc-info"><strong>Optical fibre:</strong> thin, flexible fibre of high-quality glass that uses total internal reflection to transmit light along curved paths and over large distances.</div>
+    <div class="lc-success">✓ Examiner tip: say "the angle of incidence at the fibre wall <em>exceeds the critical angle</em>", not just "the light bounces along".</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – deriving Snell's law from geometry</h3>
+    <p>Take one wavefront pivoting across the boundary. In the time \(t\) that the end still in medium 1 travels \(v_1 t\), the end already in medium 2 travels \(v_2 t\). Both distances are the opposite side of a right-angled triangle sharing the same hypotenuse \(L\) along the boundary:</p>
+    <div class="lc-formula">
+      $$\sin\theta_1 = \frac{v_1 t}{L}$$
+      $$\sin\theta_2 = \frac{v_2 t}{L}$$
+    </div>
+    <p>Dividing one by the other removes \(t\) and \(L\):</p>
+    <div class="lc-formula">
+      $$\frac{\sin\theta_1}{\sin\theta_2} = \frac{v_1}{v_2} = \frac{n_2}{n_1}$$
+    </div>
+    <p>Written as a relative refractive index for waves going from medium 1 into medium 2:</p>
+    <div class="lc-formula">
+      $$_1n_2 = \frac{n_2}{n_1}$$
+    </div>
+    <p><strong>Challenge:</strong> explain why no medium can have a refractive index of less than one. (Answer: \(n = c/v\), and no wave carries energy faster than \(c\), so \(v \le c\) and therefore \(n \ge 1\).)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>The frequency changes when a wave refracts</td><td>Frequency is set by the source and is <strong>unchanged</strong>. The speed and the wavelength change together, \(v = f\lambda\)</td></tr>
+      <tr><td>Refraction always bends the ray</td><td>At <strong>normal incidence</strong> (wavefronts parallel to the boundary) there is no change of direction at all — only the wavelength changes</td></tr>
+      <tr><td>Angles in Snell's law are measured to the surface</td><td>\(\theta\) is the angle between the <strong>normal</strong> and the ray. A question giving "47° to the surface" means \(\theta_1 = 43^\circ\)</td></tr>
+      <tr><td>\(n_1/n_2 = \sin\theta_1/\sin\theta_2\)</td><td>The data-booklet form is <strong>inverted</strong>: \(n_1/n_2 = \sin\theta_2/\sin\theta_1\). Check with a sanity test — the denser medium must have the smaller angle</td></tr>
+      <tr><td>Total internal reflection can happen going into a denser medium</td><td>It can <strong>only</strong> occur at a boundary with a medium of <strong>lower</strong> refractive index, in which the wave would travel faster</td></tr>
+      <tr><td>At exactly the critical angle the light is totally internally reflected</td><td>At \(\theta_{\text{c}}\) the refracted ray runs <strong>along the boundary</strong> at 90°; total internal reflection needs an angle <strong>greater</strong> than \(\theta_{\text{c}}\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: taking the angle from the surface instead of the normal, which turns a 43° incidence into 47° and quietly ruins every later mark in the question.</div>
+</div>
+
+<div class="lc-kp">
+  <span>n = c/v</span>
+  <span>n₁/n₂ = sinθ₂/sinθ₁ = v₂/v₁</span>
+  <span>n₂ = sinθ₁/sinθ₂</span>
+  <span>n = 1/sin θc</span>
+  <span>f unchanged, λ changes</span>
+  <span>slower ⇒ towards the normal</span>
+  <span>TIR only into a faster medium</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A wave passes from air into glass. Which quantity is unchanged?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> Speed</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Wavelength</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> Frequency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Direction of travel</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. The speed of light in a medium is \(1.5 \times 10^8\ \text{m s}^{-1}\). Its refractive index is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 0.50</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 2.0</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 1.5</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 4.5 × 10⁸</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Wavefronts arrive at a boundary <em>parallel</em> to it, entering a medium in which they travel more slowly. What happens?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> They bend towards the normal and the wavelength decreases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> They bend away from the normal and the frequency decreases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> Nothing changes at all</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> The direction is unchanged but the wavelength decreases</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Light travels from glass (\(n = 1.50\)) towards air. Total internal reflection occurs when the angle of incidence in the glass is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> less than 41.8°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> greater than 41.8°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> exactly 48.2°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> greater than 90°</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Two media have refractive indices 1.33 and 1.54. Light can be totally internally reflected at the boundary only when it travels</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> from the medium of index 1.33 into the medium of index 1.54</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> from the medium of index 1.54 into the medium of index 1.33</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> in either direction, provided the angle is large enough</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> at normal incidence in either direction</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    On refraction the frequency of the wave is <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:130px">. Waves entering a medium in which they travel more slowly are refracted <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px"> the normal. The refractive index is defined as \(n = c/v\) and has <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:80px"> unit. At the critical angle the refracted ray leaves at <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:70px">° to the normal, and beyond it all the light is <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:140px"> internally reflected.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">A ray of light travelling in air was incident at an angle of 47° to the <em>surface</em> of a plastic which had a refractive index of 1.58. Calculate (a) the angle of refraction (to the normal) in the plastic, (b) the speed of light in the plastic. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Angle to the normal: \(\theta_1 = 90 - 47 = 43^\circ\). [1]<br>✓ \(\sin\theta_2 = \dfrac{\sin 43^\circ}{1.58} = \dfrac{0.682}{1.58} = 0.432\), so \(\theta_2 = 26^\circ\). [1]<br>✓ (b) \(v = \dfrac{c}{n} = \dfrac{3.00 \times 10^8}{1.58}\) [1]<br>✓ \(v = 1.9 \times 10^8\ \text{m s}^{-1}\). [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Predict</div>
+  <div class="lc-exam-q">Parallel water waves travelling at 48 cm s⁻¹ enter a region of shallow water with the incident wavefronts making an angle of 34° with the boundary. If the waves travel with a speed of 39 cm s⁻¹ in the shallower water, predict the direction in which they will move. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The angle between the wavefronts and the boundary equals the angle between the ray and the normal, so \(\theta_1 = 34^\circ\). [1]<br>✓ \(\dfrac{\sin\theta_2}{\sin\theta_1} = \dfrac{v_2}{v_1} = \dfrac{39}{48}\), so \(\sin\theta_2 = 0.559 \times 0.8125 = 0.454\). [1]<br>✓ \(\theta_2 = 27^\circ\) to the normal — the waves are refracted <strong>towards</strong> the normal, since they have slowed down. [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Calculate</div>
+  <div class="lc-exam-q">Light rays travel at \(2.23 \times 10^8\ \text{m s}^{-1}\) in a liquid. (a) Determine the refractive index of the liquid. (b) Light rays coming out of the liquid into air meet the surface at an angle of incidence of 25°. Calculate the angle of the emerging ray to the normal in air. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(n = \dfrac{c}{v} = \dfrac{3.00 \times 10^8}{2.23 \times 10^8}\) [1]<br>✓ \(n = 1.35\). [1]<br>✓ (b) Liquid → air: \(\sin\theta_{\text{air}} = 1.35 \times \sin 25^\circ = 1.35 \times 0.423\) [1]<br>✓ \(\sin\theta_{\text{air}} = 0.571\), so \(\theta_{\text{air}} = 35^\circ\) — bent away from the normal, as expected. [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">A certain kind of glass has a refractive index of 1.55. If light passes into the glass from water (refractive index = 1.33) and makes an angle of refraction of 42°, what was the angle of incidence? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\dfrac{n_1}{n_2} = \dfrac{\sin\theta_2}{\sin\theta_1}\) with \(n_1 = 1.33\), \(n_2 = 1.55\), \(\theta_2 = 42^\circ\). [1]<br>✓ \(\sin\theta_1 = \dfrac{1.55 \times \sin 42^\circ}{1.33} = \dfrac{1.55 \times 0.669}{1.33}\) [1]<br>✓ \(\sin\theta_1 = 0.780\), so \(\theta_1 = 51^\circ\) in the water. [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q">(a) Use trigonometry to show that the refractive index between two media is equal to the ratio of wave speeds (\(v_1/v_2\)) in the media. (b) Show that the refractive index for waves going from medium 1 into medium 2 is given by \(_1n_2 = n_2/n_1\). <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Draw one wavefront pivoting on the boundary; in the same time \(t\), one end travels \(v_1 t\) in medium 1 while the other travels \(v_2 t\) in medium 2, both across the same length \(L\) of boundary. [1]<br>✓ \(\sin\theta_1 = \dfrac{v_1 t}{L}\) and \(\sin\theta_2 = \dfrac{v_2 t}{L}\). [1]<br>✓ Dividing: \(\dfrac{\sin\theta_1}{\sin\theta_2} = \dfrac{v_1}{v_2}\), which is the relative refractive index. [1]<br>✓ (b) With \(n_1 = c/v_1\) and \(n_2 = c/v_2\), \(\dfrac{v_1}{v_2} = \dfrac{c/n_1}{c/n_2} = \dfrac{n_2}{n_1}\). [1]<br>✓ Hence \(_1n_2 = \dfrac{\sin\theta_1}{\sin\theta_2} = \dfrac{n_2}{n_1}\). [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q">Explain why it is impossible for any medium to have a refractive index of less than one. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(n = c/v\), where \(c\) is the speed of light in vacuum. [1]<br>✓ Light cannot travel faster in a medium than it does in vacuum, so \(v \le c\), and therefore \(n \ge 1\). [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Explain (dispersion)</div>
+  <div class="lc-exam-q">The refractive index of red light in a certain type of glass is 1.513. (a) If a ray of red light strikes an air/glass boundary at an angle of incidence of 29.0°, determine its angle of refraction. (b) A ray of violet light was incident at exactly the same angle (29.0°), but its angle of refraction was slightly less. Explain why. (c) If the angle of refraction for violet light was 18.5°, determine (i) the refractive index of violet light in this glass, (ii) the speed of violet light in the glass. (d) We say that the red and violet light rays have been dispersed. Explain what that means. <span class="lc-exam-marks">[8 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\sin\theta_2 = \dfrac{\sin 29.0^\circ}{1.513} = \dfrac{0.4848}{1.513} = 0.3204\) [1]<br>✓ \(\theta_2 = 18.7^\circ\). [1]<br>✓ (b) Violet light travels slightly <strong>slower</strong> in the glass than red light, so its refractive index is slightly larger. [1]<br>✓ A larger \(n\) means more refraction, so a smaller angle of refraction. [1]<br>✓ (c)(i) \(n = \dfrac{\sin 29.0^\circ}{\sin 18.5^\circ} = \dfrac{0.4848}{0.3173} = 1.528\). [1]<br>✓ (c)(ii) \(v = \dfrac{c}{n} = \dfrac{3.00 \times 10^8}{1.528} = 1.96 \times 10^8\ \text{m s}^{-1}\). [1]<br>✓ (d) Dispersion means the different wavelengths (colours) of white light are refracted through <strong>different angles</strong> [1]<br>✓ …because each has a slightly different speed, and so a slightly different refractive index, in the glass — so the colours emerge separated as a spectrum. [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">The speed of light in sea water is \(2.21 \times 10^8\ \text{m s}^{-1}\). Calculate the critical angle for light striking a boundary between sea water and air. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(n = \dfrac{3.00 \times 10^8}{2.21 \times 10^8} = 1.36\). [1]<br>✓ \(\sin\theta_{\text{c}} = \dfrac{1}{1.36} = 0.737\) [1]<br>✓ \(\theta_{\text{c}} = 47.4^\circ\), measured in the sea water. [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe / Calculate</div>
+  <div class="lc-exam-q">A certain kind of glass has a refractive index of 1.54 and water has a refractive index of 1.33. (a) In which medium does light travel faster? (b) Describe the circumstances which must occur for light to be totally internally reflected when meeting a boundary between these two substances. (c) Calculate the critical angle for light passing between these two media. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) In the <strong>water</strong>, because it has the lower refractive index (\(v = c/n\)). [1]<br>✓ (b) The light must be travelling <strong>in the glass</strong>, arriving at the glass–water boundary — i.e. going into the medium with the lower refractive index. [1]<br>✓ …and the angle of incidence in the glass must be <strong>greater than the critical angle</strong>. [1]<br>✓ (c) \(\dfrac{1.54}{1.33} = \dfrac{1}{\sin\theta_{\text{c}}}\), so \(\sin\theta_{\text{c}} = 0.864\) [1]<br>✓ \(\theta_{\text{c}} = 59.7^\circ\). [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">ATL C3A · Communication skills</div>
+  <div class="lc-exam-q">Clearly communicate complex ideas in response to open-ended questions. Most of the data transferred around the world is done using optical fibres. Choose one aspect of this important topic and use a variety of sources to access enough information that you can make an interesting three- to five-minute presentation to the rest of your group. For example: the choice of wavelength used, the use of binary signals, underwater cables, the cladding used in the fibres, the purity of the glass used, possible bandwidths, how far the signals can travel without the need for regeneration, or how optical fibres are connected to copper wires. <span class="lc-exam-marks">[ATL task]</span></div>
+  <textarea class="lc-exam-input" placeholder="Notes and plan for your presentation…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show guidance</button>
+  <div class="lc-model">✓ Pick <em>one</em> aspect and go deep rather than surveying all of them — three to five minutes is about 500 words of speech.<br>✓ Anchor every claim in the physics of this lesson: total internal reflection needs \(n_{\text{core}} &gt; n_{\text{cladding}}\), so the cladding sets the critical angle and hence the range of angles the fibre accepts.<br>✓ Use at least two independent source types (a textbook or review article plus an industry or standards page), and say where each figure came from.<br>✓ Close with a number your audience will remember — a bandwidth, a cable length between repeaters, or a glass purity figure.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'Frequency is set by the source. The speed falls in glass and the wavelength falls with it, since v = fλ.' },
+    mcq2: { B: 'n = c/v = 3.0 × 10⁸ / 1.5 × 10⁸ = 2.0, with no unit.' },
+    mcq3: { D: 'At normal incidence the whole wavefront crosses the boundary at once, so there is no change of direction — but the slower speed means a shorter wavelength.' },
+    mcq4: { B: 'sin θc = 1/1.50, so θc = 41.8°. Total internal reflection needs an angle of incidence greater than the critical angle.' },
+    mcq5: { B: 'Total internal reflection can only occur going into the medium of lower refractive index, i.e. from 1.54 into 1.33.' }
+  };
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+  window.lcFITB = function() {
+    const ans = { lf1:'unchanged', lf2:'towards', lf3:'no', lf4:'90', lf5:'totally' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || (val.length > 2 && val.includes(ans[id]));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+
       </div>
       </div>
 
