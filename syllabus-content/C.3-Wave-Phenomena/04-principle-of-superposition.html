@@ -3,89 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Principle of Superposition — C.3 Wave Phenomena — φQ Physics</title>
+  <title>Superposition and Interference — C.3 Wave Phenomena — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
   <style>
-    .lesson-hero {
-      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
-      border-bottom: 1px solid var(--border);
-      padding: 2.5rem 0 2rem;
-    }
-    .breadcrumb {
-      display: flex; align-items: center; gap: 0.4rem;
-      font-size: 0.82rem; color: var(--text-muted);
-      margin-bottom: 1rem; flex-wrap: wrap;
-    }
+    .lesson-hero { background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); border-bottom: 1px solid var(--border); padding: 2.5rem 0 2rem; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; flex-wrap: wrap; }
     .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
     .breadcrumb a:hover { color: var(--accent); opacity: 1; }
     .breadcrumb-sep { color: var(--text-dim); }
-    .lesson-layout {
-      display: grid;
-      grid-template-columns: 240px minmax(0, 1fr);
-      gap: 2rem; align-items: start;
-      margin-top: 2.5rem;
-    }
+    .lesson-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 2rem; align-items: start; margin-top: 2.5rem; }
     @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
-    .lesson-sidebar {
-      position: sticky; top: calc(var(--nav-h) + 1.5rem);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem;
-    }
-    .sidebar-title {
-      font-size: 0.72rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--text-muted); margin-bottom: 0.75rem;
-    }
-    .sidebar-link {
-      display: flex; align-items: center; gap: 0.6rem;
-      padding: 0.5rem 0.6rem; border-radius: 8px;
-      font-size: 0.85rem; color: var(--text-muted);
-      text-decoration: none; transition: var(--t);
-      margin-bottom: 0.15rem;
-    }
+    .lesson-sidebar { position: sticky; top: calc(var(--nav-h) + 1.5rem); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; }
+    .sidebar-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .sidebar-link { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-radius: 8px; font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: var(--t); margin-bottom: 0.15rem; }
     .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
     .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
-    .sidebar-num {
-      flex-shrink: 0; width: 22px; height: 22px;
-      border-radius: 50%; display: flex;
-      align-items: center; justify-content: center;
-      font-size: 0.7rem; font-weight: 700;
-      background: var(--surface2); color: var(--text-dim);
-    }
+    .sidebar-num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; background: var(--surface2); color: var(--text-dim); }
     .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
-    .lesson-content {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      min-height: 500px;
-    }
-    .content-placeholder {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: 4rem 2rem; text-align: center;
-      min-height: 400px;
-    }
-    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
-    .lesson-nav {
-      display: flex; justify-content: space-between;
-      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
-    }
-    .lesson-nav-btn {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.9rem 1.25rem;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); text-decoration: none;
-      transition: var(--t); max-width: 280px; min-width: 160px;
-    }
+    .lesson-content { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); min-height: 500px; }
+    .lesson-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+    .lesson-nav-btn { display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); text-decoration: none; transition: var(--t); max-width: 280px; min-width: 160px; }
     .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
-    .nav-btn-dir {
-      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--text-muted);
-    }
+    .nav-btn-dir { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
-
+    a { color: var(--accent); }
+    a:hover { color: var(--accent); opacity: 0.8; }
     /* overflow guards for injected lesson content */
     .lesson-layout > main { min-width: 0; }
     #lesson-body { overflow-x: hidden; }
@@ -97,7 +39,6 @@
 <body>
 <script src="../../shared/nav.js"></script>
 
-<!-- HERO -->
 <div class="lesson-hero">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -107,356 +48,290 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../topics.html#C3">C.3 Wave Phenomena</a>
       <span class="breadcrumb-sep">›</span>
-      <span style="color:var(--text)">Principle of Superposition</span>
+      <span style="color:var(--text)">Superposition and Interference</span>
     </nav>
-
     <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
       <div>
         <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
-          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
-            color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">
-            C.3
-          </span>
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">C.3</span>
           <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
-          <span style="font-size:0.8rem;color:var(--text-muted)">
-            Concept 4 of 9
-          </span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 4 of 9</span>
         </div>
-        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Principle of Superposition</h1>
-        <p style="max-width:520px;font-size:0.95rem">
-          Part of <strong style="color:var(--text)">C.3 Wave Phenomena</strong>
-          · Unit C — IB Physics 2023
-        </p>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Superposition and Interference</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">C.3 Wave Phenomena</strong> · Unit C — IB Physics 2023</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- MAIN LAYOUT -->
 <div class="container" style="padding-top:0;padding-bottom:3rem">
   <div class="lesson-layout">
-
-    <!-- Sidebar: concept list -->
     <aside class="lesson-sidebar">
-      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
-        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
-        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
-        ← Back to C.3 overview
-      </a>
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">← Back to C.3 overview</a>
       <div class="sidebar-title">C.3 Concepts</div>
-      <a href="01-transmission-absorption-and-scattering-of-waves.html" class="sidebar-link">
-          <span class="sidebar-num">01</span>
-          <span>Transmission, Absorption and Scattering of Waves</span>
-        </a>
-      <a href="02-reflection-of-waves-and-rays.html" class="sidebar-link">
-          <span class="sidebar-num">02</span>
-          <span>Reflection of Waves and Rays</span>
-        </a>
-      <a href="03-refraction-of-waves.html" class="sidebar-link">
-          <span class="sidebar-num">03</span>
-          <span>Refraction of Waves</span>
-        </a>
-      <a href="04-principle-of-superposition.html" class="sidebar-link active">
-          <span class="sidebar-num">04</span>
-          <span>Principle of Superposition</span>
-        </a>
-      <a href="05-constructive-and-destructive-interference.html" class="sidebar-link">
-          <span class="sidebar-num">05</span>
-          <span>Constructive and Destructive Interference</span>
-        </a>
-      <a href="06-young-s-double-slit-experiment.html" class="sidebar-link">
-          <span class="sidebar-num">06</span>
-          <span>Young's Double-Slit Experiment</span>
-        </a>
-      <a href="07-single-slit-diffraction.html" class="sidebar-link">
-          <span class="sidebar-num">07</span>
-          <span>Single-Slit Diffraction</span>
-        </a>
-      <a href="08-polarisation.html" class="sidebar-link">
-          <span class="sidebar-num">08</span>
-          <span>Polarisation</span>
-        </a>
-      <a href="09-diffraction-gratings.html" class="sidebar-link">
-          <span class="sidebar-num">09</span>
-          <span>Diffraction Gratings</span>
-        </a>
+      <a href="01-transmission-absorption-and-scattering-of-waves.html" class="sidebar-link"><span class="sidebar-num">01</span><span>Transmission, Absorption and Scattering of Waves</span></a>
+      <a href="02-reflection-of-waves-and-rays.html" class="sidebar-link"><span class="sidebar-num">02</span><span>Reflection of Waves and Rays</span></a>
+      <a href="03-refraction-of-waves.html" class="sidebar-link"><span class="sidebar-num">03</span><span>Refraction of Waves</span></a>
+      <a href="04-principle-of-superposition.html" class="sidebar-link active"><span class="sidebar-num">04</span><span>Superposition and Interference</span></a>
+      <a href="05-constructive-and-destructive-interference.html" class="sidebar-link"><span class="sidebar-num">05</span><span>Constructive and Destructive Interference</span></a>
+      <a href="06-young-s-double-slit-experiment.html" class="sidebar-link"><span class="sidebar-num">06</span><span>Young's Double-Slit Experiment</span></a>
+      <a href="07-single-slit-diffraction.html" class="sidebar-link"><span class="sidebar-num">07</span><span>Single-Slit Diffraction</span></a>
+      <a href="08-polarisation.html" class="sidebar-link"><span class="sidebar-num">08</span><span>Polarisation</span></a>
+      <a href="09-diffraction-gratings.html" class="sidebar-link"><span class="sidebar-num">09</span><span>Diffraction Gratings</span></a>
     </aside>
 
-    <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
       <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
 /* All colours use CSS variables from the site theme — no hardcoded hex */
-.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
-  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
-.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
-  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
-  font-size:11px;font-weight:700; }
-.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
-  line-height:1.2;margin-bottom:4px; }
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
 .lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
-
-.lc-card { background:var(--surface2);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
-.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
-  font-family:var(--font-sans); }
-.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
 .lc-card p:last-child { margin-bottom:0; }
-
 .lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
-.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
-  border-bottom:1px solid var(--border);text-align:left; }
-.lc-table td { padding:8px;border-bottom:1px solid var(--border);
-  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
 .lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
 .lc-table tr:last-child td { border-bottom:none; }
-
-.lc-formula { background:var(--surface3);border-left:3px solid var(--accent);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:0.75rem 1.1rem;margin:0.75rem 0;
-  font-family:var(--font-mono);font-size:1.05rem;
-  color:var(--accent);text-align:center; }
-
-.lc-img { background:var(--surface2);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
 .lc-img img { max-width:100%;border-radius:8px; }
 .lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
-
 .lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
 .lc-img-row .lc-img { margin-bottom:0; }
 @media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
-
 .lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
-.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
-  background:var(--accent-dim);border:1px solid var(--border-2);
-  border-radius:100px;padding:3px 10px;color:var(--accent); }
-
-.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.1em;color:var(--text-muted);
-  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
 .lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
-
-.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:0.65rem 1rem;font-size:0.86rem;
-  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
-.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:0.65rem 1rem;font-size:0.86rem;
-  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
-.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:0.65rem 1rem;font-size:0.86rem;
-  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
-
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
 .lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
 @media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
-
-.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
-  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
 .lc-step:last-child { border-bottom:none; }
-.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
-  background:var(--accent);color:#fff;display:flex;align-items:center;
-  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
-.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
 .lc-step-body strong { color:var(--text); }
-
-.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
-  margin-bottom:0.65rem;line-height:1.55; }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
 .lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
-.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
-  border:1.5px solid var(--border);border-radius:var(--radius);
-  cursor:pointer;font-size:0.87rem;color:var(--text-2);
-  transition:all 0.15s;background:var(--surface); }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
 .lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
 .lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
-.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
 .lc-opt.disabled { cursor:default;pointer-events:none; }
 .lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
-.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
-  border-radius:var(--radius);display:none; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
 .lc-fb.show { display:block; }
 .lc-fb.correct { background:var(--green-dim);color:var(--green); }
-.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
-
-.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
-.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
-  background:transparent;font-size:0.9rem;color:var(--text);
-  padding:0 4px;min-width:80px;text-align:center;
-  outline:none;font-family:var(--font-sans); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
 .lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
-.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
-.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
-  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
-  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
-  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
 .lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
-
-.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
-  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
-.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
-.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
 .lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
-.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
-  border-radius:var(--radius);background:var(--surface3);color:var(--text);
-  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
-  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
 .lc-exam-input:focus { border-color:var(--accent); }
-.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
-  border-radius:100px;background:var(--surface);cursor:pointer;
-  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
-  transition:all 0.15s; }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
 .lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
-.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
-  background:var(--surface);border-left:3px solid var(--green);
-  border-radius:0 var(--radius) var(--radius) 0;
-  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
 .lc-model.show { display:block; }
-
-.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
-  padding:0.4rem 0.9rem;border-radius:100px;
-  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+/* MathJax SVG cannot wrap; let it scale down instead of being clipped */
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
 .lc-score strong { color:var(--accent); }
-
-/* Slider lab styles */
-.lc-slider-lab { background:var(--surface2);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1rem;margin-bottom:1rem; }
-.lc-slider-lab h4 { font-size:0.95rem;font-weight:600;margin:0 0 0.5rem 0;color:var(--accent);}
-.lc-slider-lab canvas { width:100%; height:auto; background:var(--surface); border-radius:8px; margin-top:0.5rem; border:1px solid var(--border);}
-.lc-slider-lab input { width:100%; margin:0.5rem 0; }
-.lc-slider-lab .lc-slider-value { font-family:var(--font-mono); font-size:0.85rem; text-align:center; }
 </style>
 
 <div class="lc-badge"><span>4</span> Lesson 4 of 9 · C.3 Wave Phenomena</div>
-<div class="lc-title">Principle of Superposition</div>
-<div class="lc-sub">When two waves meet, they add together – then continue unchanged. This simple rule explains interference, standing waves, and even noise‑cancelling headphones.</div>
+<div class="lc-title">Superposition and Interference</div>
+<div class="lc-sub">Waves that meet add their displacements — and where coherent sources overlap, that simple addition builds a fixed pattern of loud and quiet, bright and dark.</div>
 
-<!-- HOOK & DIAGNOSTIC -->
 <div class="lc-card">
-  <h3>🎯 Hook – The Slinky® surprise</h3>
-  <p>Watch two pulses on a Slinky® approach each other. When they meet, the rope briefly shows a much larger bump – then each pulse continues as if nothing happened. <strong>They don’t bounce or destroy each other; they simply add.</strong></p>
+  <h3>🎯 Hook – two pulses on a collision course</h3>
+  <p>Two idealized square pulses travel towards each other along a stretched spring, each at \(1\ \text{cm s}^{-1}\). The left pulse is \(2\ \text{cm}\) tall, the right one \(1\ \text{cm}\) tall, and they start \(6\ \text{cm}\) apart on a \(10\ \text{cm}\) span. While they overlap, the spring shows a shape neither pulse has on its own. Then both pulses emerge and carry on exactly as before. <strong>Waves pass through each other; they do not collide.</strong></p>
   <div class="lc-img">
-    <img src="https://i.postimg.cc/8k94Mjbq/image.png" alt="Two positive pulses on a rope moving toward each other before, during and after overlap">
-    <div class="lc-cap">Fig B — Two identical pulses pass through each other. At the moment of overlap (middle), the resultant displacement is the sum of the two.</div>
+    <img src="../../assets/lesson-images/c3-04-superposition-and-interference-01.png" alt="Two idealized square pulses of heights 2 cm and 1 cm moving towards each other at 1 cm per second">
+    <div class="lc-cap">Fig 1 — Figure C3.37: two idealized square pulses moving towards each other. Displacements add wherever the pulses overlap.</div>
   </div>
-  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — What does the rope look like when a positive peak meets a negative trough of the same size? <em>(Answer: flat line – perfect cancellation, but only at that instant.)</em></div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — Sketch the resultant waveform after 6.0 s, 7.0 s, 8.5 s and 12.0 s. <em>(Answer: at 6.0 s the leading edges just touch, so the shape is still the two separate pulses; at 7.0 s and 8.5 s they overlap and add, giving a stepped 3 cm-high region where both are present; at 12.0 s the pulses have separated again, still 2 cm and 1 cm tall, travelling in their original directions.)</em></div>
 </div>
 
-<!-- CORE KNOWLEDGE -->
 <div class="lc-card">
-  <h3>📐 The Principle of Superposition</h3>
-  <p>When two or more waves overlap at the same point in space and time, the <strong>resultant displacement</strong> is the <strong>vector sum</strong> of the individual displacements.</p>
-  <div class="lc-formula">s<sub>resultant</sub> = s<sub>1</sub> + s<sub>2</sub> + ... + s<sub>n</sub></div>
-  <p><strong>Constructive interference</strong> – waves ‘in step’ (phase difference 0°, 360°, …). Peaks align → A<sub>R</sub> = A<sub>1</sub> + A<sub>2</sub> (bigger wave).<br>
-  <strong>Destructive interference</strong> – waves ‘out of step’ (phase difference 180°, 540°, …). Peak meets trough → A<sub>R</sub> = |A<sub>1</sub> – A<sub>2</sub>| (smaller wave).</p>
-  <div class="lc-img">
-    <img src="https://i.postimg.cc/9QjrGpT2/image.png" alt="Two sine waves overlapping and their sum">
-    <div class="lc-cap">Fig A — Top: wave 1, middle: wave 2, bottom: resultant sum (superposition).</div>
+  <h3>📐 The principle of superposition</h3>
+  <p>When waves pass through each other at a point, we add their displacements to determine the overall result at that place at that moment. This is called the <strong>superposition of waves</strong>.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Principle of superposition</span>
+    $$s_{\text{R}} = s_1 + s_2 + \cdots + s_n$$
   </div>
-  <div class="lc-formula">Δφ = 2π · (Δx / λ)  and  A<sub>R</sub> = 2A cos(Δφ/2) (for identical amplitudes)</div>
+  <p><strong>The principle of superposition of waves:</strong> the overall displacement is the vector sum of the individual wave displacements. Equivalently: the resultant of two or more waves arriving at the same point can be determined by the vector addition of their individual displacements.</p>
+  <p>Because it is a <em>vector</em> sum, a positive displacement added to a negative displacement of the same size gives zero at that instant.</p>
+  <p>When similar waves pass through each other they will usually have a wide range of different frequencies and amplitudes. Under these circumstances superposition effects are negligible. But when waves have similar frequencies and amplitudes, the effect can be significant.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-04-superposition-and-interference-02.png" alt="Three stacked displacement-time graphs: wave A, wave B and their resultant A plus B">
+    <div class="lc-cap">Fig 2 — Figure C3.36: adding wave displacements using the principle of superposition. Read each instant vertically: the bottom trace is the sum of the two above it.</div>
+  </div>
 </div>
 
-<!-- INTERACTIVE SLIDER LAB 1: Phase difference -->
-<div class="lc-slider-lab">
-  <h4>🔬 Interactive lab 1 – Phase difference explorer</h4>
-  <p>Drag the slider to change the phase difference (Δφ) between two identical sine waves. Watch how the resultant amplitude changes.</p>
-  <canvas id="phaseCanvas" width="600" height="300" style="width:100%; height:auto; max-width:600px; background:#1e1e2f; border-radius:8px;"></canvas>
-  <input type="range" id="phaseSlider" min="0" max="360" value="0" step="1">
-  <div class="lc-slider-value">Phase difference Δφ = <span id="phaseValue">0</span>° &nbsp; | &nbsp; Resultant amplitude A<sub>R</sub> = <span id="ARvalue">2.00</span> · A</div>
-  <div class="lc-info">💡 <strong>What to notice:</strong> At 0° → A<sub>R</sub> = 2A (constructive). At 180° → A<sub>R</sub> = 0 (destructive). At 120° → A<sub>R</sub> = 1.0A. Verify with A<sub>R</sub> = 2A cos(Δφ/2).</div>
+<div class="lc-card">
+  <h3>🌊 Interference and coherence</h3>
+  <p>When the superposition of wavefronts produces a constant two- or three-dimensional pattern we describe it as an <strong>interference pattern</strong> (the bright and dark, or loud and quiet, regions are called <strong>fringes</strong>). Most commonly, this effect occurs between two sources of waves which have the same single frequency and the same wave shape. Such sources, and the waves they produce, are described as being <strong>coherent</strong>: they have the same frequency and a constant phase difference.</p>
+  <p><strong>Interference</strong> is a superposition effect that may be produced when similar waves meet. It is most important for waves of the same frequency and similar amplitude.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-04-superposition-and-interference-03.png" alt="Plan view of a ripple tank showing the interference pattern of water waves from two coherent sources">
+    <div class="lc-cap">Fig 3 — Figure C3.38: the interference of water waves on a ripple tank. The pattern is stationary because the sources are coherent.</div>
+  </div>
+  <div class="lc-info">🔎 <strong>Why coherence matters</strong> — if the phase difference between the sources drifted, the maxima and minima would move about and no fixed pattern would be seen.</div>
 </div>
 
-<!-- INTERACTIVE SLIDER LAB 2: Two pulses collision -->
-<div class="lc-slider-lab">
-  <h4>🔬 Interactive lab 2 – Pulse collision (time slider)</h4>
-  <p>Two identical positive triangular pulses move toward each other. Slide time from -1 (before meeting) to +1 (after passing). The <strong>resultant</strong> shows their sum.</p>
-  <canvas id="pulseCanvas" width="600" height="200" style="width:100%; height:auto; max-width:600px; background:#1e1e2f; border-radius:8px;"></canvas>
-  <input type="range" id="timeSlider" min="-1" max="1" value="-1" step="0.02">
-  <div class="lc-slider-value">Time = <span id="timeValue">-1.00</span>  (t&lt;0 → approaching; t=0 → centred overlap)</div>
-  <div class="lc-info">💡 <strong>What to notice:</strong> At t=0 the resultant is double the height, but as time moves forward the pulses separate unchanged. Superposition is <em>addition</em>, not an interaction.</div>
+<div class="lc-card">
+  <h3>➕ Constructive interference and path difference</h3>
+  <p>To explain an interference pattern we consider the <strong>path difference</strong> between the waves arriving at various points from the two sources — the difference in the distances from a particular point to the two sources. In Fig 4 the straight lines represent distances, <em>not</em> rays.</p>
+  <p>If the waves are emitted in phase from points X and Y, and both waves travel the same distance at the same speed to any point such as \(P_0\), the waves will always be in phase at that position. Using the principle of superposition, the resulting wave has double the amplitude of the original waves. This is called <strong>constructive interference</strong>.</p>
+  <p>The path difference for the waves arriving at \(P_0\), or any other point which is the same distance from X and Y, is zero. Constructive interference will also occur at any place where the waves always arrive in phase, which occurs where the path difference is \(1\lambda\), or \(2\lambda\), or \(3\lambda\) … or \(n\lambda\) (where \(n\) is a whole number), as shown by \(P_1\) and \(P_2\).</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Condition for constructive interference</span>
+    $$\text{path difference} = n\lambda$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-04-superposition-and-interference-04.png" alt="Two sources X and Y with lines drawn to the central maximum P0, first maxima P1, second maxima P2 and minima Q1, Q2">
+    <div class="lc-cap">Fig 4 — Figure C3.39: interference and path difference. Central maximum at \(P_0\) (path difference 0), first maxima \(P_1\) (\(\lambda\)), second maxima \(P_2\) (\(2\lambda\)), minima at \(Q_1\) and \(Q_2\).</div>
+  </div>
 </div>
 
-<!-- GRAPHICAL MASTERY TABLE -->
+<div class="lc-card">
+  <h3>➖ Destructive interference</h3>
+  <p><strong>Destructive interference</strong> occurs at all points where the waves arriving from one source have travelled \(\tfrac{1}{2}\lambda\), or \(\tfrac{3}{2}\lambda\), or \(\tfrac{5}{2}\lambda\), or \(\left(n+\tfrac{1}{2}\right)\lambda\) more than the waves from the other source, as shown by the points \(Q_1\) and \(Q_2\) in Fig 4.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Condition for destructive interference</span>
+    $$\text{path difference} = \left(n + \tfrac{1}{2}\right)\lambda$$
+  </div>
+  <p>These conditions assume the usual situation: the waves are emitted in phase with each other. If the waves were exactly out of phase, these conditions would be reversed.</p>
+  <p>Constructive interference and destructive interference describe the extreme possibilities of wave superposition. At other locations the amount of interference varies between these extremes.</p>
+  <p>Two sets of waves, each of amplitude \(x_0\), result in a wave of amplitude \(2x_0\). Since wave intensity is proportional to amplitude squared, at places of constructive interference the intensity has <strong>quadrupled</strong>. This is possible because the intensity at places of destructive interference has been reduced.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Intensity at a maximum</span>
+    $$I \propto A^2$$
+    $$A = 2x_0 \Rightarrow I = 4I_0$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-04-superposition-and-interference-05.png" alt="Overall interference pattern from two coherent sources X and Y showing lines of constructive and destructive interference through P0, P1, P3, Q1 and Q2">
+    <div class="lc-cap">Fig 5 — Figure C3.41: the interference pattern produced by coherent waves from two sources, X and Y, with the lines of constructive and destructive interference marked. Compare the right-hand half with the ripple tank photograph in Fig 3.</div>
+  </div>
+  <div class="lc-warn">⚠️ <strong>Top tip</strong> — when using two similar wave sources which are in phase, perfect destructive interference, resulting in waves of zero amplitude, is not possible. This is because one wave will always have a reduced amplitude, because it has travelled further than the other wave to reach any particular point.</div>
+  <div class="lc-info">🧠 Interference is a property only of waves, including electromagnetic waves like light. The interference of light cannot be explained by imagining that light consists of tiny particles. <strong>Thomas Young</strong> was the first to demonstrate that light could interfere, thus demonstrating for the first time that light had wave properties.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔧 Demonstrating interference: microwaves and sound</h3>
+  <p>In theory, all types of waves can produce interference patterns. However, it may be impossible, or very difficult, to produce two coherent sources for some types of wave, because the waves are emitted in uncontrolled, random processes. This means that interference will not usually be observed with naturally produced waves. That is why the interference of light is not a common phenomenon: separate light sources are not coherent, and light has very small wavelengths, so any interference pattern will be very small and difficult to observe.</p>
+  <p><strong>Microwaves.</strong> Waves from this section of the electromagnetic spectrum are easily produced by electronic circuits and can have a wavelength of a few centimetres, which is ideal for demonstrations. The two gaps between the aluminium sheets each have a width of about one wavelength (\(\approx 3\ \text{cm}\)). They have the same effect as the double slits in Young's experiment: two diffracted, coherent waves emerge from the other side and then interfere. When the microwave detector is moved from side to side, constructive and destructive interference will be detected.</p>
+  <p><strong>Sound.</strong> A <strong>signal generator</strong> — electronic equipment used to supply small alternating currents of a wide range of different frequencies — provides an oscillating electric current to two loudspeakers, which then produce coherent longitudinal sound waves of the same frequency. As a listener walks past the speakers, the sound intensity rises and falls, because of constructive and destructive interference.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-04-superposition-and-interference-06.png" alt="Microwave transmitter facing two gaps between three aluminium sheets, with a receiver moved side to side beyond them"><div class="lc-cap">Fig 6 — Figure C3.46: interference of microwaves. Each gap is about one wavelength wide.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-04-superposition-and-interference-07.png" alt="Two loudspeakers driven by one signal generator, with a walking listener passing alternating LOUD and QUIET positions"><div class="lc-cap">Fig 7 — Figure C3.47: interference of sound waves. The listener passes LOUD and QUIET positions in turn.</div></div>
+  </div>
+  <div class="lc-warn">⚠️ The equation \(s = \dfrac{\lambda D}{d}\) cannot be used accurately in the microwave arrangement, or with sound. The assumptions made about the geometry of the light interference experiment — valid because of the very small wavelength of light — do not hold here. You meet that equation properly in <a href="06-young-s-double-slit-experiment.html">Lesson 6 — Young's double-slit experiment</a>.</div>
+</div>
+
 <div class="lc-card">
   <h3>📈 Graphs every examiner uses</h3>
   <table class="lc-table">
     <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
     <tbody>
-      <tr><td>Amplitude vs phase diff</td><td>Δφ (rad) vs A<sub>R</sub>/2A</td><td>|cos(Δφ/2)| (rectified cosine)</td><td>Maxima at 0, π, 2π; zeros at π/2, 3π/2</td></tr>
-      <tr><td>Beats</td><td>Time (s) vs Amplitude (m)</td><td>High‑frequency wave inside slow envelope</td><td>Beat period = distance between two envelope zeros</td></tr>
-      <tr><td>Standing wave snapshots</td><td>Position (m) vs Displacement (m)</td><td>Alternating: flat → max → flat → -max</td><td>Nodes always zero; antinodes oscillate ±max</td></tr>
+      <tr><td>Superposition of two waves</td><td>Time (s), displacement (m)</td><td>Three stacked traces: wave A, wave B, resultant A + B</td><td>Add the two upper traces instant by instant; zeros of the resultant occur where displacements are equal and opposite</td></tr>
+      <tr><td>Constructive interference</td><td>Time (s), displacement (m)</td><td>Resultant in phase with both waves, amplitude \(2x_0\)</td><td>Amplitude doubles, so intensity quadruples</td></tr>
+      <tr><td>Destructive interference</td><td>Time (s), displacement (m)</td><td>Two waves antiphase; resultant a flat line (or small residual)</td><td>Resultant amplitude \(|A_1 - A_2|\); zero only for equal amplitudes</td></tr>
+      <tr><td>Intensity across the pattern</td><td>Position across screen (m), intensity (W m⁻²)</td><td>Evenly spaced maxima with minima between them</td><td>Maxima where path difference \(= n\lambda\), minima where \(= (n+\tfrac{1}{2})\lambda\)</td></tr>
     </tbody>
   </table>
   <div class="lc-img-row">
-    <div class="lc-img"><img src="https://i.postimg.cc/MpD1PTyH/image.png" alt="Graph of amplitude ratio vs phase difference"><div class="lc-cap">Fig E — Amplitude vs phase difference (full‑wave rectified cosine).</div></div>
-    <div class="lc-img"><img src="https://i.postimg.cc/ncKmrzS3/image.png" alt="Beats graph: high frequency inside envelope"><div class="lc-cap">Fig F — Beats: envelope period gives beat frequency.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-04-superposition-and-interference-08.png" alt="Displacement-time graph of two identical waves in phase and their resultant of double amplitude"><div class="lc-cap">Fig 8 — Figure C3.40a: constructive interference at \(P_0\). Amplitudes \(x_0\) and \(x_0\) give a resultant of \(2x_0\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-04-superposition-and-interference-09.png" alt="Displacement-time graph of two antiphase waves and their resultant, a flat line"><div class="lc-cap">Fig 9 — Figure C3.40b: destructive interference at \(Q_1\). The resultant is a straight line along the time axis.</div></div>
   </div>
 </div>
 
-<!-- WORKED EXAMPLE (IDEA method) -->
 <div class="lc-card">
-  <h3>✍️ Worked example – Two‑speaker interference</h3>
-  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Path difference → interference type. Use v = fλ.</div></div>
-  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> f = 343 Hz, v = 343 m/s → λ = 1.00 m. Δx = |1.80 – 1.50| = 0.30 m.</div></div>
-  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> Δx/λ = 0.30. Phase diff Δφ = 2π(0.30) = 0.6π rad. A<sub>R</sub> = 2A cos(0.3π) = 2A · 0.588 = 1.176A.</div></div>
-  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> Partial interference; resultant amplitude 1.18× single source amplitude.</div></div>
+  <h3>✍️ Worked example – two loudspeakers, one wavelength</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Two coherent speakers, centres \(1.20\ \text{m}\) apart. The girl's closest distance to point P was \(80\ \text{cm}\), where the sound was loudest; the next loud position was \(50\ \text{cm}\) away along her path. Loudest on the perpendicular bisector means path difference \(= 0\), so the speakers are emitted <strong>in phase</strong>. Find the path difference at the next maximum, then \(\lambda\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> speaker separation \(1.20\ \text{m}\), so each speaker is \(0.60\ \text{m}\) from the centre line.<br>Perpendicular distance \(= 0.80\ \text{m}\), sideways shift \(= 0.50\ \text{m}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> Pythagoras for each distance.<br>\(d_1 = \sqrt{0.10^2 + 0.80^2}\)<br>\(= 0.806\ \text{m}\)<br>\(d_2 = \sqrt{1.10^2 + 0.80^2}\)<br>\(= 1.360\ \text{m}\)<br>path difference \(= 1.360 - 0.806\)<br>\(= 0.55\ \text{m}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> This is the <em>first</em> maximum after the centre, so path difference \(= 1\lambda\) and \(\lambda \approx 0.55\ \text{m}\). Raising the frequency shortens \(\lambda\), so the loud and quiet positions move closer together. Reversing the connections to one speaker makes the sources antiphase, so the conditions swap: P becomes a quiet point.</div></div>
   <div class="lc-img">
-    <img src="https://i.postimg.cc/Jhpcnnnk/image.png" alt="Two speakers and microphone path difference diagram">
-    <div class="lc-cap">Fig C — Geometry for the worked example. Δx = 0.61 m leads to partial interference.</div>
+    <img src="../../assets/lesson-images/c3-04-superposition-and-interference-10.png" alt="Plan view of two speakers 1.20 m apart with a listener 80 cm from point P and the next maximum 50 cm along her path">
+    <div class="lc-cap">Fig 10 — Geometry for the worked example: the two triangles whose hypotenuses differ by one wavelength.</div>
   </div>
 </div>
 
-<!-- REAL WORLD & EXTENSION -->
 <div class="lc-two-col">
   <div class="lc-card">
-    <h3>🎧 Real‑world: Noise‑cancelling headphones</h3>
-    <p>External mic picks up ambient noise (wave 1). Electronics create an identical wave shifted by 180° (wave 2). At your ear: wave 1 + wave 2 = <strong>silence</strong>. Superposition at work.</p>
-    <div class="lc-success">✓ Examiner tip: Destruction doesn’t mean energy disappears – energy is redistributed to antinodes.</div>
+    <h3>🍽️ Real-world: hot and cold spots in a microwave oven</h3>
+    <p>The waves used to cook food in a microwave oven reflect repeatedly off the metal walls and can produce interference effects, so some parts of the food sit at maxima and cook quickly while others sit near minima and stay cold. That is why ovens use a turntable and a rotating stirrer to move the food through the pattern.</p>
+    <div class="lc-success">✓ Examiner tip: name the condition <em>and</em> quote it. "Path difference \(= n\lambda\) so the waves arrive in phase" scores; "the waves add up" does not.</div>
   </div>
   <div class="lc-card">
-    <h3>🚀 HL Extension – Fourier synthesis</h3>
-    <p>A square wave = sin(ωt) + ⅓ sin(3ωt) + ⅕ sin(5ωt) + …<br>
-    <strong>Challenge:</strong> Sketch the sum of the first two harmonics. What shape emerges? (Answer: a rounded square – more harmonics make it sharper.)</p>
+    <h3>🚀 HL Extension – theories, and what counts as an explanation</h3>
+    <p>Depending on context, the addition of waveforms is variously described as superposition, interference or Fourier synthesis. The nature of light was debated for centuries, with competing theories each explaining part of the evidence — captured in W. H. Bragg's remark that physicists use the wave theory on Mondays, Wednesdays and Fridays and the particle theory on Tuesdays, Thursdays and Saturdays. The photon theory (Theme E) returns in part to a 'particle' explanation.<br>
+    <strong>Challenge:</strong> two microwave gaps give a maximum where the receiver is \(57\ \text{cm}\) from one gap and \(45\ \text{cm}\) from the other. Show that both \(3\ \text{cm}\) and \(4\ \text{cm}\) are possible wavelengths. (Answer: path difference \(= 12\ \text{cm}\); \(12/3 = 4\lambda\) and \(12/4 = 3\lambda\), both whole numbers of wavelengths.)</p>
   </div>
 </div>
 
-<!-- MISCONCEPTIONS TRAP CORNER -->
 <div class="lc-card">
   <h3>⚠️ Trap corner – common mistakes</h3>
   <table class="lc-table">
     <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
     <tbody>
-      <tr><td>Waves destroy each other during destructive interference.</td><td>Energy is redistributed – total energy conserved.</td></tr>
-      <tr><td>Path difference must be zero for constructive interference.</td><td>Any integer multiple of λ works (0, λ, 2λ…).</td></tr>
-      <tr><td>π phase difference always gives total destructive interference.</td><td>Only if amplitudes are equal. Otherwise A<sub>R</sub> = |A<sub>1</sub>–A<sub>2</sub>|.</td></tr>
+      <tr><td>Waves destroy each other when they meet</td><td>Displacements add for as long as the waves overlap; each wave then continues unchanged</td></tr>
+      <tr><td>Constructive interference needs zero path difference</td><td>Any whole number of wavelengths works: \(0, \lambda, 2\lambda, 3\lambda \ldots n\lambda\)</td></tr>
+      <tr><td>Destructive interference means the energy vanishes</td><td>Intensity is redistributed: it quadruples at the maxima because it is reduced at the minima</td></tr>
+      <tr><td>Two lamps of the same colour will make fringes</td><td>Separate light sources are not coherent; you need one wavefront split by two slits</td></tr>
+      <tr><td>\(s = \lambda D / d\) applies to any two-source interference</td><td>It relies on the geometry of the light experiment; it is not accurate for the microwave or sound demonstrations</td></tr>
+      <tr><td>Any two overlapping waves give a strong effect</td><td>With a wide range of frequencies and amplitudes, superposition effects are negligible</td></tr>
     </tbody>
   </table>
-  <div class="lc-warn">⚠️ Most common slip: forgetting the 2π in Δφ = 2π(Δx/λ). Without 2π, phase difference is dimensionless – but radians are needed for cos(Δφ/2).</div>
+  <div class="lc-warn">⚠️ Most common slip: writing the destructive condition as \(n\lambda/2\). That includes \(\lambda\), \(2\lambda\) … which are <em>maxima</em>. The condition is \(\left(n+\tfrac{1}{2}\right)\lambda\) — odd half-wavelengths only.</div>
 </div>
 
-<!-- KEY POINTS PILLS -->
 <div class="lc-kp">
-  <span>s<sub>R</sub> = s<sub>1</sub>+s<sub>2</sub></span>
-  <span>Δφ = 2π·Δx/λ</span>
-  <span>Constructive: Δx = nλ</span>
-  <span>Destructive: Δx = (n+½)λ</span>
-  <span>Nodes & antinodes</span>
+  <span>s_R = s₁ + s₂ + ⋯ + sₙ</span>
+  <span>vector sum</span>
+  <span>coherent: same f, constant Δφ</span>
+  <span>constructive: Δx = nλ</span>
+  <span>destructive: Δx = (n+½)λ</span>
+  <span>I ∝ A² → 4I₀ at a maximum</span>
 </div>
 
-<!-- MCQ SECTION -->
 <div class="lc-section">Practice check — multiple choice</div>
 
 <div class="lc-card">
   <div id="mcq1">
-    <div class="lc-mcq-q">1. Two coherent waves, each of amplitude A, meet at a point. For complete destructive interference, the phase difference must be:</div>
+    <div class="lc-mcq-q">1. Two waves meet at a point. According to the principle of superposition, the resultant displacement at that point is:</div>
     <div class="lc-opts">
-      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> 0°</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> 180°</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> 90°</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="dc-opt-l">D</span> 360°</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> the larger of the two displacements</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> the product of the two displacements</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> the vector sum of the individual displacements</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> always zero while the waves overlap</div>
     </div>
     <div class="lc-fb" id="mcq1-fb"></div>
   </div>
@@ -464,12 +339,12 @@
 
 <div class="lc-card">
   <div id="mcq2">
-    <div class="lc-mcq-q">2. Two speakers emit 680 Hz sound. Speed of sound = 340 m/s. What is the smallest path difference that gives constructive interference?</div>
+    <div class="lc-mcq-q">2. Two sources are coherent if they have:</div>
     <div class="lc-opts">
-      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> 0.12 m</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> 0.25 m</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> 0.50 m</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> 1.00 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> the same amplitude only</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> the same frequency and a constant phase difference</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> the same frequency and zero path difference</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> a randomly varying phase difference</div>
     </div>
     <div class="lc-fb" id="mcq2-fb"></div>
   </div>
@@ -477,12 +352,12 @@
 
 <div class="lc-card">
   <div id="mcq3">
-    <div class="lc-mcq-q">3. In a standing wave on a string, the distance between two adjacent nodes is:</div>
+    <div class="lc-mcq-q">3. Waves of wavelength \(0.12\ \text{m}\) from two coherent, in-phase sources arrive at a point where the path difference is \(0.18\ \text{m}\). At that point there is:</div>
     <div class="lc-opts">
-      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> λ</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> λ/2</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> λ/4</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> 2λ</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> constructive interference</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> destructive interference</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> no interference at all</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> a resultant of double amplitude</div>
     </div>
     <div class="lc-fb" id="mcq3-fb"></div>
   </div>
@@ -490,59 +365,120 @@
 
 <div class="lc-card">
   <div id="mcq4">
-    <div class="lc-mcq-q">4. A wave of amplitude 3.0 m interferes with another wave of amplitude 2.0 m. The minimum possible resultant amplitude is:</div>
+    <div class="lc-mcq-q">4. Two coherent waves each of amplitude \(x_0\) and intensity \(I_0\) interfere constructively. The intensity at that point is:</div>
     <div class="lc-opts">
-      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> 5.0 m</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> 1.0 m</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> 0 m</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> 2.5 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> \(I_0\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> \(2I_0\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> \(4I_0\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> \(8I_0\)</div>
     </div>
     <div class="lc-fb" id="mcq4-fb"></div>
   </div>
 </div>
 
-<!-- FILL IN THE BLANKS -->
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Why is the interference of light not an everyday observation?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','D')"><span class="lc-opt-l">A</span> Light waves do not obey superposition</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','D')"><span class="lc-opt-l">B</span> Light travels too fast for a pattern to form</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','D')"><span class="lc-opt-l">C</span> Light has too large a wavelength</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','D')"><span class="lc-opt-l">D</span> Separate light sources are not coherent, and the wavelengths are very small</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. In the microwave demonstration a maximum is found where the receiver is \(57\ \text{cm}\) from one gap and \(45\ \text{cm}\) from the other. Which wavelength is <em>not</em> possible?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','C')"><span class="lc-opt-l">A</span> \(3\ \text{cm}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','C')"><span class="lc-opt-l">B</span> \(4\ \text{cm}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','C')"><span class="lc-opt-l">C</span> \(5\ \text{cm}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','C')"><span class="lc-opt-l">D</span> \(6\ \text{cm}\)</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
 <div class="lc-section">Practice check — fill in the blanks</div>
+
 <div class="lc-card">
   <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
   <div class="lc-fitb">
-    The principle of superposition states that the resultant <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px"> is the vector sum of individual displacements. For a standing wave, points of zero amplitude are called <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:80px">, and points of maximum amplitude are called <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px">.
+    The principle of superposition states that the overall displacement is the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px"> sum of the individual wave displacements. Two sources are described as <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> if they have the same frequency and a constant phase difference. For in-phase sources, constructive interference occurs where the path difference equals <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:80px">, and destructive interference occurs where it equals <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">. At a maximum the amplitude doubles, so the intensity is multiplied by <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:60px">.
   </div>
   <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
   <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
 </div>
 
-<!-- EXAM-STYLE QUESTIONS -->
 <div class="lc-section">Exam‑style questions</div>
 
 <div class="lc-exam">
-  <div class="lc-exam-tag">Exam question · Explain</div>
-  <div class="lc-exam-q">(a) State the principle of superposition of waves. [2 marks]<br>
-  (b) Two identical loudspeakers are connected to the same signal generator. A student walks along a line parallel to the line joining the speakers and hears alternating loud and quiet sounds. Explain why this happens. [3 marks]</div>
-  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q">(a) Sketch a displacement–time graph for a sinusoidal oscillation of amplitude \(4.0\ \text{cm}\) and frequency \(2.0\ \text{Hz}\). Start with a displacement of zero and continue for \(0.75\ \text{s}\). (b) On the same axes draw a graph representing an oscillation of amplitude \(2.0\ \text{cm}\) and frequency \(4.0\ \text{Hz}\). (c) Use the principle of superposition to draw a sketch of the resultant of these two waves. [5 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Describe your sketch here…"></textarea>
   <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
-  <div class="lc-model">✓ (a) When two or more waves meet at a point, the resultant displacement is the sum of the individual displacements.<br>
-  ✓ (b) The waves from the two speakers are coherent. At different positions, the path difference changes. ✓ Where path difference = nλ → constructive (loud). ✓ Where path difference = (n+½)λ → destructive (quiet).</div>
+  <div class="lc-model">✓ (a) Sine curve starting at the origin, peak \(+4.0\ \text{cm}\), period \(T = 1/2.0 = 0.50\ \text{s}\), so one and a half cycles in \(0.75\ \text{s}\).<br>✓ (b) Sine curve on the same axes, peak \(+2.0\ \text{cm}\), period \(0.25\ \text{s}\), so three complete cycles in \(0.75\ \text{s}\).<br>✓ (c) Resultant obtained by adding the two ordinates at each instant.<br>✓ Resultant is not sinusoidal; it repeats with the period of the lower frequency, \(0.50\ \text{s}\).<br>✓ Maximum resultant displacement \(6.0\ \text{cm}\) where both curves peak together; resultant zero wherever the two displacements are equal and opposite.</div>
 </div>
 
 <div class="lc-exam">
-  <div class="lc-exam-tag">Exam question · Calculation</div>
-  <div class="lc-exam-q">Two sources produce water waves of wavelength 0.12 m. At a point P, the path difference from the sources is 0.18 m. (i) State whether constructive or destructive interference occurs. (ii) If each source has amplitude 4.0 cm, calculate the resultant amplitude at P. [4 marks]</div>
-  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q">Two idealized square pulses move towards each other along the same medium (Fig 1). Draw the resultant waveform after (a) \(6.0\ \text{s}\), (b) \(7.0\ \text{s}\), (c) \(8.5\ \text{s}\), (d) \(12.0\ \text{s}\). [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Describe each resultant…"></textarea>
   <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
-  <div class="lc-model">✓ (i) Δx/λ = 0.18/0.12 = 1.5 = 1 + ½ → destructive interference.<br>
-  ✓ (ii) For destructive with equal amplitudes, A<sub>R</sub> = 0 cm. (If amplitudes were unequal, A<sub>R</sub> = |A<sub>1</sub> – A<sub>2</sub>|.)</div>
+  <div class="lc-model">✓ (a) \(6.0\ \text{s}\): each pulse has moved \(6\ \text{cm}\), so the pulses have just made contact — the waveform is still the separate \(2\ \text{cm}\) and \(1\ \text{cm}\) steps, edge to edge.<br>✓ (b) \(7.0\ \text{s}\): the pulses partly overlap; in the overlap region the displacement is \(2 + 1 = 3\ \text{cm}\), with \(2\ \text{cm}\) and \(1\ \text{cm}\) steps either side.<br>✓ (c) \(8.5\ \text{s}\): the overlap is complete over the shorter pulse's width, giving a \(3\ \text{cm}\) block where both pulses coincide.<br>✓ (d) \(12.0\ \text{s}\): the pulses have separated, each unchanged in height, width and direction — a \(2\ \text{cm}\) pulse travelling right and a \(1\ \text{cm}\) pulse travelling left.</div>
 </div>
 
 <div class="lc-exam">
-  <div class="lc-exam-tag">Exam question · Graph interpretation</div>
-  <div class="lc-exam-q">Sketch a graph of resultant amplitude against phase difference for two identical waves. Label the points where constructive and destructive interference occur. [3 marks]</div>
-  <textarea class="lc-exam-input" placeholder="Describe or sketch in words…"></textarea>
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q">Two sinusoidal waves (A and B) from different sources have the same frequency and pass through a certain point, P, with the same amplitude. (a) Sketch a displacement–time graph for the resultant waveform if A and B arrive at P in phase. (b) Repeat for two waves that arrive at P exactly (\(\pi\)) out of phase. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
   <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
-  <div class="lc-model">✓ Curve: |cos(Δφ/2)| shape (full‑wave rectified cosine).<br>✓ Maxima (constructive) at Δφ = 0, 2π, 4π… ✓ Minima (destructive) at Δφ = π, 3π, 5π…</div>
+  <div class="lc-model">✓ (a) A sine curve in phase with both waves.<br>✓ Amplitude \(2A\) — double that of either wave (constructive interference).<br>✓ (b) A straight line along the time axis.<br>✓ Resultant amplitude zero, because equal and opposite displacements add to zero at every instant (destructive interference).</div>
 </div>
 
-<!-- SCORE DISPLAY -->
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q">Figure C3.48 is one-quarter of the real size. It shows two coherent wave sources \(S_1\), \(S_2\) on a ripple tank and a point P. If the wavelength is \(2.5\ \text{cm}\), explain how you would take measurements from the diagram to determine what kind of interference occurs at P. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Measure \(S_1\text{P}\) and \(S_2\text{P}\) on the diagram with a ruler.<br>✓ Multiply each by 4, because the figure is one-quarter of real size.<br>✓ Path difference \(= S_2\text{P} - S_1\text{P}\) (real values); divide by \(\lambda = 2.5\ \text{cm}\).<br>✓ Whole number of wavelengths → constructive interference; a whole number plus a half → destructive; anything between → partial interference.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that / Discuss</div>
+  <div class="lc-exam-q">Consider the microwave arrangement of Fig 6. (a) Constructive interference produces a maximum signal when the receiver is \(57\ \text{cm}\) from the centre of one slit and \(45\ \text{cm}\) from the other. Show why \(3\ \text{cm}\) and \(4\ \text{cm}\) are both possible values for the wavelength being used. (b) Discuss how the actual wavelength can be quickly determined. [5 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Path difference \(= 57 - 45 = 12\ \text{cm}\).<br>✓ Constructive interference requires path difference \(= n\lambda\); \(12/3 = 4\) and \(12/4 = 3\), both whole numbers, so \(n = 4\) with \(\lambda = 3\ \text{cm}\) and \(n = 3\) with \(\lambda = 4\ \text{cm}\) both satisfy the condition.<br>✓ (b) Count the maxima: move the receiver from the central maximum out to this position and note how many maxima are passed, which fixes \(n\).<br>✓ Alternatively use the known frequency of the transmitter with \(\lambda = c/f\).<br>✓ Or check whether the calculated \(\lambda\) matches the slit width, which is about one wavelength.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">Consider Fig 7. The centres of the speakers were \(1.20\ \text{m}\) apart. The girl's closest distance to point P was \(80\ \text{cm}\), which was where the sound was loudest. The next position where the sound was loud was \(50\ \text{cm}\) away in the direction shown. (a) Are the sound waves from the two speakers emitted in phase, or out of phase? (b) Use Pythagoras's theorem to determine the path difference and calculate the wavelength of the sound. (c) Describe how the interference pattern would change if (i) the sound frequency was increased, (ii) the connections to one of the speakers were reversed. [7 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) In phase — P is equidistant from both speakers, so the path difference is zero, and the sound there is loudest.<br>✓ (b) \(d_1 = \sqrt{0.10^2 + 0.80^2} = 0.806\ \text{m}\)<br>✓ \(d_2 = \sqrt{1.10^2 + 0.80^2} = 1.360\ \text{m}\)<br>✓ Path difference \(= 0.55\ \text{m}\); this is the first maximum away from the centre, so \(\lambda \approx 0.55\ \text{m}\).<br>✓ (c)(i) Higher frequency → shorter wavelength → the loud and quiet positions are closer together.<br>✓ (c)(ii) The speakers become antiphase, so the conditions reverse.<br>✓ P becomes a quiet point and the former quiet positions become loud.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain / Discuss</div>
+  <div class="lc-exam-q">A boy stands halfway between two loudspeakers facing each other in a large open space. Both speakers produce sound of frequency \(180\ \text{Hz}\) and in this position he hears a loud sound. (a) Explain why the sound level will decrease if he starts to walk towards either speaker. (b) Discuss how the sound level will change if he walks from the mid-point along a line perpendicular to the line joining the speakers. (c) How far must he walk directly towards one of the speakers before the sound level rises to a maximum again? Take the speed of sound as \(342\ \text{m s}^{-1}\). (d) Explain why this experiment is best carried out in a large open space. [8 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) At the mid-point the path difference is zero, so the waves arrive in phase (constructive).<br>✓ Walking towards one speaker introduces a path difference; as it approaches \(\tfrac{1}{2}\lambda\) the interference becomes destructive and the level falls.<br>✓ (b) Every point on that perpendicular line is equidistant from the two speakers, so the path difference stays zero and the sound stays loud.<br>✓ (c) \(\lambda = v/f = 342/180 = 1.90\ \text{m}\).<br>✓ Moving a distance \(x\) towards one speaker changes the path difference by \(2x\).<br>✓ Next maximum when \(2x = \lambda\), so \(x = 0.95\ \text{m}\).<br>✓ (d) In a room, reflections from walls, floor and ceiling would add further waves.<br>✓ These extra superpositions would blur or shift the pattern, so the maxima and minima would not be clear.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Outline / Suggest</div>
+  <div class="lc-exam-q">(a) Outline why the interference of light is not a common observation. (b) The waves used to cook food in a microwave oven reflect repeatedly off the metal walls and can produce interference effects. Suggest how this could affect the way in which the food is cooked, and state one design feature that overcomes the problem. [5 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Separate light sources are not coherent — light is emitted in random, uncontrolled processes, so there is no constant phase difference.<br>✓ Light has very small wavelengths, so any interference pattern is very small and difficult to observe.<br>✓ (b) Superposition of the reflected waves creates fixed maxima and minima inside the oven.<br>✓ Food at a maximum is heated strongly while food at a minimum is barely heated, giving hot and cold spots / uneven cooking.<br>✓ A turntable (or a rotating stirrer that moves the pattern) keeps moving the food between maxima and minima so the heating averages out.</div>
+</div>
+
 <div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
   <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
 </div>
@@ -552,12 +488,13 @@
   let lcScore = 0;
   const lcAnswered = {};
   const lcFeedback = {
-    mcq1: { B: 'Two identical waves cancel completely only when opposite (180° phase difference).' },
-    mcq2: { C: 'λ = v/f = 340/680 = 0.50 m. Smallest path difference for constructive is λ = 0.50 m.' },
-    mcq3: { B: 'Nodes are λ/2 apart. Antinodes also λ/2 apart.' },
-    mcq4: { B: 'Minimum resultant = |3.0 – 2.0| = 1.0 m (destructive with different amplitudes).' }
+    mcq1: { C: 'Superposition is a vector addition of displacements, so signs matter.' },
+    mcq2: { B: 'Coherent waves have the same frequency and a constant phase difference.' },
+    mcq3: { B: '0.18/0.12 = 1.5 = (1 + ½), so the destructive condition is satisfied.' },
+    mcq4: { C: 'Amplitude doubles to 2x₀ and intensity ∝ amplitude², so the intensity quadruples.' },
+    mcq5: { D: 'Separate sources are incoherent, and the very small wavelength makes any pattern tiny.' },
+    mcq6: { C: 'Path difference is 12 cm. 12/5 = 2.4, not a whole number of wavelengths, so 5 cm cannot give a maximum.' }
   };
-
   window.lcMCQ = function(id, el, chosen, correct) {
     if (lcAnswered[id]) return;
     lcAnswered[id] = true;
@@ -579,14 +516,15 @@
     }
     document.getElementById('lc-score-display').textContent = lcScore;
   };
-
   window.lcFITB = function() {
-    const ans = { lf1:'displacement', lf2:'nodes', lf3:'antinodes' };
+    const ans = { lf1:'vector', lf2:'coherent', lf3:'nλ', lf4:'(n+½)λ', lf5:'4' };
+    const alt = { lf3:['nlambda','n lambda','n λ','nλ'], lf4:['(n+1/2)λ','(n+0.5)λ','(n+½)lambda','(n+1/2)lambda'] };
     let correct = 0, total = Object.keys(ans).length;
     Object.keys(ans).forEach(id => {
       const el = document.getElementById(id);
-      const val = el.value.trim().toLowerCase();
-      const ok = val === ans[id] || (ans[id] === 'nodes' && val === 'node') || (ans[id] === 'antinodes' && val === 'antinode');
+      const val = el.value.trim().toLowerCase().replace(/\s+/g,'');
+      let ok = val === ans[id].toLowerCase().replace(/\s+/g,'') || (val.length > 0 && ans[id].length > 2 && val.includes(ans[id].toLowerCase()));
+      if (!ok && alt[id]) ok = alt[id].some(a => a.toLowerCase().replace(/\s+/g,'') === val);
       el.classList.toggle('correct', ok);
       el.classList.toggle('wrong', !ok);
       if (ok) correct++;
@@ -600,92 +538,19 @@
       document.getElementById('lc-score-display').textContent = lcScore;
     } else {
       res.style.color = 'var(--red)';
-      res.textContent = correct + '/' + total + ' correct. Answers: displacement · nodes · antinodes.';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
     }
   };
-
   window.lcToggleModel = function(btn) {
     const ma = btn.nextElementSibling;
     ma.classList.toggle('show');
     btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
   };
-
-  // ----- PHASE DIFFERENCE LAB (canvas) -----
-  const phaseCanvas = document.getElementById('phaseCanvas');
-  const ctxPhase = phaseCanvas.getContext('2d');
-  function drawPhaseGraph(phaseDeg) {
-    const w = phaseCanvas.width, h = phaseCanvas.height;
-    ctxPhase.clearRect(0, 0, w, h);
-    const phaseRad = phaseDeg * Math.PI / 180;
-    const points = 500;
-    const xStep = w / points;
-    ctxPhase.beginPath(); ctxPhase.strokeStyle = '#ff7e5e'; ctxPhase.lineWidth = 2;
-    for (let i=0; i<=points; i++) {
-      let x = i * xStep;
-      let t = (x / w) * 4 * Math.PI; // two full cycles
-      let y1 = Math.sin(t);
-      let y2 = Math.sin(t + phaseRad);
-      let sum = y1 + y2;
-      let y = h/2 - (sum * (h/3));
-      if(i===0) ctxPhase.moveTo(x, y);
-      else ctxPhase.lineTo(x, y);
-    }
-    ctxPhase.stroke();
-    // amplitude value
-    let AR = 2 * Math.abs(Math.cos(phaseRad/2));
-    document.getElementById('ARvalue').innerText = AR.toFixed(2);
-  }
-  const phaseSlider = document.getElementById('phaseSlider');
-  phaseSlider.addEventListener('input', function() {
-    let val = parseInt(this.value);
-    document.getElementById('phaseValue').innerText = val;
-    drawPhaseGraph(val);
-  });
-  drawPhaseGraph(0);
-
-  // ----- PULSE COLLISION LAB (two triangular pulses) -----
-  const pulseCanvas = document.getElementById('pulseCanvas');
-  const ctxPulse = pulseCanvas.getContext('2d');
-  function drawPulses(time) {
-    const w = pulseCanvas.width, h = pulseCanvas.height;
-    ctxPulse.clearRect(0, 0, w, h);
-    // normalised position -1..1 across width
-    function pulseShape(x, center, width=0.4) {
-      let dx = Math.abs(x - center);
-      if(dx > width) return 0;
-      return 1 - dx/width;
-    }
-    // time parameter: -1 -> pulses at edges, 0 -> centres meet at x=0, 1 -> passed each other
-    // left pulse moves right: centre = -0.5 + (time+1)*0.5? Actually: at time=-1, left centre=-0.6, right centre=+0.6
-    let leftCentre = -0.5 + (time+1)*0.5;
-    let rightCentre = 0.5 - (time+1)*0.5;
-    const points = 400;
-    for(let i=0; i<=points; i++) {
-      let xNorm = -1 + 2*i/points;
-      let leftVal = pulseShape(xNorm, leftCentre, 0.35);
-      let rightVal = pulseShape(xNorm, rightCentre, 0.35);
-      let sumVal = leftVal + rightVal;
-      let y = h/2 - sumVal * (h/2.5);
-      if(i===0) ctxPulse.beginPath();
-      ctxPulse.lineTo(i*w/points, y);
-    }
-    ctxPulse.strokeStyle = '#4cd9ff';
-    ctxPulse.lineWidth = 2;
-    ctxPulse.stroke();
-  }
-  const timeSlider = document.getElementById('timeSlider');
-  timeSlider.addEventListener('input', function() {
-    let t = parseFloat(this.value);
-    document.getElementById('timeValue').innerText = t.toFixed(2);
-    drawPulses(t);
-  });
-  drawPulses(-1);
 })();
 </script>
       </div>
       </div>
 
-      <!-- Prev / Next navigation -->
       <div class="lesson-nav">
         <a href="03-refraction-of-waves.html" class="lesson-nav-btn">
           <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
@@ -703,7 +568,6 @@
         </a>
       </div>
     </main>
-
   </div>
 </div>
 
