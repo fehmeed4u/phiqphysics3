@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single-Slit Diffraction — C.3 Wave Phenomena — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C3">C.3 Wave Phenomena</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Single-Slit Diffraction</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">
+            C.3
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 7 of 9
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Single-Slit Diffraction</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">C.3 Wave Phenomena</strong>
+          · Unit C — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to C.3 overview
+      </a>
+      <div class="sidebar-title">C.3 Concepts</div>
+      <a href="01-transmission-absorption-and-scattering-of-waves.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Transmission, Absorption and Scattering of Waves</span>
+        </a>
+      <a href="02-reflection-of-waves-and-rays.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Reflection of Waves and Rays</span>
+        </a>
+      <a href="03-refraction-of-waves.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Refraction of Waves</span>
+        </a>
+      <a href="04-principle-of-superposition.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Principle of Superposition</span>
+        </a>
+      <a href="05-constructive-and-destructive-interference.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Constructive and Destructive Interference</span>
+        </a>
+      <a href="06-young-s-double-slit-experiment.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
+          <span>Young's Double-Slit Experiment</span>
+        </a>
+      <a href="07-single-slit-diffraction.html" class="sidebar-link active">
+          <span class="sidebar-num">07</span>
+          <span>Single-Slit Diffraction</span>
+        </a>
+      <a href="08-polarisation.html" class="sidebar-link">
+          <span class="sidebar-num">08</span>
+          <span>Polarisation</span>
+        </a>
+      <a href="09-diffraction-gratings.html" class="sidebar-link">
+          <span class="sidebar-num">09</span>
+          <span>Diffraction Gratings</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+#lesson-body mjx-container { max-width:100%; }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>7</span> Lesson 7 of 9 · C.3 Wave Phenomena</div>
+<div class="lc-title">A closer look at single-slit diffraction of light</div>
+<div class="lc-sub">HL only — why a single narrow slit produces fringes at all, and why the first dark fringe sits exactly where you might expect a bright one.</div>
+
+<div class="lc-info">📘 <strong>Syllabus content</strong> — Single-slit diffraction, including intensity patterns, as given by: \(\theta = \lambda / b\), where \(b\) is the slit width.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the slit that is 200 wavelengths wide</h3>
+  <p>A diffraction pattern can be produced by monochromatic light passing through a narrow slit, using the same arrangement as the double-slit experiment but with the double slits replaced by a single slit. The surprise is that the pattern has <strong>fringes</strong>, similar to those produced by double slits — even though there is only one opening.</p>
+  <p>It is important to understand that even a 'narrow' slit of width, for example, \(b = 0.1\ \text{mm}\) is much greater than one wavelength, \(\lambda\), of light. In fact:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Slit width in wavelengths</span>
+    $$\frac{b}{\lambda} \approx \frac{0.1 \times 10^{-3}}{5 \times 10^{-7}} = 200$$
+  </div>
+  <p>So the slit is not "one wavelength wide". <strong>Something inside the slit must be interfering with itself.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-07-single-slit-diffraction-01.png" alt="Single-slit diffraction pattern compared with a double-slit interference pattern">
+    <div class="lc-cap">Fig 1 — Single-slit diffraction (top) beside double-slit interference (bottom). The central fringe of the single-slit pattern is both brighter and wider than the others.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — At the angle where secondary waves from the <em>two edges</em> of the slit have a path difference of exactly one wavelength, do you see a bright fringe or a dark one? <em>Answer: a dark one. That angle is the first minimum — the reason why is the whole point of this lesson.</em></div>
+</div>
+
+<div class="lc-section">Core knowledge</div>
+
+<div class="lc-card">
+  <h3>📐 Interference within a single wavefront</h3>
+  <p>We need to imagine that a plane wavefront emerging from a single slit acts as if it was a series of point sources of <strong>secondary wavelets</strong>, maybe one for every wavelength. These ideas were famously first put forward as an explanation for the propagation of all waves by Christian Huygens in 1690.</p>
+  <div class="lc-info">◆ <strong>Secondary waves</strong> — The propagation of waves in two or three dimensions can be explained by considering that each point on a wavefront is a source of secondary waves.</div>
+  <p>These wavelets will be <strong>coherent</strong> and they will <strong>interfere</strong>.</p>
+  <p>Firstly, consider how secondary wavelets from the edge of the slit may interfere. Figure C3.49 shows a typical direction, \(\theta\), in which secondary waves travel away from a single narrow slit of width, \(b\).</p>
+  <p>If \(\theta\) is zero, all the secondary waves will interfere constructively in this direction (straight through the slit) because there is no path difference between them. (Of course, in theory, waves travelling parallel to each other in the same direction cannot meet and interfere, so we will assume that the waves' directions are very nearly parallel.)</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Path difference between the slit edges</span>
+    $$\text{path difference} = b\sin\theta$$
+  </div>
+  <p>Consider what happens for angles increasingly greater than zero. The path difference, as shown in Figure C3.49, equals \(b\sin\theta\) and this increases as the angle \(\theta\) increases. There will be angles at which the waves from the two edges of the slit interfere <strong>constructively</strong> because the path difference has increased to become equal to \(1\lambda\), \(2\lambda\), \(3\lambda\) … and so on.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-07-single-slit-diffraction-02.png" alt="Single slit of width b with three parallel rays at angle theta and the path difference b sin theta marked">
+    <div class="lc-cap">Fig 2 (Figure C3.49) — Path differences and interference. Read off that the extra distance travelled by the wave from the far edge is \(b\sin\theta\).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔗 Pairing off the wavelets</h3>
+  <p>But if secondary wavelets from the edges of the slit interfere constructively, what about interference between all the other secondary wavelets? Consider Figure C3.50 in which the slit has been divided into a number of point sources of secondary wavelets. (Ten points have been chosen, but it could be many more.)</p>
+  <p>If the angle, \(\theta\), is such that secondary wavelets from points 1 and 10 would interfere constructively because the path difference is one wavelength, then secondary waves from <strong>1 and 6</strong> must have a path difference of half a wavelength and interfere <strong>destructively</strong>. Similarly, waves from points <strong>2 and 7</strong>, points <strong>3 and 8</strong>, points <strong>4 and 9</strong> and points <strong>5 and 10</strong> must all interfere destructively.</p>
+  <p>In this way waves from all points can be 'paired off' with others, so that the first minimum of the diffraction pattern occurs at such an angle that waves from the edges of the slit would otherwise interfere constructively.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-07-single-slit-diffraction-03.png" alt="Slit divided into ten numbered point sources with pairs 1-6, 2-7, 3-8, 4-9, 5-10 shown interfering destructively">
+    <div class="lc-cap">Fig 3 (Figure C3.50) — Secondary waves that will interfere destructively can be 'paired off': 1 with 6, 2 with 7, 3 with 8, 4 with 9, 5 with 10.</div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Condition for the first minimum</span>
+    $$b\sin\theta = \lambda$$
+  </div>
+  <p>The first minimum of the diffraction pattern occurs when the path difference between secondary waves from the edge of the slit is equal to one wavelength.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📏 The small-angle result and the higher minima</h3>
+  <p>For the diffraction of light, the angle \(\theta\) is usually small and approximately equal to \(\sin\theta\), if the angle is expressed in <strong>radians</strong>. (This is valid for angles up to approximately 10°, 0.17 rad.) So that:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Angle for the first minimum</span>
+    $$\theta = \frac{\lambda}{b}$$
+  </div>
+  <p>Similar reasoning will show that other diffraction minima will occur at angles \(\theta = \lambda/b\), \(2\lambda/b\), \(3\lambda/b\) … and so on:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">All minima</span>
+    $$\theta_n = \frac{n\lambda}{b}$$
+  </div>
+  <p>These angles are represented on the intensity–angle graph shown in Figure C3.51.</p>
+  <div class="lc-info">◆ <strong>Single-slit diffraction</strong> — The simplest diffraction pattern is that produced by wavefronts interfering after they have passed through a narrow, rectangular slit. The first minimum occurs at an angle such that \(\theta = \lambda/b\).</div>
+  <div class="lc-warn">⚠️ <strong>Top tip!</strong> — As we have seen, a full explanation of diffraction involves discussing interference, and this can easily cause confusion, especially if they are thought to be two separate phenomena. To be clear: <strong>diffraction</strong> is the change of direction that occurs when waves pass gaps and obstacles. Diffracted wavefronts may then undergo <strong>superposition</strong> effects, which can lead to a pattern being formed which is usually called a 'diffraction pattern', although the principles of interference are used to explain it.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Intensity–angle (single slit)</td><td>X: angle \(\theta\); Y: relative intensity</td><td>Tall central peak at \(\theta = 0\), zeros at \(\pm\lambda/b\), \(\pm 2\lambda/b\), \(\pm 3\lambda/b\); small side peaks between them</td><td>First minimum position \(\Rightarrow\) \(\lambda/b\). Central maximum is twice as wide as any side peak.</td></tr>
+      <tr><td>Screen appearance strip</td><td>X: position on screen; Y: brightness</td><td>Wide bright central band, then progressively fainter bands separated by dark gaps</td><td>Half-width of central band \(\div\) slit–screen distance \(=\theta\).</td></tr>
+      <tr><td>Two wavelengths, same slit</td><td>X: angle \(\theta\); Y: relative intensity</td><td>Two overlaid patterns; the longer wavelength has its minima further out</td><td>\(\theta \propto \lambda\): red spreads more than blue through the same slit.</td></tr>
+      <tr><td>\(\theta\) against \(1/b\)</td><td>X: \(1/b\); Y: first-minimum angle \(\theta\)</td><td>Straight line through the origin</td><td>Gradient \(=\lambda\).</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-07-single-slit-diffraction-04.png" alt="Relative intensity against angle for single-slit diffraction with minima labelled lambda over b, 2 lambda over b, 3 lambda over b"><div class="lc-cap">Fig 4 (Figure C3.51) — Variation of intensity with angle for single-slit diffraction, with the pattern as seen on a screen beneath it.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-07-single-slit-diffraction-05.png" alt="Relative intensity against angle for red and blue light through the same slit"><div class="lc-cap">Fig 5 — Red light (\(6.4 \times 10^{-7}\ \text{m}\)) and blue light through the same 0.82 mm slit. Blue minima sit closer to the centre.</div></div>
+  </div>
+</div>
+
+<div class="lc-section">Worked example C3.5</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C3.5 – monochromatic light through a 0.0730 mm gap</h3>
+  <p>Monochromatic light of wavelength 663 nm (\(663 \times 10^{-9}\ \text{m}\)) is shone through a gap of width 0.0730 mm.<br>
+  <strong>a</strong> Calculate the angle at which the first minimum of the diffraction pattern is formed.<br>
+  <strong>b</strong> If the pattern is observed on a screen that is 2.83 m from the slit, determine the width of the central maximum.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> single-slit diffraction. Part a needs the first-minimum angle from \(\theta = \lambda/b\); part b converts that angle into a length on a screen.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\lambda = 663 \times 10^{-9}\ \text{m}\)<br>\(b = 0.0730\ \text{mm} = 7.30 \times 10^{-5}\ \text{m}\)<br>slit–screen distance \(= 2.83\ \text{m}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong> \(\theta = \dfrac{\lambda}{b}\)<br>\(= \dfrac{663 \times 10^{-9}}{7.30 \times 10^{-5}}\)<br>\(= 9.08 \times 10^{-3}\ \text{radians}\)<br><br><strong>Equation (b):</strong> \(\theta \approx \sin\theta = \dfrac{\text{half width}}{\text{slit–screen distance}}\)<br>half width \(= (9.08 \times 10^{-3}) \times 2.83\)<br>\(= 0.0257\ \text{m}\) (0.02569… seen on calculator display)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> a \(\theta = 9.08 \times 10^{-3}\ \text{rad}\).<br>b width of central maximum \(= 0.02569 \times 2\)<br>\(= 0.0514\ \text{m}\).<br>The central bright band is about 5 cm across — easily visible, and twice as wide as each side band.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-07-single-slit-diffraction-06.png" alt="Monochromatic light through a gap of width b, angle theta each side of the axis, width of central maximum marked on the screen">
+    <div class="lc-cap">Fig 6 (Figure C3.52) — Monochromatic light shone through a gap (not to scale). The half-angle \(\theta\) locates the centre of the first minimum; the full central maximum spans \(2\theta\).</div>
+  </div>
+</div>
+
+<div class="lc-section">Application and extension</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔭 Real-world: resolution</h3>
+    <p>When light waves enter our eyes, they are diffracted and this affects our ability to see detail. The ability of our eyes (and/or optical instruments) to see objects as separate is called <strong>resolution</strong>. For example, our eyes will not be able to resolve the individual leaves seen on a distant tree.</p>
+    <p>Consider two identical sources of light at night, for example car headlights a long way away. The light waves are effectively emitted from point sources, but when they are received by the eye, the images on the back of the eye (retina) are not points, but <strong>diffraction rings</strong> (rings are formed because the aperture in the eye is circular). When the lights are close we can see two headlights; when the lights are a long way away (maybe 5 km or more), the diffraction patterns overlap and cannot be distinguished — only one light is seen.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/c3-07-single-slit-diffraction-07.png" alt="Two circular diffraction ring patterns, easily resolvable on the left and just resolvable on the right">
+      <div class="lc-cap">Fig 7 (Figure C3.53) — Images of two point sources observed through circular apertures that are <strong>a</strong> easily resolvable and <strong>b</strong> just resolvable.</div>
+    </div>
+    <p>Most of the wave intensity is concentrated near the centre of the diffraction rings, so under most circumstances diffraction effects are not significant. However, when we want to see fine details under a microscope, or make astronomical observations of distant objects, diffraction is the major factor limiting resolution.</p>
+    <div class="lc-success">✓ <strong>Examiner tip:</strong> the amount of diffraction at an aperture is represented by the ratio \(\lambda/b\). So the resolution of any telescope or microscope is improved by <em>increasing the width of the aperture</em> receiving the waves, or <em>reducing the wavelength</em> involved (often not possible). Quote the ratio, not just "bigger is better".</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – from one slit to many</h3>
+    <p><strong>ATL C3C (thinking skills):</strong> radio telescopes such as the Jodrell Bank telescope in England are much larger than optical telescopes. Explain why, supporting your explanation with scientific reasoning.<br>
+    <em>Answer: radio wavelengths are of the order of centimetres to metres, roughly \(10^{6}\) times longer than visible light, so for the same aperture \(b\) the ratio \(\lambda/b\) — and therefore the diffraction spreading — is enormously larger. Only a very large \(b\) brings \(\lambda/b\) back down to an angle small enough to resolve separate radio sources.</em></p>
+    <p>Next we move from one slit to <strong>two slits, multiple slits and diffraction gratings</strong>. Syllabus content: interference patterns from multiple slits and diffraction gratings as given by:</p>
+    <div class="lc-formula">
+      <span class="lc-formula-label">Multiple slits and gratings</span>
+      $$n\lambda = d\sin\theta$$
+    </div>
+    <p>For two narrow slits a distance \(d\) apart, the fringe spacing \(s\) on a screen a distance \(D\) away is:</p>
+    <div class="lc-formula">
+      $$s = \frac{\lambda D}{d}$$
+    </div>
+    <p>That section discusses the advantages of passing light waves through more and more parallel slits, and how the pattern of single-slit diffraction affects interference between two or more slits.</p>
+    <p><strong>Challenge:</strong> a slit is widened from 0.05 mm to 0.15 mm with the wavelength unchanged. By what factor does the width of the central maximum change? <em>(Answer: it becomes one third as wide, because \(\theta \propto 1/b\).)</em></p>
+    <div class="lc-info">🔗 <strong>Linking questions:</strong> What can an understanding of the results of Young's double-slit experiment reveal about the nature of light? What evidence is there that particles possess wave-like properties such as wavelength? (NOS) These questions link to understandings in Topic E.2.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Single-slit and double-slit patterns are the same</td><td>They are similar and easily confused. The most obvious difference is that the central fringe of the single-slit diffraction pattern is <strong>brighter and wider</strong> than the other fringes.</td></tr>
+      <tr><td>Diffraction and interference are two separate phenomena</td><td>Diffraction is the change of direction at gaps and obstacles; the pattern that follows is explained using the principles of interference (superposition).</td></tr>
+      <tr><td>\(b\sin\theta = \lambda\) marks a bright fringe, because the edge waves are in phase</td><td>It marks the <strong>first minimum</strong>. Every wavelet pairs off with a partner half a slit away whose path difference is \(\lambda/2\), so the whole slit cancels.</td></tr>
+      <tr><td>A slit is "about one wavelength wide"</td><td>A 0.1 mm slit is roughly 200 wavelengths of visible light wide. The pattern comes from interference <em>within</em> that width.</td></tr>
+      <tr><td>\(\theta = \lambda/b\) can be used at any angle</td><td>It relies on \(\theta \approx \sin\theta\), valid only up to about 10° (0.17 rad), and \(\theta\) must be in radians.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ <strong>Most common slip:</strong> giving the <em>half</em> width of the central maximum as the answer. \(\theta = \lambda/b\) locates the first minimum on <strong>one side</strong> only — the full central maximum spans \(2\theta\), so in Worked example C3.5 the answer is 0.0514 m, not 0.0257 m.</div>
+</div>
+
+<div class="lc-kp">
+  <span>b sin θ = λ</span>
+  <span>θ = λ/b</span>
+  <span>θₙ = nλ/b</span>
+  <span>b/λ ≈ 200</span>
+  <span>θ in radians, ≤ 0.17 rad</span>
+  <span>width = 2θ × D</span>
+  <span>nλ = d sin θ</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. At the angle where secondary wavelets from the two edges of a single slit have a path difference of exactly one wavelength, what is observed?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> The central maximum</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> The first secondary maximum</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> The first minimum</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Nothing — the waves cannot interfere</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A slit is divided into ten equally spaced point sources numbered 1 to 10. At the first minimum, which pair below interferes destructively?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 1 and 2</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 3 and 8</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 4 and 5</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 9 and 10</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Monochromatic light passes through a single slit. The slit width \(b\) is doubled. The angle of the first minimum:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> halves</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> doubles</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> is unchanged</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> quadruples</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Which is the most obvious difference between a single-slit diffraction pattern and a double-slit interference pattern?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','D')"><span class="lc-opt-l">A</span> The single-slit pattern has no dark fringes</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','D')"><span class="lc-opt-l">B</span> The double-slit pattern is coloured</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','D')"><span class="lc-opt-l">C</span> The single-slit pattern has evenly bright fringes</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','D')"><span class="lc-opt-l">D</span> The central fringe of the single-slit pattern is brighter and wider than the others</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Two distant car headlights can no longer be seen as separate. The best single explanation is that:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> the light has become too dim to detect</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> their diffraction rings on the retina overlap</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> the wavelength of the light has increased</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> the pupil has become a rectangular slit</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The first minimum forms when the path difference between secondary waves from the two edges of the slit equals one <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:140px">.<br>
+    In the equation \(\theta = \lambda/b\), the angle \(\theta\) must be measured in <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px">.<br>
+    The small-angle approximation \(\theta \approx \sin\theta\) is valid up to approximately <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:70px">°.<br>
+    A 0.1 mm slit is about <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:80px"> wavelengths of visible light wide.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 38 · State / Suggest / Calculate</div>
+  <div class="lc-exam-q">Electromagnetic radiation of wavelength \(2.37 \times 10^{-7}\ \text{m}\) passes through a narrow slit of width \(4.70 \times 10^{-5}\ \text{m}\).<br>
+  <strong>a</strong> State in which part of the electromagnetic spectrum this radiation occurs.<br>
+  <strong>b</strong> Suggest how it could be detected.<br>
+  <strong>c</strong> Calculate the angle of the first minimum of the diffraction pattern. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ <strong>a</strong> Ultraviolet (237 nm is shorter than the ~400 nm violet limit of visible light). [1]<br>
+  ✓ <strong>b</strong> By fluorescence — the UV causes a phosphor screen to glow visibly; or by a photographic film / UV photodiode / photoelectric detector. [1]<br>
+  ✓ <strong>c</strong> \(\theta = \dfrac{\lambda}{b} = \dfrac{2.37 \times 10^{-7}}{4.70 \times 10^{-5}}\) [1]<br>
+  ✓ \(= 5.04 \times 10^{-3}\ \text{rad}\) [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 39 · Determine</div>
+  <div class="lc-exam-q">Determine the wavelength of light that has a first diffraction minimum at an angle of 0.0038 radians when it passes through a slit of width 0.15 mm. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Rearranges \(\theta = \lambda/b\) to \(\lambda = \theta b\). [1]<br>
+  ✓ \(\lambda = 0.0038 \times 1.5 \times 10^{-4}\) [1]<br>
+  ✓ \(\lambda = 5.7 \times 10^{-7}\ \text{m}\) (570 nm, green-yellow). [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 40 · Calculate</div>
+  <div class="lc-exam-q">When light of wavelength \(6.2 \times 10^{-7}\ \text{m}\) was diffracted through a narrow slit, the central maximum had a width of 2.8 cm on a screen that was 1.92 m from the slit. Calculate the width of the slit. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Halves the width: half width \(= 1.4\ \text{cm} = 0.014\ \text{m}\). [1]<br>
+  ✓ \(\theta = \dfrac{0.014}{1.92} = 7.29 \times 10^{-3}\ \text{rad}\) [1]<br>
+  ✓ \(b = \dfrac{\lambda}{\theta} = \dfrac{6.2 \times 10^{-7}}{7.29 \times 10^{-3}}\) [1]<br>
+  ✓ \(b = 8.5 \times 10^{-5}\ \text{m}\) (0.085 mm). [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 41 · Sketch</div>
+  <div class="lc-exam-q"><strong>a</strong> Sketch and label a relative intensity–angle graph for the diffraction of red light of wavelength \(6.4 \times 10^{-7}\ \text{m}\) through a slit of width 0.82 mm. Include at least five peaks of intensity.<br>
+  <strong>b</strong> Add to your graph a sketch to show how monochromatic blue light would be affected by the same slit. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ <strong>a</strong> Axes labelled "relative intensity" (vertical) and "angle" (horizontal), symmetric about \(\theta = 0\). [1]<br>
+  ✓ Tall central peak plus at least two much smaller side peaks each side (five peaks in total). [1]<br>
+  ✓ Zeros marked at \(\theta = \pm\lambda/b\), \(\pm 2\lambda/b\), \(\pm 3\lambda/b\), with \(\lambda/b = \dfrac{6.4 \times 10^{-7}}{8.2 \times 10^{-4}} = 7.8 \times 10^{-4}\ \text{rad}\). [1]<br>
+  ✓ <strong>b</strong> Blue curve drawn with the same shape but narrower. [1]<br>
+  ✓ Blue minima closer to the centre because \(\theta \propto \lambda\); e.g. for \(\lambda = 4.5 \times 10^{-7}\ \text{m}\), \(\theta_1 = 5.5 \times 10^{-4}\ \text{rad}\). [1]<br>
+  ✓ Central maximum of the blue pattern narrower and taller/sharper, same central position. [1]</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">ATL C3C · Explain</div>
+  <div class="lc-exam-q">Radio telescopes are much larger than optical telescopes. Explain why, supporting your explanation with scientific reasoning. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The amount of diffraction at an aperture is represented by the ratio \(\lambda/b\). [1]<br>
+  ✓ Radio wavelengths are very much longer than those of visible light, so for the same aperture the diffraction spreading is far greater and two nearby sources cannot be resolved. [1]<br>
+  ✓ Resolution can only be improved by increasing the aperture width \(b\) (reducing \(\lambda\) is not possible for a chosen radio source), so the dish must be very large. [1]</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'That angle is the first minimum: every wavelet pairs with one half a slit away whose path difference is λ/2, so the whole slit cancels.' },
+    mcq2: { B: 'With 1 and 10 differing by one wavelength, points five apart differ by λ/2 — so 1&6, 2&7, 3&8, 4&9 and 5&10 all cancel.' },
+    mcq3: { A: 'θ = λ/b, so θ is inversely proportional to b. Doubling the slit width halves the angle and halves the width of the central maximum.' },
+    mcq4: { D: 'Both patterns show fringes, but the single-slit central fringe is noticeably brighter and wider than the rest.' },
+    mcq5: { B: 'The circular aperture of the eye forms diffraction rings on the retina; at large distances these overlap so only one light is seen.' }
+  };
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+  window.lcFITB = function() {
+    const ans = { lf1:'wavelength', lf2:'radians', lf3:'10', lf4:'200' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || (val.length > 0 && val.includes(ans[id]));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="06-young-s-double-slit-experiment.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Young's Double-Slit Experiment</div>
+          </div>
+        </a>
+        <a href="08-polarisation.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Polarisation</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
