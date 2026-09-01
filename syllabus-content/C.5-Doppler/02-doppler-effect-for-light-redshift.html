@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doppler Effect for Light — Redshift — C.5 Doppler Effect — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C5">C.5 Doppler Effect</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Doppler Effect for Light — Redshift</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">C.5</span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 2 of 3</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Doppler Effect for Light — Redshift</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">C.5 Doppler Effect</strong> · Unit C — IB Physics 2023</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">← Back to C.5 overview</a>
+      <div class="sidebar-title">C.5 Concepts</div>
+      <a href="01-doppler-effect-for-sound.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Doppler Effect for Sound</span>
+        </a>
+      <a href="02-doppler-effect-for-light-redshift.html" class="sidebar-link active">
+          <span class="sidebar-num">02</span>
+          <span>Doppler Effect for Light — Redshift</span>
+        </a>
+      <a href="03-applications-of-the-doppler-effect.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Applications of the Doppler Effect</span>
+        </a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<div style="padding:1.5rem 1.75rem">
+
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 3 · C.5 Doppler Effect</div>
+<div class="lc-title">Doppler Effect for Light and Other Electromagnetic Waves</div>
+<div class="lc-sub">The same shift that changes the pitch of a siren also runs a police speed gun, an airport radar and the measurement that told us the Universe is expanding.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the beam that comes back changed</h3>
+  <p>A police officer points a microwave transmitter at your car. The beam of known frequency \(f\) hits the car, a small fraction reflects, and it arrives back at the gun a few thousand hertz different from the frequency that left. Nobody measured your car directly — the <strong>frequency shift alone</strong> gave your speed. <strong>Point the same trick at a galaxy and you measure the expansion of the Universe.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c5-02-doppler-effect-for-light-redshift-01.png" alt="Microwave speed gun beam travelling to a car and reflecting back, showing the outgoing and returning frequencies">
+    <div class="lc-cap">Fig 1 — Microwaves of known frequency \(f\) travel to the object and back, so the shift is doubled: the round trip is why a factor of 2 appears.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — A source of light races towards you at \(0.01c\). Does the light itself arrive faster? <em>No. The speed of electromagnetic waves measured by any observer is always the same — it is unaffected by the speed of the source or of the observer. Only the frequency and wavelength change.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 The Doppler effect for electromagnetic waves</h3>
+  <p>The Doppler effect occurs for electromagnetic waves as well as for mechanical waves like sound, but the situation is <strong>more complicated</strong>, because the speed of electromagnetic waves as measured by any observer is always the same. It is not affected by the speed of the source or the speed of the observer. This is a relativistic effect (Topic A.5), but that theory is not of concern here.</p>
+  <p>The shift in frequency is defined as \(\Delta f =\) received frequency \(-\) emitted frequency. The equivalent shift in wavelength is \(\Delta \lambda\). For a relative speed \(v\) between source and observer:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Relative Doppler shift for light \((v \ll c)\)</span>
+    $$\frac{\Delta f}{f} = \frac{\Delta \lambda}{\lambda} \approx \frac{v}{c}$$
+  </div>
+  <p>The equation may only be used when the relative speed \(v\) is very much less than the speed of the electromagnetic waves, \(c\). Because \(c\) is so large, this is usually a valid assumption.</p>
+  <div class="lc-warn">⚠️ These are <em>not</em> the sound equations with \(c\) written in. The moving-source and moving-observer formulas on the HL page below <strong>cannot be applied to electromagnetic waves</strong>.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📡 Using the Doppler effect to determine speeds</h3>
+  <p>Microwaves of known frequency \(f\) are easily produced and transmitted as a beam which can be directed at a moving object. A small fraction of the radiation arrives back at the source after reflecting off the object. The change in frequency, \(\Delta f\), due to the Doppler effect can then be used to determine the speed of the object. Examples include:</p>
+  <p>• Speed 'guns' used by police for checking the speed of moving vehicles.<br>• Radar used for monitoring aircraft, or boat movements.<br>• Radar used for tracking the movement of storms.</p>
+  <p>In all of these the microwaves travel from the source to the object <strong>and then back to the source</strong>. For this reason a factor of 2 is added to the right-hand side of the equation:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Reflected (round-trip) shift</span>
+    $$\frac{\Delta f}{f_0} = \frac{2v}{c}$$
+  </div>
+  <p><strong>Radar</strong> (RAdio Detection And Ranging) is a system which uses microwaves to detect the distance, direction and speed of moving objects. Pulses of microwaves are sent from a rotating aerial. After a very small fraction of a second, some microwaves reflected off the aircraft are received back at the aerial. The <strong>time delay</strong> gives the distance to the aircraft, and the <strong>orientation of the aerial</strong> gives the direction to it. Using the Doppler effect with radar also enables a direct calculation of the aircraft's speed, and has the advantage of being able to ignore reflections from objects which are not moving, or are only moving slowly.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c5-02-doppler-effect-for-light-redshift-02.png" alt="Rotating radar aerial sending a pulse to an aircraft, with the return pulse and a velocity vector resolved towards the aerial">
+    <div class="lc-cap">Fig 2 — Radar: the time delay gives distance, the aerial orientation gives direction, and the Doppler shift gives the component of velocity along the beam.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🌈 Spectra: continuous, emission and absorption</h3>
+  <p>Everything emits thermal radiation, and this emitted radiation is a <strong>continuous spectrum</strong> with a wide range of frequencies (Topic B.1). A continuous light spectrum can be displayed on a screen using a prism to disperse the radiation (Topic C.2).</p>
+  <p>Individual atoms and simple molecules instead emit electromagnetic radiation of <strong>certain precise frequencies</strong>, rather than a continuous range. Topic E.1 explains how this is connected to changing energy levels within the atoms. When elements in the form of gases are given enough energy, the spectra they emit are seen as a series of bright lines on black backgrounds — called <strong>line spectra</strong>. Each line corresponds to a precise frequency.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c5-02-doppler-effect-for-light-redshift-03.png" alt="The principal lines of the line spectrum of hydrogen: coloured bright lines on a black strip">
+    <div class="lc-cap">Fig 3 — The principal lines of the line spectrum of hydrogen. Each bright line is one precise frequency.</div>
+  </div>
+  <p>When a continuous spectrum passes through a gas, the atoms in the gas <strong>absorb the same frequencies</strong> as they would emit when given energy. The result is a spectrum with black <strong>absorption lines</strong>. Atoms of the elements present in the outer layers of a star absorb light of certain frequencies from the continuous spectrum emitted by the star. Each different element produces a unique set of lines and frequencies, so the pattern can be used to identify the element emitting the radiation. The analysis of spectra using spectroscopes or spectrometers is called <strong>spectroscopy</strong>.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🌌 Redshift, blueshift and the expanding Universe</h3>
+  <p>The line spectra received from stars within distant galaxies are received at <strong>lower frequencies</strong> than light from similar elements on Earth. This can be considered to be a Doppler effect, and it suggests that the source and the observer are moving apart from each other.</p>
+  <div class="lc-info">💡 Measurements of the Doppler effect in line spectra from stars in distant galaxies show that most galaxies are moving apart from each other — <strong>the Universe is expanding</strong>.</div>
+  <p>Compare two spectra of the same element: one produced on Earth, one received from a distant galaxy. The continuous spectra are identical, and the pattern of black lines is unchanged — but every line has been 'shifted' towards the red end of the spectrum. This change to lower frequencies (larger wavelengths) is called a <strong>redshift</strong>. A change to higher frequency is called a <strong>blueshift</strong>; blueshifts only occur for a few stars relatively close to the Earth.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c5-02-doppler-effect-for-light-redshift-04.png" alt="Two spectrum strips one above the other: the lower strip has the same line pattern displaced towards the red end">
+    <div class="lc-cap">Fig 4 — Redshift in line spectra. The pattern is identical; the whole set of lines is displaced towards red.</div>
+  </div>
+  <table class="lc-table">
+    <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+    <tbody>
+      <tr><td>Redshift</td><td>Increase in wavelengths of electromagnetic radiation due to the fact that the distance between the observer and the source is increasing.</td></tr>
+      <tr><td>Blueshift</td><td>Decrease in wavelength of electromagnetic radiation (from a 'nearby' star) due to the fact that the observer and the source are moving closer together.</td></tr>
+      <tr><td>Recession speed</td><td>The speed with which a galaxy (or star) is moving away from Earth.</td></tr>
+      <tr><td>Star</td><td>Massive sphere of plasma held together by the forces of gravity. Because of the high temperatures, thermonuclear fusion occurs and radiation is emitted.</td></tr>
+      <tr><td>Galaxy</td><td>A very large number of stars (and other matter) held together in a group by the forces of gravity.</td></tr>
+      <tr><td>Expansion of the universe</td><td>The redshift of light (similar to the Doppler effect) from distant galaxies provides evidence of an expanding universe.</td></tr>
+      <tr><td>Big Bang model</td><td>Currently accepted model of the Universe, in which matter, space and time began at a point 13.7 billion years ago. The Universe has been expanding ever since.</td></tr>
+      <tr><td>Spectroscopy</td><td>The analysis of spectra using instruments called spectroscopes or spectrometers.</td></tr>
+      <tr><td>Radar</td><td>A system which uses microwaves to detect the distance, direction and speed of moving objects.</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:0.75rem">Measurements on a large number of galaxies confirm that those with the greatest speeds are those which are furthest away. There is an obvious conclusion: they are further away because they are travelling faster. Moving back in time, they all started at the same place and time. This is the central concept of the <strong>Big Bang model</strong> — the Universe was created about fourteen billion years ago and has been expanding ever since.</p>
+  <div class="lc-warn">⚠️ Astronomers believe that all <strong>space itself</strong> is expanding, rather than stars and galaxies moving apart into pre-existing space. The full explanation of the Doppler effect with light from distant galaxies is therefore <em>not</em> the same as the Doppler effect used to describe wave effects confined to Earth.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Redshift–distance</td><td>Distance, redshift</td><td>Straight line of positive gradient through the origin, with wide scatter</td><td>Greater distance → greater redshift → greater recession speed. Expanding Universe.</td></tr>
+      <tr><td>Points below the axis</td><td>Distance, redshift</td><td>A few negative points at small distance</td><td>Blueshifted nearby stars/galaxies approaching us — not experimental errors.</td></tr>
+      <tr><td>Shift against wavelength</td><td>\(\lambda\), \(\Delta\lambda\)</td><td>Straight line through the origin</td><td>Gradient \(= v/c\), so gradient \(\times c\) gives the recession speed.</td></tr>
+      <tr><td>Line-spectrum strip</td><td>Wavelength, intensity</td><td>Sharp dips, whole pattern displaced</td><td>Size of displacement gives \(\Delta\lambda\); direction gives approach or recession.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c5-02-doppler-effect-for-light-redshift-05.png" alt="Sketch graph of redshift against distance with scattered points and a line of best fit, a few points below the axis"><div class="lc-cap">Fig 5 — Variation of redshift with distance. Scatter is large because of significant experimental uncertainties.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c5-02-doppler-effect-for-light-redshift-06.png" alt="Graph of wavelength shift against rest wavelength, a straight line through the origin"><div class="lc-cap">Fig 6 — \(\Delta\lambda\) against \(\lambda\) for one galaxy: a straight line whose gradient is \(v/c\).</div></div>
+  </div>
+  <div class="lc-info">💡 <strong>Inquiry 3 — concluding and evaluating.</strong> (1) For positive values of redshift the graph shows that the further away a galaxy is, the faster it is receding — evidence for an expanding Universe. (2) The few points below the horizontal axis are not errors: they are nearby objects that are blueshifted because they are moving towards us.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C5.3 – recession speed of a galaxy</h3>
+  <p>A line in the hydrogen spectrum has a wavelength of \(4.86 \times 10^{-7}\ \text{m}\). When detected on Earth from a distant galaxy, the same line has a wavelength of \(5.21 \times 10^{-7}\ \text{m}\). Determine the speed with which the galaxy is moving away from Earth (its recession speed).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> The wavelength has increased, so this is a redshift and the galaxy is receding. Use the low-speed Doppler relation for light.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\lambda = 4.86 \times 10^{-7}\ \text{m}\)<br>\(\lambda' = 5.21 \times 10^{-7}\ \text{m}\)<br>\(\Delta\lambda = 3.5 \times 10^{-8}\ \text{m}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\dfrac{\Delta\lambda}{\lambda} \approx \dfrac{v}{c}\)<br>\(\dfrac{3.5 \times 10^{-8}}{4.86 \times 10^{-7}} = \dfrac{v}{3.00 \times 10^{8}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(v = 2.16 \times 10^{7}\ \text{m s}^{-1}\), moving away from Earth. That is about 7% of \(c\), so the approximation still holds.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c5-02-doppler-effect-for-light-redshift-07.png" alt="Two spectrum strips with one hydrogen line marked at 4.86e-7 m on the laboratory strip and 5.21e-7 m on the galaxy strip">
+    <div class="lc-cap">Fig 7 — The same hydrogen line, measured on Earth and received from the galaxy. The gap between them is \(\Delta\lambda\).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C5.2 – police speed gun</h3>
+  <p>(a) Calculate the change of frequency detected by a police speed gun using a frequency of \(20.6\ \text{GHz}\), directed at a car moving directly away at \(130\ \text{km h}^{-1}\) \((36.1\ \text{m s}^{-1})\). (b) State what change would be detected if the vehicle moved directly towards the gun at the same speed.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Microwaves reflect off the car and return, so the round-trip form with the factor of 2 is required.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(f_0 = 20.6 \times 10^{9}\ \text{Hz}\)<br>\(v = 36.1\ \text{m s}^{-1}\)<br>\(c = 3.00 \times 10^{8}\ \text{m s}^{-1}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\dfrac{\Delta f}{f_0} = \dfrac{2v}{c}\)<br>\(\Delta f = \dfrac{2 \times 36.1 \times 20.6 \times 10^{9}}{3.00 \times 10^{8}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(\Delta f = 4.96 \times 10^{3}\ \text{Hz}\) (a decrease). (b) The same magnitude as in part (a), but the frequency would <strong>increase</strong> rather than decrease.</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: air traffic control and weather radar</h3>
+    <p>Airport radar tracks aircraft with microwave pulses: delay for range, aerial bearing for direction, Doppler shift for speed — and the Doppler filter lets the system ignore reflections from stationary or slow-moving objects. Doppler weather radar tracks the movement of storms the same way.</p>
+    <div class="lc-success">✓ Examiner tip: whenever the waves reflect off the moving object and return, use \(\Delta f / f_0 = 2v/c\). Dropping the 2 halves your answer and loses the mark.</div>
+    <div class="lc-info">💡 <strong>ATL C5A — research and communication.</strong> Use a variety of internet websites to learn about Doppler weather radar, evaluate your sources for reliability, and plan a short presentation of the key information for other IB physics students.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – why light is the awkward case</h3>
+    <p>For sound, the source's motion physically compresses the waves in the medium, so source-motion and observer-motion give <em>different</em> formulas. For light there is no medium and \(c\) is the same for every observer, so only the <strong>relative</strong> speed \(v\) enters, through \(\Delta f/f \approx v/c\).</p>
+    <p><strong>Challenge:</strong> a galaxy shows \(\Delta\lambda/\lambda = 0.10\). What recession speed does the approximation give, and why should you be cautious? (Answer: \(v = 0.10c = 3.0 \times 10^{7}\ \text{m s}^{-1}\); at this fraction of \(c\) the approximation is starting to lose accuracy, and for very distant galaxies the redshift is caused by the expansion of space itself, not motion through space.)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🚀 HL only – Doppler equations for sound and other mechanical waves</h3>
+  <p>Consider waves of frequency \(f\) and wavelength \(\lambda\) travelling at speed \(v\) between a <strong>stationary</strong> source S and a stationary observer O. In the time \(t\) taken for the first wavefront to reach the observer, the wave has travelled \(vt\), and the number of waves between source and observer is \(t/T = ft\). So</p>
+  <div class="lc-formula">$$\lambda = \frac{vt}{ft} = \frac{v}{f}$$</div>
+  <p>Now let the source move towards the stationary observer with speed \(u_{\text{s}}\), from \(S_1\) to \(S_2\) in the same time \(t\). The number of waves is unchanged, but they are now compressed into the length \(vt - u_{\text{s}}t\), so the observed wavelength is</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Observed wavelength</span>
+    $$\lambda' = \frac{vt - u_{\text{s}}t}{ft}$$
+    $$\lambda' = \frac{v - u_{\text{s}}}{f}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c5-02-doppler-effect-for-light-redshift-08.png" alt="Two-part diagram: (a) evenly spaced wavefronts between stationary source and observer; (b) wavefronts compressed as the source moves from S1 to S2">
+    <div class="lc-cap">Fig 8 — (a) Stationary source and observer. (b) The source moves a distance \(u_{\text{s}}t\), so the same number of waves occupies \(vt - u_{\text{s}}t\).</div>
+  </div>
+  <p>The observed frequency \(f' = v/\lambda'\), giving</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Source moving towards the observer</span>
+    $$f' = \frac{vf}{v - u_{\text{s}}}$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Source moving away from the observer</span>
+    $$f' = \frac{vf}{v + u_{\text{s}}}$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Moving source, general form</span>
+    $$f' = f\left(\frac{v}{v \pm u_{\text{s}}}\right)$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Moving observer, stationary source</span>
+    $$f' = f\left(\frac{v \pm u_{\text{o}}}{v}\right)$$
+  </div>
+  <p>\(u_{\text{s}}\) is <strong>added</strong> when the source is moving away from the observer, and <strong>subtracted</strong> when the motion is towards the observer. \(u_{\text{o}}\) is <strong>added</strong> when the observer is moving towards the source, and <strong>subtracted</strong> when the motion is away from the source. These equations assume that the motion is along the straight line joining the source and the observer.</p>
+  <div class="lc-warn">⚠️ Remember that these equations <strong>cannot</strong> be applied to electromagnetic waves \((c \gg v)\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C5.4 – sound from a moving source</h3>
+  <p>(a) A source of sound emitting \(480\ \text{Hz}\) moves directly towards a stationary observer at \(50.0\ \text{m s}^{-1}\). On a hot day the speed of sound is \(350\ \text{m s}^{-1}\); calculate the frequency received. (b) What frequency is heard on a cold day when the speed of sound is \(330\ \text{m s}^{-1}\)? (c) Explain why the speed of sound is less on a colder day.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Moving source, stationary observer, motion towards — so subtract \(u_{\text{s}}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(f = 480\ \text{Hz}\), \(u_{\text{s}} = 50.0\ \text{m s}^{-1}\)<br>hot day \(v = 350\ \text{m s}^{-1}\); cold day \(v = 330\ \text{m s}^{-1}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(f' = f\left(\dfrac{v}{v - u_{\text{s}}}\right)\)<br>(a) \(f' = \dfrac{480 \times 350}{350 - 50}\)<br>(b) \(f' = \dfrac{480 \times 350}{330 - 50}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(560\ \text{Hz}\). (b) \(566\ \text{Hz}\). (c) Sound is transferred through air by moving air molecules; on a colder day the molecules have a lower average speed.</div></div>
+  <div class="lc-info">💡 Note the wording of (b) in the source: the emitted frequency and the numerator \(480 \times 350\) are kept, with only the denominator changed to \(330 - 50\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔭 TOK and linking questions</h3>
+  <p><strong>Knowledge and the knower — how do the tools that we use shape the knowledge that we produce?</strong> Nearly everything that we know about the Universe has been deduced only from electromagnetic radiation arriving at the Earth from space, detected by various types of telescope and analysed using the techniques of spectroscopy. Astronomy is based solely on observation: we can choose what to observe, but we cannot design and carry out the type of laboratory experiments that characterize much of the rest of science. Our knowledge of the Universe is limited by the instruments that we design to collect and analyse the radiation reaching the Earth. The James Webb Telescope was launched in December 2021.</p>
+  <p><strong>Knowledge and technology — to what extent are technologies such as the microscope and telescope merely extensions to the human senses, or do they introduce radically new ways of seeing the world?</strong> Doppler first identified the effect that bears his name about 180 years ago, but he could not have foreseen the many useful applications that his discovery would lead to. This is mainly because the relatively small changes of frequency involved require a high level of technology.</p>
+  <p><strong>Linking questions.</strong> What are the similarities and differences between light and sound? (C.2) What gives rise to emission spectra and how can they be used to determine astronomical distances? (B.1, E.5) How can the Doppler effect be utilized to measure the rotational speed of extended bodies? How can the use of the Doppler effect for light be used to calculate speed? (A.4)</p>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Light from an approaching source arrives faster</td><td>The speed of electromagnetic waves measured by any observer is always the same; only \(f\) and \(\lambda\) change.</td></tr>
+      <tr><td>A redshifted star looks red</td><td>The continuous spectrum is unchanged and the line pattern is unchanged — the whole set of lines is simply displaced towards longer wavelengths.</td></tr>
+      <tr><td>Forgetting the factor of 2</td><td>When microwaves reflect off the object and return, the shift is doubled: \(\Delta f/f_0 = 2v/c\).</td></tr>
+      <tr><td>\(\Delta f/f \approx v/c\) works at any speed</td><td>It is only valid when \(v \ll c\).</td></tr>
+      <tr><td>Using \(f' = f(v/(v \pm u_{\text{s}}))\) for light</td><td>The mechanical-wave equations cannot be applied to electromagnetic waves.</td></tr>
+      <tr><td>Galaxies are flying out through empty space</td><td>Astronomers believe space itself is expanding, so the cosmological redshift is not the everyday Doppler effect.</td></tr>
+      <tr><td>Every galaxy is redshifted</td><td>Blueshifts occur for a few stars relatively close to the Earth — the negative points on the redshift–distance graph are real.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: quoting \(\Delta f\) without a direction. \(\Delta f\) is defined as received frequency minus emitted frequency, so recession gives a decrease and approach gives an increase of the same magnitude.</div>
+</div>
+
+<div class="lc-kp">
+  <span>Δf/f = Δλ/λ ≈ v/c</span>
+  <span>Δf/f₀ = 2v/c (reflected)</span>
+  <span>v ≪ c only</span>
+  <span>redshift → receding</span>
+  <span>blueshift → approaching</span>
+  <span>f′ = f(v/(v ± u_s))</span>
+  <span>f′ = f((v ± u_o)/v)</span>
+  <span>expanding Universe · Big Bang</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Why is the Doppler effect for electromagnetic waves more complicated than for sound?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> Light has no frequency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Light waves are longitudinal</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> The measured speed of light is the same for every observer</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Light cannot be reflected by a moving object</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A speed gun points at a car. A factor of 2 appears in \(\Delta f/f_0 = 2v/c\) because:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> Two microwave pulses are sent</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> The microwaves travel to the object and back to the source</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> The car's speed is doubled by reflection</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> Microwaves travel at \(2c\) in air</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Absorption lines from a distant galaxy are all displaced towards longer wavelengths, with the pattern unchanged. This shows that:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> The galaxy contains different elements from Earth</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> The galaxy is cooler than the Sun</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> The galaxy is approaching Earth</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> The same elements are present and the galaxy is receding</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. On a sketch of redshift against distance, a few points lie below the horizontal axis. These points are:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Experimental errors that should be discarded</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Nearby objects that are blueshifted because they approach us</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> Galaxies at zero distance</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Objects moving faster than light</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A radar aerial receives an echo a time \(t\) after emitting a pulse. The distance to the aircraft is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','A')"><span class="lc-opt-l">A</span> \(ct/2\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','A')"><span class="lc-opt-l">B</span> \(ct\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','A')"><span class="lc-opt-l">C</span> \(2ct\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','A')"><span class="lc-opt-l">D</span> \(c/t\)</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. HL. A sound source of frequency \(f\) moves away from a stationary observer at speed \(u_{\text{s}}\) through air of wave speed \(v\). The received frequency is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','C')"><span class="lc-opt-l">A</span> \(f(v - u_{\text{s}})/v\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','C')"><span class="lc-opt-l">B</span> \(fv/(v - u_{\text{s}})\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','C')"><span class="lc-opt-l">C</span> \(fv/(v + u_{\text{s}})\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','C')"><span class="lc-opt-l">D</span> \(f(v + u_{\text{s}})/v\)</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A shift to longer wavelength, seen when source and observer move apart, is called a <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px">, and a shift to shorter wavelength is called a <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:120px">. When microwaves reflect off a moving object and return to the source, a factor of <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:60px"> must be included. The speed with which a galaxy moves away from Earth is called its <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:150px"> speed, and measurements of it show that the Universe is <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:130px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam-style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State / Show that</div>
+  <div class="lc-exam-q">Q5. The speed limit in a town is \(50\ \text{km h}^{-1}\) \((13.9\ \text{m s}^{-1})\). In a safety check by the police, using the Doppler effect, a frequency increase of \(2.85\ \text{kHz}\) was detected from a car moving along a straight road. (a) State whether the car was moving towards, or away from, the check point. (b) If the speed gun used a frequency of \(32.8\ \text{GHz}\), show that the car was travelling slower than the legal limit. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ (a) The received frequency increased, so the car was moving <strong>towards</strong> the check point.<br>
+    ✓ (b) Reflected waves, so \(\dfrac{\Delta f}{f_0} = \dfrac{2v}{c}\)<br>
+    ✓ \(v = \dfrac{2850 \times 3.00 \times 10^{8}}{2 \times 32.8 \times 10^{9}}\)<br>
+    ✓ \(v = 13.0\ \text{m s}^{-1}\) (about \(46.9\ \text{km h}^{-1}\)), which is less than \(13.9\ \text{m s}^{-1}\), so the car was inside the limit.
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Sketch</div>
+  <div class="lc-exam-q">Q6. An airport radar system using microwaves of frequency \(2.72\ \text{GHz}\) sends out a pulse that is reflected off an aircraft in its control area. A reflected signal is received back \(1.374 \times 10^{-4}\ \text{s}\) later, at a frequency \(1050\ \text{Hz}\) more than the emitted wave. At that time the aerial was pointing exactly north. (a) Determine the distance between the aircraft and the radar aerial. (b) (i) Use \(\Delta f/f_0 = 2v/c\) to determine \(v\). (ii) Was the aircraft getting closer to, or further away from, the airport? (c) Your answer to (b) should be less than the aircraft's true speed \((120\ \text{m s}^{-1})\) because it was not flying directly towards the aerial; \(v\) was the component of its velocity towards the airport. Make a sketch showing the positions of the airport and the aircraft and the direction of north, with vector arrows for the true speed and its component towards the airport. [7 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ (a) The pulse travels there and back: \(d = \dfrac{ct}{2}\)<br>
+    ✓ \(d = \dfrac{3.00 \times 10^{8} \times 1.374 \times 10^{-4}}{2} = 2.06 \times 10^{4}\ \text{m}\) (about \(20.6\ \text{km}\))<br>
+    ✓ (b)(i) \(v = \dfrac{1050 \times 3.00 \times 10^{8}}{2 \times 2.72 \times 10^{9}}\)<br>
+    ✓ \(v = 57.9\ \text{m s}^{-1}\)<br>
+    ✓ (ii) The received frequency was higher, so the aircraft was getting <strong>closer</strong> to the airport.<br>
+    ✓ (c) Sketch: aerial at the origin with north marked upwards; aircraft \(20.6\ \text{km}\) due north of it.<br>
+    ✓ A long arrow from the aircraft showing the true velocity \(120\ \text{m s}^{-1}\) at an angle to the line joining them, with a shorter arrow along that line labelled \(57.9\ \text{m s}^{-1}\) as its component towards the airport (dashed construction lines completing the rectangle).
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Suggest</div>
+  <div class="lc-exam-q">Q7. Suggest how it might be possible for a military aircraft to avoid being detected by radar. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ Shape the aircraft so that reflected microwaves are scattered away from the aerial rather than straight back to it.<br>
+    ✓ Coat the surface with material that absorbs microwaves, so very little energy is reflected.<br>
+    ✓ Fly low, using hills or the curvature of the Earth to stay out of the beam — or fly slowly enough that the Doppler filter treats the echo as a stationary object.
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q">Q8. A certain line on the helium spectrum has a well-known wavelength, but when observed from a distant galaxy it has a redshift of \(1.85 \times 10^{-8}\ \text{m}\) away from that value. If the galaxy is receding from Earth at \(7.84 \times 10^{6}\ \text{m s}^{-1}\), determine the original wavelength of the wave. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ \(\dfrac{\Delta\lambda}{\lambda} \approx \dfrac{v}{c}\) so \(\lambda = \dfrac{\Delta\lambda \, c}{v}\)<br>
+    ✓ \(\lambda = \dfrac{1.85 \times 10^{-8} \times 3.00 \times 10^{8}}{7.84 \times 10^{6}}\)<br>
+    ✓ \(\lambda = 7.08 \times 10^{-7}\ \text{m}\) (about \(708\ \text{nm}\), in the red).
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q">Q9. (a) Calculate the size of the redshift in frequency of a wave of frequency \(6.17 \times 10^{16}\ \text{Hz}\) (from the hydrogen spectrum) received from a galaxy which has a recession speed of (i) \(2.20 \times 10^{6}\ \text{m s}^{-1}\), (ii) 10% of the speed of light. (b) Determine the frequencies that will be detected on Earth. [5 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ (a)(i) \(\Delta f = f\dfrac{v}{c} = 6.17 \times 10^{16} \times \dfrac{2.20 \times 10^{6}}{3.00 \times 10^{8}}\)<br>
+    ✓ \(\Delta f = 4.52 \times 10^{14}\ \text{Hz}\)<br>
+    ✓ (a)(ii) \(v = 0.10c\), so \(\Delta f = 0.10 \times 6.17 \times 10^{16} = 6.17 \times 10^{15}\ \text{Hz}\)<br>
+    ✓ (b)(i) received \(= 6.17 \times 10^{16} - 4.52 \times 10^{14} = 6.12 \times 10^{16}\ \text{Hz}\)<br>
+    ✓ (b)(ii) received \(= 6.17 \times 10^{16} - 6.17 \times 10^{15} = 5.55 \times 10^{16}\ \text{Hz}\) (both lower — a redshift).
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Suggest</div>
+  <div class="lc-exam-q">Q10. Galaxies contain billions of stars all orbiting their common centre of mass (the centre of the galaxy). If we are able to observe the stars in a galaxy 'side-on', suggest how the Doppler effect can be used to determine their rotational speeds around the centre. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ Viewed side-on, stars on one side of the galaxy move towards us and stars on the other side move away.<br>
+    ✓ Light from the approaching edge is blueshifted and light from the receding edge is redshifted, relative to the galaxy's overall recession shift, so a single spectral line is broadened/split.<br>
+    ✓ Applying \(\Delta\lambda/\lambda \approx v/c\) to the difference between the two edges gives the rotational speed (half the total spread).
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate · HL</div>
+  <div class="lc-exam-q">Q11. Calculate the frequency received by an observer moving at \(24.2\ \text{m s}^{-1}\) directly away from a stationary source of sound waves of frequency \(980\ \text{Hz}\). (Take the speed of sound as \(342\ \text{m s}^{-1}\).) [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ Moving observer, motion away, so subtract: \(f' = f\left(\dfrac{v - u_{\text{o}}}{v}\right)\)<br>
+    ✓ \(f' = 980 \times \dfrac{342 - 24.2}{342}\)<br>
+    ✓ \(f' = 911\ \text{Hz}\) (a decrease, as expected).
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate · HL</div>
+  <div class="lc-exam-q">Q12. In a Doppler ultrasound measurement, blood was flowing at \(9.7\ \text{cm s}^{-1}\) along an artery. (a) If the angle \(\theta = 75^\circ\), calculate the speed that the transducer should detect. (b) If the transducer emits waves of frequency \(5.87400\ \text{MHz}\) and the speed of the ultrasound waves is \(1540\ \text{m s}^{-1}\), determine the frequency received by the blood cells. [5 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ (a) Only the component along the beam is detected: \(v\cos\theta\)<br>
+    ✓ \(0.097 \times \cos 75^\circ = 0.025\ \text{m s}^{-1}\) (\(2.5\ \text{cm s}^{-1}\))<br>
+    ✓ (b) The blood cells are the moving observer: \(f' = f\left(\dfrac{v + u_{\text{o}}}{v}\right)\)<br>
+    ✓ \(f' = 5.87400 \times 10^{6} \times \dfrac{1540 + 0.025}{1540}\)<br>
+    ✓ \(f' = 5.87410 \times 10^{6}\ \text{Hz}\), i.e. about \(95\ \text{Hz}\) above the emitted frequency.
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Describe · HL</div>
+  <div class="lc-exam-q">Q13. A car travels along a straight road at a constant \(31\ \text{m s}^{-1}\), emitting a sound of constant frequency \(224\ \text{Hz}\). A pedestrian on a footbridge watches the car approach, pass directly underneath, and move away. (Take the speed of sound as \(342\ \text{m s}^{-1}\).) (a) Determine the frequencies heard by the pedestrian (i) before and (ii) after the car passes the footbridge. (b) Another person watches and hears the same car but is many metres away from the side of the road. Describe and explain how the sound reaching this person differs from that heard by the pedestrian. [6 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ (a)(i) Approaching: \(f' = \dfrac{224 \times 342}{342 - 31}\)<br>
+    ✓ \(f' = 246\ \text{Hz}\)<br>
+    ✓ (a)(ii) Receding: \(f' = \dfrac{224 \times 342}{342 + 31}\)<br>
+    ✓ \(f' = 205\ \text{Hz}\)<br>
+    ✓ (b) For the distant observer only the component of the car's velocity along the line of sight causes the shift, so the maximum shift is smaller — the extreme frequencies are closer to \(224\ \text{Hz}\).<br>
+    ✓ The change is also gradual rather than sudden: the frequency falls smoothly through \(224\ \text{Hz}\) as the car passes the point of closest approach, instead of stepping abruptly from high to low.
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Compare · HL</div>
+  <div class="lc-exam-q">Q14. An ultrasound wave of frequency \(30.0\ \text{kHz}\) is directed at an approaching car. The wave reflects off the car and is received back at the stationary emitter at \(32.7\ \text{kHz}\). (a) Calculate the velocity of the car. (Take the speed of sound as \(335\ \text{m s}^{-1}\).) (b) Compare your answer with the answer obtained using \(\Delta f/f \approx\) (relative speed of source)/(speed of waves). [5 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ (a) The car is first a moving observer, then a moving source, so the shift applies twice:<br>
+    ✓ \(\dfrac{f''}{f} = \dfrac{v + u}{v - u} = \dfrac{32.7}{30.0}\)<br>
+    ✓ \(u = 14.4\ \text{m s}^{-1}\) towards the emitter.<br>
+    ✓ (b) The approximation gives \(\dfrac{2.7}{30.0} \times 335 = 30\ \text{m s}^{-1}\), roughly twice the correct value, because it omits the factor of 2 for the round trip.<br>
+    ✓ Halving it gives \(15\ \text{m s}^{-1}\), close to \(14.4\ \text{m s}^{-1}\); the small remaining difference arises because \(u\) is not negligible compared with the wave speed.
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine · HL</div>
+  <div class="lc-exam-q">Q15. A boat travels directly towards a jetty at \(37\ \text{cm s}^{-1}\), creating waves on the water surface of original wavelength \(59\ \text{cm}\). If the water waves travel at \(94\ \text{cm s}^{-1}\), determine the frequency and wavelength of the waves reaching the jetty. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ Emitted frequency \(f = \dfrac{94}{59} = 1.59\ \text{Hz}\)<br>
+    ✓ Moving source, towards: \(\lambda' = \dfrac{v - u_{\text{s}}}{f} = \dfrac{94 - 37}{1.59}\)<br>
+    ✓ \(\lambda' = 36\ \text{cm}\)<br>
+    ✓ \(f' = \dfrac{94}{36} = 2.6\ \text{Hz}\) (the frequency rises, the wavelength shortens).
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Tool 3 · Propagating uncertainties</div>
+  <div class="lc-exam-q">Tool 3. A motorist accused of driving over the speed limit might claim that their speed was within the 'margin of error' of the police equipment. Using the data of Q5: if the microwave frequency was accurate to \(\pm 0.2\ \text{GHz}\) and the change of frequency accurate to \(\pm 0.05\ \text{kHz}\), what was the uncertainty in the determination of the car's speed (in \(\text{km h}^{-1}\))? [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">
+    ✓ \(v = \dfrac{\Delta f \, c}{2f_0}\), so fractional uncertainties add.<br>
+    ✓ \(\dfrac{0.05}{2.85} = 1.8\%\) and \(\dfrac{0.2}{32.8} = 0.6\%\), total \(2.4\%\)<br>
+    ✓ \(v = 13.0\ \text{m s}^{-1} = 46.9\ \text{km h}^{-1}\), and \(2.4\%\) of this is about \(1.1\ \text{km h}^{-1}\)<br>
+    ✓ Speed \(= 46.9 \pm 1.1\ \text{km h}^{-1}\). Even the upper limit \((48.0\ \text{km h}^{-1})\) is below \(50\ \text{km h}^{-1}\), so the claim fails.
+  </div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C:'The measured speed of electromagnetic waves is the same for every observer, whatever the motion of source or observer — only f and λ change.' },
+    mcq2: { B:'The microwaves travel to the object and back to the source, so the Doppler shift happens twice.' },
+    mcq3: { D:'The line pattern is unchanged, so the elements are the same; the displacement to longer wavelengths is a redshift, meaning recession.' },
+    mcq4: { B:'They are real blueshifts from a few relatively nearby objects moving towards us.' },
+    mcq5: { A:'The pulse covers the distance twice, so d = ct/2.' },
+    mcq6: { C:'For a source moving away, u_s is added to the wave speed in the denominator.' }
+  };
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+  window.lcFITB = function() {
+    const ans = { lf1:'redshift', lf2:'blueshift', lf3:'2', lf4:'recession', lf5:'expanding' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+
+</div>
+      </div>
+
+      <div class="lesson-nav">
+        <a href="01-doppler-effect-for-sound.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Doppler Effect for Sound</div>
+          </div>
+        </a>
+        <a href="03-applications-of-the-doppler-effect.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Applications of the Doppler Effect</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
