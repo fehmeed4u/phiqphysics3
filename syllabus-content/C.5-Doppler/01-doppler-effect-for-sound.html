@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doppler Effect for Sound — C.5 Doppler Effect — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C5">C.5 Doppler Effect</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Doppler Effect for Sound</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">C.5</span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 1 of 3</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Doppler Effect for Sound</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">C.5 Doppler Effect</strong> · Unit C — IB Physics 2023</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">← Back to C.5 overview</a>
+      <div class="sidebar-title">C.5 Concepts</div>
+      <a href="01-doppler-effect-for-sound.html" class="sidebar-link active">
+          <span class="sidebar-num">01</span>
+          <span>Doppler Effect for Sound</span>
+        </a>
+      <a href="02-doppler-effect-for-light-redshift.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Doppler Effect for Light — Redshift</span>
+        </a>
+      <a href="03-applications-of-the-doppler-effect.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Applications of the Doppler Effect</span>
+        </a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:14pt;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:14pt;color:var(--text-2);transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:14pt;color:var(--text);padding:0 4px;min-width:80px;text-align:center;outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 3 · C.5 Doppler effect</div>
+<div class="lc-title">Doppler Effect for Sound</div>
+<div class="lc-sub">Relative motion between a source and an observer changes the frequency received — this lesson builds the wavefront picture, the sketch graphs and the ultrasound application. SL and HL.</div>
+
+<div class="lc-section">Hook &amp; diagnostic</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the note that only you hear change</h3>
+  <p>A train travelling at constant speed approaches a station where it will not stop. The driver sounds a warning horn of frequency 200 Hz and holds it right through the station. The driver hears one steady note the whole time; the people on the platform hear a high note that suddenly drops as the train passes. <strong>Nothing about the horn changed — only the relative motion did.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c5-01-doppler-effect-for-sound-01.png" alt="Three wavefront diagrams: stationary source and detector, detector moving towards a stationary source, source moving towards a stationary detector">
+    <div class="lc-cap">Fig 1 — Figure C5.1 wavefront diagrams. (a) Source S and observer O both stationary: evenly spaced wavefronts. (b) Detector moving towards a stationary source. (c) Source moving towards a stationary detector: wavefronts between S and O are closer together.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — Sound travels away from a stationary source at 340 m s⁻¹. An observer moves directly away from the source at 200 m s⁻¹. With what speed does the sound pass that observer? <em>Answer: 140 m s⁻¹. The speed of sound through the air is unchanged at 340 m s⁻¹ — it is the speed with which sound passes the moving observer that depends on their relative speeds.</em></div>
+</div>
+
+<div class="lc-section">Core knowledge</div>
+
+<div class="lc-card">
+  <h3>📐 What is the Doppler effect?</h3>
+  <p>The <strong>Doppler effect</strong> is the name given to a phenomenon that is observed when there is relative motion between a source and an observer of waves. The term <strong>‘observer’</strong> is used here to represent the person, or the device, receiving waves — of any type. The Austrian physicist <strong>Christian Doppler</strong> first identified in 1842 the effect that bears his name.</p>
+  <div class="lc-info">◆ <strong>Doppler effect</strong> — when there is relative motion between a source of waves and an observer, the emitted frequency and the received frequency are not the same.</div>
+  <p>When there is relative motion between a source of waves and an observer, the waves received by the observer will have a different <strong>frequency</strong> (and <strong>wavelength</strong>) than the waves emitted by the source.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Wave equation (Topic C.2)</span>
+    $$\lambda = \frac{v}{f}$$
+  </div>
+  <div class="lc-formula">
+    $$f = \frac{v}{\lambda}$$
+  </div>
+  <p>Because the wave speed \(v\) is constant, these two relations do all the work: change the spacing of the wavefronts and you change the received frequency, and vice versa.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Reading the wavefront diagrams</h3>
+  <p>The easiest way to explain the Doppler effect is by drawing wavefronts. Figure C5.1a shows the common situation in which a stationary source, S, emits waves that travel towards a stationary observer, O, with the same speed in all directions. Figure C5.1b shows an observer moving directly towards a stationary source, and Figure C5.1c shows a source moving directly towards a stationary observer.</p>
+  <p><strong>Observer moving towards a stationary source (C5.1b).</strong> The observer will meet more wavefronts in a given time than if it remained in the same place, so the received frequency, \(f'\), is greater than the emitted frequency, \(f\). Since \(\lambda = v/f\) and the wave speed \(v\) is constant, the received wavelength will be less than the emitted wavelength.</p>
+  <p><strong>Source moving towards a stationary observer (C5.1c).</strong> The distance between the wavefronts — the wavelength \(\lambda\) — between the source and the observer is reduced, which again means that the received frequency will be greater than the emitted frequency, because \(f = v/\lambda\) and the wave speed \(v\) is constant.</p>
+  <p>Similar diagrams can be drawn to represent the situations in which the source and detector are <strong>moving apart</strong>: the wavefronts reaching the observer are then further apart, so the received frequency is lower than the emitted frequency.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c5-01-doppler-effect-for-sound-02.png" alt="Two wavefront diagrams: observer moving directly away from a stationary source, and source moving directly away from a stationary observer">
+    <div class="lc-cap">Fig 2 — The moving-apart cases. (a) Observer moving directly away from a stationary source: fewer wavefronts met per second. (b) Source moving directly away from a stationary observer: the wavefronts behind the source are stretched, so λ′ &gt; λ and f′ &lt; f.</div>
+  </div>
+  <div class="lc-success">✓ The Doppler effect may be better understood by observing computer simulations which show moving sources or observers — run one alongside these diagrams.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔔 Doppler effect for sound waves</h3>
+  <p>The most common everyday examples of the Doppler effect are with sound, but the effect is usually only noticeable if the sound is <strong>loud</strong> and the movement is <strong>fast</strong> — from a moving vehicle, for example.</p>
+  <p>Figure C5.2 shows a way in which the Doppler effect with sound can be demonstrated. A small source of sound, of a single frequency, is spun around in a circle. When the source is moving towards the observer a <strong>higher</strong> frequency is heard by the observer; when it is moving away, a <strong>lower</strong> frequency is heard.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c5-01-doppler-effect-for-sound-03.png" alt="A sound transmitter on a string being spun in a horizontal circle with an observer to one side">
+    <div class="lc-cap">Fig 3 — Figure C5.2 Demonstrating the Doppler effect with sound waves: the transmitter is spun in a circle, so its velocity component towards the observer changes continuously.</div>
+  </div>
+  <p>The <strong>speed of sound through air depends only on the physical properties of the air</strong>. It does not vary with the motion of the source, or of the observer. However, the speed with which sound <em>passes</em> a moving observer depends on their relative speeds. For example, a sound travelling away from a stationary source at 340 m s⁻¹ will pass an observer who is moving directly away from the source at 200 m s⁻¹ with a speed of 140 m s⁻¹.</p>
+  <p>The most common and most easily understood examples of the Doppler effect for sound involve trains or cars moving quickly at a constant speed in an approximate straight line towards, or away from, a stationary observer. Many types of bats also use the Doppler effect to navigate.</p>
+  <div class="lc-warn">⚠️ <strong>Common mistake</strong> — ambulances and police sirens are often given as examples of the Doppler effect, which they are. But be aware that they also emit sounds of varying frequency and loudness, which should not be confused with the Doppler effect itself.</div>
+  <div class="lc-info">💡 <strong>Top tip!</strong> When the motion of the source is directly towards, or away from, the observer (or the other way around), there is a <strong>sudden</strong> change of frequency when they pass. But the change of frequency is <strong>gradual</strong> if they do not pass close to each other.</div>
+  <div class="lc-success">✓ The Doppler effect for sound is covered in more mathematical detail later in this topic at Higher Level. At this stage the required treatment is the wavefront representation and the qualitative direction of the shift.</div>
+</div>
+
+<div class="lc-section">Graphical mastery</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Source passes observer</td><td>Time →, frequency ↑</td><td>Horizontal high line, sudden vertical step down, horizontal low line</td><td>The step marks the instant of passing; both levels straddle the emitted frequency</td></tr>
+      <tr><td>Observer travelling with the source</td><td>Time →, frequency ↑</td><td>Single horizontal line at the emitted frequency</td><td>No relative motion → no Doppler shift, so the driver hears 200 Hz throughout</td></tr>
+      <tr><td>Source spun in a circle</td><td>Time →, frequency ↑</td><td>Smooth continuous oscillation about the emitted frequency, one cycle per revolution</td><td>Maximum when moving directly towards the observer, minimum when directly away, equal to \(f\) when moving across the line of sight</td></tr>
+      <tr><td>Source passing at a distance</td><td>Time →, frequency ↑</td><td>Gradual S-shaped fall, no vertical step</td><td>A gradual change shows the source does not pass close to the observer</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c5-01-doppler-effect-for-sound-04.png" alt="Frequency against time graph for a sound source spun in a circle, oscillating smoothly about the emitted frequency"><div class="lc-cap">Fig 4 — One oscillation of the spun transmitter of Fig 3: frequency rises and falls smoothly either side of the emitted frequency.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c5-01-doppler-effect-for-sound-05.png" alt="Frequency against time graph showing a gradual S-shaped fall for a source that does not pass close to the observer"><div class="lc-cap">Fig 5 — Source passing at a distance: the change is gradual, with no sudden step.</div></div>
+  </div>
+  <div class="lc-info">💡 <strong>Tool 3: Mathematics — sketch graphs, with labelled but unscaled axes, to qualitatively describe trends.</strong> A ‘sketch’ graph should be drawn neatly, using a ruler where appropriate. The axes should be clearly labelled, with zeros and negative values indicated (if applicable). Usually there is no requirement to add scales, or numerical values, to the axes, but important features should be labelled.</div>
+</div>
+
+<div class="lc-section">Worked example</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C5.1 – train horn through a station</h3>
+  <p><em>A train travelling at a constant speed approaches a station where it will not stop. The driver of the train sounds a warning horn, of frequency 200 Hz, as the train approaches and then passes through the station. Sketch graphs (on the same axes) to show how the frequency heard by: (a) the driver varies with time; (b) the people at the station varies with time.</em></p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> two observers, one moving <em>with</em> the source and one stationary in its path. Only relative motion between source and observer produces a Doppler shift.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> emitted frequency \(f = 200\ \text{Hz}\); train speed constant; motion directly towards, then directly away from, the people at the station.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Reasoning:</strong> (a) There is no relative motion between the driver and the horn, so the driver hears 200 Hz at all times — a horizontal line.<br>(b) Approaching, the wavefronts reaching the station are compressed, so \(f' &gt; 200\ \text{Hz}\) and constant while the speed is constant. Because the train passes directly by, there is a <strong>sudden</strong> frequency change as it passes, after which \(f' &lt; 200\ \text{Hz}\) and again constant.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> on one pair of axes (frequency / Hz against time), the driver's line is horizontal at 200 Hz; the station line is horizontal above 200 Hz, drops vertically at the moment of passing, then is horizontal below 200 Hz. Label both curves — “sound heard by driver” and “sound heard by people at station” — and mark 200 Hz on the frequency axis.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c5-01-doppler-effect-for-sound-06.png" alt="Frequency against time graph with a horizontal line at 200 Hz for the driver and a step-down curve for the people at the station">
+    <div class="lc-cap">Fig 6 — Figure C5.4 There is a sudden frequency change as the train passes the people at the station; the driver's trace stays at 200 Hz.</div>
+  </div>
+</div>
+
+<div class="lc-section">Application &amp; extension</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🩺 Real-world: measuring blood flow</h3>
+    <p>The measurement of the rate of blood flow in an artery is an application of the Doppler effect for sound (ultrasound). Pulses of ultrasonic waves are sent into the body from the <strong>transducer</strong> — a general term for any device which converts another form of energy into, or from, electrical energy — and are reflected back from blood cells flowing in an artery. The received waves have a different frequency because of the Doppler effect, and the measured change of frequency can be used to calculate the speed of the blood flowing in the artery. This information can be used by doctors to help to diagnose many medical problems.</p>
+    <p>Because the waves usually cannot be directed along the line of blood flow, the calculated speed will be the component \(v\cos\theta\).</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/c5-01-doppler-effect-for-sound-07.png" alt="Transducer on the skin with gel, ultrasound pulses at angle theta to an artery, blood cell moving with velocity v">
+      <div class="lc-cap">Fig 7 — Figure C5.5 Measuring blood flow rate using the Doppler effect: the transducer measures \(v\cos\theta\).</div>
+    </div>
+    <div class="lc-success">✓ <strong>Examiner tip:</strong> whenever the beam is not along the flow, say explicitly that only the component of velocity along the beam, \(v\cos\theta\), causes the shift — so the speed calculated from the frequency change alone is an <em>underestimate</em>.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 Nature of science – breaking the sound barrier</h3>
+    <p>As an object, like an aircraft, flies faster and faster, the sound waves that it makes get closer and closer together in front of it. When an aircraft reaches the speed of sound, at about 1200 km h⁻¹, the waves superpose to create a <strong>shock wave</strong>.</p>
+    <p>An aircraft at the speed of sound is said to be travelling at <strong>‘Mach 1’</strong>, named after the Austrian physicist Ernst Mach. Faster speeds are described as <strong>supersonic</strong>, and twice the speed of sound is called Mach 2, and so on. The shock wave travels away from the side of the aircraft and can be heard on the ground as a <strong>sonic boom</strong>.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/c5-01-doppler-effect-for-sound-08.png" alt="Three-stage diagram of wavefronts around an object at subsonic speed, at Mach 1 and at supersonic speed forming a shock wave cone">
+      <div class="lc-cap">Fig 8 — Figure C5.7 Creating a shock wave in air: subsonic, Mach 1, supersonic.</div>
+    </div>
+    <p>For many years some engineers doubted if the sound barrier could ever be broken. The first confirmed supersonic flight with a pilot was in <strong>1947</strong>. Now it is common for military aircraft to travel faster than Mach 1. Concorde and Tupolev 144 were the only supersonic passenger aircraft in regular service, but their use has been discontinued. There are plans to introduce a new supersonic passenger aircraft before the year 2030.</p>
+    <p>It is possible to use a whip to break the sound barrier. If the whip gets thinner towards its end, then the speed of a wave along it can increase until the tip is travelling faster than sound in air. The sound it produces is often described as a whip ‘cracking’.</p>
+    <div class="lc-info">💡 <strong>Research:</strong> choose search terms to find out about the planned designs for future passenger / commercial supersonic aircraft. Explore the reasons why previous supersonic airliners were discontinued — were these reasons technological, scientific, economic, environmental, political? Explain your reasoning.</div>
+  </div>
+</div>
+
+<div class="lc-section">Trap corner</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>“Sirens are Doppler, so every change in a siren's sound is Doppler.”</td><td>Sirens genuinely show the Doppler effect, but they also emit sounds of varying frequency and loudness, which should not be confused with the Doppler effect itself.</td></tr>
+      <tr><td>“A moving source changes the speed of sound in the air.”</td><td>The speed of sound through air depends only on the physical properties of the air. It does not vary with the motion of the source, or the observer.</td></tr>
+      <tr><td>“The frequency heard always changes gradually.”</td><td>Motion directly towards or away gives a <em>sudden</em> change of frequency at the moment of passing; the change is gradual only if source and observer do not pass close to each other.</td></tr>
+      <tr><td>“The driver sounding the horn hears the shift too.”</td><td>There is no relative motion between driver and horn, so the driver hears the emitted frequency (200 Hz) unchanged.</td></tr>
+      <tr><td>“The ultrasound frequency change gives the blood speed directly.”</td><td>The beam is at an angle \(\theta\) to the flow, so the measurement gives \(v\cos\theta\) — less than the true speed \(v\).</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ <strong>Most common slip:</strong> writing that the wave speed increases when the source approaches. Marks are for the wavefront <em>spacing</em> changing — \(\lambda' &lt; \lambda\) with \(v\) constant, hence \(f' &gt; f\).</div>
+</div>
+
+<div class="lc-section">Key points</div>
+
+<div class="lc-kp">
+  <span>λ = v/f</span>
+  <span>f = v/λ</span>
+  <span>relative motion → f′ ≠ f</span>
+  <span>v of sound set by the air alone</span>
+  <span>340 − 200 = 140 m s⁻¹</span>
+  <span>closer → f′ &gt; f, apart → f′ &lt; f</span>
+  <span>transducer measures v cos θ</span>
+  <span>Mach 1 ≈ 1200 km h⁻¹</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. An observer moves directly towards a stationary source of sound. Which statement is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> The speed of sound in the air increases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> The observer meets more wavefronts per second, so f′ &gt; f</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> The received wavelength is greater than the emitted wavelength</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> The received frequency equals the emitted frequency</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Sound travels away from a stationary source at 340 m s⁻¹. An observer moves directly away from the source at 200 m s⁻¹. The speed with which the sound passes the observer is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> 540 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> 340 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> 140 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> 200 m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. The driver who sounds a 200 Hz horn on a train passing through a station hears a frequency that is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> Above 200 Hz, then suddenly below 200 Hz</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> Gradually falling throughout</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> Below 200 Hz throughout</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> Constant at 200 Hz throughout</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A source of sound of a single frequency is spun in a horizontal circle. The frequency heard by a distant stationary observer:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','A')"><span class="lc-opt-l">A</span> Oscillates smoothly above and below the emitted frequency, once per revolution</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','A')"><span class="lc-opt-l">B</span> Is constant and higher than the emitted frequency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','A')"><span class="lc-opt-l">C</span> Steps suddenly between two values once per revolution</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','A')"><span class="lc-opt-l">D</span> Is constant, because the speed of the source is constant</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. In a Doppler ultrasound scan the beam makes an angle θ with the direction of blood flow. The speed calculated from the frequency change alone is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> Greater than the true blood speed</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> Lower than the true blood speed, because only \(v\cos\theta\) is measured</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> Equal to the true blood speed for any angle</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> Independent of the angle θ</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    An observer moving towards a stationary source meets more wavefronts per second, so the received frequency is <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> and the received wavelength is <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px">. The speed of sound through <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px"> depends only on its physical properties, so sound leaving a stationary source at 340 m s⁻¹ passes an observer receding at 200 m s⁻¹ at <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:90px"> m s⁻¹. A transducer aimed at an artery at angle θ measures only the component <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw</div>
+  <div class="lc-exam-q">Draw diagrams similar to Figure C5.1b and c to represent the wavefronts when: (a) an observer is moving directly away from a stationary source; (b) a source is moving directly away from a stationary observer. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Concentric, equally spaced circular wavefronts centred on the stationary source S.<br>✓ Observer O drawn to one side with an arrow pointing directly away from S; O therefore meets fewer wavefronts per second, so f′ &lt; f (wavelength in the medium unchanged).<br><br>(b) ✓ Wavefronts drawn as circles whose centres shift away from O, so the spacing between wavefronts on the side towards O is <em>increased</em>.<br>✓ Arrow on S pointing directly away from O, with λ′ &gt; λ marked between two wavefronts on O's side, giving f′ &lt; f since f = v/λ and v is constant.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State, Explain, Predict, Suggest</div>
+  <div class="lc-exam-q">A hospital patient had a Doppler ultrasound scan to check the blood flow in an artery, as shown in Figure C5.5 (Fig 7). The transducer used a frequency of 6.0 MHz, and a healthy blood flow rate was expected to be about 10 cm s⁻¹.<br>(a) State whether the detected frequency will be higher, or lower, than 6.0 MHz. Explain your answer. [2 marks]<br>(b)(i) Explain why a calculation based only on the frequency change predicts that the blood speed in an artery is lower than its true value. [2 marks]<br>(b)(ii) If the patient has a medical problem affecting blood flow rate, predict what effect this will have on the frequency measurements. [2 marks]<br>(c) Suggest what properties of ultrasound make it useful for this medical examination. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Higher than 6.0 MHz (for blood cells moving towards the transducer).<br>✓ The reflecting blood cells are moving relative to the transducer, so the wavefronts returning from them are compressed — the received frequency is not the emitted frequency.<br><br>(b)(i) ✓ The ultrasound beam cannot usually be directed along the line of blood flow, so it makes an angle θ with the flow.<br>✓ Only the component of the blood velocity along the beam, \(v\cos\theta\), produces the frequency change, and \(v\cos\theta &lt; v\), so the speed obtained is below the true value.<br><br>(b)(ii) ✓ A problem that reduces the flow rate (for example a partial blockage) gives a smaller speed component, so a smaller frequency change than expected for a healthy 10 cm s⁻¹ flow.<br>✓ A problem that increases the flow speed (for example a narrowing that speeds the blood up) gives a larger frequency change; either way the measured shift differs from the healthy value, which is what makes the scan diagnostic.<br><br>(c) ✓ Ultrasound is non-ionising, so it does not damage tissue at these intensities — the scan is safe and non-invasive.<br>✓ It is reflected at boundaries inside the body and by blood cells, so a measurable echo returns to the transducer.<br>✓ Its short wavelength (high frequency, 6.0 MHz) allows small structures such as an artery to be resolved, and the frequency shift for a 10 cm s⁻¹ flow is large enough to measure.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q">Sketch a frequency–time graph to show how the sound heard by the observer in Figure C5.2 (Fig 3) varies during one oscillation of the sound transmitter. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Axes labelled “frequency” (vertical) and “time” (horizontal), with a dashed horizontal line marked as the emitted frequency f.<br>✓ A smooth, continuous curve oscillating above and below f, completing exactly one cycle in the time for one revolution.<br>✓ Maximum where the source moves directly towards the observer, minimum where it moves directly away, and equal to f where the motion is across the line of sight — no sudden steps, and no numerical scales required (Tool 3).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe, Explain</div>
+  <div class="lc-exam-q">Figure C5.6 (Fig 9) shows the shape of waves spreading from the front of a boat (its bow).<br>(a) Describe the overall shape of the wave fronts. [2 marks]<br>(b) Explain why bow waves similar to these can cause damage to the surroundings if the boat is close to shore. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The wavefronts form a V-shaped (wedge / cone-shaped) pattern trailing back from the bow, with its apex at the boat.<br>✓ The wavefronts are bunched close together in front of and beside the boat and spread out behind, because the boat moves a significant distance between emitting successive wavefronts.<br><br>✓ (b) Because the boat travels at a speed comparable with the wave speed, successive wavefronts superpose along the edges of the V, producing a wave of large amplitude.<br>✓ Large amplitude means large energy transfer, and the energy is concentrated along the wedge rather than spreading over widening circles.<br>✓ Close to shore this concentrated energy strikes banks, moored boats and structures, so erosion or impact damage can result.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch, Explain</div>
+  <div class="lc-exam-q">A train travelling at constant speed sounds a 200 Hz horn as it approaches and passes through a station where it does not stop.<br>(a) On one pair of axes, sketch how the frequency heard by the driver and the frequency heard by the people at the station vary with time. [3 marks]<br>(b) Explain, in terms of wavefronts, why the frequency heard at the station falls suddenly rather than gradually. [2 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Axes labelled “frequency / Hz” and “time”, with 200 Hz marked on the frequency axis.<br>✓ Driver: a single horizontal line at 200 Hz, labelled “sound heard by driver” — no relative motion, no shift.<br>✓ Station: horizontal above 200 Hz, a vertical drop at the moment of passing, then horizontal below 200 Hz, labelled “sound heard by people at station”.<br><br>✓ (b) While approaching, the wavefronts reaching the station are compressed by a constant amount, so f′ is constant and above 200 Hz.<br>✓ The motion is directly towards and then directly away from the observers, so at the instant of passing the compression is replaced by stretching — the change of frequency is sudden. It would be gradual only if the train did not pass close to them.</div>
+</div>
+
+<div class="lc-img">
+  <img src="../../assets/lesson-images/c5-01-doppler-effect-for-sound-09.png" alt="Plan view of a boat with V-shaped bow wavefronts spreading from the bow">
+  <div class="lc-cap">Fig 9 — Figure C5.6 The shape of waves spreading from the front of a boat.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  var lcScore = 0;
+  var lcAnswered = {};
+  var lcFeedback = {
+    mcq1: { B: 'The observer runs into wavefronts at a greater rate, so f′ > f. Since λ = v/f with v fixed by the air, the received wavelength is shorter, not longer.' },
+    mcq2: { C: 'The speed of sound in the air stays 340 m s⁻¹; the speed with which it passes the receding observer is 340 − 200 = 140 m s⁻¹.' },
+    mcq3: { D: 'There is no relative motion between the driver and the horn, so no Doppler shift: the driver hears 200 Hz throughout.' },
+    mcq4: { A: 'The component of the source velocity along the line of sight varies smoothly through the revolution, so f′ oscillates smoothly about f — higher moving towards, lower moving away.' },
+    mcq5: { B: 'The beam cannot usually be aligned with the flow, so only the component v cos θ contributes to the shift, and v cos θ < v.' }
+  };
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    var block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(function(o){ o.classList.add('disabled'); });
+    var fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(function(o){
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+  window.lcFITB = function() {
+    var ans = { lf1:'higher', lf2:'shorter', lf3:'air', lf4:'140', lf5:'v cos' };
+    var correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(function(id){
+      var el = document.getElementById(id);
+      var val = el.value.trim().toLowerCase();
+      var ok = val === ans[id] || val.indexOf(ans[id]) !== -1;
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    var res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: higher · shorter · air · 140 · v cos θ';
+    }
+  };
+  window.lcToggleModel = function(btn) {
+    var ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <div class="lesson-nav">
+        <a href="../C.4-Standing-Waves/index.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Standing Waves and Resonance</div>
+          </div>
+        </a>
+        <a href="02-doppler-effect-for-light-redshift.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Doppler Effect for Light — Redshift</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
