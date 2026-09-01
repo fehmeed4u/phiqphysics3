@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diffraction Gratings — C.3 Wave Phenomena — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#C3">C.3 Wave Phenomena</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Diffraction Gratings</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#00D4FF;background:#00D4FF18;padding:0.2rem 0.6rem;border-radius:6px">
+            C.3
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 9 of 9
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Diffraction Gratings</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">C.3 Wave Phenomena</strong>
+          · Unit C — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to C.3 overview
+      </a>
+      <div class="sidebar-title">C.3 Concepts</div>
+      <a href="01-transmission-absorption-and-scattering-of-waves.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Transmission, Absorption and Scattering of Waves</span>
+        </a>
+      <a href="02-reflection-of-waves-and-rays.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Reflection of Waves and Rays</span>
+        </a>
+      <a href="03-refraction-of-waves.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Refraction of Waves</span>
+        </a>
+      <a href="04-principle-of-superposition.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Principle of Superposition</span>
+        </a>
+      <a href="05-constructive-and-destructive-interference.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Constructive and Destructive Interference</span>
+        </a>
+      <a href="06-young-s-double-slit-experiment.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
+          <span>Young's Double-Slit Experiment</span>
+        </a>
+      <a href="07-single-slit-diffraction.html" class="sidebar-link">
+          <span class="sidebar-num">07</span>
+          <span>Single-Slit Diffraction</span>
+        </a>
+      <a href="08-polarisation.html" class="sidebar-link">
+          <span class="sidebar-num">08</span>
+          <span>Polarisation</span>
+        </a>
+      <a href="09-diffraction-gratings.html" class="sidebar-link active">
+          <span class="sidebar-num">09</span>
+          <span>Diffraction Gratings</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+      <div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+/* All colours use CSS variables from the site theme — no hardcoded hex */
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+
+.lc-formula { background:var(--surface3);border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:1rem 1.4rem;margin:0.85rem 0;
+  text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
+  margin-bottom:0.35rem;font-family:var(--font-sans); }
+
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+#lesson-body mjx-container { max-width:100%; }
+
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:14pt;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:14pt;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+
+/* MathJax SVG cannot wrap; let it scale down instead of being clipped */
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>9</span> Lesson 9 of 9 · C.3 Wave Phenomena · HL only</div>
+<div class="lc-title">Multiple Slits and Diffraction Gratings</div>
+<div class="lc-sub">Going from two slits to six hundred lines per millimetre: the equation \(n\lambda = d\sin\theta\), why extra slits sharpen the maxima, and how single-slit diffraction modulates the pattern.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – six hundred slits in a millimetre</h3>
+  <p>Send white light through two slits and you get soft, overlapping fringes. Send the same light through a <strong>diffraction grating</strong> with 600 parallel slits every millimetre and the light is split into clean, separated spectra: a white central maximum, then a first-order spectrum on each side, then a second-order spectrum beyond it. <strong>Adding slits does not move the maxima — it sharpens them.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-01.png" alt="White light passing through a diffraction grating with 600 lines per mm, producing a white central maximum and first- and second-order spectra on each side">
+    <div class="lc-cap">Fig 1 — White light through a 600 lines/mm grating: white central maximum, 1st-order spectrum, 2nd-order spectrum (Figure C3.61).</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — A double slit and a 10-slit arrangement have the <em>same</em> slit separation \(d\). Do the bright fringes appear at the same angles? <em>Yes. The angles depend on the separation of the slits, not on the number of slits. What changes is how sharp and how intense each maximum is.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Path difference and the multiple-slit equations</h3>
+  <p>Take any two adjacent slits, separation \(d\), and look at the two rays leaving at the same angle \(\theta\). The lower ray travels an extra distance — the <strong>path difference</strong> — which comes straight out of the right-angled triangle in Fig 2.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Path difference between adjacent slits</span>
+    $$\text{path difference} = d\sin\theta$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-02.png" alt="Two parallel rays leaving adjacent slits of separation d at angle theta, with the right-angled triangle showing path difference equals d sin theta">
+    <div class="lc-cap">Fig 2 — Explaining path difference = \(d\sin\theta\) (Figure C3.55).</div>
+  </div>
+  <p>Because the waves interfere <strong>constructively</strong>, that path difference must also equal a whole number, \(n\), of wavelengths:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Constructive interference (maxima)</span>
+    $$n\lambda = d\sin\theta$$
+  </div>
+  <div class="lc-formula">
+    $$\sin\theta = \frac{n\lambda}{d}$$
+  </div>
+  <p>In other words, constructive interference occurs at the angles whose sines equal \(\lambda/d\), \(2\lambda/d\), \(3\lambda/d\), \(4\lambda/d\) … and so on.</p>
+  <p>For \(n = 1\) and <strong>small angles</strong>, \(\sin\theta \approx \theta = s/D\), so:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Small-angle case, n = 1</span>
+    $$\sin\theta = \frac{s}{D} = \frac{\lambda}{d}$$
+  </div>
+  <div class="lc-formula">
+    $$s = \frac{\lambda D}{d}$$
+  </div>
+  <p>which is exactly the fringe-spacing equation already used for two slits.</p>
+  <p><strong>Destructive</strong> interference occurs at angles such that:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Destructive interference (minima)</span>
+    $$\left(n + \tfrac{1}{2}\right)\lambda = d\sin\theta$$
+  </div>
+  <p>These equations can be used with <strong>any number of slits</strong>. The most common application is the very large number of slits of a diffraction grating. In those arrangements the angles are typically large enough that \(\sin\theta\) must be used, <strong>not \(\theta\) in radians</strong>.</p>
+  <div class="lc-info">💡 The angles at which constructive and destructive interference occur depend on the <strong>separation</strong> of the slits, but <strong>not</strong> on the number of slits.</div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-03.png" alt="Rays from a multiple-slit arrangement reaching a screen, with fringes numbered n = 0, 1, 2, 3 and angles theta 1, theta 2, theta 3 marked">
+    <div class="lc-cap">Fig 3 — Separation and numbering of the fringes seen on a screen: \(\theta_1,\theta_2,\theta_3\) for \(n = 1, 2, 3\), with \(n = 0\) at the centre (Figure C3.57, not to scale).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔬 The effect of having more slits</h3>
+  <p>The number of slits does not change the directions of the maxima, so what is gained by using more of them? The fringes certainly become <strong>brighter / more intense</strong>. But there is a second, more important reason: the intensity peaks become <strong>sharper</strong> — more precisely located.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-04.png" alt="Three stacked intensity patterns for 2 slits, 5 slits and 10 slits, showing peaks in the same positions becoming progressively narrower and taller">
+    <div class="lc-cap">Fig 4 — How an interference pattern changes as more slits are involved: 2 slits, 5 slits, 10 slits (Figure C3.58). Peak positions are unchanged; peak width falls.</div>
+  </div>
+  <p><strong>Multiple slits:</strong> by increasing the number of parallel slits (of the same width) on which a light beam is incident, it is possible to improve the <strong>resolution</strong> of the fringes / spectra formed. This effect is used particularly in diffraction gratings.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🧭 Diffraction gratings</h3>
+  <p>A <strong>diffraction grating</strong> is a very large number of parallel slits, very close together, used to disperse and analyse light. A typical grating has 600 parallel slits every millimetre — usually written as <strong>600 lines/mm</strong>.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Line spacing for 600 lines/mm</span>
+    $$d = 1.67 \times 10^{-6}\ \text{m}$$
+  </div>
+  <p>That separation is equivalent to only about <strong>three average wavelengths of light</strong>, and is much smaller than the width of the slits discussed so far.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-05.png" alt="Close-up of a diffraction grating showing very many closely spaced parallel lines labelled 600 lines/mm">
+    <div class="lc-cap">Fig 5 — A diffraction grating: 600 lines/mm (Figure C3.59).</div>
+  </div>
+  <p>A very small \(d\) results in <strong>large values of \(\sin\theta\)</strong> (consider \(n\lambda = d\sin\theta\)). If the incident light is also spread over a large number of lines, the intensity peaks are <strong>well separated, intense and sharp</strong> compared with those from double slits.</p>
+  <p><strong>Continuous white light spectrum.</strong> White light sent through a grating has its different wavelengths / colours sent in slightly different directions, so the light is <strong>dispersed</strong> into spectra (Fig 1). We refer to the <strong>order</strong> of a spectrum: all wavelengths / colours with \(n = 1\) form the <strong>first-order spectrum</strong>, all those with \(n = 2\) the <strong>second-order spectrum</strong>, and so on. Different orders correspond to different values of \(n\) in \(n\lambda = d\sin\theta\).</p>
+  <p><strong>Line spectra.</strong> If atoms of a particular element, or some compounds, are given enough energy they emit light as a <strong>line spectrum</strong> — a spectrum of separate lines rather than a continuous spectrum, each line corresponding to a discrete wavelength and energy. (This is discussed in much more detail in Topic E.1; a full understanding is not expected here.) Because gratings have very large numbers of lines very close together, they are excellent at producing intense line spectra with <strong>high resolution</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-06.png" alt="Top: line spectra of several elements as coloured lines on black strips. Bottom: relative intensity against sin theta for the same lines from double slits (broad, overlapping) and from a diffraction grating (narrow, separated)">
+    <div class="lc-cap">Fig 6 — Line spectra of various elements (Figure C3.62), and the high resolution produced by a grating compared with double slits (Figure C3.63).</div>
+  </div>
+  <div class="lc-success">✓ Prisms can also be used to produce spectra, but a grating both disperses the light and lets you <em>measure</em> wavelength directly from an angle.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🌊 Modulation by single-slit diffraction</h3>
+  <p><strong>Syllabus content:</strong> the single-slit pattern modulates the double-slit interference pattern.</p>
+  <p>Everything so far has ignored one important factor: the <strong>single-slit diffraction pattern</strong> produced by the interference of secondary wavefronts within each and every slit. (We assume all slits are identical.) A full superposition analysis of all the wavefronts gives this conclusion:</p>
+  <div class="lc-info">💡 The intensity of the interference peaks produced by double slits, or multiple slits, is <strong>modulated</strong> by the shape of the single-slit diffraction produced by each individual slit.</div>
+  <p><strong>Modulation</strong> means changing the amplitude (or frequency) of a wave according to variations in a secondary effect. Note that \(d\) must always be larger than \(b\), so the spacing of the interference pattern is always smaller than the spacing of the diffraction pattern from each slit. The shape and spacing of the single-slit pattern act as a guiding <strong>envelope</strong> for the size of the interference peaks.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-07.png" alt="Relative intensity against sin theta showing closely spaced interference peaks from n lambda over d sitting inside a broad single-slit diffraction envelope with first zeros at plus and minus lambda over b, with the third order missing">
+    <div class="lc-cap">Fig 7 — How single-slit diffraction modulates multiple-slit interference. Envelope zeros at \(\pm\lambda/b\); the third order is missing (Figure C3.64).</div>
+  </div>
+  <p>This modulation can result in some orders being <strong>suppressed or missing</strong> — the third order in Fig 7, and the fourth and fifth orders in Fig 8.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-08.png" alt="Interference pattern photograph-style strip with the fourth and fifth order maxima absent, and an intensity graph beneath showing the missing orders">
+    <div class="lc-cap">Fig 8 — Missing orders caused by the modulation effect of single-slit diffraction: here the fourth and fifth orders are absent (Figure C3.65).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Multiple-slit interference</td><td>X: \(\sin\theta\); Y: intensity</td><td>Evenly spaced peaks at \(\sin\theta = 0,\ \lambda/d,\ 2\lambda/d,\dots\)</td><td>Peak spacing along the axis gives \(\lambda/d\); the order number \(n\) labels each peak</td></tr>
+      <tr><td>Effect of N slits</td><td>X: \(\sin\theta\); Y: intensity, for 2, 5, 10 slits</td><td>Same peak positions; peaks narrower and taller as N rises</td><td>More slits → sharper, more intense, better-resolved maxima; positions unchanged</td></tr>
+      <tr><td>Double slits vs grating</td><td>X: \(\sin\theta\); Y: relative intensity</td><td>Broad humps (2 slits) against tall narrow spikes (grating) at the same \(n\)</td><td>The grating gives well separated, intense, sharp peaks — hence high resolution</td></tr>
+      <tr><td>Modulated pattern</td><td>X: \(\sin\theta\); Y: relative intensity</td><td>Interference peaks inside a single-slit envelope with zeros at \(\pm\lambda/b\)</td><td>Envelope width gives \(\lambda/b\) (slit width \(b\)); peak spacing gives \(\lambda/d\); spot the missing orders</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-09.png" alt="Intensity against sin theta for multiple-slit interference, with peaks at zero, lambda over d and 2 lambda over d on both sides"><div class="lc-cap">Fig 9 — Variation of intensity with angle for multiple-slit interference (Figure C3.56).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-10.png" alt="Relative intensity against sin theta comparing broad low maxima from two slits with tall narrow maxima from a diffraction grating at n = 1, 2 and 3"><div class="lc-cap">Fig 10 — Maxima from double slits compared with a grating, monochromatic light (Figure C3.60).</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C3.6 – finding the wavelength of a green laser</h3>
+  <p>Green laser light passes through a few parallel slits of spacing 0.059 mm. An interference pattern like Fig 9 is seen on a screen 3.12 m from the slits. The distance from the centre of the pattern to the centre of the third fringe is 8.42 cm. Find (a) \(\tan\theta_3\) and \(\sin\theta_3\), (b) the angle in degrees and in radians, (c) the wavelength.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> multiple-slit constructive interference, third fringe so \(n = 3\). The angle \(\theta_3\) is between the rays going to the centre of the pattern and to the centre of the third fringe.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(d = 0.059\ \text{mm}\)<br>\(D = 3.12\ \text{m} = 312\ \text{cm}\)<br>\(s = 8.42\ \text{cm}\), \(n = 3\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Angle:</strong> \(\tan\theta_3 = \frac{8.42}{312}\)<br>\(= 0.0270\)<br>The sine of the same angle \(= 0.0270\) (same as tan).<br>In degrees, \(\theta_3 = 1.55^\circ\); in radians, \(\theta_3 = 0.0270\) — the same value as both tan and sin, because the angle is small.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Equation:</strong> \(n\lambda = d\sin\theta\)<br>\(3\lambda = (0.059\times10^{-3})(0.0270)\)<br>\(\lambda = 5.3\times10^{-7}\ \text{m}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">5</div><div class="lc-step-body"><strong>Answer:</strong> \(\lambda = 5.3\times10^{-7}\ \text{m}\) — 530 nm, green light, as expected. Because the angles are small, the same answer could have been found from \(s = \lambda D/d\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-11.png" alt="Geometry for worked example C3.6: several slits of spacing 0.059 mm, a screen 3.12 m away, and the distance 8.42 cm from the central maximum to the third fringe with angle theta 3 marked">
+    <div class="lc-cap">Fig 11 — Geometry for Worked example C3.6 (not to scale).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example C3.7 – how many orders can a grating show?</h3>
+  <p>Using the grating above (600 lines/mm, \(d = 1.67\times10^{-6}\ \text{m}\)), calculate the angles in degrees for the first, second and third peaks from the centre, for light of wavelength 594 nm \((5.94\times10^{-7}\ \text{m})\).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> grating maxima, \(n\lambda = d\sin\theta\), solved for \(n = 1, 2, 3\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(d = 1.67\times10^{-6}\ \text{m}\)<br>\(\lambda = 5.94\times10^{-7}\ \text{m}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> for \(n = 1\),<br>\(\sin\theta = \frac{5.94\times10^{-7}}{1.67\times10^{-6}} = 0.3557\)<br>\(\theta = 20.8^\circ\)<br>For \(n = 2\), \(\sin\theta = 2\times0.3557 = 0.7114\)<br>\(\theta = 45.3^\circ\)<br>For \(n = 3\), \(\sin\theta = 3\times0.3557 = 1.067\)<br>\(\sin\theta > 1\), which is not possible.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> only two peaks can be seen under these conditions, at \(20.8^\circ\) and \(45.3^\circ\). This is common when using gratings — one or two intense peaks are usually all that are required.</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔭 Real-world: reading the light of a star</h3>
+    <p>Gratings in spectrometers spread starlight, flame emissions and laser output into orders whose angles can be measured to four figures, so an unknown wavelength follows from \(\lambda = d\sin\theta / n\) alone. The same high resolution separates line spectra that a double slit would blur into one band, which is how elements are identified from their emission lines.</p>
+    <div class="lc-success">✓ Examiner tip: with gratings, always work from \(\sin\theta\), never the small-angle approximation — and check whether \(\sin\theta\) would exceed 1 before claiming an order exists.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – missing orders</h3>
+    <p>An order \(n\) vanishes when its interference maximum lands exactly on a single-slit diffraction minimum: \(n\lambda/d = m\lambda/b\), i.e. when \(d/b = n/m\). For \(d = 3b\), every third order is missing — which is the case drawn in Fig 7.<br>
+    <strong>Challenge:</strong> for which ratio \(d/b\) are the fourth and fifth orders both suppressed, as in Fig 8? (Answer: no single small integer ratio removes both — Fig 8 shows a case where the envelope is narrow enough that orders 4 and 5 fall at and beyond the first envelope zero, i.e. \(d/b \approx 4\) with the fifth order buried in the near-zero envelope.)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Mixing up \(\theta = \lambda/b\) and \(\sin\theta = n\lambda/d\)</td><td>\(\theta = \lambda/b\) predicts the small angle for which diffraction at a <em>single</em> slit, of width \(b\), produces an intensity <em>minimum</em>. \(\sin\theta = n\lambda/d\) predicts the angles at which interference of light from <em>two or more</em> slits, of separation \(d\), produces intensity <em>maxima</em>.</td></tr>
+      <tr><td>More slits move the maxima</td><td>The angles depend on \(d\) only. More slits make the peaks sharper and brighter, not differently placed.</td></tr>
+      <tr><td>Using \(\theta\) in radians for a grating</td><td>Grating angles are large, so \(\sin\theta\) must be used. The small-angle form \(s = \lambda D/d\) applies only when \(\theta\) is small.</td></tr>
+      <tr><td>Every order predicted by \(n\lambda = d\sin\theta\) is visible</td><td>An order is impossible if it needs \(\sin\theta > 1\), and can also be missing when single-slit diffraction modulates the pattern to zero there.</td></tr>
+      <tr><td>Forgetting that \(d > b\)</td><td>Slit separation always exceeds slit width, so the interference fringes are always more closely spaced than the diffraction envelope.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: quoting \(d\) as "600 lines/mm" in the equation. Convert first — \(d = \frac{1\ \text{mm}}{600} = 1.67\times10^{-6}\ \text{m}\) — or every angle will be wrong.</div>
+</div>
+
+<div class="lc-kp">
+  <span>path difference = d sin θ</span>
+  <span>nλ = d sin θ</span>
+  <span>sin θ = nλ/d</span>
+  <span>(n + ½)λ = d sin θ</span>
+  <span>s = λD/d (small θ)</span>
+  <span>d = 1/(lines per m)</span>
+  <span>θ = λ/b (single slit)</span>
+  <span>d &gt; b always</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A beam of monochromatic light passes first through 2 slits, then through 10 slits of the same width and separation. Compared with the 2-slit pattern, the 10-slit pattern has maxima that are:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> at smaller angles and broader</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> at larger angles and sharper</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> at the same angles and sharper</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> at the same angles and broader</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A grating is labelled 500 lines/mm. The slit separation \(d\) is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> \(5.00\times10^{-4}\ \text{m}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> \(2.00\times10^{-6}\ \text{m}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> \(5.00\times10^{-6}\ \text{m}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> \(2.00\times10^{-3}\ \text{m}\)</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Light of wavelength 600 nm falls on a grating with \(d = 1.00\times10^{-6}\ \text{m}\). How many orders (including \(n = 0\)) can be observed on one side of the centre plus the centre itself?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> \(n = 0\) only</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> \(n = 0\) and \(n = 1\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> \(n = 0, 1, 2\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> \(n = 0, 1, 2, 3\)</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. In a multiple-slit pattern the broad envelope that controls the height of the interference peaks is produced by:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','D')"><span class="lc-opt-l">A</span> the separation \(d\) of the slits</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','D')"><span class="lc-opt-l">B</span> the number of slits</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','D')"><span class="lc-opt-l">C</span> the distance to the screen</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','D')"><span class="lc-opt-l">D</span> diffraction at each individual slit of width \(b\)</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Destructive interference from a set of identical slits of separation \(d\) occurs at angles satisfying:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> \(n\lambda = d\sin\theta\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> \(n\lambda = b\sin\theta\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> \(\left(n+\tfrac{1}{2}\right)\lambda = d\sin\theta\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> \(\theta = \lambda/d\)</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The path difference between rays from adjacent slits is <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px"> sin θ. Constructive interference needs this to equal a whole number of <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:150px">. The angles of the maxima depend on the slit <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:150px">, but not on the number of slits. A grating with 600 lines/mm has d = <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:120px"> × 10⁻⁶ m. The single-slit diffraction pattern acts as an <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:140px"> for the interference peaks, which is why some orders are <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:130px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 42 · Calculate</div>
+  <div class="lc-exam-q">Light of wavelength 460 nm is incident normally on a diffraction grating with 200 lines per millimetre. Calculate the angle to the normal of the third-order maximum. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(d = \frac{1\times10^{-3}}{200} = 5.0\times10^{-6}\ \text{m}\)<br>✓ \(\sin\theta = \frac{3\times460\times10^{-9}}{5.0\times10^{-6}}\)<br>\(= 0.276\)<br>✓ \(\theta = 16^\circ\) to the normal</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 43 · Calculate</div>
+  <div class="lc-exam-q">A diffraction grating is used with monochromatic light of wavelength \(6.3\times10^{-7}\ \text{m}\) and a screen a perpendicular distance of 2.75 m away. Calculate how many lines per millimetre are on the diffraction grating if it produces a second-order maximum 68 cm from the centre of the pattern. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\tan\theta = \frac{0.68}{2.75} = 0.247\)<br>✓ \(\theta = 13.9^\circ\), so \(\sin\theta = 0.240\)<br>✓ \(d = \frac{2\lambda}{\sin\theta} = \frac{2\times6.3\times10^{-7}}{0.240}\)<br>\(= 5.3\times10^{-6}\ \text{m}\)<br>✓ lines per mm \(= \frac{1\times10^{-3}}{5.3\times10^{-6}} \approx 190\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 44 · Calculate</div>
+  <div class="lc-exam-q">Monochromatic light of wavelength 530 nm is incident normally on a grating with 750 lines per millimetre. The interference pattern is seen on a screen 1.82 m from the grating. Calculate the distance between the first and second orders seen on the screen. [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(d = \frac{1\times10^{-3}}{750} = 1.33\times10^{-6}\ \text{m}\)<br>✓ \(n=1\): \(\sin\theta_1 = 0.398\), \(\theta_1 = 23.4^\circ\)<br>\(s_1 = 1.82\tan\theta_1 = 0.79\ \text{m}\)<br>✓ \(n=2\): \(\sin\theta_2 = 0.795\), \(\theta_2 = 52.6^\circ\)<br>\(s_2 = 1.82\tan\theta_2 = 2.39\ \text{m}\)<br>✓ separation \(= 2.39 - 0.79 = 1.6\ \text{m}\)<br>(Note the small-angle formula must <em>not</em> be used here.)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 45 · Outline</div>
+  <div class="lc-exam-q">A prism can also be used to produce a spectrum. Outline why red light is refracted less than blue light in a prism, but red light is diffracted more than blue light by a diffraction grating. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ In a prism the refractive index depends on wavelength; it is smaller for red (longer wavelength) than for blue, so red light is deviated / refracted less.<br>✓ At a grating the angle is set by \(\sin\theta = n\lambda/d\), so \(\theta\) increases with wavelength.<br>✓ Red has the longer wavelength, so it is sent to the larger angle — the order of the colours is reversed compared with a prism.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 46 · Explain</div>
+  <div class="lc-exam-q">When using white light, explain why red light in the second-order spectrum overlaps with blue light in the third-order spectrum. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Each order is spread out because \(\sin\theta = n\lambda/d\) gives a different angle for every wavelength.<br>✓ Overlap occurs where \(2\lambda_{\text{red}} \approx 3\lambda_{\text{blue}}\).<br>✓ With \(\lambda_{\text{red}} \approx 700\ \text{nm}\) and \(\lambda_{\text{blue}} \approx 450\ \text{nm}\): \(2\times700 = 1400\ \text{nm}\) and \(3\times450 = 1350\ \text{nm}\) — nearly equal, so the two are sent to almost the same angle and the spectra overlap.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 47 · Sketch</div>
+  <div class="lc-exam-q">Sketch a relative intensity against \(\sin\theta\) graph for monochromatic light of wavelength 680 nm incident normally on a diffraction grating with 400 lines per mm. [3 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(d = 2.5\times10^{-6}\ \text{m}\), so \(\frac{\lambda}{d} = 0.272\).<br>✓ Tall, narrow, evenly spaced peaks at \(\sin\theta = 0,\ \pm0.272,\ \pm0.544,\ \pm0.816\) — orders \(n = 0, 1, 2, 3\) each side.<br>✓ No \(n = 4\) peak, since that needs \(\sin\theta = 1.088 > 1\). Peak heights fall away from the centre because of the single-slit envelope.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 48 · Calculate</div>
+  <div class="lc-exam-q">A diffraction grating produced two first-order maxima for different wavelengths at angles of 7.46° and 7.59° to the normal through the grating. This angular separation was not enough to see the two lines separately. What is the angular separation of the same lines in the second order? [4 marks]</div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\sin 7.46^\circ = 0.1298\); second order \(\sin\theta = 2\times0.1298 = 0.2597\), \(\theta = 15.05^\circ\)<br>✓ \(\sin 7.59^\circ = 0.1321\); second order \(\sin\theta = 0.2642\), \(\theta = 15.32^\circ\)<br>✓ separation \(= 15.32 - 15.05 = 0.27^\circ\)<br>✓ About twice the first-order separation of 0.13°, so the lines may now be resolved.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Question 49 · Determine / Estimate / Discuss</div>
+  <div class="lc-exam-q">Figure C3.66 (Fig 12 below) shows a centimetre ruler placed next to an interference pattern seen on a screen 3.40 m away from double slits. (a) If the separation of adjacent slits was 0.64 mm, determine the wavelength of the light being used. (b) Estimate the width of the individual slits. (c) How would the pattern change if the light passed through 10 slits of the same width and separation? [6 marks]</div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/c3-09-multiple-slits-and-diffraction-gratings-12.png" alt="A centimetre ruler marked 0 to 5 placed alongside an interference fringe pattern on a screen">
+    <div class="lc-cap">Fig 12 — A centimetre ruler placed next to an interference pattern (Figure C3.66). Read the fringe spacing from the ruler before answering.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">(a) ✓ Measure several fringes off the ruler and divide, e.g. if 10 fringe spacings span 3.0 cm then \(s = 3.0\ \text{mm}\).<br>✓ \(\lambda = \frac{sd}{D} = \frac{3.0\times10^{-3}\times0.64\times10^{-3}}{3.40}\)<br>\(= 5.6\times10^{-7}\ \text{m}\)<br>(b) ✓ The fringes fade where the single-slit envelope reaches its first minimum. If the pattern dies away about 8 fringes from the centre, \(b \approx d/8 \approx 0.08\ \text{mm}\).<br>(c) ✓ The maxima stay at the same positions, because they depend on \(d\), not on the number of slits.<br>✓ They become sharper, narrower and more intense — better resolution — with darker gaps between them.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'Maxima positions come from nλ = d sin θ, which contains d but not N. More slits sharpen and brighten the peaks.' },
+    mcq2: { B: 'd = 1 mm / 500 = 1×10⁻³/500 = 2.00×10⁻⁶ m.' },
+    mcq3: { B: 'n = 1 needs sin θ = 0.600 (fine); n = 2 needs sin θ = 1.20 > 1, impossible. So only n = 0 and n = 1.' },
+    mcq4: { D: 'The single-slit diffraction pattern from each slit of width b modulates the interference peaks, acting as an envelope with zeros at ±λ/b.' },
+    mcq5: { C: 'Minima need a path difference of a half-integer number of wavelengths: (n + ½)λ = d sin θ.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'d', lf2:'wavelengths', lf3:'separation', lf4:'1.67', lf5:'envelope', lf6:'missing' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || val.includes(ans[id]);
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+      </div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="08-polarisation.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Polarisation</div>
+          </div>
+        </a>
+        <a href="../C.4-Standing-Waves/index.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Standing Waves and Resonance</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
