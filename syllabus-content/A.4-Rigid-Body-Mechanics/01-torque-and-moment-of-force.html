@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Torque and Moment of Force — A.4 Rigid Body Mechanics — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -86,6 +87,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$','$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -162,28 +166,329 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Torque and Moment of Force</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=A4" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 5 · A.4 Rigid Body Mechanics · HL only</div>
+<div class="lc-title">Torque and Moment of Force</div>
+<div class="lc-sub">A force applied to an extended object does not always just push it along. If its line of action misses the axis of rotation, it turns the object instead. Torque, <span>&tau;</span> = <em>Fr</em>&nbsp;sin&nbsp;&theta;, measures that turning effect.</div>
+
+<div class="lc-card">
+  <h3>🔧 Hook – why a torque wrench has a scale on it</h3>
+  <p>A mechanic tightening a cylinder-head bolt does not simply pull as hard as possible. Over-tightening damages the bolt and, with it, the engine. A <strong>torque wrench</strong> limits the turning effect that can be applied, and modern designs (Figure A4.3 in your text is a digital one) read that turning effect out on a display. What the scale reads is not the force in the mechanic's hand — it is the force <em>multiplied</em> by how far out along the handle it acts and by how squarely it is applied. <strong>The turning effect of a force depends on where and in which direction it acts, not only on how big it is.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-01-torque-and-moment-of-force-01.png" alt="Digital torque wrench with a display reading a torque value, jaw fitted to a hexagonal bolt">
+    <div class="lc-cap">Fig 1 &mdash; A torque wrench limits the torque applied to a bolt. Read the display: the quantity being limited is N m, not N.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think &ndash; then read on)</strong> &mdash; two mechanics pull with exactly the same 200 N force on the same wrench, but one pulls along the handle and the other pulls at right angles to it. Do they apply the same torque? <em>No. Pulling along the handle puts the line of action straight through the axis of the bolt, so &theta; = 0 and the torque is zero &mdash; the bolt does not turn at all. Pulling at right angles gives &theta; = 90&deg; and the maximum possible torque for that force.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🌀 Point objects, extended objects, and the words for turning</h3>
+  <p><strong>Dynamics</strong> is the branch of physics concerned with motion and its causes &mdash; forces. Topics A.1, A.2 and A.3 dealt mostly with <em>linear</em> dynamics: bodies moving in straight lines, and treated as <strong>point objects</strong> to keep the situations simple. This topic is different. Here the focus is on <strong>extended objects</strong> &mdash; objects that have dimensions, not points &mdash; which are able to rotate.</p>
+  <p>A resultant force on a point mass produces a linear translational acceleration, \(F = ma\). That stays true for an extended object, <strong>but only if the force is directed at the centre of mass</strong>. When resultant forces are directed elsewhere on an object, the situation is complicated and the result depends on how the magnitude and direction of the force vary after initial contact.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Valid for an extended body only if the line of action passes through the centre of mass</span>
+    $$F = ma$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-01-torque-and-moment-of-force-02.png" alt="Three-part comparison: force on a point mass, force through the centre of mass of an extended object, and force off-centre on an object with a fixed axis producing rotation">
+    <div class="lc-cap">Fig 2 &mdash; Compare the three cases. Only the third, where the line of action misses the axis, produces rotation.</div>
+  </div>
+  <p>All of Topic A.4 is about rotations caused by forces on objects which are able to rotate in the same place because they have a fixed <strong>axis of rotation</strong> &mdash; wheels, for example.</p>
+  <p><strong>Rotate</strong> usually refers to movement about an axis <em>within</em> the body: the Earth rotates every 24 hours. Rotation does not affect the body's location. <strong>Revolve</strong> usually concerns movement of a body around an <em>exterior</em> point: the Earth revolves around the Sun every year. Some situations may legitimately be described either way. We also assume bodies are <strong>rigid</strong> &mdash; their shape does not deform significantly under the action of forces. The simplest everyday examples of rotation are a wheel and a door handle.</p>
+  <div class="lc-info">📖 <strong>Vocabulary</strong> &mdash; <strong>dynamics</strong>: the science which explains the motion of objects. <strong>Rigid</strong>: does not change shape. <strong>Extended object</strong>: an object that has dimensions, not a point. <strong>Axis of rotation</strong>: the line about which an object can rotate. <strong>Rotational dynamics</strong>: the branch of physics and engineering that deals with rotating objects.</div>
+  <p>Rotational dynamics becomes much easier if you lean on what you already know. Every concept of linear dynamics has a rotational equivalent, with similar equations.</p>
+  <table class="lc-table">
+    <thead><tr><th>Linear motion</th><th>Rotational motion</th></tr></thead>
+    <tbody>
+      <tr><td>force</td><td>torque</td></tr>
+      <tr><td>mass (a measure of inertia)</td><td>moment of inertia</td></tr>
+      <tr><td>linear displacement</td><td>angular displacement</td></tr>
+      <tr><td>linear speed / velocity</td><td>angular speed / velocity</td></tr>
+      <tr><td>linear acceleration</td><td>angular acceleration</td></tr>
+      <tr><td>linear momentum</td><td>angular momentum</td></tr>
+      <tr><td>linear kinetic energy</td><td>rotational kinetic energy</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-info">🧠 <strong>TOK &ndash; how do we acquire knowledge?</strong> An <strong>analogy</strong> is a useful comparison between two different things that have features in common, so that knowledge of one can be applied to the other. Beyond helping with teaching and learning, analogies serve two major purposes. <strong>1</strong> An analogy may be used to make reliable predictions about the behaviour of the system to which it is applied &mdash; that alone may justify using it. <strong>2</strong> An analogy may help provide a deeper understanding of that system. But without further justification, analogies should not be assumed to be accurate descriptions of the systems they are applied to. Can the study of economics find useful analogies in the laws of physics?</div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Torque – the turning effect of a force</h3>
+  <div class="lc-info">📋 <strong>Syllabus content</strong> &mdash; the torque, &tau;, of a force about an axis, as given by: &tau; = <em>Fr</em> sin &theta;</div>
+  <p>In situations where rotation may be possible, it is important to identify the place about which the rotation can occur. Most commonly this will involve an axis of rotation. The terms <strong>pivot</strong>, <strong>hinge</strong> and <strong>fulcrum</strong> are widely used for situations in which movement is not complete, nor continuous.</p>
+  <p>A straight line showing the direction in which a force is applied is called its <strong>line of action</strong>. <strong>Any force applied to an object whose line of action is not through the axis of rotation will tend to start, or change, rotational motion, if that is possible.</strong></p>
+  <p>Bigger forces tend to produce larger rotational accelerations, but the line of action &mdash; the direction &mdash; matters just as much. In Fig 3, \(F_1\) has no turning effect at all, because its line of action passes through the axis of rotation. \(F_2\) has the biggest turning effect, because its line of action is perpendicular to a line joining its point of application to the axis. \(F_3\) has an effect between these two extremes. The turning effect also depends on the distance, \(r\), from the axis of rotation to the line of action of the force.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-01-torque-and-moment-of-force-03.png" alt="Spanner on a bolt with three forces F1 along the spanner, F2 perpendicular to it and F3 at angle theta, showing r, the line of action of F3 and the perpendicular distance r sin theta">
+    <div class="lc-cap">Fig 3 &mdash; Read off the geometry: \(r\) runs from the axis to the point of application, and \(r\sin\theta\) is the perpendicular distance from the axis to the line of action.</div>
+  </div>
+  <p>The turning effect of a force \(F\) is known as its <strong>torque</strong>, \(\tau\), and it depends on the magnitude of the force and the perpendicular distance from the axis of rotation to the line of action of the force. In Fig 3 that perpendicular distance is shown for \(F_3\) as \(r\sin\theta\), where \(\theta\) is the angle between the line of action of the force and a line joining the point of application of the force to the axis of rotation, and \(r\) is the distance from the axis of rotation to the point of application of the force.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Torque about an axis · SI unit N m</span>
+    $$\tau = Fr\sin\theta$$
+  </div>
+  <p>When there is no actual rotation, torque is sometimes called the <strong>moment</strong> of a force. You may already be familiar with the <strong>principle of moments</strong> for a body in equilibrium: if an object is in rotational equilibrium, the sum of the clockwise moments equals the sum of the anticlockwise moments.</p>
+  <div class="lc-warn">⚠️ Torque has the SI unit <strong>N m</strong> (not N m<sup>&minus;1</sup>), and although the joule is also N m, <strong>torque is not equivalent to energy</strong>. Never quote a torque in joules.</div>
+  <div class="lc-info">🔍 <strong>Inquiry 1: exploring and designing &ndash; the right tool for the job</strong> &mdash; a torque wrench limits the torque that can be applied when tightening a bolt, to prevent over-tightening and damage to the bolt and, for example, an engine. There are various designs. Demonstrate insight by reflecting on the image of the modern digital type to suggest how this type of torque wrench might be used, then check your ideas through research.</div>
+</div>
+
+<div class="lc-card">
+  <h3>⚖️ Combining torques, couples and rotational equilibrium</h3>
+  <p>Torque is a vector quantity, but generally we will only be concerned with its <strong>sense</strong>: whether it tends to produce clockwise or anticlockwise motion. When more than one torque acts on a body, the resultant (net) torque can be found by simple addition &mdash; but clockwise and anticlockwise torques oppose each other. An object acted on by a 12 N m clockwise torque and a 15 N m anticlockwise torque has a resultant torque of 3 N m anticlockwise.</p>
+  <p>A <strong>couple</strong> is a pair of equal-sized forces that have different lines of action but which are parallel to each other and act in opposite directions, either side of the axis of rotation. A couple produces no resultant force on an object, so there is no translational acceleration: the object remains in the same location. Turning a steering wheel is the classic example. Other examples include the forces on a bar magnet placed in a uniform magnetic field, the forces on the handlebar of a bicycle, and the forces on a spinning motor.</p>
+  <p>The magnitude of the torque provided by a couple is simply twice the magnitude of the torque provided by each of the two individual forces.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Torque of a couple</span>
+    $$\tau = 2Fr\sin\theta$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-01-torque-and-moment-of-force-04.png" alt="Two panels: a steering wheel turned by a couple of two equal opposite forces, and the geometry of a couple with both forces F, both distances r, both angles theta and both perpendicular distances r sin theta">
+    <div class="lc-cap">Fig 4 &mdash; Both forces of a couple turn the body the same way, so their torques add. Check that the forces are equal, parallel and opposite before calling it a couple.</div>
+  </div>
+  <div class="lc-info">📋 <strong>Syllabus content</strong> &mdash; bodies in rotational equilibrium have a resultant torque of zero. An unbalanced torque applied to an extended, rigid body will cause rotational acceleration.</div>
+  <p>If an object remains at rest, or continues to move in exactly the same way, it is in <strong>equilibrium</strong>. <strong>Translational equilibrium</strong> occurs when there is no resultant force acting on an object (Newton's first law, Topic A.2), so it remains stationary or continues to move with constant velocity. A similar definition applies to rotation.</p>
+  <div class="lc-success">✓ <strong>Rotational equilibrium</strong> occurs when there is no resultant torque acting on an object, so that it remains stationary or continues to rotate with a constant angular speed.</div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Condition for rotational equilibrium</span>
+    $$\sum\tau_{\text{clockwise}} = \sum\tau_{\text{anticlockwise}}$$
+  </div>
+  <p>If there is a resultant torque acting on a body, it will produce an angular acceleration &mdash; the rotational parallel of \(F = ma\), which you meet in full in Lesson 3 of this topic.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Torque against angle</td><td>&theta; (0&ndash;180&deg;), &tau; (N m)</td><td>Sine curve, zero at 0&deg; and 180&deg;, peak at 90&deg;</td><td>Maximum torque \(Fr\) at &theta; = 90&deg;; zero whenever the line of action passes through the axis</td></tr>
+      <tr><td>Torque against distance</td><td>\(r\) (m), &tau; (N m)</td><td>Straight line through the origin</td><td>Gradient = \(F\sin\theta\); doubling the spanner length doubles the torque</td></tr>
+      <tr><td>Torque against force</td><td>\(F\) (N), &tau; (N m)</td><td>Straight line through the origin</td><td>Gradient = \(r\sin\theta\), the perpendicular distance</td></tr>
+      <tr><td>Resultant torque against time</td><td>\(t\) (s), &tau; (N m)</td><td>Horizontal line at &tau; = 0 for equilibrium</td><td>Any departure from zero means angular acceleration has begun</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a4-01-torque-and-moment-of-force-05.png" alt="Graph of torque against angle theta from 0 to 180 degrees, a sine curve peaking at 90 degrees"><div class="lc-cap">Fig 5 &mdash; &tau; against &theta;. Read the peak: &tau; = Fr at 90&deg;.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a4-01-torque-and-moment-of-force-06.png" alt="Graph of torque against distance r, a straight line through the origin"><div class="lc-cap">Fig 6 &mdash; &tau; against \(r\). Read the gradient: \(F\sin\theta\).</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – the spanner (A4.1)</h3>
+  <p>Look again at Fig 3. <strong>a</strong> If \(r\) = 48 cm, calculate the torque produced by a force of 35 N applied along the line of action of \(F_2\). <strong>b</strong> Determine the value of \(F_3\) that would produce the same torque as in part <strong>a</strong>, if the angle &theta; = 55&deg;.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> \(F_2\) acts perpendicular to the line joining its point of application to the axis, so &theta; = 90&deg;. Part <strong>b</strong> is the same torque delivered less efficiently, at &theta; = 55&deg;.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(F = 35\ \text{N}\), \(r = 48\ \text{cm} = 0.48\ \text{m}\), \(\theta = 90^\circ\); then \(\tau = 17\ \text{N m}\), \(\theta = 55^\circ\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\tau = Fr\sin\theta\)<br>\(= 35 \times 0.48 \times \sin 90^\circ\)<br>and for <strong>b</strong>: \(17 = F_3 \times 0.48 \times \sin 55^\circ\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> <strong>a</strong> \(\tau = 17\ \text{N m}\).<br><strong>b</strong> \(F_3 = 17 / 0.393 = 43\ \text{N}\) &mdash; a larger force for the same turning effect, because only the perpendicular component counts.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – holding a door shut (A4.2)</h3>
+  <p>Fig 7 shows a view of a door from above. A person is trying to push the door open with a force of 74 N in the direction and position shown, 20 cm from the hinge at 65&deg;. Calculate the minimum force, \(F\) (magnitude and direction) needed at the handle, 65 cm from the hinge, to stop this happening.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the door must be held in rotational equilibrium about the hinge. The <em>minimum</em> force is the most efficient one, so it must be applied perpendicular to the door: the maximum torque obtained with a given force at the door handle is perpendicular to the door.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> push \(= 74\ \text{N}\) at \(r = 0.20\ \text{m}\), \(\theta = 65^\circ\). Handle at \(r = 0.65\ \text{m}\), \(\theta = 90^\circ\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> for rotational equilibrium the two torques must be equal in magnitude<br>\(Fr\sin\theta\ \text{clockwise} = Fr\sin\theta\ \text{anticlockwise}\)<br>\(F \times 0.65 \times \sin 90^\circ = 74 \times 0.20 \times \sin 65^\circ\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(0.65F = 13.4\)<br>\(F = 21\ \text{N}\) clockwise, perpendicular to the door.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-01-torque-and-moment-of-force-07.png" alt="Plan view of a door from above showing a 74 newton push 20 centimetres from the hinge at 65 degrees to the door and the handle 65 centimetres from the hinge">
+    <div class="lc-cap">Fig 7 &mdash; Worked example 2 geometry. Read off both distances from the hinge, and the 65&deg; between the push and the door.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🚲 Real world – where torque is engineered</h3>
+    <p>Door handles sit as far from the hinge as the design allows, because \(\tau = Fr\sin\theta\) rewards distance. Cyclists get the most from each stroke when the pedal arm is horizontal and the push is vertical, and waste effort at the top and bottom of the circle. A torque wrench protects an engine block by capping \(\tau\), not \(F\). And the forces on a bar magnet in a uniform magnetic field, on a bicycle handlebar, and on a spinning motor are all <strong>couples</strong> &mdash; equal, parallel, opposite forces that turn without dragging the object sideways.</p>
+    <div class="lc-success">✓ <strong>Examiner tip:</strong> the mark for a torque calculation is almost always for the perpendicular distance, not the arithmetic. Draw the line of action, drop a perpendicular from the axis onto it, and label that length \(r\sin\theta\) before you touch the calculator.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🎓 HL extension – towards rotational Newton's second law</h3>
+    <p>An unbalanced torque applied to an extended, rigid body will cause rotational acceleration. Compare with linear motion: \(F = ma\) says acceleration is resultant force over inertia. In rotation, the resultant torque is divided by the <strong>moment of inertia</strong>, the rotational measure of inertia that depends on how the mass is distributed about the axis. That relationship, \(\tau = I\alpha\), is Lesson 3 of this topic.</p>
+    <p><strong>Linking question:</strong> how does a torque lead to simple harmonic motion? This links to understandings in Topic C.1.</p>
+    <div class="lc-info">🏆 <strong>Challenge:</strong> a couple of two 37 N forces acts on a bar. If the axis of rotation is moved off-centre, does the torque of the couple change? <em>No. One perpendicular distance grows by exactly as much as the other shrinks, so the sum \(2Fr\sin\theta\) is unchanged &mdash; the torque of a couple is independent of the position of the axis.</em></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"Torque is measured in joules, since both are N m."</td><td>Torque is N m but is not equivalent to energy. It is never quoted in J, and never in N m<sup>&minus;1</sup>.</td></tr>
+      <tr><td>"Any force on a body that can rotate will turn it."</td><td>A force whose line of action passes through the axis has zero torque, whatever its magnitude &mdash; like \(F_1\) in Fig 3.</td></tr>
+      <tr><td>"\(r\) in \(\tau = Fr\sin\theta\) is the perpendicular distance."</td><td>\(r\) is the distance from the axis to the point of application. The perpendicular distance is \(r\sin\theta\).</td></tr>
+      <tr><td>"&theta; is the angle to the horizontal."</td><td>&theta; is the angle between the line of action and the line joining the point of application to the axis.</td></tr>
+      <tr><td>"A couple must produce translational acceleration, since two forces act."</td><td>The two forces are equal and opposite, so there is no resultant force: the object rotates but does not change location.</td></tr>
+      <tr><td>"Rotational equilibrium means the body is not rotating."</td><td>It means no resultant torque, so the body is either stationary <em>or</em> rotating at constant angular speed.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ <strong>The single most common exam slip:</strong> substituting the angle marked on the diagram straight into \(\sin\theta\) without checking what it is measured from. If the diagram gives the angle to the door, the wall or the horizontal, convert it to the angle between the line of action and the line from the point of application to the axis first.</div>
+</div>
+
+<div class="lc-kp">
+  <span>&tau; = <em>Fr</em> sin &theta;, SI unit N m &mdash; never J</span>
+  <span>Line of action through the axis &rarr; zero torque</span>
+  <span>Perpendicular distance = \(r\sin\theta\); maximum torque at &theta; = 90&deg;</span>
+  <span>Moment = torque, used when rotation is incomplete</span>
+  <span>Clockwise and anticlockwise torques subtract</span>
+  <span>Couple: equal, parallel, opposite forces; &tau; = 2<em>Fr</em> sin &theta;; no resultant force</span>
+  <span>Rotational equilibrium: resultant torque zero &rarr; rest or constant angular speed</span>
+  <span>Unbalanced torque on a rigid body &rarr; rotational acceleration</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. A spanner is fitted to a bolt. Which force applied at the end of the spanner produces no torque about the bolt?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> A force perpendicular to the spanner</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> A force at 45&deg; to the spanner</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> A force directed along the spanner, through the bolt</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Any force smaller than the weight of the spanner</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. The SI unit of torque is</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> J</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> N m</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> N m<sup>&minus;1</sup></div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> N s</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. A body is acted on by a 12 N m clockwise torque and a 15 N m anticlockwise torque. The resultant torque is</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> 27 N m clockwise</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> 3 N m anticlockwise</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> 3 N m clockwise</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> zero</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. A couple consists of two 20 N forces, each acting 0.30 m from the axis, perpendicular to the line joining their points of application to the axis. The torque of the couple is</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 3.0 N m</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> 6.0 N m</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> 12 N m</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> zero, because a couple has no resultant force</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. A flywheel is in rotational equilibrium. It follows that the flywheel</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> must be stationary</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> has no torques acting on it at all</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> is stationary or rotating at constant angular speed</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> is rotating with constant angular acceleration</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq6">
+  <div class="lc-mcq-q">6. A force of 40 N acts 0.50 m from an axis, at 30&deg; to the line joining its point of application to the axis. The torque is</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','A')"><span class="lc-opt-l">A</span> 10 N m</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','A')"><span class="lc-opt-l">B</span> 17 N m</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','A')"><span class="lc-opt-l">C</span> 20 N m</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','A')"><span class="lc-opt-l">D</span> 40 N m</div>
+  </div>
+  <div class="lc-fb" id="mcq6-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <div class="lc-fitb">
+    <p>The turning effect of a force about an axis is called its <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px">. It is calculated from the force and the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:150px"> distance from the axis of rotation to the line of action, so the torque is greatest when &theta; = <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:70px">&deg;.</p>
+    <p>Where rotation is incomplete, the same quantity is often called the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px"> of a force. A pair of equal, parallel, oppositely directed forces either side of the axis is a <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px">, and its torque is <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:100px"> that of one of its forces.</p>
+    <p>A body in rotational equilibrium has a resultant torque of <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:90px">, while an unbalanced torque on an extended rigid body causes rotational <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:160px">.</p>
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> A torque of 55 N m is required to loosen a nut on an engine. Calculate the minimum force with which this can be achieved, if the length of the spanner (wrench) used is 25 cm. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Minimum force means the force applied perpendicular to the spanner, &theta; = 90&deg;, so sin &theta; = 1.<br>✓ \(F = \tau / r\sin\theta = 55 / 0.25\)<br>✓ \(F = 220\ \text{N}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Sketch / State</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> Fig 8 shows a side view of one pedal on a bicycle. The distance from the pedal to the axis is 21 cm. <strong>(a)</strong> If a cyclist pushes down the line of action, as shown, with a force of 48 N, determine the torque that is being applied. <strong>(b)</strong> Sketch a copy of the diagram but move the pedal to the position where the cyclist can probably apply the greatest torque. <strong>(c)</strong> In which part(s) of each rotation should no torque be applied by the cyclist? <span class="lc-exam-marks">[6 marks]</span></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-01-torque-and-moment-of-force-08.png" alt="Side view of a bicycle pedal 21 centimetres from the axis of rotation with the line of action of the cyclist's downward force at 60 degrees to the pedal arm">
+    <div class="lc-cap">Fig 8 &mdash; Read the 60&deg; carefully: it is between the line of action and the pedal arm.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\tau = Fr\sin\theta = 48 \times 0.21 \times \sin 60^\circ\)<br>✓ \(\tau = 8.7\ \text{N m}\).<br>✓ (b) Pedal arm drawn horizontal, so the vertical downward push is perpendicular to the arm (&theta; = 90&deg;), giving \(\tau = 48 \times 0.21 = 10\ \text{N m}\).<br>✓ (c) At the top and at the bottom of each rotation.<br>✓ There the downward line of action passes through (or close to) the axis, so \(r\sin\theta \rightarrow 0\) and any force produces no useful torque.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Sketch / Explain</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> <strong>(a)</strong> Determine the torque provided by the couple shown in Fig 4 if the force is 37 N, \(r\) = 7.7 cm and the angle &theta; is 49&deg;. <strong>(b)</strong> Sketch a graph to show how the torque would vary if the object moved from horizontal to vertical, as seen (assume the directions of the forces do not change). <strong>(c)</strong> Does the magnitude of the torque provided by the couple depend on the position of the axis of rotation? Explain your answer. <span class="lc-exam-marks">[7 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\tau = 2Fr\sin\theta = 2 \times 37 \times 0.077 \times \sin 49^\circ\)<br>✓ \(\tau = 4.3\ \text{N m}\).<br>✓ (b) Axes labelled: angle turned on the x-axis, torque on the y-axis.<br>✓ A smooth sinusoidal curve, maximum \(2Fr\) where the bar is perpendicular to the forces, falling to zero when the bar lies along the lines of action.<br>✓ (c) No.<br>✓ The torques of the two forces always act in the same sense and add.<br>✓ Moving the axis increases one perpendicular distance by exactly as much as it decreases the other, so the total \(2Fr\sin\theta\) is unchanged.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> A driver turns a steering wheel using a couple. Explain why the wheel undergoes rotational acceleration but no translational acceleration. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The two forces are equal in magnitude, parallel and opposite in direction, so the resultant force is zero and there is no translational acceleration (Newton's first law).<br>✓ Their lines of action are different and lie either side of the axis, so neither passes through the axis of rotation.<br>✓ Both torques act in the same sense and add to give a resultant torque \(2Fr\sin\theta\), which produces rotational acceleration.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / State</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> A force of 60 N is applied to a lever at a point 35 cm from the axis of rotation, at 40&deg; to the line joining that point to the axis. <strong>(a)</strong> Calculate the torque about the axis. <strong>(b)</strong> State the torque if the same force were applied at 90&deg; to that line, and explain the difference. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\tau = 60 \times 0.35 \times \sin 40^\circ\)<br>✓ \(\tau = 13.5\ \text{N m}\).<br>✓ (b) \(\tau = 60 \times 0.35 = 21\ \text{N m}\).<br>✓ At 90&deg; the whole of \(r\) is the perpendicular distance from the axis to the line of action, so sin &theta; = 1 and the torque is the maximum possible for that force and distance.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Outline / Define</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> <strong>(a)</strong> Outline the difference between rotation and revolution, with one example of each. <strong>(b)</strong> State what is meant by a rigid body, and explain why the assumption is made in this topic. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Rotation is movement about an axis usually within the body, and does not change the body's location &mdash; e.g. the Earth rotating once every 24 hours.<br>✓ Revolution is movement of a body around an exterior point &mdash; e.g. the Earth revolving around the Sun once a year.<br>✓ (b) A rigid body is one whose shape does not change (does not deform significantly) under the action of forces.<br>✓ It allows distances from the axis, and therefore \(r\) and \(r\sin\theta\), to be treated as constant while the forces act.</div>
+</div>
+
+<div class="lc-score-row"><div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div></div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1:{ C:'Correct. A force whose line of action passes through the axis of rotation has zero perpendicular distance, so &theta; = 0 and &tau; = Fr sin 0 = 0 — this is F₁ in Fig 3, whatever its magnitude.' },
+    mcq2:{ B:'Correct. Torque is N m. It is not N m⁻¹, and although the joule is also N m, torque is not equivalent to energy.' },
+    mcq3:{ B:'Correct. Clockwise and anticlockwise torques oppose, so the resultant is 15 − 12 = 3 N m in the anticlockwise sense.' },
+    mcq4:{ C:'Correct. A couple gives twice the torque of one force: &tau; = 2Fr sin &theta; = 2 × 20 × 0.30 × 1 = 12 N m.' },
+    mcq5:{ C:'Correct. Rotational equilibrium means the resultant torque is zero, so the body is stationary or rotating with constant angular speed. Individual torques may still act — they simply balance.' },
+    mcq6:{ A:'Correct. &tau; = 40 × 0.50 × sin 30° = 40 × 0.50 × 0.5 = 10 N m. Only the perpendicular component of the geometry counts.' }
+  },
+  fitb: { lf1:'torque', lf2:'perpendicular', lf3:'90', lf4:'moment', lf5:'couple', lf6:'twice', lf7:'zero', lf8:'acceleration' }
+});
+</script>
+
+</div>
+<!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
