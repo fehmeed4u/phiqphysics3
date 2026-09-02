@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elastic and Inelastic Collisions — A.3 Work, Energy and Power — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A3">A.3 Work, Energy and Power</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Elastic and Inelastic Collisions</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.3
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 5 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Elastic and Inelastic Collisions</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.3 Work, Energy and Power</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.3 overview
+      </a>
+      <div class="sidebar-title">A.3 Concepts</div>
+      <a href="01-work-done-by-a-force.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Work Done by a Force</span>
+        </a>
+      <a href="02-kinetic-and-gravitational-potential-energy.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Kinetic and Gravitational Potential Energy</span>
+        </a>
+      <a href="03-conservation-of-mechanical-energy.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Conservation of Mechanical Energy</span>
+        </a>
+      <a href="04-power-and-efficiency.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Power and Efficiency</span>
+        </a>
+      <a href="05-elastic-and-inelastic-collisions.html" class="sidebar-link active">
+          <span class="sidebar-num">05</span>
+          <span>Elastic and Inelastic Collisions</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body" style="overflow-x:hidden;max-width:100%">
+<div style="padding:1.5rem 1.75rem">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']], processEscapes: true },
+  svg: { fontCache: 'global', scale: 1.15 },
+  startup: { pageReady: function () { return MathJax.startup.defaultPageReady(); } }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:700; }
+.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
+  line-height:1.2;margin-bottom:4px; }
+.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
+.lc-card { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
+.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
+  font-family:var(--font-sans); }
+.lc-card p { font-size:14pt;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
+.lc-card p:last-child { margin-bottom:0; }
+.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
+.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
+  border-bottom:1px solid var(--border);text-align:left; }
+.lc-table td { padding:8px;border-bottom:1px solid var(--border);
+  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
+.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
+.lc-table tr:last-child td { border-bottom:none; }
+.lc-formula { background:var(--surface3);border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:1rem 1.4rem;margin:0.85rem 0;
+  text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06);overflow-x:auto; }
+.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
+.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
+  margin-bottom:0.35rem;font-family:var(--font-sans); }
+.lc-img { background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
+.lc-img img { max-width:100%;border-radius:8px; }
+.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
+.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
+.lc-img-row .lc-img { margin-bottom:0; }
+@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
+.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
+.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
+  background:var(--accent-dim);border:1px solid var(--border-2);
+  border-radius:100px;padding:3px 10px;color:var(--accent); }
+.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--text-muted);
+  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
+.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
+.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:0.65rem 1rem;font-size:14pt;
+  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
+.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
+@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
+.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
+  padding:0.85rem 0;border-bottom:1px solid var(--border); }
+.lc-step:last-child { border-bottom:none; }
+.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
+.lc-step-body { flex:1;min-width:0;overflow-x:auto;font-size:14pt;color:var(--text-2);line-height:1.7; }
+.lc-step-body strong { color:var(--text); }
+#lesson-body mjx-container { max-width:100%; }
+.lc-mcq-q { font-size:14pt;font-weight:500;color:var(--text);
+  margin-bottom:0.65rem;line-height:1.55; }
+.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
+.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
+  border:1.5px solid var(--border);border-radius:var(--radius);
+  cursor:pointer;font-size:14pt;color:var(--text-2);
+  transition:all 0.15s;background:var(--surface); }
+.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
+.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
+.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
+.lc-opt.disabled { cursor:default;pointer-events:none; }
+.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
+.lc-fb { font-size:14pt;margin-top:0.5rem;padding:0.6rem 0.85rem;
+  border-radius:var(--radius);display:none; }
+.lc-fb.show { display:block; }
+.lc-fb.correct { background:var(--green-dim);color:var(--green); }
+.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
+.lc-fitb { font-size:14pt;line-height:2.6;color:var(--text-2); }
+.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
+  background:transparent;font-size:14pt;color:var(--text);
+  padding:0 4px;min-width:80px;text-align:center;
+  outline:none;font-family:var(--font-sans); }
+.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
+.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
+.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
+  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
+  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
+  font-family:var(--font-sans);transition:all 0.15s; }
+.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
+.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
+.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
+.lc-exam-q { font-size:14pt;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
+.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
+.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
+  border-radius:var(--radius);background:var(--surface3);color:var(--text);
+  font-size:14pt;font-family:var(--font-sans);padding:0.65rem 0.85rem;
+  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
+.lc-exam-input:focus { border-color:var(--accent); }
+.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
+  border-radius:100px;background:var(--surface);cursor:pointer;
+  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
+  transition:all 0.15s; }
+.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
+.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
+  background:var(--surface);border-left:3px solid var(--green);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:14pt;color:var(--text-2);line-height:1.7;display:none;overflow-x:auto; }
+.lc-model.show { display:block; }
+#lesson-body mjx-container { max-width:100%; }
+#lesson-body mjx-container[jax="SVG"] > svg { max-width:100%; height:auto; }
+.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
+  padding:0.4rem 0.9rem;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
+.lc-score strong { color:var(--accent); }
+</style>
+
+<div class="lc-badge"><span>5</span> Lesson 5 of 5 · A.3 Work, Energy and Power</div>
+<div class="lc-title">Elastic and Inelastic Collisions</div>
+<div class="lc-sub">Momentum is always conserved in a collision — kinetic energy is not. This lesson shows you how to use one conservation law to predict the motion, and the other to classify the collision.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the cradle that only moves one ball</h3>
+  <p>Lift one steel sphere of a Newton's cradle and release it. It stops dead on impact and the sphere at the far end flies off with almost exactly the speed the first one had. Lift two, and two leave. Nothing in between ever happens. <strong>Steel spheres are the best everyday example of an almost perfectly elastic collision</strong> — momentum and kinetic energy are both handed on virtually intact.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-05-elastic-and-inelastic-collisions-01.png" alt="Newton's cradle with five steel spheres, one raised and about to strike">
+    <div class="lc-cap">Fig 1 — Newton's cradle is a demonstration of collisions. If a stationary sphere is struck by an identical moving sphere, the moving sphere stops and the other sphere continues with the velocity of the first.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — a moving sphere strikes an identical stationary one. Why can't they simply both move off together at half the original speed? <em>Momentum would be conserved, but the kinetic energy would be halved (\(E_{\text{k}} \propto v^2\), and two masses at \(v/2\) carry only \(\tfrac12\) of the original \(E_{\text{k}}\)). Steel spheres lose almost no kinetic energy, so that outcome is forbidden for them — although it is exactly what happens if the spheres are replaced by two cushions.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Momentum: the quantity that is always conserved</h3>
+  <p>When any two objects A and B interact, Newton's third law gives \(F_{\text{A}} = -F_{\text{B}}\). Using \(F = ma\) and \(a = (v-u)/t\), and noting that the time of the interaction is the same for both:</p>
+  <div class="lc-formula">
+    $$[m(v-u)]_{\text{A}} = -[m(v-u)]_{\text{B}}$$
+  </div>
+  <p>In words: (mass × change of velocity) for A = −(mass × change of velocity) for B. The <strong>momentum</strong> gained by A equals the momentum lost by B. Always — provided no external forces act.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Linear momentum · SI unit kg m s⁻¹</span>
+    $$p = mv$$
+  </div>
+  <p><strong>Momentum is a vector quantity and its direction is always important.</strong> Linear momentum remains constant unless the system is acted upon by a resultant external force.</p>
+  <div class="lc-info">📖 <strong>Law of conservation of momentum</strong> — the total momentum of any system is constant, provided that there is no resultant external force acting on it. This law of physics is always true. There are no exceptions.</div>
+  <p>A <strong>system</strong> is the object(s) being considered and nothing else; an <strong>isolated system</strong> is one into which matter and energy cannot flow in or out. Everything apart from the system is the <strong>surroundings</strong> (or environment). Choosing the system well is what makes a conservation law usable: for a car crash we normally take the system to be just the two cars, ignoring the air and the road, which gives a quick and reasonably accurate prediction for what happens immediately after impact.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Newton's second law as rate of change of momentum</span>
+    $$F = \frac{\Delta p}{\Delta t}$$
+  </div>
+  <p>This follows from \(F = ma = m(v-u)/t = (mv-mu)/t\). It is the more generalised form: it allows for a <strong>changing mass</strong>, whereas \(F = ma\) assumes the mass is constant. Rockets are the standard application.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-05-elastic-and-inelastic-collisions-02.png" alt="Before and after diagram of a head-on collision between two blocks with velocity arrows and a sign convention arrow">
+    <div class="lc-cap">Fig 2 — Set a sign convention before you write anything down. Here velocity to the left is positive, so B's velocity to the right enters the equation as a negative number.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>💥 Collisions, explosions, and the words for them</h3>
+  <p>In physics a <strong>collision</strong> is any event in which two or more objects move towards each other and exert forces on each other for a relatively short time — not only the accidental, high-force events of everyday speech. An <strong>explosion</strong> is any event in which internal forces within a stationary system push separate parts of the system apart; again, much less dramatic than everyday usage.</p>
+  <p>Conservation of momentum alone is never enough to predict the outcome. Two tennis balls colliding behave completely differently from two cushions colliding, and momentum cannot tell them apart. You always need extra information: either the type of collision, or what happened to one of the objects.</p>
+  <p>That extra information is energy. Any moving object has kinetic energy, \(E_{\text{k}} = \tfrac12 mv^2\), and during a collision some or all of it is transferred between the objects. Typically some — perhaps most — is transferred to the surroundings as thermal energy and maybe sound.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Kinetic energy</span>
+    $$E_{\text{k}} = \tfrac{1}{2}mv^2$$
+  </div>
+  <p>The two extreme cases:</p>
+  <div class="lc-success">✓ <strong>Elastic collision</strong> — the total kinetic energy before and after the collision is the same.</div>
+  <div class="lc-warn">⚠️ <strong>Inelastic collision</strong> — all other collisions; kinetic energy has <em>not</em> been conserved. In everyday, macroscopic events elastic collisions are a theoretical ideal and do not happen perfectly. However, elastic collisions are common for microscopic particle collisions.</div>
+  <div class="lc-info">🔗 <strong>Totally inelastic collision</strong> — the colliding objects stick together. The maximum possible amount of kinetic energy is transferred from the moving objects to the environment.</div>
+  <p>Physicists use <strong>macroscopic</strong> for events observable with the unaided eye and <strong>microscopic</strong> for events on the molecular, atomic or subatomic scale. It was only when scientists realised that matter consists of atoms and molecules that could not be seen that many everyday observations could be explained.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-05-elastic-and-inelastic-collisions-03.png" alt="Three-row comparison of elastic, inelastic and totally inelastic collisions with before and after velocities">
+    <div class="lc-cap">Fig 3 — The same momentum before the collision can produce three very different outcomes. Only the energy tells you which one happened.</div>
+  </div>
+  <p>It is easy to find examples where all the kinetic energy appears to have been lost — a student jumping down onto the floor, for instance. The student has had a totally inelastic collision with the Earth, but the change to the motion of the Earth is insignificant and unobservable.</p>
+</div>
+
+<div class="lc-card">
+  <h3>⏱️ Impulse and the force–time graph</h3>
+  <p>Many forces only act for a short time, \(\Delta t\). The longer a force acts, the greater its possible effect, so the concept of <strong>impulse</strong>, \(J\), becomes useful. If the force varies during the interaction, use its average value.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Impulse · SI unit N s</span>
+    $$J = F\Delta t$$
+  </div>
+  <p>Rearranging \(F = \Delta p / \Delta t\) gives \(F\Delta t = \Delta p\), so:</p>
+  <div class="lc-formula">
+    $$J = \Delta p$$
+  </div>
+  <p>An applied external impulse on an isolated object results in a change of momentum numerically equal to the impulse. The units <strong>N s</strong> and <strong>kg m s⁻¹</strong> are equivalent to each other.</p>
+  <p>In simple calculations we may assume the force is constant, or that the average force is half the maximum force. For more accurate work that is not good enough and we need to know how the force varies during the interaction — shown by a <strong>force–time graph</strong>.</p>
+  <div class="lc-info">📐 <strong>The area under any force–time graph for an interaction equals force × time, which equals the impulse (change of momentum).</strong> This is true whatever the shape of the graph. The area under a curve can be estimated by drawing a rectangle of the same area, judged by eye; its height is then the average force \(F_{\text{av}}\) during the interaction.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Force–time (real impact)</td><td>Time / ms · Force / N</td><td>Single hump: rises steeply, peaks, falls back to zero</td><td>Area under the curve = impulse = \(\Delta p\). Estimate it with an equal-area rectangle; its height is \(F_{\text{av}}\)</td></tr>
+      <tr><td>Force–time (idealised)</td><td>Time · Force</td><td>Horizontal line of height \(F\) over a width \(\Delta t\)</td><td>\(J = F\Delta t\) read directly as the rectangle's area</td></tr>
+      <tr><td>Momentum–time</td><td>Time / s · \(p\) / kg m s⁻¹</td><td>Straight line for a constant force</td><td>Gradient = resultant force, since \(F = \Delta p/\Delta t\)</td></tr>
+      <tr><td>Velocity–time for two colliding trolleys</td><td>Time / s · \(v\) / m s⁻¹</td><td>Two lines with a sharp step at the moment of impact</td><td>\(u\) and \(v\) either side of the step; feed them into \(\sum mu = \sum mv\) and compare \(\sum \tfrac12 mv^2\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-05-elastic-and-inelastic-collisions-04.png" alt="Force against time graph with a curved hump and a red equal-area rectangle of height F average over interval delta t"><div class="lc-cap">Fig 4 — A force varying over a time \(\Delta t\). The red rectangle has the same area, so its height is \(F_{\text{av}}\) and its area is \(F\Delta t\) = the impulse.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-05-elastic-and-inelastic-collisions-05.png" alt="Force against time graph for a tennis ball struck by a racket, peaking at 200 N over about 12 milliseconds"><div class="lc-cap">Fig 5 — Force–time graph for striking a tennis ball. Force peaks near 200 N and the contact lasts about 12 ms, giving an area of roughly 2.4 N s.</div></div>
+  </div>
+  <div class="lc-success">✓ Examiner tip: force sensors used with data loggers can measure forces over short time intervals and plot these graphs directly, in or out of the laboratory. Stop-motion replay of video recordings of collisions is also very instructive.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – a head-on collision (A2.10)</h3>
+  <p>An object A of mass 2.1 kg was moving to the left with a velocity of 0.76 m s⁻¹. At the same time, object B of mass 1.2 kg was moving in the opposite direction with a velocity of 3.3 m s⁻¹. Discuss what happens after the collision. Then: if after the collision object A had a velocity of 0.87 m s⁻¹, what happened to object B?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a one-dimensional collision, no resultant external force, so total momentum is conserved. Momentum is a vector, so a sign convention is essential. <em>Take velocity to the left as positive.</em></div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> the magnitude of A's momentum is \(2.1 \times 0.76 = 1.60\) kg m s⁻¹, but that is a magnitude only.<br>With left positive:<br>\(p_{\text{A}} = 2.1 \times (+0.76)\)<br>\(= +1.60\ \text{kg m s}^{-1}\)<br>\(p_{\text{B}} = 1.2 \times (-3.3)\)<br>\(= -3.96\ \text{kg m s}^{-1}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> combined momentum before<br>\(= 1.60 + (-3.96)\)<br>\(= -2.36\ \text{kg m s}^{-1}\) (to the right).<br>Conservation of momentum says this is unchanged after the collision. Using momentum before = momentum after:<br>\([2.1 \times (-0.87)] + 1.2v_{\text{B}} = -2.36\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(v_{\text{B}} = -0.44\ \text{m s}^{-1}\).<br>The negative sign means B is moving in the negative direction (to the right) at 0.44 m s⁻¹. Note that momentum alone could not have told us this: we needed to be told what happened to A. The alternative extra piece of information would have been the <em>type</em> of collision.</div></div>
+  <div class="lc-info">💡 If you prefer to call velocity to the right positive, every sign flips and the physics is identical: \(p_{\text{A}} = 2.1 \times (-0.76) = -1.60\) kg m s⁻¹. What you must never do is mix the two conventions inside one calculation.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – trolleys, energy, and the totally inelastic case (A2.11)</h3>
+  <p>A 2.1 kg trolley moving at 0.82 m s⁻¹ collides with a 1.7 kg trolley moving at 0.98 m s⁻¹ in the opposite direction. After the collision, the 1.7 kg trolley reverses direction and moves at 0.43 m s⁻¹. <strong>(a)</strong> Discuss what happened to the other trolley. <strong>(b)</strong> Without making any calculations, comment on the difference in total kinetic energy before and after the collision. <strong>(c)</strong> If the collision had been totally inelastic, what would have happened after the collision?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> total momentum before = total momentum after. Velocities in the original direction of the 2.1 kg trolley are given a + sign; velocities in the opposite direction a − sign (it could be the other way around).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data (a):</strong><br>\((2.1 \times 0.82) + (1.7 \times -0.98)\)<br>\(= (2.1 \times v) + (1.7 \times 0.43)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong><br>\(0.056 = 2.1v + 0.731\)<br>\(v = -0.32\ \text{m s}^{-1}\)<br>The − sign shows us that this trolley also reverses its direction of motion.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer (b) and (c):</strong> <strong>(b)</strong> both velocities have been reduced, so the total kinetic energy is significantly less — the collision is inelastic.<br><strong>(c)</strong> The trolleys stick together, so:<br>\(0.056 = 3.8v\)<br>\(v = +0.015\ \text{m s}^{-1}\)<br>The + sign shows they move in the original direction of the 2.1 kg trolley. The combined trolleys move very slowly, so there has been a considerable loss of kinetic energy.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-05-elastic-and-inelastic-collisions-06.png" alt="Two laboratory trolleys before and after a head-on collision, with masses and velocities labelled">
+    <div class="lc-cap">Fig 6 — Geometry for worked example 2. Note that the total momentum, 0.056 kg m s⁻¹, is small because the two trolleys nearly cancel — which is why the combined trolleys creep away at only 0.015 m s⁻¹.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 3 – impulse from a constant force (A2.16)</h3>
+  <p>A constant force of 12.0 N acts on a stationary mass of 0.620 kg for 0.580 s. <strong>(a)</strong> Calculate the impulse applied to the mass. <strong>(b)</strong> Calculate the change of momentum of the mass. <strong>(c)</strong> Calculate the final velocity of the mass.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a constant force acting for a known short time, so use \(J = F\Delta t\) and \(J = \Delta p\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(F = 12.0\) N, \(\Delta t = 0.580\) s, \(m = 0.620\) kg, \(u = 0\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> <strong>(a)</strong> \(J = F\Delta t\)<br>\(= 12.0 \times 0.580 = 6.96\ \text{N s}\)<br><strong>(b)</strong> \(\Delta p = 6.96\ \text{kg m s}^{-1}\) (or N s)<br><strong>(c)</strong> \(\Delta p = m\Delta v\)<br>\(6.96 = 0.620 \times \Delta v\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\Delta v = 11.2\ \text{m s}^{-1}\), and since the mass started at rest this is also the final velocity. The final velocity could also be determined by use of \(F = ma\) and \(v = u + at\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 4 – reading impulse off a graph (A2.17)</h3>
+  <p>Figure 5 shows how the force on a 57 g tennis ball moving at 24 m s⁻¹ to the right varied when it was struck by a racket moving in the opposite direction. <strong>(a)</strong> Estimate the impulse given to the ball. <strong>(b)</strong> Calculate the velocity of the ball after being struck. <strong>(c)</strong> Explain why a racket with looser strings could return the ball with greater speed. <strong>(d)</strong> Suggest a disadvantage of looser strings.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> impulse = area under the force–time graph, then \(J = m\Delta v\). Take velocity to the left as negative.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data (a):</strong> the equal-area rectangle is about 200 N high and 12 ms wide:<br>\(J \approx 200 \times (12 \times 10^{-3})\)<br>\(= 2.4\ \text{N s}\) to the left.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (b):</strong> \(m\Delta v = 2.4\)<br>\(\Delta v = \dfrac{2.4}{0.057} = 42\ \text{m s}^{-1}\) to the left<br>\(v_{\text{final}} - v_{\text{initial}} = -42\)<br>\(v_{\text{final}} - (+24) = -42\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(v_{\text{final}} = -18\ \text{m s}^{-1}\), i.e. 18 m s⁻¹ to the left.<br><strong>(c)</strong> The time of contact with the ball, \(\Delta t\), will be longer with looser strings, so the same force will produce a greater impulse (change of momentum).<br><strong>(d)</strong> There is less control over the direction of the ball.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>💨 Explosions, recoil and propulsion</h3>
+  <p>A laboratory 'explosion' is easy to arrange: a blow from a hammer releases springs which push two previously stationary trolleys apart. If the trolleys are identical they move apart with equal speeds. If the mass on one side is doubled, the speeds are in the ratio 2:1 — the more massive trolley moves more slowly.</p>
+  <p>Firing a gun or a cannon is a more dramatic example. Since there is zero momentum to begin with, the momentum of the bullet or cannon ball must be equal and opposite to the momentum of the gun, so that the total momentum after firing is also zero. The word <strong>recoil</strong> describes this backwards motion.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-05-elastic-and-inelastic-collisions-07.png" alt="Three-stage diagram of a simple laboratory explosion: two trolleys held together by a spring, released with equal masses, then with one mass doubled"><div class="lc-cap">Fig 7 — A simple 'explosion'. Equal masses recoil at equal speeds; double the mass on one side and the speeds are in the ratio 2:1.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a3-05-elastic-and-inelastic-collisions-08.png" alt="Cannon firing a ball to the right with a recoil arrow pointing left"><div class="lc-cap">Fig 8 — Firing a cannon. Total momentum starts at zero and must stay at zero, so the cannon recoils.</div></div>
+  </div>
+  <p>Turn this round and you have <strong>propulsion</strong>: to <strong>propel</strong> — provide a force for an intended motion — we create momentum in the opposite direction. Restated with Newton's third law: if we want a force to move us to the right, we exert a force on the surroundings to the left. A boat is pushed forward by pushing water backwards with an oar or a propeller; the momentum of the boat forwards is equal and opposite to the momentum of the water backwards.</p>
+  <p>A propeller works for a small aeroplane too, but it must be much larger and rotate faster, because the density of air is much less than that of water. A <strong>jet engine</strong> takes in surrounding air, burns vaporised fuel in it, and ejects hot exhaust gases at the back with considerable momentum — much greater than the momentum of the air input. The difference is equal and opposite to the forward momentum given to the aircraft. A <strong>rocket engine</strong> uses the same principle but travels where there is little or no air, so it carries its own oxidant on the vehicle.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Thrust from an ejected exhaust</span>
+    $$F = \left(\frac{\Delta m}{\Delta t}\right)v$$
+  </div>
+  <div class="lc-info">🚀 <strong>Worked example (A2.15).</strong> A rocket ejects exhaust gases at a rate of \(1.5 \times 10^{4}\) kg s⁻¹ at a speed of \(2.3 \times 10^{3}\) m s⁻¹ relative to the rocket. Then \(F = (1.5\times10^{4})(2.3\times10^{3})\)<br>\(= 3.5 \times 10^{7}\ \text{N}\). This is exactly the case where \(F = ma\) fails and \(F = \Delta p/\Delta t\) is needed, because the mass is changing.</div>
+  <div class="lc-info">🔫 <strong>Worked example (A2.12).</strong> A rifle of mass 1.54 kg fires a bullet of mass 22 g at 250 m s⁻¹. Total momentum before = total momentum after:<br>\(0 = (1.54 \times v) + (0.022 \times 250)\)<br>\(v = -3.6\ \text{m s}^{-1}\). The − sign shows the gun moves in the opposite direction to the bullet's velocity.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: crumple zones and why cars are built to break</h3>
+    <p>A crash gives the car a fixed change of momentum: it has to stop. Since \(J = F\Delta t = \Delta p\), the only way to reduce the force on the occupants is to stretch out \(\Delta t\). Crumple zones, airbags and seatbelts all do exactly that. Force–time graphs are especially useful when analysing impacts in road accidents and in sports, for the same reason.</p>
+    <div class="lc-success">✓ Examiner tip: an answer that says "the crumple zone absorbs the force" earns nothing. Say that it <em>increases the time of the collision</em>, so for the same change of momentum the average force is smaller — quote \(F = \Delta p / \Delta t\).</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – collisions and explosions in two dimensions</h3>
+    <p>For collisions or explosions in two dimensions, the law of conservation of momentum can be applied in <strong>two perpendicular directions</strong>. Treat the interacting objects as point particles and resolve every velocity first:</p>
+    <div class="lc-formula">
+      $$v_{1x} = v_1\cos\theta_1$$
+      $$v_{1y} = v_1\sin\theta_1$$
+    </div>
+    <p>The same for object 2 with \(\theta_2\). Then write one conservation equation for \(x\) and one for \(y\). Choosing the direction in which the initial momentum is zero usually gives the simpler equation.<br>
+    <strong>Challenge:</strong> in a two-dimensional collision, must the two final velocity vectors always lie on opposite sides of the original line of motion? (Answer: yes — the perpendicular components must cancel, since the total momentum perpendicular to the original motion started at zero.)</p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🚀 HL worked example 5 – 2-D collision (A2.13)</h3>
+  <p>Two objects collide as in Fig 9, with \(m_2\) stationary before the collision. Let \(m_1 = 0.50\) kg, \(m_2 = 0.30\) kg and \(u_1 = 4.0\) m s⁻¹. If the angles were \(\theta_1 = 36.9^\circ\) and \(\theta_2 = 26.6^\circ\), determine the value of \(v_2\) if \(v_1\) was 2.0 m s⁻¹.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> apply conservation of momentum in the \(y\)-direction, where the total momentum before the collision is zero. That is the quicker route.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m_1 = 0.50\) kg, \(v_1 = 2.0\) m s⁻¹, \(\theta_1 = 36.9^\circ\), \(m_2 = 0.30\) kg, \(\theta_2 = 26.6^\circ\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (y-direction):</strong><br>\(0 = m_1v_1\sin\theta_1 + m_2v_2\sin\theta_2\)<br>\(0 = 0.600 + 0.134v_2\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(v_2 = -4.5\ \text{m s}^{-1}\); the negative sign shows it is moving in the negative \(y\)-direction.<br>Alternatively, and less simply, in the \(x\)-direction:<br>\(m_1u_1 = m_1v_1\cos\theta_1 + m_2v_2\cos\theta_2\)<br>\((0.50 \times 4.0) = (0.50 \times 2.0 \times \cos 36.9^\circ)\)<br>\(\qquad + (0.30 \times v_2 \times \cos 26.6^\circ)\)<br>\(2.0 = 0.800 + 0.268v_2\)<br>\(v_2 = 4.5\ \text{m s}^{-1}\), as before.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-05-elastic-and-inelastic-collisions-09.png" alt="Two objects colliding in two dimensions, before and after, with x and y axes and angles theta 1 and theta 2">
+    <div class="lc-cap">Fig 9 — Two objects colliding in two dimensions. Before: \(m_1\) moves along \(x\) with \(u_1\) and \(m_2\) is stationary (\(u_2 = 0\)). After: the velocities make angles \(\theta_1\) and \(\theta_2\) on opposite sides of the \(x\)-axis.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🚀 HL worked example 6 – a three-way explosion (A2.14)</h3>
+  <p>A stationary small mass of mass 5.0 g explodes into three particles. Particle A, of mass 1.5 g, moves with a velocity of 23 m s⁻¹ in a direction we will call the \(x\)-direction. Particle B, of mass 2.0 g, moves with a velocity of 18 m s⁻¹ at 60° to the first. Determine what happened to the third particle, C.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> before the explosion there is zero momentum, so after it, in any chosen direction, \(p_{\text{A}} + p_{\text{B}} + p_{\text{C}} = 0\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> resolve B's velocity:<br>\(v_x = 18\cos 60^\circ = 9.0\ \text{m s}^{-1}\)<br>\(v_y = 18\sin 60^\circ = 15.6\ \text{m s}^{-1}\)<br>C's mass \(= 5.0 - 1.5 - 2.0 = 1.5\) g.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> in the \(x\)-direction<br>\((1.5 \times 23) + (2.0 \times 9.0)\)<br>\(= 52.5\ \text{g m s}^{-1} = -p_{\text{C}x}\)<br>in the \(y\)-direction<br>\(0 + (2.0 \times 15.6)\)<br>\(= 31.2\ \text{g m s}^{-1} = -p_{\text{C}y}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> dividing each momentum by \(m = 1.5\) g gives the two components of C's velocity: \(-35\) m s⁻¹ and \(-21\) m s⁻¹. Adding them (by scale drawing or trigonometry) gives the actual velocity of C: <strong>41 m s⁻¹ at an angle of 31° to the \(-x\)-direction.</strong></div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a3-05-elastic-and-inelastic-collisions-10.png" alt="A stationary small mass exploding into three particles A, B and C with a 60 degree angle between A and B">
+    <div class="lc-cap">Fig 10 — A stationary small mass explodes into three particles. C must carry momentum equal and opposite to the vector sum of A's and B's.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔬 Significant figures in momentum calculations</h3>
+  <p>An answer should not have more significant figures than the least precise of the data used in the calculation. <strong>Significant figures</strong> are all the digits used in data to carry meaning, whether before or after a decimal point, including zeros.</p>
+  <p>Zeros can be ambiguous. "100 km to the nearest airport" might mean approximately 100 km or exactly 100 km — which is why <strong>scientific notation</strong> (\(a \times 10^{b}\), with \(1 &lt; a &lt; 10\) and \(b\) an integer) is useful: \(1.00 \times 10^{2}\) km makes it clear there are three significant figures, whereas \(1 \times 10^{2}\) km represents much less precision.</p>
+  <p>For example, if a mass of 583 g changed velocity by 15 m s⁻¹ in two seconds, the resultant force was:</p>
+  <div class="lc-formula">
+    $$F = \frac{\Delta p}{\Delta t} = \frac{0.583 \times 15}{2} = 4.3725\ \text{N}$$
+  </div>
+  <p>But the time was given to one significant figure, so the answer should be \(F = 4\) N. That can seem unsatisfactory — but a time quoted as 2 s simply means more than 1.5 s and less than 2.5 s. A time of 1.5 s would give 5.8 N; a time of 2.5 s would give 3.5 N. Had the time been 2.0 s, the quoted force should be 4.4 N. Had it been 2.00 s, the answer should <em>still</em> be 4.4 N, because the velocity was only given to two significant figures.</p>
+  <div class="lc-warn">⚠️ You may assume that all the digits in the data in a question are significant. For example, 100 km should be interpreted as three significant figures.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🤔 TOK – a clockwork universe?</h3>
+  <p><em>What kinds of explanations do natural scientists offer?</em></p>
+  <p>Everything is made of particles, and it has been suggested that if we could know everything about the present state of all the particles in a system — their positions, energies, movements and so on — then maybe we could use the laws of classical physics to predict what will happen to them in the future. The Universe would then behave like a mechanical clock. If these ideas could be expanded to include everything, the future of the Universe would already be decided and predetermined, and the many apparently unpredictable events of everyday life and human behaviour, like you reading these words at this moment, would just be the laws of physics in disguise.</p>
+  <p>However, we now know that the laws of physics as imagined by humans are not always so precisely defined, nor as fully understood, as physicists of earlier years may have believed. The principles of quantum physics and relativity in particular contrast with the laws of classical physics. Furthermore, in a practical sense, it is totally inconceivable that we could ever know enough about the present state of everything in the Universe in order to use that data to make detailed future predictions.</p>
+  <div class="lc-info">🔗 <strong>Linking question:</strong> in which way is conservation of momentum relevant to the workings of a nuclear power station? <em>(This question links to understandings in Topic E.4.)</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Momentum is conserved only in elastic collisions</td><td>Momentum is conserved in <em>every</em> collision and explosion with no resultant external force. It is kinetic energy that distinguishes elastic from inelastic</td></tr>
+      <tr><td>Kinetic energy is conserved in a collision</td><td>Only in an elastic collision. Elastic collisions are a theoretical ideal for macroscopic objects and never happen perfectly; they are common for microscopic particles</td></tr>
+      <tr><td>"Totally inelastic" means everything stops</td><td>It means the objects stick together and move off as one mass. Their common velocity is only zero if the total momentum was zero</td></tr>
+      <tr><td>Momentum is destroyed when a ball thrown upwards slows down</td><td>The Earth is part of the system. The momentum lost by the ball is gained by the Earth; because the Earth's mass is enormous, its change of velocity is unobservable</td></tr>
+      <tr><td>\(F = ma\) works for a rocket</td><td>The rocket's mass changes as it burns fuel, so use \(F = \Delta p/\Delta t\), giving thrust \(= (\Delta m/\Delta t)v\)</td></tr>
+      <tr><td>Crumple zones "absorb the force"</td><td>They increase the collision time \(\Delta t\); for the same \(\Delta p\) the average force is therefore smaller</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: not setting a sign convention before writing the momentum equation, then adding two oppositely directed momenta as if both were positive. Write "taking velocity to the right as positive" as the first line of every collision answer.</div>
+</div>
+
+<div class="lc-kp">
+  <span>p = mv</span>
+  <span>F = Δp/Δt</span>
+  <span>J = FΔt = Δp</span>
+  <span>Σmu = Σmv</span>
+  <span>Ek = ½mv²</span>
+  <span>elastic: ΣEk constant</span>
+  <span>totally inelastic: objects stick</span>
+  <span>area under F–t = impulse</span>
+  <span>thrust = (Δm/Δt)v</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Two objects collide on a friction-free track and stick together. Which quantity is definitely the same before and after the collision?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> Total kinetic energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> The speed of each object</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> Total momentum</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Both total momentum and total kinetic energy</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A 4.1 kg object moving at 1.9 m s⁻¹ has a totally inelastic collision with a stationary 5.6 kg object. Their common velocity immediately after the collision is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 0.35 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 0.80 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 1.4 m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 1.9 m s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. The area under a force–time graph for an impact is equal to</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> the work done on the object</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> the average force</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> the change of momentum of the object</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> the kinetic energy gained by the object</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A rocket ejects exhaust gases at a rate of \(1.5 \times 10^{4}\) kg s⁻¹ at \(2.3 \times 10^{3}\) m s⁻¹ relative to the rocket. The forward force on the rocket is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','D')"><span class="lc-opt-l">A</span> \(6.5\) N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','D')"><span class="lc-opt-l">B</span> \(3.5 \times 10^{3}\) N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','D')"><span class="lc-opt-l">C</span> \(1.7 \times 10^{7}\) N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','D')"><span class="lc-opt-l">D</span> \(3.5 \times 10^{7}\) N</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Two identical trolleys are pushed apart by a released spring. The mass on one side is then doubled and the experiment repeated. The ratio of the speeds of the lighter to the heavier trolley is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> 1 : 1</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> 2 : 1</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> 1 : 2</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> 4 : 1</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. Which statement about \(F = ma\) and \(F = \Delta p / \Delta t\) is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','C')"><span class="lc-opt-l">A</span> They are never equivalent</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','C')"><span class="lc-opt-l">B</span> \(F = ma\) is the more general form</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','C')"><span class="lc-opt-l">C</span> \(F = \Delta p/\Delta t\) also applies when the mass is changing</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','C')"><span class="lc-opt-l">D</span> \(F = \Delta p/\Delta t\) applies only to elastic collisions</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Linear momentum is defined as mass × <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:130px">, with SI unit kg m s⁻¹, and it is a <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> quantity. Total momentum is constant provided there is no resultant <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:130px"> force. A collision in which total kinetic energy is unchanged is called <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">; if the objects stick together the collision is totally <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:130px">. Impulse is the product of force and <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:100px">, measured in N s, and it is numerically equal to the change of <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:140px">. The area under a force–time graph gives the <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:120px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q54.</strong> An object of mass 4.1 kg travelling to the right with a velocity of 1.9 m s⁻¹ has a totally inelastic collision with a stationary object of mass 5.6 kg. Determine how they move immediately after the collision. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Totally inelastic, so the objects move off together with combined mass 9.7 kg.<br>✓ \(4.1 \times 1.9 = 9.7v\)<br>✓ \(v = 0.80\ \text{m s}^{-1}\) to the right (in the original direction of the 4.1 kg object).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q55.</strong> A bus of mass 4900 kg travelling at 22 m s⁻¹ collides with the back of a 1300 kg car travelling at 16 m s⁻¹. If the car is pushed forward with a velocity of 20 m s⁻¹, calculate the velocity of the bus immediately after the collision. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Momentum before \(= (4900 \times 22) + (1300 \times 16)\)<br>\(= 128\,600\ \text{kg m s}^{-1}\)<br>✓ \(128\,600 = 4900v + (1300 \times 20)\)<br>✓ \(v = 21\ \text{m s}^{-1}\) in the original direction.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q56.</strong> In an experiment to find the speed of a 2.40 g bullet, it was fired into a 650 g block of wood at rest on a friction-free surface. If the block (and bullet) moved off with an initial speed of 96.0 cm s⁻¹, calculate the speed of the bullet. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Totally inelastic: the bullet embeds in the block, so the moving mass afterwards is \(0.65240\) kg.<br>✓ \(0.00240v = 0.65240 \times 0.960\)<br>✓ \(v = 261\ \text{m s}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q57.</strong> A ball thrown vertically upwards decelerates and its momentum decreases, although the law of conservation of momentum states that total momentum cannot change. Explain this observation. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The ball on its own is not an isolated system: gravity, a resultant external force from the Earth, acts on it, so its momentum can change.<br>✓ If the system is taken as ball + Earth, momentum <em>is</em> conserved: the momentum lost by the ball is gained by the Earth in the opposite direction.<br>✓ The Earth's mass is so enormous that its change of velocity is far too small to observe.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that / Predict</div>
+  <div class="lc-exam-q"><strong>Q58.</strong> Figure 11 shows two trolleys of mass 1600 g and 400 g on a friction-free surface, joined together by a thin rubber cord under tension, positioned at the 0 cm and 100 cm marks. When the trolleys are released they accelerate towards each other and the cord quickly becomes loose. <strong>(a)</strong> Show that the two trolleys collide at the 20 cm mark. <strong>(b)</strong> Predict what happens after they collide if they stick together. <span class="lc-exam-marks">[5 marks]</span></div>
+  <div class="lc-img" style="margin-top:0.75rem">
+    <img src="../../assets/lesson-images/a3-05-elastic-and-inelastic-collisions-11.png" alt="Two trolleys of 1600 g and 400 g on a friction-free surface joined by a thin rubber cord, on a scale from 0 to 100 cm">
+    <div class="lc-cap">Fig 11 — Two trolleys on a friction-free surface joined together by a thin rubber cord.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The total momentum starts at zero, so the cord gives the trolleys equal and opposite momenta: \(1600v_1 = 400v_2\), so \(v_2 = 4v_1\).<br>✓ Both travel for the same time, so the distances are also in the ratio 1 : 4.<br>✓ \(d + 4d = 100\ \text{cm}\), so \(d = 20\) cm: the 1600 g trolley moves 20 cm from the 0 mark and they meet at the 20 cm mark.<br>✓ (b) The total momentum is zero before the collision, so it must be zero afterwards.<br>✓ Stuck together, the combined 2000 g mass is therefore stationary — all the kinetic energy gained from the cord is transferred to the surroundings.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Predict</div>
+  <div class="lc-exam-q"><strong>Q59.</strong> Two toy cars travel in straight lines towards each other on a friction-free track. Car A has a mass of 432 g and a speed of 83.2 cm s⁻¹. Car B has a mass of 287 g and a speed of 68.2 cm s⁻¹. If they stick together after impact, predict their combined velocity. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Taking A's direction as positive: \(p = (0.432 \times 0.832) - (0.287 \times 0.682)\)<br>\(= 0.359 - 0.196 = 0.164\ \text{kg m s}^{-1}\)<br>✓ Combined mass \(= 0.719\) kg, so \(0.164 = 0.719v\)<br>✓ \(v = 0.228\ \text{m s}^{-1}\) (22.8 cm s⁻¹) in car A's original direction.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Predict / Discuss</div>
+  <div class="lc-exam-q"><strong>Q60.</strong> A steel ball of mass 1.2 kg moving at 2.7 m s⁻¹ collides head-on with another steel ball of mass 0.54 kg moving in the opposite direction at 3.9 m s⁻¹. The balls bounce off each other, each returning back in the direction it came from on a horizontal surface. <strong>(a)</strong> If the smaller ball had a speed after the collision of 6.0 m s⁻¹, use the law of conservation of momentum to predict the speed of the larger ball. <strong>(b)</strong> In fact, the situation described in part (a) is not possible. Discuss possible explanations of why not. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Taking the 1.2 kg ball's initial direction as positive: \(p = (1.2 \times 2.7) - (0.54 \times 3.9)\)<br>\(= 3.24 - 2.11 = 1.13\ \text{kg m s}^{-1}\)<br>✓ After: the 0.54 kg ball rebounds in the positive direction: \(1.13 = 1.2v + (0.54 \times 6.0)\)<br>✓ \(v = -1.8\ \text{m s}^{-1}\), i.e. 1.8 m s⁻¹, reversed.<br>✓ (b) Check the kinetic energy. Before: \(\tfrac12(1.2)(2.7)^2 + \tfrac12(0.54)(3.9)^2 = 8.5\) J.<br>✓ After: \(\tfrac12(1.2)(1.8)^2 + \tfrac12(0.54)(6.0)^2 = 11.6\) J.<br>✓ The kinetic energy would have <em>increased</em>, which is impossible in a collision with no energy input — so the quoted final speed of 6.0 m s⁻¹ must be too large (a measurement or data error).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain (ATL A2C: thinking skills)</div>
+  <div class="lc-exam-q"><strong>Q61.</strong> A student investigated the momentum of colliding trolleys on a horizontal runway. A trolley of mass 2.0 kg and speed 80 cm s⁻¹ collided with a trolley of mass 1.0 kg and speed 220 cm s⁻¹ travelling in the opposite direction. After the collision, both trolleys reversed their directions and the student measured the speeds of both trolleys to be 60 cm s⁻¹. Explain why the student must have made a mistake. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Momentum before \(= (2.0 \times 0.80) - (1.0 \times 2.20) = -0.60\ \text{kg m s}^{-1}\); after \(= (2.0 \times -0.60) + (1.0 \times 0.60) = -0.60\ \text{kg m s}^{-1}\), so the momentum check alone does not expose the error.<br>✓ Kinetic energy before \(= \tfrac12(2.0)(0.80)^2 + \tfrac12(1.0)(2.20)^2 = 3.1\) J.<br>✓ Kinetic energy after \(= \tfrac12(2.0)(0.60)^2 + \tfrac12(1.0)(0.60)^2 = 0.54\) J — a loss of about 82%.<br>✓ Steel-wheeled trolleys that rebound briskly off each other lose only a small fraction of their kinetic energy; losing 82% while both trolleys bounce back at an appreciable speed is not credible, so at least one measured speed must be wrong.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q62.</strong> In an explosion experiment like the first drawing of Fig 7, after being released one trolley with a mass of 980 g recoiled with a velocity of 0.27 m s⁻¹. What was the speed of the other trolley, which had a mass of 645 g? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Total momentum starts at zero, so the momenta are equal and opposite: \(0.980 \times 0.27 = 0.645v\)<br>✓ \(v = 0.41\ \text{m s}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Outline / Predict / Suggest</div>
+  <div class="lc-exam-q"><strong>Q63.</strong> An isolated and 'stationary' astronaut of mass 65 kg accidentally pushes a 2.3 kg hammer away from her body with a speed of 80 cm s⁻¹. <strong>(a)</strong> Outline a reason why the word 'stationary' has been put in quotation marks. <strong>(b)</strong> Predict what happened to the astronaut. <strong>(c)</strong> Suggest how she can stop moving. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) All velocity is relative — there is no absolute rest. She is only stationary with respect to a chosen reference frame, such as her spacecraft; relative to the Earth or the Sun she is moving very fast.<br>✓ (b) Total momentum stays zero: \(65v = 2.3 \times 0.80\)<br>✓ \(v = 0.028\ \text{m s}^{-1}\) (2.8 cm s⁻¹) in the opposite direction to the hammer.<br>✓ (c) She must gain an equal and opposite momentum — throw another object of the same momentum in the direction she is now drifting,<br>✓ or catch a returning object / use a gas thruster, so that the total momentum change cancels her drift.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q64.</strong> Cannons have been used extensively in wars for hundreds of years. A large cannon from 200 years ago could fire a 25 kg cannon ball with a speed of over 150 km h⁻¹ (42 m s⁻¹). The recoil momentum of these cannons could be dangerous, although the recoil speed was limited by the very large mass of the cannon. If the speed of recoil was 0.30 m s⁻¹, calculate the mass of the cannon. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Momentum before firing is zero, so the momenta are equal and opposite: \(m \times 0.30 = 25 \times 42\)<br>✓ \(m = 1050 / 0.30\)<br>✓ \(m = 3500\ \text{kg}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe</div>
+  <div class="lc-exam-q"><strong>Q65.</strong> A heavy ball is thrown from one end of a canoe to the other. Describe what will happen to the canoe (and the passenger) when <strong>(a)</strong> the ball is being thrown, <strong>(b)</strong> the ball is in the air, <strong>(c)</strong> the ball lands back in the canoe. Assume that the water does not resist any possible movement of the canoe. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The total momentum is zero, so as the ball gains momentum one way the canoe and passenger gain equal momentum the other way: the canoe starts moving in the direction opposite to the throw.<br>✓ (b) With no resistance from the water, the canoe continues to move at that constant velocity while the ball travels through the air.<br>✓ (c) When the ball lands and stops relative to the canoe, its momentum is transferred back, cancelling the canoe's momentum: the canoe stops.<br>✓ The canoe has been displaced from its original position, but its final velocity is zero — a system cannot propel itself by internal forces alone.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine (HL)</div>
+  <div class="lc-exam-q"><strong>Q66.</strong> Masses of 200 g and 500 g are travelling directly towards each other with speeds of 1.2 m s⁻¹ and 0.30 m s⁻¹ respectively. After they collide, the speed of the 200 g mass reduces to 0.10 m s⁻¹ as it continues in a direction at 30° to its original motion. Determine what happened to the other mass. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Take \(x\) along the original line of motion of the 200 g mass. Before: \(p_x = (0.200 \times 1.2) - (0.500 \times 0.30)\)<br>\(= 0.090\ \text{kg m s}^{-1}\), \(p_y = 0\).<br>✓ After, for the 200 g mass: \(p_x = 0.200 \times 0.10 \times \cos 30^\circ = 0.0173\), \(p_y = 0.200 \times 0.10 \times \sin 30^\circ = 0.0100\).<br>✓ For the 500 g mass: \(p_x = 0.090 - 0.0173 = 0.0727\), so \(v_x = 0.145\ \text{m s}^{-1}\).<br>✓ \(p_y = -0.0100\), so \(v_y = -0.0200\ \text{m s}^{-1}\).<br>✓ Speed \(= \sqrt{0.145^2 + 0.0200^2} = 0.15\ \text{m s}^{-1}\) at about 8° to the original line, on the opposite side of it to the 200 g mass — so the 500 g mass has reversed its direction of travel.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that (HL)</div>
+  <div class="lc-exam-q"><strong>Q67.</strong> A mass of 1.0 kg moving at 2.0 m s⁻¹ explodes into three parts. One part, of mass 250 g, has a velocity of 8.5 m s⁻¹ in the original direction of motion. The second part has a mass of 450 g and moves with a velocity of 5.6 m s⁻¹ at an angle of 90° to the first part. Show that the third part has a speed of 8.4 m s⁻¹. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Third mass \(= 1.0 - 0.25 - 0.45 = 0.30\) kg. Total momentum before \(= 1.0 \times 2.0 = 2.0\ \text{kg m s}^{-1}\) along \(x\), with \(p_y = 0\).<br>✓ \(x\): \(0.25 \times 8.5 = 2.125\ \text{kg m s}^{-1}\); \(y\): \(0.45 \times 5.6 = 2.52\ \text{kg m s}^{-1}\).<br>✓ Third part: \(p_x = 2.0 - 2.125 = -0.125\), \(p_y = -2.52\ \text{kg m s}^{-1}\).<br>✓ \(p = \sqrt{0.125^2 + 2.52^2} = 2.52\ \text{kg m s}^{-1}\)<br>✓ \(v = 2.52 / 0.30 = 8.4\ \text{m s}^{-1}\), as required.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Explain (HL)</div>
+  <div class="lc-exam-q"><strong>Q68.</strong> A rocket's mass at lift-off was \(2.7 \times 10^{6}\) kg. Gases were ejected at a rate of \(1.9 \times 10^{4}\) kg s⁻¹ with a speed of \(2.0 \times 10^{3}\) m s⁻¹. <strong>(a)</strong> Determine the initial acceleration of the rocket. <strong>(b)</strong> Explain why the acceleration will increase as the rocket rises, while the engines provide the same force. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Thrust \(= (\Delta m/\Delta t)v = (1.9\times10^{4})(2.0\times10^{3})\)<br>\(= 3.8 \times 10^{7}\ \text{N}\)<br>✓ Weight \(= 2.7\times10^{6} \times 9.8 = 2.6 \times 10^{7}\ \text{N}\), so the resultant force \(= 1.2 \times 10^{7}\ \text{N}\).<br>✓ \(a = 1.2\times10^{7} / 2.7\times10^{6} = 4.3\ \text{m s}^{-2}\).<br>✓ (b) The rocket's mass falls continuously as fuel is burned and ejected, so for the same thrust \(a = F/m\) increases.<br>✓ In addition, the weight decreases as \(g\) falls with altitude and air resistance decreases as the air thins, both increasing the resultant force.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q69.</strong> Explain, in terms of momentum, how a jet engine propels an aircraft forward, and state one way in which a rocket engine differs from it. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The engine takes in surrounding air and uses it to burn vaporised fuel.<br>✓ The hot exhaust gases are ejected at the back of the engine with considerable momentum, much greater than the momentum of the air input.<br>✓ The difference in momentum is equal and opposite to the forward momentum given to the aircraft (Newton's third law / conservation of momentum).<br>✓ A rocket engine has no air intake: it carries an oxidant on the vehicle together with the fuel, so it works where there is little or no air.</div>
+</div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+(function(){
+  let lcScore = 0;
+  const lcAnswered = {};
+  const lcFeedback = {
+    mcq1: { C: 'Momentum is conserved in every collision without a resultant external force. Sticking together means kinetic energy is not conserved, so D is wrong.' },
+    mcq2: { B: 'Totally inelastic, so 4.1 x 1.9 = 9.7v, giving v = 0.80 m s-1 in the original direction.' },
+    mcq3: { C: 'Area under a force-time graph = F x t = impulse = change of momentum, whatever the shape of the graph.' },
+    mcq4: { D: 'F = (dm/dt)v = (1.5e4)(2.3e3) = 3.5 x 10^7 N. This needs F = dp/dt because the mass changes.' },
+    mcq5: { B: 'Momenta are equal and opposite, so mv is the same for both: halving the mass doubles the speed. The lighter trolley moves twice as fast.' },
+    mcq6: { C: 'F = dp/dt is the more general form; F = ma assumes constant mass. Both are Newton\'s second law.' }
+  };
+
+  window.lcMCQ = function(id, el, chosen, correct) {
+    if (lcAnswered[id]) return;
+    lcAnswered[id] = true;
+    const block = document.getElementById(id);
+    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
+    const fb = document.getElementById(id+'-fb');
+    if (chosen === correct) {
+      el.classList.add('correct');
+      fb.textContent = '✓ ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show correct';
+      lcScore += 2;
+    } else {
+      el.classList.add('wrong');
+      block.querySelectorAll('.lc-opt').forEach(o => {
+        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
+      });
+      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
+      fb.className = 'lc-fb show wrong';
+    }
+    document.getElementById('lc-score-display').textContent = lcScore;
+  };
+
+  window.lcFITB = function() {
+    const ans = { lf1:'velocity', lf2:'vector', lf3:'external', lf4:'elastic', lf5:'inelastic', lf6:'time', lf7:'momentum', lf8:'impulse' };
+    let correct = 0, total = Object.keys(ans).length;
+    Object.keys(ans).forEach(id => {
+      const el = document.getElementById(id);
+      const val = el.value.trim().toLowerCase();
+      const ok = val === ans[id] || (val.length > 2 && val.includes(ans[id]));
+      el.classList.toggle('correct', ok);
+      el.classList.toggle('wrong', !ok);
+      if (ok) correct++;
+    });
+    const res = document.getElementById('lc-fitb-result');
+    res.style.display = 'block';
+    if (correct === total) {
+      res.style.color = 'var(--green)';
+      res.textContent = '✓ All correct! (+2 pts)';
+      lcScore += 2;
+      document.getElementById('lc-score-display').textContent = lcScore;
+    } else {
+      res.style.color = 'var(--red)';
+      res.textContent = correct + '/' + total + ' correct. Answers: ' + Object.values(ans).join(' · ');
+    }
+  };
+
+  window.lcToggleModel = function(btn) {
+    const ma = btn.nextElementSibling;
+    ma.classList.toggle('show');
+    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
+  };
+})();
+</script>
+</div>
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="04-power-and-efficiency.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Power and Efficiency</div>
+          </div>
+        </a>
+        <a href="../A.4-Rigid-Body-Mechanics/index.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Rigid Body Mechanics</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
