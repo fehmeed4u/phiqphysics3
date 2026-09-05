@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galilean Relativity — A.5 Galilean and Special Relativity — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A5">A.5 Galilean and Special Relativity</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Galilean Relativity</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.5
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 2 of 7
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Galilean Relativity</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.5 Galilean and Special Relativity</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.5 overview
+      </a>
+      <div class="sidebar-title">A.5 Concepts</div>
+      <a href="01-frames-of-reference.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Frames of Reference</span>
+        </a>
+      <a href="02-galilean-relativity.html" class="sidebar-link active">
+          <span class="sidebar-num">02</span>
+          <span>Galilean Relativity</span>
+        </a>
+      <a href="03-einstein-s-postulates.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Einstein's Postulates</span>
+        </a>
+      <a href="04-time-dilation.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Time Dilation</span>
+        </a>
+      <a href="05-length-contraction.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Length Contraction</span>
+        </a>
+      <a href="06-mass-energy-equivalence.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
+          <span>Mass-Energy Equivalence</span>
+        </a>
+      <a href="07-spacetime-diagrams.html" class="sidebar-link">
+          <span class="sidebar-num">07</span>
+          <span>Spacetime Diagrams</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 7 · A.5 Galilean and Special Relativity</div>
+<div class="lc-title">Galilean Relativity</div>
+<div class="lc-sub">Newton's laws of motion are the same in every inertial frame — this is Galilean relativity. It gives simple rules for converting position, time and velocity between two observers in relative motion, and it works perfectly well until speeds start to approach that of light.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the flash on the train</h3>
+  <p>Two observers start their clocks at the instant they pass each other: one standing on the ground, one sitting on a train moving at a constant <strong>20 m/s</strong>. Five seconds later, a flash of light occurs at a point on the train. The ground observer, using their own axes, measures the flash at <strong>x = 120 m, t = 5 s</strong>. But the train has moved <strong>5 × 20 = 100 m</strong> in that time, so the train observer — measuring from their own position — puts the same flash only <strong>20 m</strong> in front of them: <strong>x′ = 20 m, t′ = 5 s</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-02-galilean-relativity-01.png" alt="Diagram comparing the same flash-of-light event as measured in the ground observer's frame S and the train observer's frame S prime" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig A5.4 — the same single event, the same instant, two different position coordinates — because the two observers are measuring from two different reference frames.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — did the flash happen "in" the ground frame and then get observed on the train, or something else? <em>Neither — the flash is one event that occurs in every reference frame at once. It simply has different position coordinates in each frame. Nothing is transferred from one frame to another.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 What Galilean relativity says</h3>
+  <p><strong>Galilean relativity</strong> refers to relative motion as described and explained by Galileo, Newton and others — relativity as it was understood before special relativity, introduced by Einstein in 1905.</p>
+  <div class="lc-info">📖 <strong>Core principle:</strong> in Galilean relativity, Newton's laws of motion are the same in all (inertial) frames of reference.</div>
+  <p>Galilean relativity can be assumed to be a very good approximation to special relativity <strong>for speeds which are low compared to the speed of light</strong>. Every calculation in this lesson — and everything you have done with velocities before this topic — relies on that approximation holding.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-02-galilean-relativity-02.png" alt="Portrait of Galileo Galilei, 1564 to 1642" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig A5.5 — Galileo Galilei (1564–1642), whose description of relative motion predates Newton and Einstein.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔁 The Galilean transformation</h3>
+  <p>Whenever we move our point of view from one reference frame to another, we need to perform a <strong>transformation</strong> by applying standard equations — this becomes very important throughout relativity. Observations made within our own frame are straightforward; comparing them to measurements made in another frame moving relative to us is not, unless we transform correctly.</p>
+  <p>If, in reference frame S, the coordinates of an event are (x, t), then in reference frame S′ — which has relative velocity v compared to S — the coordinates (x′, t′) of the <em>same</em> event are:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Galilean transformation</span>
+    $$x' = x - vt$$
+    $$t' = t$$
+  </div>
+  <div class="lc-info">📌 This assumes the two reference frames are coincident when t = t′ = 0. <strong>Galilean transformation</strong> — the non-relativistic method of mathematically relating observations between reference frames.</div>
+</div>
+
+<div class="lc-card">
+  <h3>➕ Velocity addition</h3>
+  <p>In Galilean relativity, velocity addition is straightforward. If, in reference frame S, the velocity of an object is u, then in reference frame S′ — which has relative velocity v compared to S — the same motion is recorded as having velocity:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Velocity addition</span>
+    $$u' = u - v$$
+  </div>
+  <p>Returning to the train: suppose an object on the train (moving with velocity v) is itself moving forward at a constant speed. An observer on the ground (frame S) records this as velocity u. This will be greater than the velocity u′ recorded on the train (frame S′), since <strong>u′ = u − v</strong>.</p>
+  <div class="lc-warn">⚠️ Common mistake: it's easy to think an event primarily occurs in one reference frame and is then "observed" in another. Remember — any given event occurs in <em>all</em> reference frames at once; it just has different coordinates in each.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Position–time graphs in two frames</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Ground observer, frame S</td><td>Time t / s · Position x / m</td><td>Straight line through the origin</td><td>Gradient = velocity of the object as measured in S</td></tr>
+      <tr><td>Train observer, frame S′</td><td>Time t′ / s · Position x′ / m</td><td>Straight line through the origin, different gradient</td><td>Gradient = velocity of the same object as measured in S′ (= gradient in S, minus v)</td></tr>
+    </tbody>
+  </table>
+  <p>Because t′ = t, both graphs share the same horizontal axis — only the gradient (the velocity) changes between frames, by exactly v.</p>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example A5.2 – a ball rolling on a train</h3>
+  <p>A train moves with a constant velocity of 16.0 m/s. A ball rolls along the floor of the train, in the direction of travel, with a constant velocity of 3.0 m/s. <strong>a)</strong> Find the ball's velocity as recorded by an observer on the ground. <strong>b)</strong> How does this change if <strong>i)</strong> the ball rolls towards the back of the train at the same speed, or <strong>ii)</strong> the train moves in the opposite direction (ball still towards the front)?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> frame S′ is the train, frame S is the ground. The ball's velocity in S′ is u′ = 3.0 m/s; the train's velocity relative to the ground is v = 16.0 m/s. We need u, the ball's velocity in S.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> u′ = 3.0 m/s, v = 16.0 m/s (part a). For (b)(i), the ball instead rolls backward: u′ = −3.0 m/s. For (b)(ii), the train reverses direction: v = −16.0 m/s, ball still forward: u′ = 3.0 m/s.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> rearrange \(u' = u - v\) to give \(u = u' + v\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer — a)</strong> \(u = 3.0 + 16.0 = +19\ \text{m s}^{-1}\).<br><strong>b) i)</strong> \(u = -3.0 + 16.0 = +13\ \text{m s}^{-1}\).<br><strong>b) ii)</strong> \(u = 3.0 + (-16.0) = -13\ \text{m s}^{-1}\).</div></div>
+  <div class="lc-info">📌 If we swap which frame we call S and which S′, we get the same physical answers — as we should expect, since the physics cannot depend on our choice of labels.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: overtaking</h3>
+    <p>Every time you judge whether it's safe to overtake, you are doing a Galilean velocity addition in your head: your car's speed relative to the oncoming car is the sum of both cars' speeds relative to the road. Air traffic control, ship navigation and even simple projectile problems (a ball thrown from a moving vehicle) all rely on the same u′ = u − v relationship holding to good accuracy.</p>
+    <div class="lc-success">✓ Examiner tip: always state clearly which frame is S and which is S′ before substituting into u′ = u − v — sign errors here are the single biggest source of lost marks on relativity questions.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – where it breaks down</h3>
+    <p>Galilean relativity assumes time is <strong>absolute</strong> (t′ = t) and that velocities simply add. Neither survives once speeds approach the speed of light, c — measurements then show that the speed of light itself is the same in every frame, which u′ = u − v cannot produce. The next lesson replaces Newton's two postulates with Einstein's two postulates, which hold at any speed.</p>
+    <p><strong>Challenge:</strong> a spacecraft moving at 0.5c relative to Earth fires a probe forward at 0.5c relative to itself. What does Galilean relativity predict for the probe's speed relative to Earth, and why is this prediction known to be wrong? <em>Galilean relativity predicts u = 0.5c + 0.5c = c exactly; in reality, no material object can be accelerated to reach c, and the correct relativistic velocity-addition formula (met later in this topic) gives a value below c.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>An event happens "in" one frame and is then observed in the other</td><td>The event occurs in every reference frame simultaneously — each frame just assigns it different coordinates</td></tr>
+      <tr><td>It doesn't matter which object's frame you call S and which S′</td><td>It doesn't matter for the final physics, but v must be defined consistently as "the velocity of S′ relative to S" throughout one calculation</td></tr>
+      <tr><td>u′ = u − v and u = u′ − v are interchangeable</td><td>Only \(u = u' + v\) correctly reverses \(u' = u - v\); mixing the two signs gives the wrong answer</td></tr>
+      <tr><td>Galilean relativity is simply "correct" and special relativity is only needed in exotic physics</td><td>Galilean relativity is an approximation, valid only when speeds are small compared with c — it is special relativity that is exact</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: substituting into u′ = u − v with the wrong sign for v, especially when the two objects move in opposite directions. Draw the directions on a diagram before substituting.</div>
+</div>
+
+<div class="lc-kp">
+  <span>Newton's laws: same in all inertial frames</span>
+  <span>x′ = x − vt</span>
+  <span>t′ = t (time is absolute)</span>
+  <span>u′ = u − v</span>
+  <span>valid only for v ≪ c</span>
+  <span>an event occurs in every frame at once</span>
+  <span>frames coincide at t = t′ = 0</span>
+  <span>swapping S ↔ S′ gives the same physics</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. Galilean relativity is a good approximation to special relativity when</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> the two frames are not inertial</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> the relative velocity is close to the speed of light</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> speeds involved are low compared to the speed of light</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> only when the object is at rest</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. A cyclist moves at 5.0 m/s (frame S′, relative velocity v = 5.0 m/s) alongside a road. A car passes at u = 25.0 m/s in the ground frame S, same direction. What is the car's velocity relative to the cyclist, u′?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 30.0 m/s</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 20.0 m/s</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 5.0 m/s</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 25.0 m/s</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. In the Galilean transformation, t′ = t means</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> time is absolute — every observer, in every frame, agrees on the time of an event</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> the two frames must have zero relative velocity</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> clocks in frame S′ run at a different rate to clocks in S</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> only the ground frame has a valid clock</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. A ball rolls towards the back of a train moving forward at 16.0 m/s, at 3.0 m/s relative to the train. What is its velocity relative to the ground?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> +19 m/s</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> +13 m/s</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> −13 m/s</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> −19 m/s</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. If a light flash occurs on a moving train, which statement is correct?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','D')"><span class="lc-opt-l">A</span> The event happens only in the train's frame, then is "sent" to the ground frame</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','D')"><span class="lc-opt-l">B</span> The event happens only in the ground frame</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','D')"><span class="lc-opt-l">C</span> The event has no defined coordinates until it is observed</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','D')"><span class="lc-opt-l">D</span> The event occurs in both frames at once, each assigning it its own coordinates</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Newton's laws of motion are the same in all <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px"> reference frames — a principle called <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> relativity. Converting position between two frames uses \(x' = x - v\)<input class="lc-fitb-input" id="lf3" placeholder="?" style="width:60px">. In this theory, time is treated as <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px"> — the same in every frame. The velocity addition equation is \(u' = u -\) <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:60px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> State the Galilean transformation equations relating the coordinates (x, t) of an event in frame S to the coordinates (x′, t′) of the same event in frame S′, which moves with relative velocity v and coincides with S at t = t′ = 0. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(x' = x - vt\)<br>✓ \(t' = t\)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> A cyclist travels at a constant 8.0 m s⁻¹ along a straight road. A car travels in the same direction at a constant 22.0 m s⁻¹ and overtakes the cyclist. Calculate the velocity of the car relative to the cyclist. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Take the cyclist as frame S′, moving at v = 8.0 m s⁻¹ relative to the ground (frame S); car's ground velocity u = 22.0 m s⁻¹.<br>✓ \(u' = u - v = 22.0 - 8.0\)<br>✓ \(u' = 14.0\ \text{m s}^{-1}\), in the direction of travel.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> Explain why Galilean relativity cannot accurately describe the motion of a spacecraft travelling at 0.80c relative to Earth, and state the condition under which Galilean relativity remains a good approximation. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Galilean relativity assumes time is absolute and velocities simply add, both of which fail once speeds are a significant fraction of c.<br>✓ At 0.80c these relativistic effects are large, so predictions from x′ = x − vt and u′ = u − v are no longer accurate.<br>✓ Galilean relativity remains a good approximation only when speeds are low compared to the speed of light (v ≪ c).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Galilean relativity is an approximation to special relativity, valid only when speeds are low compared to c.' },
+    mcq2: { B: 'u\' = u - v = 25.0 - 5.0 = 20.0 m/s.' },
+    mcq3: { A: 'Newton\'s postulates treat time as absolute: every observer, in every frame, agrees on the time between two events.' },
+    mcq4: { B: 'The ball moves backward relative to the train, so u\' = -3.0 m/s; u = u\' + v = -3.0 + 16.0 = +13 m/s.' },
+    mcq5: { D: 'An event occurs in every reference frame at once; each frame simply assigns its own coordinates to it — nothing is "sent" between frames.' }
+  },
+  fitb: { lf1:'inertial', lf2:'Galilean', lf3:'t', lf4:'absolute', lf5:'v' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="01-frames-of-reference.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Frames of Reference</div>
+          </div>
+        </a>
+        <a href="03-einstein-s-postulates.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Einstein's Postulates</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
