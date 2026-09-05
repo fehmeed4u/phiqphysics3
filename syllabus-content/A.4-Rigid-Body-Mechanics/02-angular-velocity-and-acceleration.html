@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular Velocity and Acceleration — A.4 Rigid Body Mechanics — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A4">A.4 Rigid Body Mechanics</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Angular Velocity and Acceleration</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.4
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 2 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Angular Velocity and Acceleration</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.4 Rigid Body Mechanics</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.4 overview
+      </a>
+      <div class="sidebar-title">A.4 Concepts</div>
+      <a href="01-torque-and-moment-of-force.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Torque and Moment of Force</span>
+        </a>
+      <a href="02-angular-velocity-and-acceleration.html" class="sidebar-link active">
+          <span class="sidebar-num">02</span>
+          <span>Angular Velocity and Acceleration</span>
+        </a>
+      <a href="03-moment-of-inertia.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Moment of Inertia</span>
+        </a>
+      <a href="04-rotational-kinetic-energy.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Rotational Kinetic Energy</span>
+        </a>
+      <a href="05-angular-momentum.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Angular Momentum</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 5 · A.4 Rigid Body Mechanics</div>
+<div class="lc-title">Angular Velocity and Acceleration</div>
+<div class="lc-sub">Every point on a spinning wheel shares the same angular velocity — but a point near the rim moves much faster than one near the axle. This lesson gives you the vocabulary and equations to describe rotation the way you already describe straight-line motion.</div>
+
+<div class="lc-card">
+  <h3>🎡 Hook – one ride, two very different speeds</h3>
+  <p>Picture a carriage on a big rotating fairground ride, one passenger sitting near the centre and another near the outer rim. Both complete a full circle in exactly the same time, sweeping through the same angle every second. <strong>They have identical angular velocity.</strong> But the passenger at the rim is covering far more distance per second than the one near the centre — their linear speed is much greater.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-02-angular-velocity-and-acceleration-01.png" alt="A rotating fairground ride carriage with one rider near the centre and one near the outer rim, both sweeping the same angle in the same time">
+    <div class="lc-cap">Fig 1 — Both riders sweep the same angle every second (same ω), but the outer rider covers a much longer arc in that time (greater v).</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — the outer rider is twice as far from the axis as the inner rider. Compare their angular velocities and their linear speeds. <em>Angular velocity is identical for both — every point on a rigid rotating body turns through the same angle in the same time. Linear speed obeys \(v=\omega r\), so the outer rider, at twice the radius, moves at twice the linear speed.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Angular displacement</h3>
+  <p><strong>Angular displacement</strong>, \(\theta\), is the total angle through which a rigid body has rotated from a fixed reference position. It is measured in radians (or degrees). A point P a distance \(r\) from the axis of rotation, having travelled an arc length \(s\) along the circumference, has an angular displacement:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Angular displacement</span>
+    $$\theta = \frac{s}{r}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-02-angular-velocity-and-acceleration-02.png" alt="Diagram of a rigid rotating body showing the axis of rotation, radius r, arc length s, angle theta, point P and its linear speed v">
+    <div class="lc-cap">Fig 2 — Point P is a distance r from the axis and has travelled an arc length s; θ = s/r.</div>
+  </div>
+  <div class="lc-info">🔧 <strong>Tool 1 – Experimental techniques (measuring angle).</strong> Describe how you would measure the total angular displacement (in radians) through which a car jack handle would need to be rotated in order to raise the side of the car exactly 5.0 cm. Estimate the percentage uncertainty in your measurement. <em>Measure the handle's radius of rotation r and, using the jack's thread pitch or a marked scale, find the arc length s the handle tip travels for a 5.0 cm rise; then θ = s/r. Uncertainty comes mainly from reading r and s with a ruler — a small absolute reading error becomes a larger percentage error the smaller the measured quantity is.</em></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-02-angular-velocity-and-acceleration-03.png" alt="A car jack being rotated by its handle to raise a car" style="max-width:260px;margin:0 auto">
+    <div class="lc-cap">Fig 3 — A car jack. Rotating the handle by some angular displacement raises the car by a corresponding linear distance.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🌀 Angular velocity</h3>
+  <p><strong>Angular velocity</strong>, \(\omega\), is defined as the change of angular displacement divided by the time taken. It is a vector quantity, but its direction will not be important here, so angular speed and angular velocity can be treated as equivalent.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Angular velocity · SI unit rad s⁻¹</span>
+    $$\omega = \frac{\Delta\theta}{\Delta t}$$
+  </div>
+  <p>Angular velocities are often quoted in rotations per minute (rpm): <strong>1 rpm is equal to 0.10 rad s⁻¹</strong> (to 2 significant figures).</p>
+  <p>For a body rotating with constant angular speed and period \(T\):</p>
+  <div class="lc-formula">
+    $$\omega = \frac{2\pi}{T}$$
+    $$v = \frac{2\pi r}{T}$$
+  </div>
+  <p>Combining these gives the key link between angular and linear speed:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Linear speed of a point at radius r</span>
+    $$v = \omega r$$
+  </div>
+  <p><strong>All points on a rigid rotating object have the same angular velocity</strong>, but their linear speeds are greater the further they are from the axis of rotation.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-02-angular-velocity-and-acceleration-04.png" alt="A car's tachometer dial displaying engine speed in rpm divided by 1000">
+    <div class="lc-cap">Fig 4 — A car's tachometer displays engine rpm ÷ 1000. Converting to rad s⁻¹ needs the 1 rpm ≈ 0.10 rad s⁻¹ relationship.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ Angular acceleration</h3>
+  <p><strong>Angular acceleration</strong>, \(\alpha\), is defined as the rate of change of angular velocity with time:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Angular acceleration · SI unit rad s⁻²</span>
+    $$\alpha = \frac{\Delta\omega}{\Delta t}$$
+  </div>
+  <p>There is a simple relationship between angular acceleration and the linear acceleration of a point a distance \(r\) from the axis of rotation. Since \(\Delta\omega = \Delta v / r\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Relating angular and linear acceleration</span>
+    $$\alpha = \frac{a}{r}$$
+  </div>
+  <p>For example, a motorcyclist accelerating linearly at \(a=5.3\ \text{m s}^{-2}\) is also the rate at which the edge of the tyre is accelerating. If the wheel and tyre have an outer radius of 34 cm, the angular acceleration of the wheel is \(\alpha = a/r = 5.3/0.34 = 16\ \text{rad s}^{-2}\).</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-02-angular-velocity-and-acceleration-05.png" alt="Diagram comparing the linear acceleration a of a point on a wheel's rim with the wheel's angular acceleration alpha, related by alpha equals a over r">
+    <div class="lc-cap">Fig 5 — Comparing linear and angular acceleration: α = a/r.</div>
+  </div>
+  <div class="lc-warn">⚠️ <strong>Common mistake</strong> — do not confuse angular acceleration with centripetal acceleration. Angular acceleration, \(\alpha=\Delta\omega/\Delta t\), describes how fast the rotation rate itself is changing. Centripetal acceleration, \(v^2/r\), keeps a point moving in a circle and exists even when \(\omega\) is constant.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🧮 Equations of motion for uniform angular acceleration</h3>
+  <p>By direct analogy with linear motion, we can write down equations for uniform angular acceleration. \(\omega_{\text{i}}\) is the initial angular velocity at the start of time \(t\); \(\omega_{\text{f}}\) is the final angular velocity at the end of that time.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Analogous to s = ut + ½at² and friends</span>
+    $$\Delta\theta = \frac{(\omega_{\text{f}}+\omega_{\text{i}})}{2}t$$
+    $$\omega_{\text{f}} = \omega_{\text{i}} + \alpha t$$
+    $$\Delta\theta = \omega_{\text{i}}t + \tfrac{1}{2}\alpha t^2$$
+    $$\omega_{\text{f}}^2 = \omega_{\text{i}}^2 + 2\alpha\Delta\theta$$
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs of rotational motion</h3>
+  <p>Graphs for rotational motion are interpreted in exactly the same way as graphs for linear motion.</p>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Angular displacement–time</td><td>Time, t · Angular displacement, θ</td><td>Straight line for constant ω; curved if accelerating</td><td>Gradient at any point = angular velocity, ω, at that time</td></tr>
+      <tr><td>Angular velocity–time</td><td>Time, t · Angular velocity, ω</td><td>Straight line for constant angular acceleration</td><td>Gradient = angular acceleration, α; area under the graph in time Δt = angular displacement in that time</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a4-02-angular-velocity-and-acceleration-06.png" alt="Angular displacement against time graph with the gradient at a point labelled as the angular velocity at that time"><div class="lc-cap">Fig 6 — θ–t graph: the gradient at any instant is the angular velocity, ω, at that instant.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a4-02-angular-velocity-and-acceleration-07.png" alt="Angular velocity against time graph with the gradient labelled as angular acceleration and the shaded area under the curve labelled as angular displacement"><div class="lc-cap">Fig 7 — ω–t graph: the gradient is the angular acceleration, α; the shaded area is the angular displacement, Δθ, over that time interval.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – a fairground ride (A4.3)</h3>
+  <p>In a fairground ride which is moving with a constant linear speed, the passengers complete one rotation in 3.9 s. <strong>(a)</strong> Calculate their angular velocity. <strong>(b)</strong> What is their total angular displacement after one minute? <strong>(c)</strong> Determine the angle between their current position and their starting position.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> uniform circular motion, so \(\omega = \Delta\theta/\Delta t = 2\pi/T\), with period \(T=3.9\) s.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(T = 3.9\) s. One rotation \(= 360^\circ = 2\pi\) rad.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong> \(\omega = \dfrac{360}{3.9}\)<br>or \(\omega = \dfrac{2\pi}{3.9}\)<br><strong>(b)</strong> in 60 s they complete \(60/3.9=15.38\) rotations.<br><strong>(c)</strong> that is 15 whole rotations plus 0.38 of a rotation.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer (a):</strong> \(\omega = 92^\circ\text{s}^{-1}\) or \(1.6\ \text{rad s}^{-1}\).<br><strong>(b)</strong> total angle moved through \(= 15.38 \times 2\pi = 97\) rad \((5.5\times10^{3\circ})\).<br><strong>(c)</strong> displacement \(= 0.38 \times 2\pi = 2.4\) radians \((1.4\times10^{2\circ})\) from the starting position.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – a motor speeding up (A4.4)</h3>
+  <p>A motor spinning at 24 rotations per second accelerates uniformly to 33 rotations per second in 6.7 s. Calculate its angular acceleration.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> convert both speeds to rad s⁻¹ first (1 rotation = \(2\pi\) rad), then use \(\alpha = \Delta\omega/\Delta t\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> initial angular velocity \(= 24 \times 2\pi = 151\ \text{rad s}^{-1}\).<br>Final angular velocity \(= 33 \times 2\pi = 207\ \text{rad s}^{-1}\).<br>\(\Delta t = 6.7\) s.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\alpha = \dfrac{207-151}{6.7}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\alpha = 8.4\ \text{rad s}^{-2}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 3 – accelerate, then decelerate to rest (A4.5)</h3>
+  <p>An object which is rotating with an angular velocity of 54 rad s⁻¹ accelerates uniformly for 3.2 s and reaches an angular velocity of 97 rad s⁻¹. <strong>(a)</strong> Calculate its angular acceleration. <strong>(b)</strong> What was its angular displacement during the acceleration? <strong>(c)</strong> It then decelerated to rest during an angular displacement of 156 rad. Determine the angular deceleration.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> (a),(b) use the equations of motion with \(\omega_{\text{i}}=54\), \(\omega_{\text{f}}=97\ \text{rad s}^{-1}\), \(t=3.2\) s. (c) use \(\omega_{\text{f}}^2=\omega_{\text{i}}^2+2\alpha\Delta\theta\) with \(\omega_{\text{f}}=0\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\omega_{\text{i}}=54\ \text{rad s}^{-1}\), \(\omega_{\text{f}}=97\ \text{rad s}^{-1}\), \(t=3.2\) s; then \(\omega_{\text{i}}=97\ \text{rad s}^{-1}\), \(\omega_{\text{f}}=0\), \(\Delta\theta=156\) rad.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong> \(97 = 54 + 3.2\alpha\)<br><strong>(b)</strong> \(\Delta\theta = \dfrac{(97+54)}{2}\times3.2\)<br><strong>(c)</strong> \(0^2 = 97^2 + 2\alpha(156)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(\alpha = \dfrac{(97-54)}{3.2} = 13\ \text{rad s}^{-2}\).<br>(b) \(\Delta\theta = 2.4\times10^3\) rad.<br>(c) \(\alpha = -\dfrac{9409}{312} = -30\ \text{rad s}^{-2}\).</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: why turbine blade tips have a speed limit</h3>
+    <p>A large wind turbine has blades 80 m long but is limited to a maximum rotational speed of around 15 rpm. Every point on the blade shares the same angular velocity, but linear speed \(v=\omega r\) grows with distance from the axis — so the blade tip, at the full 80 m radius, moves far faster than a point near the hub. Limiting \(\omega\) keeps the tip speed within safe mechanical, noise and aerodynamic limits even though the hub itself is barely straining.</p>
+    <div class="lc-success">✓ Examiner tip: if a question asks you to compare speeds at different radii on the same rotating object, angular velocity is always identical — only \(v=\omega r\) changes. Never assume a "faster spinning" part means a larger ω unless it is genuinely a separate rotating body.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – one set of laws, two forms</h3>
+    <p>How are the laws of conservation and equations of motion in the context of rotational motion analogous to those governing rectilinear motion? Every linear quantity has a rotational partner: displacement \(s\) ↔ \(\theta\), velocity \(v\) ↔ \(\omega\), acceleration \(a\) ↔ \(\alpha\), and the four equations of motion carry over term for term.</p>
+    <p><strong>Challenge:</strong> if \(v=u+at\) becomes \(\omega_{\text{f}}=\omega_{\text{i}}+\alpha t\), what should \(v^2=u^2+2as\) become — and does it hold dimensionally? <em>(Answer: \(\omega_{\text{f}}^2=\omega_{\text{i}}^2+2\alpha\Delta\theta\); both sides have units of rad² s⁻², so the analogy is dimensionally consistent — later topics extend the same pairing to momentum and energy.)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>All points on a spinning object move at the same speed</td><td>They share the same angular velocity, ω, but linear speed \(v=\omega r\) depends on distance from the axis</td></tr>
+      <tr><td>Angular acceleration and centripetal acceleration are the same thing</td><td>Angular acceleration is how fast ω is changing; centripetal acceleration, \(v^2/r\), acts even at constant ω</td></tr>
+      <tr><td>rpm can be substituted straight into the equations of motion</td><td>Convert to rad s⁻¹ first (1 rpm ≈ 0.10 rad s⁻¹) — the equations require SI units</td></tr>
+      <tr><td>The gradient of an ω–t graph gives angular displacement</td><td>The gradient gives angular acceleration; angular displacement is the <em>area</em> under the ω–t graph</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: substituting a value still in degrees or rpm directly into \(\alpha=\Delta\omega/\Delta t\) or the equations of motion, which require radians and seconds throughout.</div>
+</div>
+
+<div class="lc-kp">
+  <span>θ = s/r</span>
+  <span>ω = Δθ/Δt</span>
+  <span>v = ωr</span>
+  <span>α = Δω/Δt</span>
+  <span>α = a/r</span>
+  <span>ωf = ωi + αt</span>
+  <span>Δθ = ωit + ½αt²</span>
+  <span>ωf² = ωi² + 2αΔθ</span>
+  <span>1 rpm ≈ 0.10 rad s⁻¹</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Point A on a rotating disc is twice as far from the axis as point B. Compared with B, point A has</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> twice the angular velocity, the same linear speed</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> the same angular velocity, twice the linear speed</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> half the angular velocity, the same linear speed</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> twice the angular velocity, twice the linear speed</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A wheel's angular velocity increases from 20 rad s⁻¹ to 50 rad s⁻¹ in 6.0 s. Its angular acceleration is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','A')"><span class="lc-opt-l">A</span> 5.0 rad s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','A')"><span class="lc-opt-l">B</span> 8.3 rad s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','A')"><span class="lc-opt-l">C</span> 30 rad s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','A')"><span class="lc-opt-l">D</span> 0.20 rad s⁻²</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. On an angular displacement–time graph, the gradient at any point gives</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> angular acceleration</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> angular velocity</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> linear speed</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> the radius of rotation</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A point on the rim of a wheel of radius 0.25 m has a linear acceleration of 2.0 m s⁻². The angular acceleration of the wheel is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 0.125 rad s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> 2.0 rad s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> 8.0 rad s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> 0.50 rad s⁻²</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. 1 rpm is approximately equal to</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> 0.017 rad s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> 0.10 rad s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> 6.3 rad s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> 60 rad s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Angular displacement is measured in <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px">. Angular velocity is the rate of change of <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:170px">. The linear speed of a point at radius r is given by v = <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:70px">. The relationship between angular and linear acceleration is α = <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:70px">. On an angular velocity–time graph, the gradient gives the angular <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:130px">, while the area under the graph gives the angular <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:130px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> A carriage on the London Eye can rotate continuously at a speed of 26 cm s⁻¹. The wheel has a radius of 60 m. <strong>(a)</strong> Calculate its angular velocity. <strong>(b)</strong> Calculate how many minutes it takes the wheel to complete one revolution. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\omega = v/r = 0.26/60 = 4.3\times10^{-3}\ \text{rad s}^{-1}\).<br>✓ (b) \(T = 2\pi/\omega = 1450\) s.<br>✓ \(1450/60 = 24\) minutes.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Suggest</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> A very large wind turbine has blades of length 80 m and a maximum rotational speed of 15 rpm. Determine the linear speed and the angular velocity of <strong>(a)</strong> the end of the blade, <strong>(b)</strong> a point 10 m from the axis of rotation. <strong>(c)</strong> Suggest why engineers limit the speed of rotation of the blades. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\omega = 15\ \text{rpm} \approx 1.6\ \text{rad s}^{-1}\) — the same at every point on the blade.<br>✓ (a) \(v = \omega r = 1.6 \times 80 = 130\ \text{m s}^{-1}\).<br>✓ (b) \(v = 1.6 \times 10 = 16\ \text{m s}^{-1}\); \(\omega\) is still 1.6 rad s⁻¹.<br>✓ (c) tip speed grows with radius, so at large r the blade tips could face excessive mechanical stress, noise or aerodynamic loading if ω were not limited.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> The outer rim of a bicycle wheel of radius 32 cm has a linear acceleration of 0.46 m s⁻². <strong>(a)</strong> Calculate the angular acceleration of the wheel. <strong>(b)</strong> If it starts from rest, determine the time needed for the wheel to accelerate to a rate of three rotations every second. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\alpha = a/r = 0.46/0.32 = 1.4\ \text{rad s}^{-2}\).<br>✓ (b) target \(\omega = 3 \times 2\pi = 18.85\ \text{rad s}^{-1}\).<br>✓ \(t = \omega/\alpha = 18.85/1.4 \approx 13\) s.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> A wheel accelerates uniformly from rest at 5.2 rad s⁻². <strong>(a)</strong> What is its angular velocity at the end of 5.0 s? <strong>(b)</strong> Calculate its total angular displacement in this time. <strong>(c)</strong> How many rotations does it complete in 5.0 s? <strong>(d)</strong> After 5.0 s the accelerating torque is removed and the wheel decelerates at a constant rate to become stationary again after a further 18.2 s. Calculate how many rotations are completed during this deceleration. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\omega = \alpha t = 5.2 \times 5.0 = 26\ \text{rad s}^{-1}\).<br>✓ (b) \(\Delta\theta = \tfrac12\alpha t^2 = \tfrac12 \times 5.2 \times 25 = 65\) rad.<br>✓ (c) \(65/2\pi \approx 10\) rotations.<br>✓ (d) \(\Delta\theta = \dfrac{(0+26)}{2}\times18.2 = 237\) rad.<br>✓ \(237/2\pi \approx 38\) rotations.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> A blade of a rotating fan has an angular velocity of 7.4 rad s⁻¹. It is then made to accelerate for 1.8 s, during which time it passes through a total angle of 26.1 rad. Calculate the angular acceleration of the fan blade. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\Delta\theta = \omega_{\text{i}}t + \tfrac12\alpha t^2\)<br>✓ \(26.1 = (7.4\times1.8) + \tfrac12\alpha(1.8)^2 = 13.32 + 1.62\alpha\)<br>✓ \(\alpha = 7.9\ \text{rad s}^{-2}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> A machine spinning at 3000 rpm is accelerated to 6000 rpm while the machine makes 12 revolutions. <strong>(a)</strong> Convert 3000 rpm to rad s⁻¹. <strong>(b)</strong> Calculate the angular acceleration. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(3000\ \text{rpm} = 3000\times2\pi/60 = 3.1\times10^{2}\ \text{rad s}^{-1}\).<br>✓ \(\omega_{\text{f}} = 6000\ \text{rpm} = 6.3\times10^{2}\ \text{rad s}^{-1}\); \(\Delta\theta = 12\times2\pi = 75.4\) rad.<br>✓ \(\omega_{\text{f}}^2 = \omega_{\text{i}}^2 + 2\alpha\Delta\theta\)<br>✓ \(\alpha \approx 2.0\times10^{3}\ \text{rad s}^{-2}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q"><strong>Q7.</strong> Sketch an angular displacement–time graph for the following rotational motion: an object rotates at 3 rad s⁻¹ for 4 s, it then very rapidly decelerates and remains stationary for a further 6 s. The rotation is then reversed so that it accelerates uniformly back to its original position after a total time of 15 s. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ 0–4 s: straight line of gradient 3 rad s⁻¹, rising to θ = 12 rad.<br>✓ 4–10 s: near-vertical drop in ω to zero, then a flat line at θ = 12 rad for the remaining stationary period (to t = 10 s).<br>✓ 10–15 s: reversed and accelerating uniformly from rest, θ curves back down to 0 by t = 15 s — since \(12 = \tfrac12\alpha(5)^2\), \(\alpha \approx 0.96\ \text{rad s}^{-2}\), reaching \(\omega \approx 4.8\ \text{rad s}^{-1}\) at t = 15 s.<br>✓ The final segment is curved, not straight, because the angular acceleration (not the angular velocity) is constant there.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q8.</strong> Fig A4.16 shows how the angular velocity of an object changed during 6.0 s: ω rises uniformly from 0 to 10 rad s⁻¹ over the first 2.0 s, then stays constant at 10 rad s⁻¹ for the remaining 4.0 s. <strong>(a)</strong> Determine the angular acceleration during the first 2.0 s. <strong>(b)</strong> Through what total angle did the object rotate in 6.0 s? <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\alpha = (10-0)/2.0 = 5.0\ \text{rad s}^{-2}\).<br>✓ (b) area under the graph: triangle \(0\!-\!2\) s \(= \tfrac12\times2\times10=10\) rad.<br>✓ rectangle \(2\!-\!6\) s \(= 4\times10=40\) rad.<br>✓ total \(= 50\) rad.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Every point on a rigid rotating body shares the same angular velocity. Linear speed v = ωr, so doubling r doubles v.' },
+    mcq2: { A: 'α = Δω/Δt = (50-20)/6.0 = 5.0 rad s-2.' },
+    mcq3: { B: 'The gradient of an angular displacement-time graph is the angular velocity, by direct analogy with a linear displacement-time graph.' },
+    mcq4: { C: 'α = a/r = 2.0/0.25 = 8.0 rad s-2.' },
+    mcq5: { B: '1 rpm = 1 rotation per minute = 2π/60 rad s-1 ≈ 0.10 rad s-1 (2 s.f.).' }
+  },
+  fitb: { lf1:'radians', lf2:'angular displacement', lf3:'ωr', lf4:'a/r', lf5:'acceleration', lf6:'displacement' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="01-torque-and-moment-of-force.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Torque and Moment of Force</div>
+          </div>
+        </a>
+        <a href="03-moment-of-inertia.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Moment of Inertia</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
