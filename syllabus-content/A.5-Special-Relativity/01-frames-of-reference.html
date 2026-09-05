@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frames of Reference — A.5 Galilean and Special Relativity — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
+  <style>
+    .lesson-hero { background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); border-bottom: 1px solid var(--border); padding: 2.5rem 0 2rem; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout { display: grid; grid-template-columns: 240px 1fr; gap: 2rem; align-items: start; margin-top: 2.5rem; }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar { position: sticky; top: calc(var(--nav-h) + 1.5rem); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; }
+    .sidebar-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .sidebar-link { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-radius: 8px; font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: var(--t); margin-bottom: 0.15rem; }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; background: var(--surface2); color: var(--text-dim); }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); min-height: 500px; }
+    .lesson-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+    .lesson-nav-btn { display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); text-decoration: none; transition: var(--t); max-width: 280px; min-width: 160px; }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A5">A.5 Galilean and Special Relativity</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Frames of Reference</span>
+    </nav>
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">A.5</span>
+          <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 1 of 7</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Frames of Reference</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">A.5 Galilean and Special Relativity</strong> · Unit A — IB Physics 2023</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.5 overview
+      </a>
+      <div class="sidebar-title">A.5 Concepts</div>
+      <a href="01-frames-of-reference.html" class="sidebar-link active">
+          <span class="sidebar-num">01</span>
+          <span>Frames of Reference</span>
+        </a>
+      <a href="02-galilean-relativity.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Galilean Relativity</span>
+        </a>
+      <a href="03-einstein-s-postulates.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Einstein's Postulates</span>
+        </a>
+      <a href="04-time-dilation.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Time Dilation</span>
+        </a>
+      <a href="05-length-contraction.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Length Contraction</span>
+        </a>
+      <a href="06-mass-energy-equivalence.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
+          <span>Mass-Energy Equivalence</span>
+        </a>
+      <a href="07-spacetime-diagrams.html" class="sidebar-link">
+          <span class="sidebar-num">07</span>
+          <span>Spacetime Diagrams</span>
+        </a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 7 · A.5 Galilean and Special Relativity</div>
+<div class="lc-title">Frames of Reference</div>
+<div class="lc-sub">Before relativity can say anything strange about time and space, it needs a precise way to describe an "event" and who is watching it. This lesson builds that vocabulary — reference frame, event, observer, inertial frame — that every later lesson in this topic depends on.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – banging your head on the luggage rack</h3>
+  <p>Walk down the aisle of a moving train and bang your head twice on bags sticking out of the overhead rack. What was your speed at each bang, and how far apart were the two bangs? <strong>The answer depends entirely on who is doing the measuring and from where</strong> — a passenger in their seat, a passenger walking beside you, and someone standing on the platform outside will all record different numbers for your position and your speed.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-01-frames-of-reference-01.png" alt="Coordinate system with x and y axes showing Earth's surface as the reference frame and the parabolic trajectory of an unpowered rocket">
+    <div class="lc-cap">Fig A5.1 — A reference frame is a set of axes (here labelled S) used to assign an x-, y- and t-coordinate to every event, such as points along this rocket's flight.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — will the three observers on the train at least agree on anything? <em>Yes: although they disagree on your speed and position, all three agree on the time between the two bangs and the distance you moved up the carriage between them — because none of those three observers is moving relative to any other along the carriage.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 The revolution of special relativity</h3>
+  <p>Before 1905, Newtonian mechanics accurately described and predicted motion as it was then understood. But Newton's theories cannot be applied accurately to objects moving very fast — with speeds close to the speed of light. This is called <strong>relativistic motion</strong>. Einstein's theory of special relativity (1905) was a complete revolution in scientific thinking, triggered partly by the unexpected discovery that <strong>the speed of light is the same for all observers</strong>. One consequence is that all motion is relative — there is no "correct" point of view, and nowhere in the Universe is at absolute rest.</p>
+  <p>To talk about motion precisely, physics defines a small set of terms that this whole topic is built on:</p>
+  <div class="lc-info">📖 <strong>Reference frame</strong> — a coordinate system from which events in space and time are measured. <strong>Coordinate system</strong> — an agreed numerical way of identifying the location and time of an event. <strong>Event</strong> — a single incident that occurs at a precise time and location.</div>
+  <p>You will usually have assumed objects move over the stationary surface of the Earth — the Earth's surface was your reference frame, and displacement, velocity and acceleration were all relative to a fixed point on it. <strong>A reference frame is a coordinate system that allows a single value of time and position to be assigned to an event.</strong> Reference frames are drawn as a set of axes, usually labelled <strong>S</strong> or <strong>S′</strong>, as in Fig A5.1.</p>
+  <p>To fully define a four-dimensional reference frame you must specify: the origin; the directions of the x-, y- and z-axes; and the event from which the measurement of time, t, is started.</p>
+  <div class="lc-info">📌 <strong>An event is a single, instantaneous incident that occurs at a specific time and point in space.</strong> Examples: a flash of light · two objects colliding · the high point of a projectile's flight · a lightning strike · a balloon bursting.</div>
+  <p>Figure A5.1 uses only the x- and y-axes, with the Earth's surface as the reference frame. But we could equally use the <strong>rocket's</strong> reference frame, in which the rocket is stationary and the Earth is seen to move — at the same speed, in the opposite direction.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Reading a coordinate diagram</h3>
+  <table class="lc-table">
+    <thead><tr><th>Diagram type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Trajectory diagram (reference frame S)</td><td>Horizontal position x / m · Vertical position y / m</td><td>Parabola for a projectile under gravity alone</td><td>Peak = maximum height; the curve is symmetric about the peak</td></tr>
+      <tr><td>Position–time graph</td><td>Time t / s · Position x or y / m</td><td>Straight line for constant velocity; curve for accelerated motion</td><td>Gradient = velocity in that direction at that instant</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a5-01-frames-of-reference-01.png" alt="Rocket trajectory plotted on x-y axes with three labelled events marked along the curve"><div class="lc-cap">Fig A5.1 (repeated) — the same trajectory diagram, now read as a graph: each marked point is one event with its own (x, y, t).</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example A5.1 – coordinates of an unpowered rocket</h3>
+  <p>In reference frame S shown in Fig A5.1, calculate the x-, y- and t-coordinates of an unpowered rocket at three events. The rocket has an initial vertical velocity of 400 m s⁻¹ and a horizontal velocity of 100 m s⁻¹. Ignore air resistance.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Event 1 defines the origin and the start of timing, so its coordinates are trivially (0, 0, 0). Events 2 and 3 need the equations of motion for the vertical (accelerated) and horizontal (constant-velocity) directions separately.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data — Event 2, the maximum height:</strong> using \(v^2 = u^2 + 2as\) with \(u = 400\), \(v = 0\), \(a = -9.8\ \text{m s}^{-2}\):<br>height \(y = 8200\) m. Using \(s = \tfrac{(u+v)}{2}t\): time to the top \(t = 41\) s.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation — horizontal position at Event 2:</strong> no horizontal acceleration, so \(x = ut = 100 \times 41 = 4100\) m.<br>Event 2 coordinates: (4100 m, 8200 m, 41 s).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer — Event 3, back at the original height:</strong> by the symmetry of parabolic motion, \(t = 82\) s and \(y = 0\) m, with \(x = 100 \times 82 = 8200\) m.<br>Event 3 coordinates: (8200 m, 0 m, 82 s).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-01-frames-of-reference-01.png" alt="Rocket trajectory with Event 1 at the origin, Event 2 at the peak, Event 3 back at launch height, each labelled with coordinates">
+    <div class="lc-cap">Fig A5.1 (worked example) — Event 1 (0, 0, 0), Event 2 (4100 m, 8200 m, 41 s), Event 3 (8200 m, 0 m, 82 s).</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: the three observers on a train</h3>
+    <p><strong>Observer</strong> — often a hypothetical person who takes measurements from only one specific reference frame. An observer is always stationary relative to their own reference frame. In the train example there are three possible reference frames: an observer on the platform as the train passes, an observer sitting in a seat, and an observer walking up the train at your walking speed.</p>
+    <p>According to Newton, each observer records different values for how fast you are moving and your position when you bang your head. But all three agree on the time between the two bangs and the distance you moved up the carriage between them.</p>
+    <div class="lc-success">✓ Examiner tip: when a question describes several observers, name the reference frame each one is stationary in before comparing what they measure.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – no windows, no way to tell</h3>
+    <p>Consider an observer in a windowless space vehicle in deep space, where gravitational effects are negligible (Fig A5.2). Can they tell if the vehicle is "stationary", moving at constant velocity, or accelerating? If it moves at constant velocity, an object released in mid-air stays exactly where it was released — indistinguishable from being "stationary". <strong>There is no such thing as absolute rest: it can never be distinguished from motion at constant velocity.</strong></p>
+    <p><strong>Challenge:</strong> if the vehicle instead accelerates, what does the observer see happen to the released object, and why? <em>A resultant force from the engines accelerates the vehicle and its walls, but the released object has no force acting on it, so it keeps its original motion — the observer sees it drift "backwards" relative to the accelerating vehicle. For an observer in an accelerating frame, Newton's laws of motion appear to be broken.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔭 Inertial reference frames</h3>
+  <p>The problem most students have with relativity is instinctively treating the ground they stand on as "not moving" — the one correct frame. <strong>It needs to be repeatedly stressed that all reference frames are equally valid; there is no "correct" reference frame.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-01-frames-of-reference-02.png" alt="A person inside a windowless spacecraft in deep space, with an arrow showing the spacecraft's possible motion or acceleration">
+    <div class="lc-cap">Fig A5.2 — An observer in a windowless vehicle, far from any gravitational field, cannot tell "stationary" apart from constant-velocity motion using any experiment performed inside the vehicle.</div>
+  </div>
+  <div class="lc-info">📖 <strong>Inertial reference frame</strong> — a frame of reference that is neither accelerating nor experiencing a gravitational field, in which masses obey Newton's laws of motion. Equivalently: one which is not accelerating and in which Newton's laws of motion can be applied.</div>
+  <p>If truly stationary places existed, they would be perfect inertial frames. But a frame moving with constant velocity (zero acceleration) fulfils the same purpose. Every reference frame discussed in the rest of Topic A.5 is inertial. For non-relativistic applications, we usually treat the Earth's surface as an inertial reference frame, despite its own motion — it is such a good approximation that the small acceleration goes unnoticed.</p>
+</div>
+
+<div class="lc-card">
+  <h3>⏳ Newton's assumptions about time and space</h3>
+  <p><strong>Postulate</strong> (or <strong>axiom</strong>) — an unproven assumption accepted as true and used as a starting point for further discussion. Before Einstein, Newton's description of the Universe rested on two such assumptions, and everybody still uses them in everyday life:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Newton's postulates</span>
+    $$\text{1. Universality of time: all observers agree on } \Delta t \text{ between two events}$$
+    $$\text{2. Universality of distance: all observers agree on the distance between two simultaneous events}$$
+  </div>
+  <div class="lc-info">📌 <strong>Simultaneous events</strong> — events that occur at the same time in a specific reference frame, so in that frame they share the same time coordinate. Events simultaneous in one frame may not be simultaneous in another.</div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-01-frames-of-reference-03.png" alt="A three-dimensional cubic lattice of small clocks spreading out through space, every clock displaying exactly the same time">
+    <div class="lc-cap">Fig A5.3 — imagine a tiny clock at the centre of every cubic metre of space, all reading exactly the same time. Newton's postulates assume this is always possible.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🤔 TOK – a clockwork universe of postulates?</h3>
+  <p><em>Do the natural sciences rely on assumptions that are themselves unprovable by science?</em> Postulates and axioms are usually simple, unambiguous statements agreed by everybody at the time, considered necessarily true in the sense that they are logically necessary — even though they are not directly provable. An historical example, from Euclid more than two thousand years ago: a straight line can be drawn from any one point to any other point. Such foundational statements in mathematics are called axioms, and they are the starting point for all the more advanced reasoning built on top of them — exactly the role Newton's two postulates play here, and the role that Einstein's postulates (next lesson) will replace them with.</p>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>The Earth's surface is the "real" reference frame</td><td>All reference frames are equally valid. The Earth's surface is only a convenient one for everyday, non-relativistic problems</td></tr>
+      <tr><td>An "event" is anything that takes some time, like a whole train journey</td><td>An event is instantaneous — it happens at one precise time and one precise point in space, like a flash of light or a collision</td></tr>
+      <tr><td>A satellite in orbit is an inertial frame because it moves smoothly</td><td>An orbiting satellite is accelerating (centripetal acceleration), so it is <em>not</em> a true inertial frame, even though it feels smooth to anyone inside</td></tr>
+      <tr><td>"Stationary" and "moving at constant velocity" are physically different states</td><td>They are indistinguishable from inside a windowless frame — there is no experiment that can tell absolute rest apart from constant-velocity motion</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting that an accelerating frame is <em>not</em> inertial, even when the acceleration feels small or the frame "looks" like it's just moving. Check for a resultant force or a gravitational field before calling any frame inertial.</div>
+</div>
+
+<div class="lc-kp">
+  <span>event = one (x, y, t)</span>
+  <span>reference frame = coordinate system</span>
+  <span>observer = stationary in their own frame</span>
+  <span>no absolute rest</span>
+  <span>inertial = no acceleration, no gravity</span>
+  <span>Newton's laws hold only in inertial frames</span>
+  <span>simultaneous = same t in one frame</span>
+  <span>postulate = unproven starting assumption</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. Which of these is a valid physics "event"?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> A train journey from one city to another</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> A car travelling at constant speed for one minute</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> A balloon bursting</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> A day of sunshine</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. An observer, in the sense used in relativity, is best described as</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> someone who is always at absolute rest</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> a hypothetical person who takes measurements from one specific reference frame, in which they are stationary</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> anyone taking a measurement, regardless of their motion</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> a person who only exists in Earth's reference frame</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. Which of the following is a truly inertial reference frame?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> A rocket travelling through deep space in a straight line at constant speed</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> A GPS satellite orbiting the Earth</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> A car braking to a stop</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> A probe hovering just above the Sun's surface</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. Two events are simultaneous in reference frame S. What can be said about them in a different reference frame S′?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','D')"><span class="lc-opt-l">A</span> They must also be simultaneous in S′</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','D')"><span class="lc-opt-l">B</span> They must occur at the same position in S′</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','D')"><span class="lc-opt-l">C</span> They cannot be simultaneous in S′</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','D')"><span class="lc-opt-l">D</span> They are not necessarily simultaneous in S′</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. An observer in a windowless spacecraft, far from any gravitational field, releases a small ball in mid-air and it stays exactly where it was released. What can they conclude?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','A')"><span class="lc-opt-l">A</span> The spacecraft is not accelerating, but they cannot tell if it is "stationary" or moving at constant velocity</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','A')"><span class="lc-opt-l">B</span> The spacecraft is definitely stationary</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','A')"><span class="lc-opt-l">C</span> The spacecraft is definitely accelerating</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','A')"><span class="lc-opt-l">D</span> No conclusion is possible without looking outside</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:150px"> is a coordinate system from which events in space and time are measured. An <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px"> is a single incident occurring at a precise time and location. An <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> is a hypothetical person who takes measurements from only one reference frame, in which they are always stationary. A frame that is neither accelerating nor in a gravitational field, and in which Newton's laws apply, is called <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">. Two events with the same time coordinate in a given frame are described as <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:150px">. An unproven assumption used as a starting point for further reasoning is a <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:120px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> A car is caught by a speed camera travelling at 35.0 m s⁻¹. The speed camera photograph is taken at the event (0.00 m, 0.0 s). Determine the coordinates of the car 23.0 s later. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Constant velocity, so \(x = ut = 35.0 \times 23.0\)<br>✓ \(x = 805\ \text{m}\); the event is (805 m, 23.0 s).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> A child throws a tomato out of a car at a stationary pedestrian the car has just passed. The car travels at 16 m s⁻¹, and the child throws the tomato directly towards the pedestrian so that it leaves the car with a speed of 4 m s⁻¹ (relative to the car). Explain why the tomato will not hit the pedestrian. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The tomato's speed of 4 m s⁻¹ is relative to the car's reference frame, not to the ground.<br>✓ Relative to the stationary pedestrian's frame, the tomato's velocity is the car's velocity plus the throw velocity: \(16 - 4 = 12\ \text{m s}^{-1}\) still in the car's original direction of travel.<br>✓ Since this is still positive (forwards), the tomato continues moving away from the pedestrian rather than back towards them.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State and classify</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> State which of the following can be thought of as <strong>truly inertial</strong>, <strong>almost inertial</strong> (constant velocity only over a small distance), or <strong>clearly not inertial</strong> (unbalanced forces or gravity are clearly present): <strong>(a)</strong> a rocket stationary in deep space, far from any gravitational field; <strong>(b)</strong> a rocket travelling through deep space in a straight line at constant speed; <strong>(c)</strong> a GPS communication satellite in orbit around the Earth; <strong>(d)</strong> a space probe hovering above the surface of the Sun; <strong>(e)</strong> a proton travelling close to the speed of light through a straight section of tubing in a particle accelerator. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Truly inertial — no resultant force, no gravitational field.<br>✓ (b) Truly inertial — constant velocity, zero acceleration.<br>✓ (c) Clearly not inertial — orbital motion requires a continuous centripetal acceleration towards the Earth.<br>✓ (d) Clearly not inertial — an extremely strong gravitational field is present, and the probe must accelerate/thrust to hover.<br>✓ (e) Almost inertial — over the short straight section it travels effectively at constant velocity, but strictly this holds only locally; any bending section of the accelerator would not be inertial.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'An event is instantaneous — a single incident at one time and place. Journeys and durations are not single events.' },
+    mcq2: { B: 'An observer is a hypothetical person taking measurements from one specific reference frame, and is always stationary relative to that frame.' },
+    mcq3: { A: 'A rocket moving at constant velocity in deep space has zero acceleration and no gravitational field — truly inertial. Orbiting, hovering against gravity, and braking all involve acceleration or a strong field.' },
+    mcq4: { D: 'Simultaneity is frame-dependent: events simultaneous in one frame need not be simultaneous in another.' },
+    mcq5: { A: 'With no resultant force on the released object, the frame is not accelerating — but constant velocity and "stationary" cannot be told apart from inside.' }
+  },
+  fitb: { lf1:'reference frame', lf2:'event', lf3:'observer', lf4:'inertial', lf5:'simultaneous', lf6:'postulate' }
+});
+</script>
+</div>
+<!-- LESSON-END -->
+      </div>
+
+      <div class="lesson-nav">
+        <a href="../A.4-Rigid-Body-Mechanics/index.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Rigid Body Mechanics</div>
+          </div>
+        </a>
+        <a href="02-galilean-relativity.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Galilean Relativity</div>
+          </div>
+        </a>
+      </div>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>
