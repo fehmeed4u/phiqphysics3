@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Time Dilation — A.5 Galilean and Special Relativity — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -86,6 +87,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -112,7 +116,7 @@
           </span>
           <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
           <span style="font-size:0.8rem;color:var(--text-muted)">
-            Concept 3 of 6
+            Concept 4 of 7
           </span>
         </div>
         <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Time Dilation</h1>
@@ -137,28 +141,32 @@
         ← Back to A.5 overview
       </a>
       <div class="sidebar-title">A.5 Concepts</div>
-      <a href="01-galilean-relativity.html" class="sidebar-link">
+      <a href="01-frames-of-reference.html" class="sidebar-link">
           <span class="sidebar-num">01</span>
+          <span>Frames of Reference</span>
+        </a>
+      <a href="02-galilean-relativity.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
           <span>Galilean Relativity</span>
         </a>
-      <a href="02-einstein-s-postulates.html" class="sidebar-link">
-          <span class="sidebar-num">02</span>
+      <a href="03-einstein-s-postulates.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
           <span>Einstein's Postulates</span>
         </a>
-      <a href="03-time-dilation.html" class="sidebar-link active">
-          <span class="sidebar-num">03</span>
+      <a href="04-time-dilation.html" class="sidebar-link active">
+          <span class="sidebar-num">04</span>
           <span>Time Dilation</span>
         </a>
-      <a href="04-length-contraction.html" class="sidebar-link">
-          <span class="sidebar-num">04</span>
+      <a href="05-length-contraction.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
           <span>Length Contraction</span>
         </a>
-      <a href="05-mass-energy-equivalence.html" class="sidebar-link">
-          <span class="sidebar-num">05</span>
+      <a href="06-mass-energy-equivalence.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
           <span>Mass-Energy Equivalence</span>
         </a>
-      <a href="06-spacetime-diagrams.html" class="sidebar-link">
-          <span class="sidebar-num">06</span>
+      <a href="07-spacetime-diagrams.html" class="sidebar-link">
+          <span class="sidebar-num">07</span>
           <span>Spacetime Diagrams</span>
         </a>
     </aside>
@@ -166,40 +174,250 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Time Dilation</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=A5" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 7 · A.5 Special Relativity</div>
+<div class="lc-title">Time Dilation</div>
+<div class="lc-sub">Observers moving relative to each other never agree on how much time has passed between two events. This lesson derives the time dilation formula, meets the twin paradox, and shows you how to spot which observer is measuring the shortest possible time — the proper time.</div>
+
+<div class="lc-card">
+  <h3>🚀 Hook – whose clock is really ticking slow?</h3>
+  <p>A rocket streaks away from Earth carrying a clock that ticks once every second, as measured by the astronaut sitting next to it. An observer back on Earth, watching that same clock through a telescope, times the gap between ticks too. <strong>The two observers do not get the same answer</strong> — and, strangely, each one measures the <em>other's</em> clock as running slow.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-04-time-dilation-01.png" alt="Rocket carrying a clock receding from Earth, with Earth's own clock shown alongside" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — The rocket's clock ticks once per second in the rocket's own frame. An Earth observer times a longer gap between the same two ticks.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think — then read on)</strong> — if you watched an astronaut's clock recede at high speed, would it appear to run fast, slow, or exactly the same as your own clock? <em>Slow. Any clock moving relative to an observer is measured by that observer to run slow — this is time dilation, and it applies equally in the other direction: the astronaut measures the Earth clock to run slow too.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 From the Lorentz transformation to Δt = γΔt₀</h3>
+  <p>An observer in reference frame \(S\) measures a time interval \(\Delta t\) between successive ticks of a clock that is stationary in their own frame. An observer in reference frame \(S^{\prime}\), moving with relative velocity \(v\), measures a <strong>greater</strong> time interval for the same two ticks, given by the Lorentz transformation:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Lorentz time transformation</span>
+    $$\Delta t^{\prime} = \gamma\left(\Delta t - \frac{v\Delta x}{c^{2}}\right)$$
+  </div>
+  <p>Since the two ticks of the clock happen at the same place in its own frame, \(\Delta x = 0\), so the equation simplifies to the <strong>time dilation</strong> formula:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Time dilation</span>
+    $$\Delta t^{\prime} = \gamma \Delta t$$
+  </div>
+  <p>where \(\gamma = 1/\sqrt{1-v^2/c^2}\). Since \(\gamma\) is always greater than one, every other observer measures a <strong>longer</strong> time interval than the observer who sees the two events happen in the same place.</p>
+  <div class="lc-info">📖 <strong>Time dilation</strong> is relative to an observer who sees the two events occurring in the same place. All other observers measure an increase in the time interval between the two events.</div>
+</div>
+
+<div class="lc-card">
+  <h3>👬 The twin paradox</h3>
+  <p>The <strong>twin paradox</strong> appears to challenge special relativity: it seems impossible that two twins should each find that they are older than the other. One twin remains on Earth while the other travels at high speed to a distant star and returns.</p>
+  <p>Because \(\gamma\) is always greater than one, the ticks of a clock in a frame \(S^{\prime}\) moving relative to where the clock is at rest (frame \(S\)) are always measured as further apart — this is time dilation, and <strong>it works both ways</strong>: each twin measures the other's clock as running slow while they are in relative motion. Whether the paradox resolves, and in whose favour, depends on which twin actually changes reference frame (accelerates) to turn around — a situation this course does not analyse in detail, since we only consider frames moving at constant relative velocity.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-04-time-dilation-03.png" alt="Spacetime diagram showing the Earth twin's straight vertical worldline and the travelling twin's outbound and return worldline forming a V shape" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — The Earth twin's worldline is a single straight vertical line. The travelling twin's worldline bends at the turnaround — that bend is the asymmetry the paradox hinges on.</div>
+  </div>
+  <div class="lc-card" style="background:var(--surface2);margin-top:0.75rem">
+    <p style="margin:0"><strong>ATL A5B — Research skills.</strong> Research the twin paradox: explain why it is described as a paradox, and outline how it is resolved.</p>
+  </div>
+  <div class="lc-info">🤔 <strong>TOK — Knowledge and the Knower.</strong> Does knowledge always require some kind of rational basis? A paradox is a situation, question or statement that contains an embedded contradiction — for example, "this statement is false." What might paradoxes suggest about the nature of reason and its value in determining what is true?</div>
+  <p>It is important to realise that time dilation refers to <strong>all</strong> processes, not just the ticking of a clock. Time proceeds at different rates for frames of reference that are moving relative to each other, but this only becomes relevant at very high speeds. In this course we do not consider what happens to accelerating frames of reference, or frames of reference that are moving closer together.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 The Lorentz factor, γ</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Lorentz factor vs. speed</td><td>\(v/c\) (0 to 1) · \(\gamma\)</td><td>Starts at \(\gamma=1\), rises gently, then shoots up steeply as \(v/c \to 1\)</td><td>\(\gamma\) never drops below 1; the curve never reaches \(v=c\) — it is asymptotic there</td></tr>
+      <tr><td>Dilated time vs. proper time</td><td>\(\Delta t_0\) · \(\Delta t\)</td><td>Straight line through the origin, gradient \(\gamma\)</td><td>The gradient IS the Lorentz factor for that relative speed; steeper line = higher speed</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a5-04-time-dilation-02.png" alt="Graph of Lorentz factor gamma against v over c, starting near 1 and rising steeply to infinity as v over c approaches 1"><div class="lc-cap">Fig 3 — γ stays close to 1 until \(v/c\) exceeds about 0.5, then rises very sharply — this is why time dilation is unnoticeable at everyday speeds.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a5-04-time-dilation-04.png" alt="Rocket travelling at 2.0 times 10 to the 8 metres per second labelled with its onboard clock reading 1.0 second and the Earth-measured interval of 1.7 seconds" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — Geometry for the worked example below: the rocket's own 1.0 s tick is measured on Earth as 1.7 s.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example A5.10</h3>
+  <p>A rocket is travelling at \(2.0\times10^{8}\ \text{m s}^{-1}\) away from Earth. <strong>a)</strong> The rocket carries a clock which ticks once every second. Calculate the time interval between ticks of the clock as observed on Earth. <strong>b)</strong> How would your answer change if the clock was on Earth and observed from the rocket?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the clock's ticks happen at the same place in the rocket's own frame, so the rocket observer measures the proper time interval, \(\Delta t_0 = 1.0\) s. Use \(\Delta t = \gamma \Delta t_0\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(v = 2.0\times10^{8}\ \text{m s}^{-1}\), \(c = 3.0\times10^{8}\ \text{m s}^{-1}\), \(\Delta t_0 = 1.0\) s.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\gamma = \dfrac{1}{\sqrt{1-v^2/c^2}} = 1.7\)<br>\(\Delta t = \gamma \Delta t_0 = 1.7 \times 1.0\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer a):</strong> \(\Delta t = 1.7\) s. 1.0 s on the rocket corresponds to 1.7 s on Earth.<br><strong>Answer b):</strong> the situation is symmetrical — 1.0 s on Earth corresponds to 1.7 s on the rocket.</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: proper time and how to spot it</h3>
+    <p>A <strong>proper time interval</strong>, \(\Delta t_0\), is the time interval between two events that take place at the same location <strong>as the observer</strong>. It is the shortest time interval between the two events measured by any observer — every other observer measures a longer interval.</p>
+    <p>To decide who measures proper time: imagine yourself in each observer's reference frame in turn and ask whether the \(x\), \(y\) and \(z\) coordinates of the two events are the same. If they are, that observer measures the proper time between them.</p>
+    <div class="lc-success">✓ Examiner tip: don't just ask "who is moving?" — ask "for this observer, do both events happen at the same point in space?" That is the only test that matters.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – rewriting the formula with proper time</h3>
+    <p>Once we identify the proper time interval, the time-dilation formula is usually written the other way round:</p>
+    <div class="lc-formula">
+      <span class="lc-formula-label">Time dilation, proper time form</span>
+      $$\Delta t = \gamma \Delta t_0$$
+    </div>
+    <p>where \(\Delta t_0\) is the proper time interval, measured by the observer who sees both events occur in the same place, and \(\Delta t\) is the (always longer) interval measured by any other observer.</p>
+    <p><strong>Challenge:</strong> a muon is created high in the atmosphere and decays a short proper lifetime later. Which observer — one travelling with the muon, or one standing on the ground watching it — measures the proper time of its decay? <em>(Answer: the observer travelling with the muon, since the muon's creation and decay happen at the same point in the muon's own frame.)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"Time dilation means the moving clock physically breaks or slows its mechanism"</td><td>Nothing is wrong with the clock. It is a genuine effect of measuring time across two reference frames in relative motion, not a mechanical fault</td></tr>
+      <tr><td>"Only the twin who travels experiences time dilation"</td><td>While the frames move at constant relative velocity, the effect is symmetric — each twin measures the other's clock as running slow. Any asymmetry in the final ages comes from the turnaround acceleration, which this course does not analyse in detail</td></tr>
+      <tr><td>"γ can be less than 1 if the observer is moving fast enough"</td><td>\(\gamma = 1/\sqrt{1-v^2/c^2}\) is always \(\geq 1\); it equals 1 only when \(v=0\) and grows without limit as \(v \to c\)</td></tr>
+      <tr><td>"Time dilation only matters for clocks"</td><td>It applies to every physical process in the moving frame — biological ageing, radioactive decay, chemical reactions — not just the ticking of a mechanical clock</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: assuming the observer who is "moving" is the one who measures proper time. It is the opposite — the observer for whom the two events happen at the <em>same place</em> measures proper time, and that can be either observer depending on which two events are chosen.</div>
+</div>
+
+<div class="lc-kp">
+  <span>Δt = γΔt₀</span>
+  <span>γ = 1/√(1−v²/c²)</span>
+  <span>γ ≥ 1 always</span>
+  <span>proper time = shortest interval</span>
+  <span>same place in that frame = proper time</span>
+  <span>effect is symmetric</span>
+  <span>applies to all processes</span>
+  <span>twin paradox needs acceleration to resolve</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which formula correctly relates the proper time interval Δt₀ to the dilated interval Δt measured by another observer?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> \(\Delta t_0 = \gamma \Delta t\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> \(\Delta t = \gamma \Delta t_0\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> \(\Delta t = \Delta t_0 / \gamma^2\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> \(\Delta t = \Delta t_0 - \gamma\)</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Two events happen at the same location as observer X, but at different locations as observer Y (moving relative to X). Which observer measures the proper time between the events?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','A')"><span class="lc-opt-l">A</span> Observer X</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','A')"><span class="lc-opt-l">B</span> Observer Y</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','A')"><span class="lc-opt-l">C</span> Both, equally</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','A')"><span class="lc-opt-l">D</span> Neither — proper time is frame-independent</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A clock at rest in a spacecraft moving at v = 0.60c ticks once per second (proper time). How often does an Earth observer measure the ticks, given γ = 1.25 at this speed?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> Every 0.60 s</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> Every 0.80 s</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> Every 1.25 s</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> Every 1.00 s</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. What happens to the Lorentz factor γ as v approaches c?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','D')"><span class="lc-opt-l">A</span> γ approaches 0</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','D')"><span class="lc-opt-l">B</span> γ approaches 1</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','D')"><span class="lc-opt-l">C</span> γ approaches −1</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','D')"><span class="lc-opt-l">D</span> γ grows without limit</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Time dilation is given by \(\Delta t = \gamma \Delta t_0\), where \(\Delta t_0\) is called the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px"> time interval. The Lorentz factor \(\gamma\) is always <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:80px"> than or equal to 1. The observer who measures proper time is the one for whom the two events occur at the same <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px">. The twin paradox is resolved by the fact that the travelling twin must <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:130px"> to turn around, breaking the symmetry between the two frames. Time dilation applies to <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:130px"> physical processes, not only the ticking of a clock.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q28.</strong> In a laboratory, an electron is accelerated by a potential difference of 100 kV. Its speed is then measured by timing how long it takes to pass between two different points measured in the laboratory as being 5.00 m apart. Is the observer in the electron's reference frame or the observer in the laboratory reference frame recording proper time? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The two events are "electron passes point 1" and "electron passes point 2".<br>✓ In the electron's own frame, both events happen at the electron's own location (x′ = 0) — so the observer travelling with the electron measures the proper time.<br>✓ The laboratory observer sees the events 5.00 m apart and so measures a longer, dilated time.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q29.</strong> A rod measured in its rest frame to be one metre in length is accelerated to 0.33c. The rod is then timed as it passes a fixed point. Is the observer at the fixed point or the observer travelling with the rod measuring proper time? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The two events are "front of rod passes the point" and "back of rod passes the point".<br>✓ Both events happen at the same location — the fixed point — in the fixed-point observer's frame, so that observer measures the proper time.<br>✓ In the rod's own frame the fixed point sweeps past two different points on the rod, so the rod observer does not measure proper time here.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q30.</strong> The same rod is timed by both observers as it travels between two fixed points in a laboratory. If the observers are recording when the front of the rod passes each fixed point, is either observer measuring the proper time? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The two events are "front of rod passes fixed point 1" and "front of rod passes fixed point 2", which are different locations in the laboratory frame — so the laboratory observer does not measure proper time.<br>✓ In the rod's own frame, both events occur at the same point on the rod — the front tip — so the observer travelling with the rod measures the proper time.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q31.</strong> In a third experiment the two observers start timing when the front of the rod passes the first point and stop timing when the end of the rod passes the second point. Is either observer measuring the proper time? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ In the laboratory frame the two events occur at two different fixed points, so the laboratory observer is not measuring proper time.<br>✓ In the rod's own frame the two events occur at two different points on the rod (the front and the back), so the rod observer is not measuring proper time either.<br>✓ Neither observer measures the proper time interval in this case.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Δt = γΔt0: the interval measured by any observer other than the one who sees both events in the same place is always γ times the proper time.' },
+    mcq2: { A: 'X sees both events at the same location, so X measures the proper time — the shortest interval any observer can record.' },
+    mcq3: { C: 'Δt = γΔt0 = 1.25 x 1.00 = 1.25 s. The spacecraft clock is the proper-time clock; Earth measures the longer, dilated interval.' },
+    mcq4: { D: 'γ = 1/√(1-v²/c²) has a denominator that tends to zero as v → c, so γ grows without limit — this is why nothing with mass can reach c.' }
+  },
+  fitb: { lf1:'proper', lf2:'greater', lf3:'place', lf4:'accelerate', lf5:'all' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
       <div class="lesson-nav">
-        <a href="02-einstein-s-postulates.html" class="lesson-nav-btn">
+        <a href="03-einstein-s-postulates.html" class="lesson-nav-btn">
           <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
           <div>
             <div class="nav-btn-dir">Previous</div>
             <div class="nav-btn-label">Einstein's Postulates</div>
           </div>
         </a>
-        <a href="04-length-contraction.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+        <a href="05-length-contraction.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
           <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
           <div>
             <div class="nav-btn-dir">Next</div>
