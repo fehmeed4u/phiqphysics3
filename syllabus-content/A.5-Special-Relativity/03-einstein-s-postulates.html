@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Einstein's Postulates — A.5 Galilean and Special Relativity — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -86,6 +87,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -112,7 +116,7 @@
           </span>
           <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
           <span style="font-size:0.8rem;color:var(--text-muted)">
-            Concept 2 of 6
+            Concept 3 of 7
           </span>
         </div>
         <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Einstein's Postulates</h1>
@@ -137,28 +141,32 @@
         ← Back to A.5 overview
       </a>
       <div class="sidebar-title">A.5 Concepts</div>
-      <a href="01-galilean-relativity.html" class="sidebar-link">
+      <a href="01-frames-of-reference.html" class="sidebar-link">
           <span class="sidebar-num">01</span>
+          <span>Frames of Reference</span>
+        </a>
+      <a href="02-galilean-relativity.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
           <span>Galilean Relativity</span>
         </a>
-      <a href="02-einstein-s-postulates.html" class="sidebar-link active">
-          <span class="sidebar-num">02</span>
+      <a href="03-einstein-s-postulates.html" class="sidebar-link active">
+          <span class="sidebar-num">03</span>
           <span>Einstein's Postulates</span>
         </a>
-      <a href="03-time-dilation.html" class="sidebar-link">
-          <span class="sidebar-num">03</span>
+      <a href="04-time-dilation.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
           <span>Time Dilation</span>
         </a>
-      <a href="04-length-contraction.html" class="sidebar-link">
-          <span class="sidebar-num">04</span>
+      <a href="05-length-contraction.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
           <span>Length Contraction</span>
         </a>
-      <a href="05-mass-energy-equivalence.html" class="sidebar-link">
-          <span class="sidebar-num">05</span>
+      <a href="06-mass-energy-equivalence.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
           <span>Mass-Energy Equivalence</span>
         </a>
-      <a href="06-spacetime-diagrams.html" class="sidebar-link">
-          <span class="sidebar-num">06</span>
+      <a href="07-spacetime-diagrams.html" class="sidebar-link">
+          <span class="sidebar-num">07</span>
           <span>Spacetime Diagrams</span>
         </a>
     </aside>
@@ -166,40 +174,409 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Einstein's Postulates</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=A5" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 7 · A.5 Galilean and Special Relativity</div>
+<div class="lc-title">Einstein's Postulates</div>
+<div class="lc-sub">Two simple statements — the laws of physics are the same in every inertial frame, and light always travels at c — force space and time to bend. This lesson works through the Lorentz transformations, clock synchronisation, the relativity of simultaneity, and how velocities add when nothing is allowed to exceed c.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the experiment that found nothing</h3>
+  <p>In 1887 Albert Michelson and Edward Morley built an instrument sensitive enough to detect tiny differences in the speed of light beams sent in different directions, expecting the Earth's motion through a hypothetical "luminiferous aether" to show up as a shift. <strong>It found nothing at all</strong> — the speed of light came back identical in every direction, no matter how the experiment was turned. Repeated tests since have never found a difference either.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-03-einsteins-postulates-01.png" alt="Portrait of Albert Einstein in 1905" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Albert Einstein in 1905, the year he published special relativity.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — if there's no aether and no experiment can detect an observer's own absolute motion through space, what does that tell you about the idea of a single "correct" reference frame? <em>There isn't one. Every inertial frame's measurements are equally valid — none is privileged as the "truly stationary" one.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📖 The two postulates</h3>
+  <p>Two problems faced classical physics at the end of the nineteenth century: Maxwell's electromagnetism contradicted classical mechanics in places, and no experiment could show light travelling at different speeds depending on direction relative to the (rotating, orbiting) Earth. Einstein resolved both with <strong>special relativity</strong> in 1905, built on two postulates. It is "special" because it is restricted to inertial frames of reference.</p>
+  <div class="lc-info">📖 <strong>First postulate</strong> — the laws of physics are identical (invariant) in all inertial reference frames. No experiment can reveal an observer's absolute velocity through the Universe; the Universe has no unique stationary frame.</div>
+  <div class="lc-info">📖 <strong>Second postulate</strong> — the speed of light in a vacuum, \(c = 3.00\times10^{8}\ \text{m s}^{-1}\), is the same constant in all inertial reference frames, regardless of the motion of the source or the observer.</div>
+  <p>The effects of special relativity only become significant at speeds close to \(c\) — nothing in daily life reveals them. For the constancy of \(c\) to hold when observers move relative to each other, <strong>space and time themselves must behave differently than everyday experience suggests</strong>: since speed = distance/time, and observers in relative motion can measure different distances between the same two events, they must also measure different time intervals. <strong>Time is not an invariant quantity.</strong> Space and time are linked as a single entity — <strong>spacetime</strong>.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📐 The Lorentz transformation equations</h3>
+  <p>Newtonian physics uses Galilean transformations to convert coordinates between frames. Relativity needs the <strong>Lorentz transformation</strong> instead. If an event has coordinates \((x,t)\) in frame S, and frame S′ moves at velocity \(v\) relative to S along the \(x\)-axis (origins coincident at \(t=0\)), the same event has coordinates \((x',t')\) in S′:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Lorentz transformation</span>
+    $$x' = \gamma(x - vt)$$
+    $$t' = \gamma\left(t - \frac{vx}{c^2}\right)$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Lorentz factor</span>
+    $$\gamma = \frac{1}{\sqrt{1-\dfrac{v^2}{c^2}}}$$
+  </div>
+  <p>\(\gamma\) is dimensionless and always \(\geq 1\). For everyday speeds \(v \ll c\), \(\gamma \approx 1\) and relativistic effects vanish; as \(v \to c\), \(\gamma\) grows without limit. For differences between two events — \(\Delta x\) and \(\Delta t\) — the same equations apply to the intervals directly:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Interval form</span>
+    $$\Delta x' = \gamma(\Delta x - v\Delta t)$$
+    $$\Delta t' = \gamma\left(\Delta t - \frac{v\Delta x}{c^2}\right)$$
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🌌 Astronomical units: the light-year</h3>
+  <p>Astronomical distances are huge, so astronomers use the <strong>light-year (ly)</strong> — the distance light travels in one year:</p>
+  <div class="lc-formula">
+    $$1\ \text{ly} = (3.00\times10^{8})\times 365\times24\times3600 = 9.46\times10^{15}\ \text{m}$$
+  </div>
+  <p>(Exactly defined as 9 460 730 472 580 800 m.) The nearest star beyond the Sun, Alpha Proxima, is \(4.02\times10^{16}\) m away — or 4.25 ly. Working in light-years lets \(c\) cancel neatly in relativity calculations, which is why it appears throughout the worked examples below.</p>
+</div>
+
+<div class="lc-card">
+  <h3>⏱️ Clock synchronisation and the relativity of simultaneity</h3>
+  <p>Comparing event times at different locations in one frame requires <strong>synchronized</strong> clocks. The simplest method: flash a light exactly midway between two clocks and start both when the flash arrives. If the clocks are unequal distances \(L_1\), \(L_2\) from the source, set them to \(L_1/c\) and \(L_2/c\) before starting, so both correctly reach the same reading when their flash arrives.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-03-einsteins-postulates-03.png" alt="Diagram of a train carriage with a flash of light sent from the centre to both ends, reflected back, showing which events are simultaneous in the train frame versus the ground frame" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — A flash from the centre of a train carriage (Event 0) reaches both ends and reflects back (Events 1, 2) to the origin (Event 3).</div>
+  </div>
+  <p>An observer on the train (frame S) sees the pulses sent out, arriving at each end, and returning — all simultaneously. An observer on the ground (frame S′) watching the same train moving past sees something different: the pulse travelling backward against the carriage's motion reaches its end (Event 1) <em>before</em> the forward-travelling pulse reaches its end (Event 2), because it has less distance to cover at the same speed \(c\). The return pulses, however, are still seen arriving back together.</p>
+  <div class="lc-success">✓ Rule: if two events happen at the same place <em>and</em> the same time, they are simultaneous for every observer in every frame. If they happen at different places, simultaneity is frame-dependent — one observer's "at the same time" can be another observer's "one after the other".</div>
+</div>
+
+<div class="lc-card">
+  <h3>➕ Relativistic velocity addition</h3>
+  <p>Galilean relativity simply subtracts velocities: \(u' = u - v\). That fails once speeds approach \(c\), because it could predict speeds above \(c\). The Lorentz transformations lead instead to the <strong>relativistic velocity addition equation</strong>:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Velocity addition</span>
+    $$u' = \frac{u-v}{1-\dfrac{uv}{c^2}}$$
+  </div>
+  <p>\(u\) is an object's velocity measured in frame S; \(u'\) is the same object's velocity as measured in frame S′, which moves at velocity \(v\) relative to S. However large \(u\) and \(v\) are, \(u'\) always comes out below \(c\). When \(u\) and \(v\) are both small compared with \(c\), the equation reduces to the familiar Galilean form.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-03-einsteins-postulates-06.png" alt="Two particles approaching each other, one at 0.60c and the other at minus 0.60c, as seen from an external reference frame" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — Two particles approaching at 0.60c each, seen from an external frame — used in Worked example 5 below.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Reading the Lorentz factor graph</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Lorentz factor vs speed</td><td>\(v/c\) (0 to 1) · \(\gamma\) (1 upward)</td><td>Flat near \(\gamma=1\) for small \(v/c\), curving sharply upward, diverging as \(v/c \to 1\)</td><td>Relativistic effects are negligible below about \(v/c=0.3\); above \(v/c=0.8\), \(\gamma\) rises steeply — this is where "everyday" physics breaks down</td></tr>
+      <tr><td>Light clock path (Mateo's frame)</td><td>Horizontal distance · vertical distance \(d\)</td><td>Diagonal zig-zag between two mirrors, wider the faster the clock moves sideways</td><td>The diagonal path is longer than the straight vertical path seen by an observer moving with the clock — the seed of time dilation (Lesson 04)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a5-03-einsteins-postulates-02.png" alt="Graph of the Lorentz factor gamma against v over c, rising slowly at first then steeply toward 10 as v over c approaches 1" style="max-width:340px;width:100%"><div class="lc-cap">Fig 2 — γ stays close to 1 until \(v/c\) exceeds about 0.5, then rises steeply.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a5-03-einsteins-postulates-05.png" alt="Light clock diagram showing mirrors M1 and M2 separated by distance d, with the light beam's straight path for Rachel in the rocket and diagonal zig-zag path for Mateo watching from outside" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — Rachel (in the rocket) sees the light go straight up and down; Mateo (outside) sees it zig-zag, because the rocket moves sideways while the light is in flight.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – transforming an event's coordinates</h3>
+  <p><strong>(a)</strong> Calculate the Lorentz factor for a relative speed of \(1.50\times10^{8}\ \text{m s}^{-1}\) (0.50c). <strong>(b)</strong> An event in reference frame S occurs at \(x=5000\) m and \(t=2.0\) s. Calculate where and when the same event occurs as observed from a rocket (frame S′) with relative velocity 0.50c. <strong>(c)</strong> State the assumption needed for part (b).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(\gamma = 1/\sqrt{1-v^2/c^2}\), then the Lorentz transformation \(x'=\gamma(x-vt)\), \(t'=\gamma(t-vx/c^2)\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(v=1.50\times10^{8}\) m s⁻¹, \(x=5000\) m, \(t=2.0\) s, \(c=3.00\times10^{8}\) m s⁻¹.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(\gamma = 1/\sqrt{1-(1.50\times10^8)^2/(3.00\times10^8)^2}\)<br>\(= 1.15\)<br>\(x' = 1.15\times(5000 - 1.50\times10^8\times2.0)\)<br>\(t' = 1.15\times(2.0 - 0.50\times3.00\times10^8\times5000/(3.00\times10^8)^2)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(x' \approx -3.4\times10^{8}\ \text{m}\), \(t' = 2.3\ \text{s}\).<br><strong>(c)</strong> It was assumed the two frames' origins coincided at \(t=0\) s.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – using light-years to simplify the algebra</h3>
+  <p>According to an Earth-based observer (frame S) a rocket reaches a point 20 ly away after 30 years: \((x,t)=(20\ \text{ly},\,30\ \text{y})\). Frame S′ moves at 0.50c relative to S, origins coincident at \(t=0\). Determine the rocket's coordinates according to an observer in S′.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> \(\gamma=1.15\) for \(v=0.50c\) (as in Worked example 1). Using light-years and years lets \(c\) cancel.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(x=20\) ly, \(t=30\) y, \(v=0.50c\), \(\gamma=1.15\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(x' = 1.15\times[20 - (0.50c\times30\,\text{y})]\)<br>\(= 1.15\times(20-15)\ \text{ly}\)<br>\(t' = 1.15\times(30 - 0.50c\times20\,\text{ly}/c^2)\)<br>\(= 1.15\times(30-10)\ \text{y}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(x' = 5.8\ \text{ly}\), \(t' = 23\ \text{y}\). So in S′ the rocket has travelled only 5.8 ly in 23 years — a speed of just 0.25c.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 3 – an event in SI units</h3>
+  <p>One observer records an event at \(x=250\) m and \(t=1.7\times10^{-6}\) s. Determine the coordinates of this event as recorded by a second observer travelling at 0.75c relative to the first, frames coincident at \(t=0\).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Lorentz transformation with \(v=0.75c\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(x=250\) m, \(t=1.7\times10^{-6}\) s, \(v=0.75c\).<br>\(\gamma = 1/\sqrt{1-0.75^2} = 1.51\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(x' = 1.51\times(250 - [0.75\times3.00\times10^8\times1.7\times10^{-6}])\)<br>\(t' = 1.51\times(1.7\times10^{-6} - 0.75\times3.00\times10^8\times250/(3.00\times10^8)^2)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(x' = -200\ \text{m}\), \(t' = 1.6\times10^{-6}\ \text{s}\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-03-einsteins-postulates-04.png" alt="Two overlapping coordinate axes labelled S and S prime, with S prime moving to the right at velocity v relative to S, both origins coincident at the same starting point" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — Frame S′ moves at velocity \(v\) relative to frame S; both origins coincide at \(t=0\), the setup behind every Lorentz-transformation calculation above.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 4 – a spacecraft passing a space-station</h3>
+  <p>A spacecraft travelling at 0.6c passes a space-station; clocks in both locations are set to zero as it passes. A short time later the spacecraft passes a point 3000 m from the station's origin, at station-frame time \(t=1.67\times10^{-5}\) s. Determine what time a clock on the spacecraft records for this event.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> \(t' = \gamma(t-vx/c^2)\), with \(x\), \(t\) given in the station's frame.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(v=0.6c\), \(x=3000\) m, \(t=1.67\times10^{-5}\) s.<br>\(\gamma = 1/\sqrt{1-0.6^2}=1.25\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(t' = 1.25\times(1.67\times10^{-5} - 0.6\times3.00\times10^8\times3000/(3.00\times10^8)^2)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(t' = 1.34\times10^{-5}\ \text{s}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 5 – velocity addition, the symmetric case</h3>
+  <p>Two particles are seen from an external reference frame travelling towards each other, each at 0.60c (Fig 6). An observer riding with one particle measures the speed of the other. What do they record?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> \(u' = (u-v)/(1-uv/c^2)\), with \(u=-0.60c\) (the other particle, external frame) and \(v=+0.60c\) (the observer's own frame, relative to the external frame).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(u=-0.60c\), \(v=0.60c\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(u' = \dfrac{-0.60c-0.60c}{1-\dfrac{(-0.60c)(0.60c)}{c^2}} = \dfrac{-1.2c}{1.36}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(u' = -0.88c\) — magnitude 0.88c. Note that simple Galilean addition would (wrongly) give 1.2c. It is easy to lose a negative sign in this calculation; \(u\) and \(v\) are vectors.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 6 – velocity addition, the asymmetric case</h3>
+  <p>Two rockets travel the same direction through empty space, seen from an external frame S: the first at 0.75c, a second (behind it) at 0.95c. Calculate what an observer riding the first rocket measures for the second rocket's approach speed.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> \(u'=(u-v)/(1-uv/c^2)\) with \(u=0.95c\) (second rocket, frame S) and \(v=0.75c\) (first rocket's own frame, relative to S).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(u=0.95c\), \(v=0.75c\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(u' = \dfrac{0.95c-0.75c}{1-\dfrac{0.95c\times0.75c}{c^2}} = \dfrac{0.20c}{0.2875}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(u' = 0.69c\).</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: measuring the cosmos in light-years</h3>
+    <p>Every distance you'll meet in astronomy — to the nearest star, across the Milky Way, to another galaxy — is quoted in light-years precisely because using c-based units keeps the Lorentz factor's algebra clean: a "vx/c²" term collapses into ordinary years once x is in light-years. Astronomers also use the parsec for the same reason, covered in Topic E.5.</p>
+    <div class="lc-success">✓ Examiner tip: if a question gives you distances in light-years and times in years, don't convert to metres and seconds first — leave them as they are and let \(c\) cancel. Converting needlessly is the most common way marks are lost through arithmetic slips in this topic.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – can two light beams have a "relative speed" of 2c?</h3>
+    <p>Two light beams travelling directly towards each other are measured by a lab observer to close the gap between them at 2c. This is not forbidden — a <em>closing speed</em> between two separately-measured objects is not the speed of any single object, so it can exceed c.</p>
+    <p><strong>Challenge:</strong> what happens if you try to find the closing speed "as measured by a photon" using the velocity addition equation? <em>Substituting \(u=v=c\) gives \(u'=(c-(-c))/(1-c\cdot(-c)/c^2) = 2c/2 = c\) — light is still measured at exactly c. But the question is a trick: a photon cannot have a valid rest frame at all, since \(\gamma\to\infty\) at \(v=c\), so "as measured by a photon" is not physically meaningful.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>The Lorentz transformation can be used for any two frames at any time</td><td>It requires the two frames' origins to have coincided at \(t=0\) s — check this before applying \(x'=\gamma(x-vt)\)</td></tr>
+      <tr><td>Velocities just subtract, even near c: \(u'=u-v\)</td><td>Only true for \(u,v \ll c\). Near c, use \(u'=(u-v)/(1-uv/c^2)\), which always keeps \(u'\) below c</td></tr>
+      <tr><td>If two events are simultaneous in one frame, they're simultaneous in every frame</td><td>Only if they also occur at the <em>same place</em>. Spatially separated simultaneous events in one frame are not simultaneous in a frame moving relative to it</td></tr>
+      <tr><td>γ has units, since it looks like it comes from a ratio of speeds</td><td>γ is a pure ratio (dimensionless) — never write a unit after a γ value</td></tr>
+      <tr><td>A "closing speed" of 2c between two light beams breaks relativity</td><td>No single object exceeds c; a closing speed is the rate at which the separation between two independently-moving objects changes, and is not itself limited to c</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common exam slip: dropping the sign of \(v\) or \(u\) in the Lorentz or velocity-addition equations. Both are vectors — fix a positive direction first and stick to it for the whole calculation.</div>
+</div>
+
+<div class="lc-kp">
+  <span>1st postulate: laws of physics same in all inertial frames</span>
+  <span>2nd postulate: c is constant for all observers</span>
+  <span>γ = 1/√(1−v²/c²)</span>
+  <span>x′ = γ(x−vt), t′ = γ(t−vx/c²)</span>
+  <span>origins must coincide at t = 0</span>
+  <span>simultaneity is frame-dependent unless same place</span>
+  <span>u′ = (u−v)/(1−uv/c²)</span>
+  <span>u′ is always &lt; c</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. Which statement is the second postulate of special relativity?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> All inertial observers measure the same time interval</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Velocities always add according to \(u'=u-v\)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> The speed of light in a vacuum is the same constant in every inertial frame</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> There is one uniquely "correct" reference frame</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. What is the Lorentz factor for a relative speed of 0.60c?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 0.80</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 1.25</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 1.60</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 0.36</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. Two events occur at the same place and the same time in frame S. What can you say about their simultaneity in frame S′, moving relative to S?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> They are simultaneous for every observer, in every frame</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> They may or may not be simultaneous, depending on v</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> They are never simultaneous in S′</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> There is not enough information</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. Two spaceships approach each other, each measured at 0.80c by an observer on Earth. Using relativistic velocity addition, the speed at which one ship measures the other approaching is</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','D')"><span class="lc-opt-l">A</span> 1.60c</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','D')"><span class="lc-opt-l">B</span> exactly c</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','D')"><span class="lc-opt-l">C</span> 0.80c</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','D')"><span class="lc-opt-l">D</span> 0.98c</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. Which quantity is dimensionless?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','A')"><span class="lc-opt-l">A</span> The Lorentz factor, γ</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','A')"><span class="lc-opt-l">B</span> A light-year</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','A')"><span class="lc-opt-l">C</span> The Lorentz factor's units, s⁻¹</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','A')"><span class="lc-opt-l">D</span> An inertial reference frame</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The first postulate states that the laws of physics are <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> in all inertial frames. The second postulate states that the speed of <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> is constant for every inertial observer. The Lorentz transformation can only be used if the two frames' origins <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:150px"> at \(t=0\). Two spatially separated events that are simultaneous in one frame need not be simultaneous in another — this is the relativity of <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:140px">. The relativistic velocity addition equation always keeps \(u'\) below the value of <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:70px">. The Michelson–Morley experiment failed to detect the hypothetical <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> A rocket passes the Earth at 0.5c heading towards a star. A star-explosion event occurs at a point 20 light-years from Earth; according to the Earth-based observer, the rocket passes the Earth 20 years before the light from the explosion arrives. Determine the \(x'\) and \(t'\) coordinates of the explosion event for the observer in the rocket's frame. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ γ = 1.15 for v = 0.50c.<br>✓ In Earth's frame the explosion occurs at x = 20 ly, t = 0 (light then takes 20 years to reach Earth at t = 20 y, matching the given 20-year gap).<br>✓ x′ = 1.15 × (20 − 0.50c × 0) = 23 ly.<br>✓ t′ = 1.15 × (0 − 0.50c × 20 ly/c²) = 1.15 × (−10 y) = −11.5 y.<br>✓ So the rocket's observer records the explosion happening 11.5 years before the rocket passed Earth.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> From Earth, the Milky Way is measured to be 100 000 light-years in diameter. Calculate the diameter of the Milky Way for an observer in a distant galaxy moving at 0.2c away from Earth, in the same plane as the measured diameter. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ γ = 1/√(1 − 0.2²) = 1.021.<br>✓ The 100 000 ly figure is the proper length (measured at rest relative to the galaxy); a moving observer measures a shorter length, L = L₀/γ.<br>✓ L = 100 000/1.021 ≈ 9.8 × 10⁴ ly.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> According to Earth-based astronomers a star near the centre of the Milky Way exploded 800 years before a second star, 2000 ly beyond it, also exploded. Determine how much later the second explosion is according to a rocket travelling towards the explosions at 0.2c. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ γ = 1/√(1 − 0.2²) = 1.021. Take Δx = 2000 ly, Δt = 800 y, v = +0.2c (rocket moving toward both explosions, same direction as the spatial separation).<br>✓ vΔx/c² = 0.2 × 2000 ly/c = 0.2 × 2000 y = 400 y (using ly/c = 1 year).<br>✓ Δt′ = γ(Δt − vΔx/c²) = 1.021 × (800 − 400) = 1.021 × 400.<br>✓ Δt′ ≈ 408 y.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q7.</strong> In a laboratory an electron travels at 0.9c. According to the laboratory observer, at \(t \approx 9.6\times10^{-9}\) s it is at \(x=2.6\) m along a vacuum tube. Calculate the Lorentz factor and use it to find the time and position of the electron according to an observer in the electron's own frame. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ γ = 1/√(1 − 0.9²) = 2.29.<br>✓ x′ = 2.29 × (2.6 − 0.9c × 9.6×10⁻⁹) ≈ 0 m — as expected, the electron sits at its own frame's origin.<br>✓ t′ = 2.29 × (9.6×10⁻⁹ − 0.9c×2.6/c²) ≈ 4.1×10⁻⁹ s.<br>✓ Check: Δt′ = Δt/γ = 9.6×10⁻⁹/2.29 ≈ 4.2×10⁻⁹ s, consistent.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q8.</strong> Two inertial observers travel with a relative velocity of 0.8c. One observer measures two events to occur 4.2 m apart with a time interval of \(2.4\times10^{-8}\) s between them. Determine the spatial (Δx′) and temporal (Δt′) intervals measured by the other observer. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ γ = 1/√(1 − 0.8²) = 1.67.<br>✓ Δx′ = 1.67 × (4.2 − 0.8c × 2.4×10⁻⁸) = 1.67 × (4.2 − 5.76) ≈ −2.6 m.<br>✓ Δt′ = 1.67 × (2.4×10⁻⁸ − 0.8c×4.2/c²) = 1.67 × (2.4×10⁻⁸ − 1.12×10⁻⁸) ≈ 2.1×10⁻⁸ s.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Derive / Explain (HL, ATL)</div>
+  <div class="lc-exam-q"><strong>Q9.</strong> Rachel rides in a rocket carrying a light clock — two mirrors M1, M2 separated by distance \(d\), reflecting a light pulse between them. Mateo watches the rocket fly past at speed \(v\). <strong>(a)</strong> Sketch or describe Rachel's view of the light path compared with Mateo's. <strong>(b)</strong> According to Mateo, how far does the rocket move sideways while the pulse travels from M1 to M2, in a time \(\Delta t\)? <strong>(c)</strong> Using a (incorrect) Galilean transformation, what would you naively expect for the speed of the light pulse according to Mateo? <strong>(d)</strong> Using Newtonian geometry, how far does the light have to travel between M1 and M2 according to Mateo? <strong>(e)</strong> Using the correct postulate instead, express the distance the light travels according to Mateo in terms of \(c\) and \(\Delta t\). <strong>(f)</strong> If Rachel measures a time \(\Delta t'\) for the same trip, use Pythagoras to derive an expression for \(\Delta t\) in terms of \(\Delta t'\), \(v\) and \(c\). <strong>(g)</strong> Explain, in terms of the constancy of \(c\), why the two observers must disagree about the time taken. <span class="lc-exam-marks">[8 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Rachel (moving with the clock) sees the light go straight up and down, path length \(d\). Mateo (watching it move past) sees the light trace a diagonal zig-zag, since the rocket carries the mirrors sideways while the light is in flight.<br>✓ (b) The rocket moves \(v\Delta t\) sideways in time \(\Delta t\).<br>✓ (c) Adding the vertical speed \(c\) and horizontal speed \(v\) as vectors would (wrongly) suggest a speed of \(\sqrt{c^2+v^2}\) — different from \(c\), contradicting postulate 2.<br>✓ (d) By Pythagoras, the diagonal distance is \(\sqrt{d^2+(v\Delta t)^2}\).<br>✓ (e) Since \(c\) must be the same for every observer, the distance travelled according to Mateo is simply \(c\Delta t\).<br>✓ (f) \(d=c\Delta t'\) (Rachel's straight path). Equating: \((c\Delta t)^2 = (c\Delta t')^2+(v\Delta t)^2\), so \(\Delta t^2(c^2-v^2)=c^2\Delta t'^2\), giving \(\Delta t = \gamma\Delta t'\) (this general result is developed fully as time dilation in Lesson 04).<br>✓ (g) Both observers must measure the same speed \(c\) for light, but Mateo sees it travel a longer (diagonal) path than Rachel's straight vertical path; since speed = distance/time is fixed at \(c\) for both, the longer path must take the longer time — so Mateo records the larger interval.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q10.</strong> A rocket travelling at 0.1c away from Earth shines a laser beam forwards. <strong>(a)</strong> State the speed an observer inside the rocket would measure for the light beam's photons. <strong>(b)</strong> State the speed an observer stationary relative to Earth would measure. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(c\) — the speed of light is the same in the source's own frame.<br>✓ (b) Also \(c\) — not \(1.1c\); the second postulate holds regardless of the motion of the source.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q11.</strong> Two rockets fly towards each other, each measured by an observer on Earth to be moving at 0.7c. Calculate how fast an observer in one rocket measures the other rocket to be travelling. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(u'=(u-v)/(1-uv/c^2)\) with \(u=-0.7c\), \(v=+0.7c\).<br>✓ \(u' = (-0.7c-0.7c)/(1+0.49) = -1.4c/1.49\).<br>✓ \(u' \approx -0.94c\) — magnitude 0.94c.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q12.</strong> A spaceship travels past a space-station at 0.35c. A proton inside the ship is accelerated forwards through the ship at 0.95c relative to the ship. Determine the speed an observer in the space-station would measure the proton to have. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(u'=(u+v)/(1+uv/c^2)\) — same direction, so add: \(u=0.95c\), \(v=0.35c\).<br>✓ \(u' = (0.95c+0.35c)/(1+0.95\times0.35) = 1.30c/1.3325\).<br>✓ \(u' \approx 0.976c\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q13.</strong> In an alpha-decay experiment the parent nucleus is stationary in the laboratory. The alpha particle travels one way at 0.7c and the daughter nucleus travels the opposite way at 0.2c. According to an observer travelling with the daughter nucleus, calculate how fast the alpha particle is travelling. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(u=+0.7c\) (alpha, lab frame), \(v=-0.2c\) (daughter's frame, relative to lab).<br>✓ \(u' = (0.7c-(-0.2c))/(1-(0.7c)(-0.2c)/c^2) = 0.9c/1.14\).<br>✓ \(u' \approx 0.79c\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q14.</strong> In a beta-decay experiment an electron and an anti-neutrino travel away in the same direction. In the laboratory frame the anti-neutrino has velocity 0.95c and the electron 0.75c. What is the anti-neutrino's velocity according to an observer travelling in the electron's reference frame? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(u=0.95c\), \(v=0.75c\) (electron's frame).<br>✓ \(u' = (0.95c-0.75c)/(1-0.95\times0.75) = 0.20c/0.2875\).<br>✓ \(u' \approx 0.70c\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q15.</strong> Protons in a particle collider travel in opposite directions around the ring at over 0.9990000c. According to an observer travelling with one group of protons, how fast are the approaching protons travelling? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(u=-0.999c\), \(v=+0.999c\).<br>✓ \(u' = -1.998c/(1+0.999^2) = -1.998c/1.998001\).<br>✓ \(u' \approx -0.9999995c\) — extremely close to \(c\), but still below it.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Discuss</div>
+  <div class="lc-exam-q"><strong>Q16.</strong> Two light beams travel towards each other in exactly opposite directions. According to a laboratory observer their relative velocity is 2c. Calculate how fast an observer travelling in the reference frame of one light beam's photons would measure the approaching light beam to be travelling, and discuss whether this calculation is physically meaningful. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Substituting \(u=c\), \(v=c\): \(u' = (c-(-c))/(1-c(-c)/c^2) = 2c/2 = c\).<br>✓ The formula still returns exactly \(c\), consistent with the second postulate.<br>✓ However, a photon cannot have a valid rest frame (\(\gamma \to \infty\) as \(v\to c\)), so "as measured by a photon" is not a physically meaningful reference frame — the calculation is a limiting case, not a real observation.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q17.</strong> In a space race two spaceships pass a mark, measured by race officials to be travelling in the same direction at 0.6c and 0.7c respectively. According to the faster spaceship, calculate how fast the other ship is moving. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(u=0.6c\) (slower ship, lab frame), \(v=0.7c\) (faster ship's own frame).<br>✓ \(u' = (0.6c-0.7c)/(1-0.6\times0.7) = -0.1c/0.58\).<br>✓ \(u' \approx -0.17c\) — the slower ship appears to fall behind (recede) at 0.17c.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'The second postulate: the speed of light in a vacuum is the same constant, c, in every inertial reference frame, regardless of the motion of the source or observer.' },
+    mcq2: { B: 'γ = 1/√(1-0.6²) = 1/√0.64 = 1/0.8 = 1.25.' },
+    mcq3: { A: 'Same place and same time in one frame guarantees simultaneity in every frame. It is only spatially separated events where simultaneity can differ between frames.' },
+    mcq4: { D: "u' = (u-v)/(1-uv/c²) = (-0.8c-0.8c)/(1-(-0.8c)(0.8c)/c²) = -1.6c/1.64 ≈ -0.98c." },
+    mcq5: { A: 'γ is a ratio of two speeds, so its units cancel — it is always a pure number, never given a unit.' }
+  },
+  fitb: { lf1:'identical', lf2:'light', lf3:'coincided', lf4:'simultaneity', lf5:'c', lf6:'ether' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
       <div class="lesson-nav">
-        <a href="01-galilean-relativity.html" class="lesson-nav-btn">
+        <a href="02-galilean-relativity.html" class="lesson-nav-btn">
           <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
           <div>
             <div class="nav-btn-dir">Previous</div>
             <div class="nav-btn-label">Galilean Relativity</div>
           </div>
         </a>
-        <a href="03-time-dilation.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+        <a href="04-time-dilation.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
           <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
           <div>
             <div class="nav-btn-dir">Next</div>
