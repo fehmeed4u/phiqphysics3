@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotational Kinetic Energy — A.4 Rigid Body Mechanics — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A4">A.4 Rigid Body Mechanics</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Rotational Kinetic Energy</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.4
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 4 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Rotational Kinetic Energy</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.4 Rigid Body Mechanics</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.4 overview
+      </a>
+      <div class="sidebar-title">A.4 Concepts</div>
+      <a href="01-torque-and-moment-of-force.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Torque and Moment of Force</span>
+        </a>
+      <a href="02-angular-velocity-and-acceleration.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Angular Velocity and Acceleration</span>
+        </a>
+      <a href="03-moment-of-inertia.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Moment of Inertia</span>
+        </a>
+      <a href="04-rotational-kinetic-energy.html" class="sidebar-link active">
+          <span class="sidebar-num">04</span>
+          <span>Rotational Kinetic Energy</span>
+        </a>
+      <a href="05-angular-momentum.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Angular Momentum</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 5 · A.4 Rigid Body Mechanics</div>
+<div class="lc-title">Rotational Kinetic Energy</div>
+<div class="lc-sub">A spinning object carries kinetic energy just like a moving one. This lesson gives you the rotational analogue of ½mv², then shows how a rolling object splits its energy between translation and spin — and why that always makes it slower than something sliding down the same slope.</div>
+
+<div class="lc-card">
+  <h3>🛼 Hook – the ball that always beats the ring</h3>
+  <p>Release an identical-looking solid ball and a hollow ring together at the top of a ramp. Every time, the ball reaches the bottom first — even though both fall through the same height and start with the same gravitational potential energy. <strong>Some of the ring's potential energy is being diverted somewhere the ball's isn't.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-04-rotational-kinetic-energy-01.png" alt="A solid ball and a hollow ring released together at the top of a ramp, with the ball's path reaching further down the slope">
+    <div class="lc-cap">Fig 1 — Same height, same start, same total energy released — but the ball always wins the race down the slope.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — both objects fall through the same height, so both start with the same \(mg\Delta h\). Why doesn't the ring keep pace with the ball? <em>For a rolling object, \(mg\Delta h = \tfrac12mv^2 + \tfrac12I\omega^2\) — potential energy splits between translational and rotational kinetic energy. The ring has a larger moment of inertia for its mass and radius than the solid ball, so more of its share goes into spinning and less into forward speed \(v\).</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🔄 Rotational kinetic energy — the linear analogy</h3>
+  <p>From Topic A.3, a moving object's linear kinetic energy can be written two ways:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Linear kinetic energy</span>
+    $$E_{\text{k}} = \tfrac{1}{2}mv^2 = \frac{p^2}{2m}$$
+  </div>
+  <p>Knowing this, we can write down the equivalent equations for <strong>rotational kinetic energy</strong> by analogy — swap \(m \to I\), \(v \to \omega\), and \(p \to L\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Rotational kinetic energy · SI unit J</span>
+    $$E_{\text{k}} = \tfrac{1}{2}I\omega^2 = \frac{L^2}{2I}$$
+  </div>
+  <p>It is common for an object to have <strong>both</strong> linear and rotational kinetic energy at once — the wheel on a bicycle, for example, translates along the road and spins about its axle simultaneously.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-04-rotational-kinetic-energy-02.png" alt="Simplified car body moving forward with a labelled translational velocity arrow, and one wheel with a labelled rotation arrow">
+    <div class="lc-cap">Fig 2 — A moving car has both kinds of kinetic energy at once: the body translates at \(v\), and each wheel also spins at \(\omega\).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🛞 Rolling without slipping</h3>
+  <p>We assume there is sufficient surface friction to prevent any <strong>slipping</strong> or <strong>sliding</strong> — this means there is no relative motion between the lower surface of the rotating object and the surface it moves on. This is called <strong>rolling</strong>.</p>
+  <p>Consider a wheel of radius \(r\) rotating with angular speed \(\omega\). All points on its circumference move with linear speed \(v = \omega r\) relative to the axle. If point P on the rim is in contact with the road, rolling without slipping requires P to be <strong>momentarily stationary</strong> relative to the road — so the axle (and the whole vehicle) moves at \(v\), while the point diametrically opposite, at the top of the wheel, moves at \(2v\) relative to the road.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-04-rotational-kinetic-energy-03.png" alt="Two-stage diagram of a motorbike wheel rolling, showing the contact point momentarily stationary, the axle moving at v, and the top of the wheel moving at 2v">
+    <div class="lc-cap">Fig 3 — Moving wheel showing instantaneous speeds relative to the road. The contact point P is momentarily stationary; the axle moves at \(v\); the top of the wheel moves at \(2v\).</div>
+  </div>
+  <div class="lc-info">📖 Because the contact point has zero velocity relative to the road, the frictional force there does no work — no energy is dissipated at that point. (This is a simplified interpretation.)</div>
+  <div class="lc-warn">⚠️ <strong>Common mistake</strong> — when a vehicle accelerates, many students think there is just one frictional force, acting against the direction of motion. But all forces occur in pairs: friction pushes backwards on the road, and (Newton's third law) an equal and opposite force pushes forwards on the vehicle. This is the force that accelerates the vehicle or opposes air resistance. Only when there is no forward propulsion does friction on the vehicle act opposite to its motion.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs for rotational energy and momentum</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Torque–time (spin-up)</td><td>Time / s · Torque / N m</td><td>Rises, plateaus, falls back to zero (trapezoid)</td><td>Area = angular impulse = \(\Delta L = I\Delta\omega\)</td></tr>
+      <tr><td>Rotational \(E_{\text{k}}\)–\(\omega^2\)</td><td>\(\omega^2\) / rad² s⁻² · \(E_{\text{k}}\) / J</td><td>Straight line through the origin</td><td>Gradient \(= I/2\)</td></tr>
+      <tr><td>\(\omega\)–time (uniform angular acceleration)</td><td>Time / s · \(\omega\) / rad s⁻¹</td><td>Straight line, positive gradient</td><td>Gradient = angular acceleration \(\alpha\); area under the line = angular displacement \(\theta\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a4-04-rotational-kinetic-energy-06.png" alt="Torque against time graph rising to 25 newton metres, staying constant, then falling back to zero, for a system with moment of inertia 0.68 kilogram metres squared"><div class="lc-cap">Fig 6 — Torque–time graph for a stationary system, \(I = 0.68\) kg m². The area under the curve is the angular impulse, \(\Delta L\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a4-04-rotational-kinetic-energy-07.png" alt="Straight line graph of rotational kinetic energy against angular speed squared, passing through the origin"><div class="lc-cap">Fig 7 — Rotational \(E_{\text{k}}\) plotted against \(\omega^2\) is a straight line through the origin, with gradient \(I/2\).</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – a car's total kinetic energy (A4.14)</h3>
+  <p>A car of mass 1340 kg is moving with a speed of 12 m s⁻¹. <strong>(a)</strong> Calculate its linear kinetic energy. <strong>(b)</strong> If each wheel and tyre (of four) has a radius of 29 cm and a moment of inertia of 0.59 kg m², determine its rotational kinetic energy. <strong>(c)</strong> What is the total kinetic energy of the car?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the car body has linear KE; each of the four wheels has rotational KE about its axle, since it rolls without slipping (\(\omega = v/r\)).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 1340\) kg, \(v = 12\ \text{m s}^{-1}\), \(r = 0.29\) m, \(I_{\text{wheel}} = 0.59\ \text{kg m}^2\), 4 wheels.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong> \(E_{\text{k}} = \tfrac12mv^2\)<br>\(= \tfrac12 \times 1340 \times 12^2\)<br><strong>(b):</strong> \(\omega = v/r = 12/0.29 = 41.4\ \text{rad s}^{-1}\)<br>\(E_{\text{k}} = \tfrac12I\omega^2\) (one wheel)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer (a):</strong> \(E_{\text{k(linear)}} = 9.6 \times 10^4\ \text{J}\).<br><strong>(b):</strong> \(E_{\text{k(rot, 1 wheel)}} = \tfrac12 \times 0.59 \times 41.4^2 = 5.1 \times 10^2\ \text{J}\).<br><strong>(c):</strong> total \(= (9.6\times10^4) + (4 \times 5.1\times10^2) = 9.8 \times 10^4\ \text{J}\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-04-rotational-kinetic-energy-04.png" alt="Car labelled with mass 1340 kilograms and speed 12 metres per second, with a call-out circle showing one wheel labelled radius 29 centimetres and moment of inertia 0.59 kilogram metres squared">
+    <div class="lc-cap">Fig 4 — Geometry for Worked example 1. Four wheels each contribute rotational KE on top of the body's linear KE.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – a ball rolling down a slope (A4.15)</h3>
+  <p>Consider a solid sphere, for which \(I = \tfrac25mr^2\). Remembering that \(v = \omega r\), the energy equation \(mg\Delta h = \tfrac12mv^2 + \tfrac12I\omega^2\) becomes \(g\Delta h = \tfrac{7}{10}\omega^2r^2\) (mass cancels). Determine the <strong>(a)</strong> angular speed and <strong>(b)</strong> linear speed of the centre of mass of a 500 g ball, which has a radius of 10 cm, after it has rolled down a slope of vertical height 1.0 m.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a solid sphere rolling without slipping, so \(I = \tfrac25mr^2\) and \(v = \omega r\). Mass cancels from the combined energy equation, so the result does not depend on the ball's mass.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 500\) g (cancels), \(r = 0.10\) m, \(\Delta h = 1.0\) m, \(g = 9.8\ \text{m s}^{-2}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(g\Delta h = \tfrac{7}{10}\omega^2r^2\)<br>\(9.8 \times 1.0 = 0.7 \times \omega^2 \times 0.10^2\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer (a):</strong> \(\omega = 37\ \text{rad s}^{-1}\).<br><strong>(b):</strong> \(v = \omega r = 37 \times 0.10 = 3.7\ \text{m s}^{-1}\). Note this speed does not depend on the slope angle or the ball's mass — only on \(r\) and \(\Delta h\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-04-rotational-kinetic-energy-05.png" alt="Solid ball labelled mass 500 grams and radius 10 centimetres at the top of a slope of height 1.0 metre, and again at the bottom with arrows for v and omega">
+    <div class="lc-cap">Fig 5 — Geometry for Worked example 2. At the bottom, the ball's original PE has become a mix of translational KE (\(v\)) and rotational KE (\(\omega\)).</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: braking, tyres and energy in a crash</h3>
+    <p>When a car brakes to a stop, every joule of kinetic energy it carries has to be dissipated as heat in the brakes (and tyres). That energy budget isn't just \(\tfrac12mv^2\) for the body — every one of the four spinning wheels also carries rotational KE that must be brought to zero.</p>
+    <div class="lc-success">✓ Examiner tip: if a question asks for the total kinetic energy "lost" by a braking car, always add the rotational KE of the wheels (\(4 \times \tfrac12I\omega^2\)) to the body's linear KE — leaving it out is a very common mark loss.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – why sliding always beats rolling on the same slope</h3>
+    <p>For any object rolling down a slope, write \(I = kmr^2\), where \(k\) is a shape factor (\(k = \tfrac25\) for a solid sphere, \(k = \tfrac23\) for a hollow sphere, \(k = 1\) for a thin hoop). The energy equation then rearranges to:</p>
+    <div class="lc-formula">
+      $$v^2 = \frac{2g\Delta h}{1+k}$$
+    </div>
+    <p>A sliding (frictionless, non-rotating) object has \(k = 0\), giving the largest possible \(v\) for a given height — no energy is ever diverted into spin.<br>
+    <strong>Challenge:</strong> which is faster at the bottom, a solid ball (\(k=\tfrac25\)) or a hollow sphere (\(k=\tfrac23\)), released from the same height? <em>(Answer: the solid ball — its smaller \(k\) means a larger share of the available energy converts to translational KE.)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table" style="table-layout:fixed">
+    <colgroup><col style="width:25%"><col style="width:75%"></colgroup>
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td style="white-space:normal">The wheel–road contact point is moving forward</td><td>It is instantaneously stationary relative to the ground when the wheel rolls without slipping</td></tr>
+      <tr><td style="white-space:normal">Friction always opposes a car's motion</td><td>Friction from the road can propel the car forward; it only opposes the wheel's spin, and Newton's third law gives an equal forward reaction on the vehicle</td></tr>
+      <tr><td style="white-space:normal">A sliding object and a rolling object of the same mass reach the same speed down the same slope</td><td>The rolling object diverts some PE into rotational KE, so it arrives slower</td></tr>
+      <tr><td style="white-space:normal">A bigger moment of inertia means faster spin</td><td>For the same energy or angular momentum, a bigger \(I\) gives a <em>slower</em> \(\omega\), since \(E_{\text{k}} = \tfrac12I\omega^2 = L^2/2I\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: writing \(mg\Delta h = \tfrac12mv^2\) alone for a rolling object and forgetting the \(\tfrac12I\omega^2\) term entirely — that equation only applies to frictionless sliding.</div>
+</div>
+
+<div class="lc-kp">
+  <span>Ek = ½Iω² = L²/2I</span>
+  <span>v = ωr (rolling)</span>
+  <span>mgΔh = ½mv² + ½Iω²</span>
+  <span>contact point: v = 0</span>
+  <span>top of wheel: v = 2v(axle)</span>
+  <span>solid sphere: I = ⅖mr²</span>
+  <span>sliding beats rolling</span>
+  <span>bigger I ⇒ slower down slope</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A flywheel's rotational kinetic energy, written in terms of angular momentum \(L\) and moment of inertia \(I\), is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> \(E_{\text{k}} = IL^2/2\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> \(E_{\text{k}} = L^2/2I\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> \(E_{\text{k}} = 2IL^2\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> \(E_{\text{k}} = L/2I\)</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A wheel of radius \(r\) rolls without slipping at translational speed \(v\). The speed of the point on the wheel touching the ground is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> \(v\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> \(2v\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> zero</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> \(v/2\)</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A solid ball and a hollow ball, of equal mass and radius, roll from rest down the same slope. Which reaches the bottom with the greater linear speed?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> The hollow ball, because it has the larger moment of inertia</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> The solid ball, because less of its energy is diverted into rotation</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> They arrive with the same speed, since mass and radius are equal</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> The hollow ball, because it rotates faster</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A frictionless sliding block and a rolling ball of the same mass are released from rest at the top of the same slope. Which reaches the bottom first?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> The ball, because it has more total kinetic energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> The block, because none of its energy diverts into rotation</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> They arrive together, since both started with the same potential energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Neither reaches the bottom without friction</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. The area under a torque–time graph, for a torque that increases uniformly from zero, is equal to</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> the final angular velocity</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> the moment of inertia</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> the change in angular momentum</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> the rotational kinetic energy</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Rotational kinetic energy \(E_{\text{k}} = \tfrac12I\omega^2\) can also be written as \(L^2\) divided by twice the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:150px">. For a wheel rolling without slipping, the point touching the ground has an instantaneous speed of <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> relative to the ground, the axle moves at speed <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:60px">, and the top of the wheel moves at <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:70px">. A solid sphere has a moment of inertia of <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:90px">\(mr^2\). When a ball rolls down a slope, gravitational potential energy is shared between translational kinetic energy and <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:130px"> kinetic energy.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q"><strong>Q18.</strong> An object which has a moment of inertia of 4.8 kg m² is initially at rest. A torque is then applied which increases uniformly from zero until the object is rotating with an angular velocity of 79 rad s⁻¹ after 23 s. Show that the maximum torque applied was approximately 30 N m. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Change of angular momentum \(\Delta L = I\Delta\omega = 4.8 \times 79 = 379\ \text{kg m}^2\text{s}^{-1}\).<br>✓ For a torque rising uniformly from zero, the angular impulse is the area of a triangle: \(\Delta L = \tfrac12\tau_{\text{max}} \times 23\).<br>✓ \(\tau_{\text{max}} = 2 \times 379/23 = 33\ \text{N m}\), close to the target value of about 30 N m.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q19.</strong> A solid sphere of mass 1.47 kg and radius 12 cm is rotating about a diameter with an angular speed of 57 rad s⁻¹. Determine what constant torque will bring it to rest in 10.0 s. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(I = \tfrac25mr^2 = 0.4 \times 1.47 \times 0.12^2 = 8.47\times10^{-3}\ \text{kg m}^2\).<br>✓ \(\alpha = \Delta\omega/\Delta t = 57/10 = 5.7\ \text{rad s}^{-2}\).<br>✓ \(\tau = I\alpha = 8.47\times10^{-3} \times 5.7 = 4.8\times10^{-2}\ \text{N m}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate / Predict</div>
+  <div class="lc-exam-q"><strong>Q20.</strong> Fig 6 shows the variation of torque applied to a stationary system that has a moment of inertia of 0.68 kg m². <strong>(a)</strong> Estimate the change of angular momentum of the system. <strong>(b)</strong> Predict a value for its final angular velocity. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\Delta L\) = area under the torque–time graph in Fig 6 ≈ 10 N m s (kg m² s⁻¹).<br>✓ (b) The system started at rest, so \(\Delta\omega = \Delta L / I = 10/0.68 = 15\ \text{rad s}^{-1}\) is also the final angular velocity.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q21.</strong> Calculate the rotational kinetic energy of a tossed coin if it has a mass of 8.7 g, radius 7.1 mm and completes one rotation in 0.52 s. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\omega = 2\pi/T = 2\pi/0.52 = 12.1\ \text{rad s}^{-1}\).<br>✓ Treating the coin as a disc, \(I = \tfrac12mr^2 = 0.5 \times 0.0087 \times 0.0071^2 = 2.19\times10^{-7}\ \text{kg m}^2\).<br>✓ \(E_{\text{k}} = \tfrac12I\omega^2 = 1.6\times10^{-5}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate (research)</div>
+  <div class="lc-exam-q"><strong>Q22.</strong> Calculate the rotational kinetic energy of the Earth spinning on its axis. (Research relevant information.) <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Using \(M \approx 5.97\times10^{24}\) kg, \(R \approx 6.37\times10^{6}\) m, \(T = 24\) h \(= 8.64\times10^{4}\) s, and treating Earth as a uniform sphere, \(I = \tfrac25MR^2 \approx 9.7\times10^{37}\ \text{kg m}^2\).<br>✓ \(\omega = 2\pi/T = 7.27\times10^{-5}\ \text{rad s}^{-1}\).<br>✓ \(E_{\text{k}} = \tfrac12I\omega^2 \approx 2.6\times10^{29}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q23.</strong> A flywheel is spinning with rotational kinetic energy of 4.6 × 10⁴ J. Calculate its moment of inertia if it has an angular momentum of 98 kg m² s⁻¹. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(E_{\text{k}} = L^2/2I \Rightarrow I = L^2/2E_{\text{k}}\).<br>✓ \(I = 98^2/(2 \times 4.6\times10^{4}) = 0.10\ \text{kg m}^2\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate</div>
+  <div class="lc-exam-q"><strong>Q24.</strong> The moment of inertia of a windmill is 96 kg m². Estimate how many rotations every minute are needed for it to have 250 J of kinetic energy. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\omega = \sqrt{2E_{\text{k}}/I} = \sqrt{500/96} = 2.28\ \text{rad s}^{-1}\).<br>✓ rpm \(= \omega \times 60/2\pi = 2.28 \times 9.55 \approx 22\) rotations per minute.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Write down / Calculate</div>
+  <div class="lc-exam-q"><strong>Q25.</strong> A string is wrapped around a wheel of radius 24 cm and provides a torque as an attached mass accelerates downwards, starting the wheel rotating. <strong>(a)</strong> Write down an equation to represent the transfer of energy when the mass has fallen a distance \(h\). <strong>(b)</strong> Calculate a value for the moment of inertia of the wheel if a mass of 500 g is moving down with a speed of 1.14 m s⁻¹ after falling a distance of 50 cm. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(mgh = \tfrac12mv^2 + \tfrac12I\omega^2\), with \(\omega = v/r\) since the string does not slip on the wheel.<br>✓ \(mgh = 0.500 \times 9.8 \times 0.50 = 2.45\ \text{J}\); \(\tfrac12mv^2 = 0.5 \times 0.500 \times 1.14^2 = 0.325\ \text{J}\).<br>✓ Remainder \(= 2.45 - 0.325 = 2.125\ \text{J} = \tfrac12I\omega^2\), with \(\omega = 1.14/0.24 = 4.75\ \text{rad s}^{-1}\).<br>✓ \(I = 2\times2.125/4.75^2 = 0.19\ \text{kg m}^2\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State / Show that</div>
+  <div class="lc-exam-q"><strong>Q26.</strong> A cyclist is moving to the right with a constant linear speed of 4.0 m s⁻¹. <strong>(a)</strong> State the linear speed of all points on the circumference of the wheel (with respect to the bicycle). <strong>(b)</strong> State the speed of the lowest point of the wheel with respect to the ground. <strong>(c)</strong> Show that the angular speed of the wheel is approximately 15 rad s⁻¹. <strong>(d)</strong> What is the instantaneous velocity of the top of the wheel, with respect to the ground? <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Relative to the bicycle/axle, every point on the rim moves at the same speed \(\omega r = v = 4.0\ \text{m s}^{-1}\) (in different directions).<br>✓ (b) Zero — the contact point is instantaneously stationary relative to the ground (rolling without slipping).<br>✓ (c) Reading a wheel radius of about 0.27 m from the picture: \(\omega = v/r = 4.0/0.27 \approx 15\ \text{rad s}^{-1}\).<br>✓ (d) \(2v = 8.0\ \text{m s}^{-1}\), in the same direction as the bicycle's travel, relative to the ground.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss</div>
+  <div class="lc-exam-q"><strong>Q27.</strong> A solid ball and a hollow ball of the same mass and radius roll down a hill. At the bottom, discuss which ball <strong>(a)</strong> will be rotating faster <strong>(b)</strong> has the greater linear speed. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Writing \(I = kmr^2\) (\(k=\tfrac25\) solid, \(k=\tfrac23\) hollow), \(v^2 = 2g\Delta h/(1+k)\), so the solid ball (smaller \(k\)) reaches the higher \(v\).<br>✓ Since \(r\) is equal for both and \(\omega = v/r\), the solid ball also has the higher \(\omega\).<br>✓ (a) The solid ball rotates faster. (b) The solid ball also has the greater linear speed.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Compare</div>
+  <div class="lc-exam-q"><strong>Q28.</strong> <strong>(a)</strong> Calculate the greatest <strong>(i)</strong> angular speed <strong>(ii)</strong> linear speed of a solid ball of radius 1.2 cm rolling down a slope from a vertical height of 6.0 cm. <strong>(b)</strong> What assumption did you make? <strong>(c)</strong> Compare your answer to the greatest speed of the same ball dropped the same vertical distance. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a)(ii) \(v^2 = \tfrac{10}{7}g\Delta h = \tfrac{10}{7} \times 9.8 \times 0.06 = 0.84\), so \(v = 0.92\ \text{m s}^{-1}\).<br>✓ (a)(i) \(\omega = v/r = 0.92/0.012 = 76\ \text{rad s}^{-1}\).<br>✓ (b) Assumption: the ball rolls without slipping, and no energy is lost to air resistance.<br>✓ (c) Free fall (or frictionless sliding) from the same height gives \(v = \sqrt{2g\Delta h} = \sqrt{2\times9.8\times0.06} = 1.08\ \text{m s}^{-1}\), faster than the rolling ball because none of its energy is diverted into rotation.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Write down</div>
+  <div class="lc-exam-q"><strong>Q29.</strong> Use the analogies between linear and rotational mechanics to write down equations for rotational work and power. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Linear work \(W = Fs\) becomes rotational work \(W = \tau\theta\).<br>✓ Linear power \(P = Fv\) becomes rotational power \(P = \tau\omega\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Identify / State (Inquiry: Exploring and designing)</div>
+  <div class="lc-exam-q"><strong>Q30.</strong> A student wishes to investigate balls rolling down slopes. Identify all the possible variables involved, and select one independent and one dependent variable that could be investigated. State how the other variable would be controlled. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Possible variables: ball radius, ball mass, moment-of-inertia type (solid/hollow), slope angle, slope surface/friction, release height, ramp length.<br>✓ Independent variable (example): ball radius. Dependent variable: time to reach the bottom (or final speed).<br>✓ Controlled variables: slope angle, surface material/friction, release height, ball material/density — so only the radius changes between trials.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Ek = ½Iω² and L = Iω, so Ek = ½(L/ω)ω² = ½Lω = L²/2I.' },
+    mcq2: { C: 'Rolling without slipping means the contact point is momentarily at rest relative to the ground.' },
+    mcq3: { B: 'v² = 2gΔh/(1+k), where k = I/mr². The solid ball has the smaller k, so more of its energy converts to translational KE.' },
+    mcq4: { B: 'A sliding block has k = 0 in v² = 2gΔh/(1+k) — none of its energy is diverted into rotation, so it reaches the bottom fastest.' },
+    mcq5: { C: 'Area under a torque-time graph = angular impulse = change in angular momentum, ΔL = IΔω.' }
+  },
+  fitb: { lf1:'moment of inertia', lf2:'zero', lf3:'v', lf4:'2v', lf5:'2/5', lf6:'rotational' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="03-moment-of-inertia.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Moment of Inertia</div>
+          </div>
+        </a>
+        <a href="05-angular-momentum.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Angular Momentum</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
