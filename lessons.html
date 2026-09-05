@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Lessons — φQ Physics</title>
+<link rel="stylesheet" href="shared/theme.css">
+<style>
+.lessons-hero{background:linear-gradient(135deg,var(--surface) 0%,var(--bg) 100%);border-bottom:1px solid var(--border);padding:2.75rem 0 2.25rem}
+.filter-row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-top:1.5rem}
+#lesson-filter{flex:1;min-width:240px;max-width:420px;background:var(--surface2);border:1.5px solid var(--border-2);border-radius:100px;color:var(--text);font:inherit;font-size:.95rem;padding:.7rem 1.1rem;outline:none}
+#lesson-filter:focus{border-color:var(--accent)}
+.unit-chip{padding:.45rem 1rem;border-radius:100px;border:1.5px solid var(--border-2);background:transparent;color:var(--text-muted);font:inherit;font-size:.82rem;cursor:pointer;transition:var(--t)}
+.unit-chip.on{color:#fff}
+.unit-block{margin-bottom:2.75rem}
+.unit-head{display:flex;align-items:baseline;gap:.75rem;margin-bottom:1rem;flex-wrap:wrap}
+.unit-head h2{font-size:1.35rem;margin:0}
+.unit-head .cnt{font-family:var(--font-mono);font-size:.78rem;color:var(--text-dim)}
+.topic-block{margin-bottom:1.5rem}
+.topic-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;flex-wrap:wrap}
+.topic-head .code{font-family:var(--font-mono);font-size:.76rem;font-weight:700;padding:.18rem .55rem;border-radius:6px}
+.topic-head .nm{font-weight:600;font-size:.98rem;color:var(--text)}
+.topic-head a.all{font-size:.78rem;color:var(--text-muted);text-decoration:none;margin-left:auto}
+.topic-head a.all:hover{color:var(--accent)}
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.6rem}
+.lesson-card{display:flex;align-items:center;gap:.7rem;padding:.7rem .85rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:var(--t)}
+.lesson-card:hover{border-color:var(--accent);box-shadow:var(--glow-sm);opacity:1;transform:translateY(-1px)}
+.lesson-card .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--surface2);color:var(--text-dim);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.72rem;font-weight:700}
+.lesson-card:hover .n{background:var(--accent);color:#fff}
+.lesson-card .t{font-size:.88rem;color:var(--text);line-height:1.35}
+.empty{padding:3rem 1rem;text-align:center;color:var(--text-muted)}
+a{color:var(--accent)}a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+<script src="shared/lessons.js"></script>
+<script src="shared/nav.js"></script>
+
+<div class="lessons-hero">
+  <div class="container">
+    <div class="section-label">Every concept, one click away</div>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.4rem">All Lessons</h1>
+    <p style="max-width:56ch">Full lesson pages with worked examples, exam questions and diagrams. <span id="count-line"></span></p>
+    <div class="filter-row">
+      <input type="text" id="lesson-filter" placeholder="Filter — try “SUVAT”, “entropy”, “Doppler”…" autocomplete="off" spellcheck="false">
+      <div id="unit-chips" style="display:flex;gap:.4rem;flex-wrap:wrap"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:2.25rem;padding-bottom:4rem">
+  <div id="list"></div>
+</div>
+
+<script>
+(function(){
+  const U=window.PHYQ_UNITS,T=window.PHYQ_TOPICS;
+  let unit='all',q='';
+  document.getElementById('count-line').textContent=window.PHYQ_LESSON_COUNT+' lessons across '+T.length+' topics.';
+  const chips=document.getElementById('unit-chips');
+  const mk=(id,label,color)=>{
+    const b=document.createElement('button');b.className='unit-chip'+(id===unit?' on':'');b.textContent=label;
+    if(id===unit&&color)b.style.background=color,b.style.borderColor=color;
+    b.addEventListener('click',()=>{unit=id;render()});
+    return b;
+  };
+  function renderChips(){
+    chips.textContent='';
+    chips.appendChild(mk('all','All units','var(--accent)'));
+    Object.keys(U).filter(k=>T.some(t=>t.unit===k)).forEach(k=>chips.appendChild(mk(k,U[k].label,U[k].color)));
+  }
+  function render(){
+    renderChips();
+    const host=document.getElementById('list');host.textContent='';
+    let shown=0;
+    for(const key of Object.keys(U)){
+      if(unit!=='all'&&unit!==key)continue;
+      const topics=T.filter(t=>t.unit===key).map(t=>({
+        ...t,
+        lessons:t.lessons.filter(l=>!q||l.t.toLowerCase().includes(q)||t.name.toLowerCase().includes(q)||t.code.toLowerCase().includes(q))
+      })).filter(t=>t.lessons.length);
+      if(!topics.length)continue;
+      const n=topics.reduce((a,t)=>a+t.lessons.length,0);shown+=n;
+      const block=document.createElement('div');block.className='unit-block';
+      const h=document.createElement('div');h.className='unit-head';
+      h.innerHTML='<div class="section-label" style="color:'+U[key].color+'">'+U[key].label+'</div>'+
+        '<h2 style="color:'+U[key].color+'">'+U[key].name+'</h2><span class="cnt">'+n+' lessons</span>';
+      block.appendChild(h);
+      for(const t of topics){
+        const tb=document.createElement('div');tb.className='topic-block';
+        const th=document.createElement('div');th.className='topic-head';
+        th.innerHTML='<span class="code" style="color:'+U[key].color+';background:'+U[key].color+'18">'+t.code+'</span>'+
+          '<span class="nm">'+t.name+'</span>'+
+          '<a class="all" href="syllabus-content/'+t.folder+'/index.html">Topic overview →</a>';
+        tb.appendChild(th);
+        const g=document.createElement('div');g.className='lesson-grid';
+        t.lessons.forEach(l=>{
+          const a=document.createElement('a');a.className='lesson-card';
+          a.href='syllabus-content/'+t.folder+'/'+l.f;
+          a.innerHTML='<span class="n">'+l.f.slice(0,2)+'</span><span class="t">'+l.t+'</span>';
+          g.appendChild(a);
+        });
+        tb.appendChild(g);block.appendChild(tb);
+      }
+      host.appendChild(block);
+    }
+    if(!shown)host.innerHTML='<div class="empty">No lesson matches “'+q+'”. Try a shorter keyword.</div>';
+  }
+  document.getElementById('lesson-filter').addEventListener('input',e=>{q=e.target.value.toLowerCase().trim();render()});
+  render();
+})();
+</script>
+</body>
+</html>
