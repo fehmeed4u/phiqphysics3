@@ -151,27 +151,31 @@ window.PHYQ_TOPICS = [
   "folder": "A.5-Special-Relativity",
   "lessons": [
    {
-    "f": "01-galilean-relativity.html",
+    "f": "01-frames-of-reference.html",
+    "t": "Frames of Reference"
+   },
+   {
+    "f": "02-galilean-relativity.html",
     "t": "Galilean Relativity"
    },
    {
-    "f": "02-einstein-s-postulates.html",
+    "f": "03-einstein-s-postulates.html",
     "t": "Einstein's Postulates"
    },
    {
-    "f": "03-time-dilation.html",
+    "f": "04-time-dilation.html",
     "t": "Time Dilation"
    },
    {
-    "f": "04-length-contraction.html",
+    "f": "05-length-contraction.html",
     "t": "Length Contraction"
    },
    {
-    "f": "05-mass-energy-equivalence.html",
+    "f": "06-mass-energy-equivalence.html",
     "t": "Mass-Energy Equivalence"
    },
    {
-    "f": "06-spacetime-diagrams.html",
+    "f": "07-spacetime-diagrams.html",
     "t": "Spacetime Diagrams"
    }
   ]
