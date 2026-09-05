@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Length Contraction — A.5 Galilean and Special Relativity — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -86,6 +87,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -112,7 +116,7 @@
           </span>
           <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
           <span style="font-size:0.8rem;color:var(--text-muted)">
-            Concept 4 of 6
+            Concept 5 of 7
           </span>
         </div>
         <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Length Contraction</h1>
@@ -137,28 +141,32 @@
         ← Back to A.5 overview
       </a>
       <div class="sidebar-title">A.5 Concepts</div>
-      <a href="01-galilean-relativity.html" class="sidebar-link">
+      <a href="01-frames-of-reference.html" class="sidebar-link">
           <span class="sidebar-num">01</span>
+          <span>Frames of Reference</span>
+        </a>
+      <a href="02-galilean-relativity.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
           <span>Galilean Relativity</span>
         </a>
-      <a href="02-einstein-s-postulates.html" class="sidebar-link">
-          <span class="sidebar-num">02</span>
+      <a href="03-einstein-s-postulates.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
           <span>Einstein's Postulates</span>
         </a>
-      <a href="03-time-dilation.html" class="sidebar-link">
-          <span class="sidebar-num">03</span>
+      <a href="04-time-dilation.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
           <span>Time Dilation</span>
         </a>
-      <a href="04-length-contraction.html" class="sidebar-link active">
-          <span class="sidebar-num">04</span>
+      <a href="05-length-contraction.html" class="sidebar-link active">
+          <span class="sidebar-num">05</span>
           <span>Length Contraction</span>
         </a>
-      <a href="05-mass-energy-equivalence.html" class="sidebar-link">
-          <span class="sidebar-num">05</span>
+      <a href="06-mass-energy-equivalence.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
           <span>Mass-Energy Equivalence</span>
         </a>
-      <a href="06-spacetime-diagrams.html" class="sidebar-link">
-          <span class="sidebar-num">06</span>
+      <a href="07-spacetime-diagrams.html" class="sidebar-link">
+          <span class="sidebar-num">07</span>
           <span>Spacetime Diagrams</span>
         </a>
     </aside>
@@ -166,40 +174,388 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Length Contraction</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=A5" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>5</span> Lesson 5 of 7 · A.5 Special Relativity</div>
+<div class="lc-title">Length Contraction</div>
+<div class="lc-sub">A moving ruler measures shorter than the same ruler at rest — an effect exactly as real as time dilation, and its mirror image. This lesson derives \(L = L_0/\gamma\), defines proper length, and uses the muon-decay experiment as one real experiment that confirms time dilation and length contraction at once.</div>
+
+<div class="lc-card">
+  <h3>🚀 Hook – the ruler that shrinks when it flies past you</h3>
+  <p>A 1.00 m rod is carried past you at a large fraction of the speed of light. You time it as it passes a fixed point and work out its length from that measurement. <strong>You do not get 1.00 m.</strong> You measure something shorter — even though nothing has physically squeezed the rod, and an astronaut riding alongside it would swear it is still exactly 1.00 m long.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-05-length-contraction-01.png" alt="A rod at rest labelled 1.00 m proper length, and the same rod moving past a fixed observer measured shorter" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — The rod's own crew always measures 1.00 m. An observer watching it fly past measures a shorter length, L.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think — then read on)</strong> — if a 1.00 m rod flies past you at high speed, do you measure it longer, shorter, or exactly 1.00 m? <em>Shorter. This is length contraction, and — unlike time dilation, which stretches every interval — it only shrinks the dimension of the object that lies along the direction of relative motion.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 From the Lorentz transformation to L = L₀/γ</h3>
+  <p>Suppose we observe a rod in another reference frame, \(S^{\prime}\), moving relative to our own frame \(S\). In \(S^{\prime}\) the rod's length, \(\Delta x^{\prime}\), is found from the position of its ends. The Lorentz transformation gives:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Lorentz transformation</span>
+    $$\Delta x^{\prime} = \gamma(\Delta x - v\Delta t)$$
+  </div>
+  <p>If we measure the positions of both ends of the rod <strong>at the same time</strong> in our own frame \(S\), then \(\Delta t = 0\), and the equation simplifies. Rearranging for \(\Delta x\), the length we record in \(S\):</p>
+  <div class="lc-formula">
+    $$\Delta x = \frac{\Delta x^{\prime}}{\gamma}$$
+  </div>
+  <div class="lc-info">📖 <strong>Length contraction</strong> — the contraction of a measured length of an object relative to the proper length of the object, due to the relative motion of an observer.</div>
+  <p>Since \(\gamma\) is always greater than or equal to one, any length in a frame moving relative to us is always measured as <strong>less than</strong> the length we would measure if the object were at rest in our own frame.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Length contraction</span>
+    $$L = \frac{L_0}{\gamma}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-05-length-contraction-02.png" alt="Two reference frames S and S prime with a rod at rest in S prime and its length Delta x prime marked" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — The rod is at rest in \(S^{\prime}\), so its length there, \(\Delta x^{\prime}\), is the proper length. Frame \(S\) moves at \(v\) relative to \(S^{\prime}\) and measures the shorter length \(\Delta x\).</div>
+  </div>
+  <div class="lc-info">🤔 <strong>Key conceptual note.</strong> It may seem strange that relativistic effects <em>increase</em> time intervals but <em>decrease</em> lengths. For example, viewed from Earth, a receding spacecraft's clock runs slow (time expands) while its length contracts. This is because we are considering a clock at rest in the spacecraft's frame, but a length also at rest in the spacecraft's frame — dilation and contraction are two faces of the same relativity, just applied to different quantities.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example A5.11</h3>
+  <p>The length of an object measured in a spacecraft travelling at 20% of the speed of light away from Earth is 1.00 m. Determine what length would be detected by an observer on Earth.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> 1.00 m is the object's proper length, \(L_0\), measured at rest in the spacecraft. Use \(L = L_0/\gamma\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(v = 0.20c\), \(L_0 = 1.00\) m.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\gamma = \dfrac{1}{\sqrt{1-v^2/c^2}} = 1.02\)<br>\(L = \dfrac{L_0}{\gamma} = \dfrac{1.00}{1.02}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(L = 0.980\) m.<br>Because the situation is symmetrical, a 1.00 m length on Earth would be recorded as 0.980 m from the spacecraft.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-05-length-contraction-05.png" alt="Spacecraft moving at 0.20c with a 1.00 metre rod inside it, and the same rod measured as 0.980 metres by an Earth observer" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Geometry for Worked example A5.11. The 1.00 m proper length aboard the spacecraft is measured as 0.980 m from Earth.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📏 Proper length</h3>
+  <p>The magnitude of a length between two points depends on whether the observer is moving with respect to it. If the observer is in the same frame of reference as the object, this gives the longest possible length — the <strong>proper length</strong>, \(L_0\). If the observer is moving relative to the object, the length measured decreases.</p>
+  <div class="lc-info">📖 <strong>Proper length</strong> — the length of an object measured by an observer at rest relative to it. The proper length is always the longest length measurable by any observer.</div>
+  <p>To decide who measures proper length for a given object, ask: in whose reference frame is this object at rest? That observer, and only that observer, measures its proper length — exactly as the observer for whom two events happen at the same place measures proper <em>time</em>.</p>
+  <div class="lc-success">✓ Examiner tip: state explicitly which observer is at rest relative to the object before applying \(L = L_0/\gamma\) — that answer decides which of the two given lengths is \(L_0\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Length contraction and muon survival, graphed</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Contracted length vs. speed</td><td>\(v/c\) (0 to 1) · \(L/L_0\)</td><td>Starts at \(L/L_0=1\), falls slowly, then drops steeply toward 0 as \(v/c \to 1\)</td><td>\(L/L_0\) never reaches zero — the curve is asymptotic at \(v=c\); mirror image of the \(\gamma\) curve</td></tr>
+      <tr><td>Muon survival fraction vs. half-lives elapsed</td><td>\(n\) (half-lives) · \(f\)</td><td>Exponential decay from \(f=1\), through \((1,0.5)\), \((2,0.25)\), flattening but never reaching zero</td><td>\(f = (\tfrac12)^n\); read off \(n\) to estimate what fraction of a muon population survives a given transit time</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a5-05-length-contraction-03.png" alt="Graph of L over L0 against v over c, starting at 1 and falling steeply toward 0 as v over c approaches 1"><div class="lc-cap">Fig 4 — \(L/L_0\) stays close to 1 until \(v/c\) exceeds about 0.5, then falls sharply — the mirror image of the \(\gamma\) curve.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a5-05-length-contraction-04.png" alt="Graph of muon survival fraction f against number of half-lives n, an exponential decay curve"><div class="lc-cap">Fig 5 — Each half-life elapsed halves the surviving fraction. Fewer half-lives elapsed (as seen from the muon's own frame) means many more muons survive.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>☄️ The muon-decay experiment: tiny clocks falling from the sky</h3>
+  <p>A <strong>muon</strong> (\(\mu\)) is an unstable subatomic particle — effectively a tiny clock travelling at a speed very close to \(c\). Muons form naturally in the Earth's atmosphere, about 10 km up, when very high-energy cosmic radiation collides with atmospheric particles. The muons produced have an average speed of around 0.995c in the Earth's frame of reference.</p>
+  <p>Muons undergo random <strong>radioactive decay</strong> — spontaneous, random change of an unstable particle — described by <strong>half-life</strong>: the time for the number of unstable particles to halve. The half-life of muons, measured in the Earth's frame, is \(1.56 \times 10^{-6}\) s.</p>
+  <ul style="margin:0.6rem 0 0.8rem 1.2rem;font-size:0.92rem;line-height:1.7">
+    <li>After 1 half-life (\(1.56\times10^{-6}\) s): \(\left(\tfrac12\right)^{1}\) of the muons remain undecayed.</li>
+    <li>After 2 half-lives: \(\left(\tfrac12\right)^{2} = \tfrac14\) remain.</li>
+    <li>After 3 half-lives: \(\left(\tfrac12\right)^{3} = \tfrac18\) remain.</li>
+    <li>After \(n\) half-lives: \(\left(\tfrac12\right)^{n}\) remain.</li>
+  </ul>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Surviving fraction</span>
+    $$f = \left(\frac{1}{2}\right)^{n}, \qquad n = \frac{\text{total time}}{\text{half-life}}$$
+  </div>
+  <p><strong>Classical physics</strong> — physics theories predating the paradigm shifts of relativity and quantum physics — predicts almost none of these muons should ever reach the ground. Special relativity says otherwise, and this experiment is one of the clearest confirmations we have of both time dilation and length contraction.</p>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – the classical (Newtonian) prediction</h3>
+  <p>Determine the fraction of muons, created 10 km up and travelling at 0.995c, that classical physics predicts would survive to reach the Earth's surface.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> classical physics treats the 10 km as a fixed distance and the transit time as \(t = x/v\), timed on an ordinary clock.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(x = 10\times10^{3}\) m, \(v = 0.995c = 0.995\times3.00\times10^{8}\ \text{m s}^{-1}\), half-life \(= 1.56\times10^{-6}\) s.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(t = \dfrac{10\times10^{3}}{0.995\times3.00\times10^{8}} = 3.35\times10^{-5}\ \text{s}\)<br>\(n = \dfrac{3.35\times10^{-5}}{1.56\times10^{-6}} = 21.5\) half-lives<br>\(f = \left(\tfrac12\right)^{21.5}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\log f = 21.5\log(\tfrac12) = -6.47\), so \(f = 3.37\times10^{-7}\).<br><strong>Classical physics predicts that only about 1 muon reaches the surface for every 3 million created</strong> in the upper atmosphere.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-05-length-contraction-06.png" alt="Schematic of the classical physics prediction of muon detection, showing muons created at 10 kilometres altitude and an exponential decay funnel to only 1 in 3 million surviving at the surface" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig A5.16 — Classical physics prediction: only about 1 in 3 million muons created in the upper atmosphere would reach the Earth's surface.</div>
+  </div>
+  <div class="lc-warn">⚠️ But in reality, a far greater proportion of muons is detected than this classical calculation predicts: the actual surviving fraction is approximately 0.2 — two in every ten. Classical physics cannot explain this; special relativity can.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – relativity via time dilation</h3>
+  <p>In the Earth's frame, the proper length of the atmosphere the muons cross is 10.0 km and \(\Delta t = 3.35\times10^{-5}\) s, exactly as before. But an observer travelling with the muon measures the <strong>proper time</strong>, \(\Delta t_0\), since creation and decay happen at the same place in the muon's own frame.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(\Delta t = \gamma \Delta t_0\) to find the muon's own (proper) transit time.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(v = 0.995c\), \(\Delta t = 3.35\times10^{-5}\) s.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\gamma = \dfrac{1}{\sqrt{1-0.995^2}} = 10\)<br>\(3.35\times10^{-5} = 10\times\Delta t_0\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\Delta t_0 = 3.35\times10^{-6}\) s.<br>Number of half-lives \(= \dfrac{3.35\times10^{-6}}{1.56\times10^{-6}} = 2.15\)<br>Fraction reaching the surface \(= \left(\tfrac12\right)^{2.15} = 0.23\).<br>This is consistent with the actual measured fraction (≈0.2) — <strong>experimental evidence for time dilation.</strong></div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – relativity via length contraction</h3>
+  <p>In the muon's own frame of reference, the 10.0 km thickness of the lower atmosphere is itself length-contracted.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(L = L_0/\gamma\) with the 10 km atmosphere as the proper length \(L_0\) (measured at rest in the Earth's frame).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(L_0 = 10\times10^{3}\) m, \(\gamma = 10\), \(v = 0.995c\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(L = \dfrac{L_0}{\gamma} = \dfrac{10\times10^{3}}{10} = 1000\ \text{m}\)<br>\(t = \dfrac{x}{v} = \dfrac{1000}{0.995\times3.00\times10^{8}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(t = 3.35\times10^{-6}\) s — the same transit time as the time-dilation route, so the surviving fraction is again 0.23.<br>From the muon's own frame, what we measure as 10 km of atmosphere is only 1 km.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-05-length-contraction-07.png" alt="Side by side comparison of the 10 kilometre atmosphere in Earth's frame and the 1000 metre contracted atmosphere in the muon's frame" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — What Earth measures as 10 km of atmosphere, the muon's own frame measures as just 1000 m.</div>
+  </div>
+  <div class="lc-success">✓ Experimental confirmation of this result has provided evidence in support of length contraction, entirely independently of the time-dilation calculation above — both routes predict the same 0.23, and both match what is actually measured.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: why particle accelerators need this formula</h3>
+    <p>Particle accelerators routinely push protons and electrons to speeds above 0.99c. At those speeds \(\gamma\) can reach into the thousands, so the accelerator's own length, as measured in the particle's frame, is compressed to a tiny fraction of its rest length. Any calculation of collision timing or particle lifetime that ignores this is simply wrong at these speeds.</p>
+    <div class="lc-success">✓ Examiner tip: length contraction and time dilation are not two separate coincidences — they are the same relativity of simultaneity, applied to a spatial and a temporal separation respectively.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – dropping the Δt = 0 assumption</h3>
+    <p>The full Lorentz transformation, \(\Delta x^{\prime} = \gamma(\Delta x - v\Delta t)\), only reduces to the simple length-contraction formula when the two end-position measurements are simultaneous in the observer's own frame (\(\Delta t = 0\)). If they are not simultaneous, the general transformation must be used directly — this is why observers in relative motion can even disagree on whether two events are simultaneous at all.</p>
+    <p><strong>Challenge:</strong> the muon calculation used \(\gamma = 10\) exactly for \(v = 0.995c\). Show that \(\gamma\) is actually closer to 10.01. <em>(Answer: \(v^2/c^2 = 0.995^2 = 0.990025\); \(1 - 0.990025 = 0.009975\); \(\sqrt{0.009975} = 0.09987\); \(\gamma = 1/0.09987 = 10.01\) — the rounded value of 10 used above is accurate to about 0.1%.)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Length contraction physically squeezes the object</td><td>Nothing is physically compressed. It is a measurement effect between reference frames in relative motion — the object's own crew never notices any change</td></tr>
+      <tr><td>The proper length is measured by whichever observer "isn't moving"</td><td>There is no absolute rest. Proper length is measured by the observer at rest <em>relative to the object</em> — which observer that is depends entirely on which object is being measured</td></tr>
+      <tr><td>Length contraction shrinks all three dimensions of a moving object</td><td>Only the dimension parallel to the direction of relative motion contracts. Dimensions perpendicular to the motion are unchanged</td></tr>
+      <tr><td>Only time dilation is needed to explain muon survival</td><td>Two independent routes — time dilation (Earth's frame) and length contraction (muon's frame) — both correctly predict the same 0.23 survival fraction; they are two views of one relativity</td></tr>
+      <tr><td>Since γ ≥ 1, lengths always come out longer, like times do</td><td>The opposite: \(L = L_0/\gamma\) makes lengths <em>shorter</em>; it is time intervals that satisfy \(\Delta t = \gamma\Delta t_0\) and come out longer</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: dividing by γ when you should multiply, or vice versa. Lengths shrink — <strong>divide</strong> by γ. Time intervals stretch — <strong>multiply</strong> by γ. Get this backwards and every muon-decay calculation flips.</div>
+</div>
+
+<div class="lc-kp">
+  <span>L = L₀/γ</span>
+  <span>proper length = longest measurable length</span>
+  <span>γ = 1/√(1−v²/c²)</span>
+  <span>only motion-direction length contracts</span>
+  <span>muon half-life = 1.56×10⁻⁶ s</span>
+  <span>time dilation & length contraction agree</span>
+  <span>classical: ~1 in 3×10⁶ muons survive</span>
+  <span>relativistic: ~0.23 survive (matches experiment)</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A rod has proper length 2.00 m. An observer measures it moving at 0.60c, where γ = 1.25. What length does the observer measure?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','A')"><span class="lc-opt-l">A</span> 1.60 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','A')"><span class="lc-opt-l">B</span> 2.50 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','A')"><span class="lc-opt-l">C</span> 1.20 m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','A')"><span class="lc-opt-l">D</span> 2.00 m</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Length contraction affects</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> all three spatial dimensions equally</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> only the dimension parallel to the relative motion</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> only dimensions perpendicular to the motion</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> only the object's mass, not its length</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Proper length is measured by</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> any observer, provided their clock is fast enough</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> the observer at rest relative to the object</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> whichever observer is moving fastest relative to the object</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> an observer exactly halfway between the two frames</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. In the muon-decay experiment, the classical (Newtonian) calculation predicts a surviving fraction of about</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 0.23</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> 0.50</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> 3×10⁻⁷</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> 1.0</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. In the muon's own reference frame, the 10 km thickness of atmosphere (γ = 10) is measured as approximately</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> 10 km</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> 5 km</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> 1 km</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> 0.1 km</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. Which pair of formulas is correctly matched?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','A')"><span class="lc-opt-l">A</span> \(\Delta t = \gamma \Delta t_0\) and \(L = L_0/\gamma\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','A')"><span class="lc-opt-l">B</span> \(\Delta t = \Delta t_0/\gamma\) and \(L = \gamma L_0\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','A')"><span class="lc-opt-l">C</span> both quantities divide by γ</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','A')"><span class="lc-opt-l">D</span> both quantities multiply by γ</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Length contraction is given by \(L = L_0/\gamma\), where \(L_0\) is called the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> length — the longest length measurable by any observer, recorded by the observer who is at <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> relative to the object. Since \(\gamma\) is always greater than or equal to <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:70px">, every other observer measures a <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px"> length than the proper length. Length contraction only affects the dimension <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px"> to the direction of relative motion. In the muon-decay experiment, classical physics predicts about one muon in three <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px"> reaches the Earth's surface, but relativistic calculations (via either time dilation or length contraction) predict a much larger surviving fraction of about <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:80px">, matching experiment.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q32.</strong> In a laboratory, an electron is accelerated by a potential difference of 100 kV. Its speed is then measured by timing how long it takes to pass between two different points measured in the laboratory as being 5.00 m apart. Is an observer in the electron's reference frame, or the observer in the laboratory reference frame, recording the proper length between the two points? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The two points are fixed and at rest in the laboratory frame, so the 5.00 m separation is the laboratory observer's own rest-frame measurement.<br>✓ The laboratory observer is therefore measuring the proper length; the electron observer would measure this separation as contracted.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q33.</strong> A rod measured in its rest frame to be one metre in length is accelerated to 0.33c. The rod is then timed as it passes a fixed point. Is the observer at the fixed point or the observer travelling with the rod measuring proper length between the start and finish events? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Proper length is always measured by the observer at rest relative to the object being measured — here, the rod.<br>✓ The observer travelling with the rod measures its proper length of 1 m; the fixed-point observer would find the rod's length contracted.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q34.</strong> The same rod is timed by both observers as it travels between two fixed points in a laboratory. If the observers are recording when the front of the rod passes each fixed point, is either observer measuring the proper length for the distance between the start and finish events? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The two fixed points are at rest in the laboratory frame, so the separation between them is the laboratory observer's own proper length.<br>✓ The rod observer sees those two points moving, and so measures this separation as contracted — not the proper length.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q35.</strong> In a third experiment the two observers start timing when the front of the rod passes the first point and stop timing when the end of the rod passes the second point. Is either observer measuring the proper length for the distance between the start and finish events? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ This spatial separation mixes the distance between two fixed points with the rod's own length, so it is not simply the rest length of any single object.<br>✓ Neither observer is at rest relative to whatever is separating the two events, so neither observer measures the proper length in this case.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q36.</strong> A rod is measured to have a proper length of exactly 1.00 m. Calculate how long you would measure it to be if it was to fly past you at 0.80c. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\gamma = 1/\sqrt{1-0.80^2} = 1/0.60 = 1.667\)<br>✓ \(L = L_0/\gamma = 1.00/1.667 = 0.600\ \text{m}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q37.</strong> The time taken for the rod in question 36 to pass a fixed point in the laboratory is \(2.5\times10^{-9}\) s. Determine what time interval an observer travelling with the rod would measure between the same two events. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The fixed-point observer sees both events (front, back of rod passing) at the same location, so this 2.5×10⁻⁹ s is the proper time.<br>✓ The rod observer measures the dilated interval: \(\Delta t = \gamma \Delta t_0 = 1.667 \times 2.5\times10^{-9}\)<br>✓ \(\Delta t = 4.2\times10^{-9}\ \text{s}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q38.</strong> Fatima flies through space and, according to Fatima, her height is 1.60 m. Fatima flies headfirst past an alien spaceship and the aliens measure her speed to be 0.80c. <strong>a)</strong> How tall will the aliens on their spaceship measure Fatima to be? <strong>b)</strong> Oliver takes \(6.1\times10^{-9}\) s to fly past the same aliens at 0.90c. According to the aliens what time interval does it take Oliver to fly past them? <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) 1.60 m is Fatima's proper length (her own rest frame). \(\gamma = 1/\sqrt{1-0.80^2} = 1.667\)<br>✓ \(L = 1.60/1.667 = 0.96\ \text{m}\).<br>✓ (b) \(6.1\times10^{-9}\) s is Oliver's own proper time. \(\gamma\) at 0.90c \(= 1/\sqrt{1-0.90^2} = 2.29\)<br>✓ \(\Delta t = \gamma \Delta t_0 = 2.29 \times 6.1\times10^{-9} = 1.4\times10^{-8}\ \text{s}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate (HL)</div>
+  <div class="lc-exam-q"><strong>Q39.</strong> In a space race, a spaceship, measured to be 150 m long when stationary, is travelling at relativistic speeds when it crosses the finish line. <strong>a)</strong> According to the spaceship it takes \(7.7\times10^{-7}\) s to cross the finishing line. Calculate how fast it is travelling in terms of c. <strong>b)</strong> Determine what time interval the spaceship takes to cross the finishing line according to an observer at the finishing line. <strong>c)</strong> According to the observer at the finishing line, how long is the spaceship? <strong>d)</strong> According to the observer at the finishing line, how fast is the spaceship travelling? <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) In the ship's own frame, the finish line sweeps past its full proper length: \(v = L_0/\Delta t = 150/(7.7\times10^{-7}) = 1.95\times10^{8}\ \text{m s}^{-1} = 0.65c\).<br>✓ (b) \(\gamma = 1/\sqrt{1-0.65^2} = 1.32\). The finish-line observer measures the proper time: \(\Delta t_0 = \Delta t_{\text{ship}}/\gamma = 7.7\times10^{-7}/1.32 = 5.9\times10^{-7}\ \text{s}\).<br>✓ (c) \(L = L_0/\gamma = 150/1.32 = 114\ \text{m}\).<br>✓ (d) Relative speed is the same for both observers: \(v = L/\Delta t_0 = 114/(5.9\times10^{-7}) \approx 0.65c\), matching part (a).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q40.</strong> In the same race as question 39 a sleek new space cruiser takes only \(2.0\times10^{-6}\) s to cross the finish line according to the race officials at the line. They measure the space cruiser to be 450 m long. How long is the space cruiser according to its sales brochure? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ In the officials' frame: \(v = L/\Delta t = 450/(2.0\times10^{-6}) = 2.25\times10^{8}\ \text{m s}^{-1} = 0.75c\)<br>✓ \(\gamma = 1/\sqrt{1-0.75^2} = 1.51\)<br>✓ The brochure quotes the proper length: \(L_0 = L\gamma = 450 \times 1.51 = 680\ \text{m}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q"><strong>Q41.</strong> Some muons are generated in the Earth's atmosphere 8.00 km above the Earth's surface as a result of collisions between atmospheric molecules and cosmic rays. The muons that are created have an average speed of 0.99c. <strong>a)</strong> Calculate the time it would take the muons to travel the 8.00 km through the Earth's atmosphere to detectors on the ground according to Newtonian physics. <strong>b)</strong> Calculate the time it would take the muons to travel through the atmosphere according to a relativistic observer travelling with the muons. <strong>c)</strong> Muons have a very short half-life. Explain how measurements of muon counts at an altitude of 8.0 km and at the Earth's surface can support the theory of special relativity. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(t = x/v = 8000/(0.99\times3.00\times10^{8}) = 2.69\times10^{-5}\ \text{s}\).<br>✓ (b) \(\gamma = 1/\sqrt{1-0.99^2} = 7.09\). Proper time \(= \Delta t/\gamma = 2.69\times10^{-5}/7.09 = 3.80\times10^{-6}\ \text{s}\) (equivalently, the 8.00 km contracts to \(8000/7.09 = 1129\) m, and \(t = 1129/(2.97\times10^{8})\) gives the same value).<br>✓ Classically, \(n = 2.69\times10^{-5}/1.56\times10^{-6} = 17.3\) half-lives, so \(f \approx 6\times10^{-6}\) — almost none should survive.<br>✓ Relativistically, \(n = 3.80\times10^{-6}/1.56\times10^{-6} = 2.44\) half-lives, so \(f \approx 0.18\) — a far larger, measurable fraction.<br>✓ Because the measured muon counts at the two altitudes match the relativistic prediction and not the classical one, this experiment supports time dilation (and, equivalently, length contraction).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q42.</strong> In a high-energy physics laboratory electrons were accelerated to a speed of 0.950c. <strong>a)</strong> How long would scientists in the laboratory record for these electrons to travel a distance of 2.00 km at this speed? <strong>b)</strong> Calculate the time this takes in the reference frame of the electrons. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(t = x/v = 2000/(0.950\times3.00\times10^{8}) = 7.02\times10^{-6}\ \text{s}\).<br>✓ (b) \(\gamma = 1/\sqrt{1-0.950^2} = 3.20\). The 2.00 km is contracted in the electron's frame: \(L = 2000/3.20 = 625\ \text{m}\).<br>✓ \(t_0 = L/v = 625/(2.85\times10^{8}) = 2.19\times10^{-6}\ \text{s}\) — equivalently, the proper time \(\Delta t/\gamma = 7.02\times10^{-6}/3.20\).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { A: 'L = L0/γ = 2.00/1.25 = 1.60 m.' },
+    mcq2: { B: 'Length contraction only shortens the dimension parallel to the relative motion; perpendicular dimensions are unaffected.' },
+    mcq3: { B: 'Proper length is always measured by the observer at rest relative to the object — it is the longest length any observer can record.' },
+    mcq4: { C: 'Classically n = 21.5 half-lives gives f = (1/2)^21.5 = 3.37x10^-7, about 1 in 3 million.' },
+    mcq5: { C: 'L = L0/γ = 10 km/10 = 1 km in the muon\'s own frame.' },
+    mcq6: { A: 'Time intervals stretch (Δt=γΔt0); lengths shrink (L=L0/γ) — they go in opposite directions.' }
+  },
+  fitb: { lf1:'proper', lf2:'rest', lf3:'one', lf4:'shorter', lf5:'parallel', lf6:'million', lf7:'0.23' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
       <div class="lesson-nav">
-        <a href="03-time-dilation.html" class="lesson-nav-btn">
+        <a href="04-time-dilation.html" class="lesson-nav-btn">
           <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
           <div>
             <div class="nav-btn-dir">Previous</div>
             <div class="nav-btn-label">Time Dilation</div>
           </div>
         </a>
-        <a href="05-mass-energy-equivalence.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+        <a href="06-mass-energy-equivalence.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
           <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
           <div>
             <div class="nav-btn-dir">Next</div>
