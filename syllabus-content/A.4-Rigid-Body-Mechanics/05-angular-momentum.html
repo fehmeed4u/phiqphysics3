@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular Momentum — A.4 Rigid Body Mechanics — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$','$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A4">A.4 Rigid Body Mechanics</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Angular Momentum</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.4
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 5 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Angular Momentum</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.4 Rigid Body Mechanics</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.4 overview
+      </a>
+      <div class="sidebar-title">A.4 Concepts</div>
+      <a href="01-torque-and-moment-of-force.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Torque and Moment of Force</span>
+        </a>
+      <a href="02-angular-velocity-and-acceleration.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Angular Velocity and Acceleration</span>
+        </a>
+      <a href="03-moment-of-inertia.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Moment of Inertia</span>
+        </a>
+      <a href="04-rotational-kinetic-energy.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Rotational Kinetic Energy</span>
+        </a>
+      <a href="05-angular-momentum.html" class="sidebar-link active">
+          <span class="sidebar-num">05</span>
+          <span>Angular Momentum</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>5</span> Lesson 5 of 5 · A.4 Rigid Body Mechanics</div>
+<div class="lc-title">Angular Momentum</div>
+<div class="lc-sub">Angular momentum, L = Iω, behaves exactly like linear momentum: it is conserved whenever no resultant external torque acts. Pull your arms in while spinning and you speed up — nothing mysterious, just I getting smaller while L stays fixed.</div>
+
+<div class="lc-card">
+  <h3>🤸 Hook – the skater who speeds up for free</h3>
+  <p>A spinning ice skater starts a turn with her arms and one leg stretched out wide, turning slowly. As she pulls her arms and leg in tight to her body, she speeds up dramatically — with no extra push from anyone. <strong>She hasn't gained any energy from outside; she has simply shrunk her moment of inertia, and her angular momentum has to stay the same.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-05-angular-momentum-01.png" alt="Ice skater shown in two spinning poses: arms extended and spinning slowly, then arms pulled in and spinning fast">
+    <div class="lc-cap">Fig 1 — In (a) the skater's arms are extended, giving a larger moment of inertia and a slower spin. In (b) she pulls her arms in, reducing her moment of inertia, so her angular velocity must increase.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — where does the skater's extra rotational kinetic energy come from when she pulls her arms in? <em>From her own muscles. Pulling her arms in against the outward "centrifugal" tendency of her own rotating mass does work on her body, and that work becomes the increase in rotational kinetic energy. Angular momentum is conserved, but kinetic energy is not — it increases.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>⚙️ Newton's second law for rotational motion</h3>
+  <p>For linear motion, a resultant force <strong>F</strong> acting on a mass <strong>m</strong> produces an acceleration <strong>a</strong>, given by \(F = ma\). Rotational motion has an exact analogue: a resultant torque <strong>τ</strong> acting on an object with moment of inertia <strong>I</strong> produces an angular acceleration <strong>α</strong>.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Newton's second law for rotation</span>
+    $$\tau = I\alpha$$
+  </div>
+  <p>τ here is the <strong>average torque</strong>. This equation is why moment of inertia matters so much: for the same torque, a larger I gives a smaller angular acceleration, exactly as a larger mass gives a smaller linear acceleration for the same force.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Tool 3 (Mathematics) – direct and inverse proportionality</h3>
+  <p>Two quantities are <strong>directly proportional</strong> if, when one increases by a factor x, the other increases by the same factor: \(y \propto x\), so \(x/y\) is constant. Check this by calculating the ratio for several data pairs, or by plotting an x–y graph and checking for a straight line through the origin.</p>
+  <table class="lc-table">
+    <thead><tr><th>x</th><th>y</th><th>x/y</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>0</td><td>–</td></tr>
+      <tr><td>0.32</td><td>1.6</td><td>0.20</td></tr>
+      <tr><td>0.81</td><td>4.2</td><td>0.19</td></tr>
+      <tr><td>1.46</td><td>9.9</td><td>0.20</td></tr>
+      <tr><td>2.51</td><td>12.8</td><td>0.20</td></tr>
+      <tr><td>6.43</td><td>30.0</td><td>0.21</td></tr>
+      <tr><td>10.9</td><td>55.2</td><td>0.20</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-cap" style="margin-bottom:1rem">Table A4.3 — data confirming \(y \propto x\): the ratio x/y stays close to 0.20 throughout.</div>
+  <p>Two quantities are <strong>inversely proportional</strong> if, when one increases by a factor x, the other decreases by the same factor: \(y \propto 1/x\), so \(xy\) is constant. Check this by multiplying pairs of values together, or by plotting y against \(1/x\).</p>
+  <table class="lc-table">
+    <thead><tr><th>x</th><th>y</th><th>xy</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>–</td><td>–</td></tr>
+      <tr><td>2.0</td><td>17</td><td>34</td></tr>
+      <tr><td>1.1</td><td>32</td><td>35</td></tr>
+      <tr><td>0.94</td><td>37</td><td>35</td></tr>
+      <tr><td>0.79</td><td>43</td><td>34</td></tr>
+      <tr><td>0.55</td><td>63</td><td>35</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-cap">Table A4.4 — data confirming \(y \propto 1/x\): the product xy stays close to 34–35 throughout.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔗 Angular momentum</h3>
+  <p>An extended body rotating with angular speed ω has an <strong>angular momentum</strong>, L — the rotational equivalent of linear momentum \(p = mv\). It depends on both the moment of inertia of the object and its angular velocity.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Angular momentum · SI unit kg m² s⁻¹</span>
+    $$L = I\omega$$
+  </div>
+  <div class="lc-info">📖 <strong>Law of conservation of angular momentum</strong> — the total angular momentum of a system is constant, provided that no resultant external torque acts on it. This law has no exceptions and can be used to predict changes to rotating systems.</div>
+  <p>This is exactly what happens to the skater above: pulling her arms in reduces I, and since L must stay constant, ω must increase. Gymnasts, divers and ballet dancers all use the same trick.</p>
+</div>
+
+<div class="lc-card">
+  <h3>⏱️ Angular impulse</h3>
+  <p>The action of a resultant torque τ acting for a time Δt constitutes an <strong>angular impulse</strong>, producing a change of angular momentum ΔL.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Angular impulse · SI unit kg m² s⁻¹ (equivalently N m s)</span>
+    $$\Delta L = \tau \Delta t = \Delta(I\omega)$$
+  </div>
+  <p>Forces (and torques) are rarely constant, so it is far simpler to talk about the overall effect of a torque acting over a time than to track how it varies moment to moment. <strong>The area under a torque–time graph equals the angular impulse (the change in angular momentum), whatever the shape of the graph.</strong></p>
+</div>
+
+<div class="lc-card">
+  <h3>🔬 Tool 3 (Mathematics) – propagating uncertainties in processed data</h3>
+  <p>Processed data should never be quoted to more significant figures than the raw data used to calculate it.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Added or subtracted quantities: y = a ± b</span>
+    $$\Delta y = \Delta a + \Delta b$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Multiplied or divided quantities: y = abc</span>
+    $$\frac{\Delta y}{y} = \frac{\Delta a}{a} + \frac{\Delta b}{b} + \frac{\Delta c}{c}$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Raised to a power: y = aⁿ</span>
+    $$\frac{\Delta y}{y} = \left|n\frac{\Delta a}{a}\right|$$
+  </div>
+  <p>For other functions (trig, logs), calculate the highest and lowest possible values and compare each with the mean value.</p>
+  <div class="lc-info">✍️ <strong>Worked example A4.10.</strong> An angle θ was measured to be 34° ± 1°. Determine the uncertainty in tan θ.<br>\(\tan 34^\circ = 0.6745\), \(\tan 33^\circ = 0.6494\), \(\tan 35^\circ = 0.7002\).<br>Larger absolute difference from the mean: \(0.7002 - 0.6745 = 0.0257\).<br>So <strong>\(\tan\theta = 0.67 \pm 0.03\)</strong> — quoted to the same number of significant figures as the original data.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Torque–time (idealised, constant torque)</td><td>Time / s · Torque / N m</td><td>Horizontal line of height τ over a width Δt</td><td>\(\Delta L = \tau \Delta t\), read directly as the rectangle's area</td></tr>
+      <tr><td>Torque–time (varying torque)</td><td>Time / s · Torque / N m</td><td>Any shape — rises, falls, curves</td><td>Area under the whole curve = angular impulse = ΔL, whatever the shape</td></tr>
+      <tr><td>Angular momentum–time</td><td>Time / s · L / kg m² s⁻¹</td><td>Straight line for a constant resultant torque</td><td>Gradient = resultant torque, since \(\tau = \Delta L/\Delta t\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a4-05-angular-momentum-02.png" alt="Idealised torque against time graph, a horizontal line at 4.0 newton metres from 0 to 1 second, shaded area underneath"><div class="lc-cap">Fig 2 — A constant torque of 4.0 N m acting for 1.0 s. The shaded rectangle's area is the angular impulse, ΔL.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a4-05-angular-momentum-03.png" alt="Angular momentum against time graph, a straight diagonal line rising from the origin, with a small gradient triangle marked"><div class="lc-cap">Fig 3 — L against t for a constant resultant torque. The gradient of the line, ΔL/Δt, equals the torque.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – torque, angular acceleration and final velocity (A4.8)</h3>
+  <p>a) Calculate the angular acceleration produced when a system with moment of inertia 1.23 kg m² is acted on by a resultant torque of 0.83 N m. b) If the system was already rotating at 2.7 rad s⁻¹, determine its angular velocity if the torque is applied for exactly 4 s. c) State the assumption you made.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(\tau = I\alpha\) for (a), then \(\omega_f = \omega_i + \alpha t\) for (b).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(I = 1.23\ \text{kg m}^2\), \(\tau = 0.83\ \text{N m}\), \(\omega_i = 2.7\ \text{rad s}^{-1}\), \(t = 4\ \text{s}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\alpha = \tau/I = 0.83/1.23\)<br>\(\omega_f = \omega_i + \alpha t\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> a) \(\alpha = 0.67\ \text{rad s}^{-2}\).<br>b) \(\omega_f = 2.7 + (0.67 \times 4.0) = 5.4\ \text{rad s}^{-1}\).<br>c) <strong>There are no frictional forces acting on the system.</strong></div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – a falling mass unwinding a cylinder (A4.9)</h3>
+  <p>A falling mass m is attached to a string wrapped around a cylinder of radius r and moment of inertia \(I = \tfrac12 Mr^2\). Derive an equation for the downward linear acceleration, a, of the mass.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the string's linear acceleration equals the cylinder's rim acceleration, \(\alpha = a/r\). Apply \(\tau = I\alpha\) to the cylinder and \(F = ma\) to the falling mass.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> tension T acts on the cylinder at radius r; the falling mass has weight mg and tension T acting on it.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> torque on cylinder: \(\tau = Tr = I\alpha = \tfrac12Mr^2 \times (a/r)\), so \(T = \tfrac12Ma\).<br>Resultant force on falling mass: \(F = mg - T\), so \(a = F/m = (mg - \tfrac12Ma)/m\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> rearranging gives <strong>\(a = \dfrac{mg}{m + \tfrac12M}\)</strong>.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-05-angular-momentum-04.png" alt="A cylinder mounted on an axle with a string wrapped around it, a mass hanging from the free end of the string">
+    <div class="lc-cap">Fig 4 — Geometry for worked example 2. Because the mass accelerates downwards, T is not equal to mg.</div>
+  </div>
+  <div class="lc-warn">⚠️ <strong>Common mistake:</strong> because the mass is accelerating downwards, the tension in the string is not equal to the weight of the mass on the end of the string.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 3 – angular momentum of a spinning sphere (A4.11)</h3>
+  <p>A sphere of mass 2.1 kg and radius 38 cm is spinning around a diameter at a rate of 44 rpm. Calculate its angular momentum.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(L = I\omega\), with sphere \(I = \tfrac25mr^2\), and convert rpm to rad s⁻¹.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 2.1\ \text{kg}\), \(r = 0.38\ \text{m}\), rate \(= 44\) rpm \(= 44/60\) rev s⁻¹.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(L = \tfrac25mr^2 \times 2\pi \times (44/60)\)<br>\(= \tfrac25 \times 2.1 \times 0.38^2 \times 2\pi \times (44/60)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(L = 0.56\ \text{kg m}^2\text{s}^{-1}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 4 – a disc gains a mass (A4.12)</h3>
+  <p>A solid metal disc of mass 960 g and radius 8.8 cm rotates horizontally at 4.7 rad s⁻¹. a) Calculate its moment of inertia. b) Calculate the new angular velocity after a mass of 500 g is dropped quickly onto the disc at a distance of 6.0 cm from the centre.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a) disc \(I = \tfrac12mr^2\). b) angular momentum is conserved as the mass lands: \(L = I\omega =\) constant.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> disc \(m = 0.96\) kg, \(r = 8.8\times10^{-2}\) m; added mass \(0.5\) kg at \(r = 6.0\times10^{-2}\) m; \(\omega_i = 4.7\ \text{rad s}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> a) \(I_{\text{disc}} = \tfrac12 \times 0.96 \times (8.8\times10^{-2})^2\)<br>Added mass: \(I_{\text{add}} = mr^2 = 0.5 \times (6.0\times10^{-2})^2\)<br>b) \(I_{\text{disc}}\omega_i = (I_{\text{disc}} + I_{\text{add}})\omega_f\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> a) \(I_{\text{disc}} = 3.7\times10^{-3}\ \text{kg m}^2\).<br>b) \(I_{\text{add}} = 1.8\times10^{-3}\ \text{kg m}^2\), so \((3.7\times10^{-3})(4.7) = (5.5\times10^{-3})\omega_f\)<br><strong>\(\omega_f = 3.2\ \text{rad s}^{-1}\)</strong>.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 5 – angular impulse from a torque–time graph (A4.13)</h3>
+  <p>a) Determine the angular impulse represented by the torque–time graph in Fig 5. b) If this impulse accelerated an object already rotating at 25 rad s⁻¹, calculate its final angular velocity, given a moment of inertia of 0.51 kg m².</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the area under the graph is the angular impulse, ΔL = Δ(Iω).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> constant torque 4.0 N m from 0–1.0 s, then decreasing linearly to zero from 1.0–3.0 s. \(I = 0.51\ \text{kg m}^2\), \(\omega_i = 25\ \text{rad s}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\Delta L = (4.0 \times 1.0) + (\tfrac12 \times 4.0 \times 2.0)\)<br>\(\Delta L = I(\omega_f - \omega_i)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> a) \(\Delta L = 8.0\ \text{N m s}\) (kg m² s⁻¹).<br>b) \(\omega_f - 25 = 8.0/0.51\), so <strong>\(\omega_f = 41\ \text{rad s}^{-1}\)</strong>.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-05-angular-momentum-05.png" alt="Torque against time graph, trapezoidal shape, constant at 4.0 newton metres then decreasing linearly to zero at 3 seconds">
+    <div class="lc-cap">Fig 5 — Torque–time graph for worked example 5. The trapezoid's area is the angular impulse.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: skaters, divers and gymnasts</h3>
+    <p>The ice skater's speed-up is one example of a general trick used across sport: <strong>changing your body's shape changes your moment of inertia, and angular momentum forces your angular velocity to compensate.</strong> A diver tucks into a ball to spin fast for a somersault, then straightens out to slow the spin before entering the water. Gymnasts and ballet dancers use exactly the same principle mid-air or mid-turn.</p>
+    <div class="lc-success">✓ Examiner tip: always state explicitly that angular momentum, not angular velocity or kinetic energy, is what stays constant — and say why (no resultant external torque acts once the performer has left the ground or ice).</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – collapsing stars and extreme spin</h3>
+    <p>Conservation of angular momentum applies without exception, even to catastrophic astrophysical events. As a massive star's core collapses to form a <strong>neutron star</strong>, its radius shrinks by a huge factor with essentially no mass loss. Since \(I \propto r^2\), I falls enormously — and because \(L = I\omega\) is conserved, ω must rise enormously to compensate.</p>
+    <p><strong>Challenge:</strong> a collapsing star's radius reduces by a factor of 1000, with no change in mass. By what factor does its rotation rate increase? <em>(Answer: \(I \propto r^2\), so I falls by a factor of \(1000^2 = 10^6\). Since L is conserved, ω must increase by a factor of \(10^6\).)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>An object moving in a straight line has zero angular momentum</td><td>It has angular momentum \(L = mvr\) about any point not on its line of motion — angular momentum depends on which point you choose</td></tr>
+      <tr><td>The tension in a string always equals the weight hanging from it</td><td>Only true in equilibrium. If the mass accelerates, resolve \(F = mg - T\) first — here \(T = \tfrac12Ma\), not mg</td></tr>
+      <tr><td>If a rotating system's radius increases, its angular momentum increases too</td><td>With no external torque, L stays exactly constant — only I and ω change to compensate for each other</td></tr>
+      <tr><td>Round a processed answer to as many figures as the calculator shows</td><td>Quote it to the same number of significant figures as the least precise piece of raw data used to calculate it</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-05-angular-momentum-06.png" alt="Plan view of a ball approaching a pivoted rod, about to strike it perpendicularly at a distance r from the pivot">
+    <div class="lc-cap">Fig 6 — A ball moving in a straight line still has angular momentum, L = mvr, about the pivot P. After striking the rod, this angular momentum is transferred to it.</div>
+  </div>
+  <div class="lc-warn">⚠️ Most common slip: forgetting that angular momentum depends on the reference point chosen. Always state which point or axis you are taking moments about before writing down \(L = mvr\) or \(L = I\omega\).</div>
+</div>
+
+<div class="lc-kp">
+  <span>τ = Iα</span>
+  <span>L = Iω</span>
+  <span>ΔL = τΔt = Δ(Iω)</span>
+  <span>L conserved: no external torque</span>
+  <span>L = mvr for linear motion</span>
+  <span>I = ½MR² (disc/cylinder)</span>
+  <span>I = ⅖MR² (sphere)</span>
+  <span>area under τ–t graph = ΔL</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Newton's second law for rotational motion states that a resultant torque τ acting on a system of moment of inertia I produces</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> an angular momentum \(L = I\omega\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> an angular acceleration \(\alpha = \tau/I\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> a linear acceleration \(a = \tau/I\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> a rotational kinetic energy \(\tfrac12I\omega^2\)</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A system with moment of inertia 2.0 kg m² experiences a resultant torque of 1.5 N m. Its angular acceleration is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 0.33 rad s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 0.75 rad s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 1.33 rad s⁻²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 3.0 rad s⁻²</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A spinning skater pulls her arms in. Assuming no external torque acts, which quantity stays constant?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> Angular velocity</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> Rotational kinetic energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> Angular momentum</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> Moment of inertia</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. The SI unit of angular momentum is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> N m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> kg m² s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> kg m s⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> J s⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A ball of mass m, speed v, is about to strike a pivoted rod perpendicularly at a distance r from the pivot. Its angular momentum about the pivot is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> zero, since it travels in a straight line</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> \(\tfrac12mv^2\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> mvr</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> mv/r</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. Angular impulse is defined as</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','C')"><span class="lc-opt-l">A</span> \(I\omega\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','C')"><span class="lc-opt-l">B</span> \(\tfrac12I\omega^2\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','C')"><span class="lc-opt-l">C</span> \(\tau\Delta t = \Delta(I\omega)\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','C')"><span class="lc-opt-l">D</span> Fr</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Newton's second law for rotational motion states that torque equals moment of inertia multiplied by <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:150px">. Angular momentum is defined as moment of inertia multiplied by <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px">, with SI unit kg m² s⁻¹. The law of conservation of angular momentum states that total angular momentum stays constant provided no resultant external <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> acts on the system. An object moving in a straight line can still have angular momentum about a point, equal to mass × velocity × <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:170px">. A resultant torque acting for a time produces an angular <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px">, equal to the change in angular momentum.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q18.</strong> A resultant torque of 2.4 N m ± 0.2 N m accelerated a large metal hoop (axis of rotation through a diameter) of radius 42 cm ± 1 cm from rest to 5.7 rad s⁻¹ ± 0.1 rad s⁻¹ in 3.2 ± 0.2 s. Determine a value for the mass of the hoop and the absolute uncertainty in your answer. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\alpha = \omega/t = 5.7/3.2 = 1.78\ \text{rad s}^{-2}\).<br>✓ \(I = \tau/\alpha = 2.4/1.78 = 1.35\ \text{kg m}^2\); for a hoop about a diameter \(I = \tfrac12MR^2\), so \(M = 2I/R^2 = 2(1.35)/0.42^2 = 15.3\ \text{kg}\).<br>✓ Fractional uncertainties: \(\Delta\tau/\tau = 0.083\), \(\Delta\omega/\omega = 0.018\), \(\Delta t/t = 0.063\), so \(\Delta\alpha/\alpha = 0.080\) and \(\Delta I/I = 0.083+0.080 = 0.163\).<br>✓ \(\Delta R/R = 0.024\), doubled for \(R^2\) gives 0.048, so \(\Delta M/M = 0.163+0.048 = 0.211\).<br>✓ \(\Delta M = 0.211 \times 15.3 = 3.2\ \text{kg}\).<br>✓ \(M = 15 \pm 3\ \text{kg}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q19.</strong> Calculate the torque needed to accelerate a rotating object with moment of inertia 3.2 kg m² from 1.3 rad s⁻¹ to 4.9 rad s⁻¹ in 8.8 s. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\tau = I\Delta\omega/\Delta t = 3.2 \times (4.9-1.3)/8.8\)<br>✓ \(\tau = 1.3\ \text{N m}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q20.</strong> An object was accelerated from 300 rpm to 1100 rpm in 2.3 s when a resultant torque of 112 N m was applied. Determine its moment of inertia. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Convert: \(300\ \text{rpm} = 31.4\ \text{rad s}^{-1}\), \(1100\ \text{rpm} = 115.2\ \text{rad s}^{-1}\).<br>✓ \(\alpha = (115.2-31.4)/2.3 = 36.4\ \text{rad s}^{-2}\).<br>✓ \(I = \tau/\alpha = 112/36.4 = 3.1\ \text{kg m}^2\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q21.</strong> Two parallel forces, each 26 N, are separated by a distance of 8.7 cm. This couple provides the resultant torque to a rotating system with moment of inertia 17.3 kg m². Determine the angular acceleration produced. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Torque of the couple \(= F \times d = 26 \times 0.087 = 2.26\ \text{N m}\).<br>✓ \(\alpha = \tau/I = 2.26/17.3\).<br>✓ \(\alpha = 0.13\ \text{rad s}^{-2}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q"><strong>Q22.</strong> A torque of 14.0 N m is applied to a stationary wheel, but resistive forces provide an opposing torque of 6.1 N m. If the wheel has a moment of inertia of 1.2 kg m², show that the total angular displacement after 2.0 s is about two rotations. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Resultant torque \(= 14.0 - 6.1 = 7.9\ \text{N m}\).<br>✓ \(\alpha = \tau/I = 7.9/1.2 = 6.6\ \text{rad s}^{-2}\).<br>✓ Starting from rest: \(\theta = \tfrac12\alpha t^2 = \tfrac12 \times 6.6 \times 2.0^2 = 13.2\ \text{rad}\).<br>✓ \(13.2/2\pi = 2.1\) rotations, confirming about two rotations.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q23.</strong> Consider the falling-mass-and-cylinder set-up from Worked example 2 (Fig 4). What mass, m, will produce a linear acceleration of 2.5 m s⁻² when acting on an 8.3 kg cylinder? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(a = mg/(m+\tfrac12M)\), rearranged: \(a(m+\tfrac12M) = mg\), so \(m(g-a) = a(\tfrac12M)\).<br>✓ \(m = \dfrac{a(\tfrac12M)}{g-a} = \dfrac{2.5 \times 4.15}{9.8-2.5}\).<br>✓ \(m = 1.4\ \text{kg}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q24.</strong> Calculate the angular momentum of a 1.34 kg disc of radius 56 cm spinning at an angular speed of 37 rad s⁻¹ around an axis passing perpendicularly through its centre. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Disc \(I = \tfrac12mr^2 = \tfrac12 \times 1.34 \times 0.56^2 = 0.210\ \text{kg m}^2\).<br>✓ \(L = I\omega = 0.210 \times 37\).<br>✓ \(L = 7.8\ \text{kg m}^2\text{s}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q25.</strong> The three blades of a rotating fan each have a moment of inertia of 0.042 kg m². If they have a combined angular momentum of 0.74 kg m² s⁻¹, determine how many times the fan rotates every minute. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Total \(I = 3 \times 0.042 = 0.126\ \text{kg m}^2\).<br>✓ \(\omega = L/I = 0.74/0.126 = 5.9\ \text{rad s}^{-1}\).<br>✓ Convert: \(5.9 \times 60/2\pi \approx 56\) rpm.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Predict / State / Discuss</div>
+  <div class="lc-exam-q"><strong>Q26.</strong> An unpowered merry-go-round of radius 4.0 m and moment of inertia 1200 kg m² rotates with constant angular velocity 0.56 rad s⁻¹. A child of mass 36 kg standing close to it jumps onto its edge. Predict the new angular velocity of the merry-go-round. State any assumptions made. Discuss whether the merry-go-round would return to its original speed if the child jumped off again. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Treat the child as a point mass at the rim: \(I_{\text{child}} = mr^2 = 36 \times 4.0^2 = 576\ \text{kg m}^2\).<br>✓ Conservation of angular momentum: \(1200 \times 0.56 = (1200+576)\omega_f\).<br>✓ \(\omega_f = 672/1776 = 0.38\ \text{rad s}^{-1}\).<br>✓ Assumption: no resultant external torque (frictionless bearing); child treated as a point mass at the rim.<br>✓ If the child simply steps off carrying the same tangential speed as the platform, she takes her share of angular momentum with her, leaving the merry-go-round still rotating at 0.38 rad s⁻¹ — it does not return to 0.56 rad s⁻¹.<br>✓ It could only speed back up if the child pushed off in a way that gave extra angular momentum back to the platform (e.g. jumping backwards relative to the rotation).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Suggest</div>
+  <div class="lc-exam-q"><strong>Q27.</strong> Neutron stars are the very dense, collapsed remnants of much larger spinning stars. Suggest why they have extremely high rotational velocities. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Angular momentum is conserved during the collapse, since no external torque acts on the star.<br>✓ The star's radius decreases enormously, and since \(I \propto r^2\), its moment of inertia falls by a much larger factor still.<br>✓ Because \(L = I\omega\) is conserved, ω must increase enormously to compensate for the huge drop in I, giving the extremely fast rotation observed.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'The rotational analogue of F = ma is τ = Iα, so α = τ/I.' },
+    mcq2: { B: 'α = τ/I = 1.5/2.0 = 0.75 rad s-2.' },
+    mcq3: { C: 'With no external torque, angular momentum L = Iω is conserved; ω and rotational KE both change as I changes.' },
+    mcq4: { B: 'L = Iω has units kg m2 x rad s-1 = kg m2 s-1 (radians are dimensionless).' },
+    mcq5: { C: 'A moving object has angular momentum L = mvr about any point not on its line of motion, even travelling in a straight line.' },
+    mcq6: { C: 'Angular impulse ΔL = τΔt = Δ(Iω), the rotational equivalent of linear impulse J = FΔt = Δp.' }
+  },
+  fitb: { lf1:'angular acceleration', lf2:'angular velocity', lf3:'torque', lf4:'perpendicular distance', lf5:'impulse' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="04-rotational-kinetic-energy.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Rotational Kinetic Energy</div>
+          </div>
+        </a>
+        <a href="../A.5-Special-Relativity/index.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Galilean and Special Relativity</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
