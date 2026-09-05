@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moment of Inertia — A.4 Rigid Body Mechanics — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$','$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A4">A.4 Rigid Body Mechanics</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Moment of Inertia</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.4
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 3 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Moment of Inertia</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.4 Rigid Body Mechanics</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.4 overview
+      </a>
+      <div class="sidebar-title">A.4 Concepts</div>
+      <a href="01-torque-and-moment-of-force.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Torque and Moment of Force</span>
+        </a>
+      <a href="02-angular-velocity-and-acceleration.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Angular Velocity and Acceleration</span>
+        </a>
+      <a href="03-moment-of-inertia.html" class="sidebar-link active">
+          <span class="sidebar-num">03</span>
+          <span>Moment of Inertia</span>
+        </a>
+      <a href="04-rotational-kinetic-energy.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Rotational Kinetic Energy</span>
+        </a>
+      <a href="05-angular-momentum.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Angular Momentum</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 5 · A.4 Rigid Body Mechanics</div>
+<div class="lc-title">Moment of Inertia</div>
+<div class="lc-sub">Mass tells you how hard it is to speed up a moving object. Moment of inertia tells you how hard it is to speed up a spinning one — and it depends on more than just how much mass there is.</div>
+
+<div class="lc-card">
+  <h3>🚪 Hook – the door that won't budge</h3>
+  <p>Push a door near its hinge and it barely moves; push the same door with the same force near the handle, far from the hinge, and it swings open easily. The mass of the door hasn't changed. What has changed is <strong>how far the mass is from the axis of rotation</strong> — and that is the whole idea behind this lesson.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-03-moment-of-inertia-01.png" alt="A point mass m rotating at radius r about a fixed axis of rotation" style="max-width:280px;margin:0 auto">
+    <div class="lc-cap">Fig 1 — A point mass m rotating at a distance r from its axis. Its resistance to a change of rotational motion is I = mr².</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — two identical solid discs have the same mass and radius. One spins about an axis through its centre; the other spins about an axis through its edge. Which is harder to speed up? <em>The one spinning about its edge — more of its mass sits at a larger average distance from that axis, so it has a larger moment of inertia, even though the mass and shape are identical.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🌀 From inertia to moment of inertia</h3>
+  <p>In Topic A.2 we saw that when a resultant force is applied to an object, the result is a linear acceleration, the magnitude of which depends on the mass of the object. <strong>Resistance to a change of motion (acceleration) is called inertia.</strong></p>
+  <p>For rotational motion, we also need to consider how the mass is distributed around the axis. Consider two objects, A and B, with the same mass and shape but different axes of rotation: object A will require more force to produce a certain angular acceleration than object B. We say that <strong>A has a larger moment of inertia than B.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-03-moment-of-inertia-02.png" alt="Two identical objects A and B with different axes of rotation marked" style="max-width:320px;margin:0 auto">
+    <div class="lc-cap">Fig 2 — Objects A and B have the same mass and shape, but different axes of rotation, so they have different moments of inertia.</div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Moment of inertia of a point mass</span>
+    $$I = mr^2$$
+  </div>
+  <p><strong>Moment of inertia, I,</strong> quantifies the resistance to a change of rotational motion of an object; it depends on the distribution of mass around the chosen axis of rotation. The SI unit of moment of inertia is <strong>kg m²</strong>. Most spherical objects can be considered to behave like masses concentrated at their centre points — their centre of mass is at the centre of the sphere.</p>
+  <p>In principle, the moment of inertia of any real, extended mass can be found by adding the individual moments of inertia of its point masses:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Moment of inertia of a system of point masses</span>
+    $$I = \sum mr^2$$
+  </div>
+  <p>The symbol Σ means "sum of". In practice, the moments of inertia of most simple-shaped objects about specific axes are well known.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Standard shapes – no need to memorise</h3>
+  <p>There is no need to remember these results, or to know how they were derived, because <strong>equations will be provided in the examination paper if needed.</strong> What matters is being able to select and use the right one for a given axis.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-03-moment-of-inertia-03.png" alt="Diagram of eight standard shapes with their moments of inertia: rod about centre and end, solid cylinder or disc, hoop, solid sphere, solid cylinder about a central diameter, hoop about a diameter, thin spherical shell" style="max-width:420px;margin:0 auto">
+    <div class="lc-cap">Fig 3 — Moments of inertia of standard shapes about the axes shown (r = radius, L = length). Notice how the same object gives a different I for a different axis, exactly as in Fig 2.</div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Rod about centre</span>
+    $$I = \tfrac{1}{12}mL^2$$
+    <span class="lc-formula-label">Rod about end</span>
+    $$I = \tfrac{1}{3}mL^2$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Solid cylinder or disc</span>
+    $$I = \tfrac{1}{2}mr^2$$
+    <span class="lc-formula-label">Hoop</span>
+    $$I = mr^2$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Solid sphere</span>
+    $$I = \tfrac{2}{5}mr^2$$
+    <span class="lc-formula-label">Thin spherical shell</span>
+    $$I = \tfrac{2}{3}mr^2$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Solid cylinder, central diameter</span>
+    $$I = \tfrac{1}{4}mr^2 + \tfrac{1}{12}mL^2$$
+    <span class="lc-formula-label">Hoop about a diameter</span>
+    $$I = \tfrac{1}{2}mr^2$$
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – a simple pendulum (A4.6)</h3>
+  <p>Determine the moment of inertia of a 24 g simple pendulum of length 90 cm.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> assume the pendulum bob can be treated as a point mass, and that the effect of the string is negligible. Use \(I = mr^2\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 0.024\) kg, \(r = 0.90\) m.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(I = mr^2 = 0.024 \times 0.90^2\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(I = 1.9 \times 10^{-2}\ \text{kg m}^2\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>🧮 Tool 3: Percentage change and percentage difference</h3>
+  <p>Use <strong>percentage difference</strong> to compare two independent quantities, and <strong>percentage change</strong> when one quantity becomes another.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Percentage difference</span>
+    $$\text{\% diff} = 100 \times \frac{\text{actual difference}}{\text{mean}}$$
+    <span class="lc-formula-label">Percentage change</span>
+    $$\text{\% change} = 100 \times \frac{\text{change}}{\text{original value}}$$
+  </div>
+  <p><strong>Example</strong> — using Fig 3, determine the percentage difference between the moments of inertia (about a central axis) of a solid sphere of mass 1.0 kg and a thin spherical shell of mass 100 g, both of radius 12 cm.</p>
+  <p>\(I_{\text{sphere}} = \tfrac25 \times 1.0 \times 0.12^2 = 5.76\times10^{-3}\ \text{kg m}^2\)<br>\(I_{\text{shell}} = \tfrac23 \times 0.10 \times 0.12^2 = 9.60\times10^{-4}\ \text{kg m}^2\)<br>difference \(= 4.80\times10^{-3}\ \text{kg m}^2\); mean \(= 3.36\times10^{-3}\ \text{kg m}^2\)<br>\(\text{\% diff} = 100\times(4.80\times10^{-3})/(3.36\times10^{-3}) = 143\%\)</p>
+  <p><strong>Percentage change example</strong> — a torque increases from 12 N m to 18 N m: change \(= +6\) N m, so \(\text{\% change} = 100\times6/12 = +50\%\). If instead the torque fell from 18 N m to 12 N m: \(\text{\% change} = 100\times(-6)/18 = -33\%\).</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs used to find and use I</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Torque against angular acceleration</td><td>Angular acceleration, α / rad s⁻² · Torque, τ / N m</td><td>Straight line through the origin</td><td>Gradient = moment of inertia, I (from \(\tau = I\alpha\), covered next lesson)</td></tr>
+      <tr><td>Moment of inertia against r² for a point mass</td><td>r² / m² · I / kg m²</td><td>Straight line through the origin</td><td>Gradient = mass, m (since \(I = mr^2\))</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a4-03-moment-of-inertia-04.png" alt="Torque against angular acceleration graph, a straight line through the origin"><div class="lc-cap">Fig 4 — Torque against angular acceleration for a rigid body. The gradient of this line is the moment of inertia, I.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a4-03-moment-of-inertia-05.png" alt="Moment of inertia against r squared graph, a straight line through the origin"><div class="lc-cap">Fig 5 — I plotted against r² for a point mass rotated at different radii. The gradient equals the mass, m.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – a 'dumb-bell' arrangement (A4.7)</h3>
+  <p>Two spherical masses, each of mass \(m_1 = 2.0\) kg, rotate about an axis that is a distance \(r_1 = 35\) cm from both of their centres, connected by a rod of mass \(m_2 = 400\) g, length \(L = 56\) cm and radius \(r_2 = 1.2\) cm. <strong>(a)</strong> Determine the overall moment of inertia of the arrangement. <strong>(b)</strong> Calculate the percentage that the rod contributes to the overall moment of inertia.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> total I = (I of the two point-mass spheres) + (I of the rod about its centre).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m_1 = 2.0\) kg, \(r_1 = 0.35\) m, \(m_2 = 0.400\) kg, \(L = 0.56\) m. The rod's radius \(r_2\) is not needed here since \(I = \tfrac{1}{12}m_2L^2\) doesn't depend on it.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(I = (2\times m_1r_1^2) + (\tfrac1{12}\times m_2L^2)\)<br>\(= (2\times2.0\times0.35^2) + (\tfrac1{12}\times0.400\times0.56^2)\)<br>\(= 0.490 + 1.045\times10^{-2}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer (a):</strong> \(I = 0.50\ \text{kg m}^2\) (0.50045… on the calculator display).<br><strong>(b)</strong> \(100\times(0.01045/0.50045) = 2.1\%\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a4-03-moment-of-inertia-06.png" alt="Dumb-bell arrangement: two spherical masses connected by a rod, rotating about a central axis of rotation" style="max-width:340px;margin:0 auto">
+    <div class="lc-cap">Fig 6 — The 'dumb-bell' arrangement of Worked example 2. Both spheres are at r₁ = 35 cm from the axis of rotation.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🏺 Real-world: flywheels</h3>
+    <p><strong>Flywheels</strong> are added to the axes of rotating machinery to resist changes of motion and/or to store rotational kinetic energy. They need to have large moments of inertia. Figure 7 shows an old-fashioned example, a potter's wheel: the large wheel at the bottom is kicked for a while until it is spinning quickly. After that, because it has a large moment of inertia, there is no need to keep kicking the wheel continuously to maintain its motion.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/a4-03-moment-of-inertia-07.png" alt="A flywheel on a potter's wheel being kicked to keep it spinning" style="max-width:260px;margin:0 auto">
+      <div class="lc-cap">Fig 7 — A flywheel on a potter's wheel. If it had a mass of 20 kg and radius 50 cm, spinning at 2 Hz, it would store about 200 J of rotational kinetic energy.</div>
+    </div>
+    <div class="lc-success">✓ Examiner tip: modern flywheels are used in vehicles with regenerative braking and in wind turbines for electricity generation. Compare and contrast the two uses if asked — both store rotational kinetic energy, but a vehicle flywheel repeatedly charges and discharges quickly, while a turbine flywheel smooths out a more continuous supply.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – a thick-walled tube</h3>
+    <p>The standard shapes in Fig 3 don't cover every geometry you might meet. A <strong>thick-walled cylindrical tube</strong> (an annulus) of inner radius \(r_1\) and outer radius \(r_2\), rotating about its central axis, has:</p>
+    <div class="lc-formula">
+      $$I = \tfrac{1}{2}m\left(r_1^2 + r_2^2\right)$$
+    </div>
+    <p>This reduces to the solid disc formula when \(r_1 = 0\), and to the hoop formula when \(r_1 \approx r_2\) — a useful check that a formula is being applied correctly.<br>
+    <strong>Challenge:</strong> a thick-walled tube of mass 2.57 kg has inner radius 5.6 cm and outer radius 6.4 cm. What is its moment of inertia about its central axis? <em>Answer: \(I = \tfrac12\times2.57\times(0.056^2+0.064^2) = 9.3\times10^{-3}\) kg m² — and note the length, L, of the tube doesn't appear in the formula at all.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>A bigger mass always means a bigger moment of inertia</td><td>I depends on both mass <em>and</em> how far it sits from the axis (\(I=mr^2\)). A small mass far from the axis can have a larger I than a large mass close to it</td></tr>
+      <tr><td>Moment of inertia is a fixed property of an object, like its mass</td><td>I depends on the chosen axis of rotation. The same object has a different I for every different axis (Fig 2 and Fig 3)</td></tr>
+      <tr><td>r in \(I = mr^2\) means the object's radius</td><td>r is the distance of the mass from the <em>axis of rotation</em> — for a point mass that's just its distance from the axis, not a "size"</td></tr>
+      <tr><td>The standard formulas (Fig 3) must be memorised for the exam</td><td>They will be provided in the exam paper if needed — what's examined is choosing and applying the right one</td></tr>
+      <tr><td>Extending an object's mass further from the axis always changes I by the same factor as the distance</td><td>I depends on \(r^2\), not r — doubling the radius quadruples the moment of inertia for a point mass (see Question 13b)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common exam slip: writing \(I = mr^2\) for an extended object without checking whether a more specific standard formula (rod, disc, sphere, shell…) actually applies to its shape and axis.</div>
+</div>
+
+<div class="lc-kp">
+  <span>I = mr² (point mass)</span>
+  <span>I = Σmr² (system)</span>
+  <span>SI unit: kg m²</span>
+  <span>I depends on the axis, not just mass</span>
+  <span>formulas given in the exam</span>
+  <span>flywheel = large I</span>
+  <span>% diff = 100 × diff / mean</span>
+  <span>% change = 100 × change / original</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which factor most determines an object's moment of inertia about a given axis?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> Total mass alone</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Shape alone</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> The distribution of mass relative to that axis</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> The speed of rotation</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A 0.50 kg point mass rotates at 0.20 m from an axis. Its moment of inertia is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 0.10 kg m²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 0.020 kg m²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 0.0040 kg m²</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 2.5 kg m²</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A hoop, a solid disc, a solid sphere and a thin spherical shell all have the same mass m and radius r, each rotating about a central axis. Which has the smallest moment of inertia?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> Hoop</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> Solid disc</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> Solid sphere</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> Thin spherical shell</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Objects A and B have identical mass and shape but different axes of rotation. Object A needs a larger torque than B to produce the same angular acceleration. What can we conclude?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> A is more massive than B</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> A has a smaller moment of inertia than B</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> A has a larger moment of inertia than B</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> A and B must be rotating at different speeds</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Why can the standard moment-of-inertia formulas be used in an IB exam without deriving or memorising them?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> They are rough approximations only</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> They will be provided in the exam paper if needed</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> They are not examinable at all</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> They only apply to point masses</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The moment of inertia, I, of an object depends on the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px"> of its mass about the chosen <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:120px"> of rotation. For a point mass m at a distance r from the axis, I = m<input class="lc-fitb-input" id="lf3" placeholder="?" style="width:60px">² (SI unit <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:90px">). For a system of point masses, I is the <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:90px"> of mr² for every particle. A dense mass with a high moment of inertia, added to rotating machinery to resist changes of motion or store rotational kinetic energy, is called a <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:120px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate</div>
+  <div class="lc-exam-q"><strong>Q12.</strong> Estimate the moment of inertia of the Earth in its orbit around the Sun (mass of Earth ≈ 6.0 × 10²⁴ kg, distance to the Sun ≈ 1.5 × 10⁸ km). <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Treat the Earth as a point mass at orbital radius r, so \(I = mr^2\).<br>✓ \(r = 1.5\times10^{8}\ \text{km} = 1.5\times10^{11}\) m.<br>✓ \(I = (6.0\times10^{24})\times(1.5\times10^{11})^2 \approx 1.4\times10^{47}\ \text{kg m}^2\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q13.</strong> A rotating dumb-bell arrangement consists of two masses of 800 g, each 20 cm from the axis of rotation; assume the connecting rod has no significant effect. <strong>(a)</strong> Calculate the moment of inertia of the arrangement. <strong>(b)</strong> By what factor would the moment of inertia change if 20 cm was increased to 30 cm? <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(I = 2\times mr^2 = 2\times0.800\times0.20^2\)<br>✓ \(I = 0.064\ \text{kg m}^2\).<br>✓ (b) \(I \propto r^2\), so the factor is \((30/20)^2 = 2.25\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Suggest / Estimate</div>
+  <div class="lc-exam-q"><strong>Q14.</strong> <strong>(a)</strong> Suggest why the equation I = mr² could be used to determine an approximate value for the moment of inertia of a bicycle wheel. <strong>(b)</strong> Estimate a value for the moment of inertia of a typical bicycle wheel. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Most of a bicycle wheel's mass is in the rim and tyre, at approximately the same radius from the axle; the spokes contribute negligible mass, so the wheel behaves like a hoop / ring of point masses at that radius.<br>✓ (b) Reasonable estimate: \(m \approx 1.5\) kg, \(r \approx 0.33\) m, so \(I = mr^2 \approx 1.5\times0.33^2 \approx 0.16\ \text{kg m}^2\) (any answer of the right order of magnitude with a justified estimate is acceptable).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate</div>
+  <div class="lc-exam-q"><strong>Q15.</strong> A flywheel may be considered to be a steel cylinder (density 7800 kg m⁻³) of outer radius 40 cm and thickness 12 cm. Use this simplification to estimate its moment of inertia, ignoring other features. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Volume \(= \pi r^2 L = \pi\times0.40^2\times0.12 = 0.0603\ \text{m}^3\).<br>✓ Mass \(= \text{density}\times\text{volume} = 7800\times0.0603 \approx 470\) kg.<br>✓ Solid cylinder about its central axis: \(I = \tfrac12mr^2 = 0.5\times470\times0.40^2\)<br>✓ \(I \approx 38\ \text{kg m}^2\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine (HL)</div>
+  <div class="lc-exam-q"><strong>Q16.</strong> A thick-walled tube has an axis of rotation Y, length L = 20.0 cm, mass m = 2.57 kg, inner radius 5.6 cm and outer radius 6.4 cm. Determine its moment of inertia about axis Y. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ A thick-walled tube about its central axis: \(I = \tfrac12m(r_1^2+r_2^2)\).<br>✓ \(I = \tfrac12\times2.57\times(0.056^2+0.064^2)\)<br>✓ \(I = \tfrac12\times2.57\times0.007232\)<br>✓ \(I = 9.3\times10^{-3}\ \text{kg m}^2\) (the length L does not appear in the formula).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate</div>
+  <div class="lc-exam-q"><strong>Q17.</strong> A boy of mass 25 kg stands at the rail, 1.86 m from the centre, of a playground merry-go-round of mass 370 kg and radius 1.25 m. Estimate a value for the moment of inertia of the system. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Model the platform as a solid disc: \(I_{\text{platform}} = \tfrac12\times370\times1.25^2 = 289\ \text{kg m}^2\).<br>✓ Model the boy as a point mass at the rail: \(I_{\text{boy}} = 25\times1.86^2 = 86.5\ \text{kg m}^2\).<br>✓ Total \(I = 289 + 86.5 \approx 380\ \text{kg m}^2\) (2 s.f.).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'I = mr² for a point mass, and I = Σmr² for an extended body — both depend on how mass is distributed relative to the axis, not just on the total mass.' },
+    mcq2: { B: 'I = mr² = 0.50 × 0.20² = 0.50 × 0.040 = 0.020 kg m².' },
+    mcq3: { C: 'For the same m and r: hoop I=mr² (1.0), thin shell I=(2/3)mr² (0.667), disc I=(1/2)mr² (0.5), solid sphere I=(2/5)mr² (0.4) — the solid sphere is smallest, because more of its mass sits closer to the axis on average.' },
+    mcq4: { C: 'A larger torque is needed for the same angular acceleration only if A has a larger moment of inertia (torque = I × angular acceleration, covered next lesson).' },
+    mcq5: { B: 'The IB physics data booklet / exam paper supplies these formulas when needed — you are examined on selecting and applying the right one, not on memorising or deriving them.' }
+  },
+  fitb: { lf1:'distribution', lf2:'axis', lf3:'r', lf4:'kg m2', lf5:'sum', lf6:'flywheel' }
+});
+</script>
+</div>
+</content>
+
+      <!-- LESSON-END -->
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="02-angular-velocity-and-acceleration.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Angular Velocity and Acceleration</div>
+          </div>
+        </a>
+        <a href="04-rotational-kinetic-energy.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Rotational Kinetic Energy</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
