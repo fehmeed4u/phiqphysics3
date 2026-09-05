@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projectile Motion — A.1 Kinematics — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+
+    /* overflow guards for injected lesson content */
+    .lesson-layout > main { min-width: 0; }
+    #lesson-body { overflow-x: hidden; }
+    #lesson-body img, #lesson-body canvas, #lesson-body svg, #lesson-body video { max-width: 100%; height: auto; }
+    #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
+    #lesson-body pre { max-width: 100%; overflow-x: auto; }
+  </style>
+  <script src="../../shared/lesson-quiz.js"></script>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<!-- HERO -->
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A1">A.1 Kinematics</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Projectile Motion</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.1
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 4 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Projectile Motion</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.1 Kinematics</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.1 overview
+      </a>
+      <div class="sidebar-title">A.1 Concepts</div>
+      <a href="01-displacement-velocity-and-acceleration.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Displacement, Velocity and Acceleration</span>
+        </a>
+      <a href="02-uniformly-accelerated-motion-suvat.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Uniformly Accelerated Motion — SUVAT</span>
+        </a>
+      <a href="03-graphs-of-motion.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Graphs of Motion</span>
+        </a>
+      <a href="04-projectile-motion.html" class="sidebar-link active">
+          <span class="sidebar-num">04</span>
+          <span>Projectile Motion</span>
+        </a>
+      <a href="05-relative-motion.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Relative Motion</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 5 · A.1 Kinematics</div>
+<div class="lc-title">Projectile Motion</div>
+<div class="lc-sub">A projectile moves under gravity alone once launched. This lesson resolves its velocity into horizontal and vertical components and shows why treating them independently unlocks every projectile problem.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – drop it or throw it, it lands at the same time</h3>
+  <p>Drop a ball from a height, and at the same instant fire an identical ball horizontally from the same height. Ignoring air resistance, <strong>both balls hit the ground at exactly the same moment</strong> — no matter how fast the second one was launched sideways. The horizontal motion has no effect whatsoever on the vertical fall.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-04-projectile-motion-01.png" alt="Comparison of a ball dropped vertically and a ball projected horizontally from the same height, both falling equal vertical distances in equal times">
+    <div class="lc-cap">Fig 1 — A dropped ball and a ball projected horizontally from the same height fall equal vertical distances in the same time (Fig A1.41).</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think — then read on)</strong> — A stone is thrown horizontally from a cliff. Ignoring air resistance, what happens to its horizontal speed as it falls? <em>Answer: it stays constant. There is no horizontal force acting on it, so there is no horizontal acceleration.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Resolving velocity into components</h3>
+  <p>A <strong>projectile</strong> is an object that has been projected through the air — fired, launched, thrown, kicked or hit — and which then moves only under the action of gravity (and air resistance, if significant). It has no ability to power or control its own motion. The instantaneous velocity of a projectile at any time can be <strong>resolved</strong> into vertical and horizontal components, \(v_{\text{V}}\) and \(v_{\text{H}}\).</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Components of velocity</span>
+    $$v_{\text{V}} = v\sin\theta$$
+    $$v_{\text{H}} = v\cos\theta$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-04-projectile-motion-02.png" alt="A projectile's velocity vector resolved into horizontal component v cos theta and vertical component v sin theta">
+    <div class="lc-cap">Fig 2 — Resolving a projectile's velocity \(v\) into components at angle \(\theta\) above the horizontal (Fig A1.38).</div>
+  </div>
+  <div class="lc-warn">⚠️ Common mistake: make sure the angle \(\theta\) is always the angle between the velocity and the <strong>horizontal</strong> — never the vertical, never the trajectory itself.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🌐 Horizontal and vertical motion are independent</h3>
+  <p>Components perpendicular to each other can be analysed <strong>separately</strong>. Any object close to the Earth's surface affected only by gravity accelerates towards the Earth at \(9.8\,\text{m s}^{-2}\) — this remains true even if the object is also moving sideways. If there is no air resistance, the horizontal component of a projectile's velocity stays <strong>constant</strong> until it hits something.</p>
+  <p>A stroboscopic photograph of a bouncing ball, taken at equal time intervals, shows this directly: the <strong>horizontal</strong> spacing between successive images is always the same (because \(v_{\text{H}}\) is constant), while the <strong>vertical</strong> spacing decreases as the ball decelerates on the way up and increases as it accelerates on the way down. The path followed by a projectile is its <strong>trajectory</strong>, and it is <strong>parabolic</strong> if air resistance is negligible. The horizontal distance covered is called the <strong>range</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-04-projectile-motion-03.png" alt="Stroboscopic image of a bouncing ball showing equal horizontal spacing and changing vertical spacing between successive images">
+    <div class="lc-cap">Fig 3 — Stroboscopic image of a bouncing ball: equal time intervals between images (Fig A1.40).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⏱️ Time of flight and range from a height</h3>
+  <p>For a projectile launched (or fired) horizontally from height \(h\), the time of flight is found entirely from the <strong>vertical</strong> motion, starting from rest vertically:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Time to fall from height h</span>
+    $$h = \tfrac{1}{2}gt^{2}$$
+  </div>
+  <p>Then the <strong>range</strong> comes from the constant horizontal velocity:</p>
+  <div class="lc-formula">
+    $$x = v_{\text{H}} \cdot t$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-04-projectile-motion-04.png" alt="Experimental setup for investigating range x for different launch heights h, steel ball projected horizontally from a table edge">
+    <div class="lc-cap">Fig 4 — Investigating range \(x\) as height \(h\) is varied (Fig A1.42).</div>
+  </div>
+  <div class="lc-info">🔑 <strong>Top tip:</strong> the vertical component tells you the times (to maximum height, and to hit the ground) and the maximum height reached; the horizontal component then gives you the range.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Range vs height</td><td>\(h\) (m), \(x\) (m)</td><td>Concave down (\(x \propto \sqrt{h}\))</td><td>\(x\) increases with \(h\), but with diminishing returns</td></tr>
+      <tr><td>Linearised range</td><td>\(\sqrt{h}\) (\(\sqrt{\text{m}}\)), \(x\) (m)</td><td>Straight line through the origin</td><td>Gradient \(= v_{\text{H}}\sqrt{2/g}\)</td></tr>
+      <tr><td>Horizontal velocity vs time</td><td>\(t\) (s), \(v_{\text{H}}\) (m/s)</td><td>Horizontal line</td><td>\(v_{\text{H}}\) is constant</td></tr>
+      <tr><td>Vertical velocity vs time</td><td>\(t\) (s), \(v_{\text{V}}\) (m/s)</td><td>Straight line, slope \(-g\)</td><td>Slope \(= -9.8\,\text{m s}^{-2}\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a1-04-projectile-motion-05.png" alt="Direct plot of range x against height h, a concave-down curve through the origin"><div class="lc-cap">Fig 5 — Direct plot: \(x\) vs \(h\) (concave down).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a1-04-projectile-motion-06.png" alt="Linearised plot of range x against square root of height h, a straight line through the origin"><div class="lc-cap">Fig 6 — Linearised: \(x\) vs \(\sqrt{h}\) (straight line).</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – tennis serve (A1.9)</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a tennis player strikes the ball so it leaves the racket at velocity \(v\) at angle \(\theta\) below the horizontal. Find the vertical and horizontal components of this velocity.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(v = 64.0\,\text{m s}^{-1}\), \(\theta = 6.0^\circ\) below horizontal.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(v_{\text{H}} = v\cos\theta\), \(v_{\text{V}} = v\sin\theta\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(v_{\text{H}} = 64.0\cos 6.0^\circ = 63.6\,\text{m s}^{-1}\) (64 m s⁻¹ to 2 s.f.). \(v_{\text{V}} = 64.0\sin 6.0^\circ = 6.7\,\text{m s}^{-1}\) downwards.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-04-projectile-motion-07.png" alt="Tennis player serving with velocity vector resolved into 63.6 m/s horizontal and 6.7 m/s vertical components">
+    <div class="lc-cap">Fig 7 — The tennis serve geometry: 64.0 m/s at 6.0° below horizontal (Fig A1.39).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – bullet fired horizontally (A1.10)</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a bullet is fired horizontally from height \(h\) above the ground. Air resistance is negligible. Find where it hits the ground.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(v_{\text{H}} = 524\,\text{m s}^{-1}\), \(h = 22.0\,\text{m}\), \(g = 9.81\,\text{m s}^{-2}\), vertical \(u = 0\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(h = \tfrac12 gt^2 \Rightarrow t = \sqrt{2h/g}\). Then \(x = v_{\text{H}}t\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(t = \sqrt{2(22.0)/9.81} = 2.12\,\text{s}\). \(x = 524 \times 2.12 = 1.11\times10^{3}\,\text{m}\) (1.11 km).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-04-projectile-motion-08.png" alt="Bullet fired horizontally from a height of 22.0 metres landing 1.11 kilometres away">
+    <div class="lc-cap">Fig 8 — Bullet fired horizontally at 524 m/s from 22.0 m, landing 1.11 km away.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 3 – projectile at an angle from a height (A1.11)</h3>
+  <p>A stone is thrown upwards from a height above the ground at a given speed and angle. Ignoring air resistance, find (a) its maximum height, (b) its vertical velocity on impact, (c) the time to reach the ground, (d) the horizontal range, and (e) the velocity of impact.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> resolve the initial velocity first; use the vertical component for times and heights, the horizontal component for range, and combine both for the final impact velocity.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(u = 18.0\,\text{m s}^{-1}\), \(\theta = 52^\circ\), launch height \(= 1.6\,\text{m}\), \(g = 9.8\,\text{m s}^{-2}\). \(v_{\text{V}} = 18.0\sin 52^\circ = 14.2\,\text{m s}^{-1}\) up, \(v_{\text{H}} = 18.0\cos 52^\circ = 11.1\,\text{m s}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> (a) \(v^2=u^2+2as\) with \(v=0\) at the top. (b) \(v^2=u^2+2as\) over the full fall. (c) \(v=u+at\). (d) \(x=v_{\text{H}}t\). (e) \(v_i^2 = v_{\text{H}}^2+v_{\text{V}}^2\), \(\tan\theta = v_{\text{V}}/v_{\text{H}}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) max height \(= 10.3\,\text{m}\) above release (11.9 m above the ground). (b) impact \(v_{\text{V}} = 15.3\,\text{m s}^{-1}\) downwards. (c) \(t = 3.00\,\text{s}\). (d) \(x = 33.3\,\text{m}\). (e) \(v_i = 18.9\,\text{m s}^{-1}\) at \(54^\circ\) below horizontal.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-04-projectile-motion-09.png" alt="Stone thrown upwards at 52 degrees from a height of 1.6 metres, showing 10.3 metre rise, 33.3 metre range, and 18.9 m/s impact velocity">
+    <div class="lc-cap">Fig 9 — Worked example 3 geometry (Fig A1.43): launched at 18.0 m/s, 52°, from 1.6 m.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: finding the range–height relationship</h3>
+    <p>A steel ball projected horizontally from a table edge lands further away the higher the table is. Measuring range \(x\) for several heights \(h\) and plotting the results gives the concave-down curve of the Graph mastery section; plotting \(x\) against \(\sqrt{h}\) straightens it into a line through the origin, with gradient \(v_{\text{H}}\sqrt{2/g}\).</p>
+    <div class="lc-success">✓ Examiner tip: always state the assumption of negligible air resistance before drawing conclusions from an \(x\)–\(h\) investigation — the whole \(x \propto \sqrt{h}\) relationship depends on it.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – projectiles with air resistance</h3>
+    <p>Fluid resistance affects a projectile's <strong>time of flight, trajectory, velocity, acceleration, range</strong> and can bring it to a <strong>terminal speed</strong>. Drag opposes the velocity at every instant, so it no longer acts only vertically — it removes energy from both components, and the trajectory is no longer a symmetric parabola.</p>
+    <p><strong>Challenge:</strong> how does air resistance affect the range of a projectile compared with the no-drag case? <em>Answer: it reduces it. Drag continually removes kinetic energy, so \(v_{\text{H}}\) is no longer constant and the projectile's speed is smaller throughout the flight — it covers less horizontal distance before landing.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>\(\theta\) is measured from the vertical, or from the trajectory itself.</td><td>\(\theta\) is always the angle between the velocity and the <strong>horizontal</strong>.</td></tr>
+      <tr><td>The vertical and horizontal motions affect each other.</td><td>They are completely <strong>independent</strong> and must be analysed separately.</td></tr>
+      <tr><td>A ball projected horizontally takes longer to fall than one simply dropped from the same height.</td><td>Both reach the ground in <strong>exactly the same time</strong> — horizontal motion does not affect vertical fall.</td></tr>
+      <tr><td>The horizontal component of velocity changes during the flight.</td><td>It stays <strong>constant</strong> if air resistance is negligible; only the vertical component changes.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: treating the initial speed \(v\) itself as \(v_{\text{H}}\) or \(v_{\text{V}}\). Always resolve first: \(v_{\text{H}} = v\cos\theta\), \(v_{\text{V}} = v\sin\theta\).</div>
+</div>
+
+<div class="lc-kp">
+  <span>\(v_{\text{H}} = v\cos\theta\)</span>
+  <span>\(v_{\text{V}} = v\sin\theta\)</span>
+  <span>\(a_{\text{H}} = 0\)</span>
+  <span>\(a_{\text{V}} = -g\)</span>
+  <span>components independent</span>
+  <span>trajectory is parabolic</span>
+  <span>\(x \propto \sqrt{h}\)</span>
+  <span>\(\theta\) always from horizontal</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A stone is thrown horizontally from a cliff. Ignoring air resistance, what happens to its horizontal speed as it falls?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> It increases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> It decreases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> It stays constant</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> It becomes zero at the top of the fall</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Two identical balls are released at the same instant from the same height: one is dropped, the other is thrown horizontally. Ignoring air resistance, which lands first?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> The dropped ball</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> The thrown ball</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> Both land at the same time</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> It depends on the horizontal speed</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A projectile has velocity \(v\) at angle \(\theta\) above the horizontal. Which expression gives its vertical component?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> \(v\sin\theta\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> \(v\cos\theta\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> \(v\tan\theta\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> \(v/\sin\theta\)</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. On a graph of horizontal velocity \(v_{\text{H}}\) against time for a projectile with negligible air resistance, the graph is:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> A straight line increasing</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> A straight line decreasing</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> A horizontal line</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> A parabola</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The horizontal component of velocity is \(v_{\text{H}} = v\,\)<input class="lc-fitb-input" id="lf1" placeholder="?" style="width:70px">\(\theta\), and the vertical component is \(v_{\text{V}} = v\,\)<input class="lc-fitb-input" id="lf2" placeholder="?" style="width:70px">\(\theta\). If air resistance is negligible, the horizontal acceleration is <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:60px"> m/s², while the magnitude of the vertical acceleration is <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:60px"> m/s². The path followed by a projectile is called its <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px">, and its shape (ignoring air resistance) is <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> A ball is kicked horizontally from the top of a wall 8.0 m high with a speed of 9.5 m s⁻¹. Ignoring air resistance, calculate (a) the time taken to reach the ground and (b) the horizontal distance travelled. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(t=\sqrt{2h/g}=\sqrt{2(8.0)/9.8}=1.28\,\text{s}\).<br>✓ (b) \(x=v_{\text{H}}t=9.5\times1.28\)<br>✓ \(=12\,\text{m}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> Explain why the horizontal and vertical components of a projectile's velocity can be analysed independently of one another. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The only force acting (ignoring air resistance) is gravity, which acts vertically downward.<br>✓ A force in one direction cannot produce an acceleration in a perpendicular direction, so there is no horizontal acceleration.<br>✓ The horizontal velocity therefore stays constant while the vertical velocity changes at \(g\), completely independently.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> A javelin is thrown at 26 m s⁻¹ at 40° above the horizontal, released from a height of 1.8 m. Ignoring air resistance, determine the time of flight and the horizontal range. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(v_{\text{V}}=26\sin40^\circ=16.7\,\text{m s}^{-1}\), \(v_{\text{H}}=26\cos40^\circ=19.9\,\text{m s}^{-1}\).<br>✓ Taking down as the landing displacement, \(-1.8=16.7t-4.9t^2\), solving the quadratic gives \(t=3.52\,\text{s}\).<br>✓ \(x=v_{\text{H}}t=19.9\times3.52\)<br>✓ \(=70\,\text{m}\).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'No horizontal force acts (ignoring air resistance), so there is no horizontal acceleration and vH stays constant.' },
+    mcq2: { C: 'The vertical motion is identical in both cases — it depends only on g and the height, never on the horizontal velocity.' },
+    mcq3: { A: 'By definition, resolving v at angle θ above the horizontal gives vV = v sinθ and vH = v cosθ.' },
+    mcq4: { C: 'With no air resistance vH never changes, so the v_H–t graph is a horizontal line.' }
+  },
+  fitb: { lf1:'cos', lf2:'sin', lf3:'0', lf4:'9.8', lf5:'trajectory', lf6:'parabola' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="03-graphs-of-motion.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Graphs of Motion</div>
+          </div>
+        </a>
+        <a href="05-relative-motion.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Relative Motion</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
