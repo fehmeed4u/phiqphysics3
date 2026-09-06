@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spacetime Diagrams — A.5 Galilean and Special Relativity — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -86,6 +87,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -112,7 +116,7 @@
           </span>
           <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
           <span style="font-size:0.8rem;color:var(--text-muted)">
-            Concept 6 of 6
+            Concept 7 of 7
           </span>
         </div>
         <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Spacetime Diagrams</h1>
@@ -137,28 +141,32 @@
         ← Back to A.5 overview
       </a>
       <div class="sidebar-title">A.5 Concepts</div>
-      <a href="01-galilean-relativity.html" class="sidebar-link">
+      <a href="01-frames-of-reference.html" class="sidebar-link">
           <span class="sidebar-num">01</span>
+          <span>Frames of Reference</span>
+        </a>
+      <a href="02-galilean-relativity.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
           <span>Galilean Relativity</span>
         </a>
-      <a href="02-einstein-s-postulates.html" class="sidebar-link">
-          <span class="sidebar-num">02</span>
+      <a href="03-einstein-s-postulates.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
           <span>Einstein's Postulates</span>
         </a>
-      <a href="03-time-dilation.html" class="sidebar-link">
-          <span class="sidebar-num">03</span>
+      <a href="04-time-dilation.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
           <span>Time Dilation</span>
         </a>
-      <a href="04-length-contraction.html" class="sidebar-link">
-          <span class="sidebar-num">04</span>
+      <a href="05-length-contraction.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
           <span>Length Contraction</span>
         </a>
-      <a href="05-mass-energy-equivalence.html" class="sidebar-link">
-          <span class="sidebar-num">05</span>
+      <a href="06-mass-energy-equivalence.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
           <span>Mass-Energy Equivalence</span>
         </a>
-      <a href="06-spacetime-diagrams.html" class="sidebar-link active">
-          <span class="sidebar-num">06</span>
+      <a href="07-spacetime-diagrams.html" class="sidebar-link active">
+          <span class="sidebar-num">07</span>
           <span>Spacetime Diagrams</span>
         </a>
     </aside>
@@ -166,33 +174,351 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Spacetime Diagrams</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=A5" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>7</span> Lesson 7 of 7 · A.5 Galilean and Special Relativity</div>
+<div class="lc-title">Spacetime Diagrams</div>
+<div class="lc-sub">Space and time are not measured independently in relativity — they are joined into one four-dimensional space-time. A spacetime diagram turns the algebra of the Lorentz transformation into geometry you can read off with a ruler.</div>
+
+<div class="lc-card">
+  <h3>🚄 Hook – a diagram that replaces the equations</h3>
+  <p>In Newton's universe, space and time are separate: a metre stick and a stopwatch never interfere with each other. Relativity breaks that assumption. <strong>Things cannot move through space without also moving through time</strong>, since it takes time to move anywhere — and we cannot measure time without something moving through space to mark it. Minkowski's response, in 1908, was to stop treating (x, y, z) and t as different kinds of thing and plot them on the same diagram, with coordinates (x, y, z, t) called <strong>space-time</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-07-spacetime-diagrams-01.png" alt="A basic spacetime diagram: vertical ct axis, horizontal x axis, a single event marked as a point, and a straight world line through it" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — A spacetime diagram plots ct (speed of light × time) on the vertical axis against x on the horizontal axis, both in metres, on the same scale. A single point is one event.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think — then read on)</strong> — Hermann Minkowski was Einstein's former mathematics teacher. What was Einstein's first reaction to the space-time idea? <em>He initially rejected it — only later did he realise how powerful treating space and time as one four-dimensional structure would turn out to be.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 The space-time interval</h3>
+  <p>Different observers can measure different time intervals and different distances between the same two events. What every observer <strong>agrees on</strong> is the <strong>space-time interval, Δs</strong> — a single invariant quantity built out of both.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Space-time interval, motion along x only</span>
+    $$(\Delta s)^2 = (c\Delta t)^2 - \Delta x^2$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Full three-dimensional form</span>
+    $$(\Delta s)^2 = c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2$$
+  </div>
+  <p>Compare this with ordinary (classical) distance, which is also invariant but has no minus signs:</p>
+  <table class="lc-table">
+    <thead><tr><th>Classical physics</th><th>Relativistic physics</th></tr></thead>
+    <tbody>
+      <tr><td>\((\Delta s)^2 = \Delta x^2 + \Delta y^2 + \Delta z^2\)</td><td>\((\Delta s)^2 = c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2\)</td></tr>
+      <tr><td>Length is invariant</td><td>Space-time interval is invariant</td></tr>
+    </tbody>
+  </table>
+  <p>Because Δs is invariant, two observers S and S' moving relative to each other must satisfy:</p>
+  <div class="lc-formula">
+    $$c^2(\Delta t')^2 - (\Delta x')^2 = c^2(\Delta t)^2 - (\Delta x)^2$$
+  </div>
+  <div class="lc-info">📖 <strong>Types of interval</strong> — Δs² = 0 (light-like: events linked by a photon in vacuum); Δs² &gt; 0 (time-like: object travels slower than c between the events); Δs² &lt; 0 (space-like: the events are too far apart for light to travel between them).</div>
+</div>
+
+<div class="lc-card">
+  <h3>⏱️ Proper time and proper length</h3>
+  <p>Two special cases of Δs recur constantly:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Proper time Δt₀ — same location, Δx = 0</span>
+    $$\Delta s^2 = c^2\Delta t_0^2$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Proper length L₀ — same time, Δt = 0</span>
+    $$\Delta s^2 = -\Delta x^2$$
+  </div>
+  <p><strong>Proper time</strong> is the time between two events that happen at the same place — measured by a clock that is present at both events. <strong>Proper length</strong> is the length of an object measured in the frame where it is at rest. The minus sign in the second formula is just the definition of Δs² carrying through; it doesn't make L₀ imaginary.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📊 World lines and the 45° speed limit</h3>
+  <p>Joining an object's consecutive events produces its <strong>world line</strong> — its path through space-time. Since \(v = x/t\), the gradient of a world line is:</p>
+  <div class="lc-formula">
+    $$\frac{ct}{x} = \frac{c}{v}$$
+  </div>
+  <p>A <strong>steeper</strong> world line means a <strong>slower</strong> object; a shallower one means faster. A vertical line is a stationary object (infinite gradient). Reading the angle θ between a world line and the ct-axis instead:</p>
+  <div class="lc-formula">
+    $$\tan \theta = \frac{x}{ct} = \frac{v}{c} \qquad \theta = \tan^{-1}\left(\frac{v}{c}\right)$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-07-spacetime-diagrams-02.png" alt="Four world lines on the same axes: vertical for a stationary object, a steep line, a shallower line, and a 45 degree line for light" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Gradient tells you speed at a glance. All observers agree on the 45° world line: it is light, and no world line can ever be shallower — that would mean v &gt; c.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔀 Drawing a second reference frame on the same diagram</h3>
+  <p>A second inertial frame S′, moving at speed v relative to S, can be added to the same diagram: the <strong>ct′-axis</strong> is drawn along the world line of an object at rest in S′, and the <strong>x′-axis</strong> is placed symmetrically about the 45° light line. Both S′ axes are <strong>tilted</strong>, and no longer perpendicular to each other. Coordinates in S′ are read off using lines parallel to the tilted axes, exactly as coordinates in S use lines parallel to the upright axes — and the diagram makes it visually obvious that \(x \neq x'\) and \(t \neq t'\) for a moving frame.</p>
+  <p>The tilt angle of x′ follows from the Lorentz transformation. Setting \(t' = 0\) in \(t' = \gamma\left(t - \dfrac{vx}{c^2}\right)\) gives \(t = vx/c^2\), so \(ct = (v/c)x\) — a straight line of gradient \(v/c\), giving \(\tan\theta = c\Delta t/\Delta x = v/c\), the same angle formula as for a world line.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-07-spacetime-diagrams-03.png" alt="Spacetime diagram with upright S axes in black and tilted S-prime axes in blue, symmetric about the 45 degree light line" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — S′'s axes tilt symmetrically about the light line by the same angle θ = tan⁻¹(v/c) — the ct′-axis tilts toward it, the x′-axis tilts up to meet it.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🕰️ Simultaneity is frame-dependent</h3>
+  <p>In the classic train thought experiment, an observer S on a moving train fires light pulses simultaneously from the centre of a carriage. For S: the pulses reach both ends together, and return to the centre together. For an observer S′ on the platform, watching the same train go by: the pulse fired against the train's motion arrives first, and the one fired with the motion arrives later — even though both observers agree the pulses left together and returned together.</p>
+  <p>This is the general rule read straight off the diagram: <strong>all inertial observers agree that two events are simultaneous if they happen at the same location.</strong> They may disagree on the order of two events at <strong>different</strong> locations — because "same time" for one frame is a horizontal line on that frame's axes, and that line is tilted (and so no longer horizontal) for any other frame.</p>
+</div>
+
+<div class="lc-card">
+  <h3>➰ Invariant hyperbolas</h3>
+  <p>Lines of constant Δs² on a spacetime diagram are <strong>hyperbolas</strong>, not circles — a direct consequence of the minus sign in \(\Delta s^2 = c^2\Delta t^2 - \Delta x^2\). Every observer agrees on the value of Δs² for any point on one of these curves, even though they disagree on that point's individual x and ct coordinates.</p>
+  <p>A curve of Δs² = −1 crosses every observer's x-axis at their own proper length of 1 unit — proper length is invariant. A curve of Δs² = +1 crosses every observer's ct-axis at their own proper time of 1 unit. The crucial visual payoff: <strong>the scales on the axes of different frames are not equal</strong> — they expand as relative velocity increases, which is exactly what lets every observer measure "1 unit" on a curve that looks stretched to everyone else.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/a5-07-spacetime-diagrams-04.png" alt="Spacetime diagram with several events A to G plotted and joined by world lines for a coordinate-reading exercise" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — Reading exercise: coordinates for each event are read off by drawing lines parallel to the relevant pair of axes.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/a5-07-spacetime-diagrams-05.png" alt="Two invariant hyperbolas drawn on the same S and S-prime axes, one for delta s squared equals plus one and one for minus one" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — The Δs² = +1 hyperbola (time-like) marks off equal proper time for every frame; Δs² = −1 (space-like) marks off equal proper length.</div></div>
+  </div>
+  <div class="lc-info">🔬 <strong>Nature of science</strong> — the Lorentz transformations are highly algebraic. Spacetime diagrams give the same physics a geometric form: why event order can differ between observers, and why nothing can exceed c, become things you can see rather than derive.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Reading world lines off the diagram</h3>
+  <table class="lc-table">
+    <thead><tr><th>World line</th><th>Gradient ct/x</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td>Vertical</td><td>∞</td><td>Stationary object</td></tr>
+      <tr><td>Steep, tilted</td><td>&gt; 1</td><td>Slow-moving object</td></tr>
+      <tr><td>Shallower, tilted</td><td>&gt; 1, closer to 1</td><td>Faster-moving object</td></tr>
+      <tr><td>45° line</td><td>1</td><td>Light, v = c — the same for every observer</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – a light-like interval</h3>
+  <p>A laser pulse triggers two explosion events in an evacuated tube. The events are 99 m apart, and light takes 3.3 × 10⁻⁷ s to travel between them. Find the space-time interval.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the events are linked by a photon in vacuum, so use \((\Delta s)^2 = (c\Delta t)^2 - \Delta x^2\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\Delta x = 99\) m, \(\Delta t = 3.3\times10^{-7}\) s, \(c = 3.00\times10^{8}\ \text{m s}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\((\Delta s)^2 = [(3.00\times10^{8})^2 \times (3.3\times10^{-7})^2] - 99^2\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \((\Delta s)^2 = 0.0\ \text{m}^2\). The space-time interval for any pair of events linked by a photon in vacuum is always zero — a light-like interval.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – proper time from a positive interval</h3>
+  <p>An electron is fired at \(5.93\times10^{7}\ \text{m s}^{-1}\) across a 5.00 m gap. Find the space-time interval in the lab frame S, then the proper time Δt′ in the electron's own frame S′.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> in S, \(\Delta t = \Delta x / v\); then use \((\Delta s)^2 = (c\Delta t)^2 - \Delta x^2\). In S′ the electron is at rest, so \(\Delta x' = 0\) and \((\Delta t')^2 = (\Delta s)^2/c^2\) gives the proper time.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\Delta x = 5.00\) m, \(v = 5.93\times10^{7}\ \text{m s}^{-1}\).<br>\(\Delta t = \dfrac{5.00}{5.93\times10^{7}} = 8.43\times10^{-8}\ \text{s}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\((\Delta s)^2 = (3.00\times10^{8})^2(8.43\times10^{-8})^2 - 5.00^2\)<br>\(= 6.14\times10^{2}\ \text{m}^2\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\Delta t' = \sqrt{6.14\times10^{2}/(3.00\times10^{8})^2}\)<br>\(= 8.26\times10^{-8}\ \text{s}\) — the proper time, shorter than the 8.43 × 10⁻⁸ s measured in the lab frame.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a5-07-spacetime-diagrams-06.png" alt="Geometry for the electron worked example: a positive-Delta-s-squared world line across a 5.00 metre gap on x and ct axes" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — A positive Δs² (time-like) world line. Its own frame's ct′-axis reads the proper time directly, shorter than the lab-frame Δt.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌌 Real-world: the muon that shouldn't reach the ground</h3>
+    <p>A muon forms high in the atmosphere (Event 0) and reaches Earth's surface (Event 1). In the Earth frame S, the muon covers a large distance, and Earth-based observers measure a dilated time Δt between the two events. In the muon's own frame S′, both events happen at \(x' = 0\) — the muon never moves in its own frame — so S′ measures the proper time Δt′. On the diagram, following the invariant hyperbola through Event 1 back to the ct-axis reads off the scaled value of \(c\Delta t'\), giving:</p>
+    <div class="lc-formula">$$c\Delta t = \gamma\, c\Delta t'$$</div>
+    <div class="lc-success">✓ Examiner tip: state explicitly which frame measures the <em>proper</em> time (same location for both events) before applying \(\Delta t = \gamma\Delta t_0\) — examiners award marks for identifying the proper-time frame, not just quoting the formula.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – length contraction and its symmetry</h3>
+    <p>Using the same muon picture for length: in Earth's frame S, the atmosphere and the surface are both stationary, so their world lines are vertical, and the horizontal gap between them on the x-axis is the <strong>proper length L₀</strong>. In the muon's frame S′, the two ends of that gap are read at the <em>same</em> t′ (using the x′-axis), giving a shorter, <strong>contracted length L′</strong>:</p>
+    <div class="lc-formula">$$L' = \frac{L_0}{\gamma}$$</div>
+    <p>Because Einstein's first postulate makes every inertial frame equally valid, the reverse also holds: an object at rest in S′ looks contracted to an observer in S. Length contraction is <strong>mutual</strong> — each frame sees the other's rulers as the short ones.</p>
+    <p><strong>Challenge:</strong> the angle between the x and x′ axes is 42°, and \(L_0 = 1.0\) m. Find L′. <em>\(v = c\tan42° = 0.900c\); \(\gamma = 1/\sqrt{1-0.900^2} = 2.30\); \(L' = 1.0/2.30 = 0.44\ \text{m}\).</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>The scales on the axes are the same for every frame</td><td>Scales <em>expand</em> with increasing relative velocity — read them off the invariant hyperbolas, never assume they match S</td></tr>
+      <tr><td>A 45° world line represents an impossible object</td><td>It represents light. It is the one world line every observer agrees on, and no real object's world line can ever be shallower</td></tr>
+      <tr><td>All observers agree on the order of every pair of events</td><td>They only agree on order for events at the <em>same location</em>. Events at different places can swap order between frames</td></tr>
+      <tr><td>Time dilation and length contraction are separate effects</td><td>They are two views of the same space-time geometry — the same γ and the same tilted axes produce both</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: reading x′ or ct′ coordinates using lines parallel to the black (S) axes instead of the tilted blue (S′) axes — always match the axis colour/frame to the line you draw.</div>
+</div>
+
+<div class="lc-kp">
+  <span>Δs² = (cΔt)² − Δx²</span>
+  <span>Δs² = 0: light-like</span>
+  <span>Δs² &gt; 0: time-like</span>
+  <span>Δs² &lt; 0: space-like</span>
+  <span>tanθ = v/c</span>
+  <span>45° line = light, v = c</span>
+  <span>cΔt = γcΔt′</span>
+  <span>L′ = L₀/γ</span>
+  <span>same location → agreed simultaneity</span>
+  <span>constant Δs² → hyperbola</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A world line drawn at exactly 45° to the ct-axis represents</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> a stationary object</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> an object travelling faster than light</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> light travelling at speed c</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> an object accelerating</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Two events have a space-time interval with Δs² &lt; 0. This interval is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> light-like</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> time-like</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> space-like</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> undefined</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. The time between two events that occur at the same location is called</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> dilated time</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> proper time</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> contracted time</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> improper time</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. All inertial observers agree that two events are simultaneous only if the events</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> lie on the x-axis</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> are linked by a light ray</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> occur at the same location</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> have equal ct values in every frame</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. On a spacetime diagram, lines of constant Δs² form</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> straight lines</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> hyperbolas</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> circles</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> parabolas</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The four-dimensional union of space and time is called <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:130px">. The invariant quantity combining spatial and temporal separation between two events is the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:170px">. The path of an object through space-time is its <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px">. The time between two events at the same location is the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:120px"> time. The length of an object measured at rest relative to the observer is the <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:120px"> length. A curve of constant Δs² on a spacetime diagram is called an <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:150px"> hyperbola.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> Describe, with reference to a spacetime diagram, how two events can be simultaneous for one observer but not for a second observer moving relative to the first. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ "Same time" for one observer means a horizontal line on that observer's own (upright) axes.<br>✓ For a second, relatively moving observer, the line of constant t′ is the tilted x′-axis (or a line parallel to it) — no longer horizontal on the same diagram.<br>✓ Two events lying on the first observer's horizontal line will not generally lie on the second observer's tilted line, so they are simultaneous for the first observer only.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> Using a spacetime diagram with S and S′ axes, discuss why length contraction is symmetric: an observer at rest in S′ measures an object at rest in S as contracted, just as S measures S′'s object as contracted. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Einstein's first postulate states the laws of physics are the same in every inertial frame, so neither S nor S′ can be a privileged "true rest" frame.<br>✓ The proper length of an object is always measured in its own rest frame; any other frame measures it via a shorter, contracted length \(L' = L_0/\gamma\).<br>✓ Since the roles of S and S′ can be swapped with no change to the physics, each frame must measure the other's ruler as contracted — the geometry is symmetric about the light line.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> Calculate the space-time interval for a rocket travelling at 0.8c across a distance of 100 light-years. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ In the lab frame, \(\Delta t = \Delta x/v = 100/0.8 = 125\) years, so \(c\Delta t = 125\) ly.<br>✓ \((\Delta s)^2 = (c\Delta t)^2 - \Delta x^2 = 125^2 - 100^2 = 5625\ \text{ly}^2\)<br>✓ \(\Delta s = 75\) ly. This is positive, so the interval is time-like — the rocket's own proper time for the journey is 75 years.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Identify</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> On a spacetime diagram, identify what type of interval (time-like, space-like, or light-like) separates two events when (a) a signal travelling at c could just reach from one to the other, (b) an observer could be present at both events while moving slower than c, (c) no signal of any kind could travel from one event to the other. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Light-like (Δs² = 0) — the events lie on a 45° world line.<br>✓ (b) Time-like (Δs² &gt; 0) — a sub-light-speed observer's world line can join them.<br>✓ (c) Space-like (Δs² &lt; 0) — the events are too far apart in space for any signal, even light, to connect them.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> Explain, using a spacetime diagram, why the 45° light line is invariant across every inertial reference frame. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Einstein's second postulate fixes the speed of light at c in every inertial frame, with no exceptions.<br>✓ The x′-axis and ct′-axis of any frame S′ are constructed symmetrically about the 45° line specifically so that this line stays at 45° for every possible S′, however it tilts.<br>✓ Any world line shallower than 45° would correspond to v &gt; c, which the geometry (and the postulate) forbids — so 45° is not just typical of light, it is the one gradient every frame must agree on.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> A world line is inclined at 30° to the ct-axis. Event 0 is at the origin, and Event 1 occurs when the object has travelled 10 light-years (measured in frame S). (a) Calculate the speed of the object. (b) Calculate γ for this speed. (c) Find cΔt in frame S between Event 0 and Event 1. (d) Use time dilation to calculate cΔt′, the value read on the ct-axis after following the invariant hyperbola back from Event 1. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(v = c\tan30° = 0.577c\).<br>✓ (b) \(\gamma = 1/\sqrt{1-0.577^2} = 1.23\).<br>✓ (c) \(c\Delta t = \Delta x/\tan30° = 10/0.577 = 17.3\) ly.<br>✓ (d) The object's own frame measures the proper time (Δx′ = 0), so \(c\Delta t' = c\Delta t/\gamma = 17.3/1.23 = 14.1\) ly. The scale on S′'s tilted ct′-axis is stretched relative to S's, so a mark at 14 ly sits at a different physical distance along each axis on the page.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q7.</strong> The angle between the x and x′ axes on a spacetime diagram is 42°, and the proper length is \(L_0 = 1.0\) m. Calculate (a) the relative speed v, (b) γ, (c) the contracted length L′, and (d) the ratio \(L_0/L'\), and confirm it equals γ. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(v = c\tan42° = 0.900c\).<br>✓ (b) \(\gamma = 1/\sqrt{1-0.900^2} = 2.30\).<br>✓ (c) \(L' = L_0/\gamma = 1.0/2.30 = 0.44\) m.<br>✓ (d) \(L_0/L' = 1.0/0.44 = 2.3 = \gamma\), as expected.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q8.</strong> Explain the method used to read the coordinates of an event plotted in frame S′ from a spacetime diagram that shows both S and S′ axes. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Draw a line from the event parallel to the tilted x′-axis until it meets the ct′-axis — that intercept gives ct′.<br>✓ Draw a second line from the event parallel to the tilted ct′-axis until it meets the x′-axis — that intercept gives x′. (Coordinates in S use the same method with the upright black axes instead.)</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'A 45° line is the one gradient every observer agrees on: it represents light travelling at c.' },
+    mcq2: { C: 'Δs² < 0 is space-like — the events are too far apart in space for any signal to connect them.' },
+    mcq3: { B: 'Time between two events at the same location, measured by a clock present at both, is the proper time.' },
+    mcq4: { C: 'Observers only universally agree on simultaneity for events at the same location; "same time" lines tilt differently between frames otherwise.' },
+    mcq5: { B: 'Constant Δs² traces a hyperbola because of the minus sign in Δs² = c²Δt² − Δx² — a direct consequence of the Lorentz geometry.' }
+  },
+  fitb: { lf1:'space-time', lf2:'space-time interval', lf3:'world line', lf4:'proper', lf5:'proper', lf6:'invariant' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
       <div class="lesson-nav">
-        <a href="05-mass-energy-equivalence.html" class="lesson-nav-btn">
+        <a href="06-mass-energy-equivalence.html" class="lesson-nav-btn">
           <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
           <div>
             <div class="nav-btn-dir">Previous</div>
