@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solar Radiation and Albedo — B.2 Greenhouse Effect — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -86,6 +87,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -158,28 +162,286 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Solar Radiation and Albedo</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B2" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+        <div class="lc-wrap">
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 4 · B.2 Greenhouse Effect</div>
+<div class="lc-title">Solar Radiation and Albedo</div>
+<div class="lc-sub">Every planet's temperature comes down to a balance of two numbers: how much sunlight it intercepts, and how much of that it actually keeps. This lesson covers the first number — the solar constant — and the fraction a surface bounces straight back, its albedo.</div>
+
+<div class="lc-card">
+  <h3>🪐 Hook – the Goldilocks planet</h3>
+  <p>Venus has a surface temperature of 475°C. Mars averages -65°C. Earth's average is a comfortable 15°C. <strong>What makes Earth so special?</strong> Think about distance from the Sun, atmosphere, and surface composition before reading on.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-01-solar-radiation-and-albedo-01.png" alt="Sun with Venus, Earth and Mars at increasing distances, each labelled with its surface temperature" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Venus, Earth and Mars at increasing distance from the Sun. Temperature falls with distance, but distance alone does not explain the numbers.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — why isn't Mars simply "colder Earth" and Venus simply "hotter Earth"? <em>Distance from the Sun sets a baseline, but each planet's atmosphere changes how much of the incoming energy is kept. Earth sits in the "Goldilocks zone" — the right distance — and has an atmosphere that traps enough heat without running away, unlike Venus's.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🌞 The solar constant</h3>
+  <p>The Sun radiates energy in all directions. Its total power output is the <strong>luminosity</strong>, \(L_{\odot}\). By the time that energy has spread out to Earth's orbit, only a tiny fraction crosses each square metre — this is the <strong>solar constant</strong>, \(S\): the intensity of solar radiation just above Earth's atmosphere.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Solar constant, from luminosity spread over a sphere of radius d</span>
+    $$S = \frac{L_{\odot}}{4\pi d^2}$$
+  </div>
+  <p>\(L_{\odot} = 3.83\times10^{26}\) W and \(S = 1.36\times10^{3}\) W m⁻² at Earth's orbital radius, \(d = 1.50\times10^{11}\) m. The Sun's total luminosity spreads evenly over an imaginary sphere of radius \(d\); Earth's cross-section, \(\pi r^2\), only intercepts a tiny slice of that sphere's surface, \(4\pi d^2\).</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-01-solar-radiation-and-albedo-02.png" alt="Sun radiating uniformly in all directions with Earth at distance d on a dashed circle of radius d" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — The Sun's luminosity spreads over a sphere of radius d. Earth intercepts only the fraction of that sphere covered by its own cross-sectional area.</div>
+  </div>
+  <div class="lc-info">📖 <strong>Not actually constant</strong> — S varies by about 0.1% over an 11-year solar cycle. This is <em>not believed</em> to have a significant effect on Earth's climate.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🪞 Albedo — the reflective power</h3>
+  <p><strong>Albedo</strong> is the measure of the average energy reflected or scattered off a surface:</p>
+  <div class="lc-formula">
+    $$\text{albedo} = \frac{\text{total scattered power}}{\text{total incident power}}$$
+  </div>
+  <p>Albedo runs from 0 (a perfect black body — absorbs everything) to 1 (a perfect reflector — scatters everything). It is a pure ratio, so it has no units.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-01-solar-radiation-and-albedo-03.png" alt="Split comparison of bright snow reflecting most incoming sunlight against dark ocean water absorbing most incoming sunlight" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Snow (albedo ≈ 0.8) reflects most incoming radiation; ocean water (albedo ≈ 0.1) absorbs most of it.</div>
+  </div>
+  <table class="lc-table">
+    <thead><tr><th>Material</th><th>Albedo</th></tr></thead>
+    <tbody>
+      <tr><td>Ocean water</td><td>0.1</td></tr>
+      <tr><td>Forest</td><td>0.1</td></tr>
+      <tr><td>Road surface</td><td>0.1</td></tr>
+      <tr><td>Soil</td><td>0.2</td></tr>
+      <tr><td>Grass</td><td>0.3</td></tr>
+      <tr><td>Desert sand</td><td>0.4</td></tr>
+      <tr><td>Clouds (very variable)</td><td>0.5</td></tr>
+      <tr><td>Ocean ice</td><td>0.6</td></tr>
+      <tr><td>Snow</td><td>0.8</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-info">🌍 Earth's <strong>average albedo</strong> is <strong>0.315</strong> — about 31.5% of incident solar radiation is reflected back to space, and 68.5% is absorbed.</div>
+</div>
+
+<div class="lc-card">
+  <h3>☁️ What changes a surface's albedo</h3>
+  <p>Albedo is not a fixed property of a place — it shifts with conditions:</p>
+  <div class="lc-kp">
+    <span>Latitude — more ice/snow near the poles</span>
+    <span>Season — higher in winter (snow cover)</span>
+    <span>Time of day — rises as the angle to the perpendicular increases</span>
+    <span>Cloud cover — highly variable with type and thickness</span>
+    <span>Surface type — snow ≈ 0.8, ocean ≈ 0.1</span>
+  </div>
+  <p>The time-of-day effect matters most for calculations: radiation striking a surface at a steeper angle (further from perpendicular) reflects more readily, so albedo increases as the day goes on.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs worth recognising</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Solar constant vs orbital distance</td><td>Distance, d · Solar constant, S</td><td>Falls steeply then levels off — an inverse-square curve</td><td>\(S \propto 1/d^2\); closer planets (Venus) sit higher up the curve than farther ones (Mars)</td></tr>
+      <tr><td>Absorbed intensity vs angle of incidence</td><td>Angle, θ (0°–90°) · Absorbed intensity, I</td><td>Maximum at θ = 0°, falling smoothly to zero at θ = 90°</td><td>\(I = I_0\cos\theta\); explains why midday (small θ) absorbs more than late afternoon (large θ)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b2-01-solar-radiation-and-albedo-04.png" alt="Graph of solar constant against orbital distance showing an inverse-square curve with Venus and Earth marked"><div class="lc-cap">Fig 4 — S falls off as the inverse square of orbital distance. Venus, closer in, sits on the steep upper part of the curve.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b2-01-solar-radiation-and-albedo-05.png" alt="Graph of absorbed intensity against angle of incidence, a cosine curve falling from maximum at 0 degrees to zero at 90 degrees"><div class="lc-cap">Fig 5 — Absorbed intensity falls off as cos θ. This is why the Sun feels weaker as it approaches the horizon.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – deriving the solar constant</h3>
+  <p>The Sun has surface temperature \(T = 5780\) K and radius \(R = 6.96\times10^{8}\) m. Earth orbits at \(d = 1.50\times10^{11}\) m. Take \(\sigma = 5.67\times10^{-8}\) W m⁻²K⁻⁴. Find the Sun's luminosity and the solar constant at Earth's orbit.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the Sun radiates as a black body, so its luminosity comes from Stefan-Boltzmann, \(L_{\odot} = \sigma A T^4\). Spreading that luminosity over a sphere of radius \(d\) gives the solar constant, \(S = L_{\odot}/(4\pi d^2)\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(T = 5780\) K, \(R = 6.96\times10^{8}\) m, surface area \(A = 4\pi R^2 = 6.05\times10^{18}\ \text{m}^2\), \(\sigma = 5.67\times10^{-8}\ \text{W m}^{-2}\text{K}^{-4}\), \(d = 1.50\times10^{11}\) m.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(L_{\odot} = \sigma A T^4\)<br>\(= (5.67\times10^{-8})(6.05\times10^{18})(5780)^4\)<br>then \(S = L_{\odot}/(4\pi d^2)\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(L_{\odot} = 3.83\times10^{26}\ \text{W}\).<br>\(S = (3.83\times10^{26})/(4\pi(1.50\times10^{11})^2)\)<br>\(= 1.35\times10^{3}\ \text{W m}^{-2}\), consistent with the accepted value of \(1.36\times10^{3}\) W m⁻².</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-01-solar-radiation-and-albedo-06.png" alt="Sun and Earth with radius, temperature and orbital distance values labelled for the worked derivation" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — The two-step route: Stefan-Boltzmann gives the Sun's total output, then the inverse-square spread gives the intensity at Earth's distance.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – a lake at midday (B2.1)</h3>
+  <p>Radiation of intensity 610 W m⁻² was incident perpendicularly on the surface of a lake at midday. <strong>(a)</strong> If the water had an albedo of 0.18, calculate how much energy was absorbed every second by each square metre. <strong>(b)</strong> Describe how your answer would change much later in the day.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> absorbed intensity = incident intensity × (1 − albedo).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> incident intensity = 610 W m⁻², albedo = 0.18.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(610 \times (1.0 - 0.18)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer (a):</strong> 500 W m⁻² absorbed (110 W reflected).<br><strong>(b)</strong> Later in the day, radiation strikes at a greater angle to the perpendicular. Albedo increases (more reflection), and the incident intensity itself decreases because the radiation passes through a greater length of atmosphere. The absorbed energy decreases for both reasons.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-01-solar-radiation-and-albedo-07.png" alt="Lake surface with two incoming radiation arrows, one near-vertical at midday and one shallow at late afternoon, each with a reflected and an absorbed component" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — Midday radiation strikes close to perpendicular (low albedo, high absorption); late-afternoon radiation strikes at a shallow angle (higher albedo, lower absorption).</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🔆 Real-world: sizing a solar panel</h3>
+    <p>Photovoltaic panels are designed to keep albedo as low as possible: an anti-reflective coating and a dark surface minimise reflection, so more incident radiation is absorbed and converted. Mounting the panel <strong>perpendicular</strong> to the incoming radiation does two things at once — it maximises the intensity landing on each square metre, and it minimises the albedo (reflection is lowest at perpendicular incidence).</p>
+    <div class="lc-success">✓ Examiner tip: "absorbed power = incident power × (1 − albedo)" is the one line that answers most albedo questions on solar panels, walls or lakes. State it explicitly before substituting numbers.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – solar constants across the solar system</h3>
+    <p>The same equation, \(S = L_{\odot}/(4\pi d^2)\), applies at any orbital radius. Venus, at \(d = 1.08\times10^{11}\) m, has \(S = 2.60\times10^{3}\) W m⁻² — nearly double Earth's — which is one reason (before its runaway greenhouse effect is even considered) that Venus runs so hot.</p>
+    <p><strong>Challenge:</strong> Mercury orbits at \(d = 5.79\times10^{10}\) m. By what factor does its solar constant exceed Earth's? <em>Answer: \(S \propto 1/d^2\), so the factor is \((1.50\times10^{11}/5.79\times10^{10})^2 \approx 6.7\times\) Earth's solar constant.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"Solar constant" means it never changes</td><td>It varies by about 0.1% over the 11-year solar cycle — small enough to have no significant effect on climate</td></tr>
+      <tr><td>The solar constant is the Sun's total power output</td><td>That is luminosity, \(L_{\odot}\). The solar constant, \(S\), is the intensity at one specific distance (Earth's orbit)</td></tr>
+      <tr><td>A bright, light-coloured surface has low albedo</td><td>The opposite: bright surfaces like snow reflect most incident light, giving them <em>high</em> albedo (≈0.8)</td></tr>
+      <tr><td>Higher albedo means a surface absorbs more energy</td><td>Higher albedo means more radiation is reflected, so <em>less</em> is absorbed — absorbed = incident × (1 − albedo)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: using the full sphere \(4\pi d^2\) instead of the Earth's cross-sectional area \(\pi r^2\) when working out how much power a planet intercepts, or forgetting the \((1-\text{albedo})\) factor altogether.</div>
+</div>
+
+<div class="lc-kp">
+  <span>L☉ = σAT⁴</span>
+  <span>S = L☉/(4πd²)</span>
+  <span>S ∝ 1/d²</span>
+  <span>albedo = P_scattered/P_incident</span>
+  <span>0 ≤ albedo ≤ 1</span>
+  <span>Earth's average albedo ≈ 0.315</span>
+  <span>absorbed = incident × (1 − albedo)</span>
+  <span>greater angle of incidence → higher albedo</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. The solar constant, S, is best described as</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> the Sun's total power output</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> the fraction of sunlight Earth reflects</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> the intensity of solar radiation just above Earth's atmosphere</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> the intensity of radiation at the Sun's surface</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Venus orbits closer to the Sun than Earth. Compared with Earth's solar constant, Venus's is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> smaller, since Venus is smaller than Earth</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> larger, since S ∝ 1/d² and Venus's d is smaller</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> the same, since both orbit the same Sun</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> larger, since Venus has a higher albedo</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A surface with an albedo of 0 is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> a perfect reflector</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> a perfect black body — absorbs everything</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> transparent to radiation</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> impossible — albedo cannot be zero</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Using Table B2.1, which surface reflects the largest fraction of incident radiation?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','D')"><span class="lc-opt-l">A</span> Ocean water</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','D')"><span class="lc-opt-l">B</span> Desert sand</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','D')"><span class="lc-opt-l">C</span> Ocean ice</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','D')"><span class="lc-opt-l">D</span> Snow</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. As the Sun gets lower in the sky in the late afternoon, the albedo of a lake surface</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','A')"><span class="lc-opt-l">A</span> increases, because radiation strikes at a greater angle to the perpendicular</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','A')"><span class="lc-opt-l">B</span> decreases, because less radiation is arriving overall</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','A')"><span class="lc-opt-l">C</span> stays the same — albedo depends only on material</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','A')"><span class="lc-opt-l">D</span> becomes exactly 1</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The Sun's total power output is its <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px">. Spreading this over a sphere of radius d gives the solar constant, which follows an <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:140px">-square law with distance. <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> is the ratio of scattered power to incident power, and runs from 0 to <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:70px">. Earth's average albedo is approximately <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:80px">. The energy a surface absorbs equals the incident intensity multiplied by (1 − <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px">). As the angle of incidence increases, albedo <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:110px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Determine / Describe / State</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> Photovoltaic solar panels of dimensions 1.86 m × 2.12 m have 580 W of thermal radiation incident perpendicularly on them. <strong>(a)</strong> Calculate the intensity of the radiation. <strong>(b)</strong> If the surface of the panels has an albedo of 0.21, determine the total rate at which the panels absorb thermal radiation. <strong>(c)</strong> Describe how the albedo of the panels is minimised. <strong>(d)</strong> State two reasons why it is best if the panels are perpendicular to the incident radiation. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Area = 1.86 × 2.12 = 3.94 m²; \(I = 580/3.94 = 147\) W m⁻².<br>✓ (b) Absorbed power = incident power × (1 − albedo) = 580 × (1 − 0.21) = 458 W.<br>✓ (c) Panels are treated with an anti-reflective coating and have a dark surface to minimise reflection.<br>✓ (d) Perpendicular incidence maximises the intensity landing on each square metre.<br>✓ It also minimises the albedo, since reflection is lowest at perpendicular incidence.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Compare</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> Venus orbits the Sun at a distance of \(1.08\times10^{11}\) m. Using \(L_{\odot} = 3.83\times10^{26}\) W, calculate Venus's solar constant and compare it with Earth's. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(S = L_{\odot}/(4\pi d^2) = (3.83\times10^{26})/(4\pi(1.08\times10^{11})^2)\).<br>✓ \(S = 2.60\times10^{3}\ \text{W m}^{-2}\).<br>✓ This is nearly double Earth's solar constant (\(1.36\times10^{3}\) W m⁻²), consistent with Venus's much higher surface temperature.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Discuss</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> Mars orbits the Sun at a distance of \(2.28\times10^{11}\) m. Show that its solar constant is approximately 590 W m⁻², and discuss what this suggests about Mars's average temperature relative to Earth's. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(S = L_{\odot}/(4\pi d^2) = (3.83\times10^{26})/(4\pi(2.28\times10^{11})^2) \approx 590\ \text{W m}^{-2}\).<br>✓ This is much less than Earth's 1.36×10³ W m⁻², so Mars intercepts far less energy per square metre.<br>✓ A lower solar constant alone points to a colder average temperature, consistent with Mars's actual average of about −65°C.<br>✓ The full picture also needs Mars's albedo and its (much thinner) atmosphere — covered in the next lesson's energy balance model.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> Table B2.1 gives ocean water an albedo of 0.1 and ocean ice an albedo of 0.6, even though both are made of the same substance. Explain this difference. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Albedo depends on how a surface interacts with light, not just its chemical composition.<br>✓ Liquid water is dark and largely transmits or absorbs incoming radiation rather than reflecting it, giving a low albedo.<br>✓ Ice is a bright, crystalline solid surface that scatters incoming light efficiently in many directions, giving a much higher albedo.</div>
+</div>
+
+<div class="lc-score-row"><div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div></div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'The solar constant is the intensity at Earth\'s orbital distance. The Sun\'s total output is its luminosity, L☉.' },
+    mcq2: { B: 'S = L☉/(4πd²), so a smaller d gives a larger S. Venus is closer, so its solar constant is larger.' },
+    mcq3: { B: 'Albedo = scattered/incident power. Zero means nothing is scattered — a perfect black body absorbs everything.' },
+    mcq4: { D: 'Snow has the highest albedo in the table (0.8), reflecting the largest fraction of incident radiation.' },
+    mcq5: { A: 'Later in the day the Sun is lower, so radiation strikes at a greater angle to the perpendicular and more of it is reflected — albedo increases.' }
+  },
+  fitb: { lf1:'luminosity', lf2:'inverse', lf3:'albedo', lf4:'1', lf5:'0.315', lf6:'albedo', lf7:'increases' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
