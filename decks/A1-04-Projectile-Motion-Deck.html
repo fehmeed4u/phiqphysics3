@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A.1 Lesson 4: Projectile Motion, Teaching Deck</title>
+<link rel="stylesheet" href="park-deck.css">
+<style>deck-stage:not(:defined){visibility:hidden}.eq .MathJax{font-size:1.15em !important}</style>
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<section data-label="Title">
+<div class="hd" data-omelette-chrome><img class="logo hero" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content" data-omelette-chrome style="align-items:center;justify-content:center;text-align:center;gap:40px">
+<div class="eyebrow">A.1 Kinematics · SL / HL · Lesson 4 of 5</div>
+<h2 style="font-size:100px">Projectile Motion</h2>
+<p style="font-size:36px;max-width:1250px;color:var(--slate)">A projectile moves under gravity alone once launched. Resolve its velocity into horizontal and vertical components and every projectile problem becomes two easy ones.</p>
+<div class="pills"><span>\(v_H=v\cos\theta\)</span><span>\(v_V=v\sin\theta\)</span><span>\(a_H=0,\ a_V=-g\)</span></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>01</span></div>
+</section>
+
+<section class="navy center" data-label="Starter">
+<img class="logo abs" src="../park-logo.png" alt="PaRK International School">
+<div class="content" data-omelette-chrome style="align-items:center;justify-content:center;gap:24px">
+<div class="eyebrow">Retrieval starter · 5 questions · 8 minutes</div>
+<h2 style="font-size:90px">Starter</h2>
+<p style="max-width:1250px;font-size:34px">Five questions from last lesson: reading gradients and areas off motion graphs. Everything today assumes you can read a velocity-time graph fluently. Answer on your fingers on a count of three.</p>
+</div>
+</section>
+
+<section data-label="Starter Q1">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Starter · question 1 of 5</div><h2>Displacement-time graph</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">A displacement-time graph is a horizontal straight line. What does this tell you about the object?</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> It is moving at a constant velocity</div>
+<div class="opt"><span class="l">B</span> It is moving with constant acceleration</div>
+<div class="opt right"><span class="l">C</span> It is at rest, with zero velocity</div>
+<div class="opt"><span class="l">D</span> It is moving horizontally at a steady speed</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: C</h3><p>The displacement is not changing, so the velocity is zero. The object is at rest. A horizontal line never means horizontal motion.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Constant velocity gives a sloped straight line, not a flat one</td></tr>
+<tr><td>B</td><td>Constant acceleration gives a curve, not a straight line</td></tr>
+<tr><td>D</td><td>The axes are displacement and time; the graph says nothing about direction of travel</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>03</span></div>
+</section>
+
+<section data-label="Starter Q2">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Starter · question 2 of 5</div><h2>Reading a velocity-time graph</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">A velocity-time graph is a straight line from \(v=8.0\,\text{m s}^{-1}\) at \(t=0\) down to \(v=0\) at \(t=4.0\,\text{s}\). What are the acceleration and the distance travelled?</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> −2.0 m s⁻², 32 m</div>
+<div class="opt right"><span class="l">B</span> −2.0 m s⁻², 16 m</div>
+<div class="opt"><span class="l">C</span> −0.50 m s⁻², 16 m</div>
+<div class="opt"><span class="l">D</span> +2.0 m s⁻², 32 m</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: B</h3><p style="font-weight:700;color:var(--navy);font-size:32px">\(a = \dfrac{0-8.0}{4.0} = -2.0\,\text{m s}^{-2};\ \text{area} = \tfrac12\times4.0\times8.0 = 16\,\text{m}\)</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Uses the rectangle 8.0×4.0 = 32 m instead of the triangle</td></tr>
+<tr><td>C</td><td>8.0/4.0² instead of 8.0/4.0 for the gradient</td></tr>
+<tr><td>D</td><td>Wrong sign, and the rectangle area again</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>04</span></div>
+</section>
+
+<section data-label="Starter Q3">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Starter · question 3 of 5</div><h2>Equal areas, opposite sign</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">An object's velocity-time graph is above the axis for the first 5 s and below it, with an equal area, for the next 5 s. At \(t=10\,\text{s}\):</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> the total distance travelled is zero</div>
+<div class="opt"><span class="l">B</span> the object is at rest with zero acceleration</div>
+<div class="opt"><span class="l">C</span> the displacement equals the distance travelled</div>
+<div class="opt right"><span class="l">D</span> the displacement is zero, though the distance is not</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: D</h3><p>Equal areas above and below the axis cancel, so the displacement is zero, but the object travelled through both, so the distance travelled is their sum.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Confuses zero displacement with zero distance travelled</td></tr>
+<tr><td>B</td><td>Being back at the start says nothing about the velocity or acceleration at that instant</td></tr>
+<tr><td>C</td><td>They are only equal when the motion is one-directional throughout</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>05</span></div>
+</section>
+
+<section data-label="Starter Q4">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Starter · question 4 of 5</div><h2>Instantaneous velocity from a curve</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">To find the instantaneous velocity at \(t=4.0\,\text{s}\) from a curved displacement-time graph you should:</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> read the displacement at \(t=4.0\,\text{s}\) and divide by 4.0</div>
+<div class="opt"><span class="l">B</span> find the area under the curve up to \(t=4.0\,\text{s}\)</div>
+<div class="opt right"><span class="l">C</span> draw a tangent at \(t=4.0\,\text{s}\) and find its gradient</div>
+<div class="opt"><span class="l">D</span> join the origin to the point at \(t=4.0\,\text{s}\) and find that gradient</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: C</h3><p>Only the gradient of a tangent gives the velocity at an instant. A and D both give average velocities; area under a displacement-time graph has no physical meaning.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Gives an average velocity from the origin, not an instantaneous one</td></tr>
+<tr><td>B</td><td>Area under a displacement-time graph means nothing</td></tr>
+<tr><td>D</td><td>A chord gives an average velocity, not the value at that instant</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>06</span></div>
+</section>
+
+<section data-label="Starter Q5">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Starter · question 5 of 5</div><h2>Steepest section of a v-t graph</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">On a velocity-time graph, the steepest section corresponds to the object having</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> the greatest speed</div>
+<div class="opt right"><span class="l">B</span> the greatest acceleration</div>
+<div class="opt"><span class="l">C</span> zero acceleration</div>
+<div class="opt"><span class="l">D</span> the greatest displacement</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: B</h3><p>The gradient of a velocity-time graph is the acceleration, so the steepest section is where the acceleration is greatest. The fastest point is simply the highest point on the line.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Speed is read from the height of the line, not its steepness</td></tr>
+<tr><td>C</td><td>A flat, not steep, section has zero acceleration</td></tr>
+<tr><td>D</td><td>Displacement comes from the area under the line, not its gradient</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>07</span></div>
+</section>
+
+<section data-label="Objectives">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Learning objectives</div><h2>By the end of this lesson you can</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content">
+<div class="steps">
+<div class="step"><span class="num">1</span><span class="tx"><strong>Resolve velocity into components</strong>, \(v_H=v\cos\theta\) and \(v_V=v\sin\theta\), always measuring \(\theta\) from the horizontal.</span></div>
+<div class="step"><span class="num">2</span><span class="tx"><strong>Explain why</strong> horizontal and vertical motion are independent, and use that to find times of flight and ranges.</span></div>
+<div class="step"><span class="num">3</span><span class="tx"><strong>Solve projectile problems</strong> launched horizontally or at an angle, from a height or from the ground, including maximum height and impact velocity.</span></div>
+<div class="step"><span class="num">4</span><span class="tx"><strong>Interpret and linearise</strong> the range-height relationship, \(x\propto\sqrt{h}\), and read \(v_H\) off the linearised gradient.</span></div>
+</div>
+<div class="note success" style="margin-top:8px"><p>✓ <strong>The skill this lesson is really examined on:</strong> resolving correctly before substituting anything — never treat the launch speed \(v\) itself as \(v_H\) or \(v_V\).</p></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>08</span></div>
+</section>
+
+<section data-label="Roadmap">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">How the lesson runs</div><h2>Three chunks, three checks</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content">
+<div class="chunkmap">
+<div><div class="k">CHUNK 1</div><h3>Resolving velocity into components</h3><p>Why every projectile's velocity splits into a horizontal and a vertical part, and the two equations that do it.</p><div class="pills"><span>\(v_H = v\cos\theta\)</span><span>\(v_V = v\sin\theta\)</span></div></div>
+<div><div class="k">CHUNK 2</div><h3>Independent motion, time and range</h3><p>Why the two components never affect each other, and how that gives the time of flight and the range for a horizontal launch.</p><div class="pills"><span>\(h = \tfrac12 gt^2\)</span><span>\(x = v_H \cdot t\)</span></div></div>
+<div><div class="k">CHUNK 3</div><h3>Graphs, angles and heights</h3><p>The six graphs examiners use, a full launch-at-an-angle worked example, and what changes once air resistance is added.</p><div class="pills"><span>\(x \propto \sqrt{h}\)</span><span>\(a_H = 0,\ a_V = -g\)</span></div></div>
+</div>
+<div class="note" style="margin-top:8px"><p>Each chunk ends with <strong>four exam-style multiple-choice questions</strong>. The lesson closes with one full exam question and its mark scheme.</p></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>09</span></div>
+</section>
+
+<section data-label="Hook">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Hook</div><h2>Drop it or throw it, it lands at the same time</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="fig"><img src="../assets/lesson-images/a1-04-projectile-motion-01.png" alt="Comparison of a ball dropped vertically and a ball projected horizontally from the same height, both falling equal vertical distances in equal times"><div class="cap">Fig 1: A dropped ball and a ball projected horizontally from the same height fall equal vertical distances in the same time.</div></div></div>
+<div class="unit"><div class="card"><p>Drop a ball from a height, and at the same instant fire an identical ball horizontally from the same height. Ignoring air resistance, <strong>both balls hit the ground at exactly the same moment</strong> — no matter how fast the second one was launched sideways.</p></div>
+<div class="note warn"><p>💡 <strong>Diagnostic: think, don't answer.</strong> A stone is thrown horizontally from a cliff. Ignoring air resistance, what happens to its horizontal speed as it falls?</p></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>10</span></div>
+</section>
+
+<section class="navy center" data-label="Projectile definition">
+<img class="logo abs" src="../park-logo.png" alt="PaRK International School">
+<div class="content" data-omelette-chrome style="align-items:center;justify-content:center">
+<div class="eyebrow">The definition we are working from</div>
+<p class="statement">A projectile is an object that has been projected through the air — fired, launched, thrown, kicked or hit, and which then moves only under the action of gravity, and air resistance if significant. It has no ability to power or control its own motion.</p>
+</div>
+</section>
+
+<section class="navy center" data-label="Chunk 1">
+<img class="logo abs" src="../park-logo.png" alt="PaRK International School">
+<div class="content" data-omelette-chrome style="align-items:center;justify-content:center;gap:24px">
+<div class="eyebrow">Chunk 1 of 3</div>
+<h2 style="font-size:84px">Resolving velocity<br>into components</h2>
+<p style="max-width:1250px;font-size:34px">Why every projectile's velocity splits into a horizontal and a vertical part, and the two equations that do it.</p>
+</div>
+</section>
+
+<section data-label="Resolving velocity">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Chunk 1 · equation</div><h2>Resolving velocity into components</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="fig"><img src="../assets/lesson-images/a1-04-projectile-motion-02.png" alt="A projectile's velocity vector resolved into horizontal component v cos theta and vertical component v sin theta"><div class="cap">Fig 2: Resolving a projectile's velocity \(v\) into components at angle \(\theta\) above the horizontal.</div></div></div>
+<div class="unit"><div class="card"><p>The instantaneous velocity of a projectile at any time can be <strong>resolved</strong> into vertical and horizontal components, \(v_V\) and \(v_H\).</p></div>
+<div class="formula"><span class="lab">Components of velocity</span><div class="eq">\(v_V = v\sin\theta\)</div><div class="eq">\(v_H = v\cos\theta\)</div></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>13</span></div>
+</section>
+
+<section data-label="Getting theta right">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Chunk 1 · common mistake</div><h2>Getting θ right</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2 even">
+<div class="unit"><div class="note warn"><p>⚠️ Make sure the angle \(\theta\) is always the angle between the velocity and the <strong>horizontal</strong>, never the vertical, never the trajectory itself.</p></div>
+<div class="card"><p>Get the angle wrong and \(v_H\) and \(v_V\) swap, and sinθ and cosθ end up on the wrong component.</p></div></div>
+<div class="unit"><div class="note"><p>🔑 <strong>Top tip:</strong> the vertical component tells you the times (to maximum height, and to hit the ground) and the maximum height reached; the horizontal component then gives you the range.</p></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>14</span></div>
+</section>
+
+<section data-label="Worked example A1.9">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Worked example A1.9 · question</div><h2>The tennis serve</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content">
+<div class="card"><p class="stem">A tennis player strikes the ball so it leaves the racket at velocity \(v\) at angle \(\theta\) below the horizontal. Find the vertical and horizontal components of this velocity.</p></div>
+<div class="note warn"><p>Data: \(v=64.0\,\text{m s}^{-1}\), \(\theta=6.0^\circ\) below horizontal.</p></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>15</span></div>
+</section>
+
+<section data-label="A1.9 solution">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Worked example A1.9 · solution</div><h2>Identify → Data → Equation → Answer</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit" style="grid-row:1/3"><div class="fig"><img src="../assets/lesson-images/a1-04-projectile-motion-07.png" alt="Tennis player serving with velocity vector resolved into 63.6 m/s horizontal and 6.7 m/s vertical components"><div class="cap">Fig 7: the tennis serve geometry: 64.0 m/s at 6.0° below horizontal.</div></div><div class="card tight"><p class="stem">A tennis player strikes the ball so it leaves the racket at velocity \(v\) at angle \(\theta\) below the horizontal. Find the vertical and horizontal components of this velocity.</p></div></div>
+<div class="steps" style="grid-column:2;grid-row:1">
+<div class="step"><span class="num">1</span><span class="tx"><strong>Identify:</strong> resolve the launch velocity using \(v_H=v\cos\theta\) and \(v_V=v\sin\theta\).</span></div>
+<div class="step"><span class="num">2</span><span class="tx"><strong>Data:</strong> \(v=\)<span class="calc">64.0 m s⁻¹</span>, \(\theta=\)<span class="calc">6.0° below horizontal</span>.</span></div>
+<div class="step"><span class="num">3</span><span class="tx"><strong>Equation:</strong> \(v_H=v\cos\theta\); \(v_V=v\sin\theta\)</span></div>
+<div class="step"><span class="num">4</span><span class="tx"><strong>Answer:</strong> \(v_H=64.0\cos6.0^\circ=\)<span class="calc">63.6 m s⁻¹</span> (64 m s⁻¹ to 2 s.f.). \(v_V=64.0\sin6.0^\circ=\)<span class="calc">6.7 m s⁻¹</span> downwards.</span></div>
+</div>
+<div class="note success" style="grid-column:2;grid-row:2;margin-top:8px"><p>✓ <strong>Examiner tip</strong>: "below the horizontal" only changes the direction of \(v_V\), never which trig function goes with which component.</p></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>16</span></div>
+</section>
+
+<section class="navy center" data-label="Check 1">
+<img class="logo abs" src="../park-logo.png" alt="PaRK International School">
+<div class="content" data-omelette-chrome style="align-items:center;justify-content:center;gap:24px">
+<div class="eyebrow">Formative check · chunk 1</div>
+<h2 style="font-size:84px">Check 1: four questions</h2>
+<p style="max-width:1250px;font-size:34px">Resolving velocity into components, and getting the angle right. Fingers up on a count of three; no writing.</p>
+</div>
+</section>
+
+<section data-label="Vertical component">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 1 · question 1 of 4</div><h2>Vertical component</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">A projectile has velocity \(v\) at angle \(\theta\) above the horizontal. Which expression gives its vertical component?</p></div>
+<div class="opts">
+<div class="opt right"><span class="l">A</span> v sinθ</div>
+<div class="opt"><span class="l">B</span> v cosθ</div>
+<div class="opt"><span class="l">C</span> v tanθ</div>
+<div class="opt"><span class="l">D</span> v / sinθ</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: A</h3><p>By definition, resolving \(v\) at angle \(\theta\) above the horizontal gives \(v_V=v\sin\theta\) and \(v_H=v\cos\theta\).</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>B</td><td>That is the horizontal component</td></tr>
+<tr><td>C</td><td>Not one of the two resolved components</td></tr>
+<tr><td>D</td><td>Inverts the trig ratio</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>18</span></div>
+</section>
+
+<section data-label="Horizontal component number">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 1 · question 2 of 4</div><h2>A numerical horizontal component</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">A ball leaves a hand at 20 m s⁻¹, 30° above the horizontal. Its horizontal component of velocity is</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> 10 m s⁻¹</div>
+<div class="opt right"><span class="l">B</span> 17.3 m s⁻¹</div>
+<div class="opt"><span class="l">C</span> 20 m s⁻¹</div>
+<div class="opt"><span class="l">D</span> 11.5 m s⁻¹</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: B</h3><p style="font-weight:700;color:var(--navy);font-size:32px">\(v_H = 20\cos30^\circ = 17.3\,\text{m s}^{-1}\)</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>20 sin30°, used sinθ instead of cosθ</td></tr>
+<tr><td>C</td><td>The launch speed left unresolved</td></tr>
+<tr><td>D</td><td>20 tan30°, used the wrong trig ratio</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>19</span></div>
+</section>
+
+<section data-label="Angle from where">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 1 · question 3 of 4</div><h2>The angle is measured from</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">In \(v_H=v\cos\theta\) and \(v_V=v\sin\theta\), the angle \(\theta\) is always measured from the</p></div>
+<div class="opts">
+<div class="opt right"><span class="l">A</span> the horizontal direction</div>
+<div class="opt"><span class="l">B</span> the vertical direction</div>
+<div class="opt"><span class="l">C</span> the trajectory itself</div>
+<div class="opt"><span class="l">D</span> the normal to the ground</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: A</h3><p>\(\theta\) is always the angle between the velocity and the horizontal, a fixed convention that never changes, whatever the launch or landing geometry.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>B</td><td>Measuring from the vertical would swap sinθ and cosθ</td></tr>
+<tr><td>C</td><td>The trajectory is the path, not a fixed reference direction</td></tr>
+<tr><td>D</td><td>Not a convention used for resolving projectile velocity</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>20</span></div>
+</section>
+
+<section data-label="Launch at 45">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 1 · question 4 of 4</div><h2>Launched at 45°</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">A projectile is launched at 45° above the horizontal. Which statement about its velocity components is correct?</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> \(v_H\) is greater than \(v_V\)</div>
+<div class="opt"><span class="l">B</span> \(v_V\) is greater than \(v_H\)</div>
+<div class="opt right"><span class="l">C</span> \(v_H\) equals \(v_V\)</div>
+<div class="opt"><span class="l">D</span> \(v_H\) is zero</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: C</h3><p>sin45° = cos45°, so at exactly 45° the two components are always equal, whatever the launch speed.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Only true above 45°</td></tr>
+<tr><td>B</td><td>Only true below 45°</td></tr>
+<tr><td>D</td><td>Would mean a purely vertical launch, at 90°</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>21</span></div>
+</section>
+
+<section class="navy center" data-label="Chunk 2">
+<img class="logo abs" src="../park-logo.png" alt="PaRK International School">
+<div class="content" data-omelette-chrome style="align-items:center;justify-content:center;gap:24px">
+<div class="eyebrow">Chunk 2 of 3</div>
+<h2 style="font-size:84px">Independent motion,<br>time and range</h2>
+<p style="max-width:1250px;font-size:34px">Why the two components never affect each other, and how that gives the time of flight and the range for a horizontal launch.</p>
+</div>
+</section>
+
+<section data-label="Independence">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Chunk 2 · the key idea</div><h2>Horizontal and vertical motion are independent</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="fig"><img src="../assets/lesson-images/a1-04-projectile-motion-03.png" alt="Stroboscopic image of a bouncing ball showing equal horizontal spacing and changing vertical spacing between successive images"><div class="cap">Fig 3: Stroboscopic image of a bouncing ball: equal time intervals between images.</div></div></div>
+<div class="unit"><div class="card"><p>Components perpendicular to each other can be analysed <strong>separately</strong>. If there is no air resistance, the horizontal component of velocity stays <strong>constant</strong> until the projectile hits something.</p></div>
+<div class="card tight"><p><strong>Horizontal</strong> spacing between images is always the same (\(v_H\) constant); <strong>vertical</strong> spacing decreases going up, increases coming down.</p></div>
+<div class="note success"><p>✓ This answers the diagnostic: horizontal speed stays constant, because there is no horizontal force acting on the stone.</p></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>23</span></div>
+</section>
+
+<section data-label="Trajectory and range">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Chunk 2 · vocabulary</div><h2>Trajectory and range</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2 even">
+<div class="unit"><div class="card"><h3>Trajectory</h3><p>The path followed by a projectile. It is <strong>parabolic</strong> if air resistance is negligible.</p></div>
+<div class="card"><h3>Range</h3><p>The horizontal distance covered by the projectile.</p></div></div>
+<div class="unit"><div class="note"><p>Any object close to the Earth's surface, affected only by gravity, accelerates towards the Earth at 9.8 m s⁻². This remains true even while it is also moving sideways.</p></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>24</span></div>
+</section>
+
+<section data-label="Time of flight and range">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Chunk 2 · equation</div><h2>Time of flight and range from a height</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="fig"><img src="../assets/lesson-images/a1-04-projectile-motion-04.png" alt="Experimental setup for investigating range x for different launch heights h, steel ball projected horizontally from a table edge"><div class="cap">Fig 4: Investigating range \(x\) as height \(h\) is varied.</div></div></div>
+<div class="unit"><div class="card"><p>For a projectile launched horizontally from height \(h\), the time of flight comes entirely from the <strong>vertical</strong> motion, starting from rest vertically.</p></div>
+<div class="formula"><span class="lab">Time to fall from height h</span><div class="eq">\(h = \tfrac12 gt^2\)</div></div>
+<div class="formula"><span class="lab">Range, from the constant horizontal velocity</span><div class="eq">\(x = v_H \cdot t\)</div></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>25</span></div>
+</section>
+
+<section data-label="Worked example A1.10">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Worked example A1.10 · question</div><h2>The bullet fired horizontally</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content">
+<div class="card"><p class="stem">A bullet is fired horizontally from height \(h\) above the ground. Air resistance is negligible. Find where it hits the ground.</p></div>
+<div class="note warn"><p>Data: \(v_H=524\,\text{m s}^{-1}\), \(h=22.0\,\text{m}\), \(g=9.81\,\text{m s}^{-2}\), vertical \(u=0\).</p></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>26</span></div>
+</section>
+
+<section data-label="A1.10 solution">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Worked example A1.10 · solution</div><h2>Identify → Data → Equation → Answer</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit" style="grid-row:1/3"><div class="fig"><img src="../assets/lesson-images/a1-04-projectile-motion-08.png" alt="Bullet fired horizontally from a height of 22.0 metres landing 1.11 kilometres away"><div class="cap">Fig 8: bullet fired horizontally at 524 m/s from 22.0 m, landing 1.11 km away.</div></div><div class="card tight"><p class="stem">A bullet is fired horizontally from height \(h\) above the ground. Air resistance is negligible. Find where it hits the ground.</p></div></div>
+<div class="steps" style="grid-column:2;grid-row:1">
+<div class="step"><span class="num">1</span><span class="tx"><strong>Identify:</strong> the vertical motion gives the time to fall; the range then follows from the constant horizontal velocity.</span></div>
+<div class="step"><span class="num">2</span><span class="tx"><strong>Data:</strong> \(v_H=\)<span class="calc">524 m s⁻¹</span>, \(h=\)<span class="calc">22.0 m</span>, \(g=\)<span class="calc">9.81 m s⁻²</span>.</span></div>
+<div class="step"><span class="num">3</span><span class="tx"><strong>Equation:</strong> \(h=\tfrac12 gt^2 \Rightarrow t=\sqrt{2h/g}\), then \(x=v_H t\)</span></div>
+<div class="step"><span class="num">4</span><span class="tx"><strong>Answer:</strong> \(t=\sqrt{2(22.0)/9.81}=\)<span class="calc">2.12 s</span>. \(x=524\times2.12=\)<span class="calc">1.11×10³ m</span> (1.11 km).</span></div>
+</div>
+<div class="note success" style="grid-column:2;grid-row:2;margin-top:8px"><p>✓ <strong>Examiner tip</strong>: the bullet's own mass and its huge horizontal speed never enter the time calculation at all; only \(h\) and \(g\) decide how long it falls for.</p></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>27</span></div>
+</section>
+
+<section class="navy center" data-label="Check 2">
+<img class="logo abs" src="../park-logo.png" alt="PaRK International School">
+<div class="content" data-omelette-chrome style="align-items:center;justify-content:center;gap:24px">
+<div class="eyebrow">Formative check · chunk 2</div>
+<h2 style="font-size:84px">Check 2: four questions</h2>
+<p style="max-width:1250px;font-size:34px">Independence of the two components, and finding time of flight and range from a height.</p>
+</div>
+</section>
+
+<section data-label="Horizontal speed while falling">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 2 · question 1 of 4</div><h2>Horizontal speed while falling</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">A stone is thrown horizontally from a cliff. Ignoring air resistance, what happens to its horizontal speed as it falls?</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> It increases</div>
+<div class="opt"><span class="l">B</span> It decreases</div>
+<div class="opt right"><span class="l">C</span> It stays constant</div>
+<div class="opt"><span class="l">D</span> It becomes zero at the top of the fall</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: C</h3><p>No horizontal force acts (ignoring air resistance), so there is no horizontal acceleration and \(v_H\) stays constant.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Nothing accelerates it horizontally</td></tr>
+<tr><td>B</td><td>Only a horizontal force could slow it down</td></tr>
+<tr><td>D</td><td>There is no "top of the fall" for a horizontal launch, and speed cannot vanish with no force acting</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>29</span></div>
+</section>
+
+<section data-label="Dropped vs thrown">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 2 · question 2 of 4</div><h2>Dropped vs thrown</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">Two identical balls are released at the same instant from the same height: one is dropped, the other is thrown horizontally. Ignoring air resistance, which lands first?</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> The dropped ball</div>
+<div class="opt"><span class="l">B</span> The thrown ball</div>
+<div class="opt right"><span class="l">C</span> Both land at the same time</div>
+<div class="opt"><span class="l">D</span> It depends on the horizontal speed</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: C</h3><p>The vertical motion is identical in both cases — it depends only on \(g\) and the height, never on the horizontal velocity.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Both start with zero vertical velocity — neither has an advantage</td></tr>
+<tr><td>B</td><td>The horizontal launch does not delay or speed up the fall</td></tr>
+<tr><td>D</td><td>The horizontal speed has no effect on the vertical motion at all</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>30</span></div>
+</section>
+
+<section data-label="Time to fall a height">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 2 · question 3 of 4</div><h2>Time to fall from a height</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">A ball is projected horizontally from a height of 4.9 m. Taking \(g=9.8\,\text{m s}^{-2}\), the time to reach the ground is</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> 0.5 s</div>
+<div class="opt right"><span class="l">B</span> 1.0 s</div>
+<div class="opt"><span class="l">C</span> 2.0 s</div>
+<div class="opt"><span class="l">D</span> 4.9 s</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: B</h3><p style="font-weight:700;color:var(--navy);font-size:32px">\(t = \sqrt{2h/g} = \sqrt{2\times4.9/9.8} = \sqrt{1.0} = 1.0\,\text{s}\)</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Divides an extra factor of 4 into \(t^2\)</td></tr>
+<tr><td>C</td><td>Forgets the square root</td></tr>
+<tr><td>D</td><td>Just quotes \(h\) itself</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>31</span></div>
+</section>
+
+<section data-label="Range from height">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 2 · question 4 of 4</div><h2>Range from that fall</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">Using the same 4.9 m drop (\(t=1.0\,\text{s}\)), if the ball's horizontal velocity is 15 m s⁻¹, its range is</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> 7.5 m</div>
+<div class="opt right"><span class="l">B</span> 15 m</div>
+<div class="opt"><span class="l">C</span> 30 m</div>
+<div class="opt"><span class="l">D</span> 14.7 m</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: B</h3><p style="font-weight:700;color:var(--navy);font-size:32px">\(x = v_H \cdot t = 15\times1.0 = 15\,\text{m}\)</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Halves the range unnecessarily</td></tr>
+<tr><td>C</td><td>Doubles the range unnecessarily</td></tr>
+<tr><td>D</td><td>Mixes in \(g\times t\) instead of \(v_H\times t\)</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>32</span></div>
+</section>
+
+<section class="navy center" data-label="Chunk 3">
+<img class="logo abs" src="../park-logo.png" alt="PaRK International School">
+<div class="content" data-omelette-chrome style="align-items:center;justify-content:center;gap:24px">
+<div class="eyebrow">Chunk 3 of 3</div>
+<h2 style="font-size:84px">Graphs, angles<br>and heights</h2>
+<p style="max-width:1250px;font-size:34px">The six graphs examiners use, a full launch-at-an-angle worked example, and what changes once air resistance is added.</p>
+</div>
+</section>
+
+<section class="pale" data-label="Graph mastery">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Chunk 3 · graphs every examiner uses</div><h2>Four graphs, and what to read off them</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content"><div class="card tight" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+<table class="t"><thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead><tbody>
+<tr><td>Range vs height</td><td>h (m), x (m)</td><td>Concave down (x ∝ √h)</td><td>x increases with h, but with diminishing returns</td></tr>
+<tr><td>Linearised range</td><td>√h (√m), x (m)</td><td>Straight line through the origin</td><td>Gradient = \(v_H\sqrt{2/g}\)</td></tr>
+<tr><td>Horizontal velocity vs time</td><td>t (s), \(v_H\) (m/s)</td><td>Horizontal line</td><td>\(v_H\) is constant</td></tr>
+<tr><td>Vertical velocity vs time</td><td>t (s), \(v_V\) (m/s)</td><td>Straight line, slope −g</td><td>Slope = −9.8 m s⁻²</td></tr>
+</tbody></table></div></div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>34</span></div>
+</section>
+
+<section data-label="Range-height graphs">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Chunk 3 · linearising</div><h2>Straightening the range-height curve</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content">
+<div class="steps" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div class="fig"><img src="../assets/lesson-images/a1-04-projectile-motion-05.png" alt="Direct plot of range x against height h, a concave-down curve through the origin"><div class="cap">Fig 5: Direct plot: x vs h (concave down).</div></div>
+<div class="fig"><img src="../assets/lesson-images/a1-04-projectile-motion-06.png" alt="Linearised plot of range x against square root of height h, a straight line through the origin"><div class="cap">Fig 6: Linearised: x vs √h (straight line).</div></div>
+</div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>35</span></div>
+</section>
+
+<section data-label="Worked example A1.11">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Worked example A1.11 · question</div><h2>Projectile at an angle, from a height</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content">
+<div class="card"><p class="stem">A stone is thrown upwards from a height above the ground at a given speed and angle. Ignoring air resistance, find (a) its maximum height, (b) its vertical velocity on impact, (c) the time to reach the ground, (d) the horizontal range, and (e) the velocity of impact.</p></div>
+<div class="note warn"><p>Data: \(u=18.0\,\text{m s}^{-1}\), \(\theta=52^\circ\), launch height \(=1.6\,\text{m}\), \(g=9.8\,\text{m s}^{-2}\).</p></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>36</span></div>
+</section>
+
+<section data-label="A1.11 solution">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Worked example A1.11 · solution</div><h2>Identify → Data → Equation → Answer</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit" style="grid-row:1/3"><div class="fig"><img src="../assets/lesson-images/a1-04-projectile-motion-09.png" alt="Stone thrown upwards at 52 degrees from a height of 1.6 metres, showing 10.3 metre rise, 33.3 metre range, and 18.9 m/s impact velocity"><div class="cap">Fig 9: launched at 18.0 m/s, 52°, from 1.6 m.</div></div><div class="card tight"><p class="stem">(a) max height, (b) impact \(v_V\), (c) time to ground, (d) range, (e) impact velocity.</p></div></div>
+<div class="steps" style="grid-column:2;grid-row:1">
+<div class="step"><span class="num">1</span><span class="tx"><strong>Identify:</strong> resolve first; use \(v_V\) for times and heights, \(v_H\) for range, and combine both for the final impact velocity.</span></div>
+<div class="step"><span class="num">2</span><span class="tx"><strong>Data:</strong> \(v_V=18.0\sin52^\circ=\)<span class="calc">14.2 m s⁻¹</span> up, \(v_H=18.0\cos52^\circ=\)<span class="calc">11.1 m s⁻¹</span>.</span></div>
+<div class="step"><span class="num">3</span><span class="tx"><strong>Equation:</strong> (a) \(v^2=u^2+2as\), \(v=0\) at the top. (b) \(v^2=u^2+2as\) over the full fall. (c) \(v=u+at\). (d) \(x=v_H t\). (e) \(v_i^2=v_H^2+v_V^2\), \(\tan\theta=v_V/v_H\).</span></div>
+<div class="step"><span class="num">4</span><span class="tx"><strong>Answer:</strong> (a) <span class="calc">10.3 m</span> above release (11.9 m above ground). (b) <span class="calc">15.3 m s⁻¹</span> downwards. (c) <span class="calc">3.00 s</span>. (d) <span class="calc">33.3 m</span>. (e) <span class="calc">18.9 m s⁻¹</span> at 54° below horizontal.</span></div>
+</div>
+<div class="note success" style="grid-column:2;grid-row:2;margin-top:8px"><p>✓ <strong>Examiner tip</strong>: five sub-parts, but only two ideas: everything vertical uses \(v_V\) and \(g\); everything horizontal uses the unchanging \(v_H\).</p></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>37</span></div>
+</section>
+
+<section class="navy center" data-label="Check 3">
+<img class="logo abs" src="../park-logo.png" alt="PaRK International School">
+<div class="content" data-omelette-chrome style="align-items:center;justify-content:center;gap:24px">
+<div class="eyebrow">Formative check · chunk 3</div>
+<h2 style="font-size:84px">Check 3: four questions</h2>
+<p style="max-width:1250px;font-size:34px">Reading the graphs, the trajectory shape, and what air resistance changes.</p>
+</div>
+</section>
+
+<section data-label="v_H against t">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 3 · question 1 of 4</div><h2>\(v_H\) against t</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">On a graph of horizontal velocity \(v_H\) against time for a projectile with negligible air resistance, the graph is:</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> A straight line increasing</div>
+<div class="opt"><span class="l">B</span> A straight line decreasing</div>
+<div class="opt right"><span class="l">C</span> A horizontal line</div>
+<div class="opt"><span class="l">D</span> A parabola</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: C</h3><p>With no air resistance \(v_H\) never changes, so the \(v_H\)-\(t\) graph is a horizontal line.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Would mean the projectile keeps speeding up horizontally</td></tr>
+<tr><td>B</td><td>Would need a horizontal force slowing it down</td></tr>
+<tr><td>D</td><td>Describes the shape of the trajectory, not this graph</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>39</span></div>
+</section>
+
+<section data-label="v_V gradient">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 3 · question 2 of 4</div><h2>Gradient of \(v_V\) against t</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">On a graph of vertical velocity \(v_V\) against time \(t\) for a projectile, the gradient of the line represents</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> the horizontal velocity, \(v_H\)</div>
+<div class="opt right"><span class="l">B</span> the vertical acceleration, \(-g\)</div>
+<div class="opt"><span class="l">C</span> the horizontal range</div>
+<div class="opt"><span class="l">D</span> the shape of the trajectory</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: B</h3><p>The gradient of a velocity-time graph is the acceleration; the vertical acceleration is \(-g\), constant throughout the flight.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>\(v_H\) belongs to a separate graph entirely</td></tr>
+<tr><td>C</td><td>Range comes from \(v_H\) and \(t\), not this gradient</td></tr>
+<tr><td>D</td><td>The trajectory is the \(x\)-\(y\) path, a different graph altogether</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>40</span></div>
+</section>
+
+<section data-label="Trajectory shape">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 3 · question 3 of 4</div><h2>The shape of the trajectory</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">Ignoring air resistance, the shape of a projectile's trajectory is</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> circular</div>
+<div class="opt right"><span class="l">B</span> parabolic</div>
+<div class="opt"><span class="l">C</span> linear</div>
+<div class="opt"><span class="l">D</span> exponential</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: B</h3><p>Constant horizontal velocity combined with uniformly accelerating vertical velocity produces a parabolic path, provided air resistance is negligible.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Would need a force always directed towards a fixed centre</td></tr>
+<tr><td>C</td><td>A straight line would need zero acceleration</td></tr>
+<tr><td>D</td><td>Not the shape produced by constant acceleration in one direction only</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>41</span></div>
+</section>
+
+<section data-label="Air resistance and range">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Check 3 · question 4 of 4</div><h2>Air resistance and range</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2">
+<div class="unit"><div class="card"><p class="stem">How does air resistance affect the range of a projectile compared with the no-drag case?</p></div>
+<div class="opts">
+<div class="opt"><span class="l">A</span> It increases it</div>
+<div class="opt right"><span class="l">B</span> It reduces it</div>
+<div class="opt"><span class="l">C</span> It has no effect</div>
+<div class="opt"><span class="l">D</span> It makes the trajectory circular</div>
+</div>
+<div class="hands">Fingers up on three</div></div>
+<div class="unit" data-reveal-apply=".opt.right" data-reveal-style="background:var(--green-c);border-left:10px solid var(--green2);color:var(--green1)"><i hidden data-reveal-apply=".opt:not(.right)" data-reveal-style="background:oklch(94% .045 24);border-left:10px solid oklch(48% .16 24);color:oklch(38% .14 24)"></i><div class="card"><h3>Answer: B</h3><p>Drag continually removes kinetic energy, so \(v_H\) is no longer constant and the projectile's speed is smaller throughout the flight, so it covers less horizontal distance before landing.</p></div>
+<div class="card tight"><h3>Why the others fail</h3><table class="t"><tbody>
+<tr><td>A</td><td>Drag removes energy — it cannot help the projectile travel further</td></tr>
+<tr><td>C</td><td>Drag acts on both components, so range is affected</td></tr>
+<tr><td>D</td><td>The trajectory becomes an asymmetric curve, never a circle</td></tr>
+</tbody></table></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>42</span></div>
+</section>
+
+<section class="pale" data-label="Traps">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Trap corner</div><h2>Common mistakes</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content"><div class="card tight" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+<table class="t"><thead><tr><th>Misconception</th><th>Correct view</th></tr></thead><tbody>
+<tr><td>θ is measured from the vertical, or from the trajectory itself</td><td>θ is always the angle between the velocity and the <strong>horizontal</strong></td></tr>
+<tr><td>The vertical and horizontal motions affect each other</td><td>They are completely <strong>independent</strong> and must be analysed separately</td></tr>
+<tr><td>A ball projected horizontally takes longer to fall than one simply dropped from the same height</td><td>Both reach the ground in <strong>exactly the same time</strong> — horizontal motion does not affect vertical fall</td></tr>
+<tr><td>The horizontal component of velocity changes during the flight</td><td>It stays <strong>constant</strong> if air resistance is negligible; only the vertical component changes</td></tr>
+</tbody></table></div></div>
+<div class="note warn"><p>⚠️ <strong>Most common slip:</strong> treating the initial speed \(v\) itself as \(v_H\) or \(v_V\). Always resolve first: \(v_H=v\cos\theta\), \(v_V=v\sin\theta\).</p></div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>43</span></div>
+</section>
+
+<section class="navy center" data-label="Wrap-up">
+<img class="logo abs" src="../park-logo.png" alt="PaRK International School">
+<div class="content" data-omelette-chrome style="align-items:center;justify-content:center;gap:24px">
+<div class="eyebrow">Wrap-up · exam-style question</div>
+<h2 style="font-size:84px">One question, four marks</h2>
+<p style="max-width:1250px;font-size:34px">Written answer, on your own, five minutes. Then we mark it together, one mark at a time.</p>
+</div>
+</section>
+
+<section data-label="Exam question">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Exam question · Determine</div><h2>The javelin throw</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2 even">
+<div class="unit"><div class="card"><p class="stem">A javelin is thrown at 26 m s⁻¹ at 40° above the horizontal, released from a height of 1.8 m. Ignoring air resistance, determine the time of flight and the horizontal range.</p><p style="font-style:italic;color:var(--muted);font-size:26px">[4 marks]</p></div></div>
+<div class="unit"><div class="note warn"><p>Resolve the velocity first. Take downwards as negative in your displacement equation, and expect a quadratic in \(t\).</p></div>
+<div class="card"><p>Five minutes. Show every step — marks are for the method, not just the final numbers.</p></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>45</span></div>
+</section>
+
+<section data-label="Mark scheme">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Mark scheme · one click per mark</div><h2>Mark your own answer</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content">
+<div class="marks">
+<div class="mark"><span class="tick">✓</span><span>\(v_V=26\sin40^\circ=16.7\,\text{m s}^{-1}\), \(v_H=26\cos40^\circ=19.9\,\text{m s}^{-1}\)</span></div>
+<div class="mark"><span class="tick">✓</span><span>Taking down as the landing displacement, \(-1.8=16.7t-4.9t^2\)</span></div>
+<div class="mark"><span class="tick">✓</span><span>Solving the quadratic gives \(t=3.52\,\text{s}\)</span></div>
+<div class="mark"><span class="tick">✓</span><span>\(x=v_H t=19.9\times3.52=70\,\text{m}\)</span></div>
+</div>
+<div class="note success" style="margin-top:8px"><p>✓ <strong>Examiner tip</strong>: a launch from above ground level always needs a quadratic in \(t\); a launch and landing at the same height never does.</p></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>46</span></div>
+</section>
+
+<section data-label="Context HL">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Context · HL extension</div><h2>Projectiles with air resistance</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2 even">
+<div class="unit"><div class="card"><p>Fluid resistance affects a projectile's <strong>time of flight, trajectory, velocity, acceleration, range</strong> and can bring it to a <strong>terminal speed</strong>.</p></div>
+<div class="card"><p>Drag opposes the velocity at every instant, so it no longer acts only vertically: it removes energy from both components, and the trajectory is no longer a symmetric parabola.</p></div></div>
+<div class="unit"><div class="note"><p>💡 <strong>Challenge</strong>: how does air resistance affect the range of a projectile compared with the no-drag case? It reduces it, because \(v_H\) is no longer constant and the projectile's speed is smaller throughout the flight.</p></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>47</span></div>
+</section>
+
+<section data-label="Context real world">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Context · real-world investigation</div><h2>Finding the range-height relationship</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2 even">
+<div class="unit"><div class="card"><p>A steel ball projected horizontally from a table edge lands further away the higher the table is. Measuring range \(x\) for several heights \(h\) gives a concave-down curve; plotting \(x\) against \(\sqrt{h}\) straightens it into a line through the origin, gradient \(v_H\sqrt{2/g}\).</p></div></div>
+<div class="unit"><div class="note success"><p>✓ <strong>Examiner tip</strong>: always state the assumption of negligible air resistance before drawing conclusions from an \(x\)–\(h\) investigation; the whole \(x\propto\sqrt{h}\) relationship depends on it.</p></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>48</span></div>
+</section>
+
+<section data-label="Recap">
+<div class="hd" data-omelette-chrome><div class="txt"><div class="eyebrow">Recap</div><h2>Carry these out of the room</h2></div><img class="logo" src="../park-logo.png" alt="PaRK International School"></div>
+<div class="content grid2 even">
+<div class="unit"><div class="formula"><span class="lab">The equations to carry forward</span><div class="eq">\(v_H = v\cos\theta\)</div><div class="eq">\(v_V = v\sin\theta\)</div></div>
+<div class="card"><p><strong>\(a_H = 0,\ a_V = -g\)</strong>: the horizontal and vertical motions never affect each other, so treat them as two separate problems joined only by \(t\).</p></div></div>
+<div class="unit"><div class="card"><h3>Keywords</h3><div class="pills"><span>\(v_H = v\cos\theta\)</span><span>\(v_V = v\sin\theta\)</span><span>\(a_H = 0\)</span><span>\(a_V = -g\)</span><span>components independent</span><span>trajectory is parabolic</span><span>x ∝ √h</span><span>θ always from horizontal</span></div></div>
+<div class="note"><p><strong>Homework</strong> — the lesson page for A.1 Lesson 4: source questions 1 and 2 (the kicked ball, and explaining independence), with model answers to check against.</p></div></div>
+</div>
+<div class="ft" data-omelette-chrome><span>A.1 · Projectile Motion</span><span>Next lesson — A.1 Lesson 5: Fluid Resistance on Projectiles · 49</span></div>
+</section>
+
+</deck-stage>
+<script src="deck-stage.js"></script>
+<script src="click-reveal.js"></script>
+</body>
+</html>
