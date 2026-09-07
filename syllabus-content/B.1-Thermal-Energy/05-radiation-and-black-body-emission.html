@@ -167,28 +167,389 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Radiation and Black-body Emission</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B1" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>5</span> Lesson 5 of 5 · B.1 Thermal Energy Transfers</div>
+<div class="lc-title">Radiation and Black-body Emission</div>
+<div class="lc-sub">Every object radiates energy as electromagnetic waves — hotter objects radiate faster and at shorter wavelengths. This lesson gives you the two laws that turn a star's colour and brightness into its temperature, size and distance.</div>
+
+<div class="lc-card">
+  <h3>🌌 Hook – a star's hidden message</h3>
+  <p>Look at the night sky. Stars appear in different colours — some red, some blue, some white. Red stars are relatively cool (about 3000 K); blue stars are incredibly hot (over 30 000 K). <strong>The colour of a star tells you its temperature</strong>, even though it sits trillions of kilometres away and you can never touch it or hold a thermometer to it.</p>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b1-05-radiation-and-black-body-emission-01.png" alt="A flame emitting thermal radiation in all directions, shown with outward arrows" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — A flame radiates energy outward in every direction, at all wavelengths, continuously — not just when it looks bright.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — if you see a red star and a blue star, which one is hotter? <em>The blue one. Wien's law says peak wavelength shortens as temperature rises — blue light has a shorter wavelength than red, so the blue star must be hotter.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🔥 What is thermal radiation?</h3>
+  <p><strong>Thermal radiation</strong> is electromagnetic radiation emitted by all matter at all temperatures, due to the movement of charged particles within atoms. Unlike conduction and convection, it needs no medium — it crosses empty space, which is how the Sun's energy reaches Earth.</p>
+  <table class="lc-table">
+    <thead><tr><th>Characteristic</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td>Always emitted</td><td>All matter emits radiation at <strong>all</strong> temperatures, not just when hot</td></tr>
+      <tr><td>Frequency varies</td><td>Depends on temperature — higher T gives higher frequency</td></tr>
+      <tr><td>Wavelength range</td><td>Mostly infrared at room temperature; visible only at high temperature</td></tr>
+      <tr><td>No medium needed</td><td>Travels through vacuum, unlike conduction or convection</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ <strong>Common misconception</strong> — "thermal radiation is only emitted by hot objects." False: all objects emit at all temperatures. You don't notice it at room temperature because it's infrared (invisible) and the power is far lower — power depends on \(T^4\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>⚖️ Three factors that control radiated power</h3>
+  <p>The power a surface radiates depends on three things.</p>
+  <p><strong>1 · Surface temperature.</strong> Power is proportional to the <strong>fourth power</strong> of absolute temperature — this is the Stefan-Boltzmann relationship. A bar at 600 K radiates \((600/300)^4 = 2^4 = 16\) times more than the same bar at 300 K.</p>
+  <p><strong>2 · Surface area.</strong> Power is proportional to area — this is why radiators have fins, and why elephants have large ears for heat loss.</p>
+  <p><strong>3 · Nature of the surface.</strong> <strong>Good absorbers of radiation are good emitters; poor absorbers are poor emitters.</strong> White or shiny surfaces reflect most incident radiation, so they absorb poorly — a white building like an opera-house roof stays cooler in the sun because it reflects rather than absorbs radiation, and for the same reason it radiates heat away poorly too.</p>
+</div>
+
+<div class="lc-card">
+  <h3>⬛ Black bodies – the perfect absorber and emitter</h3>
+  <p>A perfect <strong>black body</strong> is an idealised object that (1) absorbs <strong>all</strong> electromagnetic radiation falling on it, (2) emits the <strong>maximum</strong> possible thermal radiation at any given temperature, and (3) reflects none — it would be invisible unless hot enough to glow.</p>
+  <table class="lc-table">
+    <thead><tr><th>Object</th><th>Why it approximates a black body</th></tr></thead>
+    <tbody>
+      <tr><td>The Sun</td><td>Almost perfect emitter, T ≈ 5800 K</td></tr>
+      <tr><td>Very hot dull/dark objects</td><td>Dark surfaces are good emitters</td></tr>
+      <tr><td>Water</td><td>Good absorber — oceans and lakes look dark from space</td></tr>
+      <tr><td>Human skin</td><td>A good approximation, regardless of visible pigment</td></tr>
+      <tr><td>Ice, soil, vegetation</td><td>Good absorbers of infrared</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b1-05-radiation-and-black-body-emission-02.png" alt="Black-body emission spectrum graph showing three curves at 3000 K, 4000 K and 5000 K, each with a peak that shifts to shorter wavelength as temperature rises" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Black-body spectra at three temperatures. Each curve peaks at a wavelength λmax; as T rises, the peak shifts left (shorter λ) and the area under the curve (total power) grows.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🌡️ Colour and temperature</h3>
+  <p>The black-body spectrum explains why heating an object makes it change colour in a predictable order: it starts glowing dull red, then red, then orange, yellow-white, and finally blue-white at extreme temperatures.</p>
+  <table class="lc-table">
+    <thead><tr><th>Temperature</th><th>Peak wavelength</th><th>Colour</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>~850 K</td><td>~3.4 × 10⁻⁶ m</td><td>Dull red</td><td>Heated metal starting to glow</td></tr>
+      <tr><td>~1000 K</td><td>~2.9 × 10⁻⁶ m</td><td>Red</td><td>Betelgeuse</td></tr>
+      <tr><td>~3000 K</td><td>~9.7 × 10⁻⁷ m</td><td>Orange-red</td><td>—</td></tr>
+      <tr><td>~5000 K</td><td>~5.8 × 10⁻⁷ m</td><td>Yellow-white</td><td>The Sun</td></tr>
+      <tr><td>~10 000 K</td><td>~2.9 × 10⁻⁷ m</td><td>Blue-white</td><td>Sirius</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b1-05-radiation-and-black-body-emission-03.png" alt="A metal bar heated progressively from dull red through orange, yellow and white to blue-white, with temperature labels under each stage" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — The colour of a hot surface climbs steadily through this sequence as its temperature rises.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Wien's displacement law</h3>
+  <p>The wavelength at which a black body radiates most strongly is fixed once you know its temperature.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Wien's law · λmax in m, T in K</span>
+    $$\lambda_{\text{max}} T = 2.9 \times 10^{-3}\ \text{m K}$$
+  </div>
+  <p>Skin at ~35 °C (308 K) has \(\lambda_{\text{max}} = 9.4 \times 10^{-6}\) m — infrared, invisible to the eye. <strong>This is why thermal cameras can detect people in the dark.</strong></p>
+</div>
+
+<div class="lc-card">
+  <h3>🔆 The Stefan-Boltzmann law</h3>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Power radiated · P in W, A in m², T in K</span>
+    $$P = \sigma A T^4$$
+  </div>
+  <p>where \(\sigma = 5.67 \times 10^{-8}\ \text{W m}^{-2}\text{K}^{-4}\) is the Stefan-Boltzmann constant. For a star, the total power radiated is called its <strong>luminosity</strong>:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Luminosity</span>
+    $$L = \sigma A T^4$$
+  </div>
+  <p>A body surrounded by cooler surroundings also absorbs radiation from them, so the useful quantity is the <strong>net</strong> power lost:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Net radiation, surroundings at T_s</span>
+    $$P_{\text{net}} = \sigma A T^4 - \sigma A T_{\text{s}}^4$$
+  </div>
+  <p>A surface at 100 °C (373 K) surrounded by 20 °C (293 K) air emits \(\sigma T^4 \approx 1.1\) kW m⁻² but absorbs back \(\sigma T_{\text{s}}^4 \approx 0.42\) kW m⁻², for a net loss of about 0.68 kW m⁻².</p>
+</div>
+
+<div class="lc-card">
+  <h3>✨ Stars: apparent brightness and the inverse square law</h3>
+  <p><strong>Luminosity (L)</strong> is the total power a star actually emits. <strong>Apparent brightness (b)</strong> is the power received per unit area here on Earth — and it depends on distance as well as luminosity, because the same total power spreads out over an ever-larger sphere of area \(4\pi d^2\) as it travels.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Apparent brightness · b in W m⁻², d in m</span>
+    $$b = \frac{L}{4\pi d^2}$$
+  </div>
+  <p>Two equally bright-looking stars can have wildly different luminosities if they sit at different distances — brightness alone never tells you how luminous a star really is.</p>
+  <div class="lc-info">☀️ <strong>Worked check (B1.7)</strong> — a 3.2 m × 1.6 m solar panel receives intensity 739 W m⁻²: \(P = IA = 739 \times (3.2\times1.6)\)<br>\(= 3.8 \times 10^{3}\ \text{W}\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>🕯️ Standard candles – measuring cosmic distances</h3>
+  <p><strong>Henrietta Swan Leavitt</strong> discovered in 1908 that <strong>Cepheid variable stars</strong> — stars whose brightness varies periodically — have a fixed relationship between their period of variation and their luminosity: longer period means greater luminosity. That relationship makes them a <strong>standard candle</strong>: measure the period, read off L, measure b, then solve \(b = L/(4\pi d^2)\) for the distance.</p>
+  <div class="lc-info">📏 <strong>Example</strong> — a Cepheid with a 30-day period has \(L \approx 10\,000\ L_{\text{sun}}\). If its apparent brightness is \(8.4\times10^{-8}\ \text{W m}^{-2}\), then \(d \approx 1.9\times10^{18}\ \text{m} \approx 200\) light years.</div>
+  <p>A <strong>light year</strong> is the distance light travels in one year: \(1\ \text{ly} = (3.00\times10^8)(365\times24\times3600) = 9.46\times10^{15}\) m. The nearest star, Proxima Centauri, is 4.25 ly away.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Black-body spectrum</td><td>Wavelength / m · Intensity</td><td>Bell-shaped curve; peak shifts left as T rises</td><td>λmax from the peak; area under the curve ∝ total power</td></tr>
+      <tr><td>Wien's law</td><td>T / K · λmax / m</td><td>Decreasing curve (inverse proportion)</td><td>λmax T = 2.9 × 10⁻³ m K, constant along the curve</td></tr>
+      <tr><td>Stefan-Boltzmann</td><td>T⁴ / K⁴ · P / W</td><td>Straight line through the origin</td><td>Gradient = σA</td></tr>
+      <tr><td>Apparent brightness vs distance</td><td>d / m · b / W m⁻²</td><td>Decreasing curve (inverse square)</td><td>Halving d gives 4× the brightness</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-05-radiation-and-black-body-emission-04.png" alt="Two black-body spectrum curves at different temperatures with dashed vertical lines marking each peak wavelength and an arrow showing the shift"><div class="lc-cap">Fig 4 — Wien's law: raising the temperature shifts the peak to a shorter wavelength.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-05-radiation-and-black-body-emission-05.png" alt="A straight-line graph of radiated power against temperature to the fourth power, passing through the origin"><div class="lc-cap">Fig 5 — Plotting P against T⁴ turns the Stefan-Boltzmann law into a straight line through the origin, gradient σA.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – Wien's law (B1.5)</h3>
+  <p>Determine the temperature of a surface emitting maximum power at a wavelength of \(5.8\times10^{-7}\) m.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use Wien's displacement law and rearrange for T.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\lambda_{\text{max}} = 5.8\times10^{-7}\) m.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\lambda_{\text{max}}T = 2.9\times10^{-3}\)<br>\(T = \dfrac{2.9\times10^{-3}}{5.8\times10^{-7}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(T = 5.0\times10^{3}\ \text{K}\) — consistent with the Sun's surface temperature.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – a radiating wire (B1.4)</h3>
+  <p>A metal wire at 632 °C, length 80 cm, radius 1.6 mm, behaves as a perfect black body. Calculate the total power it radiates.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> convert T to kelvin, find the wire's curved surface area, then apply the Stefan-Boltzmann law.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(T = 632 + 273 = 905\) K, \(r = 1.6\times10^{-3}\) m, \(l = 0.80\) m.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(A = 2\pi rl = 2\pi(0.0016)(0.80)\)<br>\(= 8.04\times10^{-3}\ \text{m}^2\)<br>\(P = \sigma A T^4\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(P = (5.67\times10^{-8})(8.04\times10^{-3})(905)^4\)<br>\(\approx 3.1\times10^{2}\ \text{W}\) — even a thin wire radiates hundreds of watts when hot.</div></div>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b1-05-radiation-and-black-body-emission-06.png" alt="A thin cylindrical wire labelled with length 80 cm and radius 1.6 mm, radiating outward" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — Geometry for worked example 2. The curved surface area \(2\pi rl\) is what radiates.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 3 – distance to a star</h3>
+  <p>A star has luminosity \(126\,000\ L_{\text{sun}}\) and apparent brightness \(1.4\times10^{-7}\ \text{W m}^{-2}\). Find its distance from Earth.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use the inverse square law and rearrange for d.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(L = 126\,000 \times 3.8\times10^{26}\) W, \(b = 1.4\times10^{-7}\ \text{W m}^{-2}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(b = \dfrac{L}{4\pi d^2}\)<br>\(d = \sqrt{\dfrac{L}{4\pi b}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(d = 5.2\times10^{18}\ \text{m}\).</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: seeing heat without touching it</h3>
+    <p>A handheld infrared thermometer detects the infrared radiation a surface emits, assumes the surface behaves as a black body, and calculates temperature from the detected power. Its readings depend on distance and on the assumed emissivity of the surface being measured.</p>
+    <div class="lc-img" style="max-width:340px;width:100%">
+      <img src="../../assets/lesson-images/b1-05-radiation-and-black-body-emission-07.png" alt="A handheld infrared thermometer pointed at a surface, with a dashed arrow showing infrared radiation reaching its sensor" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 7 — An infrared thermometer reads temperature from the radiation a surface emits, with no contact needed.</div>
+    </div>
+    <div class="lc-success">✓ Examiner tip: emergency survival blankets work because their shiny coating <em>reflects</em> the body's thermal radiation back — a poor emitter is also a poor absorber, which is why the coating stays cool to the touch while doing its job.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – how much hotter to double the output?</h3>
+    <p>Because power depends on \(T^4\), only a small temperature rise is needed to double it. Take an object at 25 °C (298 K):</p>
+    <div class="lc-formula">
+      $$\left(\frac{T_2}{298}\right)^4 = 2$$
+    </div>
+    <p><strong>Challenge:</strong> what temperature doubles the radiated power? <em>Answer: \(T_2 = 298\times2^{1/4} = 354\) K = 81 °C — radiation only needs to rise from 25 °C to 81 °C to double.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Thermal radiation is only infrared</td><td>It spans the whole EM spectrum — visible, UV, IR and beyond — depending on temperature</td></tr>
+      <tr><td>Black bodies are always black</td><td>"Black" refers to perfect absorption; a black body glows visibly once hot enough</td></tr>
+      <tr><td>Hotter objects emit more of every wavelength equally</td><td>The peak shifts to shorter wavelengths (Wien's law); it isn't a uniform scale-up</td></tr>
+      <tr><td>The Sun is green</td><td>Its spectrum peaks near green/blue, but it appears white to the human eye</td></tr>
+      <tr><td>All stars are the same colour</td><td>Colour indicates surface temperature — red is cool, blue is hot</td></tr>
+      <tr><td>Apparent brightness alone tells you luminosity</td><td>Distance also matters: \(b = L/(4\pi d^2)\)</td></tr>
+      <tr><td>Radiation only comes from hot objects</td><td>All objects radiate at all temperatures — hot objects just radiate far more power</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting the fourth power in \(P = \sigma A T^4\) and treating radiated power as proportional to T — a small temperature change then looks far less significant than it really is.</div>
+</div>
+
+<div class="lc-kp">
+  <span>P = σAT⁴</span>
+  <span>σ = 5.67 × 10⁻⁸ W m⁻²K⁻⁴</span>
+  <span>λmax T = 2.9 × 10⁻³ m K</span>
+  <span>b = L/(4πd²)</span>
+  <span>black body: perfect absorber + emitter</span>
+  <span>good absorber = good emitter</span>
+  <span>hotter → shorter λmax, more power</span>
+  <span>Cepheids: standard candles</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. Why does a metal bar glow dull red before it glows white?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> It only starts radiating once it's hot</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Red light travels faster than white light</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> As temperature rises, the peak wavelength shortens and more of the visible spectrum is emitted</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> The bar's surface area increases as it heats up</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. A perfect black body is defined by which property?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','A')"><span class="lc-opt-l">A</span> It absorbs all incident radiation and emits the maximum possible radiation for its temperature</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','A')"><span class="lc-opt-l">B</span> It is literally black in colour at every temperature</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','A')"><span class="lc-opt-l">C</span> It reflects all radiation that falls on it</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','A')"><span class="lc-opt-l">D</span> It only radiates infrared</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. Object A is at 600 K and object B is at 300 K, both black bodies of equal area. How many times more power does A radiate than B?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> 2×</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> 4×</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> 8×</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> 16×</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. A star peaks in intensity at 400 nm. Roughly what is its surface temperature?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 2400 K</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> 4800 K</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> 7250 K</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> 14 500 K</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. Two stars have identical luminosity, but star B is twice as far from Earth as star A. Star B's apparent brightness is</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> half of A's</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> a quarter of A's</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> the same as A's</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> a ninth of A's</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq6">
+  <div class="lc-mcq-q">6. Why do good absorbers of radiation also turn out to be good emitters?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','A')"><span class="lc-opt-l">A</span> A surface that readily absorbs incoming radiation is equally efficient at radiating energy away</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','A')"><span class="lc-opt-l">B</span> Absorption and emission are unrelated surface properties</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','A')"><span class="lc-opt-l">C</span> Only shiny surfaces can emit efficiently</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','A')"><span class="lc-opt-l">D</span> Good absorbers store energy permanently and never re-emit it</div>
+  </div>
+  <div class="lc-fb" id="mcq6-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A perfect <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> absorbs all incident radiation and emits the maximum possible radiation. The power radiated is proportional to the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> power of absolute temperature, described by the <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:170px"> law. The wavelength of peak emission is given by <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px">'s displacement law. Good absorbers of radiation are also good <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:100px">. The total power a star emits is called its <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px">, while the power received per unit area on Earth is its apparent <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:110px">. These are related by the <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:140px"> square law.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> Estimate the exposed skin area of an adult as 1.8 m² at a skin temperature of 35 °C (308 K). Calculate the power radiated, assuming the skin behaves as a black body. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(T = 308\) K, \(A = 1.8\ \text{m}^2\).<br>✓ \(P = \sigma A T^4 = (5.67\times10^{-8})(1.8)(308)^4\).<br>✓ \(P \approx 900\ \text{W}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> Human skin is at approximately 35 °C (308 K). Calculate the wavelength at which it radiates maximum power, and explain how this is used by thermal-imaging cameras. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\lambda_{\text{max}} = \dfrac{2.9\times10^{-3}}{308}\).<br>✓ \(\lambda_{\text{max}} = 9.4\times10^{-6}\ \text{m}\) (infrared).<br>✓ This is invisible to the eye but detectable by an infrared sensor, letting thermal cameras "see" people in the dark.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> Survival blankets used by long-distance runners are thin plastic sheets with a shiny metallic coating. Explain how they help keep a runner warm. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The shiny coating reflects the body's own thermal radiation back towards the body.<br>✓ This prevents radiant heat loss that would otherwise escape.<br>✓ The sheet also blocks wind, preventing heat loss by convection.<br>✓ A shiny surface is a poor emitter as well as a poor absorber, so it does not itself radiate the trapped heat away quickly.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Describe</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> The Sun has a surface area of \(6.1\times10^{18}\ \text{m}^2\) and a surface temperature of 5780 K. <strong>(a)</strong> Calculate its luminosity, assuming it radiates as a black body. <strong>(b)</strong> Describe the colour the Sun appears to an observer, and state roughly where its spectrum peaks. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(L = \sigma A T^4 = (5.67\times10^{-8})(6.1\times10^{18})(5780)^4\).<br>✓ \(L = 3.9\times10^{26}\ \text{W}\).<br>✓ (b) The Sun appears white/yellow to the eye.<br>✓ Its spectrum actually peaks close to 500 nm, in the green/blue part of the visible range.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State / Calculate</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> Betelgeuse has a surface temperature of 3500 K. <strong>(a)</strong> State the colour Betelgeuse appears. <strong>(b)</strong> Calculate its peak wavelength of emission. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Red — a low surface temperature places its peak emission toward the red/near-infrared.<br>✓ (b) \(\lambda_{\text{max}} = \dfrac{2.9\times10^{-3}}{3500}\).<br>✓ \(\lambda_{\text{max}} = 8.29\times10^{-7}\ \text{m}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine (HL)</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> A star has luminosity \(1000\ L_{\text{sun}}\) and surface temperature 15 000 K. Determine the ratio of its surface area to the Sun's, given \(T_{\text{sun}} = 5780\) K. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\dfrac{L_{\text{star}}}{L_{\text{sun}}} = \left(\dfrac{T_{\text{star}}}{T_{\text{sun}}}\right)^4 \times \dfrac{A_{\text{star}}}{A_{\text{sun}}}\).<br>✓ \(1000 = (15000/5780)^4 \times \dfrac{A_{\text{star}}}{A_{\text{sun}}} = 45.4 \times \dfrac{A_{\text{star}}}{A_{\text{sun}}}\).<br>✓ \(\dfrac{A_{\text{star}}}{A_{\text{sun}}} = 22\) — the star's surface area is about 22 times the Sun's.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q7.</strong> An LED lamp radiates a total power of 4.1 W equally in all directions. <strong>(a)</strong> Calculate the intensity at a distance of 2.34 m. <strong>(b)</strong> Calculate the distance at which the intensity falls to 0.40 W m⁻². <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(I = \dfrac{P}{4\pi d^2} = \dfrac{4.1}{4\pi(2.34)^2}\).<br>✓ \(I = 0.0596\ \text{W m}^{-2}\).<br>✓ (b) \(d = \sqrt{\dfrac{P}{4\pi I}} = \sqrt{\dfrac{4.1}{4\pi(0.40)}}\).<br>✓ \(d = 0.90\ \text{m}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q8.</strong> A supernova has luminosity \(1.4\times10^{36}\) W and apparent brightness \(1.9\times10^{-6}\ \text{W m}^{-2}\). Determine its distance from Earth in light years. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(d = \sqrt{\dfrac{L}{4\pi b}} = \sqrt{\dfrac{1.4\times10^{36}}{4\pi(1.9\times10^{-6})}}\).<br>✓ \(d = 7.65\times10^{20}\ \text{m}\).<br>✓ \(d = \dfrac{7.65\times10^{20}}{9.46\times10^{15}}\).<br>✓ \(d = 8.09\times10^{4}\ \text{ly}\).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'The black-body peak shifts to shorter wavelengths as T rises, so the visible portion of the spectrum grows and the colour climbs from red toward white.' },
+    mcq2: { A: 'A black body is defined by its absorption and emission behaviour, not by literally being black in appearance at every temperature.' },
+    mcq3: { D: '(600/300)^4 = 2^4 = 16 — power scales with the fourth power of absolute temperature.' },
+    mcq4: { C: 'T = 2.9e-3 / 400e-9 = 7250 K.' },
+    mcq5: { B: 'b = L/(4*pi*d^2), so doubling d divides brightness by 4 (inverse square law).' },
+    mcq6: { A: 'Good absorbers and good emitters are the same surfaces — absorption and emission efficiency go together.' }
+  },
+  fitb: { lf1:'black body', lf2:'fourth', lf3:'Stefan-Boltzmann', lf4:'Wien', lf5:'emitters', lf6:'luminosity', lf7:'brightness', lf8:'inverse' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
