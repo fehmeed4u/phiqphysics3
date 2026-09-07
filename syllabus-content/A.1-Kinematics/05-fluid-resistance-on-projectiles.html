@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Effects of Fluid Resistance on Projectiles — A.1 Kinematics — φQ Physics</title>
+  <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
+  <style>
+    .lesson-hero {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#A1">A.1 Kinematics</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Effects of Fluid Resistance on Projectiles</span>
+    </nav>
+
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#4F9DFF;background:#4F9DFF18;padding:0.2rem 0.6rem;border-radius:6px">
+            A.1
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 5 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Effects of Fluid Resistance on Projectiles</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">A.1 Kinematics</strong>
+          · Unit A — IB Physics 2023
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to A.1 overview
+      </a>
+      <div class="sidebar-title">A.1 Concepts</div>
+      <a href="01-displacement-velocity-and-acceleration.html" class="sidebar-link">
+          <span class="sidebar-num">01</span>
+          <span>Displacement, Velocity and Acceleration</span>
+        </a>
+      <a href="02-uniformly-accelerated-motion-suvat.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Uniformly Accelerated Motion — SUVAT</span>
+        </a>
+      <a href="03-graphs-of-motion.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>Graphs of Motion</span>
+        </a>
+      <a href="04-projectile-motion.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Projectile Motion</span>
+        </a>
+      <a href="05-fluid-resistance-on-projectiles.html" class="sidebar-link active">
+          <span class="sidebar-num">05</span>
+          <span>Fluid Resistance on Projectiles</span>
+        </a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>5</span> Lesson 5 of 5 · A.1 Kinematics</div>
+<div class="lc-title">Effects of Fluid Resistance on Projectiles</div>
+<div class="lc-sub">Every projectile equation so far assumed no air resistance. Real projectiles move through air, and drag breaks the constant-acceleration model — this lesson works through what changes, qualitatively, in velocity, trajectory, timing, range and terminal speed. SL/HL, no calculation required.</div>
+
+<div class="lc-section">Hook &amp; diagnostic</div>
+<div class="lc-card">
+  <h3>🎯 Hook – same launch, different world</h3>
+  <p>Imagine a projectile launched from ground level with the same initial speed and angle in two situations: <strong>Case A</strong>, in a vacuum, and <strong>Case B</strong>, in normal air. Without doing any calculation, sketch what you think the two trajectories look like on the same axes, then decide which one lands first, which travels farther, and which reaches the greater height.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-05-fluid-resistance-on-projectiles-01.png" alt="Two trajectories on the same axes: a dashed symmetric parabola labelled vacuum, and a solid lower, asymmetric curve labelled air that peaks earlier and descends more steeply" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — The two paths share a launch point and nothing else: the air trajectory is lower, peaks earlier, and comes down steeper than it went up.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — most people correctly guess that air resistance reduces range and height. Does it also change the <em>shape</em> of the path, and does the projectile in air spend more or less total time in flight than the one in vacuum? <em>Yes to both: the air trajectory becomes asymmetric (steeper coming down than going up), and — despite the extra drag — the total time of flight is shorter, because the reduced maximum height cuts much more time off the ascent and descent than drag adds back.</em></div>
+</div>
+
+<div class="lc-section">Core knowledge</div>
+
+<div class="lc-card">
+  <h3>📉 Recap: ideal projectile motion</h3>
+  <p>In the absence of air resistance, a projectile experiences only one force: <strong>weight</strong>. Its acceleration is constant throughout the flight:</p>
+  <div class="lc-formula">
+    $$a_x = 0$$
+    $$a_y = -g$$
+  </div>
+  <p>Horizontal velocity stays constant; vertical velocity changes at a constant rate. The result is a <strong>symmetric parabola</strong> — time up equals time down, and the standard constant-acceleration kinematic equations apply throughout. The question for this lesson is what changes once the projectile moves through air.</p>
+</div>
+
+<div class="lc-card">
+  <h3>💨 Introducing fluid resistance</h3>
+  <p>A projectile moving through air (or any fluid) experiences a <strong>drag force</strong>, or fluid resistance, with three defining features: it always acts <strong>opposite to the velocity</strong> of the projectile, it <strong>increases with speed</strong>, and it depends on the <strong>size, shape</strong> of the projectile and the <strong>density/viscosity</strong> of the fluid.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Drag force on a fast-moving object (context only — not required quantitatively)</span>
+    $$F_d = \tfrac12 C_d \rho A v^2$$
+  </div>
+  <div class="lc-info">📖 For IB purposes you never need to use this equation numerically — but it explains why drag grows sharply with speed (\(v^2\)) and with cross-sectional area \(A\). Because drag changes continuously with speed and direction, the projectile's <strong>acceleration is not constant</strong>, so the SUVAT equations from Lesson 2 no longer apply.</div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-05-fluid-resistance-on-projectiles-02.png" alt="Three free-body diagrams of a ball ascending, at its peak, and descending, each showing a weight arrow straight down and a drag arrow opposing the velocity" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Drag always opposes velocity: down-and-back during ascent, purely horizontal at the peak, up-and-back during descent.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚙️ Effect on velocity and acceleration</h3>
+  <p><strong>Horizontal motion.</strong> In a vacuum the horizontal velocity is constant. In air, drag has a horizontal component that always opposes \(v_x\), so the horizontal velocity <strong>decreases continuously</strong> throughout the flight — it may become very small if the flight lasts long enough.</p>
+  <p><strong>Vertical motion — ascent.</strong> Moving upward, the vertical component of drag points downward, adding to weight:</p>
+  <div class="lc-formula">
+    $$F_{net,y} = -mg - F_{drag,y}$$
+  </div>
+  <p>The magnitude of the vertical acceleration is <strong>greater than \(g\)</strong>: the projectile slows faster than it would in a vacuum, so time to peak and maximum height are both reduced.</p>
+  <p><strong>At the peak.</strong> Vertical velocity is zero, so vertical drag is zero and \(a_y = -g\) exactly. But if horizontal velocity is still nonzero, horizontal drag still acts — so the <strong>net acceleration vector is not purely vertical</strong> at the top.</p>
+  <p><strong>Vertical motion — descent.</strong> Moving downward, the vertical component of drag points upward, opposing weight:</p>
+  <div class="lc-formula">
+    $$F_{net,y} = -mg + F_{drag,y}$$
+  </div>
+  <p>The magnitude of the vertical acceleration is now <strong>less than \(g\)</strong>. If the fall lasts long enough, upward drag grows to equal weight (\(F_{drag} = mg\)); net force and acceleration become zero, and the object falls at a constant <strong>terminal speed</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-05-fluid-resistance-on-projectiles-05.png" alt="Graph of vertical acceleration against time: ideal case a flat line at minus g, real case below that line during ascent, crossing it exactly at the peak, then rising above it during descent and flattening toward zero" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Vertical acceleration is not constant in air: more negative than \(-g\) on the way up, exactly \(-g\) at the peak, less negative on the way down.</div>
+  </div>
+</div>
+
+<div class="lc-section">Pause and check</div>
+<div class="lc-card">
+  <h3>✅ Pause and check</h3>
+  <div class="lc-info">1. True or false: with air resistance, horizontal velocity stays constant after launch. <em>False — horizontal drag decreases it continuously.</em></div>
+  <div class="lc-info">2. At the exact instant a ball reaches maximum height, what is its vertical acceleration? <em>\(g\) downward — vertical velocity is zero, so vertical drag is zero.</em></div>
+  <div class="lc-info">3. During the upward part of the flight, is the vertical acceleration greater than, equal to, or less than \(g\)? <em>Greater than \(g\) — drag adds to the downward force.</em></div>
+</div>
+
+<div class="lc-section">Graph mastery</div>
+<div class="lc-card">
+  <h3>📊 Reading the velocity and acceleration graphs</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph</th><th>Axes</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Horizontal velocity vs time</td><td>time, \(v_x\)</td><td>Ideal: flat line. Real: curve decaying from the launch value toward zero, never negative.</td><td>Drag continuously slows the horizontal motion — it never reverses it.</td></tr>
+      <tr><td>Vertical velocity vs time</td><td>time, \(v_y\)</td><td>Ideal: straight line, constant negative slope. Real: steeper negative slope on the way up, crosses zero earlier, then a gentler curve approaching a negative terminal value.</td><td>The changing slope is the changing vertical acceleration; the flattening tail is terminal speed.</td></tr>
+      <tr><td>Vertical acceleration vs time</td><td>time, \(a_y\)</td><td>Ideal: flat line at \(-g\). Real: below \(-g\) during ascent, exactly \(-g\) at the peak, above \(-g\) during descent, flattening toward zero.</td><td>Confirms acceleration is non-uniform — the reason SUVAT cannot be used.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/a1-05-fluid-resistance-on-projectiles-03.png" alt="Graph of horizontal velocity against time: ideal case a flat horizontal line, real case a curve decaying gradually toward zero without going negative" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 4 — Horizontal velocity in air decays toward zero; it never becomes negative.</div>
+    </div>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/a1-05-fluid-resistance-on-projectiles-04.png" alt="Graph of vertical velocity against time: ideal case a straight line of constant negative slope, real case starting steeper, crossing zero earlier, then curving gently toward a negative terminal value" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 5 — Vertical velocity in air crosses zero earlier and approaches a terminal value rather than growing without limit.</div>
+    </div>
+  </div>
+</div>
+
+<div class="lc-section">Worked example</div>
+<div class="lc-card">
+  <h3>✍️ Worked example A1.5 — a feather and a coin, dropped together</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> both objects fall from rest through air and both experience drag opposing their motion; the question is which reaches terminal speed first, and which has the greater terminal speed.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> the feather has very low weight and a large area relative to its mass; the coin has much greater weight and a small area relative to its mass. Terminal speed occurs when \(F_{drag} = \text{weight}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Reasoning:</strong> because drag grows with speed, a smaller weight needs only a small drag force — and therefore a low speed — to be balanced. A larger weight needs a much larger drag force, which only builds up at higher speed.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> the feather reaches terminal speed almost immediately, at a very low speed. The coin takes longer to reach terminal speed, but its terminal speed is much greater.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/a1-05-fluid-resistance-on-projectiles-06.png" alt="Tall column of glycerine with two falling spheres: a small sphere just released with a large weight arrow and small drag arrow, and a sphere further down at terminal speed with equal-sized weight and drag arrows" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — At terminal speed the drag arrow and weight arrow are drawn the same length: the net force is zero.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🏃 Real-world application — sport and skydiving</h3>
+    <p>Javelins, shots and shuttlecocks are all shaped to control how drag affects their flight — a javelin is streamlined to minimise drag and keep its trajectory close to the ideal parabola, while a shuttlecock is deliberately shaped to maximise drag and decelerate sharply. A skydiver in free fall is the clearest terminal-speed example: weight is constant, drag grows with speed until it equals weight, and the skydiver then falls at a constant speed until the parachute changes their area and drag coefficient.</p>
+    <div class="lc-success">✓ Examiner tip: IB questions on this topic ask for <strong>qualitative</strong> reasoning about direction and relative size of forces — never for a numerical drag calculation. Answer in terms of "greater than / less than / equal to \(g\)" and the direction of the drag force.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🔬 HL extension — how strongly does drag depend on speed?</h3>
+    <p>The drag equation \(F_d = \tfrac12 C_d \rho A v^2\) shows drag is proportional to \(v^2\), not \(v\). This is why drag becomes so significant at high speed even though it may be negligible near the top of a trajectory, where speed is lowest.</p>
+    <div class="lc-warn">🧠 Challenge: if a projectile's speed doubles, by what factor does the drag force increase (with \(C_d\), \(\rho\), \(A\) unchanged)? <em>Four times — drag depends on \(v^2\), so doubling \(v\) quadruples \(F_d\).</em></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"The projectile's acceleration is zero at the top."</td><td>The vertical acceleration is still \(g\) downward at the peak. There may also be a horizontal drag force if horizontal velocity is still nonzero, but vertical acceleration is not zero.</td></tr>
+      <tr><td>"Air resistance always reduces the time of fall."</td><td>Air resistance reduces the total time of flight, but the falling part alone usually takes <em>longer</em> than the rising part, because vertical acceleration is smaller than \(g\) on the way down.</td></tr>
+      <tr><td>"A lighter object always experiences more drag."</td><td>Drag depends on speed, area and shape, not on weight directly. A coin has less drag than a feather at the same speed, but reaches a far higher terminal speed because its weight is much greater.</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ The single most common slip: writing \(a = 0\) at the top of the flight. Vertical acceleration there is exactly \(-g\) — only the vertical <em>velocity</em> is zero.</div>
+</div>
+
+<div class="lc-kp">
+  <span>Drag always opposes velocity</span>
+  <span>Drag increases with speed</span>
+  <span>Horizontal velocity decreases continuously</span>
+  <span>\(a_y > g\) during ascent</span>
+  <span>\(a_y = g\) vertically at the peak</span>
+  <span>\(a_y < g\) during descent</span>
+  <span>Trajectory is asymmetric — descent is steeper</span>
+  <span>Terminal speed: \(F_{drag} = mg\)</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. With air resistance, the horizontal component of a projectile's velocity:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> remains constant</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> increases</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> decreases continuously</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> decreases to a constant terminal speed</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. At the highest point of a projectile's motion in air, the vertical component of acceleration is:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> zero</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> \(g\) downward</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> greater than \(g\) downward</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> less than \(g\) downward</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. Compared with the same projectile in a vacuum, a projectile in air has:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> a longer time of flight</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> a shorter time of flight</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> the same time of flight</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> a longer range</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. Terminal speed is reached when:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> weight is greater than drag</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> drag is greater than weight</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> drag equals weight</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> the object stops moving</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. During the upward part of a projectile's flight in air, the magnitude of the vertical acceleration is:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','A')"><span class="lc-opt-l">A</span> greater than \(g\)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','A')"><span class="lc-opt-l">B</span> equal to \(g\)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','A')"><span class="lc-opt-l">C</span> less than \(g\)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','A')"><span class="lc-opt-l">D</span> zero</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq6">
+  <div class="lc-mcq-q">6. A feather and a coin are dropped from the same height in air. The coin reaches the ground first because:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','B')"><span class="lc-opt-l">A</span> it has no air resistance</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','B')"><span class="lc-opt-l">B</span> it has a higher terminal speed</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','B')"><span class="lc-opt-l">C</span> its acceleration is always greater than \(g\)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','B')"><span class="lc-opt-l">D</span> the feather has zero weight</div>
+  </div>
+  <div class="lc-fb" id="mcq6-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq7">
+  <div class="lc-mcq-q">7. Which of the following correctly describes the trajectory of a projectile moving in air?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq7',this,'A','C')"><span class="lc-opt-l">A</span> symmetric parabola</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq7',this,'B','C')"><span class="lc-opt-l">B</span> asymmetric curve with a steeper ascent</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq7',this,'C','C')"><span class="lc-opt-l">C</span> asymmetric curve with a steeper descent</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq7',this,'D','C')"><span class="lc-opt-l">D</span> straight line</div>
+  </div>
+  <div class="lc-fb" id="mcq7-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq8">
+  <div class="lc-mcq-q">8. A projectile in air is moving to the right and downward. The direction of the drag force on it is:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq8',this,'A','C')"><span class="lc-opt-l">A</span> upward</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq8',this,'B','C')"><span class="lc-opt-l">B</span> downward and to the right</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq8',this,'C','C')"><span class="lc-opt-l">C</span> upward and to the left</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq8',this,'D','C')"><span class="lc-opt-l">D</span> horizontally to the left</div>
+  </div>
+  <div class="lc-fb" id="mcq8-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+<div class="lc-card">
+  <div class="lc-fitb">
+    <p>1. Drag force always acts <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> to the projectile's velocity.</p>
+    <p>2. In air, the horizontal component of velocity <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> continuously throughout the flight.</p>
+    <p>3. Terminal speed is reached when the drag force becomes equal to the projectile's <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px">.</p>
+    <p>4. Compared with the ideal symmetric parabola, the trajectory in air is <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">, with a steeper descent than ascent.</p>
+    <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+    <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+  </div>
+</div>
+
+<div class="lc-section">Exam-style questions</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch / Explain / Draw / Describe</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> A small ball is thrown from ground level at an angle to the horizontal, once in a vacuum and once in air, with the same initial velocity both times.<br>
+  (a) Sketch the two trajectories on the same axes, labelling each. <span class="lc-exam-marks">[2 marks]</span><br>
+  (b) Explain why the range in air is smaller than the range in vacuum. <span class="lc-exam-marks">[2 marks]</span><br>
+  (c) At the highest point of the ball's motion in air, draw and label the forces acting on it. <span class="lc-exam-marks">[2 marks]</span><br>
+  (d) During the descent the ball reaches terminal speed. Describe the forces acting and state the ball's acceleration. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Vacuum: symmetric parabola, dashed. Air: solid curve below it, peaking earlier and lower, landing closer to the launch point, steeper on the way down.<br>✓ (b) Horizontal velocity continuously decreases due to drag, and the total time of flight is shorter (lower maximum height), so the ball covers less horizontal distance before landing.<br>✓ (c) Weight vector straight down; drag vector horizontal, opposing the (purely horizontal) velocity at the peak.<br>✓ (d) Drag (upward) equals weight (downward); net force is zero; acceleration is zero — the ball falls at constant speed.</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> A skydiver jumps from an aircraft. Describe how the skydiver's acceleration and velocity change from the moment of jumping until terminal speed is reached, referring to the forces acting on the skydiver. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ At the moment of jumping, speed is zero so drag is zero: acceleration is \(g\) downward.<br>✓ As speed increases, drag (upward) increases, so the net downward force decreases and acceleration decreases below \(g\).<br>✓ Velocity keeps increasing, but at a decreasing rate, as acceleration falls.<br>✓ Eventually drag equals weight; net force and acceleration become zero, and the skydiver falls at a constant terminal speed.</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> A projectile is launched horizontally from a high cliff in air. Explain why its vertical acceleration is not equal to \(g\) throughout the motion. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ As the projectile falls, drag acts upward, opposing the downward motion, so the net downward force is \(mg - F_{drag}\), less than \(mg\).<br>✓ The vertical acceleration is therefore less than \(g\) in magnitude, not equal to it.<br>✓ As speed increases, drag increases further, so acceleration continues to fall — approaching zero if terminal speed is reached — rather than staying constant at \(g\).</div>
+</div>
+
+<div class="lc-score-row"><div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div></div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Horizontal drag opposes v_x continuously, so it decays toward zero — it never stays constant or reverses.' },
+    mcq2: { B: 'Vertical velocity is zero at the peak, so vertical drag is zero and a_y = g downward exactly.' },
+    mcq3: { B: 'The much lower maximum height cuts more time off the flight than drag adds back, so total time of flight is shorter.' },
+    mcq4: { C: 'Terminal speed is defined by zero net force: drag exactly balances weight.' },
+    mcq5: { A: 'On the way up, drag adds to weight in the downward direction, so |a_y| > g.' },
+    mcq6: { B: 'The coin has far greater weight relative to its area, so it needs a much larger drag force — and higher speed — to balance it.' },
+    mcq7: { C: 'Drag shortens and lowers the ascent; the descent, with reduced horizontal speed, is steeper.' },
+    mcq8: { C: 'Drag always opposes velocity: velocity is right-and-down, so drag is left-and-up.' }
+  },
+  fitb: { lf1: 'opposite', lf2: 'decreases', lf3: 'weight', lf4: 'asymmetric' }
+});
+</script>
+
+</div>
+      <!-- LESSON-END -->
+      </div>
+
+      <div class="lesson-nav">
+        <a href="04-projectile-motion.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Projectile Motion</div>
+          </div>
+        </a>
+        <a href="../A.2-Forces-and-Momentum/index.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Forces and Momentum</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
