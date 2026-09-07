@@ -51,8 +51,8 @@ window.PHYQ_TOPICS = [
     "t": "Projectile Motion"
    },
    {
-    "f": "05-relative-motion.html",
-    "t": "Relative Motion"
+    "f": "05-fluid-resistance-on-projectiles.html",
+    "t": "Fluid Resistance on Projectiles"
    }
   ]
  },
