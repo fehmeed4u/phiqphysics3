@@ -188,20 +188,20 @@ window.PHYQ_TOPICS = [
   "folder": "B.1-Thermal-Energy",
   "lessons": [
    {
-    "f": "01-specific-heat-capacity.html",
+    "f": "01-temperature-and-internal-energy.html",
+    "t": "Temperature and Internal Energy"
+   },
+   {
+    "f": "02-specific-heat-capacity.html",
     "t": "Specific Heat Capacity"
    },
    {
-    "f": "02-specific-latent-heat.html",
+    "f": "03-specific-latent-heat.html",
     "t": "Specific Latent Heat"
    },
    {
-    "f": "03-conduction.html",
-    "t": "Conduction"
-   },
-   {
-    "f": "04-convection.html",
-    "t": "Convection"
+    "f": "04-conduction-and-convection.html",
+    "t": "Conduction and Convection"
    },
    {
     "f": "05-radiation-and-black-body-emission.html",
