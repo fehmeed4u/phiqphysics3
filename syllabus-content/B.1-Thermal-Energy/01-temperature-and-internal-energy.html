@@ -167,28 +167,312 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Temperature and Internal Energy</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B1" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 5 · B.1 Thermal Energy Transfers</div>
+<div class="lc-title">Temperature and Internal Energy</div>
+<div class="lc-sub">Every substance is a swarm of particles in constant motion. This lesson builds the vocabulary — internal energy, thermal energy, temperature — needed to describe that motion precisely, then connects it to the microscopic equation that defines what temperature actually is.</div>
+
+<div class="lc-card">
+  <h3>🥇 Hook – the gold leaf mystery</h3>
+  <p>Imagine you're in Thailand, watching someone place delicate gold leaf onto a Buddha statue. The gold is hammered so thin you could almost see through it. Here's the challenge: <strong>if you had just 1 gram of gold, how large a sheet of gold leaf could you make?</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-01-temperature-and-internal-energy-01.png" alt="Gold leaf being applied to a statue, with a small gold cube and a large thin gold sheet showing the mass-to-area transformation" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Gold leaf is hammered thin enough to see through. A single gram covers an area you wouldn't expect.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — how can a single gram of gold cover such a large area? What does this tell us about the arrangement of gold atoms? <em>Gold atoms pack together with almost no empty space between them, so a given mass occupies a very small volume — and a small volume, spread thin enough, stretches a long way. We'll calculate exactly how far later in this lesson.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🧩 Internal energy, thermal energy and heat</h3>
+  <p>All substances contain particles with kinetic and potential energy. The total of these is <strong>internal energy</strong>. Energy transferred from a hotter object to a colder one is <strong>thermal energy</strong> — also called <strong>heat</strong>. These are three separate terms and it matters which one you use.</p>
+  <table class="lc-table">
+    <thead><tr><th>Term</th><th>Definition in this course</th><th>Common misconception</th></tr></thead>
+    <tbody>
+      <tr><td>Internal energy</td><td>Total kinetic + potential energy of ALL particles in a substance</td><td>Often confused with "heat"</td></tr>
+      <tr><td>Thermal energy</td><td>The <em>transfer</em> of energy due to a temperature difference</td><td>Incorrectly used as "energy inside"</td></tr>
+      <tr><td>Heat</td><td>Same as thermal energy (a transfer)</td><td>Widely misused interchangeably with internal energy</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-info">🤔 <strong>TOK</strong> — does the precision of language in physics eliminate all ambiguity? Why do we have three terms for such similar concepts?</div>
+  <p>The kinetic theory of matter explains this in terms of particle arrangement. Complete this table for the three states:</p>
+  <table class="lc-table">
+    <thead><tr><th>Property</th><th>Solid</th><th>Liquid</th><th>Gas</th></tr></thead>
+    <tbody>
+      <tr><td>Arrangement</td><td>Regular pattern</td><td>No pattern</td><td>No pattern</td></tr>
+      <tr><td>Forces between particles</td><td>Strong, fixed positions</td><td>Some forces overcome</td><td>Negligible</td></tr>
+      <tr><td>Separation</td><td>Close together</td><td>Still close</td><td>Much further apart</td></tr>
+      <tr><td>Motion</td><td>Vibrate in fixed positions</td><td>Limited random movement</td><td>High-speed random motion</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-01-temperature-and-internal-energy-02.png" alt="Particle arrangement diagrams for solid, liquid and gas states" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Solids: a fixed lattice, particles vibrating in place. Liquids: still close, but free to slide past each other. Gases: widely separated, moving randomly.</div>
+  </div>
+  <p>Gas molecules are spaced roughly <strong>10 molecular diameters</strong> apart — about 1000× more than in a liquid or solid. That's why you can walk through air but not through a wall.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Density · SI unit kg m⁻³</span>
+    $$\rho = \frac{m}{V}$$
+  </div>
+  <p>Example: 125 g of olive oil has a volume of 137 cm³. Converting, \(m = 0.125\) kg and \(V = 1.37\times10^{-4}\) m³, so \(\rho = 0.125 / (1.37\times10^{-4}) = 912\ \text{kg m}^{-3}\).</p>
+</div>
+
+<div class="lc-card">
+  <h3>🌡️ Temperature scales</h3>
+  <p>The <strong>Celsius scale</strong> is fixed by the freezing point of water (0°C) and its boiling point (100°C), with 100 equal divisions between them.</p>
+  <p>The <strong>Kelvin scale</strong> is absolute: zero kelvin (0 K) is <strong>absolute zero</strong>, -273.15°C, the coldest temperature physically possible. A change of 1 K equals a change of 1°C.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Celsius ↔ Kelvin</span>
+    $$T(\text{K}) = \theta(°\text{C}) + 273$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-01-temperature-and-internal-energy-03.png" alt="Celsius and Kelvin thermometer scales side by side with matching fill heights" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — The two scales share the same size of division; they only differ in where zero is placed.</div>
+  </div>
+  <table class="lc-table">
+    <thead><tr><th>Task</th><th>Answer</th></tr></thead>
+    <tbody>
+      <tr><td>Convert -114°C to K</td><td>159 K</td></tr>
+      <tr><td>Convert 933 K to °C</td><td>660°C</td></tr>
+      <tr><td>Change from +10°C to -10°C, in K</td><td>20 K change</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="lc-card">
+  <h3>⚛️ The microscopic view — the Boltzmann connection</h3>
+  <p>Temperature isn't just a number on a scale — it's a measure of how energetically particles are moving. For an ideal gas, the average random translational kinetic energy per particle is:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Average kinetic energy per particle</span>
+    $$\bar{E}_{\text{k}} = \tfrac{3}{2}k_{\text{B}}T$$
+  </div>
+  <p>where \(k_{\text{B}} = 1.38\times10^{-23}\ \text{J K}^{-1}\) is the <strong>Boltzmann constant</strong> and \(T\) is temperature in kelvin.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-01-temperature-and-internal-energy-04.png" alt="Two groups of molecules, faster hot molecules on the left and slower cold molecules on the right, with collision arrows transferring energy between them" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — Faster (hotter) particles collide with slower (cooler) ones, transferring kinetic energy until the two groups share the same average.</div>
+  </div>
+  <div class="lc-info">✈️ <strong>The moving aircraft problem</strong> — a gas cylinder at 20°C is placed on an aircraft flying at 200 m s⁻¹. What happens to the temperature? <em>The ordered motion of the aircraft adds to the ordered kinetic energy of the particles, but the random kinetic energy — the part that determines temperature — is unchanged. The temperature does not increase.</em></div>
+  <p><strong>Internal energy</strong> is the total random kinetic energy plus the total potential energy of all the particles in a substance. Particles can have three forms of kinetic energy: <strong>vibrational</strong> (oscillating about a fixed position, dominant in solids), <strong>translational</strong> (moving from place to place, dominant in liquids and gases), and <strong>rotational</strong> (molecules spinning). In solids and liquids, electrical forces between particles give significant potential energy; in gases, particles are too far apart for this to matter, so internal energy there is almost entirely kinetic.</p>
+  <div class="lc-formula">
+    $$U = E_{\text{k}} + E_{\text{p}}$$
+  </div>
+  <div class="lc-info">📜 <strong>Nature of Science</strong> — before kinetic theory, scientists believed in "caloric fluid", an invisible fluid flowing from hot to cold objects. It couldn't explain why rubbing your hands together generates heat with no fluid flowing anywhere.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery – reading temperature graphs</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Cooling / warming curves</td><td>Time · Temperature</td><td>One curve falls, one rises, both level off and meet</td><td>The point where the curves converge is thermal equilibrium — same final temperature, no more net transfer</td></tr>
+      <tr><td>Average KE vs temperature</td><td>Temperature, \(T\) / K · \(\bar{E}_{\text{k}}\) / J</td><td>Straight line through the origin</td><td>Gradient = \(\tfrac32 k_{\text{B}}\); doubling \(T\) doubles \(\bar{E}_{\text{k}}\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-01-temperature-and-internal-energy-05.png" alt="Cooling and warming curves converging to a shared final temperature over time"><div class="lc-cap">Fig 5 — A hot object cools, a cold object warms, and both level off at the same final temperature: thermal equilibrium.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-01-temperature-and-internal-energy-06.png" alt="Straight line graph of average kinetic energy against temperature through the origin"><div class="lc-cap">Fig 6 — \(\bar{E}_{\text{k}}\) is directly proportional to \(T\) in kelvin — never to a Celsius temperature.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – the gold leaf problem</h3>
+  <p>Gold has density 19,300 kg m⁻³. What area of foil of thickness \(1.80\times10^{-5}\) cm can be made from 1.0 g of gold?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the volume of gold is fixed; use \(\rho = m/V\) to find it, then divide by the thickness to get area.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 1.0\times10^{-3}\) kg, \(\rho = 19{,}300\ \text{kg m}^{-3}\), thickness \(= 1.80\times10^{-5}\) cm \(= 1.80\times10^{-7}\) m.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(V = m/\rho = (1.0\times10^{-3})/(19{,}300) = 5.18\times10^{-8}\ \text{m}^3\)<br>Area \(= V / \text{thickness}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> Area \(= (5.18\times10^{-8})/(1.80\times10^{-7}) = 0.288\ \text{m}^2\) — nearly the size of a sheet of paper, from just 1 gram of gold.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-01-temperature-and-internal-energy-07.png" alt="Diagram showing a small gold cube transformed into a large thin gold sheet with volume, thickness and area labelled">
+    <div class="lc-cap">Fig 7 — Same volume, different shape: a 5.18×10⁻⁸ m³ cube of gold flattened to a sheet 1.80×10⁻⁷ m thick covers 0.288 m².</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – average kinetic energy at room temperature</h3>
+  <p>Calculate the average kinetic energy of gas molecules at room temperature, 20°C.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(\bar{E}_{\text{k}} = \tfrac32 k_{\text{B}} T\); temperature must be in kelvin.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\theta = 20°\text{C}\), so \(T = 20 + 273 = 293\) K. \(k_{\text{B}} = 1.38\times10^{-23}\ \text{J K}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\bar{E}_{\text{k}} = 1.5 \times (1.38\times10^{-23}) \times 293\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\bar{E}_{\text{k}} = 6.1\times10^{-21}\ \text{J}\) per particle.</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: why ice floats</h3>
+    <p>Water reaches its maximum density at 4°C. Ice is less dense than liquid water — 910 kg m⁻³ compared with 1000 kg m⁻³ — so it floats. This is why lakes freeze from the top down, insulating the water below and letting fish survive winter in liquid water beneath the ice.</p>
+    <div class="lc-success">✓ Examiner tip: "ice floats because it's frozen" earns nothing. State the actual densities and say ice is <em>less dense</em> than the water it forms in.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – the full kinetic theory equation</h3>
+    <p>The equation \(\bar{E}_{\text{k}} = \tfrac32 k_{\text{B}}T\) comes from a more complete kinetic theory result linking pressure, volume and molecular speed:</p>
+    <div class="lc-formula">
+      $$PV = \tfrac{1}{3}Nm\overline{v^2}$$
+    </div>
+    <p>where \(N\) is the number of particles, \(m\) the mass of one particle, and \(\overline{v^2}\) the mean square speed.<br>
+    <strong>Challenge:</strong> if a fixed volume of gas is heated so its temperature doubles (in kelvin), what happens to the pressure, assuming volume and particle number stay fixed? <em>Answer: pressure doubles — \(\bar{E}_{\text{k}} \propto T\) and \(PV \propto Nm\overline{v^2} \propto \bar{E}_{\text{k}}\), so at fixed \(V\) and \(N\), \(P \propto T\).</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Heat is energy stored inside a hot object</td><td>Heat (thermal energy) is energy <em>in transit</em> because of a temperature difference — it is never "contained"</td></tr>
+      <tr><td>Internal energy and thermal energy mean the same thing</td><td>Internal energy is the total \(E_{\text{k}}+E_{\text{p}}\) of all particles; thermal energy is specifically the transfer between objects at different temperatures</td></tr>
+      <tr><td>A faster-moving reference frame makes gas molecules hotter</td><td>Only random kinetic energy determines temperature — the aircraft's ordered motion doesn't add to it</td></tr>
+      <tr><td>Gases have large potential energy between particles</td><td>Gas particles are far apart, so potential energy is negligible; almost all their internal energy is kinetic</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: describing heat as something an object "has" or "contains". Heat/thermal energy is always a transfer between two objects at different temperatures — say "energy transferred", never "heat contained".</div>
+</div>
+
+<div class="lc-kp">
+  <span>U = Ek + Ep</span>
+  <span>thermal energy = energy in transit</span>
+  <span>T(K) = θ(°C) + 273</span>
+  <span>Ēk = (3/2)kBT</span>
+  <span>kB = 1.38×10⁻²³ J K⁻¹</span>
+  <span>ρ = m/V</span>
+  <span>thermal equilibrium: no net transfer</span>
+  <span>conduction · convection · radiation</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. Which best describes the difference between thermal energy and internal energy?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> They are identical terms for the same quantity</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> Internal energy is the total Ek + Ep of all particles in a substance; thermal energy is the energy transferred due to a temperature difference</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> Thermal energy is stored inside a hot object; internal energy is not</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> Internal energy only applies to gases</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. 300 K is equivalent to</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','A')"><span class="lc-opt-l">A</span> 27°C</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','A')"><span class="lc-opt-l">B</span> 300°C</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','A')"><span class="lc-opt-l">C</span> -27°C</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','A')"><span class="lc-opt-l">D</span> 573°C</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. The average translational kinetic energy of a gas particle at 50°C is closest to</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> \(6.7\times10^{-21}\) J</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> \(4.1\times10^{-21}\) J</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> \(1.38\times10^{-23}\) J</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> \(3.3\times10^{2}\) J</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. Thermal energy can transfer across a vacuum by</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> Conduction</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> Convection</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> Radiation</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> No mechanism transfers energy across a vacuum</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. A sealed gas cylinder at 20°C is placed on an aircraft flying at 200 m s⁻¹. Measured on the aircraft, the gas temperature</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> Increases, because molecules gain extra kinetic energy from the plane's motion</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> Stays the same — the aircraft's ordered motion doesn't add to the gas's random kinetic energy</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> Decreases due to lower air pressure at altitude</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> Doubles</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Internal energy is the total random kinetic energy plus the total <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> energy of all the particles in a substance. Thermal energy describes the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> of energy due to a temperature difference. The kelvin scale is related to Celsius by \(T(\text{K}) = \theta(°\text{C}) + \) <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:70px">. The average kinetic energy of a gas particle is given by \(\bar{E}_{\text{k}} = \tfrac32\) <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:70px"> \(T\). Particles in a solid have mainly <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:120px"> kinetic energy, while particles in a gas have mainly <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:120px"> kinetic energy. Two objects in thermal contact reach thermal <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:120px"> when there is no net transfer of energy between them.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> Explain the difference between thermal energy and internal energy. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Internal energy is the total kinetic + potential energy of all the particles in a substance.<br>✓ Thermal energy (heat) is the energy transferred between objects because of a temperature difference — it is not a stored quantity.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> Convert 300 K to degrees Celsius. <span class="lc-exam-marks">[1 mark]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\theta = T - 273 = 300 - 273 = 27°\text{C}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> Calculate the average translational kinetic energy of a gas particle at 50°C. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(T = 50 + 273 = 323\) K.<br>✓ \(\bar{E}_{\text{k}} = 1.5 \times (1.38\times10^{-23}) \times 323\)<br>✓ \(\bar{E}_{\text{k}} = 6.7\times10^{-21}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> State two forms of kinetic energy that particles can have, other than translational. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Vibrational — particles oscillating about a fixed position, dominant in solids.<br>✓ Rotational — molecules spinning, seen in gases and liquids.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> Explain why thermal energy can be transferred across a vacuum. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Thermal radiation is electromagnetic waves emitted by a surface.<br>✓ Electromagnetic waves require no medium to travel, so radiation — unlike conduction or convection — works through a vacuum.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that / Calculate</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> A gold ring has a mass of 3.20 g and a volume of \(1.66\times10^{-7}\) m³. The density of gold is 19,300 kg m⁻³. <strong>(a)</strong> Show that this volume is consistent with the ring being pure gold. <strong>(b)</strong> The same 3.20 g of gold is instead hammered into a foil of thickness \(2.00\times10^{-7}\) m. Calculate the area of the foil. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(V = m/\rho = (3.20\times10^{-3})/19{,}300 = 1.66\times10^{-7}\ \text{m}^3\) — matches the given volume.<br>✓ (b) Same volume, area \(= V/\text{thickness}\)<br>✓ \(= (1.66\times10^{-7})/(2.00\times10^{-7})\)<br>✓ \(= 0.829\ \text{m}^2\).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Internal energy is a total stored quantity (Ek + Ep of every particle); thermal energy is specifically a transfer caused by a temperature difference.' },
+    mcq2: { A: 'θ = T - 273 = 300 - 273 = 27°C.' },
+    mcq3: { A: 'T = 323 K, Ek = 1.5 x 1.38e-23 x 323 = 6.7 x 10^-21 J.' },
+    mcq4: { C: 'Radiation is electromagnetic waves, which need no medium — the only one of the three mechanisms that works in a vacuum.' },
+    mcq5: { B: 'Temperature depends only on random kinetic energy. The aircraft adds ordered motion, which doesn\'t change the random KE, so the temperature is unchanged.' }
+  },
+  fitb: { lf1:'potential', lf2:'transfer', lf3:'273', lf4:'kB', lf5:'vibrational', lf6:'translational', lf7:'equilibrium' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
