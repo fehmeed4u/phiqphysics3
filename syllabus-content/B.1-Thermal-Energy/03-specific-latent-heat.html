@@ -167,28 +167,345 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Specific Latent Heat</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B1" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 5 · B.1 Thermal Energy Transfers</div>
+<div class="lc-title">Specific Latent Heat</div>
+<div class="lc-sub">A substance's temperature stops changing while it melts or boils, even though energy keeps flowing in. This lesson explains where that energy goes, and gives you the tools to calculate it.</div>
+
+<div class="lc-card">
+  <h3>🍫 Hook – the chocolate mystery</h3>
+  <p>You're holding a piece of chocolate. It starts to melt. Your hand feels cooler. But if the chocolate is gaining energy to melt, why does your hand feel colder? And why does the chocolate stay at the same temperature while it melts, even though energy is being transferred into it? Many chocolates melt at around 30–40°C — close to body temperature — which is why they melt in contact with your skin.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-03-specific-latent-heat-01.png" alt="Chocolate softening and melting in a hand, with a thermometer showing a melting point of around 30-40 degrees Celsius" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — chocolate's melting point sits close to body temperature, which is why it melts on contact with skin.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Class discussion</strong> — if energy is being transferred to the chocolate, why doesn't its temperature increase while it's melting? Where does that energy go? <em>The energy goes into weakening the intermolecular bonds holding the solid lattice together, not into speeding the particles up — so temperature (which measures average kinetic energy) stays constant.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🧊 States of matter and phase changes</h3>
+  <p>A <strong>phase</strong> is a region where all physical and chemical properties are uniform — ice and liquid water are two phases of the same substance.</p>
+  <table class="lc-table">
+    <thead><tr><th>Term</th><th>Definition</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Melting / fusion</td><td>Solid → liquid</td><td>Ice → water at 0°C</td></tr>
+      <tr><td>Freezing / solidifying</td><td>Liquid → solid</td><td>Water → ice at 0°C</td></tr>
+      <tr><td>Boiling</td><td>Liquid → gas throughout the liquid, at a precise temperature</td><td>Water → steam at 100°C</td></tr>
+      <tr><td>Evaporation</td><td>Liquid → gas at the surface, at any temperature below boiling</td><td>Puddles drying</td></tr>
+      <tr><td>Condensation</td><td>Gas → liquid</td><td>Steam → water droplets</td></tr>
+      <tr><td>Vaporization</td><td>General term for liquid → gas (boiling or evaporation)</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-03-specific-latent-heat-02.png" alt="Diagram of solid, liquid and gas states with labelled arrows for melting, freezing, boiling, evaporation and condensation" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — all six phase transitions between solid, liquid and gas.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>💧 Boiling vs evaporation</h3>
+  <table class="lc-table">
+    <thead><tr><th>Feature</th><th>Evaporation</th><th>Boiling</th></tr></thead>
+    <tbody>
+      <tr><td>Temperature</td><td>Any temperature below the boiling point</td><td>Precise temperature (the boiling point)</td></tr>
+      <tr><td>Location</td><td>Only at the surface</td><td>Throughout the liquid</td></tr>
+      <tr><td>Energy source</td><td>From the liquid itself (cooling effect)</td><td>From an external heat source</td></tr>
+      <tr><td>Rate</td><td>Slow, depends on surface area</td><td>Rapid, vigorous bubbling</td></tr>
+      <tr><td>Pressure dependence</td><td>Less dependent on pressure</td><td>Highly dependent on pressure</td></tr>
+    </tbody>
+  </table>
+  <p><strong>The cooling effect of evaporation:</strong> the most energetic molecules escape from the surface. This reduces the <strong>average kinetic energy</strong> of the molecules left behind, so the liquid's temperature decreases. Energy must then flow in from the surroundings to restore balance — this is exactly why sweating cools the body, why refrigerators and air conditioners work, and why misting systems cool outdoor spaces.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-03-specific-latent-heat-05.png" alt="Molecules near a liquid surface, with the most energetic ones escaping upward into the gas phase while random motion continues below the surface" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 5 — the most energetic molecules escape the surface, lowering the average kinetic energy — and therefore the temperature — of those left behind.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🌫️ Humidity and fans</h3>
+  <p>Humidity affects how fast evaporation can happen. At 20°C, air can hold at most about 17 g m⁻³ of water vapour; at 30°C, about 30 g m⁻³. Humidity is the actual amount of vapour present as a fraction of that maximum.</p>
+  <table class="lc-table">
+    <thead><tr><th>Humidity</th><th>Evaporation rate</th><th>Cooling effect</th></tr></thead>
+    <tbody>
+      <tr><td>Low</td><td>Fast</td><td>Good cooling</td></tr>
+      <tr><td>High</td><td>Slow</td><td>Poor cooling</td></tr>
+      <tr><td>100%</td><td>No net evaporation</td><td>No cooling</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Fans do <strong>not</strong> directly reduce air temperature. They increase air flow across the skin, which increases the rate of evaporation, which enhances the sensation of cooling.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔥 Latent heat — the hidden energy</h3>
+  <p><strong>Latent heat</strong> is thermal energy transferred at <strong>constant temperature</strong> during a phase change. It is "latent" (hidden) because energy is transferred but the temperature doesn't change — the energy goes into the substance's <strong>potential energy</strong>, rearranging particles, rather than speeding them up.</p>
+  <table class="lc-table">
+    <thead><tr><th>Phase change</th><th>Energy</th><th>Molecular effect</th></tr></thead>
+    <tbody>
+      <tr><td>Melting (solid → liquid)</td><td>IN</td><td>Some forces overcome, small separation increase</td></tr>
+      <tr><td>Freezing (liquid → solid)</td><td>OUT</td><td>Forces strengthen, particles arrange</td></tr>
+      <tr><td>Boiling (liquid → gas)</td><td>IN</td><td>All forces overcome, large separation increase</td></tr>
+      <tr><td>Condensing (gas → liquid)</td><td>OUT</td><td>Forces restore, particles come together</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Specific latent heat</span>
+    $$Q = mL$$
+  </div>
+  <p>\(Q\) is the thermal energy transferred (J), \(m\) is mass (kg), \(L\) is specific latent heat (J kg⁻¹) — either \(L_f\) (fusion: melting/freezing) or \(L_v\) (vaporization: boiling/condensing).</p>
+  <div class="lc-warn">⚠️ Common mistake alert: forgetting to convert mass to kg (not g), and confusing which latent heat to use — \(L_f\) for melting/freezing, \(L_v\) for boiling/condensing.</div>
+  <p>For the same substance, \(L_v > L_f\). Boiling requires overcoming <strong>all</strong> intermolecular forces and creating large separations (around a 1000× volume increase); melting only requires overcoming <strong>some</strong> forces with a small separation increase.</p>
+  <table class="lc-table">
+    <thead><tr><th>Water</th><th>Value / J kg⁻¹</th></tr></thead>
+    <tbody>
+      <tr><td>\(L_f\)</td><td>\(3.35\times10^{5}\)</td></tr>
+      <tr><td>\(L_v\)</td><td>\(2.27\times10^{6}\) (about 6.8× larger)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery – heating and cooling through a phase change</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Heating and melting</td><td>Time / s · Temperature / °C</td><td>Rises, flattens into a plateau at the melting point, rises again</td><td>The plateau is where energy is going into breaking bonds, not raising temperature</td></tr>
+      <tr><td>Cooling and freezing</td><td>Time / s · Temperature / °C</td><td>Falls, flattens into a plateau at the freezing point, falls again</td><td>Temperature stays constant during freezing despite energy being removed</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-03-specific-latent-heat-03.png" alt="Temperature against time graph for a solid being heated, rising then flattening into a plateau at the melting point, then rising again" style="max-width:340px;width:100%"><div class="lc-cap">Fig 3 — during melting, temperature does not change even though energy is being supplied.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-03-specific-latent-heat-04.png" alt="Temperature against time graph for a liquid cooling, falling then flattening into a plateau at the freezing point, then falling again" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — the freezing plateau: temperature stays constant while energy is being removed.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – which is easier to boil? (B1.13)</h3>
+  <p>The specific latent heats of vaporization of water and ethanol are \(2.27\times10^{6}\ \text{J kg}^{-1}\) and \(8.55\times10^{5}\ \text{J kg}^{-1}\). State and explain which is "easier" to boil, and calculate the energy needed to turn 50 g of ethanol into gas at 78°C.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> "easier to boil" means less energy per kilogram is needed to vaporize it — compare the two \(L_v\) values, then apply \(Q = mL_v\) to the ethanol.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 0.050\) kg, \(L_{v,\text{ethanol}} = 8.55\times10^{5}\ \text{J kg}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(Q = mL_v\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> Ethanol is easier to boil — it needs less energy per kg to vaporize.<br>\(Q = 0.050\times8.55\times10^{5}\)<br>\(= 4.3\times10^{4}\ \text{J}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – ice at 0°C to steam at 100°C</h3>
+  <p>Calculate the total thermal energy needed to convert 40 g of ice at 0°C completely into steam at 100°C. (\(L_f = 3.35\times10^{5}\), \(c_{\text{water}} = 4180\ \text{J kg}^{-1}\text{K}^{-1}\), \(L_v = 2.27\times10^{6}\ \text{J kg}^{-1}\), all in SI units.)</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> three stages happen in sequence — melt the ice at 0°C, heat the resulting water from 0°C to 100°C, then boil the water at 100°C. Add the energy for each.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 0.040\) kg, \(\Delta T = 100\)°C.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(Q_{\text{total}} = mL_f + mc\Delta T + mL_v\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> Melt: \(0.040\times3.35\times10^{5} = 1.34\times10^{4}\ \text{J}\)<br>Heat: \(0.040\times4180\times100 = 1.672\times10^{4}\ \text{J}\)<br>Boil: \(0.040\times2.27\times10^{6} = 9.08\times10^{4}\ \text{J}\)<br>Total \(= 1.212\times10^{5}\ \text{J}\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-03-specific-latent-heat-08.png" alt="Temperature against time graph for ice heated all the way to steam, showing a rising line, a flat melting plateau at 0 degrees Celsius, a rising line, and a flat boiling plateau at 100 degrees Celsius" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 8 — two plateaus: the flat sections mark the melting point and boiling point, where all input energy goes into the phase change.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🧊 Real-world: refrigeration and evaporative cooling</h3>
+    <p>Refrigerators and air conditioners both exploit evaporative cooling. A refrigerant evaporates inside the fridge, taking thermal energy from the food compartment; it is then compressed and condensed outside, releasing that energy to the surroundings. Air conditioners work the same way, removing thermal energy from indoor air and releasing it outside. Sweating uses the same mechanism on a smaller scale — evaporation from the skin removes thermal energy from the body — and outdoor misting systems spray fine droplets that evaporate quickly, cooling the surrounding air.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/b1-03-specific-latent-heat-06.png" alt="Refrigerator schematic showing compressor, condenser coils outside, expansion valve and evaporator coils inside, with arrows showing refrigerant flow and thermal energy transfer" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 6 — energy is absorbed at the evaporator (inside) and released at the condenser (outside).</div>
+    </div>
+    <div class="lc-success">✓ Examiner tip: always name the mechanism — evaporation absorbs energy because it removes the liquid's most energetic molecules — rather than just stating "evaporation causes cooling".</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – latent heat and weather systems</h3>
+    <p>The same equation that describes melting chocolate also describes the energy driving storms. When water vapour condenses or freezes in the atmosphere, it releases the latent heat it absorbed when it evaporated — energy that powers convection and storm systems.</p>
+    <p><strong>Challenge:</strong> a 24,000 kg cloud of water droplets freezes at 0°C (\(L_f = 3.35\times10^{5}\ \text{J kg}^{-1}\)). Calculate the energy released, and compare it to a typical lightning strike (about \(5\times10^{9}\ \text{J}\)). <em>\(Q = mL_f = 24{,}000\times3.35\times10^{5} = 8.04\times10^{9}\ \text{J}\) — more energy than a lightning strike releases, which is why freezing clouds are a major energy source in storm systems.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"Steam is just hot water"</td><td>Steam carries latent heat in addition to thermal energy — that extra energy is released on condensation, which is why steam burns are so severe</td></tr>
+      <tr><td>"Evaporation and boiling are the same"</td><td>They differ in temperature range (any T vs a fixed point), location (surface only vs throughout) and mechanism</td></tr>
+      <tr><td>"Temperature always increases when energy is added"</td><td>During a phase change, temperature stays constant — the energy changes potential energy, not kinetic energy</td></tr>
+      <tr><td>"Freezing only happens at low temperatures"</td><td>The freezing/melting point depends on the substance — chocolate freezes around 30–40°C</td></tr>
+      <tr><td>"Fans cool the air"</td><td>Fans increase the rate of evaporation from the skin; they do not directly lower air temperature</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common exam slip: using mass in grams instead of kg in \(Q = mL\), or using \(L_f\) when the process is boiling/condensing (use \(L_v\)).</div>
+</div>
+
+<div class="lc-kp">
+  <span>Q = mL</span>
+  <span>Lv &gt; Lf for the same substance</span>
+  <span>latent heat = hidden PE, T constant</span>
+  <span>boiling: whole liquid, fixed T</span>
+  <span>evaporation: surface only, any T below boiling</span>
+  <span>evaporative cooling removes most energetic molecules</span>
+  <span>humidity ↑ → evaporation rate ↓</span>
+  <span>fans boost evaporation, don't cool air directly</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which statement correctly distinguishes boiling from evaporation?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','D')"><span class="lc-opt-l">A</span> Boiling happens at any temperature; evaporation happens at a fixed temperature</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','D')"><span class="lc-opt-l">B</span> They are the same process with different names</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','D')"><span class="lc-opt-l">C</span> Evaporation happens throughout the liquid; boiling only at the surface</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','D')"><span class="lc-opt-l">D</span> Boiling happens throughout the liquid at a fixed temperature; evaporation happens only at the surface, at any temperature below boiling</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A 2.0 kg block of ice at 0°C melts completely (\(L_f = 3.35\times10^{5}\ \text{J kg}^{-1}\)). How much energy is needed?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> \(3.35\times10^{5}\) J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> \(6.70\times10^{5}\) J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> \(1.68\times10^{5}\) J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> \(6.70\times10^{6}\) J</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Why does sweating cool the body?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> Sweat is naturally colder than skin</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> Sweat reflects sunlight away from the skin</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> The most energetic water molecules escape as sweat evaporates, lowering the average kinetic energy — and temperature — of the skin</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> Sweat increases the skin's specific heat capacity</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. For the same mass of the same substance, which requires more energy: melting or boiling?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Melting — because \(L_f > L_v\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Boiling — because \(L_v > L_f\), as all intermolecular forces must be overcome</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> They require exactly the same energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> It depends only on the mass, not the substance</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. If humidity is 100%, why does sweating fail to cool you effectively?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','A')"><span class="lc-opt-l">A</span> The air already holds the maximum water vapour it can, so there is no net evaporation</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','A')"><span class="lc-opt-l">B</span> The sweat glands stop producing sweat</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','A')"><span class="lc-opt-l">C</span> High humidity increases the specific latent heat of vaporization</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','A')"><span class="lc-opt-l">D</span> Humid air is always hotter than dry air</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Latent heat is thermal energy transferred at <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:90px"> temperature during a phase change. The equation <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:80px"> relates the energy transferred to mass and specific latent heat. For water, the specific latent heat of <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:80px"> is smaller than the specific latent heat of <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">, because boiling overcomes <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:60px"> the intermolecular forces. Boiling occurs at a <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:70px"> temperature throughout the liquid, while evaporation happens at the <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:80px"> at any temperature below boiling. Evaporation cools a liquid because the <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:130px"> molecules escape, lowering the average kinetic energy of those left behind. As humidity increases, the rate of evaporation <input class="lc-fitb-input" id="lf9" placeholder="?" style="width:80px">. Fans cool us by increasing the <input class="lc-fitb-input" id="lf10" placeholder="?" style="width:130px">, not by directly lowering air temperature.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate / Explain</div>
+  <div class="lc-exam-q"><strong>Q62.</strong> A 2250 W kettle heats water at 100°C. In 180 s, the mass reduces from 987 g to 829 g. <strong>(a)</strong> Estimate the specific latent heat of vaporization of water. <strong>(b)</strong> Why is this only an estimate — is it an overestimate or underestimate? <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Mass evaporated \(= 987-829 = 158\ \text{g} = 0.158\ \text{kg}\)<br>✓ Energy supplied \(= Pt = 2250\times180 = 405{,}000\ \text{J}\)<br>✓ \(L_v = Q/m = 405{,}000/0.158 = 2.56\times10^{6}\ \text{J kg}^{-1}\)<br>✓ Energy is also lost to the surroundings, so not all of it vaporizes water<br>✓ This is an <strong>overestimate</strong> — the calculation attributes more energy to vaporization than actually went into it.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q63.</strong> \(L_f = 1.6\times10^{5}\ \text{J kg}^{-1}\) for chocolate. Calculate the energy needed to melt 10 g of chocolate in your mouth. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(Q = mL = 0.010\times1.6\times10^{5}\)<br>✓ \(Q = 1.6\times10^{3}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q64.</strong> Explain why \(L_v > L_f\) for the same substance. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Fusion: only some intermolecular forces are overcome; particles remain close together<br>✓ Vaporization: all intermolecular forces are overcome; particles move far apart (≈1000× volume increase)<br>✓ Much more energy is needed to completely separate the particles than to loosen their arrangement.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate / Evaluate</div>
+  <div class="lc-exam-q"><strong>Q65.</strong> Two funnels of ice each sit under an identical 50 W immersion heater; only one heater is switched on. Over 5 minutes, the heated funnel yields 54.7 g of melted ice; the unheated one yields 16.8 g. <strong>(a)</strong> Why use two funnels? <strong>(b)</strong> Estimate \(L_f\) of ice. <strong>(c)</strong> Why is the result inaccurate? <strong>(d)</strong> Suggest improvements. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The unheated funnel corrects for ice that melts due to the surroundings rather than the heater<br>✓ (b) Mass melted by heater \(= 54.7-16.8 = 37.9\ \text{g} = 0.0379\ \text{kg}\); energy supplied \(= 50\times300 = 15{,}000\ \text{J}\); \(L_f = 15{,}000/0.0379 = 3.96\times10^{5}\ \text{J kg}^{-1}\)<br>✓ (c) Heat loss from the heater to the surroundings, temperature gradients in the ice, heater not fully immersed, inaccurate mass measurements<br>✓ (d) Better insulation, a joulemeter for energy, stirring/uniform ice temperature, multiple averaged readings, a larger ice mass to reduce percentage error.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q"><strong>Q66.</strong> 0.53 g of steam at 100°C condenses and cools to 35°C (\(L_v = 2.27\times10^{6}\ \text{J kg}^{-1}\), \(c_{\text{water}} = 4180\ \text{J kg}^{-1}\text{K}^{-1}\)). <strong>(a)</strong> Calculate the total energy transferred. <strong>(b)</strong> Explain why a steam burn is worse than a water burn at 100°C. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Condensation: \(Q = mL_v = 0.00053\times2.27\times10^{6} = 1203\ \text{J}\)<br>✓ Cooling 100°C→35°C: \(Q = mc\Delta T = 0.00053\times4180\times65 = 144\ \text{J}\)<br>✓ Total \(= 1203+144 = 1347\ \text{J}\)<br>✓ Steam releases latent heat on condensation (1203 J) in addition to the cooling energy (144 J); water at 100°C only releases the 144 J — the extra latent heat makes steam burns far more severe.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q67.</strong> 120 g of water at 23.5°C is turned into ice at 0°C (\(c_{\text{water}} = 4180\), \(L_f = 3.35\times10^{5}\ \text{J kg}^{-1}\)). Calculate the total energy removed. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Cool water: \(Q_1 = 0.120\times4180\times23.5 = 11{,}788\ \text{J}\)<br>✓ Freeze water: \(Q_2 = 0.120\times3.35\times10^{5} = 40{,}200\ \text{J}\)<br>✓ Total \(= 11{,}788+40{,}200 = 51{,}988\ \text{J}\)<br>✓ \(\approx 5.2\times10^{4}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Compare</div>
+  <div class="lc-exam-q"><strong>Q68.</strong> A 24,000 kg cloud of water droplets turns to ice at 0°C (\(L_f = 3.35\times10^{5}\ \text{J kg}^{-1}\)). <strong>(a)</strong> Calculate the energy released. <strong>(b)</strong> Compare this to a lightning strike (about \(5\times10^{9}\ \text{J}\)). <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(Q = mL_f = 24{,}000\times3.35\times10^{5} = 8.04\times10^{9}\ \text{J}\)<br>✓ A lightning strike releases about \(5\times10^{9}\ \text{J}\)<br>✓ The freezing cloud releases <strong>more</strong> energy than a lightning strike, illustrating the enormous energy involved in weather systems.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q69.</strong> A container of water at 23°C has combined thermal capacity 1500 J K⁻¹. 48 g of ice at -8.5°C is added (\(c_{\text{ice}} = 2100\ \text{J kg}^{-1}\text{K}^{-1}\), \(L_f = 3.35\times10^{5}\ \text{J kg}^{-1}\)). Determine the final temperature. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Warm ice -8.5°C→0°C: \(Q_1 = 0.048\times2100\times8.5 = 857\ \text{J}\)<br>✓ Melt ice at 0°C: \(Q_2 = 0.048\times3.35\times10^{5} = 16{,}080\ \text{J}\)<br>✓ Total required \(= 857+16{,}080 = 16{,}937\ \text{J}\)<br>✓ Energy available from container cooling: \(1500\times(23-T_f)\)<br>✓ Set equal: \(1500(23-T_f) = 16{,}937 \Rightarrow 23-T_f = 11.29\)<br>✓ \(T_f = 23-11.29 = 11.7\)°C.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { D: 'Boiling happens throughout the liquid at a fixed temperature; evaporation happens only at the surface, at any temperature below the boiling point.' },
+    mcq2: { B: 'Q = mL = 2.0 x 3.35e5 = 6.70e5 J.' },
+    mcq3: { C: 'The most energetic molecules escape as sweat evaporates, lowering the average kinetic energy - and therefore temperature - of the skin.' },
+    mcq4: { B: 'Boiling requires overcoming all intermolecular forces and a large separation increase, so Lv > Lf for the same substance.' },
+    mcq5: { A: 'At 100% humidity the air already holds the maximum water vapour it can, so there is no net evaporation and therefore no cooling.' }
+  },
+  fitb: { lf1:'constant', lf2:'Q = mL', lf3:'fusion', lf4:'vaporization', lf5:'all', lf6:'fixed', lf7:'surface', lf8:'most energetic', lf9:'decreases', lf10:'rate of evaporation' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
