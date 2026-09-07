@@ -167,28 +167,349 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Specific Heat Capacity</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B1" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 5 · B.1 Thermal Energy Transfers</div>
+<div class="lc-title">Specific Heat Capacity</div>
+<div class="lc-sub">Add the same volume of milk and water to two cups of coffee and the temperature drops by different amounts, because materials store thermal energy differently. Specific heat capacity puts a number on that difference, and lets you calculate exactly how much energy any heating or cooling process involves.</div>
+
+<div class="lc-card">
+  <h3>☕ Hook – the mystery of the cooling coffee</h3>
+  <p>"You've just poured yourself a cup of coffee. You add a splash of cold milk. The temperature drops by 15°C. But here's the question: if you'd added the same volume of water at the same temperature, would the coffee cool by the same amount? Why or why not?"</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-02-specific-heat-capacity-01.png" alt="Graph of temperature against time for heating at a constant rate, showing a dotted idealised straight line and a curved realistic line that flattens as losses to the surroundings increase" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — heating at a constant rate. The idealised line (dotted) assumes no energy losses, so temperature rises steadily. The realistic curve bends because thermal energy losses to the surroundings grow as the object gets hotter, until input power exactly balances heat loss.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Class discussion (think – then read on)</strong> — why does the real heating curve bend, and why can't we just keep heating something forever? <em>As an object's temperature rises above its surroundings, its rate of energy loss increases too. Eventually the input power is entirely balanced by that loss and the object reaches a steady state.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📉 Heating and cooling curves</h3>
+  <p>The idealised heating line has a constant gradient: \(\text{gradient} = \Delta T/\Delta t\), meaning equal temperature rises in equal time intervals, with no losses to the surroundings. The realistic curve's gradient decreases with time, because thermal energy losses increase as the temperature difference with the surroundings grows — eventually reaching a <strong>steady state</strong> where input power equals the rate of energy loss.</p>
+  <p>A cooling curve shows the same idea in reverse: an object cools quickly at first, then more slowly as it approaches room temperature. <strong>The rate of cooling depends on the temperature difference between the object and its surroundings</strong> — the larger the difference, the faster the cooling.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-02-specific-heat-capacity-02.png" alt="Graph of temperature against time for an object cooling naturally to room temperature, with a curve that starts steep and flattens, and three gradient lines of decreasing negative slope" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — cooling to room temperature. The gradient is negative throughout and its magnitude decreases with time, shown by the three shallower and shallower tangent lines.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔥 Defining specific heat capacity</h3>
+  <p><strong>Specific heat capacity</strong> is the amount of energy needed to raise the temperature of <strong>1 kg</strong> of a substance by <strong>1 K</strong> (or 1°C). Its symbol is \(c\), and its SI unit is J kg⁻¹ K⁻¹ (or J kg⁻¹ °C⁻¹).</p>
+  <div class="lc-warn">⚠️ <strong>Common mistake alert:</strong> students frequently write the unit as J/kg/K or J/g/°C. Always write it as J kg⁻¹ K⁻¹.</div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Thermal energy transferred, rearranged for c</span>
+    $$Q = mc\Delta T$$
+    $$c = \frac{Q}{m\Delta T}$$
+  </div>
+  <table class="lc-table">
+    <thead><tr><th>Material</th><th>c / J kg⁻¹ K⁻¹</th></tr></thead>
+    <tbody>
+      <tr><td>Copper</td><td>390</td></tr>
+      <tr><td>Aluminium</td><td>910</td></tr>
+      <tr><td><strong>Water</strong></td><td><strong>4180</strong></td></tr>
+      <tr><td>Air</td><td>1000</td></tr>
+      <tr><td>Dry earth</td><td>1250</td></tr>
+      <tr><td>Glass</td><td>800</td></tr>
+      <tr><td>Concrete</td><td>800</td></tr>
+      <tr><td>Steel</td><td>420</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-info">🔗 <strong>Class discussion</strong> — why does water have such a high specific heat capacity? How does this explain why coastal areas have milder climates than inland areas? Why is water used in car radiators and heating systems?</div>
+</div>
+
+<div class="lc-card">
+  <h3>🧪 Laboratory experiments</h3>
+  <p>Two standard setups measure specific heat capacity: an electrically-heated <strong>metal block</strong> with a thermometer in a separate hole, and an electrically-heated <strong>liquid</strong> in an insulated container with a stirrer.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-02-specific-heat-capacity-03.png" alt="Solid metal block with an immersion heater in one drilled hole and a thermometer in another, wrapped in insulating lagging" style="max-width:340px;width:100%"><div class="lc-cap">Fig 3 — metal block experiment: heater and thermometer in separate holes, lagging reduces heat loss.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-02-specific-heat-capacity-04.png" alt="Beaker of water with an immersion heater, thermometer and stirrer, connected to an electrical supply" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — water/liquid experiment: stirring ensures uniform temperature throughout the liquid.</div></div>
+  </div>
+  <p><strong>Assumptions made:</strong> all of the substance is at the same temperature (requires stirring), no energy is transferred to or from the surroundings (requires insulation), and the thermometer reading is accurate at the relevant times.</p>
+  <div class="lc-warn">⚠️ <strong>Sources of error:</strong> energy losses to the surroundings cause <strong>overestimation</strong> of specific heat capacity, since some of the input energy never reached the substance being measured. Temperature gradients within the substance and thermometer response time also introduce error.</div>
+  <div class="lc-success">✓ <strong>Minimizing errors:</strong> lagging (thermal insulation) around the apparatus, a joulemeter to measure energy directly, multiple readings averaged, and stirring for uniform temperature.</div>
+</div>
+
+<div class="lc-card">
+  <h3>⚖️ Thermal capacity vs specific heat capacity</h3>
+  <p><strong>Thermal capacity</strong> (or heat capacity) is the amount of energy needed to raise a <strong>whole object's</strong> temperature by 1 K, with unit J K⁻¹. Use it for objects made of multiple materials — a kettle with water inside, or a room with its contents.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Thermal capacity · SI unit J K⁻¹</span>
+    $$Q = C\Delta T$$
+  </div>
+  <table class="lc-table">
+    <thead><tr><th></th><th>Specific heat capacity</th><th>Thermal capacity</th></tr></thead>
+    <tbody>
+      <tr><td>What it measures</td><td>Energy per kg per K</td><td>Energy for whole object per K</td></tr>
+      <tr><td>Symbol</td><td>\(c\)</td><td>\(C\)</td></tr>
+      <tr><td>Units</td><td>J kg⁻¹ K⁻¹</td><td>J K⁻¹</td></tr>
+      <tr><td>Depends on</td><td>Material only</td><td>Material + mass + shape</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Heating at constant rate</td><td>Time / s · Temperature / °C</td><td>Idealised: straight line. Realistic: curve whose gradient decreases</td><td>Gradient = rate of temperature rise; flattens to a steady state when input power = loss rate</td></tr>
+      <tr><td>Cooling to room temperature</td><td>Time / s · Temperature / °C</td><td>Curve falls steeply then flattens</td><td>Gradient is negative and its magnitude decreases with time; larger temperature difference means faster cooling</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-02-specific-heat-capacity-01.png" alt="Heating curve, idealised straight line vs realistic flattening curve" style="max-width:340px;width:100%"><div class="lc-cap">Fig 1 (above) — heating case.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-02-specific-heat-capacity-02.png" alt="Cooling curve flattening towards room temperature" style="max-width:340px;width:100%"><div class="lc-cap">Fig 2 (above) — cooling case.</div></div>
+  </div>
+  <div class="lc-success">✓ Examiner tip: interpreting gradients of temperature–time graphs is a core mathematics-connection skill — always state whether the gradient is increasing, decreasing, constant, positive or negative.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – heating a metal block (B1.9)</h3>
+  <p>A metal block of mass 1500 g is heated for 5 minutes with an 18 W heater. Temperature rises from 18.0°C to 27.5°C. Calculate the specific heat capacity.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the heater's energy output is \(Q = Pt\); this all goes into the block, so \(Q = mc\Delta T\) too.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 1.500\) kg, \(P = 18\) W, \(t = 5\times60 = 300\) s, \(\Delta T = 27.5-18.0 = 9.5\)°C.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(Pt = mc\Delta T\)<br>\(c = \dfrac{Pt}{m\Delta T}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(c = \dfrac{18\times300}{1.5\times9.5}\)<br>\(= 3.8\times10^{2}\ \text{J kg}^{-1}\ ^{\circ}\text{C}^{-1}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – thermal capacity of a kettle (B1.10)</h3>
+  <p>How much thermal energy is needed to increase the temperature of a kettle and water from 23°C to 77°C if their combined thermal capacity is 4800 J K⁻¹?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the kettle and water together are one object of known thermal capacity, so use \(Q = C\Delta T\), not \(Q = mc\Delta T\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(C = 4800\ \text{J K}^{-1}\), \(\Delta T = 77-23 = 54\)°C.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(Q = C\Delta T\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(Q = 4800\times54\)<br>\(= 2.6\times10^{5}\ \text{J}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 3 – calorimetry with a hot bolt (B1.11)</h3>
+  <p>A metal bolt (26.5 g) heated to 312°C is placed in 294 g of water at 22.1°C. The water reaches 24.7°C. <strong>(a)</strong> Why stir the water? <strong>(b)</strong> Calculate the thermal energy transferred from bolt to water. <strong>(c)</strong> Determine the specific heat capacity of the bolt. <strong>(d)</strong> Which metal is it?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> assuming no losses to the surroundings, energy lost by the bolt equals energy gained by the water. <strong>(a)</strong> The water is stirred to ensure a uniform temperature throughout.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> water \(m=0.294\) kg, \(c=4180\), \(\Delta T = 24.7-22.1=2.6\)°C. Bolt \(m=0.0265\) kg, \(\Delta T = 312-24.7=287.3\)°C.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (b):</strong> \(Q_{\text{water}} = mc\Delta T\)<br><strong>Equation (c):</strong> \(Q_{\text{gained by water}} = Q_{\text{lost by bolt}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer (b):</strong> \(Q = 0.294\times4180\times2.6\)<br>\(= 3.20\times10^{3}\ \text{J}\).<br><strong>Answer (c):</strong> \(3.20\times10^{3} = 0.0265\times c\times287.3\)<br>\(c = 4.20\times10^{2}\ \text{J kg}^{-1}\ ^{\circ}\text{C}^{-1}\).<br><strong>Answer (d):</strong> from Table B1.5, steel (420 J kg⁻¹ K⁻¹) — this is <strong>steel</strong>.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b1-02-specific-heat-capacity-05.png" alt="A hot glowing metal bolt being lifted with tongs and lowered into a beaker of stirred water with a thermometer" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 5 — a hot bolt transferred quickly into cold water. Assuming no energy is transferred to or from the surroundings, the bolt's energy loss equals the water's energy gain.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌊 Real-world: why water moderates climate</h3>
+    <p>Water's specific heat capacity (4180 J kg⁻¹ K⁻¹) is far higher than most everyday materials, so it absorbs or releases a large amount of thermal energy for only a small change in temperature. This is why coastal areas have milder climates than inland areas at the same latitude — the ocean warms and cools much more slowly than land. The same property is why water is used in car radiators and central heating systems: it can carry away or deliver large amounts of thermal energy without its own temperature swinging wildly.</p>
+    <div class="lc-success">✓ Examiner tip: always name the mechanism, not just the fact. "Water has a high c" earns little; "water's high specific heat capacity means it needs to absorb or release a large amount of energy for its temperature to change, so it changes temperature slowly" earns the mark.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – molar heat capacity and kinetic theory</h3>
+    <p>Different materials store energy differently at the molecular level, which is why specific heat capacities vary so much. Multiplying \(c\) by molar mass gives the <strong>molar heat capacity</strong>, the energy needed to raise one mole of a substance by 1 K — a quantity that connects directly to kinetic theory and the number of ways a molecule can store energy (translational, rotational, vibrational).</p>
+    <p><strong>Challenge:</strong> two gases receive the same energy per mole. One rises in temperature by more than the other. What does this tell you about the number of ways each gas's molecules can store energy? <em>The gas with the greater temperature rise has the lower molar heat capacity — its molecules have fewer ways to store the input energy internally (e.g. a monatomic gas storing energy only as translational kinetic energy), so more of the input energy shows up as a measurable temperature rise.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Heat capacity is the same as specific heat capacity</td><td>They differ by mass: \(c\) is per kg of material, \(C\) is for the whole object</td></tr>
+      <tr><td>Specific heat capacity changes with temperature</td><td>It is treated as a material constant over moderate temperature ranges</td></tr>
+      <tr><td>Energy lost to surroundings leads to underestimation of \(c\)</td><td>It leads to <strong>overestimation</strong> — some input energy never reached the substance, so the calculation attributes too much heating power to it</td></tr>
+      <tr><td>Temperature change in K and °C are different quantities</td><td>They are numerically identical — a change of 1°C is a change of 1 K, just shifted by 273</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common exam slip: writing the unit of \(c\) as J/kg/K instead of J kg⁻¹ K⁻¹.</div>
+</div>
+
+<div class="lc-kp">
+  <span>Q = mcΔT</span>
+  <span>c: J kg⁻¹ K⁻¹, material property</span>
+  <span>Q = CΔT</span>
+  <span>C: J K⁻¹, whole-object property</span>
+  <span>calorimetry: Qlost = Qgained</span>
+  <span>water c = 4180 (very high)</span>
+  <span>lagging reduces energy loss</span>
+  <span>losses cause overestimation of c</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. What is the correct SI unit for specific heat capacity?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> J K⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> J kg⁻¹ K⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> J kg⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> W kg⁻¹ K⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A 500 g block of aluminium requires 45,500 J to raise its temperature by 100°C. Its specific heat capacity is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> 91 J kg⁻¹ K⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> 455 J kg⁻¹ K⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> 910 J kg⁻¹ K⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> 4550 J kg⁻¹ K⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. In a specific heat capacity experiment, some thermal energy is lost to the surroundings instead of heating the substance. The measured specific heat capacity will be</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> underestimated</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> overestimated</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> unaffected</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> exactly halved</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Which statement correctly distinguishes thermal capacity from specific heat capacity?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','D')"><span class="lc-opt-l">A</span> They are the same quantity with different names</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','D')"><span class="lc-opt-l">B</span> Thermal capacity has unit J kg⁻¹ K⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','D')"><span class="lc-opt-l">C</span> Specific heat capacity depends on the mass of the object</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','D')"><span class="lc-opt-l">D</span> Thermal capacity applies to a whole object; specific heat capacity is a per-kg material property</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Why is water used in car radiators and central heating systems?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> It is the cheapest liquid available</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> Its low specific heat capacity lets it heat up instantly</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> Its high specific heat capacity lets it carry large amounts of thermal energy for a manageable temperature change</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> It has zero thermal capacity</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Specific heat capacity, symbol c, is the energy needed to raise the temperature of <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:80px"> of a substance by <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:70px">, with SI unit <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:130px">. The equation <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:120px"> relates thermal energy transferred to mass, specific heat capacity and temperature change. Thermal capacity, symbol <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:50px">, applies to <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:130px"> rather than a specific mass, with unit <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:90px">. Wrapping an experiment in <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:110px"> reduces energy loss to the surroundings; without it, the measured specific heat capacity is <input class="lc-fitb-input" id="lf9" placeholder="?" style="width:130px">. In calorimetry, energy <input class="lc-fitb-input" id="lf10" placeholder="?" style="width:80px"> by the hot object equals energy <input class="lc-fitb-input" id="lf11" placeholder="?" style="width:80px"> by the cold object.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q47.</strong> Calculate the energy needed to raise the temperature of 3.87 kg of a metal by 54°C, given \(c = 456\ \text{J kg}^{-1}\text{K}^{-1}\). <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(Q = mc\Delta T = 3.87\times456\times54\)<br>✓ \(Q = 9.52\times10^{4}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q48.</strong> Determine the specific heat capacity of a liquid that requires 3840 J to raise 156 g of it by 18.0 K. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(c = \dfrac{Q}{m\Delta T} = \dfrac{3840}{0.156\times18.0}\)<br>✓ \(c = 1.37\times10^{3}\ \text{J kg}^{-1}\text{K}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q49.</strong> A drink (mass 500 g, \(c=4180\ \text{J kg}^{-1}\text{K}^{-1}\)) in a glass (mass 250 g, \(c=850\ \text{J kg}^{-1}\text{K}^{-1}\)) cools from 25°C to 4°C. Calculate the total thermal energy transferred. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Drink: \(Q = 0.500\times4180\times21 = 43\,890\ \text{J}\)<br>✓ Glass: \(Q = 0.250\times850\times21 = 4463\ \text{J}\)<br>✓ Total \(= 48\,353\ \text{J}\)<br>✓ \(\approx 4.8\times10^{4}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q50.</strong> A 20 W heater heats a 2.0 kg iron block (\(c=444\ \text{J kg}^{-1}\text{K}^{-1}\)) starting at 24°C for 12 minutes. Determine the final temperature. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(Q = Pt = 20\times720 = 14\,400\ \text{J}\)<br>✓ \(\Delta T = \dfrac{Q}{mc} = \dfrac{14\,400}{2.0\times444}\)<br>✓ \(\Delta T = 16.2\)°C<br>✓ Final temperature \(= 24 + 16.2 = 40.2\)°C.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q52.</strong> A 9.0 kW water heater supplies a shower. Water enters at 15°C and flows at a rate of 15 kg every 3 minutes. Determine the shower temperature. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Mass flow rate \(= 15/180 = 0.0833\ \text{kg s}^{-1}\)<br>✓ Energy per kg \(= 9000/0.0833 = 108\,000\ \text{J kg}^{-1}\)<br>✓ \(\Delta T = 108\,000/4180 = 25.8\)°C<br>✓ Final temperature \(= 15+25.8 = 40.8\)°C.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q53.</strong> A gas cooker heats 500 g of water from 24°C to 80°C in 2 minutes. Calculate the power delivered. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(Q = 0.500\times4180\times56 = 117\,040\ \text{J}\)<br>✓ \(P = Q/t = 117\,040/120\)<br>✓ \(P = 975\ \text{W}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q54.</strong> A room has thermal capacity \(3.5\times10^{5}\ \text{J K}^{-1}\) and is heated by a 2.5 kW heater from 9°C to 22°C. Determine the time required. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(Q = C\Delta T = 3.5\times10^{5}\times13 = 4.55\times10^{6}\ \text{J}\)<br>✓ \(t = Q/P = 4.55\times10^{6}/2500\)<br>✓ \(t = 1820\ \text{s} \approx 30\ \text{minutes}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q55.</strong> What mass of water at 18°C must be mixed with 1.5 kg of water at 83°C to reach a final temperature of 55°C? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Energy lost = energy gained: \(m_{\text{cold}}\times4180\times(55-18) = 1.5\times4180\times(83-55)\)<br>✓ \(m_{\text{cold}}\times37 = 1.5\times28\)<br>✓ \(m_{\text{cold}} = 42/37 = 1.14\ \text{kg}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q"><strong>Q56.</strong> Five coins (8.8 g each) are transferred from boiling water into 98 g of water at 20.7°C, which reaches 23.6°C. Calculate the specific heat capacity of the coins, and explain why they must be transferred quickly. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Total coin mass \(= 5\times8.8 = 44\ \text{g} = 0.044\ \text{kg}\)<br>✓ Energy gained by water \(= 0.098\times4180\times(23.6-20.7) = 1187\ \text{J}\)<br>✓ \(1187 = 0.044\times c\times(100-23.6)\), so \(c = 353\ \text{J kg}^{-1}\text{K}^{-1}\)<br>✓ Transferring quickly minimizes thermal energy loss to the surroundings during transfer.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q57.</strong> Burning 5.6 g of wood raises 480 g of water from 22.7°C to 64.6°C in a calorimeter. Calculate <strong>(a)</strong> the energy transferred to the water and <strong>(b)</strong> the energy released per kg of wood. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(Q = 0.480\times4180\times(64.6-22.7) \approx 84\,000\ \text{J}\)<br>✓ (b) Energy per kg \(= 84\,000/0.0056\)<br>✓ \(= 1.5\times10^{7}\ \text{J kg}^{-1}\).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Specific heat capacity is per kilogram per kelvin: J kg-1 K-1.' },
+    mcq2: { C: 'c = Q/(mΔT) = 45500/(0.500x100) = 910 J kg-1 K-1, matching aluminium in Table B1.5.' },
+    mcq3: { B: 'Some input energy never reaches the substance, so the calculation attributes too much heating power to it, giving a value of c that is too high.' },
+    mcq4: { D: 'Thermal capacity (C, J K-1) is a whole-object property depending on mass and material; specific heat capacity (c, J kg-1 K-1) is a per-kg material property.' },
+    mcq5: { C: 'Water\'s high specific heat capacity means it can carry a lot of thermal energy while its own temperature changes only moderately.' }
+  },
+  fitb: { lf1:'1 kg', lf2:'1 K', lf3:'J kg-1 K-1', lf4:'Q = mcΔT', lf5:'C', lf6:'whole objects', lf7:'J K-1', lf8:'lagging', lf9:'overestimated', lf10:'lost', lf11:'gained' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
