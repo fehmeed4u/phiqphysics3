@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conduction — B.1 Thermal Energy Transfers — φQ Physics</title>
+  <title>Conduction and Convection — B.1 Thermal Energy Transfers — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -86,6 +87,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -100,7 +104,7 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../topics.html#B1">B.1 Thermal Energy Transfers</a>
       <span class="breadcrumb-sep">›</span>
-      <span style="color:var(--text)">Conduction</span>
+      <span style="color:var(--text)">Conduction and Convection</span>
     </nav>
 
     <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
@@ -112,10 +116,10 @@
           </span>
           <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
           <span style="font-size:0.8rem;color:var(--text-muted)">
-            Concept 3 of 5
+            Concept 4 of 5
           </span>
         </div>
-        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Conduction</h1>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Conduction and Convection</h1>
         <p style="max-width:520px;font-size:0.95rem">
           Part of <strong style="color:var(--text)">B.1 Thermal Energy Transfers</strong>
           · Unit B — IB Physics 2023
@@ -137,21 +141,21 @@
         ← Back to B.1 overview
       </a>
       <div class="sidebar-title">B.1 Concepts</div>
-      <a href="01-specific-heat-capacity.html" class="sidebar-link">
+      <a href="01-temperature-and-internal-energy.html" class="sidebar-link">
           <span class="sidebar-num">01</span>
+          <span>Temperature and Internal Energy</span>
+        </a>
+      <a href="02-specific-heat-capacity.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
           <span>Specific Heat Capacity</span>
         </a>
-      <a href="02-specific-latent-heat.html" class="sidebar-link">
-          <span class="sidebar-num">02</span>
+      <a href="03-specific-latent-heat.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
           <span>Specific Latent Heat</span>
         </a>
-      <a href="03-conduction.html" class="sidebar-link active">
-          <span class="sidebar-num">03</span>
-          <span>Conduction</span>
-        </a>
-      <a href="04-convection.html" class="sidebar-link">
+      <a href="04-conduction-and-convection.html" class="sidebar-link active">
           <span class="sidebar-num">04</span>
-          <span>Convection</span>
+          <span>Conduction and Convection</span>
         </a>
       <a href="05-radiation-and-black-body-emission.html" class="sidebar-link">
           <span class="sidebar-num">05</span>
@@ -162,13 +166,14 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
         <!-- ═══════════════════════════════════════════════
              LESSON CONTENT GOES HERE
              Replace this placeholder with your lesson HTML
              ═══════════════════════════════════════════════ -->
         <div class="content-placeholder">
           <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Conduction</h3>
+          <h3 style="margin-bottom:0.5rem;color:var(--text)">Conduction and Convection</h3>
           <p style="max-width:380px;margin-bottom:1.5rem">
             Lesson content will appear here. Paste your HTML inside
             <code style="font-family:var(--font-mono);font-size:0.85rem;
@@ -184,22 +189,23 @@
             </a>
           </div>
         </div>
+      <!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
       <div class="lesson-nav">
-        <a href="02-specific-latent-heat.html" class="lesson-nav-btn">
+        <a href="03-specific-latent-heat.html" class="lesson-nav-btn">
           <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
           <div>
             <div class="nav-btn-dir">Previous</div>
             <div class="nav-btn-label">Specific Latent Heat</div>
           </div>
         </a>
-        <a href="04-convection.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+        <a href="05-radiation-and-black-body-emission.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
           <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
           <div>
             <div class="nav-btn-dir">Next</div>
-            <div class="nav-btn-label">Convection</div>
+            <div class="nav-btn-label">Radiation and Black-body Emission</div>
           </div>
         </a>
       </div>
