@@ -167,28 +167,312 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Conduction and Convection</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B1" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+        <div class="lc-wrap">
+
+<div class="lc-badge">B.1 · Lesson <span>4</span></div>
+<h1 class="lc-title">Conduction and Convection</h1>
+<p class="lc-sub">How thermal energy moves through solids by particle collisions, and through fluids by bulk motion driven by density differences.</p>
+
+<div class="lc-card">
+  <h3>🍳 The frying pan mystery</h3>
+  <p>You're cooking dinner. The metal frying pan has a plastic handle. After a few minutes on the stove, the pan is scorching hot, but the handle is still cool enough to hold comfortably. <strong>Both are at the same temperature</strong> — so why do they feel so different?</p>
+  <div class="lc-img"><img src="../../assets/lesson-images/b1-04-conduction-and-convection-01.png" alt="Frying pan with a metal body and a plastic handle on a stove, heat entering at the base" style="max-width:340px;width:100%"><p>Metal body vs. plastic handle — same object, same temperature, very different rate of energy transfer</p></div>
+  <div class="lc-info">If pan and handle are at the same temperature, what does the difference in "feel" actually tell you about the two materials? <br><em>Answer: it tells you about their thermal conductivity, not their temperature — the metal transfers heat to your hand far faster than the plastic does.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🔥 Conduction: energy passed particle to particle</h3>
+  <p><strong>Conduction</strong> is the transfer of kinetic energy between particles through collisions and interactions — energy always flows from hot to cold.</p>
+  <div class="lc-img"><img src="../../assets/lesson-images/b1-04-conduction-and-convection-02.png" alt="Solid bar heated at one end, particles vibrating with larger arrows near the flame and smaller arrows toward the cold end" style="max-width:340px;width:100%"><p>Particles near the heat source vibrate faster (higher KE); collisions pass that energy along the lattice toward the cold end</p></div>
+  <ol style="padding-left:1.2rem;font-size:0.92rem">
+    <li>Particles at the heated end vibrate faster — greater kinetic energy</li>
+    <li>Faster particles collide with their neighbours</li>
+    <li>Kinetic energy passes from particle to particle</li>
+    <li>Energy flows from high KE (hot) to low KE (cold)</li>
+  </ol>
+  <div class="lc-warn"><strong>Common mistake:</strong> conduction does <strong>not</strong> only occur in solids — it happens in all states of matter. Solids conduct best (particles closest together), metals are excellent conductors (free electrons), gases are poor conductors (particles far apart).</div>
+  <p style="margin-top:0.9rem"><strong>Table B1.4 — thermal conductivities</strong></p>
+  <table class="lc-table">
+    <tr><th>Substance</th><th>k / W m⁻¹ K⁻¹</th></tr>
+    <tr><td>Vacuum</td><td>0.00</td></tr>
+    <tr><td>Air</td><td>0.025</td></tr>
+    <tr><td>Polyurethane foam</td><td>0.03</td></tr>
+    <tr><td>Rubber / wood</td><td>0.13 / 0.15</td></tr>
+    <tr><td>Water</td><td>0.59</td></tr>
+    <tr><td>Concrete and brick</td><td>0.72</td></tr>
+    <tr><td>Glass</td><td>0.86</td></tr>
+    <tr><td>Iron</td><td>84</td></tr>
+    <tr><td>Aluminium</td><td>237</td></tr>
+    <tr><td>Copper</td><td>385</td></tr>
+  </table>
+  <p style="font-size:0.88rem">Metals conduct 100–1000× better than insulators; a vacuum has no particles to carry energy at all.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📐 The conduction equation</h3>
+  <div class="lc-formula"><span class="lc-formula-label">Rate of thermal energy transfer</span>$$\frac{\Delta Q}{\Delta t} = -kA\frac{\Delta T}{\Delta x}$$</div>
+  <p style="font-size:0.9rem">\(\Delta Q/\Delta t\) = power (W) · \(k\) = thermal conductivity (W m⁻¹ K⁻¹) · \(A\) = cross-sectional area (m²) · \(\Delta T/\Delta x\) = temperature gradient (K m⁻¹). The negative sign shows energy flows from hot to cold.</p>
+  <table class="lc-table">
+    <tr><th>Factor</th><th>Effect on heat flow</th><th>Relationship</th></tr>
+    <tr><td>Temperature difference ΔT</td><td>Larger ΔT → more flow</td><td>Direct</td></tr>
+    <tr><td>Area A</td><td>Larger A → more flow</td><td>Direct</td></tr>
+    <tr><td>Thickness Δx</td><td>Thicker → less flow</td><td>Inverse</td></tr>
+    <tr><td>Conductivity k</td><td>Higher k → more flow</td><td>Direct</td></tr>
+  </table>
+</div>
+
+<div class="lc-card">
+  <h3>🌊 Convection: the fluid itself moves</h3>
+  <p><strong>Convection</strong> is the transfer of thermal energy through a fluid (gas or liquid) due to the movement of the fluid itself, caused by density differences.</p>
+  <div class="lc-img"><img src="../../assets/lesson-images/b1-04-conduction-and-convection-03.png" alt="Beaker of water heated from below with dye showing water rising at the centre and sinking near the walls" style="max-width:340px;width:100%"><p>A convection current: heated water rises, spreads at the surface, cools, and sinks at the sides</p></div>
+  <ol style="padding-left:1.2rem;font-size:0.92rem">
+    <li>Fluid is heated → particles gain kinetic energy</li>
+    <li>Fluid expands → same mass occupies a larger volume</li>
+    <li>Density decreases (\(\rho = m/V\), V↑ → ρ↓)</li>
+    <li>Buoyancy lifts the less dense fluid — it rises</li>
+    <li>Cooler, denser fluid sinks to replace it</li>
+    <li>A convection current forms — a cyclic flow that transfers energy</li>
+  </ol>
+</div>
+
+<div class="lc-card">
+  <h3>📊 Reading conduction and convection graphs</h3>
+  <table class="lc-table">
+    <tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr>
+    <tr><td>Temperature through a slab</td><td>distance x, temperature T</td><td>straight line, decreasing</td><td>gradient magnitude = ΔT/Δx</td></tr>
+    <tr><td>Heat transfer rate vs area</td><td>area A, rate ΔQ/Δt</td><td>straight line through origin</td><td>gradient = kΔT/Δx</td></tr>
+    <tr><td>Heat transfer rate vs 1/thickness</td><td>1/Δx, rate ΔQ/Δt</td><td>straight line through origin</td><td>gradient = kAΔT</td></tr>
+    <tr><td>Density vs temperature (fluid)</td><td>temperature T, density ρ</td><td>decreasing curve</td><td>density fall drives buoyant rise</td></tr>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-04-conduction-and-convection-04.png" alt="Graph of temperature against distance through a slab, a straight line falling from T hot to T cold" style="max-width:340px;width:100%"><p>Steady-state temperature profile through a conducting slab</p></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-04-conduction-and-convection-05.png" alt="Graph of heat transfer rate against cross-sectional area, a straight line through the origin" style="max-width:340px;width:100%"><p>Rate of heat transfer scales directly with area, at fixed ΔT and Δx</p></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🧮 Worked example — house wall vs window</h3>
+  <p style="font-size:0.9rem">Outside wall 4.85 m × 2.88 m, with a glass window 1.67 m × 1.23 m set into it. Outside 34°C, inside 27°C. Wall: brick, thickness 25 cm, k = 0.72. Window: glass, thickness 4.5 mm, k = 0.86.</p>
+  <div class="lc-step"><span class="lc-step-tag">Identify</span>Two parallel heat-loss paths through the same wall: brick (large area, thick) and glass (small area, very thin). ΔT = 34 − 27 = 7.0°C for both.</div>
+  <div class="lc-step"><span class="lc-step-tag">Data</span>Wall area = (4.85×2.88) − (1.67×1.23) = 13.97 − 2.05 = 11.92 m². Window area = 1.67×1.23 = 2.05 m².</div>
+  <div class="lc-step"><span class="lc-step-tag">Equation</span>$$\frac{\Delta Q}{\Delta t} = kA\frac{\Delta T}{\Delta x}$$</div>
+  <div class="lc-step"><span class="lc-step-tag">Answer</span>Wall: \(0.72\times11.92\times7.0/0.25\)<br>\(= 240\ \text{W}\).<br>Window: \(0.86\times2.05\times7.0/0.0045\)<br>\(= 2740\ \text{W}\).</div>
+  <div class="lc-img"><img src="../../assets/lesson-images/b1-04-conduction-and-convection-06.png" alt="Rectangular block of thickness delta x and cross-sectional area A, with hot side T_H on the left and cold side T_C on the right" style="max-width:340px;width:100%"><p>The general conduction geometry: area A, thickness Δx, hot side T_H to cold side T_C</p></div>
+  <div class="lc-success">The window is only ~17% of the wall's area but conducts ~11× more heat — because it's so much thinner (4.5 mm vs 250 mm). This is why exam questions on insulation almost always compare thickness, not just material.</div>
+  <p style="font-size:0.85rem;margin-top:0.6rem">Note: these values <strong>overestimate</strong> real heat flow — surface temperatures aren't equal to the air temperatures either side (thermal boundary layers exist at each face).</p>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🏠 Real-world insulation and convection</h3>
+    <div class="lc-img"><img src="../../assets/lesson-images/b1-04-conduction-and-convection-07.png" alt="Cross-section of a cavity wall showing outer brick, a foam-filled cavity, and inner brick" style="max-width:340px;width:100%"><p>Cavity wall insulation: foam traps air pockets between two brick layers, cutting both conduction and convection</p></div>
+    <p style="font-size:0.9rem">Foam works because air is a poor conductor (k = 0.025) <em>and</em> the foam stops convection currents forming in that trapped air. Double glazing uses the same idea: a small trapped air gap between two glass panes, too narrow for convection currents, also cuts sound transmission.</p>
+    <table class="lc-table">
+      <tr><th>Application</th><th>Convection mechanism</th></tr>
+      <tr><td>Room heaters</td><td>Placed near floor — hot air rises to warm the room</td></tr>
+      <tr><td>Air conditioners / fridges</td><td>Placed near ceiling/top — cool air sinks</td></tr>
+      <tr><td>Oceans / atmosphere</td><td>Surface heating drives currents and weather</td></tr>
+      <tr><td>Earth's core, stars</td><td>Convecting molten rock / plasma transports energy</td></tr>
+    </table>
+    <div class="lc-success">Exam favourite: a sea breeze forms because land heats faster than sea (lower specific heat capacity) — air over land rises, and cooler, denser sea air flows in to replace it, giving a breeze from sea to land.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🎓 HL extension — why the model overestimates</h3>
+    <p style="font-size:0.9rem">The conduction equation assumes the wall's surface temperatures equal the room and outside air temperatures. In reality a thin, poorly-mixed <strong>boundary layer</strong> of air clings to each surface, so the true ΔT across the wall itself is smaller than 7.0°C.</p>
+    <p style="font-size:0.88rem"><strong>Challenge:</strong> if boundary layers mean the wall's outer surface sits at only 30°C (inner surface still 27°C), recalculate the wall's heat flow.</p>
+    <p style="font-size:0.88rem"><em>Answer: ΔT = 3.0°C, so ΔQ/Δt = 0.72×11.92×3.0/0.25 ≈ 103 W — less than half the 240 W estimate that assumed air temperatures acted directly on the wall surface.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <tr><th>Misconception</th><th>Correct view</th></tr>
+    <tr><td>Conduction only happens in solids</td><td>Occurs in all states of matter; solids and metals are simply the best conductors</td></tr>
+    <tr><td>Air is a good conductor</td><td>Air is a poor conductor (k = 0.025) — that's exactly why trapped air insulates</td></tr>
+    <tr><td>Convection is conduction happening in a fluid</td><td>Different mechanisms entirely: conduction is particle-to-particle collision; convection is bulk fluid movement</td></tr>
+    <tr><td>Insulation works because it's "warm"</td><td>Insulation works by trapping air, a poor conductor — it has no inherent warmth</td></tr>
+  </table>
+  <div class="lc-warn">A metal door handle is <strong>not colder</strong> than a plastic one at the same temperature — it just conducts heat away from your hand faster, so it feels colder. Same temperature, different sensation.</div>
+</div>
+
+<div class="lc-kp">
+  <span>Conduction = particle collisions</span>
+  <span>ΔQ/Δt = −kAΔT/Δx</span>
+  <span>Metals conduct best; gases worst</span>
+  <span>Convection needs a fluid</span>
+  <span>Density fall → buoyant rise</span>
+  <span>Trapped air insulates</span>
+  <span>Temperature inversion blocks convection</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. Which best describes thermal conduction at the particle level?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> Fluid movement caused by density differences</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> Kinetic energy transferred between particles by collision</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> Emission of electromagnetic waves</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> A process that only occurs in metals</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. A material has thermal conductivity k = 0.025 W m⁻¹ K⁻¹. It is best described as:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> An excellent conductor</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> Similar to copper</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> A good insulator, like air</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> A poor insulator</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. A metal door handle feels colder than a plastic one at the same temperature because:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> The metal is actually at a lower temperature</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> The metal conducts heat away from your hand faster</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> Plastic radiates more thermal energy</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> Metal has a higher specific heat capacity</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. In ΔQ/Δt = −kAΔT/Δx, doubling the thickness Δx (all else constant):</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Doubles the rate of heat transfer</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Halves the rate of heat transfer</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> Has no effect</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Quadruples the rate of heat transfer</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. Why does hot water at the bottom of a tube rise?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> Hot water is denser, so it sinks below cold water</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> Hot water expands, becomes less dense, and is buoyed upward</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> Hot water conducts heat upward instantly</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> Gravity pulls warmer fluid upward</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+<div class="lc-card"><div id="mcq6">
+  <div class="lc-mcq-q">6. During a temperature inversion:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','B')"><span class="lc-opt-l">A</span> Warm ground air rises freely, dispersing pollutants</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','B')"><span class="lc-opt-l">B</span> A warm air layer sits above cooler ground air, trapping pollutants near the surface</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','B')"><span class="lc-opt-l">C</span> Convection currents intensify near the ground</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','B')"><span class="lc-opt-l">D</span> Air pressure has no effect on pollutant dispersal</div>
+  </div>
+  <div class="lc-fb" id="mcq6-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+<div class="lc-card">
+  <div class="lc-fitb">
+    <p>Conduction transfers energy through particle <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px">. In fluids, <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> transfers energy by bulk movement of the fluid itself. Density equals mass divided by <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:100px">. When a fluid's density falls, it experiences an upward <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px"> force. Air trapped inside insulation is a poor <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px">. A temperature <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:100px"> traps cooler air (and pollutants) near the ground.</p>
+    <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+    <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+  </div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q19.</strong> A metal door handle and a plastic door handle are at the same temperature, but the metal one feels colder. Explain why. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Metal has a much higher thermal conductivity than plastic. ✓ It conducts thermal energy away from your hand faster, so more energy leaves your skin per second — this is perceived as "colder", even though both handles are at the same temperature.</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q21.</strong> Frying pans typically have a metal body and a plastic or wood handle. Explain this choice of materials. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The metal body has high thermal conductivity, so it heats evenly and transfers energy quickly to the food. ✓ The handle needs low thermal conductivity so it stays cool enough to hold safely, despite being at a similar temperature to the pan.</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q23.</strong> Explain how a neoprene wetsuit keeps a surfer warm in cold water. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Neoprene foam contains trapped air bubbles, and air is a poor thermal conductor. ✓ The trapped air also prevents convection currents from carrying energy away. ✓ A thin layer of water trapped against the skin warms up and then insulates, further reducing heat loss to the surrounding cold water.</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q24.</strong> A wooden disc of area 65 cm² and thickness 5.2 mm has a temperature difference of 100°C across it. The rate of thermal energy transfer through it is 16 W. Determine the thermal conductivity of the disc, and suggest what material it could be. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(k = \dfrac{(\Delta Q/\Delta t)\Delta x}{A\Delta T} = \dfrac{16\times5.2\times10^{-3}}{6.5\times10^{-3}\times100}\). ✓ \(k = 0.128 \approx 0.13\ \text{W m}^{-1}\text{K}^{-1}\). ✓ Matches Table B1.4 for rubber.</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q25.</strong> 275 J of thermal energy passes through a block of cross-sectional area 12.5 cm² in 10 minutes, with a temperature gradient of 4.2°C cm⁻¹. (a) Calculate the thermal conductivity. (b) Describe this material. (c) Suggest what it could be. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Power = 275/600 = 0.458 W; gradient = 420°C m⁻¹. ✓ \(k = \dfrac{0.458}{1.25\times10^{-3}\times420} = 0.872 \approx 0.87\ \text{W m}^{-1}\text{K}^{-1}\). ✓ This is a poor conductor — an insulator. ✓ Consistent with glass (k = 0.86).</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q26.</strong> Polyurethane foam insulation transfers 5.6 W per m² through a thickness of 7.8 cm. Calculate the temperature difference across the foam. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Per unit area, \(5.6 = 0.03\times1\times\Delta T/0.078\). ✓ \(\Delta T = 5.6\times0.078/0.03\). ✓ \(\Delta T = 14.56 \approx 14.6°\text{C}\).</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q27.</strong> A box with two chimneys has a candle beneath one chimney. Smoke rises through the heated chimney and falls through the other. Explain this observation. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Air above the candle warms, expands and becomes less dense, so it rises up that chimney. ✓ Cooler, denser air sinks down the other chimney to replace it, forming a continuous convection current while the candle burns.</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q28.</strong> A tube of water has ice held at the bottom by a gauze. (a) With heating applied near the top, explain why the ice does not melt. (b) If the gauze is removed and heating is applied at the bottom instead, explain why the ice does melt. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Water heated at the top expands and becomes less dense than the water below, so it stays at the top — no convection current can form, and water is a poor conductor, so heat is not carried down to the ice. ✓ (b) Water heated at the bottom expands, becomes less dense, and rises; colder, denser water sinks to replace it, forming a convection current. ✓ This current carries thermal energy up to the ice, which melts. ✓ Overall: water transfers thermal energy primarily by convection, not conduction.</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q29.</strong> Explain why a sea breeze blows from the sea toward the land during the day. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Land has a lower specific heat capacity than the sea, so it heats up faster in sunlight. ✓ Air above the land warms, expands, becomes less dense, and rises. ✓ Cooler, denser air from over the sea flows in to replace it, producing a breeze from sea to land.</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Outline</div>
+  <div class="lc-exam-q"><strong>Q30.</strong> Outline features of an Antarctic explorer's clothing that reduce thermal energy loss. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Multiple layers trap air between them (insulation). ✓ Insulating materials — wool, down or synthetic fibres — trap further air. ✓ A windproof outer layer prevents convective heat loss (wind chill), and a hood/face covering reduces loss from the head. ✓ Insulated gloves/boots reduce conduction to the cold ground; reflective materials reduce radiative loss.</div>
+</div>
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Identify</div>
+  <div class="lc-exam-q"><strong>Q31.</strong> A pizza cooks in a wood-fired oven. Identify the three mechanisms of thermal energy transfer at work, and how each contributes. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Conduction: thermal energy passes from the hot stone floor into the pizza base. ✓ Convection: hot air circulates around the pizza, cooking the top. ✓ Radiation: infrared radiation from the flames and oven walls also cooks the exposed surface.</div>
+</div>
+
+<div class="lc-score-row"><div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div></div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1:{ B:'Conduction is particle-to-particle KE transfer via collisions/vibrations.' },
+    mcq2:{ C:'k = 0.025 W/m·K is essentially the conductivity of air — a good insulator.' },
+    mcq3:{ B:'Same temperature, but metal removes heat from your hand faster.' },
+    mcq4:{ B:'Rate is inversely proportional to thickness — double Δx, halve the rate.' },
+    mcq5:{ B:'Expansion lowers density, so buoyancy pushes the warmer fluid up.' },
+    mcq6:{ B:'A warm layer above cooler ground air stops convection, trapping pollutants.' }
+  },
+  fitb: { lf1:'collisions', lf2:'convection', lf3:'volume', lf4:'buoyant', lf5:'conductor', lf6:'inversion' }
+});
+</script>
+
+</div>
       <!-- LESSON-END -->
       </div>
 
