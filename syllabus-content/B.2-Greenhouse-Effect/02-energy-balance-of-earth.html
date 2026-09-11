@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Energy Balance of Earth — B.2 Greenhouse Effect — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -86,6 +87,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -158,28 +162,342 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Energy Balance of Earth</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B2" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 4 · B.2 Greenhouse Effect</div>
+<div class="lc-title">Energy Balance of Earth</div>
+<div class="lc-sub">Earth stays at roughly the same temperature year after year because it radiates away exactly as much energy as it absorbs. This lesson builds that balance into a single equation — and uses it to explain why the Earth is warm enough to live on.</div>
+
+<div class="lc-card">
+  <h3>🌍 Hook – why is the Earth exactly the right temperature?</h3>
+  <p>Mercury bakes at over 400°C by day; Mars freezes at −60°C on average. Earth sits at a gentle 15°C — comfortable for liquid water and life. That is not luck. It is the outcome of a balance: <strong>Earth absorbs solar radiation at exactly the rate it radiates thermal energy back into space.</strong> Get that balance's inputs even slightly wrong — through a change in albedo or emissivity — and the equilibrium temperature shifts.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-02-energy-balance-of-earth-01.png" alt="Photovoltaic solar panels absorbing and reflecting incident thermal radiation" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — 580 W of thermal radiation strikes a 1.86 m × 2.12 m solar panel perpendicularly. Some is reflected (the panel's albedo), the rest absorbed.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — if the Sun suddenly got hotter, would the Earth's temperature keep rising forever? <em>No. A higher T means the Earth radiates away thermal energy faster (power ∝ T⁴), so it quickly reaches a new, higher equilibrium temperature where absorption = emission again.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Emissivity, recapped</h3>
+  <p>Before building the full balance, recall that a real surface radiates less efficiently than a perfect black body of the same temperature. <strong>Emissivity</strong>, ε, compares the two:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Emissivity (no units, 0 ≤ ε ≤ 1)</span>
+    $$\varepsilon = \frac{\text{power radiated per unit area}}{\sigma T^4}$$
+  </div>
+  <p>Rearranged, this is how emissivity is measured in practice: record the actual power radiated per unit area of a surface at known temperature T, then divide by \(\sigma T^4\) — the black-body value.</p>
+  <div class="lc-info">🔢 <strong>Sample calculation.</strong> A surface radiates \(1.3\times10^{16}\) W over an area \(1.4\times10^{14}\ \text{m}^2\), at \(T = 210\ \text{K}\):<br>\(\varepsilon = \dfrac{1.3\times10^{16}/1.4\times10^{14}}{5.67\times10^{-8}\times210^4}\)<br>\(= 0.84\)</div>
+</div>
+
+<div class="lc-card">
+  <h3>⚖️ Modelling a planet's energy balance</h3>
+  <p>Over any extended time interval, a planet in thermal equilibrium satisfies:</p>
+  <div class="lc-formula">
+    $$\text{radiant energy received} = \text{radiant energy emitted}$$
+  </div>
+  <p>The planet only <strong>intercepts</strong> sunlight over its disc-shaped cross-section, \(\pi r^2\) — the "shadow" it casts. But it <strong>radiates</strong> from its entire curved surface, \(4\pi r^2\). Putting intensity, albedo, and emissivity together:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Planetary energy balance</span>
+    $$S\pi r^2(1-\alpha) = \varepsilon\sigma(4\pi r^2)T^4$$
+  </div>
+  <p>where S is the solar constant and α is the albedo. Note \(\pi r^2\) cancels from both sides — the planet's radius does not actually affect its equilibrium temperature.</p>
+  <p>For Earth: \(S = 1.36\times10^3\ \text{W m}^{-2}\), \(r = 6.4\times10^6\ \text{m}\), average emissivity (Earth + atmosphere) \(\varepsilon = 0.61\), average albedo \(\alpha = 0.315\):</p>
+  <div class="lc-formula">
+    $$1.36\times10^3\times(1-0.315) = 0.61\times(5.67\times10^{-8})\times4T^4$$
+    $$T = 286\ \text{K}\ (13^{\circ}\text{C})$$
+  </div>
+  <p>The Earth's actual mean surface temperature is 288 K (15°C) — so this simple model is <strong>reasonably accurate</strong>.</p>
+  <div class="lc-info">📖 Three things follow immediately: <strong>(1)</strong> ε and α fundamentally set a planet's temperature, and both take different values for a planet without an atmosphere. <strong>(2)</strong> human activity is measurably changing Earth's ε and α. <strong>(3)</strong> small changes in T can drive large — mostly harmful — changes in climate.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🧭 Nature of science – using computers to expand human knowledge</h3>
+  <p>Predicting the future is usually far more likely to go wrong than right, because almost every real situation has too many variables and unknown factors — this is true even for events governed purely by physics, like next week's weather, let alone events shaped by human behaviour.</p>
+  <p>Mathematical modelling represents a situation with equations and numbers, but nearly always carries simplifications and assumptions that leave predictions uncertain. Modern computers can handle the enormous datasets and calculations that climate modelling requires — far beyond what any person could manage — but a computer's predictions are only as good as the input data and the specific tasks humans set it. One check on accuracy: run a model on a known past situation and see whether it correctly predicts what actually happened next. <strong>Predicting the past is always much easier than predicting the future.</strong></p>
+</div>
+
+<div class="lc-card">
+  <h3>🏡 The greenhouse effect – energy transfers within the system</h3>
+  <p>So far we treated "Earth + atmosphere" as a single system. To understand the mechanism properly, we need the energy transfers <em>between</em> the surface and the atmosphere — the greenhouse effect.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-02-energy-balance-of-earth-02.png" alt="An ornate glass greenhouse used to grow plants in a colder climate" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Glasshouses like this became popular over the last two centuries in colder countries, for growing plants native to hotter climates.</div>
+  </div>
+  <p>The Sun's surface radiates at 5780 K, mostly as visible light and short-wavelength infrared. This radiation is transmitted through the greenhouse glass and warms the interior; some longer wavelengths are reflected by the glass, and much of the visible light exits again after bouncing off surfaces inside.</p>
+  <p>The warmed ground, pots and plants absorb infrared and heat up, then transfer thermal energy to the air by conduction; convection carries the warm air upward, but it mostly stays inside the greenhouse. Crucially, the <strong>contents</strong> of the greenhouse are much cooler than the Sun (≈300 K), so they re-radiate at much longer infrared wavelengths — and these longer wavelengths cannot pass back out through the glass. Thermal energy is effectively <strong>trapped</strong> inside.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-02-energy-balance-of-earth-03.png" alt="Diagram of visible and short-wave infrared entering a greenhouse through glass, while long-wave infrared radiated from the warm interior is trapped" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Visible and short-wave IR pass through the glass and warm the interior; the interior's own re-radiated long-wave IR cannot pass back out.</div>
+  </div>
+  <div class="lc-info">🤔 <strong>Discussion</strong> — how valid is comparing this to the Earth's atmosphere? Is "greenhouse effect" a useful term, or could it mislead? (There is no single correct answer — discuss after finishing this topic.)</div>
+</div>
+
+<div class="lc-card">
+  <h3>📊 Sun vs Earth: two very different spectra</h3>
+  <p>The Sun's black-body spectrum (5780 K) peaks at short, visible wavelengths. The Earth's much cooler surface (288 K) radiates a far lower-power spectrum, peaking at much longer infrared wavelengths. Compared to the Sun, <strong>Earth's radiation is at much lower power, with much longer wavelengths.</strong></p>
+  <p>Most of the Sun's radiation passes straight through the atmosphere to reach the surface. But because Earth's outgoing radiation sits at different, longer wavelengths, a much smaller proportion of it is able to pass back out through that same atmosphere. Even so, over time the surface temperature adjusts until: total power received (Earth + atmosphere) = total power radiated (Earth + atmosphere).</p>
+</div>
+
+<div class="lc-card">
+  <h3>🔎 Graph mastery</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Black-body spectra (Sun vs Earth)</td><td>Wavelength /10⁻⁷ m (log scale) · relative intensity</td><td>Tall, narrow peak at short wavelength for the Sun (5780 K); much smaller, broader peak at long wavelength for Earth (288 K)</td><td>The two peaks cannot be directly compared in height — Earth's is exaggerated for visibility. Read off which curve dominates at a given wavelength</td></tr>
+      <tr><td>Solar spectrum reaching sea level</td><td>Wavelength /10⁻⁶ m · relative intensity</td><td>Smooth black-body curve (top of atmosphere) with a jagged, dipped curve beneath it (sea level)</td><td>The dips are wavelengths absorbed by atmospheric gases before reaching the ground; UV, visible and IR regions are marked</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b2-02-energy-balance-of-earth-05.png" alt="Black-body spectra comparing the Sun at 5780 kelvin and the Earth at 288 kelvin on a logarithmic wavelength scale" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — The Sun's peak sits at short (visible) wavelengths; Earth's sits far to the right, at long infrared wavelengths.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b2-02-energy-balance-of-earth-06.png" alt="Graph comparing the Sun's spectrum outside the atmosphere with the spectrum reaching sea level, showing absorption dips" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — Absorption bands in the atmosphere remove specific wavelengths before sunlight reaches sea level.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔄 Energy flow through the Earth's atmosphere</h3>
+  <p>Averaged over the whole planet and over an extended time, the mean intensity of solar radiation arriving at Earth is 340 W m⁻². With an average albedo of 0.315, only 68.5% of that — 233 W m⁻² — is actually absorbed, split between the atmosphere and the surface.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-02-energy-balance-of-earth-04.png" alt="Diagram of energy flow through the Earth's atmosphere: incoming solar radiation, reflection, absorption at the surface and in the atmosphere, infrared emission, greenhouse gas absorption and re-emission, and convection" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — The whole Earth, its surface, and its atmosphere each receive and emit thermal energy at the same overall rate. Energy moves between surface and atmosphere by radiation <em>and</em> convection.</div>
+  </div>
+  <div class="lc-info">🔬 <strong>ATL research skill</strong> — find published data for this energy flow diagram online. Do sources agree? Which look most reliable or up to date? Do different websites trace back to the same original source?</div>
+</div>
+
+<div class="lc-card">
+  <h3>💨 Greenhouse gases</h3>
+  <p><strong>Greenhouse gases</strong> are gases in the Earth's atmosphere that absorb and re-emit infrared radiation, thereby affecting Earth's temperature. The principal ones are water vapour (H₂O), carbon dioxide (CO₂), methane (CH₄) and nitrous oxide (N₂O) — each with both natural and human-activity origins. Atmospheric concentrations of CO₂, CH₄ and N₂O have been increasing significantly in recent years.</p>
+  <p>Earth's atmosphere formed over millions of years through volcanic and biological processes, and through collisions with comets and asteroids. By volume, air is approximately 78% nitrogen, 21% oxygen and 0.9% argon, with naturally occurring traces of other gases including CO₂ and water vapour. The greenhouse gases matter disproportionately: they absorb and then re-emit infrared radiation in all directions, an effect explained at the molecular level either by a resonance model or in terms of molecular energy levels.</p>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – the Moon's average emissivity</h3>
+  <p>Calculate the average emissivity of the Moon. Assume an average albedo of 0.12 and an average surface temperature of 274 K (noting the Moon's actual surface temperature varies enormously, so "average" is not a well-defined quantity).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the Moon is airless, but the same energy-balance equation applies with the Moon's own albedo, temperature, and an unknown emissivity to find.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(S = 1.36\times10^3\ \text{W m}^{-2}\), \(\alpha = 0.12\), \(T = 274\ \text{K}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(1.36\times10^3\times(1-0.12)\)<br>\(= \varepsilon\times(5.67\times10^{-8})\times4\times274^4\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> mean emissivity \(\varepsilon = 0.94\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-02-energy-balance-of-earth-07.png" alt="The Moon shown as a simple flat illustration for the worked example on lunar emissivity" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — The Moon has no atmosphere, so its albedo and emissivity are set by the lunar surface alone.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌊 Real-world: the ice–albedo feedback loop</h3>
+    <p>If the Earth's surface temperature rises, snow and ice melt faster — a reasonable expectation, since a warmer surface transfers thermal energy to ice more quickly. But it works both ways: as snow and ice melt, they expose darker ocean or land underneath, which has a <em>lower</em> albedo. That darker surface absorbs more solar radiation, which raises the surface temperature further — melting still more ice. Average ocean albedo is higher in winter and closer to the poles, both because more of the surface is ice-covered and because sunlight strikes at a shallower, more reflective angle.</p>
+    <div class="lc-success">✓ Examiner tip: name this explicitly as <strong>positive feedback</strong> — a change that reinforces itself, rather than opposing itself (negative feedback).</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – temperatures of planets around distant stars</h3>
+    <p>The same energy-balance equation applies to any planet orbiting any star. The equilibrium surface temperature depends on: the star's luminosity/temperature, the planet's orbital distance (which sets its "solar constant" via the inverse-square law), the planet's albedo, its emissivity, whether it has an atmosphere (and the atmosphere's greenhouse gas content), and any internal heat sources.</p>
+    <p><strong>Challenge:</strong> two planets orbit at the same distance from identical stars, but Planet X has a thick, cloudy atmosphere and Planet Y has none. Which is warmer? <em>It depends on the balance of two competing effects: a thick cloudy atmosphere usually raises albedo (reflecting more sunlight, cooling the planet) but also raises the effective emissivity term's denominator effect by trapping outgoing IR (warming the planet) — Venus's extreme atmosphere shows the greenhouse effect winning decisively.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>A planet absorbs sunlight over its whole surface, \(4\pi r^2\)</td><td>It only intercepts sunlight over its cross-sectional "shadow" area, \(\pi r^2\); it emits from the full surface, \(4\pi r^2\)</td></tr>
+      <tr><td>Albedo and emissivity are the same property</td><td>Albedo (α) describes reflection of incoming shortwave radiation; emissivity (ε) describes how efficiently a surface radiates thermal energy — they are independent</td></tr>
+      <tr><td>The model predicting T = 286 K is "wrong" because the real value is 288 K</td><td>A simple model using averaged ε and α is expected to be approximate; 286 K vs 288 K counts as a good agreement</td></tr>
+      <tr><td>The "greenhouse effect" traps energy the exact same physical way a garden greenhouse does</td><td>Real greenhouses mostly work by preventing convective heat loss (trapped warm air); the atmospheric greenhouse effect is dominated by selective infrared absorption/re-emission by gases, not blocked convection</td></tr>
+      <tr><td>Radius affects a planet's equilibrium temperature in this model</td><td>\(\pi r^2\) cancels algebraically from both sides of the balance equation — temperature depends only on S, α and ε, not on r</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: using the wrong area — \(\pi r^2\) (cross-section, for absorption) instead of \(4\pi r^2\) (full sphere, for emission), or vice versa.</div>
+</div>
+
+<div class="lc-kp">
+  <span>ε = P/A ÷ σT⁴</span>
+  <span>Sπr²(1−α) = εσ(4πr²)T⁴</span>
+  <span>solar constant S = 1360 W m⁻²</span>
+  <span>Earth: ε ≈ 0.61, α ≈ 0.315</span>
+  <span>T ≈ 286 K matches observed 288 K</span>
+  <span>ice–albedo positive feedback</span>
+  <span>greenhouse gases: H₂O, CO₂, CH₄, N₂O</span>
+  <span>r cancels — radius doesn't set T</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. In the Earth's energy balance equation, \(\pi r^2\) is used for the absorbed power and \(4\pi r^2\) for the emitted power because</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> the Earth absorbs sunlight over its whole spherical surface</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> only the sunlit disc faces the Sun, but the whole sphere radiates in all directions</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> the Earth's surface area changes with the seasons</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> albedo only applies to half the Earth</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. Earth's average albedo of 0.315 means that</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 31.5% of incoming solar radiation is absorbed</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 68.5% of incoming solar radiation is absorbed, and 31.5% is reflected</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 31.5% of outgoing infrared is trapped by the atmosphere</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> the Earth's emissivity is 0.315</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. Why can't sunlight-warmed air inside a greenhouse simply radiate its heat straight back out through the glass?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> Glass is opaque to all radiation</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> The warm interior re-radiates at much longer infrared wavelengths, which the glass does not transmit</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> Convection removes all the heat before it can radiate</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> All the Sun's radiation is absorbed by the glass itself</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. A rise in surface temperature melts ice, exposing darker land/ocean, which absorbs more sunlight and raises the temperature further. This is an example of</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> negative feedback</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> an isolated system</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> positive feedback</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> a violation of energy conservation</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. Which combination gives the HIGHEST equilibrium surface temperature in the energy balance model?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> High solar constant, high albedo, high emissivity</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> High solar constant, low albedo, low emissivity</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> Low solar constant, high albedo, high emissivity</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> High solar constant, high albedo, low emissivity</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A planet absorbs sunlight over its <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:150px"> area, \(\pi r^2\), but radiates from its full <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px"> area, \(4\pi r^2\). The average intensity of sunlight arriving at Earth is called the <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:140px">. The fraction of incoming radiation reflected is the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">, and the efficiency with which a surface radiates compared to a black body is its <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:120px">. Gases such as CO₂ and water vapour that absorb and re-emit infrared radiation are called <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:150px">. When melting ice exposes darker surfaces that absorb more sunlight and warm the Earth further, this is called <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:150px"> feedback. Within the atmosphere, energy also moves between surface and air by <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:130px">, not just radiation.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / State / Describe</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> 580 W of thermal radiation is incident perpendicularly on photovoltaic solar panels of dimensions 1.86 m × 2.12 m. <strong>(a)</strong> Calculate the intensity of the radiation. <strong>(b)</strong> If the panel's albedo is 0.21, determine the total rate at which the panel absorbs thermal radiation. <strong>(c)</strong> Describe how the albedo of the panels is minimised. <strong>(d)</strong> State two reasons why it is best if the panels are perpendicular to the incident radiation. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(I = 580/(1.86\times2.12) = 147\ \text{W m}^{-2}\).<br>✓ (b) absorbed rate \(= 580\times(1-0.21) = 458\ \text{W}\).<br>✓ (c) an anti-reflective coating and/or a dark, textured surface reduces the fraction reflected.<br>✓ (d) perpendicular incidence maximises the effective area exposed to the beam (no cosθ reduction), and reflection (albedo) increases at large angles of incidence, so keeping the beam perpendicular minimises reflection losses.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State / Explain</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> <strong>(a)</strong> State why it would be reasonable to expect that, if the temperature of the Earth's surface were to rise, snow and ice would melt quicker. <strong>(b)</strong> Conversely, explain why it would also be reasonable to expect that, if large amounts of snow and ice were to melt, the temperature of the Earth's surface would rise. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) A warmer surface transfers thermal energy to the ice/snow at a greater rate, so it reaches its melting point and changes state faster.<br>✓ (b) Melting ice and snow exposes darker land or ocean underneath, which has a lower albedo.<br>✓ That darker surface absorbs a greater fraction of incoming solar radiation, raising the surface temperature further — a positive feedback loop.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> Explain why the average albedo of ocean water will tend to increase <strong>(a)</strong> in winter <strong>(b)</strong> closer to the poles. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) More of the ocean surface is covered by ice/snow in winter, which has a much higher albedo than open water.<br>✓ (b) Near the poles the Sun's rays strike the water at a much shallower (more oblique) angle.<br>✓ Reflection off a water surface increases sharply at shallow angles of incidence, so more of the light is reflected rather than absorbed.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> Discuss why the emissivity of clouds makes them an important factor affecting the average emissivity of Earth. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Clouds cover a very large and constantly changing fraction of the Earth's surface area at any given time.<br>✓ Cloud emissivity varies considerably with cloud type, thickness and altitude, so it is not a fixed value.<br>✓ Because clouds cover so much area, even modest changes in average cloud cover or type shift the whole-Earth average emissivity noticeably, which is why cloud behaviour is one of the largest uncertainties in climate models.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> A brick wall is 2.34 m high and 3.80 m long. The bricks have an emissivity of 0.72. At what rate is thermal energy radiated away from the wall if its temperature is 18°C? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(A = 2.34\times3.80 = 8.89\ \text{m}^2\), \(T = 291\ \text{K}\).<br>✓ \(P = \varepsilon\sigma AT^4 = 0.72\times(5.67\times10^{-8})\times8.89\times291^4\).<br>✓ \(P \approx 2.6\times10^3\ \text{W}\) (about 2.6 kW).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> Show that the total power radiated away from the Earth's surface is approximately \(1\times10^{17}\ \text{W}\). Assume surface temperature 288 K and Earth radius \(6.4\times10^6\ \text{m}\). <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(A = 4\pi r^2 = 4\pi(6.4\times10^6)^2 = 5.15\times10^{14}\ \text{m}^2\).<br>✓ Using the average Earth emissivity \(\varepsilon = 0.61\): \(P = \varepsilon\sigma AT^4 = 0.61\times(5.67\times10^{-8})\times5.15\times10^{14}\times288^4\).<br>✓ \(P \approx 1.2\times10^{17}\ \text{W} \approx 1\times10^{17}\ \text{W}\), as required.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q7.</strong> To determine a value for the Earth's surface temperature if it never had an atmosphere, use estimated values of ε = 0.9 and albedo = 0.3. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(1.36\times10^3\times(1-0.3) = 0.9\times(5.67\times10^{-8})\times4T^4\).<br>✓ \(T^4 = 952/(2.04\times10^{-7}) = 4.66\times10^9\).<br>✓ \(T \approx 261\ \text{K}\) (about −12°C).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q8.</strong> Determine a value for the surface temperature of the Earth if it never had an atmosphere and behaved as a perfect black body. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ A perfect black body has \(\varepsilon = 1\) and \(\alpha = 0\): \(1.36\times10^3 = 1\times(5.67\times10^{-8})\times4T^4\).<br>✓ \(T^4 = 6.00\times10^9\), so \(T \approx 278\ \text{K}\) (about 5°C).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q9.</strong> Calculate the average surface temperature of Mars, assuming an average emissivity of 0.95 and an average albedo of 0.21. Its solar constant is 590 W m⁻². <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(590\times(1-0.21) = 0.95\times(5.67\times10^{-8})\times4T^4\).<br>✓ \(T^4 = 466/(2.15\times10^{-7}) = 2.16\times10^9\).<br>✓ \(T \approx 216\ \text{K}\) (about −57°C).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Predict</div>
+  <div class="lc-exam-q"><strong>Q10.</strong> Suppose climate change resulted in a 5% change in both the emissivity and the albedo of the Earth. Predict a new value for the maximum average surface temperature. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ To get the maximum possible temperature, both changes must act to warm the planet: a 5% decrease in albedo (\(0.315\to0.299\)) and a 5% decrease in emissivity (\(0.61\to0.580\)).<br>✓ \(1.36\times10^3\times(1-0.299) = 0.580\times(5.67\times10^{-8})\times4T^4\).<br>✓ \(T^4 = 953/(1.31\times10^{-7}) = 7.25\times10^9\).<br>✓ \(T \approx 292\ \text{K}\) (19°C) — about 6 K warmer than the original 286 K.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q11.</strong> State the factors which will affect the surface temperatures of planets orbiting a distant star. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The star's luminosity/surface temperature, and the planet's orbital distance (which together set its "solar constant" via the inverse-square law).<br>✓ The planet's albedo.<br>✓ The planet's emissivity.<br>✓ Whether it has an atmosphere, and that atmosphere's greenhouse gas content; also any significant internal heat source.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'A planet only intercepts sunlight over its cross-sectional disc, pi r^2, but radiates thermal energy from its whole curved surface, 4 pi r^2.' },
+    mcq2: { B: 'Albedo 0.315 means 31.5% of incoming radiation is reflected, so 68.5% (1 - 0.315) is absorbed by the atmosphere and surface combined.' },
+    mcq3: { B: 'The warm interior contents radiate at much longer infrared wavelengths than the incoming sunlight, and those longer wavelengths cannot pass back out through the glass.' },
+    mcq4: { C: 'The change (melting) causes an effect (lower albedo, more absorption) that reinforces the original change (rising temperature) - that is positive feedback.' },
+    mcq5: { B: 'T^4 is proportional to S(1-albedo)/emissivity, so T is maximised by a high solar constant, a low albedo (large 1-albedo), and a low emissivity (small denominator).' }
+  },
+  fitb: { lf1:'cross-sectional', lf2:'spherical (curved)', lf3:'solar constant', lf4:'albedo', lf5:'emissivity', lf6:'greenhouse gases', lf7:'positive', lf8:'convection' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
