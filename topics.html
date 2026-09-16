@@ -169,7 +169,7 @@
         <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
           <span class="section-label" style="margin-bottom:0">IB Physics 2023</span>
           <h1 style="font-size:1.6rem;margin:0;display:inline">Syllabus Topics</h1>
-          <span style="color:var(--text-muted);font-size:0.88rem">— 25 topics · HL &amp; SL · click to expand</span>
+          <span style="color:var(--text-muted);font-size:0.88rem">— 26 topics · HL &amp; SL · click to expand</span>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap">
@@ -198,6 +198,18 @@ const { useState, useEffect, useCallback } = React;
 
 /* ── DATA ─────────────────────────────────────────────────────── */
 const UNITS = [
+  {
+    id: 'T', label: 'Unit T', name: 'Tools of Physics', color: '#F87171',
+    topics: [
+      {
+        code:'T.1', name:'Tools of Physics', level:'●', id:'T1',
+        concepts:['Applying general mathematics in physics','Scalar and vector quantities','Combining and resolving vectors','Scale diagrams','Fundamental and derived units in physics','Using dimensional analysis','Processing uncertainties','Graphing in physics','Determining uncertainties from graphs'],
+        equations:['%unc = (Δx/x) × 100','Δy = Δa + Δb (add/subtract)','Δy/y = Δa/a + Δb/b (×, ÷)','Δy/y = n(Δa/a) (power)'],
+        hl:[],
+        note:'Master these tools before Unit A — every later topic assumes fluency with vectors, units and uncertainty.'
+      },
+    ]
+  },
   {
     id: 'A', label: 'Unit A', name: 'Space, Time and Motion', color: '#4F9DFF',
     topics: [
@@ -231,7 +243,7 @@ const UNITS = [
       },
       {
         code:'A.5', name:'Galilean & Special Relativity', level:'●●●', id:'A5',
-        concepts:["Galilean relativity and Newton's laws","Einstein's two postulates",'Time dilation','Length contraction','Spacetime diagrams','Mass-energy equivalence'],
+        concepts:['Frames of reference and events',"Galilean relativity and Newton's laws","Einstein's two postulates",'Time dilation','Length contraction','Spacetime diagrams','Mass-energy equivalence'],
         equations:['t\' = γt₀','l\' = l₀/γ','γ = 1/√(1−v²/c²)','E = mc²','E² = (pc)² + (m₀c²)²'],
         hl:['Spacetime intervals','Muon decay experiments','Relativistic momentum and energy'],
         note:'HL only — visualise events on spacetime diagrams before applying formulas.'
@@ -250,7 +262,7 @@ const UNITS = [
       },
       {
         code:'B.2', name:'Greenhouse Effect', level:'●', id:'B2',
-        concepts:['Solar constant and albedo','Energy balance of Earth','Greenhouse gases','Enhanced greenhouse effect','Climate modelling'],
+        concepts:['Solar constant and albedo','Energy balance of Earth','Greenhouse gases and enhanced greenhouse effect'],
         equations:['T_e = [S(1−α)/4σ]^(1/4)','P_in = P_out at equilibrium'],
         hl:[],
         note:'Know how to calculate Earth\'s effective temperature from first principles.'
@@ -616,7 +628,7 @@ function App() {
     <div>
       {/* Unit tab filter */}
       <div className="unit-tabs">
-        {['all','A','B','C','D','E'].map(u => (
+        {['all','T','A','B','C','D','E'].map(u => (
           <button
             key={u}
             className={`unit-tab${activeUnit === u ? ' active' : ''}`}
