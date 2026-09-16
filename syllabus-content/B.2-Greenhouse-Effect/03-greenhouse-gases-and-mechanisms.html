@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Greenhouse Gases and Mechanisms — B.2 Greenhouse Effect — φQ Physics</title>
+  <title>Greenhouse Gases — B.2 Greenhouse Effect — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -61,13 +62,6 @@
       border-radius: var(--radius-lg);
       min-height: 500px;
     }
-    .content-placeholder {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: 4rem 2rem; text-align: center;
-      min-height: 400px;
-    }
-    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
     .lesson-nav {
       display: flex; justify-content: space-between;
       gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
@@ -86,11 +80,13 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
 
-<!-- HERO -->
 <div class="lesson-hero">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -100,7 +96,7 @@
       <span class="breadcrumb-sep">›</span>
       <a href="../../topics.html#B2">B.2 Greenhouse Effect</a>
       <span class="breadcrumb-sep">›</span>
-      <span style="color:var(--text)">Greenhouse Gases and Mechanisms</span>
+      <span style="color:var(--text)">Greenhouse Gases</span>
     </nav>
 
     <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
@@ -112,10 +108,10 @@
           </span>
           <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
           <span style="font-size:0.8rem;color:var(--text-muted)">
-            Concept 3 of 4
+            Concept 3 of 3
           </span>
         </div>
-        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Greenhouse Gases and Mechanisms</h1>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Greenhouse Gases</h1>
         <p style="max-width:520px;font-size:0.95rem">
           Part of <strong style="color:var(--text)">B.2 Greenhouse Effect</strong>
           · Unit B — IB Physics 2023
@@ -125,11 +121,9 @@
   </div>
 </div>
 
-<!-- MAIN LAYOUT -->
 <div class="container" style="padding-top:0;padding-bottom:3rem">
   <div class="lesson-layout">
 
-    <!-- Sidebar: concept list -->
     <aside class="lesson-sidebar">
       <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
         color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
@@ -147,42 +141,345 @@
         </a>
       <a href="03-greenhouse-gases-and-mechanisms.html" class="sidebar-link active">
           <span class="sidebar-num">03</span>
-          <span>Greenhouse Gases and Mechanisms</span>
-        </a>
-      <a href="04-enhanced-greenhouse-effect-and-climate.html" class="sidebar-link">
-          <span class="sidebar-num">04</span>
-          <span>Enhanced Greenhouse Effect and Climate</span>
+          <span>Greenhouse Gases</span>
         </a>
     </aside>
 
-    <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Greenhouse Gases and Mechanisms</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B2" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 3 · B.2 Greenhouse Effect</div>
+<div class="lc-title">Greenhouse Gases</div>
+<div class="lc-sub">A handful of trace gases in the atmosphere absorb infrared radiation and re-emit it in random directions, keeping the Earth's surface warmer than it would otherwise be. Human activity is increasing their concentrations — enhancing this natural effect and driving global warming.</div>
+
+<div class="lc-card">
+  <h3>🌡️ Hook – why the Earth needs greenhouse gases at all</h3>
+  <p>The Earth's surface constantly radiates energy away as infrared, just like a very cool light bulb. If nothing were in the way, all of it would escape straight into space and the average surface temperature would sit far below freezing. Figure 1 shows what actually happens: as that outgoing infrared passes up through the atmosphere, greenhouse gases absorb some of it and re-emit it in every direction — including back down. <strong>That returned energy is why the Earth's real average surface temperature is close to 15 °C, not -18 °C.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-03-greenhouse-gases-01.png" alt="Diagram of energy flow through Earth's atmosphere showing incoming solar radiation, reflection, absorption, surface infrared emission, and re-emission by greenhouse gases" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Energy flow through the Earth's atmosphere. Incoming solar radiation, reflection by albedo, surface infrared emission, and absorption/re-emission by greenhouse gases balance so that the whole Earth, its surface and its atmosphere each receive and emit thermal energy at matching rates.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think — then read on)</strong> — nitrogen and oxygen make up 99% of the atmosphere by volume. Why don't they contribute to the greenhouse effect at all? <em>Their molecules, N₂ and O₂, are non-polar, so they cannot absorb infrared radiation the way water vapour, carbon dioxide, methane and nitrous oxide can.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🧪 Which gases, and why</h3>
+  <p>The Earth's atmosphere formed over millions of years from volcanic and biological processes and collisions with comets and asteroids. By volume it is approximately <strong>78% nitrogen, 21% oxygen and 0.9% argon</strong>, with naturally occurring traces of many other gases, including carbon dioxide and water vapour.</p>
+  <div class="lc-info">📖 <strong>Greenhouse gases</strong> — gases in the Earth's atmosphere that absorb and re-emit infrared radiation, thereby affecting the Earth's temperature.</div>
+  <p>Of the trace gases, four matter most. In decreasing order of their contribution to the greenhouse effect:</p>
+  <ul style="margin:0 0 0.75rem 1.1rem;font-size:0.92rem;line-height:1.6">
+    <li>water vapour, H₂O</li>
+    <li>carbon dioxide, CO₂</li>
+    <li>methane, CH₄</li>
+    <li>nitrous oxide (dinitrogen monoxide), N₂O</li>
+  </ul>
+  <div class="lc-info">🌊 <strong>Top tip!</strong> Water vapour is by far the most abundant greenhouse gas. However, scientists do not believe future changes in atmospheric water vapour will significantly affect the Earth's climate — the concentrations of CO₂, CH₄ and N₂O are what have been rising.</div>
+  <p><strong>Nitrogen, oxygen and argon have no greenhouse effect</strong>, because they have non-polar molecules or atoms. Each of the four greenhouse gases has both natural and human-activity origins.</p>
+  <p>The relative importance of a gas depends on <strong>both</strong> its abundance in the atmosphere and its ability to absorb infrared radiation. Carbon dioxide contributes most to the overall greenhouse effect — not because it is the strongest absorber, but because it is far more abundant than the alternatives. Methane and nitrous oxide absorb infrared radiation more strongly than carbon dioxide, molecule for molecule, but their atmospheric concentrations are much lower.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-03-greenhouse-gases-02.png" alt="Infographic showing atmosphere composition: 78% nitrogen, 21% oxygen, 0.9% argon, and trace greenhouse gases water vapour, carbon dioxide, methane, nitrous oxide" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Atmosphere composition by volume. Nitrogen, oxygen and argon dominate but have no greenhouse effect; the trace gases do all the work.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🎯 The resonance mechanism: how a molecule absorbs infrared</h3>
+  <p>Molecules of greenhouse gases absorb infrared radiation because the atoms within them are never at rest — they vibrate at high frequencies, oscillating with simple harmonic motion, like masses connected by springs. Figure 3 shows some of the ways a carbon dioxide molecule can vibrate: stretching along its molecular axis, bending in perpendicular directions, and rotating.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-03-greenhouse-gases-03.png" alt="Model of a carbon dioxide molecule with a central carbon atom and two oxygen atoms connected by springs, showing stretching, bending and rotational vibration modes" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — A few possible molecular vibrations in carbon dioxide: stretching along the molecular axis, bending/perpendicular motions, and rotation.</div>
+  </div>
+  <p>If the atoms in a molecule vibrate at the <strong>same frequency</strong> as the infrared radiation passing through, energy can be absorbed — an example of <strong>resonance</strong> — raising the molecule to a higher energy level. The energy is quickly released again as the molecule falls back to its lower energy level, but it is radiated away in <strong>random directions</strong>: roughly half heads back down towards the surface, keeping it warmer than it would be without the greenhouse gases.</p>
+  <p>Most radiation from the Sun is at <strong>higher</strong> frequencies, so it is much less likely to be absorbed. Radiation emitted from the Earth's cooler surface is mostly at <strong>lower</strong> frequencies — closer to the natural vibration frequencies of greenhouse gas molecules — so it is absorbed far more readily.</p>
+  <div class="lc-info">🔗 <strong>Linking question:</strong> what relevance do simple harmonic motion and resonance have to climate change, and what are the limitations of using a resonance model to explain the greenhouse effect? <em>(Links to understandings in Topics C.1 and C.4.)</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🔥 Enhanced greenhouse effect: human activity turns up the effect</h3>
+  <p>The Earth's population passed eight billion towards the end of 2022, having quadrupled in under a century (Fig 4). Feeding, housing, cooling, heating and transporting that many people all involve transfers of energy — and for the last 300 years, most of that energy has come from burning fossil fuels.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-03-greenhouse-gases-04.png" alt="Line graph of world population growth from 1 billion in 1800 to 7.8 billion in 2020, with a shaded future-estimate region reaching 7.3 to 15.6 billion by 2100" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — World population growth: about 1 billion in 1800, 2 billion by 1930, 4 billion by 1974, 6 billion by 1999, 7.8 billion in 2020. Future estimates for 2100 range from 7.3 to 15.6 billion.</div>
+  </div>
+  <div class="lc-info">📖 <strong>Fossil fuels</strong> — naturally occurring fuels produced by high pressure and temperature acting on dead organisms, in the absence of oxygen, over millions of years. Coal, oil and natural gas are all fossil fuels. They are <strong>non-renewable energy sources</strong>: they take a very long time to form and are being rapidly depleted.</div>
+  <p>The benefits of fossil fuels to society — electricity generation, transport — are undeniable. But burning them releases increased amounts of greenhouse gases, principally carbon dioxide, into the atmosphere. More greenhouse gas means more of the thermal energy radiated from the Earth's surface is absorbed in the atmosphere and re-radiated back down, raising the surface's average temperature further.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">The augmentation of the greenhouse effect by human activity</span>
+    $$\text{enhanced greenhouse effect} = \text{natural greenhouse effect} + \text{human contribution}$$
+  </div>
+  <p>It is currently believed that the enhanced greenhouse effect has raised the Earth's average surface temperature by just over <strong>1 °C during the last 60 years</strong>, with further rises considered inevitable. The burning of fossil fuels is almost certainly the greatest cause of the enhanced greenhouse effect, and nearly all scientists agree with this and its consequence — global warming — although some of the public and some politicians remain less easy to convince.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Reading the correlation: CO₂ and temperature</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>CO₂ vs temperature, 1880–2020</td><td>Year · CO₂ / ppm (right axis) and temperature difference / °C (left axis)</td><td>Both curves rise steadily, especially after 1950</td><td>CO₂ rises from ~300 ppm to over 400 ppm as temperature difference rises from below 0 to about 1.2 °C — a clear correlation over a short timescale</td></tr>
+      <tr><td>CO₂ vs temperature, ~400,000 years</td><td>Thousands of years ago · CO₂ / ppmv and temperature change / °C</td><td>Two stacked wave-like curves whose peaks and troughs align</td><td>CO₂ (180–280 ppmv) and temperature (-8 to +4 °C) have tracked each other for hundreds of thousands of years, long before humans burned fossil fuels in quantity</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b2-03-greenhouse-gases-05.png" alt="Graph correlating atmospheric carbon dioxide concentration with Earth's temperature difference from 1880 to 2020" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — CO₂ concentration and temperature difference from the 20th-century average, 1880–2020.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b2-03-greenhouse-gases-06.png" alt="Two stacked graphs over the last 400,000 years showing temperature change and carbon dioxide concentration tracking each other closely" style="max-width:340px;width:100%"><div class="lc-cap">Fig 6 — Temperature change and CO₂ concentration (ppmv) over the last ~400,000 years.</div></div>
+  </div>
+  <div class="lc-info">🔍 <strong>Try this (ATL: research skills)</strong> — search online for data that supports or conflicts with Fig 1's energy-flow numbers. Is there much disagreement? Which sources look most reliable and up to date, and do different websites appear to draw on the same original sources?</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – which radiation does CO₂ actually absorb?</h3>
+  <p>One natural frequency of vibration of a carbon dioxide molecule is \(2.0 \times 10^{13}\) Hz. <strong>(a)</strong> Determine the wavelength of thermal radiation this molecule will absorb. <strong>(b)</strong> Explain why carbon dioxide can absorb radiation from the Earth but not from the Sun.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> resonant absorption happens when the radiation's frequency matches the molecule's vibration frequency. Use the wave equation to convert frequency to wavelength.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(f = 2.0 \times 10^{13}\ \text{Hz}\), \(c = 3.0 \times 10^{8}\ \text{m s}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(c = f\lambda\), so<br>\(\lambda = \dfrac{c}{f}\)<br>\(= \dfrac{3.0\times10^{8}}{2.0\times10^{13}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer (a):</strong> \(\lambda = 1.5 \times 10^{-5}\ \text{m}\) (15 μm) — squarely in the infrared, matching the wavelengths radiated by the Earth's surface.<br><strong>(b):</strong> the Earth's surface is cool, so it emits mostly lower-frequency (longer-wavelength) infrared close to this value, which resonates with the CO₂ molecule. The Sun is much hotter and emits mostly higher-frequency, shorter-wavelength radiation, which does not match this vibration frequency and so is not absorbed.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b2-03-greenhouse-gases-07.png" alt="Diagram comparing a long infrared wavelength from Earth's surface that matches a CO2 molecule's vibration, against a short wavelength from the Sun that does not" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — The Earth's outgoing infrared wavelength matches CO₂'s vibration frequency; the Sun's shorter-wavelength radiation mostly does not.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real world: consequences, solutions, and the energy mix</h3>
+    <p>The enhanced greenhouse effect's consequences are interconnected and expected to worsen, though some places (and richer countries) will cope better than others: increasing temperatures of oceans, land and atmosphere; climate change and melting snow/ice; more frequent extreme weather (storms, floods, drought, fires); and rising sea levels with increased ocean acidity.</p>
+    <p>Fig 8 shows the world's 2020 energy mix: fossil fuels supply <strong>84.3%</strong> (oil 33.1%, coal 27.0%, gas 24.3%); low-carbon sources supply 15.7% (nuclear 4.3%, hydropower 6.4%, wind 2.2%, solar 1.1%, biofuels 0.7%, other renewables 0.9%) — renewables total 11.4%, up from 13.9% non-fossil in 2000. Over the last 20 years fossil fuels have supplied about 85% of the world's growing energy needs; we now burn about 50% more fossil fuels than in 2000, and wind plus solar still meet under 4% of global demand.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/b2-03-greenhouse-gases-08.png" alt="Horizontal stacked bar chart of the world's 2020 energy sources: 84.3% fossil fuels split into oil, coal and gas, and 15.7% low-carbon split into nuclear, hydropower, wind, solar and biofuels" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 8 — World energy sources, 2020 (BP Statistical Review of World Energy).</div>
+    </div>
+    <p>Individuals and governments have a wide range of possible actions: supporting governments who take prompt action (more renewables, discouraging energy-intensive activity, funding R&D such as carbon capture); accepting higher taxation to discourage fossil fuel use; installing home renewables such as solar panels; using energy-efficient devices less often; improving home insulation; adjusting heating/cooling thermostats; wasting less (especially food); reusing rather than replacing; reducing methane emissions; eating less meat; cheaper and more plentiful public transport; supporting climate-positive businesses; using electric, smaller, fewer and less powerful vehicles; limiting travel (especially for pleasure); recycling; changing lifestyles and expectations; and reforestation.</p>
+    <div class="lc-info">🌐 The annual UN Climate Change Conferences (COP) bring scientists and government representatives together to negotiate action, but questions remain — did agreements go far enough, and will countries do what they promised?</div>
+    <div class="lc-info">🔗 <strong>Linking question:</strong> how do different methods of electricity production affect the energy balance of the atmosphere? <em>(Links to understandings in Topics B.2 and D.4.)</em></div>
+    <div class="lc-success">✓ Examiner tip: "try this" — explain the enhanced greenhouse effect to a 10–12 year-old in five minutes. Deciding what to simplify (and what not to) is exactly the skill examiners reward when a question asks you to "outline" or "describe" for a general audience.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension: correlation, causation, and climate models</h3>
+    <p>The kinetic theory of gases models small amounts of gas in closed containers well. The Earth's atmosphere is a far larger, more complex gaseous system: meteorologists can forecast weather about 10 days ahead with reasonable accuracy, but predicting an entire planet's climate for decades is a much harder problem. Climate models are improving as data, processing power and international collaboration all increase.</p>
+    <p>When two data sets correlate as closely as CO₂ and temperature do (Figs 5 and 6), it's tempting to assume the first caused the second. Four possibilities actually need ruling out: A caused B; B caused A; both are caused by some third factor C; or the correlation is coincidence with no real explanation.</p>
+    <div class="lc-warn">⚠️ A correlation this strong is convincing but never, by itself, 100% proof. Certainty here comes from combining the correlation with an independent physical mechanism — the resonance absorption model — which explains <em>why</em> more CO₂ should raise temperature, not just that the two rise together.</div>
+    <p><strong>Challenge:</strong> what additional evidence, beyond the correlation itself, has convinced almost all scientists that rising CO₂ causes rising temperature rather than the reverse? <em>Answer: a physical absorption mechanism (resonance) that predicts warming from added CO₂ independently of the historical data, plus consistency across many independent methods and datasets, which rules out coincidence and makes reverse causation implausible — since the recent CO₂ rise is known to originate from fossil fuel combustion, not from a warming ocean releasing it.</em></p>
+    <div class="lc-info">🤔 <strong>TOK:</strong> what criteria distinguish knowledge, belief and opinion? Is truth what the majority accepts? Can probability ever become certainty? Ten or twenty years ago, more people doubted the CO₂–warming link; the weight of evidence has since become widely, though not universally, accepted.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>The basic greenhouse effect itself is causing rising temperatures</td><td>The natural greenhouse effect keeps Earth's surface near a stable 15 °C and is essential for life. It's the <em>enhanced</em> (human-driven) greenhouse effect that is changing global temperatures</td></tr>
+      <tr><td>CO₂ must be the strongest greenhouse gas, since it dominates the effect</td><td>CH₄ and N₂O absorb infrared more strongly per molecule than CO₂. CO₂ dominates overall only because it is far more abundant</td></tr>
+      <tr><td>Nitrogen and oxygen, the main atmospheric gases, must contribute to the greenhouse effect too</td><td>N₂, O₂ and Ar are non-polar and absorb no infrared radiation at all — they have zero greenhouse effect</td></tr>
+      <tr><td>A strong correlation between CO₂ and temperature proves CO₂ causes warming</td><td>Correlation alone never proves causation — it could run the other way, share a common cause, or be coincidence. Certainty also requires the resonance absorption mechanism</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common exam slip: writing "the greenhouse effect causes global warming" when the mark scheme wants "the <em>enhanced</em> greenhouse effect, due to human activity, causes global warming." Always include the word enhanced.</div>
+</div>
+
+<div class="lc-kp">
+  <span>4 main GHGs: H₂O, CO₂, CH₄, N₂O</span>
+  <span>N₂/O₂/Ar: non-polar, no greenhouse effect</span>
+  <span>absorption by resonance: matching vibration frequency</span>
+  <span>re-emission is random; ~half returns to surface</span>
+  <span>CO₂ dominates via abundance, not absorption strength</span>
+  <span>enhanced greenhouse effect = human-driven addition</span>
+  <span>+1 °C over the last 60 years</span>
+  <span>correlation ≠ causation</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. In decreasing order of contribution to the greenhouse effect, the four main greenhouse gases are:</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> CO₂, H₂O, CH₄, N₂O</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> N₂O, CH₄, CO₂, H₂O</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> H₂O, CO₂, CH₄, N₂O</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> N₂, O₂, CO₂, CH₄</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Nitrogen and oxygen make up 99% of the atmosphere but have no greenhouse effect because</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> they are too abundant to absorb radiation</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> their molecules are non-polar, so they cannot absorb infrared radiation</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> they only absorb visible light</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> they have no natural or human origins</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Carbon dioxide readily absorbs infrared radiated by the Earth's surface but not most radiation from the Sun because</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> the Sun's radiation is too weak</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> CO₂ only absorbs radiation at night</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> the Sun's radiation is mostly at lower frequencies than CO₂'s vibration frequency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> the Sun's radiation is mostly at higher frequencies, while the cooler Earth emits mostly lower frequencies that match CO₂'s vibration frequency</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. The "enhanced greenhouse effect" refers to</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> the natural greenhouse effect that keeps Earth habitable</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> the augmentation of the greenhouse effect due to human activities</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> the greenhouse effect caused by water vapour alone</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> the cooling effect of albedo</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The four main greenhouse gases, in decreasing order of contribution, are water vapour, <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:140px">, methane and nitrous oxide. Molecules absorb infrared radiation when their natural vibration frequency matches the radiation's frequency — an effect called <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px">. Nitrogen and oxygen are not greenhouse gases because their molecules are <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px">. The augmentation of the natural greenhouse effect by human activity is called the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px"> greenhouse effect. Energy sources continuously replenished, mainly by the Sun, are called <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:120px"> energy.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Write</div>
+  <div class="lc-exam-q"><strong>Q12.</strong> Write a word equation representing the energy balance of a greenhouse at constant temperature. Assume the inside is hotter than the outside and that there are no open windows. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ At constant temperature, energy is neither building up nor being lost, so: rate of energy transfer in (by radiation from the Sun through the glass) = rate of energy transfer out (by radiation, conduction and convection through the glass and structure).<br>✓ Equivalently: energy absorbed per second = energy emitted/lost per second.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Outline</div>
+  <div class="lc-exam-q"><strong>Q13.</strong> Outline the reasons for the decrease of intensity at some wavelengths in a graph of the Earth's emitted radiation spectrum. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ At those wavelengths, greenhouse gases (particularly water vapour) in the atmosphere absorb the outgoing infrared radiation.<br>✓ The absorbed energy is re-emitted in random directions rather than continuing outward, so the measured outgoing intensity at those specific wavelengths is reduced.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Explain</div>
+  <div class="lc-exam-q"><strong>Q14.</strong> One natural frequency of vibration of a carbon dioxide molecule is \(2.0\times 10^{13}\ \text{Hz}\). <strong>(a)</strong> Determine the wavelength of thermal radiation which this molecule will absorb. <strong>(b)</strong> Explain why carbon dioxide can absorb radiation from the Earth but not from the Sun. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\lambda = c/f = (3.0\times10^{8})/(2.0\times10^{13}) = 1.5\times10^{-5}\ \text{m}\) (infrared).<br>✓ (b) The Sun's radiation is mostly at much higher frequencies, which don't match this vibration frequency.<br>✓ The cooler Earth's surface emits mostly at lower frequencies, close to \(2.0\times10^{13}\) Hz, which resonates with the CO₂ molecule and is absorbed.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q"><strong>Q15.</strong> Use data from a diagram of energy flow through the Earth's atmosphere (Fig 1) to show that it represents an atmosphere in thermal equilibrium. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ At each level of the diagram — the whole Earth, the surface, and the atmosphere — add up all the incoming energy transfers and all the outgoing ones.<br>✓ For thermal equilibrium, the total rate of energy received must equal the total rate of energy emitted at every level.<br>✓ If the figures given for that level satisfy (energy in per second) = (energy out per second), the atmosphere is confirmed to be in thermal equilibrium at that level.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss (ATL: research skills)</div>
+  <div class="lc-exam-q"><strong>Q16.</strong> Many people are concerned about increasing levels of methane in the atmosphere. Discuss the reasons for these concerns. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Methane absorbs infrared radiation more strongly, molecule for molecule, than carbon dioxide.<br>✓ Its atmospheric concentration has been rising, from sources such as livestock farming, natural gas leaks, landfill and thawing permafrost.<br>✓ Because it's a weaker (shorter-lived) but more potent gas, quick reductions in methane emissions can slow near-term warming faster than equivalent CO₂ cuts.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate</div>
+  <div class="lc-exam-q"><strong>Q17.</strong> Use Fig 5 to estimate the percentage by which the concentration of carbon dioxide in the atmosphere increased in the 50 years between 1970 and 2020. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Reading approximate values from the graph: about 325 ppm in 1970, about 412 ppm in 2020.<br>✓ Percentage increase \(\approx \dfrac{412-325}{325}\times100 \approx 27\%\). (Accept any answer consistent with the reader's own graph readings.)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q"><strong>Q18.</strong> Sketch Sankey diagrams which show all the principal energy transfers that have resulted in <strong>(a)</strong> a wind generator producing an electric current <strong>(b)</strong> an oil-fired power station producing an electric current. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Kinetic energy of wind → kinetic energy of turbine blades → electrical energy, with a small loss branch to sound/heat from friction — the arrow barely narrows, since wind turbines lose relatively little energy.<br>✓ (b) Chemical (fossil fuel) energy → thermal energy (combustion) → kinetic energy of steam/turbine → electrical energy, with large loss branches to waste heat at each stage — the arrow narrows substantially, reflecting the low overall efficiency of thermal power stations.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q19.</strong> Explain why hydroelectric power is considered to be a renewable energy source. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The water that drives hydroelectric turbines is continuously replenished by the water cycle: solar energy evaporates water, which falls as rain and refills reservoirs.<br>✓ Since the source (the Sun-driven water cycle) will not run out on any timescale relevant to us, hydroelectric power does not deplete a finite resource.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / State</div>
+  <div class="lc-exam-q"><strong>Q20.</strong> <strong>(a)</strong> Determine two reasons why increasing temperatures result in increasing sea levels. <strong>(b)</strong> State the latest predictions for future sea levels. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Thermal expansion — warmer ocean water expands and takes up more volume.<br>✓ Melting of land-based ice (glaciers and ice sheets) adds extra water to the oceans that was not there before.<br>✓ (b) Predictions vary by scenario and source and change as new data arrives — check the latest IPCC or national assessment for a current figure rather than relying on any single fixed number.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss / Suggest / State</div>
+  <div class="lc-exam-q"><strong>Q21.</strong> <strong>(a)</strong> Discuss whether nuclear energy is renewable or non-renewable. <strong>(b)</strong> Suggest some reasons why nuclear power is not used more widely. <strong>(c)</strong> State what major incidents happened in 1986 and 2011 which affected people's opinions about nuclear power. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Nuclear fuel (uranium) is a finite, mined resource, so in that sense nuclear is non-renewable — though it produces no greenhouse gases in operation, unlike fossil fuels.<br>✓ (b) High construction costs and long build times; public concern over safety and radioactive waste disposal; political opposition following major accidents.<br>✓ (c) 1986: the Chernobyl disaster (Soviet Union). 2011: the Fukushima Daiichi disaster (Japan), triggered by an earthquake and tsunami.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine (research)</div>
+  <div class="lc-exam-q"><strong>Q22.</strong> Determine the primary sources of energy used to generate electricity in the country where you live. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Look up your national grid operator's or energy ministry's most recent generation-mix report.<br>✓ Compare the fossil fuel / nuclear / renewable split you find against the 2020 world average in Fig 8 (84.3% fossil fuels, 15.7% low-carbon) and note whether your country's mix is more or less carbon-intensive than average.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss (TOK / personal opinion)</div>
+  <div class="lc-exam-q"><strong>Q23.</strong> Would you like the government of the country where you live to take more action in an attempt to limit climate change? If not, why not? If yes, what changes would you recommend? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ There is no single correct answer — credit is for a reasoned position, e.g. one that weighs the economic cost of new policy against the physical evidence for continued warming (Figs 5–6) and the consequences already observed.<br>✓ A strong answer names a specific recommendation from the solutions list (e.g. carbon taxation, renewables investment, public transport funding) and explains its expected effect.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine (research)</div>
+  <div class="lc-exam-q"><strong>Q24.</strong> Determine the risks associated with the generation of electricity from non-nuclear sources. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Fossil fuels: greenhouse gas emissions, air pollution, mining/drilling accidents and habitat damage.<br>✓ Hydropower: dam failure risk, displacement of communities, disruption of river ecosystems.<br>✓ Wind/solar: relatively low operational risk, but land use, manufacturing footprint, and intermittency (need for backup/storage) are notable drawbacks.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'In decreasing order of contribution: water vapour, carbon dioxide, methane, nitrous oxide.' },
+    mcq2: { B: 'N2 and O2 molecules are non-polar, so they cannot absorb infrared radiation at all, however abundant they are.' },
+    mcq3: { D: 'The hot Sun emits mostly higher-frequency radiation; the cooler Earth emits mostly lower-frequency radiation that matches CO2\'s vibration frequency and is absorbed.' },
+    mcq4: { B: 'The enhanced greenhouse effect is the augmentation of the natural greenhouse effect caused by human activities, mainly burning fossil fuels.' }
+  },
+  fitb: { lf1:'carbon dioxide', lf2:'resonance', lf3:'non-polar', lf4:'enhanced', lf5:'renewable' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
-      <!-- Prev / Next navigation -->
       <div class="lesson-nav">
         <a href="02-energy-balance-of-earth.html" class="lesson-nav-btn">
           <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
@@ -191,11 +488,11 @@
             <div class="nav-btn-label">Energy Balance of Earth</div>
           </div>
         </a>
-        <a href="04-enhanced-greenhouse-effect-and-climate.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+        <a href="../B.3-Gas-Laws/index.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
           <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
           <div>
             <div class="nav-btn-dir">Next</div>
-            <div class="nav-btn-label">Enhanced Greenhouse Effect and Climate</div>
+            <div class="nav-btn-label">Gas Laws</div>
           </div>
         </a>
       </div>
