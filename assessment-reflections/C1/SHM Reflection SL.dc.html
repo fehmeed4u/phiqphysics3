@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="ext-resource-dependency" content="./shm-sl-data.js" data-resource-id="shmData" />
+<meta name="ext-resource-dependency" content="./shm-engine.js" data-resource-id="shmEngine" />
+<template id="__bundler_thumbnail" data-bg-color="#04254a">
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<rect width="200" height="200" fill="#04254a"></rect>
+<path d="M85 40h30" stroke="#D4AF37" stroke-width="6" stroke-linecap="round"></path>
+<path d="M89 40v30L58 130a10 10 0 0 0 9 15h66a10 10 0 0 0 9-15L111 70V40" stroke="#D4AF37" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</template>
+</helmet>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#16202E;background:#FBF8F1;min-height:100vh;padding-bottom:40px">
+  <div style="position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:14px;padding:14px 26px;background:#04254a;border-bottom:3px solid #D4AF37">
+    <div style="width:38px;height:38px;flex:0 0 auto;border:2px solid #D4AF37;border-radius:7px;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#0a3e78,#04254a)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.2h6"></path><path d="M10.2 3.2v6.1L5.4 18.2a1.8 1.8 0 0 0 1.6 2.7h10a1.8 1.8 0 0 0 1.6-2.7L13.8 9.3V3.2"></path><path d="M7.4 14.6h9.2"></path></svg>
+    </div>
+    <div>
+      <div style="color:#fff;font-family:Georgia,'Iowan Old Style','Palatino Linotype',Palatino,'Times New Roman',serif;font-weight:700;font-size:16px;letter-spacing:.14em;text-transform:uppercase">Park International School</div>
+      <div style="color:#D4AF37;font-size:13px;letter-spacing:.22em;text-transform:uppercase;margin-top:1px">Grade 12 &middot; DP Physics SL &middot; SHM Diagnostic</div>
+    </div>
+    <div style="margin-left:auto">
+      <sc-if value="{{ isWelcome }}" hint-placeholder-val="{{ false }}">
+        <span></span>
+      </sc-if>
+      <sc-if value="{{ !isWelcome }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ onRestart }}" style="background:transparent;border:1px solid rgba(255,255,255,.28);color:#dfe7f1;padding:7px 14px;border-radius:8px;font-size:14.5px;font-weight:600;cursor:pointer">Restart</button>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="max-width:880px;margin:0 auto;padding:38px 26px 90px">
+
+    <sc-if value="{{ isWelcome }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#fff;border:1px solid #E7E2D6;border-radius:18px;box-shadow:0 4px 12px rgba(4,37,74,.08),0 24px 60px rgba(4,37,74,.12);overflow:hidden">
+        <div style="padding:46px 46px 38px;background:linear-gradient(180deg,#fff,#fdfbf6);border-bottom:1px solid #EEEAE0">
+          <div style="font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#B58E22">Grade 12 &middot; DP Physics SL</div>
+          <h1 style="font-family:Georgia,serif;font-weight:700;font-size:38px;letter-spacing:-.01em;margin:14px 0 12px;color:#04254a">Your SHM Exam Reflection</h1>
+          <p style="color:#5C6B7E;font-size:16.5px;max-width:62ch;margin:0">Enter your marks for every part of the Simple Harmonic Motion diagnostic. You'll get a personal report of your strengths and areas to grow, plus a practice pack built from every question you didn't get full marks on.</p>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #EEEAE0;margin-top:24px">
+            <div style="padding:24px 28px 4px;border-right:1px solid #EEEAE0"><div style="width:30px;height:30px;border-radius:50%;background:#0053A6;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;font-family:Georgia,serif">1</div><h4 style="font-size:16px;margin:12px 0 5px;font-family:Georgia,serif;color:#04254a">Enter your marks</h4><p style="font-size:15.5px;color:#5C6B7E;margin:0">Add the marks you scored on each part of the paper.</p></div>
+            <div style="padding:24px 28px 4px;border-right:1px solid #EEEAE0"><div style="width:30px;height:30px;border-radius:50%;background:#0053A6;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;font-family:Georgia,serif">2</div><h4 style="font-size:16px;margin:12px 0 5px;font-family:Georgia,serif;color:#04254a">Read your report</h4><p style="font-size:15.5px;color:#5C6B7E;margin:0">See your strongest topics and command words, and where to focus.</p></div>
+            <div style="padding:24px 28px 4px"><div style="width:30px;height:30px;border-radius:50%;background:#0053A6;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;font-family:Georgia,serif">3</div><h4 style="font-size:16px;margin:12px 0 5px;font-family:Georgia,serif;color:#04254a">Get your practice pack</h4><p style="font-size:15.5px;color:#5C6B7E;margin:0">Three fresh challenge questions for every part you dropped a mark on.</p></div>
+          </div>
+        </div>
+        <div style="padding:34px 46px 42px">
+          <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:18px">
+            <div><label style="display:block;font-size:15px;font-weight:700;color:#16202E;margin-bottom:7px">Full name</label><input value="{{ name }}" onChange="{{ onNameInput }}" placeholder="e.g. Amara Okafor" style="width:100%;padding:13px 15px;border:1.5px solid #E7E2D6;border-radius:10px;font-size:16.5px;color:#16202E;background:#fff;box-sizing:border-box"></input></div>
+            <div><label style="display:block;font-size:15px;font-weight:700;color:#16202E;margin-bottom:7px">Class / section <span style="font-weight:500;color:#8A98A8">(optional)</span></label><input value="{{ klass }}" onChange="{{ onKlassInput }}" placeholder="e.g. 12 Blue" style="width:100%;padding:13px 15px;border:1.5px solid #E7E2D6;border-radius:10px;font-size:16.5px;color:#16202E;background:#fff;box-sizing:border-box"></input></div>
+          </div>
+          <button onClick="{{ onStart }}" style="display:inline-flex;align-items:center;gap:10px;background:#0053A6;color:#fff;border:none;border-radius:11px;padding:14px 24px;font-size:16px;font-weight:700;box-shadow:0 2px 0 #003B78;cursor:pointer">Begin reflection &rarr;</button>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isMarks }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#B58E22">Step 2</div>
+        <h1 style="font-family:Georgia,serif;font-size:30px;margin:8px 0;color:#04254a">Enter your marks</h1>
+        <p style="color:#5C6B7E;font-size:16px;margin:0 0 8px">Working name: <b>{{ workingName }}</b>{{ workingKlass }}. Use the &minus; / + buttons or type each mark.</p>
+
+        <sc-for list="{{ sections }}" as="section" hint-placeholder-count="2">
+          <div style="margin-top:30px">
+            <div style="display:inline-flex;align-items:center;gap:9px;font-family:Georgia,serif;font-weight:700;color:#04254a;font-size:21px">
+              <span style="font-family:-apple-system,sans-serif;font-size:13.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#0053A6;color:#fff;padding:4px 10px;border-radius:20px">{{ section.label }}</span>
+              <span style="font-family:-apple-system,sans-serif;font-size:15px;color:#8A98A8;font-weight:600">{{ section.sub }}</span>
+            </div>
+            <sc-for list="{{ section.groups }}" as="grp" hint-placeholder-count="4">
+              <div style="background:#fff;border:1px solid #E7E2D6;border-radius:14px;margin-top:14px;overflow:hidden;box-shadow:0 1px 2px rgba(16,32,46,.04),0 8px 30px rgba(16,32,46,.07)">
+                <div style="display:flex;align-items:center;gap:12px;padding:13px 18px;background:#FBF9F3;border-bottom:1px solid #EEEAE0">
+                  <span style="font-family:Georgia,serif;font-weight:700;font-size:16px;color:#04254a">{{ grp.key }}</span>
+                  <span style="margin-left:auto;font-size:14.5px;color:#8A98A8;font-weight:600">{{ grp.max }} marks</span>
+                </div>
+                <sc-for list="{{ grp.items }}" as="item" hint-placeholder-count="1">
+                  <div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;padding:13px 18px;border-top:1px solid #EEEAE0" data-comment-anchor="{{ item.id }}">
+                    <div style="{{ item.doneStyle }}">
+                      <div style="font-weight:700;font-size:15.5px;color:#16202E">{{ item.label }}</div>
+                      <div style="font-size:15px;color:#5C6B7E;margin-top:2px">{{ item.prompt }}</div>
+                      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:7px">
+                        <span style="font-size:13px;font-weight:600;padding:3px 9px;border-radius:20px;background:#EAF1FA;color:#003B78">{{ item.command }}</span>
+                        <span style="font-size:13px;font-weight:600;padding:3px 9px;border-radius:20px;background:#F3EFE3;color:#B58E22">{{ item.topicName }}</span>
+                      </div>
+                    </div>
+                    <div style="display:flex;align-items:center;border:1.5px solid #E7E2D6;border-radius:10px;overflow:hidden;background:#fff">
+                      <button disabled="{{ item.decDisabled }}" onClick="{{ item.onDec }}" style="width:34px;height:40px;border:none;background:#FAF8F2;color:#0053A6;font-size:18px;font-weight:700;cursor:pointer">&minus;</button>
+                      <input value="{{ item.value }}" onChange="{{ item.onInput }}" placeholder="&ndash;" style="width:46px;height:40px;border:none;text-align:center;font-size:16px;font-weight:700;color:#16202E;border-left:1px solid #EEEAE0;border-right:1px solid #EEEAE0;box-sizing:border-box"></input>
+                      <button disabled="{{ item.incDisabled }}" onClick="{{ item.onInc }}" style="width:34px;height:40px;border:none;background:#FAF8F2;color:#0053A6;font-size:18px;font-weight:700;cursor:pointer">+</button>
+                      <span style="padding:0 11px 0 9px;font-size:15px;color:#8A98A8;font-weight:600;white-space:nowrap">/ {{ item.marksMax }}</span>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.96);border-top:1px solid #E7E2D6">
+        <div style="max-width:880px;margin:0 auto;padding:13px 26px;display:flex;align-items:center;gap:20px">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:14.5px;color:#5C6B7E;font-weight:600;margin-bottom:6px">{{ progressText }}</div>
+            <div style="height:8px;background:#EFEBDF;border-radius:6px;overflow:hidden"><i style="display:block;height:100%;background:linear-gradient(90deg,#0053A6,#2f86e0);border-radius:6px;width:{{ progressPct }}"></i></div>
+          </div>
+          <button disabled="{{ !canContinue }}" onClick="{{ onContinue }}" style="display:inline-flex;align-items:center;gap:10px;background:#0053A6;color:#fff;border:none;border-radius:11px;padding:14px 22px;font-size:15.5px;font-weight:700;white-space:nowrap;cursor:pointer">{{ continueLabel }}</button>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isReport }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="background:linear-gradient(165deg,#04254a,#0a3e78 70%);border-radius:18px;color:#fff;padding:34px 38px;display:flex;align-items:center;gap:34px;flex-wrap:wrap;box-shadow:0 4px 12px rgba(4,37,74,.08),0 24px 60px rgba(4,37,74,.12)">
+          <div style="flex:0 0 auto;position:relative;width:128px;height:128px">
+            <svg width="128" height="128" viewBox="0 0 128 128">
+              <circle cx="64" cy="64" r="56" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="12"></circle>
+              <circle cx="64" cy="64" r="56" fill="none" stroke="#D4AF37" stroke-width="12" stroke-linecap="round" stroke-dasharray="{{ ringC }}" stroke-dashoffset="{{ ringOff }}" transform="rotate(-90 64 64)"></circle>
+            </svg>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center"><b style="font-family:Georgia,serif;font-size:32px;line-height:1">{{ ringPct }}%</b><span style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#D4AF37;margin-top:3px">Overall</span></div>
+          </div>
+          <div>
+            <div style="color:#D4AF37;font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase">Reflection report</div>
+            <h1 style="color:#fff;font-family:Georgia,serif;font-size:27px;margin:8px 0 8px">{{ workingName }}'s SHM results</h1>
+            <div style="display:flex;gap:26px;margin-top:14px;flex-wrap:wrap">
+              <div><b style="font-family:Georgia,serif;font-size:21px;color:#fff;display:block">{{ scoreGot }} / {{ scoreMax }}</b><span style="font-size:13.5px;color:#9fb3cc;letter-spacing:.04em;text-transform:uppercase">Total marks</span></div>
+              <div><b style="font-family:Georgia,serif;font-size:21px;color:#fff;display:block">{{ strengthsCount }}</b><span style="font-size:13.5px;color:#9fb3cc;letter-spacing:.04em;text-transform:uppercase">Strength topics</span></div>
+              <div><b style="font-family:Georgia,serif;font-size:21px;color:#fff;display:block">{{ partsToPractice }}</b><span style="font-size:13.5px;color:#9fb3cc;letter-spacing:.04em;text-transform:uppercase">Parts to practise</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#FBF4DC;border:1px solid #EAD89A;border-left:4px solid #D4AF37;border-radius:12px;padding:18px 22px;margin-top:22px;color:#5a4a14;font-size:16px">{{ encouragementText }}</div>
+
+        <div style="margin-top:34px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><span style="width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#E7F3EC;color:#1F7A52">&#10003;</span><h2 style="font-family:Georgia,serif;font-size:21px;color:#04254a;margin:0">What you're strong at</h2></div>
+          <sc-if value="{{ !strengthsEmpty }}" hint-placeholder-val="{{ true }}">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:14px">
+              <sc-for list="{{ strengths }}" as="r" hint-placeholder-count="3">
+                <div style="background:#fff;border:1px solid #E7E2D6;border-top:3px solid #1F7A52;border-radius:13px;padding:16px 17px;box-shadow:0 1px 2px rgba(16,32,46,.04),0 8px 30px rgba(16,32,46,.07)">
+                  <span style="display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:#E7F3EC;color:#1F7A52">Strength</span>
+                  <h4 style="font-size:16px;color:#04254a;margin:9px 0 4px;font-family:Georgia,serif">{{ r.name }}</h4>
+                  <p style="font-size:14.5px;color:#5C6B7E;margin:0">{{ r.blurb }}</p>
+                  <div style="display:flex;align-items:baseline;gap:6px;margin-top:11px"><b style="font-family:Georgia,serif;font-size:20px">{{ r.pctText }}</b><span style="font-size:14px;color:#8A98A8;font-weight:600">{{ r.scoreText }}</span></div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ strengthsEmpty }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#fff;border:1px dashed #E7E2D6;border-radius:13px;padding:20px;color:#5C6B7E;font-size:15px">{{ emptyStrongText }}</div>
+          </sc-if>
+          <div style="margin-top:14px;font-size:15px;color:#5C6B7E">{{ bestCmdLine }}</div>
+        </div>
+
+        <div style="margin-top:34px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><span style="width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#FBE9E3;color:#C24A36">!</span><h2 style="font-family:Georgia,serif;font-size:21px;color:#04254a;margin:0">Where to focus</h2></div>
+          <sc-if value="{{ !weaksEmpty }}" hint-placeholder-val="{{ true }}">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:14px">
+              <sc-for list="{{ weaks }}" as="r" hint-placeholder-count="3">
+                <div style="background:#fff;border:1px solid #E7E2D6;border-top:3px solid #C24A36;border-radius:13px;padding:16px 17px;box-shadow:0 1px 2px rgba(16,32,46,.04),0 8px 30px rgba(16,32,46,.07)">
+                  <span style="display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:#FBE9E3;color:#C24A36">Focus area</span>
+                  <h4 style="font-size:16px;color:#04254a;margin:9px 0 4px;font-family:Georgia,serif">{{ r.name }}</h4>
+                  <p style="font-size:14.5px;color:#5C6B7E;margin:0">{{ r.blurb }}</p>
+                  <div style="display:flex;align-items:baseline;gap:6px;margin-top:11px"><b style="font-family:Georgia,serif;font-size:20px">{{ r.pctText }}</b><span style="font-size:14px;color:#8A98A8;font-weight:600">{{ r.scoreText }}</span></div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ weaksEmpty }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#fff;border:1px dashed #E7E2D6;border-radius:13px;padding:20px;color:#5C6B7E;font-size:15px">{{ emptyWeakText }}</div>
+          </sc-if>
+          <div style="margin-top:14px;font-size:15px;color:#5C6B7E">{{ worstCmdLine }}</div>
+        </div>
+
+        <div style="margin-top:34px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><span style="width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#EAF1FA;color:#0053A6">&#8801;</span><h2 style="font-family:Georgia,serif;font-size:21px;color:#04254a;margin:0">Topic-by-topic breakdown</h2></div>
+          <div style="background:#fff;border:1px solid #E7E2D6;border-radius:14px;padding:8px 20px 16px;box-shadow:0 1px 2px rgba(16,32,46,.04),0 8px 30px rgba(16,32,46,.07)">
+            <sc-for list="{{ chartTopicRows }}" as="row" hint-placeholder-count="8">
+              <div style="display:grid;grid-template-columns:215px 1fr 52px;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid #EEEAE0">
+                <div><div style="font-size:15px;font-weight:600;color:#16202E">{{ row.name }}</div><small style="display:block;color:#8A98A8;font-weight:500;font-size:13px">{{ row.subText }}</small></div>
+                <div style="height:18px;background:#F2EEE2;border-radius:5px;overflow:hidden"><i style="display:block;height:100%;border-radius:5px;{{ row.trackFillStyle }}"></i></div>
+                <div style="text-align:right;font-weight:700;font-size:15.5px;color:{{ row.valueColor }}">{{ row.p }}%</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-top:34px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px"><span style="width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#F3EFE3;color:#B58E22">&#8801;</span><h2 style="font-family:Georgia,serif;font-size:21px;color:#04254a;margin:0">Command-word skills</h2></div>
+          <div style="background:#fff;border:1px solid #E7E2D6;border-radius:14px;padding:8px 20px 16px;box-shadow:0 1px 2px rgba(16,32,46,.04),0 8px 30px rgba(16,32,46,.07)">
+            <sc-for list="{{ chartCmdRows }}" as="row" hint-placeholder-count="6">
+              <div style="display:grid;grid-template-columns:215px 1fr 52px;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid #EEEAE0">
+                <div><div style="font-size:15px;font-weight:600;color:#16202E">{{ row.name }}</div><small style="display:block;color:#8A98A8;font-weight:500;font-size:13px">{{ row.subText }}</small></div>
+                <div style="height:18px;background:#F2EEE2;border-radius:5px;overflow:hidden"><i style="display:block;height:100%;border-radius:5px;{{ row.trackFillStyle }}"></i></div>
+                <div style="text-align:right;font-weight:700;font-size:15.5px;color:{{ row.valueColor }}">{{ row.p }}%</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-top:38px;background:linear-gradient(160deg,#fff,#fdf8ec);border:1px solid #ECD79C;border-radius:16px;padding:26px 30px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;box-shadow:0 1px 2px rgba(16,32,46,.04),0 8px 30px rgba(16,32,46,.07)">
+          <div style="width:54px;height:54px;border-radius:12px;background:#04254a;display:flex;align-items:center;justify-content:center;flex:0 0 auto">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.2h6"></path><path d="M10.2 3.2v6.1L5.4 18.2a1.8 1.8 0 0 0 1.6 2.7h10a1.8 1.8 0 0 0 1.6-2.7L13.8 9.3V3.2"></path><path d="M7.4 14.6h9.2"></path></svg>
+          </div>
+          <div style="flex:1;min-width:220px"><h3 style="font-size:19px;margin:0 0 4px;font-family:Georgia,serif;color:#04254a">{{ bannerTitle }}</h3><p style="font-size:15.5px;color:#5C6B7E;max-width:48ch;margin:0">{{ bannerBody }}</p></div>
+          <div><button onClick="{{ onBuildPack }}" style="background:#D4AF37;color:#3a2c00;border:none;border-radius:11px;padding:14px 24px;font-size:16px;font-weight:700;box-shadow:0 2px 0 #B58E22;cursor:pointer">{{ packBtnLabel }}</button></div>
+        </div>
+
+        <div style="margin-top:18px"><button onClick="{{ onBackToMarks }}" style="background:#fff;border:1.5px solid #E7E2D6;color:#04254a;border-radius:11px;padding:13px 20px;font-weight:700;font-size:15.5px;cursor:pointer">&larr; Edit my marks</button></div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isPack }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap">
+          <button onClick="{{ onBackToReport }}" style="background:#fff;border:1.5px solid #E7E2D6;color:#04254a;border-radius:11px;padding:12px 18px;font-weight:700;font-size:15px;cursor:pointer">&larr; Back to report</button>
+          <button onClick="{{ onPrint }}" style="background:#D4AF37;color:#3a2c00;border:none;border-radius:11px;padding:12px 18px;font-weight:700;font-size:15px;box-shadow:0 2px 0 #B58E22;cursor:pointer">Print / Save as PDF</button>
+        </div>
+
+        <div style="background:linear-gradient(165deg,#04254a,#0a3e78 70%);border-radius:18px;color:#fff;padding:40px 38px;text-align:center">
+          <div style="color:#D4AF37;margin:0 auto 10px;width:54px"><svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.2h6"></path><path d="M10.2 3.2v6.1L5.4 18.2a1.8 1.8 0 0 0 1.6 2.7h10a1.8 1.8 0 0 0 1.6-2.7L13.8 9.3V3.2"></path><path d="M7.4 14.6h9.2"></path></svg></div>
+          <div style="font-family:Georgia,serif;font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase">Park International School</div>
+          <div style="font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;margin-top:4px">Grade 12 &middot; DP Physics SL</div>
+          <div style="width:80px;height:2px;background:#D4AF37;margin:18px auto"></div>
+          <div style="font-family:Georgia,serif;font-size:30px;font-weight:700;margin-top:6px">SHM Remedial Practice Pack</div>
+          <div style="color:#cdd9e8;font-size:15.5px;max-width:52ch;margin:12px auto 0">A personalised challenge programme built from the SHM questions {{ workingName }} can still gain marks on.</div>
+          <div style="display:flex;justify-content:center;gap:34px;margin-top:30px;flex-wrap:wrap;text-align:left">
+            <div><span style="display:block;font-size:13px;color:#9fb3cc;text-transform:uppercase;letter-spacing:.06em">Prepared for</span><b>{{ workingName }}</b></div>
+            <div><span style="display:block;font-size:13px;color:#9fb3cc;text-transform:uppercase;letter-spacing:.06em">Result</span><b>{{ packScoreText }}</b></div>
+            <div><span style="display:block;font-size:13px;color:#9fb3cc;text-transform:uppercase;letter-spacing:.06em">Issued</span><b>{{ packDateStr }}</b></div>
+          </div>
+          <div style="margin-top:26px;background:rgba(255,255,255,.08);border-radius:12px;padding:16px 22px;display:inline-block;text-align:left">
+            <div style="font-size:14px;color:#D4AF37;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">{{ totalQs }} challenge questions &middot; focus topics</div>
+            <sc-for list="{{ focusTopics }}" as="ft" hint-placeholder-count="3"><div style="font-size:15.5px;padding:2px 0">&bull; {{ ft }}</div></sc-for>
+          </div>
+        </div>
+
+        <div style="margin-top:26px;font-size:15px;color:#5C6B7E;line-height:1.6">For every part where a mark was dropped, there are three fresh challenge questions testing the same concept and command word &mdash; with different numbers and contexts. Work through them, then check your answers using the Answer Key at the end.</div>
+
+        <sc-for list="{{ packGroups }}" as="grp" hint-placeholder-count="5">
+          <div style="margin-top:30px">
+            <div style="display:inline-flex;align-items:center;gap:9px;background:#04254a;color:#fff;font-family:Georgia,serif;font-weight:700;font-size:15px;padding:5px 12px;border-radius:20px">{{ grp.key }}</div>
+            <sc-for list="{{ grp.items }}" as="it" hint-placeholder-count="2">
+              <div style="margin-top:16px;border-top:2px solid #D4AF37;padding-top:12px">
+                <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+                  <span style="background:#04254a;color:#fff;font-size:14px;font-weight:700;padding:3px 10px;border-radius:20px">{{ it.label }}</span>
+                  <span style="font-family:Georgia,serif;font-weight:700;color:#04254a;font-size:16px">{{ it.command }}</span>
+                  <span style="font-size:13.5px;color:#B58E22;font-weight:600">{{ it.scoreText }}</span>
+                </div>
+                <div style="font-size:14.5px;color:#5C6B7E;margin-top:4px">Original exam task: {{ it.prompt }}</div>
+                <sc-for list="{{ it.questions }}" as="q" hint-placeholder-count="3">
+                  <div style="background:#fff;border:1px solid #E7E2D6;border-radius:12px;padding:14px 18px;margin-top:10px">
+                    <div style="display:flex;gap:10px;align-items:baseline"><span style="font-weight:700;color:#0053A6">{{ q.n }}.</span><span style="font-size:15.5px;flex:1">{{ q.text }}</span><span style="font-size:14px;color:#8A98A8;white-space:nowrap">{{ q.marksText }}</span></div>
+                    <div style="margin-top:10px">
+                      <sc-for list="{{ q.lines }}" as="ln" hint-placeholder-count="2"><div style="border-bottom:1px solid #E7E2D6;height:22px"></div></sc-for>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+
+        <div style="margin-top:40px;border-top:3px solid #D4AF37;padding-top:20px">
+          <h2 style="font-family:Georgia,serif;color:#04254a;font-size:22px">Answer key</h2>
+          <sc-for list="{{ packGroups }}" as="grp2" hint-placeholder-count="5">
+            <sc-for list="{{ grp2.items }}" as="it2" hint-placeholder-count="2">
+              <div style="margin-top:18px">
+                <h3 style="font-family:Georgia,serif;color:#04254a;font-size:16px;border-bottom:1px solid #E7E2D6;padding-bottom:6px">{{ it2.label }} &mdash; {{ it2.topicName }}</h3>
+                <sc-for list="{{ it2.questions }}" as="aq" hint-placeholder-count="3">
+                  <div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid #EEEAE0">
+                    <div style="font-weight:700;color:#0053A6">{{ aq.n }}.</div>
+                    <div style="font-size:15.5px"><i style="color:#5C6B7E">{{ aq.text }}</i><br></br>{{ aq.answer }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-for>
+          </sc-for>
+        </div>
+
+        <div style="margin-top:40px;border-top:3px solid #D4AF37;padding-top:20px">
+          <h2 style="font-family:Georgia,serif;color:#04254a;font-size:22px">Appendix: full exam concept map</h2>
+          <table style="width:100%;border-collapse:collapse;margin-top:10px;font-size:15px">
+            <thead><tr><th style="text-align:left;border-bottom:1px solid #E7E2D6;padding:6px">Question</th><th style="text-align:left;border-bottom:1px solid #E7E2D6;padding:6px">Concept</th><th style="text-align:left;border-bottom:1px solid #E7E2D6;padding:6px">Command word</th><th style="text-align:right;border-bottom:1px solid #E7E2D6;padding:6px">Marks</th></tr></thead>
+            <tbody>
+              <sc-for list="{{ appendixRows }}" as="row2" hint-placeholder-count="26">
+                <tr style="{{ row2.rowStyle }}"><td style="padding:6px;border-bottom:1px solid #EEEAE0">{{ row2.label }}</td><td style="padding:6px;border-bottom:1px solid #EEEAE0">{{ row2.topicName }}</td><td style="padding:6px;border-bottom:1px solid #EEEAE0">{{ row2.command }}</td><td style="padding:6px;border-bottom:1px solid #EEEAE0;text-align:right">{{ row2.marks }}</td></tr>
+              </sc-for>
+            </tbody>
+          </table>
+          <div style="margin-top:20px;text-align:center;color:#8A98A8;font-size:14px">Park International School &middot; Physics Department &middot; Grade 12 DP SL SHM Diagnostic &middot; Highlighted rows are in the pack</div>
+        </div>
+      </div>
+    </sc-if>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { ready: false, screen: 'welcome', name: '', klass: '', marks: {} };
+  STORE = 'shm_sl_reflection_v1';
+
+  async componentDidMount() {
+    const dataUrl = (window.__resources && window.__resources.shmData) || './shm-sl-data.js';
+    const engineUrl = (window.__resources && window.__resources.shmEngine) || './shm-engine.js';
+    const [dataMod, engineMod] = await Promise.all([
+      import(dataUrl),
+      import(engineUrl),
+    ]);
+    this.DATA = { TOPICS: dataMod.TOPICS, COMMANDS: dataMod.COMMANDS, ITEMS: dataMod.ITEMS, BANK: dataMod.BANK };
+    this.ENGINE = engineMod;
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(this.STORE)) || {}; } catch (e) {}
+    this.setState({ ready: true, name: saved.name || '', klass: saved.klass || '', marks: saved.marks || {} });
+  }
+
+  save() {
+    try { localStorage.setItem(this.STORE, JSON.stringify({ name: this.state.name, klass: this.state.klass, marks: this.state.marks })); } catch (e) {}
+  }
+
+  setMark(it, v) {
+    const val = v === null ? null : Math.max(0, Math.min(it.marks, v));
+    this.setState((s) => ({ marks: { ...s.marks, [it.id]: val } }));
+    setTimeout(() => this.save(), 0);
+  }
+
+  go(screen) {
+    this.setState({ screen });
+    window.scrollTo(0, 0);
+  }
+
+  colorForBand(k) { return k === 'up' ? '#1F7A52' : k === 'sec' ? '#B07A14' : '#C24A36'; }
+  gradForBand(k) { return k === 'up' ? 'linear-gradient(90deg,#27946a,#1F7A52)' : k === 'sec' ? 'linear-gradient(90deg,#e0b53f,#C99A2E)' : 'linear-gradient(90deg,#d56b56,#C24A36)'; }
+
+  buildSections() {
+    const { ITEMS, TOPICS } = this.DATA;
+    const mk = (it) => {
+      const v = this.ENGINE.clamp(it, this.state.marks);
+      return {
+        id: it.id, label: it.label, prompt: it.prompt, marksMax: it.marks,
+        command: it.command, topicName: TOPICS[it.topic].name,
+        value: v === null ? '' : String(v),
+        doneStyle: v !== null ? 'background:linear-gradient(90deg,rgba(31,122,82,.06),transparent 45%);margin:-13px -18px;padding:13px 18px' : '',
+        decDisabled: v !== null && v <= 0,
+        incDisabled: v !== null && v >= it.marks,
+        onDec: () => { const cur = v === null ? 0 : v; this.setMark(it, v === null ? 0 : cur - 1); },
+        onInc: () => { const cur = v === null ? 0 : v; this.setMark(it, cur + 1); },
+        onInput: (e) => {
+          const raw = e.target.value.replace(/[^0-9]/g, '');
+          this.setMark(it, raw === '' ? null : parseInt(raw, 10));
+        },
+      };
+    };
+    const secA = ITEMS.filter((i) => i.label.indexOf(' ') < 0);
+    const secB = ITEMS.filter((i) => i.label.indexOf(' ') >= 0);
+    const groupBy = (items) => {
+      const map = {}; const order = [];
+      items.forEach((it) => {
+        const k = this.ENGINE.qkey(it);
+        if (!map[k]) { map[k] = { key: k, max: 0, items: [] }; order.push(map[k]); }
+        map[k].max += it.marks; map[k].items.push(mk(it));
+      });
+      return order;
+    };
+    const sumMarks = (items) => items.reduce((s, i) => s + i.marks, 0);
+    return [
+      { key: 'A', label: 'Section A', sub: 'Multiple choice \u2013 ' + sumMarks(secA) + ' marks', groups: groupBy(secA) },
+      { key: 'B', label: 'Section B', sub: 'Extended response \u2013 ' + sumMarks(secB) + ' marks', groups: groupBy(secB) },
+    ];
+  }
+
+  buildReport() {
+    const E = this.ENGINE, { TOPICS, COMMANDS, ITEMS, BANK } = this.DATA;
+    const s = E.compute(this.state.marks, this.DATA);
+    const p = E.pct({ got: s.got, max: s.max });
+    const topicRows = Object.keys(TOPICS).map((t) => {
+      const o = s.topics[t];
+      return { id: t, name: TOPICS[t].name, blurb: TOPICS[t].blurb, p: E.pct(o), got: o.got, max: o.max };
+    });
+    const strengths = topicRows.filter((r) => r.p >= E.STRONG).sort((a, b) => b.p - a.p);
+    const weaks = topicRows.filter((r) => r.p < E.THRESHOLD).sort((a, b) => a.p - b.p);
+    const chartRowsBase = topicRows.slice().sort((a, b) => b.p - a.p);
+    const chartRows = chartRowsBase.map((r) => {
+      const k = E.band(r.p);
+      return { name: r.name, subText: r.got + '/' + r.max + ' marks', p: r.p, trackFillStyle: `width:${Math.max(3, r.p)}%;background:${this.gradForBand(k)}`, valueColor: this.colorForBand(k) };
+    });
+    const cmdRowsRaw = Object.keys(COMMANDS).map((c) => { const o = s.cmds[c]; return { id: c, name: COMMANDS[c].name, desc: COMMANDS[c].desc, p: E.pct(o), got: o.got, max: o.max }; }).sort((a, b) => b.p - a.p);
+    const cmdRows = cmdRowsRaw.map((r) => { const k = E.band(r.p); return { name: r.name, subText: r.desc, p: r.p, trackFillStyle: `width:${Math.max(3, r.p)}%;background:${this.gradForBand(k)}`, valueColor: this.colorForBand(k) }; });
+    const bestCmd = cmdRowsRaw[0], worstCmd = cmdRowsRaw[cmdRowsRaw.length - 1];
+    const strongest = chartRowsBase[0];
+    const R = 56, C = 2 * Math.PI * R, off = C * (1 - p / 100);
+    const packQs = s.lost.reduce((n, it) => n + (BANK[it.id] ? BANK[it.id].length : 0), 0);
+    const hasLost = s.lost.length > 0;
+    return {
+      ringC: C, ringOff: off, ringPct: p,
+      scoreGot: s.got, scoreMax: s.max, strengthsCount: strengths.length, partsToPractice: s.lost.length,
+      encouragementText: E.encouragement(p, strongest ? strongest.name : '', s.lost.length),
+      strengths: strengths.map((r) => ({ name: r.name, blurb: r.blurb, pctText: r.p + '%', scoreText: r.got + '/' + r.max + ' marks' })),
+      strengthsEmpty: strengths.length === 0,
+      emptyStrongText: strongest ? `No single topic reached ${E.STRONG}% this time \u2014 the strongest area was ${strongest.name} at ${strongest.p}%. That's the foundation to build on.` : '',
+      weaks: weaks.map((r) => ({ name: r.name, blurb: r.blurb, pctText: r.p + '%', scoreText: r.got + '/' + r.max + ' marks' })),
+      weaksEmpty: weaks.length === 0,
+      emptyWeakText: `Scored at or above ${E.THRESHOLD}% on every topic \u2014 excellent consistency.`,
+      bestCmdLine: bestCmd ? `Strongest command word: ${bestCmd.name} (${bestCmd.p}%) \u2014 ${bestCmd.desc}` : '',
+      worstCmdLine: worstCmd ? `Command word to practise most: ${worstCmd.name} (${worstCmd.p}%) \u2014 ${worstCmd.desc}` : '',
+      chartTopicRows: chartRows, chartCmdRows: cmdRows,
+      hasLost, packQs, lostCount: s.lost.length,
+      bannerTitle: hasLost ? 'Practice pack is ready' : 'No pack needed \u2014 full marks!',
+      bannerBody: hasLost ? `${packQs} challenge questions \u2014 three for each of the ${s.lost.length} part${s.lost.length > 1 ? 's' : ''} that didn't get full marks, with a full worked answer key at the back.` : "Full marks on every part, so there's nothing to practise. You can still build a full challenge pack of the whole paper.",
+      packBtnLabel: hasLost ? 'Build my practice pack \u2192' : 'Build a full challenge pack \u2192',
+    };
+  }
+
+  buildPack() {
+    const E = this.ENGINE, { TOPICS, ITEMS, BANK } = this.DATA;
+    const s = E.compute(this.state.marks, this.DATA);
+    const lostItems = s.lost.length ? s.lost : ITEMS.slice();
+    const overall = E.pct({ got: s.got, max: s.max });
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    const groupsMap = {}; const groups = [];
+    lostItems.forEach((it) => {
+      const k = E.qkey(it);
+      if (!groupsMap[k]) { groupsMap[k] = { key: k, items: [] }; groups.push(groupsMap[k]); }
+      groupsMap[k].items.push(it);
+    });
+    const seenT = {}; const focusTopics = [];
+    lostItems.forEach((it) => { if (!seenT[it.topic]) { seenT[it.topic] = 1; focusTopics.push(TOPICS[it.topic].name); } });
+    const mkQuestions = (it) => (BANK[it.id] || []).map((q, i) => {
+      const lineCount = q.m >= 3 ? Math.min(6, q.m + 1) : 2;
+      return { n: i + 1, text: q.q, marksText: `[${q.m} mark${q.m > 1 ? 's' : ''}]`, lines: Array.from({ length: lineCount }), answer: q.a };
+    });
+    const packGroups = groups.map((g) => ({
+      key: g.key,
+      items: g.items.map((it) => {
+        const m = E.clamp(it, this.state.marks);
+        return { id: it.id, label: it.label, command: it.command, topicName: TOPICS[it.topic].name, prompt: it.prompt, scoreText: `Scored ${m === null ? '\u2013' : m}/${it.marks} \u2014 aim for full marks`, questions: mkQuestions(it) };
+      }),
+    }));
+    const appendixRows = ITEMS.map((it) => {
+      const m = E.clamp(it, this.state.marks);
+      const lostHere = m !== null && m < it.marks;
+      return { label: it.label, topicName: TOPICS[it.topic].name, command: it.command, marks: it.marks, rowStyle: lostHere ? 'background:#FBEFE9' : '' };
+    });
+    return {
+      packScoreText: `${s.got} / ${s.max} \u00b7 ${overall}%`,
+      packDateStr: dateStr,
+      focusTopics,
+      totalQs: lostItems.reduce((n, it) => n + (BANK[it.id] ? BANK[it.id].length : 0), 0),
+      packGroups,
+      appendixRows,
+    };
+  }
+
+  renderVals() {
+    const st = this.state;
+    const ready = !!this.DATA;
+    const base = {
+      ready,
+      isWelcome: st.screen === 'welcome', isMarks: st.screen === 'marks', isReport: st.screen === 'report', isPack: st.screen === 'pack',
+      name: st.name, klass: st.klass,
+      onNameInput: (e) => this.setState({ name: e.target.value }),
+      onKlassInput: (e) => this.setState({ klass: e.target.value }),
+      onStart: () => {
+        const n = (st.name || '').trim();
+        if (!n) return;
+        this.save(); this.go('marks');
+      },
+      onRestart: () => {
+        if (window.confirm('Start over? This clears your saved marks on this device.')) {
+          this.setState({ name: '', klass: '', marks: {} });
+          setTimeout(() => { this.save(); this.go('welcome'); }, 0);
+        }
+      },
+      onBackToMarks: () => this.go('marks'),
+      onBackToReport: () => this.go('report'),
+      onBuildPack: () => this.go('pack'),
+      onPrint: () => window.print(),
+      sections: [], progressPct: '0%', progressText: '', canContinue: false, continueLabel: '',
+      ringC: 0, ringOff: 0, ringPct: 0, scoreGot: 0, scoreMax: 0, strengthsCount: 0, partsToPractice: 0,
+      encouragementText: '', strengths: [], strengthsEmpty: true, emptyStrongText: '', weaks: [], weaksEmpty: true, emptyWeakText: '',
+      bestCmdLine: '', worstCmdLine: '', chartTopicRows: [], chartCmdRows: [],
+      hasLost: false, packQs: 0, lostCount: 0, bannerTitle: '', bannerBody: '', packBtnLabel: '',
+      packScoreText: '', packDateStr: '', focusTopics: [], totalQs: 0, packGroups: [], appendixRows: [],
+      workingName: st.name || 'Student', workingKlass: st.klass ? (' \u00b7 ' + st.klass) : '',
+    };
+    if (!ready) return base;
+
+    if (st.screen === 'marks') {
+      const sections = this.buildSections();
+      const E = this.ENGINE;
+      const s = E.compute(st.marks, this.DATA);
+      const total = s.total, entered = s.entered;
+      base.sections = sections;
+      base.progressPct = Math.round((entered / total) * 100) + '%';
+      base.progressText = `${entered} of ${total} parts entered \u00b7 running total ${s.got} / ${s.max}`;
+      base.canContinue = entered >= total;
+      base.continueLabel = base.canContinue ? 'Generate my report \u2192' : `Enter all marks to continue (${total - entered} left)`;
+      base.onContinue = () => { if (base.canContinue) this.go('report'); };
+    }
+    if (st.screen === 'report') Object.assign(base, this.buildReport());
+    if (st.screen === 'pack') Object.assign(base, this.buildPack());
+    return base;
+  }
+}
+
+</script>
+</body>
+</html>
