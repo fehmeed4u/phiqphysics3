@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -171,28 +172,310 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Gas Laws</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B3" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 6 · B.3 Gas Laws</div>
+<div class="lc-title">Gas Laws</div>
+<div class="lc-sub">Three simple investigations, each holding one variable fixed, reveal how pressure, volume and temperature interact for a fixed amount of gas — and combine into a single equation linking all three.</div>
+
+<div class="lc-card">
+  <h3>💉 Hook – block the end of a syringe and push</h3>
+  <p>Seal the nozzle of a syringe with your finger and push the plunger in. At first it moves easily. The further in you push it, the harder it gets to push — and if you let go, it springs straight back out. <strong>You have trapped a fixed amount of gas and shrunk its volume, and its pressure has risen to fight back.</strong> This is exactly the apparatus used to investigate the relationship properly.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-02-gas-laws-01.png" alt="Computer, interface, data logger, pressure sensor and hand-held syringe used to compress a trapped sample of air" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — A pressure sensor logs the pressure of the air trapped in the syringe as its volume is changed by hand.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — the gas in the syringe is not allowed to escape and its temperature barely changes. What happens to the pressure as you halve the volume? <em>The pressure roughly doubles. For a fixed amount of gas at constant temperature, pressure and volume are inversely proportional — halving one doubles the other.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🧪 Three classic gas law investigations</h3>
+  <p>A sealed container of gas has four physical properties that are easily measured: pressure, volume, temperature and mass (\(P\), \(V\), \(T\) and \(m\)). The amount of gas in moles, \(n\), can be found from its mass. All gases show the same behaviour under most conditions, so air is the obvious choice for experiments.</p>
+  <p>Each of the three classic investigations below keeps the amount of gas fixed and holds one further variable constant while the other two are measured:</p>
+  <p>— How does volume change with pressure, at constant temperature? (<strong>Boyle's law</strong>)<br>— How does pressure change with temperature, at constant volume? (<strong>pressure law</strong>)<br>— How does volume change with temperature, at constant pressure? (<strong>Charles' law</strong>)</p>
+</div>
+
+<div class="lc-card">
+  <h3>📉 Boyle's law — pressure and volume at constant temperature</h3>
+  <p>Figure 2 shows apparatus for investigating how pressure affects the volume of a fixed mass of gas at constant temperature. Compressing a gas does work on it and tends to raise its temperature, so changes must be made slowly to keep the process <strong>isothermal</strong> (occurring at constant temperature).</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-02-gas-laws-02.png" alt="Vertical glass tube of trapped air connected to a pressure gauge, valve, foot pump and oil reservoir" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — A vertical glass tube of air under test, connected via oil to a pressure gauge, a valve and a foot pump.</div>
+  </div>
+  <div class="lc-warn">⚠️ Safety: the gas pressure here can be high enough that the glass tube might explode, so it should be surrounded by a clear plastic protective screen.</div>
+  <p>A plot of \(P\) against \(V\) gives a downward curve, called an isotherm because every point is at the same temperature. Re-plotting \(P\) against \(1/V\) gives a straight line through the origin, showing that pressure and volume are inversely proportional.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Boyle's law · fixed amount of gas, constant temperature</span>
+    $$P \propto \frac{1}{V}$$
+  </div>
+  <div class="lc-formula">
+    $$PV = \text{constant}, \quad P_1V_1 = P_2V_2$$
+  </div>
+  <p>Molecular explanation: shrink the container and the molecules (moving at the same average speed) hit a given area of wall more often each second, so the pressure rises.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🌡️ Pressure law — pressure and temperature at constant volume</h3>
+  <p>Figure 3 shows apparatus for this investigation: a sealed flask of air, immersed in a water bath, with a thermometer and a pressure gauge. Measurements are usually taken between 0°C and 100°C.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-02-gas-laws-05.png" alt="Round flask of trapped air in a water bath, with a thermometer and a pressure gauge connected by a short tube" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — The flask's volume cannot change, so as the water bath heats the trapped air, only its pressure rises.</div>
+  </div>
+  <div class="lc-warn">⚠️ Safety: a large beaker of very hot water could be knocked over, so keep the apparatus away from the table edge; wear gloves when pushing the bung firmly into the flask in case the glass breaks.</div>
+  <p>The raw results form a straight line of pressure against temperature in <em>degrees Celsius</em> (Fig 4) — but it does not pass through the origin.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-02-gas-laws-06.png" alt="Graph of pressure against temperature in degrees Celsius, a straight line rising from about 1.0 times ten to the five pascals at zero degrees to about 1.4 times ten to the five pascals at 100 degrees" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — Pressure against temperature in °C. Extrapolated back, the line reaches \(P=0\) at \(-273^{\circ}\text{C}\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-02-gas-laws-07.png" alt="Graph of pressure against temperature in kelvin, a straight line through the origin, with dashed vertical lines at 273 and 373 kelvin" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — The same data re-plotted against T in kelvin: a straight line through the origin, so \(P \propto T(\text{K})\).</div></div>
+  </div>
+  <div class="lc-info">📐 <strong>Tool 3 – extrapolating graphs.</strong> Extending the line in Fig 4 this far is not normally recommended — but here we are not predicting unknown gas behaviour at low temperature, only asking at what temperature the trend would put the pressure at zero.</div>
+  <p>Every gas extrapolates to the same value, \(-273^{\circ}\text{C}\): the temperature at which molecular motion is assumed to (almost) stop and molecules no longer collide with the walls. This is <strong>absolute zero</strong>, the lower fixed point of the Kelvin scale — \(0\ \text{K}\).</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Pressure law · fixed amount of gas, constant volume</span>
+    $$P \propto T$$
+  </div>
+  <div class="lc-formula">
+    $$\frac{P_1}{T_1} = \frac{P_2}{T_2}$$
+  </div>
+  <p>Molecular explanation: cooling the gas slows the molecules, so they hit a given area of wall less often, lowering the pressure.</p>
+  <div class="lc-warn">⚠️ Common mistake: when calculating with temperatures (not temperature <em>changes</em>), always use kelvin.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🎈 Charles' law — volume and temperature at constant pressure</h3>
+  <p>Figure 6 shows a beaker of water heated from below, with an open-ended tube of trapped air immersed in it. A liquid plug traps the air in the tube and a scale beside the tube reads its volume; as the gas warms it pushes the plug along, keeping its pressure equal to the atmosphere outside.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-02-gas-laws-08.png" alt="Beaker of heated water with an open-ended tube of trapped air, a liquid plug, a scale and a thermometer" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — A liquid plug traps a column of air; the scale reads how far it moves as the gas is warmed.</div>
+  </div>
+  <p>The concluding graph (Fig 7) is a straight line through the origin, just like Fig 5.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-02-gas-laws-09.png" alt="Graph of gas volume against absolute temperature in kelvin, a straight line through the origin, with dashed vertical lines at 273 and 373 kelvin" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — Volume against absolute temperature: a straight line through the origin, so \(V \propto T(\text{K})\).</div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Charles' law · fixed amount of gas, constant pressure</span>
+    $$V \propto T(\text{K})$$
+  </div>
+  <div class="lc-formula">
+    $$\frac{V_1}{T_1} = \frac{V_2}{T_2}$$
+  </div>
+  <p>Molecular explanation: cooling the gas slows the molecules, so they would hit a given area less often — but shrinking the volume too keeps the collision rate, and so the pressure, constant.</p>
+  <div class="lc-warn">⚠️ Common mistake: a gas does not automatically expand when heated. Its volume only rises if it is <em>allowed to</em>, at constant pressure, as in this investigation.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery – the three gas laws</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Boyle's law</td><td>Volume \(V\) · Pressure \(P\)</td><td>Downward curve (isotherm)</td><td>\(PV\) is the same at every point on the curve</td></tr>
+      <tr><td>Boyle's law, linearised</td><td>\(1/V\) · Pressure \(P\)</td><td>Straight line through the origin</td><td>Confirms \(P \propto 1/V\); gradient is the constant \(PV\)</td></tr>
+      <tr><td>Pressure law</td><td>Temperature \(T/^{\circ}\text{C}\) · Pressure \(P\)</td><td>Straight line, does not pass through the origin</td><td>Extrapolated intercept on the \(T\) axis is \(-273^{\circ}\text{C}\), absolute zero</td></tr>
+      <tr><td>Charles' law</td><td>Temperature \(T/\text{K}\) · Volume \(V\)</td><td>Straight line through the origin</td><td>Confirms \(V \propto T\) when temperature is measured in kelvin</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-02-gas-laws-03.png" alt="Graph of pressure against volume, a downward-sloping curve through red data points" style="max-width:340px;width:100%"><div class="lc-cap">Fig 8 — \(P\) against \(V\): pressure falls as volume rises, but not in a straight line.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-02-gas-laws-04.png" alt="Graph of pressure against one over volume, a straight line through the origin through red data points" style="max-width:340px;width:100%"><div class="lc-cap">Fig 9 — The same data re-plotted as \(P\) against \(1/V\): now a straight line through the origin.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – Boyle's law (B3.4)</h3>
+  <p>A sample of gas has a volume of 43 cm³ at normal atmospheric pressure (\(1.0\times10^{5}\)Pa). <strong>(a)</strong> If the pressure is increased to \(3.7\times10^{5}\)Pa, calculate its new volume. <strong>(b)</strong> State the assumption made in (a).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> fixed amount of gas, pressure and volume both changing — use Boyle's law, \(P_1V_1 = P_2V_2\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(P_1 = 1.0\times10^{5}\)Pa, \(V_1 = 43\)cm³, \(P_2 = 3.7\times10^{5}\)Pa.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\((1.0\times10^{5})\times 43 = (3.7\times10^{5})\times V_2\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(V_2 = 12\ \text{cm}^3\).<br><strong>(b)</strong> The temperature of the gas did not change.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – pressure law (B3.5)</h3>
+  <p>Some air in a sealed container was heated from 60°C to 92°C. If its final pressure was \(1.82\times10^{5}\)Pa, determine its pressure at 60°C.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> sealed (fixed volume) container — use the pressure law, \(P_1/T_1 = P_2/T_2\), with temperatures in kelvin.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(T_1 = 273+60 = 333\)K, \(T_2 = 273+92 = 365\)K, \(P_2 = 1.82\times10^{5}\)Pa.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(\dfrac{P_1}{333} = \dfrac{1.82\times10^{5}}{365}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(P_1 = 1.7\times10^{5}\ \text{Pa}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 3 – Charles' law (B3.6)</h3>
+  <p>In an experiment such as Fig 6, the gas temperature was increased from 5.0°C to 95.0°C. If the initial volume was 3.1 cm³, calculate the final volume.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> pressure stays equal to the atmosphere throughout — use Charles' law, \(V_1/T_1 = V_2/T_2\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(T_1 = 273+5.0 = 278\)K, \(T_2 = 273+95 = 368\)K, \(V_1 = 3.1\)cm³.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(\dfrac{3.1}{278} = \dfrac{V_2}{368}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(V_2 = 4.1\ \text{cm}^3\).</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🎈 Real-world: why a hot air balloon rises and falls</h3>
+    <p>The balloon's envelope is open at the base, so the trapped air inside stays at roughly atmospheric pressure — the same condition as Charles' law. Heating the air with the burner raises its temperature, so (at constant pressure) it expands and some spills out of the open base, lowering the mass of air inside the envelope. The remaining hot, less dense air weighs less than the same volume of cool air outside, so the buoyant force from the surrounding air exceeds the balloon's weight and it rises. Letting the air inside cool (or venting some through a vent at the top) raises its density back up, reducing the buoyant force so the balloon descends.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/b3-02-gas-laws-10.png" alt="Multiple colourful hot air balloons flying over a rocky landscape at Cappadocia, Turkey" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 10 — Hot air balloons over Cappadocia. Each balloon's lift comes from the density difference between the heated air inside and the cooler air outside.</div>
+    </div>
+    <div class="lc-success">✓ Examiner tip: an answer that just says "hot air rises" earns little. Explain it through density — heated air at the same pressure occupies more volume per unit mass (Charles' law), so it is less dense than the surrounding cool air.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – combining the three laws</h3>
+    <p>The three empirical laws can be combined into one: for a fixed amount of gas, \(PV \propto T\), so \(PV/T\) is constant.</p>
+    <div class="lc-formula">
+      <span class="lc-formula-label">Combined gas law</span>
+      $$\frac{P_1V_1}{T_1} = \frac{P_2V_2}{T_2}$$
+    </div>
+    <p>This single equation reduces to Boyle's, the pressure law or Charles' law whenever one of \(P\), \(V\) or \(T\) happens to be constant. It is also the direct forerunner of the ideal gas equation, \(PV=nRT\), met in the next lesson.<br>
+    <strong>Challenge:</strong> a fixed mass of gas at \(1.0\times10^{5}\)Pa, 2.0 m³ and 300K is compressed to 1.2 m³ while its temperature rises to 360K. Find its new pressure. <em>Answer: \(\dfrac{(1.0\times10^{5})(2.0)}{300} = \dfrac{P_2(1.2)}{360}\), so \(P_2 = 2.0\times10^{5}\)Pa.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>A gas's volume always increases when its temperature rises</td><td>Only if it is allowed to, at constant pressure (Charles' law). At constant volume, the pressure rises instead (pressure law)</td></tr>
+      <tr><td>Celsius temperatures can be substituted straight into \(P_1/T_1=P_2/T_2\) or \(V_1/T_1=V_2/T_2\)</td><td>Always convert to kelvin first: \(T(\text{K}) = T(^{\circ}\text{C}) + 273\)</td></tr>
+      <tr><td>Extrapolating the \(P\)–\(T\) line to \(-273^{\circ}\text{C}\) is unreliable guesswork</td><td>It is a narrow, specific extrapolation — asking only at what temperature the existing trend would reach \(P=0\), not predicting general gas behaviour there</td></tr>
+      <tr><td>Pressure and volume are directly proportional</td><td>Boyle's law says they are <em>inversely</em> proportional: \(P \propto 1/V\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: plugging a Celsius temperature straight into a gas law ratio. Convert to kelvin as the first line of every calculation.</div>
+</div>
+
+<div class="lc-kp">
+  <span>PV = constant</span>
+  <span>P ∝ 1/V</span>
+  <span>P/T = constant</span>
+  <span>P ∝ T(K)</span>
+  <span>V/T = constant</span>
+  <span>V ∝ T(K)</span>
+  <span>0°C = 273K</span>
+  <span>absolute zero = -273°C</span>
+  <span>PV/T = constant</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A fixed mass of gas at constant temperature has its volume halved. Its pressure</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> halves</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> doubles</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> stays the same</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> quarters</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A fixed mass of gas at constant volume is cooled from 127°C to 27°C. Its pressure will</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','A')"><span class="lc-opt-l">A</span> fall to 75% of its original value</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','A')"><span class="lc-opt-l">B</span> fall to 21% of its original value</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','A')"><span class="lc-opt-l">C</span> stay the same, since only the volume matters</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','A')"><span class="lc-opt-l">D</span> fall to 24% of its original value</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. On a graph of pressure (y) against temperature in °C (x) for a fixed mass of gas at constant volume, the temperature at which the extrapolated line reaches \(P=0\) is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> 0°C, always</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> different for every gas</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> -273°C, the same for every gas</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> undefined, since the line never reaches zero</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A fixed mass of gas at constant pressure is heated from 27°C to 127°C. Its volume will</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> stay the same</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> increase to 133% of its original value</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> increase to 470% of its original value</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> decrease</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Which combination correctly matches the law to the property held constant?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','A')"><span class="lc-opt-l">A</span> Boyle's law – constant temperature; pressure law – constant volume; Charles' law – constant pressure</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','A')"><span class="lc-opt-l">B</span> Boyle's law – constant pressure; pressure law – constant temperature; Charles' law – constant volume</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','A')"><span class="lc-opt-l">C</span> Boyle's law – constant volume; pressure law – constant pressure; Charles' law – constant temperature</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','A')"><span class="lc-opt-l">D</span> All three hold temperature constant</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A graph on which every point is at the same temperature is called an <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px">. For a fixed mass of gas at constant temperature, pressure is <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px"> proportional to volume — this is <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> law. For a fixed mass of gas at constant volume, pressure is proportional to temperature measured in <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px"> — this is the <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px"> law. The temperature at which a gas's pressure would extrapolate to zero is <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px">°C, known as absolute <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:90px">. The three laws combine into one equation, \(PV/T = \) <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:110px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q9.</strong> After the pressure on a gas was increased from \(1.0\times10^{5}\)Pa to \(4.5\times10^{5}\)Pa, its volume became 280 cm³. What was its original volume, assuming its temperature was constant? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Boyle's law: \(P_1V_1 = P_2V_2\).<br>✓ \((1.0\times10^{5})V_1 = (4.5\times10^{5})(280)\), so \(V_1 = 1260\ \text{cm}^3\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q10.</strong> The temperature of a gas was reduced from 80°C to 20°C while keeping it at the same pressure. If the starting volume was 110 cm³, what was the final volume? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Charles' law: \(V_1/T_1 = V_2/T_2\), with \(T_1 = 353\)K, \(T_2 = 293\)K.<br>✓ \(110/353 = V_2/293\), so \(V_2 \approx 91\ \text{cm}^3\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q11.</strong> A fixed volume of gas at 310K and \(1.2\times10^{5}\)Pa was heated in an oven. At what temperature (in °C) will the pressure have risen to \(1.9\times10^{5}\)Pa? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Pressure law: \(P_1/T_1 = P_2/T_2\).<br>✓ \((1.2\times10^{5})/310 = (1.9\times10^{5})/T_2\), so \(T_2 \approx 491\ \text{K}\).<br>✓ In °C: \(491 - 273 = 218^{\circ}\text{C}\).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Boyle\'s law: P is inversely proportional to V. Halving V doubles P.' },
+    mcq2: { A: 'Convert to kelvin: 400K and 300K. P2/P1 = 300/400 = 0.75, so pressure falls to 75%.' },
+    mcq3: { C: 'This is the definition of absolute zero, -273°C (0K), the same for every gas.' },
+    mcq4: { B: 'Convert to kelvin: 300K and 400K. V2/V1 = 400/300 = 1.33, so volume rises to 133%.' },
+    mcq5: { A: 'Boyle\'s law fixes temperature, the pressure law fixes volume, Charles\' law fixes pressure.' }
+  },
+  fitb: { lf1:'isotherm', lf2:'inversely', lf3:'Boyle\'s', lf4:'kelvin', lf5:'pressure', lf6:'-273', lf7:'zero', lf8:'constant' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
