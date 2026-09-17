@@ -3,111 +3,588 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>B.4 Thermodynamics — φQ Physics</title>
+  <title>First Law of Thermodynamics — B.4 Thermodynamics — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
-    .topic-index-hero {
+    .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
-      border-bottom: 1px solid var(--border); padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
     }
     .breadcrumb {
-      display:flex;align-items:center;gap:0.4rem;
-      font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;flex-wrap:wrap;
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--text-muted);
+      margin-bottom: 1rem; flex-wrap: wrap;
     }
-    .breadcrumb a{color:var(--text-muted);text-decoration:none;transition:var(--t);}
-    .breadcrumb a:hover{color:var(--accent);opacity:1;}
-    .concept-card {
-      display:flex;align-items:center;gap:1.25rem;
-      padding:1.25rem 1.5rem;
-      background:var(--surface);border:1px solid var(--border);
-      border-radius:var(--radius-lg);text-decoration:none;
-      transition:var(--t);margin-bottom:0.6rem;
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: var(--t); }
+    .breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .breadcrumb-sep { color: var(--text-dim); }
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 2rem; align-items: start;
+      margin-top: 2.5rem;
     }
-    .concept-card:hover{border-color:var(--border-2);box-shadow:var(--glow-sm);transform:translateX(4px);opacity:1;}
-    .concept-num {
-      flex-shrink:0;width:40px;height:40px;border-radius:50%;
-      background:#7B6EF618;color:#7B6EF6;
-      display:flex;align-items:center;justify-content:center;
-      font-weight:700;font-family:var(--font-mono);font-size:0.9rem;
+    @media(max-width:768px){ .lesson-layout{ grid-template-columns:1fr; } }
+    .lesson-sidebar {
+      position: sticky; top: calc(var(--nav-h) + 1.5rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
     }
+    .sidebar-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 0.75rem;
+    }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 8px;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-decoration: none; transition: var(--t);
+      margin-bottom: 0.15rem;
+    }
+    .sidebar-link:hover { background: var(--accent-dim); color: var(--accent); opacity: 1; }
+    .sidebar-link.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sidebar-num {
+      flex-shrink: 0; width: 22px; height: 22px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--surface2); color: var(--text-dim);
+    }
+    .sidebar-link.active .sidebar-num { background: var(--accent); color: #fff; }
+    .lesson-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+    }
+    .content-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 4rem 2rem; text-align: center;
+      min-height: 400px;
+    }
+    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .lesson-nav {
+      display: flex; justify-content: space-between;
+      gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .lesson-nav-btn {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); text-decoration: none;
+      transition: var(--t); max-width: 280px; min-width: 160px;
+    }
+    .lesson-nav-btn:hover { border-color: var(--border-2); box-shadow: var(--glow-sm); opacity: 1; }
+    .nav-btn-dir {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
 
-<div class="topic-index-hero">
+<!-- HERO -->
+<div class="lesson-hero">
   <div class="container">
-    <nav class="breadcrumb">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="../../index.html">Home</a>
-      <span style="color:var(--text-dim)">›</span>
+      <span class="breadcrumb-sep">›</span>
       <a href="../../topics.html">Topics</a>
-      <span style="color:var(--text-dim)">›</span>
-      <span style="color:var(--text)">B.4 Thermodynamics</span>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#B4">B.4 Thermodynamics</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">First Law of Thermodynamics</span>
     </nav>
-    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap">
-      <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
-        color:#7B6EF6;background:#7B6EF618;padding:0.2rem 0.6rem;border-radius:6px">
-        B.4
-      </span>
-      <span class="tag tag-purple" style="font-size:0.7rem">HL only</span>
-    </div>
-    <h1 style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:0.4rem">Thermodynamics</h1>
-    <p style="max-width:500px">Unit B · 5 key concepts · IB Physics 2023</p>
-  </div>
-</div>
 
-<div class="section container">
-  <div style="max-width:720px">
-    <div class="section-label" style="color:#7B6EF6">Key Concepts</div>
-    <h2 style="margin-bottom:0.4rem;font-size:1.4rem">Choose a concept to study</h2>
-    <p style="margin-bottom:2rem">Work through each concept in order, or jump directly to any topic.</p>
-
-    <a href="01-first-law-of-thermodynamics.html" class="concept-card">
-      <div class="concept-num">01</div>
-      <div style="flex:1">
-        <div style="font-weight:600;color:var(--text);font-size:1rem;margin-bottom:0.15rem">First Law of Thermodynamics</div>
-        <div style="font-size:0.8rem;color:var(--text-muted)">B.4 · Concept 1 of 5</div>
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;
+            color:#7B6EF6;background:#7B6EF618;padding:0.2rem 0.6rem;border-radius:6px">
+            B.4
+          </span>
+          <span class="tag tag-blue" style="font-size:0.7rem">HL only</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">
+            Concept 1 of 5
+          </span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">First Law of Thermodynamics</h1>
+        <p style="max-width:520px;font-size:0.95rem">
+          Part of <strong style="color:var(--text)">B.4 Thermodynamics</strong>
+          · Unit B — IB Physics 2023
+        </p>
       </div>
-      <span style="color:var(--text-dim);font-size:1.1rem">→</span>
-    </a>
-    <a href="02-thermodynamic-processes-and-p-v-diagrams.html" class="concept-card">
-      <div class="concept-num">02</div>
-      <div style="flex:1">
-        <div style="font-weight:600;color:var(--text);font-size:1rem;margin-bottom:0.15rem">Thermodynamic Processes and p-V Diagrams</div>
-        <div style="font-size:0.8rem;color:var(--text-muted)">B.4 · Concept 2 of 5</div>
-      </div>
-      <span style="color:var(--text-dim);font-size:1.1rem">→</span>
-    </a>
-    <a href="03-the-carnot-cycle.html" class="concept-card">
-      <div class="concept-num">03</div>
-      <div style="flex:1">
-        <div style="font-weight:600;color:var(--text);font-size:1rem;margin-bottom:0.15rem">The Carnot Cycle</div>
-        <div style="font-size:0.8rem;color:var(--text-muted)">B.4 · Concept 3 of 5</div>
-      </div>
-      <span style="color:var(--text-dim);font-size:1.1rem">→</span>
-    </a>
-    <a href="04-entropy-and-the-second-law.html" class="concept-card">
-      <div class="concept-num">04</div>
-      <div style="flex:1">
-        <div style="font-weight:600;color:var(--text);font-size:1rem;margin-bottom:0.15rem">Entropy and the Second Law</div>
-        <div style="font-size:0.8rem;color:var(--text-muted)">B.4 · Concept 4 of 5</div>
-      </div>
-      <span style="color:var(--text-dim);font-size:1.1rem">→</span>
-    </a>
-    <a href="05-heat-engines-and-refrigerators.html" class="concept-card">
-      <div class="concept-num">05</div>
-      <div style="flex:1">
-        <div style="font-weight:600;color:var(--text);font-size:1rem;margin-bottom:0.15rem">Heat Engines and Refrigerators</div>
-        <div style="font-size:0.8rem;color:var(--text-muted)">B.4 · Concept 5 of 5</div>
-      </div>
-      <span style="color:var(--text-dim);font-size:1.1rem">→</span>
-    </a>
-
-    <div style="display:flex;justify-content:space-between;margin-top:2rem;flex-wrap:wrap;gap:1rem">
-      <a href="../B.3-Gas-Laws/index.html" class="btn btn-secondary">← B.3 Gas Laws</a>
-      <a href="../B.5-Circuits/index.html" class="btn btn-secondary">B.5 Current and Circuits →</a>
     </div>
   </div>
 </div>
+
+<!-- MAIN LAYOUT -->
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+
+    <!-- Sidebar: concept list -->
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;
+        color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)"
+        onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+        ← Back to B.4 overview
+      </a>
+      <div class="sidebar-title">B.4 Concepts</div>
+      <a href="01-first-law-of-thermodynamics.html" class="sidebar-link active">
+          <span class="sidebar-num">01</span>
+          <span>First Law of Thermodynamics</span>
+        </a>
+      <a href="02-thermodynamic-processes-and-p-v-diagrams.html" class="sidebar-link">
+          <span class="sidebar-num">02</span>
+          <span>Thermodynamic Processes and p-V Diagrams</span>
+        </a>
+      <a href="03-the-carnot-cycle.html" class="sidebar-link">
+          <span class="sidebar-num">03</span>
+          <span>The Carnot Cycle</span>
+        </a>
+      <a href="04-entropy-and-the-second-law.html" class="sidebar-link">
+          <span class="sidebar-num">04</span>
+          <span>Entropy and the Second Law</span>
+        </a>
+      <a href="05-heat-engines-and-refrigerators.html" class="sidebar-link">
+          <span class="sidebar-num">05</span>
+          <span>Heat Engines and Refrigerators</span>
+        </a>
+    </aside>
+
+    <!-- Main content area -->
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 5 · B.4 Thermodynamics</div>
+<div class="lc-title">First Law of Thermodynamics</div>
+<div class="lc-sub">Heat engines built the modern world by turning a flow of thermal energy into useful mechanical work. This lesson gives you the accounting system behind every one of them — conservation of energy applied to a gas.</div>
+
+<div class="lc-card">
+  <h3>🚂 Hook – the machine that ended muscle power</h3>
+  <p>Burning fuel to heat water into steam, and using that steam to make something move, had been understood for a very long time — but it took until the early eighteenth century for the first commercial steam engines to appear. About 100 years later, in 1825, George Stephenson built the engine <em>Locomotion</em> for the first public steam railway. <strong>About 200 years on, our world runs on devices that get useful mechanical work from a flow of thermal energy</strong> — heat engines in cars, boats, trains, planes, factories and power stations.</p>
+  <div class="lc-img" style="max-width:340px;margin-left:auto;margin-right:auto">
+    <img src="../../assets/lesson-images/b4-01-first-law-of-thermodynamics-01.png" alt="Side view of an early steam locomotive with a cylindrical boiler, tall smokestack and spoked driving wheels" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — <em>Locomotion</em>, George Stephenson's engine for the first public steam railway, opened in the UK in 1825.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — every heat engine needs a continuous fuel supply to keep running. Why can't a single burst of thermal energy keep an engine going forever? <em>An engine converts a flow of thermal energy into work as it happens — once the fuel stops supplying that flow, there is no more thermal energy arriving to do further work, whatever energy the system already has stored as internal energy.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🌍 Heat engines and the birth of thermodynamics</h3>
+  <p>We are surrounded by devices that get useful mechanical work from a flow of thermal energy transferred from a burning fuel — usually a fossil fuel. It is difficult to overstate the importance these devices have had on modern life. We are also very aware of the problems they bring: limited fossil-fuel resources, inefficient devices, pollution and global warming.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b4-01-first-law-of-thermodynamics-02.png" alt="Three scenes showing heat engines in use: a car engine, a jet aeroplane engine and a power station with cooling towers">
+    <div class="lc-cap">Fig 2 — Heat engines everywhere: cars, planes, power stations. All of them transfer thermal energy from a fuel to do useful mechanical work.</div>
+  </div>
+  <p>This branch of physics is <strong>thermodynamics</strong>. It grew out of a need to understand heat engines, but it now underpins a much wider understanding of internal energy, heat, temperature, work and pressure, and how they connect to the microscopic behaviour of particles.</p>
+  <div class="lc-info">🔗 <strong>Linking question:</strong> what paradigm shifts enabling changes to human society, such as harnessing the power of steam, can be attributed to advancements in physics understanding?</div>
+</div>
+
+<div class="lc-card">
+  <h3>📦 Systems, surroundings and reservoirs</h3>
+  <p>A <strong>system</strong> is simply the thing we are studying — in this topic, a gas. A <strong>closed system</strong> allows energy to be transferred in or out as heat or work, but no mass can cross its boundary. Compare this with an <strong>isolated system</strong>, in which neither mass nor energy can be transferred in or out — the kind of system used when discussing conservation of momentum.</p>
+  <p>The <strong>surroundings</strong> are everything else — the gas container and the rest of the Universe. If part of the surroundings is deliberately designed to encourage thermal energy to flow into or out of it, we call it a <strong>(thermal) reservoir</strong>: a part of the surroundings kept at approximately constant temperature.</p>
+  <div class="lc-img" style="max-width:340px;margin-left:auto;margin-right:auto">
+    <img src="../../assets/lesson-images/b4-01-first-law-of-thermodynamics-03.png" alt="Gas trapped in a cylinder by a frictionless, gas-tight piston" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Gas in a cylinder with a movable piston. The piston is gas-tight (no gas can pass) and slides without friction.</div>
+  </div>
+  <p>A thermodynamic system can be as complex as a rocket engine, planet Earth or a human body — but here we develop understanding using the behaviour of gases in heat engines.</p>
+</div>
+
+<div class="lc-card">
+  <h3>⚙️ Work done when a gas expands: W = PΔV</h3>
+  <p>First consider a gas expanding with no change in pressure — an <strong>isobaric</strong> change (\(\Delta P = 0\)). If the gas in the cylinder is given thermal energy, its pressure momentarily exceeds the pressure of the surroundings, so it pushes the piston outward, keeping the two pressures equal as it expands.</p>
+  <div class="lc-img" style="max-width:340px;margin-left:auto;margin-right:auto">
+    <img src="../../assets/lesson-images/b4-01-first-law-of-thermodynamics-04.png" alt="Before and after diagram of a gas expanding in a cylinder, piston displaced outward by delta s" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — Gas expanding in a cylinder. The piston moves outward by \(\Delta s\) while the pressure \(P\) stays the same.</div>
+  </div>
+  <p>Work done by the gas in pushing back the surrounding air (assuming no friction):</p>
+  <div class="lc-formula">
+    $$\text{work done by gas} = \text{force} \times \text{distance moved}$$
+  </div>
+  <div class="lc-formula">
+    $$= (PA)\Delta s$$
+  </div>
+  <p>because force = pressure × area. Since the change of volume \(\Delta V = A\Delta s\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Work done when a gas changes volume at constant pressure</span>
+    $$W = P\Delta V$$
+  </div>
+  <p>If work is done <strong>on</strong> the gas to reduce its volume, \(\Delta V\) and \(W\) both take negative values.</p>
+  <div class="lc-img" style="max-width:340px;margin-left:auto;margin-right:auto">
+    <img src="../../assets/lesson-images/b4-01-first-law-of-thermodynamics-05.png" alt="PV diagram showing a horizontal line at constant pressure with the rectangular area underneath shaded as work done" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 5 — Expansion of a gas from 0.020 m³ to 0.050 m³ at a constant pressure of 1.0 × 10⁵ Pa. The shaded rectangle is the work done by the gas.</div>
+  </div>
+  <p>For this example:</p>
+  <div class="lc-formula">
+    $$W = P\Delta V = (1.0 \times 10^{5})(0.050 - 0.020)$$
+  </div>
+  <div class="lc-formula">
+    $$= 3.0 \times 10^{3}\ \text{J}$$
+  </div>
+  <div class="lc-info">📐 <strong>The work done, \(P\Delta V\), is numerically equal to the area under a PV diagram — true for every thermodynamic process, whatever the shape of the graph.</strong> This is one reason PV diagrams are so widely used.</div>
+</div>
+
+<div class="lc-card">
+  <h3>⚖️ First law of thermodynamics: Q = ΔU + W</h3>
+  <p>If an amount of thermal energy, \(+Q\), is transferred into a system, the system may gain internal energy, \(+\Delta U\), and/or expand and do work on the surroundings, \(+W\). Conservation of energy connects these three quantities:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">First law of thermodynamics · thermal energy supplied to a gas</span>
+    $$Q = \Delta U + W$$
+  </div>
+  <p>This equation covers every possibility of expanding or compressing a gas, and/or supplying or removing thermal energy from it.</p>
+  <div class="lc-warn">⚠️ <strong>Common mistake – sign conventions.</strong> Thermal energy transferred <em>into</em> the gas is \(+Q\), removed is \(-Q\). An <em>increase</em> in internal energy is \(+\Delta U\), a decrease is \(-\Delta U\). Work done <em>by</em> the gas during expansion is \(+W\), work done <em>on</em> the gas during compression is \(-W\).</p>
+  <div class="lc-info">✏️ <strong>Top tip!</strong> When applying the first law, show each energy in brackets with its sign, e.g. \((+120)\), \((-100)\) — it makes errors much easier to catch.</div>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Worked example B4.2 – Identify:</strong> 80 J of work was done by a gas when 120 J of thermal energy was transferred to it. Find the change in internal energy.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(Q = (+120)\) J (into gas), \(W = (+80)\) J (by gas, expansion).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(Q = \Delta U + W\)<br>\((+120) = \Delta U + (+80)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\Delta U = (+40)\) J. The positive sign shows the internal energy increased.</div></div>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Worked example B4.3 – Identify:</strong> 150 J of work was done <em>when a gas was compressed</em>. At the same time its internal energy increased by 50 J. Find the thermal energy transferred.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\Delta U = (+50)\) J, \(W = (-150)\) J (compression, so negative).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(Q = \Delta U + W\)<br>\(Q = (+50) + (-150)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(Q = (-100)\) J. The negative sign shows the transfer was <em>out of</em> the gas.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>🌡️ Internal energy of an ideal monatomic gas</h3>
+  <p>The internal energy of an ideal monatomic gas can be calculated from:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Internal energy · ideal monatomic gas</span>
+    $$U = \tfrac{3}{2}Nk_{\text{B}}T = \tfrac{3}{2}nRT$$
+  </div>
+  <p>so changes in internal energy can be calculated from:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Change in internal energy</span>
+    $$\Delta U = \tfrac{3}{2}Nk_{\text{B}}\Delta T = \tfrac{3}{2}nR\Delta T$$
+  </div>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Worked example B4.4 – Identify:</strong> using worked example B4.3, if the gas contained \(3.4 \times 10^{23}\) particles, find the temperature rise. Assume an ideal monatomic gas.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\Delta U = 50\) J, \(N = 3.4 \times 10^{23}\), \(k_{\text{B}} = 1.38 \times 10^{-23}\ \text{J K}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\Delta U = \tfrac{3}{2}Nk_{\text{B}}\Delta T\)<br>\(50 = 1.5 \times (3.4\times10^{23}) \times (1.38\times10^{-23}) \times \Delta T\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\Delta T = 7.1\ \text{K}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Reading work done off a PV diagram</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Isobaric (constant pressure)</td><td>V / m³ · P / Pa</td><td>Horizontal straight line</td><td>Area = rectangle = \(P\Delta V\); \(+W\) if expanding, \(-W\) if compressing</td></tr>
+      <tr><td>Straight sloped line</td><td>V / m³ · P / Pa</td><td>Straight line, P and V both changing</td><td>Area = rectangle + triangle under the line; add the two areas</td></tr>
+      <tr><td>Curved line</td><td>V / m³ · P / Pa</td><td>Smooth curve, P falling as V rises (or vice versa)</td><td>Area under the curve must be estimated — equal-area rectangle, or strip method</td></tr>
+    </tbody>
+  </table>
+  <p>Work done when a gas changes pressure and/or volume can always be determined from the area under a PV diagram, whatever its shape.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b4-01-first-law-of-thermodynamics-06.png" alt="PV graph with a straight sloped line from 3.9 to 2.1 times ten to the five pascals, with the area beneath split into a rectangle and a triangle"><div class="lc-cap">Fig 6 — Straight-line PV graph. The shaded area splits into a rectangle plus a triangle.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b4-01-first-law-of-thermodynamics-07.png" alt="PV graph with a curved line from 3.2 to 1.4 times ten to the five pascals, with the area beneath shaded"><div class="lc-cap">Fig 7 — Curved PV graph. The shaded area under the curve must be estimated.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example B4.1 – areas under two PV graphs</h3>
+  <p>Determine the work done in the two changes of state shown in Figs 6 and 7.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify (Fig 6):</strong> \(W = P\Delta V\) = area under the graph = rectangle + triangle.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(P\) from \(3.9\) to \(2.1 \times 10^{5}\) Pa, \(V\) from \(0.017\) to \(0.038\) m³.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(\left[\tfrac12(3.9-2.1)\times10^{5}\times(0.038-0.017)\right]\)<br>\(+\left[(0.038-0.017)\times2.1\times10^{5}\right]\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(W = 6.3\times10^{3}\ \text{J}\). The volume decreases, so this work is done <em>on</em> the gas as it is compressed.</div></div>
+  <div class="lc-info">📉 For Fig 7, the graph is curved, so the area must be estimated (see the strip method below). In this case the gas expands, so the work is done <em>by</em> the gas.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🧮 Estimating the area under a curved PV graph</h3>
+  <p>When the PV graph is curved, the exact area cannot be read from a simple shape. Divide it into narrow strips of equal width and treat each strip as a thin rectangle or trapezium; the total area is the sum of the strips.</p>
+  <div class="lc-img" style="max-width:340px;margin-left:auto;margin-right:auto">
+    <img src="../../assets/lesson-images/b4-01-first-law-of-thermodynamics-08.png" alt="Curved PV graph divided into vertical strips of equal area for estimating the area under the curve" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 8 — Estimating the area under a curved graph using equal-width strips.</div>
+  </div>
+  <div class="lc-success">✓ Examiner tip: an equal-area rectangle drawn by eye over the whole curve is quicker than strips and is accurate enough for most exam questions — its height is the average pressure \(P_{\text{av}}\).</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: the cost of a heat-engine world</h3>
+    <p>Every heat engine that powers a car, plane, ship or power station needs a continuous transfer of thermal energy from a burning fuel — almost always a fossil fuel. That dependence is why heat engines sit at the centre of the climate and resource problems discussed in Topic B.2: fossil fuels are finite, real engines are never perfectly efficient, and burning fuel produces pollution and greenhouse gases.</p>
+    <div class="lc-success">✓ Examiner tip: "thermodynamics" questions about efficiency or emissions expect you to link the physics (\(Q = \Delta U + W\), energy always conserved) to the practical limits of real engines — not just recite the equation.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – why "monatomic" matters</h3>
+    <p>\(\Delta U = \tfrac{3}{2}Nk_{\text{B}}\Delta T\) only holds for an <strong>ideal monatomic gas</strong>, where all the internal energy is translational kinetic energy of single atoms. A diatomic or polyatomic molecule can also rotate and vibrate, storing extra internal energy at the same temperature rise — so its internal energy changes by more than \(\tfrac{3}{2}Nk_{\text{B}}\Delta T\) for the same \(\Delta T\).</p>
+    <p><strong>Challenge:</strong> for the same \(\Delta T\) and the same number of particles, would a diatomic gas need more or less thermal energy than a monatomic gas to produce that rise, at constant volume? <em>(Answer: more — some of the energy supplied goes into rotational and vibrational modes as well as translational kinetic energy, so \(\Delta U\), and hence \(Q\), is larger for the same \(\Delta T\).)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>\(Q\), \(\Delta U\) and \(W\) can be treated as always positive</td><td>Each has a sign that depends on direction: \(+Q\) in / \(-Q\) out, \(+\Delta U\) rise / \(-\Delta U\) fall, \(+W\) by the gas / \(-W\) on the gas</td></tr>
+      <tr><td>Isobaric means no work is done</td><td>Isobaric means constant pressure, not constant volume — the gas can still expand or contract, and \(W = P\Delta V\) is not zero</td></tr>
+      <tr><td>A curved PV graph has no defined work done</td><td>The work is still the area under the curve; it just has to be estimated, by an equal-area rectangle or the strip method, rather than read off a simple shape</td></tr>
+      <tr><td>"Closed" and "isolated" system mean the same thing</td><td>A closed system allows energy in/out (as heat or work) but not mass; an isolated system allows neither mass nor energy across its boundary</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting the sign of \(W\) when the gas is compressed rather than expanded. Always decide first whether the gas is expanding (+W) or being compressed (−W) before substituting into \(Q = \Delta U + W\).</div>
+</div>
+
+<div class="lc-kp">
+  <span>W = PΔV</span>
+  <span>Q = ΔU + W</span>
+  <span>U = 3/2 NkBT = 3/2 nRT</span>
+  <span>ΔU = 3/2 NkBΔT = 3/2 nRΔT</span>
+  <span>work done = area under PV graph</span>
+  <span>closed system: energy in/out, no mass</span>
+  <span>isolated system: neither mass nor energy in/out</span>
+  <span>isobaric: ΔP = 0</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A gas is compressed, doing 40 J of work on it, while 25 J of thermal energy flows out of it. The change in internal energy is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> −65 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> −15 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> +15 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> +65 J</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A gas expands from 0.030 m³ to 0.045 m³ at a constant pressure of 2.0 × 10⁵ Pa. The work done by the gas is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 1.5 × 10³ J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 3.0 × 10³ J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 6.0 × 10³ J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 9.0 × 10³ J</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. On a PV diagram, the work done during a process is given by</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> the gradient of the line</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> the length of the line</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> the intercept on the pressure axis</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> the area under the line</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A monatomic ideal gas containing N particles is heated, raising its temperature by ΔT. Its increase in internal energy is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> \(Nk_{\text{B}}\Delta T\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> \(\tfrac12 Nk_{\text{B}}\Delta T\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> \(\tfrac32 Nk_{\text{B}}\Delta T\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> \(2Nk_{\text{B}}\Delta T\)</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Which system allows energy, but not mass, to cross its boundary?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> An isolated system</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> A closed system</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> An open system with no surroundings</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> A thermal reservoir</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The work done when a gas changes volume at constant pressure is \(W = P\Delta V\); this is called an <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> change. Work done equals the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:140px"> under a PV diagram, whatever the shape of the graph. The first law of thermodynamics states \(Q = \Delta U + W\), which results from the conservation of <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px">. Work done <em>by</em> a gas during expansion is given a <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px"> sign. A system that allows mass and energy transfer with its surroundings is neither closed nor <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:120px">. For an ideal monatomic gas, \(\Delta U = \tfrac32 Nk_{\text{B}}\Delta T\), which depends on the change in <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:130px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> The volume of a gas expanded from 43 cm³ to 51 cm³ while its pressure remained constant at 1.1 × 10⁵ Pa. <strong>(a)</strong> Calculate the work done. <strong>(b)</strong> State whether work was done on the gas, or by the gas. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(W = P\Delta V = (1.1\times10^{5})(51-43)\times10^{-6} = 0.88\ \text{J}\).<br>✓ (b) The volume increased, so the work was done <em>by</em> the gas.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> 0.84 J of work was done on a gas of volume 7.6 × 10⁻⁵ m³. If the pressure was constant at 1.4 × 10⁵ Pa, calculate the new volume. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Work done <em>on</em> the gas, so \(W = -0.84\) J: \(-0.84 = 1.4\times10^{5} \times \Delta V\).<br>✓ \(\Delta V = -6.0\times10^{-6}\ \text{m}^3\) (the gas is compressed).<br>✓ New volume \(= 7.6\times10^{-5} - 6.0\times10^{-6} = 7.0\times10^{-5}\ \text{m}^3\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> Fig 9 shows how the volume of a gas changed as the pressure on it was increased, from 600 kPa at 300 cm³ to 200 kPa at 900 cm³. Show that the work done during the expansion was approximately 230 J. <span class="lc-exam-marks">[3 marks]</span></div>
+  <div class="lc-img" style="max-width:340px;margin-top:0.75rem">
+    <img src="../../assets/lesson-images/b4-01-first-law-of-thermodynamics-09.png" alt="PV graph for a gas with a curved line from 600 kPa at 300 cm cubed down to 200 kPa at 900 cm cubed" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 9 — PV graph for a gas.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Estimate the area under the curve using an equal-area rectangle of height roughly 380 kPa (the average pressure).<br>✓ Width of the rectangle \(= (900-300) = 600\ \text{cm}^3 = 6.0\times10^{-4}\ \text{m}^3\).<br>✓ \(W \approx (3.8\times10^{5})(6.0\times10^{-4}) \approx 230\ \text{J}\), as required.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> 200 J of work was done when a gas expanded at constant temperature. How much thermal energy was transferred? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Constant temperature means \(\Delta U = 0\) (for an ideal gas, internal energy depends only on temperature).<br>✓ \(Q = \Delta U + W = 0 + (+200) = +200\ \text{J}\) transferred into the gas.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> 70 J of work was done while a gas was compressed. At the same time 30 J of thermal energy was transferred out of the gas. Calculate the change in internal energy. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(Q = (-30)\) J, \(W = (-70)\) J (compression).<br>✓ \(Q = \Delta U + W \Rightarrow (-30) = \Delta U + (-70)\)<br>✓ \(\Delta U = (+40)\ \text{J}\); the internal energy increased.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> 50 J of thermal energy was removed from a gas and its internal energy decreased by 10 J. <strong>(a)</strong> How much work was done? <strong>(b)</strong> Was the work done on the gas, or by the gas? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(Q = (-50)\) J, \(\Delta U = (-10)\) J: \((-50) = (-10) + W\)<br>✓ \(W = (-40)\ \text{J}\).<br>✓ (b) The negative sign shows the work was done <em>on</em> the gas.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q7.</strong> An ideal monatomic gas containing 3.4 × 10²⁴ particles was heated from 297 K to 348 K. <strong>(a)</strong> What was the change in internal energy of the gas? <strong>(b)</strong> If, in this time, 5600 J of thermal energy was supplied to the gas, what was the amount of work done by, or on, the gas? <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\Delta U = \tfrac32Nk_{\text{B}}\Delta T = 1.5\times(3.4\times10^{24})\times(1.38\times10^{-23})\times(348-297)\)<br>✓ \(\Delta U = 3.6\times10^{3}\ \text{J}\).<br>✓ (b) \(Q = \Delta U + W \Rightarrow 5600 = 3600 + W\)<br>✓ \(W = +2.0\times10^{3}\ \text{J}\), done <em>by</em> the gas (it expanded).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q8.</strong> The internal energy of 3.2 moles of some helium gas, at an initial temperature of 302 K, rose by 540 J. <strong>(a)</strong> What was the final temperature of the gas? <strong>(b)</strong> If, at the same time, the gas expanded from a volume of 220 cm³ to 380 cm³ at constant pressure of 2.3 × 10⁵ Pa, how much work was done? <strong>(c)</strong> How much thermal energy was transferred? <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\Delta U = \tfrac32nR\Delta T \Rightarrow 540 = 1.5\times3.2\times8.31\times\Delta T\)<br>✓ \(\Delta T = 13.5\ \text{K}\), so final temperature \(= 302+13.5 = 316\ \text{K}\).<br>✓ (b) \(W = P\Delta V = (2.3\times10^{5})(380-220)\times10^{-6} = 37\ \text{J}\).<br>✓ (c) \(Q = \Delta U + W = 540 + 37\)<br>✓ \(Q = 577\ \text{J}\) transferred into the gas.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q9.</strong> During an investigation of how the volume of a fixed mass of air changed with temperature at constant atmospheric pressure (1.0 × 10⁵ Pa), the volume increased from 2.3 cm³ to 3.1 cm³. <strong>(a)</strong> Calculate how much work was done. <strong>(b)</strong> Was the work done on the gas, or by the gas? <strong>(c)</strong> The expansion happened when 0.150 J of thermal energy was transferred into the system. Determine the change in internal energy of the gas. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(W = P\Delta V = (1.0\times10^{5})(3.1-2.3)\times10^{-6} = 8.0\times10^{-5}\ \text{J}\).<br>✓ (b) Volume increased, so work was done <em>by</em> the gas.<br>✓ (c) \(Q = \Delta U + W \Rightarrow 0.150 = \Delta U + 8.0\times10^{-5}\)<br>✓ \(\Delta U \approx 0.150\ \text{J}\) (the work term is negligible by comparison).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q10.</strong> 1.82 J of thermal energy was supplied to a gas, increasing its pressure steadily from 1.0 × 10⁵ Pa to 1.2 × 10⁵ Pa. During this time the volume was increased steadily from 35 cm³ to 45 cm³. <strong>(a)</strong> Represent this process on a PV diagram. <strong>(b)</strong> Indicate the work done during this process on your drawing. <strong>(c)</strong> Calculate the work done. <strong>(d)</strong> Determine the change in internal energy of the gas. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a)/(b) A straight sloped line from (35 cm³, 1.0×10⁵ Pa) to (45 cm³, 1.2×10⁵ Pa), with the area underneath (rectangle + triangle) shaded as the work done.<br>✓ (c) \(W = \left[1.0\times10^{5}\times(45-35)\times10^{-6}\right] + \left[\tfrac12\times0.2\times10^{5}\times(45-35)\times10^{-6}\right]\)<br>✓ \(W = 1.0 + 0.1 = 1.1\ \text{J}\).<br>✓ (d) \(Q = \Delta U + W \Rightarrow 1.82 = \Delta U + 1.1\)<br>✓ \(\Delta U = 0.72\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe / Estimate / Determine</div>
+  <div class="lc-exam-q"><strong>Q11.</strong> Fig 10 shows work done to change the state of a gas from point B (15 cm³, 3.7 × 10⁵ Pa) to point A (42 cm³, 1.0 × 10⁵ Pa). <strong>(a)</strong> Describe the process. <strong>(b)</strong> Did the process obey Boyle's law? <strong>(c)</strong> What has happened to the temperature of the gas? Explain your answer. <strong>(d)</strong> Estimate the work done during the process. <strong>(e)</strong> During the process, 1.9 J of thermal energy flowed out of the gas. Determine the change in its internal energy. <span class="lc-exam-marks">[7 marks]</span></div>
+  <div class="lc-img" style="max-width:340px;margin-top:0.75rem">
+    <img src="../../assets/lesson-images/b4-01-first-law-of-thermodynamics-10.png" alt="PV graph with point B at 15 cm cubed and 3.7 times ten to the five pascals, and point A at 42 cm cubed and 1.0 times ten to the five pascals, joined by a curve" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 10 — PV graph, from point B to point A.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The gas expands from B to A, and its pressure falls at the same time.<br>✓ (b) \(P_{\text{B}}V_{\text{B}} = 3.7\times10^{5}\times15 = 5.6\times10^{6}\); \(P_{\text{A}}V_{\text{A}} = 1.0\times10^{5}\times42 = 4.2\times10^{6}\) — not equal, so Boyle's law (constant temperature) was <em>not</em> obeyed.<br>✓ (c) \(PV\) fell, and \(PV \propto T\) for a fixed amount of gas, so the temperature decreased.<br>✓ (d) Estimate the area under the curve between B and A, e.g. using an equal-area rectangle of height roughly \(2.0\times10^{5}\) Pa over a width of \((42-15)\times10^{-6}\ \text{m}^3\): \(W \approx 5.4\ \text{J}\), done <em>by</em> the gas.<br>✓ (e) \(Q = \Delta U + W \Rightarrow (-1.9) = \Delta U + 5.4\)<br>✓ \(\Delta U \approx -7.3\ \text{J}\); the internal energy decreased, consistent with the fall in temperature.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q12.</strong> 1.74 mol of an ideal monatomic gas expanded and during the process its temperature changed. The container was well insulated and no thermal energy was able to flow into, or out of, the gas. <strong>(a)</strong> If the internal energy of the gas decreased by 29.7 J, calculate the temperature change of the gas. <strong>(b)</strong> Determine how much work was done by the gas during this expansion. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\Delta U = \tfrac32nR\Delta T \Rightarrow (-29.7) = 1.5\times1.74\times8.31\times\Delta T\)<br>✓ \(\Delta T = -1.37\ \text{K}\); the gas cooled.<br>✓ (b) No thermal energy flows in or out, so \(Q = 0\): \(0 = \Delta U + W \Rightarrow W = -\Delta U\)<br>✓ \(W = +29.7\ \text{J}\), done by the gas as it expands.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q13.</strong> Explain why a gas gets hotter when it is compressed rapidly. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Compressing the gas means work is done <em>on</em> it, so \(W\) is negative.<br>✓ Compression happens too quickly for thermal energy to be transferred to or from the surroundings, so \(Q \approx 0\).<br>✓ From \(Q = \Delta U + W\), \(\Delta U = -W\), which is positive — the internal energy, and hence the temperature, rises.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Q = ΔU + W: (-25) = ΔU + (-40), so ΔU = +15 J. Both signs matter here.' },
+    mcq2: { B: 'W = PΔV = (2.0×10^5)(0.045-0.030) = 3.0×10^3 J.' },
+    mcq3: { D: 'The work done, PΔV, is numerically equal to the area under a PV diagram, for any shape of graph.' },
+    mcq4: { C: 'ΔU = (3/2)NkBΔT for an ideal monatomic gas — the 3/2 factor comes from three translational degrees of freedom.' },
+    mcq5: { B: 'A closed system exchanges energy (heat or work) with its surroundings but not mass. An isolated system exchanges neither.' }
+  },
+  fitb: { lf1:'isobaric', lf2:'area', lf3:'energy', lf4:'positive', lf5:'isolated', lf6:'temperature' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
+      </div>
+
+      <!-- Prev / Next navigation -->
+      <div class="lesson-nav">
+        <a href="../B.3-Gas-Laws/index.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div>
+            <div class="nav-btn-dir">Previous</div>
+            <div class="nav-btn-label">Gas Laws</div>
+          </div>
+        </a>
+        <a href="02-thermodynamic-processes-and-p-v-diagrams.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div>
+            <div class="nav-btn-dir">Next</div>
+            <div class="nav-btn-label">Thermodynamic Processes and p-V Diagrams</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
 </body>
 </html>
