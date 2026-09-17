@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -171,28 +172,268 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Gas Pressure and Amount of Substance</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B3" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 6 · B.3 Gas Laws</div>
+<div class="lc-title">Gas Pressure and Amount of Substance</div>
+<div class="lc-sub">Every gas law in this topic is built from two ideas: pressure as force spread over area, and amount of substance as a count of particles small enough to fit on a calculator screen.</div>
+
+<div class="lc-card">
+  <h3>⚽ Hook – why a football feels hard</h3>
+  <p>A football is nothing but a thin skin of rubber and a lot of empty-feeling gas, yet a properly inflated one feels almost solid. A typical ball holds about 0.25 mol of air at a pressure of around \(9\times10^{4}\ \text{Pa}\) — that's trillions of air molecules, each hammering the inside of the skin and rebounding, millions of times a second. <strong>It is the combined effect of these tiny random collisions, not any single big push, that gives the ball its pressure and its shape.</strong></p>
+  <div class="lc-img"><img src="../../assets/lesson-images/b3-01-gas-pressure-and-amount-of-substance-01.png" alt="A football on grass with players' feet nearby" style="max-width:340px;width:100%"><div class="lc-cap">Fig 1 — A football contains about 0.25 mol of air at a pressure of about \(9\times10^{4}\) Pa.</div></div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think — then read on)</strong> — pumping more air into the ball doesn't change its size much, so why does it make the ball feel harder? <em>Squeezing more molecules into (almost) the same volume increases the number of collisions with the inside of the skin every second, without changing the average force of each individual collision — so the pressure (force per unit area) goes up.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Pressure: force spread over area</h3>
+  <p>The effect of a force often depends on the area it acts over — the same weight pressing down through a stiletto heel and a snowshoe produces very different results underfoot. <strong>Pressure</strong> is defined as the perpendicular (normal) force acting per unit area:</p>
+  <div class="lc-formula"><span class="lc-formula-label">Pressure</span>$$P = \frac{F}{A}$$</div>
+  <div class="lc-info">📖 <strong>Syllabus content</strong> — Pressure, \(P = \dfrac{F}{A}\), where \(F\) is the force exerted perpendicular to the surface.</div>
+  <p>The SI unit of pressure is the <strong>pascal, Pa</strong>: \(1\ \text{Pa} = 1\ \text{N m}^{-2}\).</p>
+  <div class="lc-img"><img src="../../assets/lesson-images/b3-01-gas-pressure-and-amount-of-substance-02.png" alt="A flat area A with a force F pushing straight down onto it, next to the equation P equals F over A" style="max-width:340px;width:100%"><div class="lc-cap">Fig 2 — Pressure is the perpendicular force per unit area on which it acts.</div></div>
+  <p>This idea applies just as much to liquids as to gases: pressure in a liquid increases with depth, because a deeper layer has more liquid weight pushing down on it. Note, though, that pressure due to a fluid — liquid or gas — acts equally in <strong>all directions</strong>, not just downwards, unlike the weight of a solid object.</p>
+</div>
+
+<div class="lc-card">
+  <h3>💨 Gas pressure at the molecular level</h3>
+  <p>All gases contain particles — usually molecules — moving randomly in every direction, typically at high speed, as sketched in Fig 3. Because there are essentially no forces between the molecules except during collisions, the physical behaviour of gases is far easier to model than that of solids or liquids.</p>
+  <div class="lc-img"><img src="../../assets/lesson-images/b3-01-gas-pressure-and-amount-of-substance-03.png" alt="Gas molecules as small dots moving in random directions inside a rectangular container, bouncing off the walls" style="max-width:340px;width:100%"><div class="lc-cap">Fig 3 — Gases contain particles moving randomly at high speed, colliding with each other and with the container walls.</div></div>
+  <p>Each collision of a molecule with a container wall produces a tiny outward force, perpendicular to the surface. Because the motion is random, individual collisions vary in size — but the sheer number of molecules striking even a small area every second means the <em>average</em> force per unit area stays constant. That constant average force per unit area is the gas pressure. Collisions between molecules themselves simply redirect their motion and have no other overall effect.</p>
+  <div class="lc-img"><img src="../../assets/lesson-images/b3-01-gas-pressure-and-amount-of-substance-04.png" alt="A molecule approaching a wall along one path and rebounding along another, with an arrow labelled average force at the point of impact" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — Every molecular collision with a wall creates a tiny outward force perpendicular to the wall; billions of these per second add up to a steady pressure.</div></div>
+  <p><strong>Atmospheric pressure</strong> — the pressure due to the motion of the gas molecules in the air around us — can also be thought of as the weight of the air above each square metre. It acts equally in all directions and is about \(1.0\times10^{5}\ \text{Pa}\) at sea level, decreasing with height above the ground.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🔢 Amount of a substance</h3>
+  <p>The <strong>amount of a substance</strong> (symbol \(n\)) measures how many atomic-scale particles it contains. What counts as a "particle" depends on the substance: helium, He, exists as separate atoms, but most other gases are molecular — \(\text{H}_2\), \(\text{O}_2\), \(\text{CO}_2\), \(\text{CH}_4\), \(\text{N}_2\).</p>
+  <p>Even a small amount of gas contains an enormous number of particles (\(\approx10^{19}\) or more), so a more manageable unit is needed: the <strong>mole (mol)</strong>. One mole is the amount of substance that contains exactly \(6.02214076\times10^{23}\) particles — the <strong>Avogadro constant</strong>, \(N_{\text{A}}\) (usually taken as \(6.02\times10^{23}\)).</p>
+  <div class="lc-formula"><span class="lc-formula-label">Amount of substance</span>$$n = \frac{N}{N_{\text{A}}}$$</div>
+  <div class="lc-info">📖 <strong>Syllabus content</strong> — the amount of substance, \(n\), as given by \(n = N/N_{\text{A}}\), where \(N\) is the number of molecules and \(N_{\text{A}}\) is the Avogadro constant.</div>
+  <p>The <strong>molar mass</strong> of a substance is the mass that contains exactly one mole of it, usually quoted in \(\text{g mol}^{-1}\):</p>
+  <div class="lc-formula"><span class="lc-formula-label">Molar mass and amount of substance</span>$$n = \frac{\text{total mass}}{\text{molar mass}}$$</div>
+  <table class="lc-table">
+    <thead><tr><th>Substance</th><th>Molar mass / g mol⁻¹</th></tr></thead>
+    <tbody>
+      <tr><td>Hydrogen molecules</td><td>2.02</td></tr>
+      <tr><td>Helium atoms</td><td>4.00</td></tr>
+      <tr><td>Carbon-12 atoms</td><td>12.00</td></tr>
+      <tr><td>Carbon atoms</td><td>12.01</td></tr>
+      <tr><td>Water molecules</td><td>18.01</td></tr>
+      <tr><td>Aluminium atoms</td><td>26.98</td></tr>
+      <tr><td>Nitrogen molecules</td><td>28.02</td></tr>
+      <tr><td>Oxygen molecules</td><td>32.00</td></tr>
+      <tr><td>Carbon dioxide molecules</td><td>44.01</td></tr>
+      <tr><td>Gold atoms</td><td>197.00</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img"><img src="../../assets/lesson-images/b3-01-gas-pressure-and-amount-of-substance-05.png" alt="One mole each of water ice, sugar, copper and aluminium, shown as very different sized piles" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — One mole of different substances has a very different mass and volume, depending on molar mass and density.</div></div>
+  <div class="lc-info">🔝 <strong>Top tip!</strong> Molar mass depends on the number of protons and neutrons in each atom or molecule — more massive particles give a mole of greater mass. Check: an oxygen molecule has two atoms, each with 16 particles, each of mass \(1.67\times10^{-27}\ \text{kg}\). One mole (\(6.02\times10^{23}\) molecules) has mass \(6.02\times10^{23}\times2\times16\times1.67\times10^{-27} = 3.2\times10^{-2}\ \text{kg}\) (32 g) — matching the table above.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📊 Reading pressure diagrams</h3>
+  <table class="lc-table">
+    <thead><tr><th>Diagram</th><th>What's shown</th><th>Key relationship</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Force–area diagram</td><td>A flat area with a single perpendicular force</td><td>\(P = F/A\)</td><td>Same force, smaller area → larger pressure</td></tr>
+      <tr><td>Pressure-with-depth apparatus</td><td>Container with holes at different heights, water jetting out</td><td>Pressure increases with depth</td><td>The lowest jet travels furthest — it experiences the greatest pressure</td></tr>
+      <tr><td>Molecular collision diagram</td><td>A single molecule rebounding off a wall</td><td>Average force per collision → pressure</td><td>Random individual forces, but a steady average over billions of collisions per second</td></tr>
+      <tr><td>Cabin/altitude pressure diagram</td><td>Two regions at different pressures separated by a surface</td><td>\(\Delta P\) produces a resultant force \(F = \Delta P \times A\)</td><td>Compare the pressure each side, then multiply the difference by the shared area</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-01-gas-pressure-and-amount-of-substance-06.png" alt="An aircraft window from inside the cabin, seen as a rounded rectangular pane in its frame"><div class="lc-cap">Fig 6 — A pressure difference across an aircraft window produces a resultant outward force, \(F = \Delta P \times A\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-01-gas-pressure-and-amount-of-substance-07.png" alt="A glass held upside down with water inside it, supported by a hand"><div class="lc-cap">Fig 7 — Atmospheric pressure pushing up can exceed the pressure due to a small depth of water, keeping the water in.</div></div>
+  </div>
+  <div class="lc-success">✓ Examiner tip: whichever diagram appears in a question, start by writing down which surfaces the pressures act on and which direction each pressure pushes — most marks are lost from a missing or wrong direction, not from the arithmetic.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – pressure under a foot</h3>
+  <p>A girl of mass 51 kg stands on one leg. If the effective area of her foot in contact with the ground is 62 cm², calculate the pressure she is exerting on the ground.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> her weight acts perpendicular to the ground over the contact area of one foot, so use \(P = F/A\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 51\ \text{kg}\), \(g = 9.8\ \text{m s}^{-2}\), \(A = 62\ \text{cm}^2 = 62\times10^{-4}\ \text{m}^2\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong>$$P = \frac{F}{A} = \frac{51\times9.8}{62\times10^{-4}}$$</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(P = 8.1\times10^{4}\ \text{Pa}\). The same weight spread over two feet, or over snowshoes, would give a much smaller pressure.</div></div>
+  <div class="lc-img"><img src="../../assets/lesson-images/b3-01-gas-pressure-and-amount-of-substance-08.png" alt="A girl standing on one leg, with her weight arrow and the small contact area of her foot highlighted" style="max-width:340px;width:100%"><div class="lc-cap">Fig 8 — The same weight produces a much larger pressure when it acts over the small area of one foot.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – pressure at the bottom of a water container</h3>
+  <p>Water comes out of three holes at different heights on the side of a tall container — the jet from the lowest hole travels furthest, showing that liquid pressure increases with depth. If the depth of water is 26 cm and the area of the bottom of the container is 84 cm², calculate: (i) the volume of water, (ii) the mass of water (density \(=1000\ \text{kg m}^{-3}\)), (iii) the weight of the water, and hence the pressure of the water at the bottom (ignoring the pressure due to the air above the water).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the weight of the water column acts down on the base, so find that weight, then apply \(P = F/A\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> depth \(= 0.26\ \text{m}\), \(A = 84\times10^{-4}\ \text{m}^2\), \(\rho = 1000\ \text{kg m}^{-3}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> volume \(=\) depth \(\times\) area \(= 0.26\times(84\times10^{-4}) = 2.2\times10^{-3}\ \text{m}^3\)<br>mass \(=\) volume \(\times\) density \(= 2.184\times10^{-3}\times1000 = 2.2\ \text{kg}\)<br>weight \(= mg = 2.184\times9.8 = 21\ \text{N}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong>$$P = \frac{F}{A} = \frac{21.403}{84\times10^{-4}} = 2.5\times10^{3}\ \text{Pa}$$The total pressure at the bottom would also need the atmospheric pressure of the air above the water, \(1.0\times10^{5}\ \text{Pa}\), added on.</div></div>
+  <div class="lc-img"><img src="../../assets/lesson-images/b3-01-gas-pressure-and-amount-of-substance-09.png" alt="A tall container with three holes at different heights, water jets curving downward, the lowest jet travelling furthest" style="max-width:340px;width:100%"><div class="lc-cap">Fig 9 — The lowest jet travels furthest, because the pressure of the water increases with depth.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 3 – moles and molecules in a gas</h3>
+  <p>(a) How many moles are there in 0.50 kg of molecular oxygen gas? (b) How many molecules are there in that same mass of gas?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(n = \text{total mass}/\text{molar mass}\), then \(N = nN_{\text{A}}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> total mass \(= 0.50\ \text{kg}\); molar mass of \(\text{O}_2 = 32\ \text{g mol}^{-1} = 32\times10^{-3}\ \text{kg mol}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong>$$n = \frac{0.50}{32\times10^{-3}} = 15.625\ \text{mol}$$$$N = nN_{\text{A}} = 15.625\times(6.02\times10^{23})$$</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(n = 16\ \text{mol}\) (2 s.f.). (b) \(N = 9.4\times10^{24}\) molecules.</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: tyre pressure</h3>
+    <p>A car's weight is supported entirely through the small contact patches where its tyres touch the road, so \(P = F/A\) governs both the pressure on the road and the pressure of the air that must be maintained inside each tyre. Adding more air stiffens the tyre wall, which reduces how much it flattens against the road — shrinking the contact area for the same total weight.</p>
+    <div class="lc-success">✓ Examiner tip: "more air pressure means a smaller contact area" is a standard IB-style application of \(P=F/A\) with \(F\) fixed — always identify which quantity in the formula is being held constant before deciding what happens to the other two.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – a constant fixed by definition</h3>
+    <p>Until 2018, the Avogadro constant was defined relative to a standard substance: \(N_{\text{A}}\) was the number of atoms in exactly 12 g of the isotope carbon-12. Since 2018, the mole and \(N_{\text{A}}\) are defined only by the fixed number \(6.02214076\times10^{23}\), with no reference to carbon at all.</p>
+    <p><strong>Challenge:</strong> does this change mean a mole of oxygen gas now contains a different number of molecules than it did before 2018? <em>Answer: no — the fixed number was chosen to match the old carbon-12-based value as closely as our best measurements allowed, so every molar quantity calculated before or after 2018 is unchanged in practice.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Gas or liquid pressure only pushes downwards</td><td>Fluid pressure acts equally in <em>all</em> directions, not just down — unlike the weight of a solid object</td></tr>
+      <tr><td>More air in a tyre means less pressure on the road</td><td>For the same total weight, a smaller contact area (caused by higher tyre pressure) means a <em>greater</em> pressure on the road</td></tr>
+      <tr><td>"Amount of substance" means the same as mass</td><td>Amount of substance (\(n\), in mol) counts particles; mass and molar mass convert between the two: \(n = \text{mass}/\text{molar mass}\)</td></tr>
+      <tr><td>The Avogadro constant is a rough, approximate figure</td><td>Since 2018 it is an exact defined number, \(6.02214076\times10^{23}\ \text{mol}^{-1}\), not a measured approximation</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting to convert cm² to m² (or g to kg) before substituting into \(P=F/A\) or \(n=\text{mass}/\text{molar mass}\) — this single error typically throws the final answer out by a factor of \(10^3\) or \(10^4\).</div>
+</div>
+
+<div class="lc-kp">
+  <span>P = F/A</span>
+  <span>1 Pa = 1 N m⁻²</span>
+  <span>fluid pressure acts in all directions</span>
+  <span>gas pressure = average of billions of collisions</span>
+  <span>n = N/N_A</span>
+  <span>N_A = 6.02×10²³ mol⁻¹</span>
+  <span>n = mass/molar mass</span>
+  <span>molar mass in g mol⁻¹</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. A drawing pin needs only a small push from a thumb to go through card, but the same push from a flat thumb alone will not. Why can a small force produce a large pressure at the pin's point?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> Pressure always increases with force alone</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> The same force spread over a very small area gives a large pressure</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> Pins only work in solids, not fluids</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> The card offers no resistance to any force</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. Which statement about gas pressure at the molecular level is correct?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> It only acts downwards, like the weight of a solid</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> It is produced by the average force of countless molecular collisions with a surface</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> Each individual collision exerts exactly the same force</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> It disappears if molecules stop colliding with each other</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. A sample of gas contains \(3.01\times10^{23}\) molecules. How many moles is this? (\(N_{\text{A}} = 6.02\times10^{23}\ \text{mol}^{-1}\))</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> 0.500 mol</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> 1.00 mol</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> 2.00 mol</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> \(6.02\times10^{23}\) mol</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. Using the molar mass table, which substance has the greatest mass for one mole?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','D')"><span class="lc-opt-l">A</span> Hydrogen molecules</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','D')"><span class="lc-opt-l">B</span> Water molecules</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','D')"><span class="lc-opt-l">C</span> Carbon dioxide molecules</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','D')"><span class="lc-opt-l">D</span> Gold atoms</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. Since 2018, the Avogadro constant, \(N_{\text{A}}\), has been defined as</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> exactly the number of atoms in 12 g of carbon-12</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> an exact fixed number, \(6.02214076\times10^{23}\), independent of any substance</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> a value that varies slightly depending on which gas is measured</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> the number of molecules in one litre of gas at sea level</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Pressure is defined as the perpendicular force acting per unit <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:90px">, and its SI unit is the <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px">. Unlike the weight of a solid, gas and liquid pressure act in <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:130px"> directions. Gas pressure results from the average force of countless molecular <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:120px"> with the container walls. The amount of substance is given the symbol <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:60px">, measured in <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:100px">, and found by dividing the number of particles by the <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:170px">. The mass containing exactly one mole of a substance is its <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:130px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> A car of weight 1500 kg has four tyres, each of which has an area of 180 cm² in contact with the road. (a) Calculate the pressure under each tyre (in Pa). (b) State the pressure of the air inside the tyre. (c) If the driver puts more air into the tyre, what will happen to (i) the area in contact with the ground, (ii) the pressure on the road? <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Total weight \(= 1500\times9.8 = 14\,700\ \text{N}\); weight per tyre \(= 14\,700/4 = 3675\ \text{N}\).<br>✓ Area \(= 180\times10^{-4} = 0.0180\ \text{m}^2\), so \(P = 3675/0.0180 = 2.0\times10^{5}\ \text{Pa}\).<br>✓ (b) The air pressure inside the tyre is approximately equal to this contact pressure, about \(2\times10^{5}\ \text{Pa}\).<br>✓ (c)(i) The contact area decreases, since a stiffer, more inflated tyre deforms less.<br>✓ (c)(ii) For the same total weight over a smaller area, the pressure on the road increases.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> The air pressure at a height of 10 km above sea level is \(2.6\times10^{4}\ \text{Pa}\). Inside a passenger aircraft at this height, the air pressure is maintained at 80% of the pressure at sea level (\(1.0\times10^{5}\ \text{Pa}\)). (a) What is the difference in pressure between inside and outside the aircraft? (b) What resultant force due to the air is acting on a window which is 27 × 47 cm²? <span class="lc-exam-marks">[4 marks]</span></div>
+  <div class="lc-img" style="margin-top:0.75rem"><img src="../../assets/lesson-images/b3-01-gas-pressure-and-amount-of-substance-06.png" alt="Aircraft window seen from inside the cabin" style="max-width:340px;width:100%"><div class="lc-cap">Fig 6 (again) — the aircraft window from Fig 6, used here to find the resultant force from a pressure difference.</div></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Cabin pressure \(= 0.80\times(1.0\times10^{5}) = 8.0\times10^{4}\ \text{Pa}\); \(\Delta P = 8.0\times10^{4}-2.6\times10^{4} = 5.4\times10^{4}\ \text{Pa}\).<br>✓ (b) Window area \(= 0.27\times0.47 = 0.127\ \text{m}^2\).<br>✓ \(F = \Delta P\times A = 5.4\times10^{4}\times0.127 = 6.9\times10^{3}\ \text{N}\), directed outward (cabin pressure is greater than the outside pressure).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain / Calculate</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> (a) Using the concept of pressure, explain how it is possible for the water to remain in the upside-down glass shown in Fig 7 (assume the glass is full of water). (b) If the glass is only half full of water to begin with, how will the demonstration change? Assuming a water volume of 250 cm³ (the diagram's own dimensions were not given in the source), calculate (i) the mass of water in the glass, (ii) the number of moles of water in the glass, (iii) the number of water molecules in the glass. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Atmospheric pressure (about \(1.0\times10^{5}\ \text{Pa}\)) pushes upward on the underside of the water, and this greatly exceeds the pressure due to the water's own small depth, so the resultant force holds the water in.<br>✓ (b) With half the water, the demonstration works the same way: atmospheric pressure still far exceeds the water's own pressure, so the water is still held in — only the air space above it is larger.<br>✓ (i) mass \(=\) volume \(\times\) density \(= 250\times10^{-6}\times1000 = 0.25\ \text{kg}\).<br>✓ (ii) \(n = \text{mass}/\text{molar mass} = 0.25/(18.01\times10^{-3}) = 13.9\ \text{mol}\).<br>✓ (iii) \(N = nN_{\text{A}} = 13.9\times(6.02\times10^{23}) = 8.4\times10^{24}\) molecules.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Compare</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> Consider the football shown in Fig 1. (a) If the molar mass of the air in the ball is approximately 29 g mol⁻¹, what is the mass of the air in the ball? (b) Compare the pressure of the air inside the ball to the pressure of the air outside the ball. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) mass \(= n\times M = 0.25\times29 = 7.25\ \text{g} \approx 7.3\ \text{g}\).<br>✓ (b) The pressure inside the ball, about \(9\times10^{4}\ \text{Pa}\) as stated, is compared with atmospheric pressure outside, \(1.0\times10^{5}\ \text{Pa}\).<br>✓ An inflated ball's internal pressure must in practice exceed the outside pressure for it to hold its shape, so these figures should be read as approximate rather than exact.</div>
+</div>
+
+<div class="lc-score-row"><div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div></div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Pressure = force/area, so the same force spread over a very small area (the pin\'s point) produces a large pressure.' },
+    mcq2: { B: 'Gas pressure is the average force per unit area from an enormous number of random molecular collisions with a surface; individual collisions vary in size.' },
+    mcq3: { A: 'n = N/N_A = (3.01x10^23)/(6.02x10^23) = 0.500 mol.' },
+    mcq4: { D: 'Gold atoms have the greatest molar mass in the table, 197.00 g/mol.' },
+    mcq5: { B: 'Since 2018 the Avogadro constant is an exact fixed number, 6.02214076x10^23, no longer tied to carbon-12.' }
+  },
+  fitb: { lf1:'area', lf2:'pascal', lf3:'all', lf4:'collisions', lf5:'n', lf6:'moles', lf7:'avogadro constant', lf8:'molar mass' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
