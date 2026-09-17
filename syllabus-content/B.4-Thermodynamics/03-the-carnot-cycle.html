@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Carnot Cycle — B.4 Thermodynamics — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -86,6 +88,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -162,28 +167,357 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">The Carnot Cycle</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B4" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 5 · B.4 Thermodynamics</div>
+<div class="lc-title">The Carnot Cycle</div>
+<div class="lc-sub">Every heat engine runs in cycles, and the laws of physics set a hard ceiling on how efficient any of them can ever be. The Carnot cycle is that ceiling — an idealized, reversible sequence that no real engine reaches but every real engine is judged against.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the towers that leak “wasted” energy on purpose</h3>
+  <p>Power stations run enormous cooling towers that vent huge quantities of thermal energy straight into the atmosphere. It looks like waste — and in a sense it is — but no power station could work without doing it. <strong>Every heat engine must reject some thermal energy to a cold reservoir; none can turn 100% of the heat it absorbs into work.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b4-03-the-carnot-cycle-01.png" alt="Cooling towers venting steam into the atmosphere at a power station" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Cooling towers reject the heat engine's waste thermal energy, Qc, to the environment.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — why not capture that vented heat and feed it back into the power station to push the efficiency higher? <em>Because by the time it reaches the cooling tower it is already at the low, "spent" temperature Tc. The second law says a temperature difference is needed to drive any further useful transfer — heat at Tc alone cannot do more work. The waste heat isn't badly used energy; it's energy that has already given up everything it can.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🔄 Cycles, working substances and efficiency</h3>
+  <p>A <strong>working substance</strong> is the substance (usually a gas) used in thermodynamic processes to do useful work. A <strong>cycle</strong> is a series of thermodynamic processes that returns a system to its original state, usually repeating continuously.</p>
+  <p>An expanding gas can do useful work — for example, moving a piston along a cylinder — but it cannot expand for ever. Any practical device transferring thermal energy to mechanical work must move in cycles: repeated expansions followed by compressions, followed by expansions, and so on.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Efficiency of a heat engine</span>
+    $$\eta = \frac{\text{useful work}}{\text{input energy}}$$
+  </div>
+  <p>On a \(P\)–\(V\) diagram, the area under an expansion curve is the work done <em>by</em> the gas; the area under a compression curve is the work done <em>on</em> the gas. The difference between the two areas — shown as the shaded region enclosed by a complete loop — is the net useful work done by the gas in one cycle.</p>
+  <div class="lc-img" style="max-width:100%">
+    <img src="../../assets/lesson-images/b4-03-the-carnot-cycle-02.png" alt="Three PV diagram panels: expansion work done by gas, compression work done on gas, and the enclosed net work of a full cycle">
+    <div class="lc-cap">Fig 2 — (a) Expansion A→B: shaded area is work done by the gas. (b) Compression: shaded area is work done on the gas. (c) Full cycle: the enclosed area between the two curves is the net work done by the gas.</div>
+  </div>
+  <div class="lc-info">🔗 If, impossibly, the gas returned along exactly the same path it expanded along, the two areas would cancel — no net work and no energy wasted. Real cycles never do this, which is exactly why a loop encloses an area at all.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🌡️ Energy flow in a heat engine</h3>
+  <p>A temperature difference, \((T_h - T_c)\), between a hot and a cold reservoir drives a spontaneous flow of thermal energy, which operates the engine. Thermal energy \(Q_h\) flows out of the hot reservoir; \(Q_c\) flows into the cold reservoir; the difference is transferred to useful mechanical work, \(W\).</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b4-03-the-carnot-cycle-03.png" alt="Schematic showing heat Qh flowing from a hot reservoir into a heat engine, heat Qc flowing out to a cold reservoir, and work W leaving the engine" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Energy flow in a heat engine: \(Q_h\) in, \(Q_c\) out, the difference converted to useful work \(W\).</div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Efficiency in terms of heat flows</span>
+    $$\eta = \frac{W}{Q_h}$$
+  </div>
+  <div class="lc-formula">
+    $$\eta = 1 - \frac{Q_c}{Q_h}$$
+  </div>
+  <p>The laws of thermodynamics show that a cyclical process can never convert thermal energy into work with 100% efficiency — this is the <strong>Kelvin form of the second law of thermodynamics</strong>. Converting mechanical energy into thermal energy (rubbing your hands together) can be 100% efficient; the reverse can never be.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🔵 The Carnot cycle</h3>
+  <p>The thermodynamic cycle that produces the maximum theoretical efficiency is the <strong>Carnot cycle</strong> — an idealized, reversible, four-stage process: an isothermal expansion (AB), followed by an adiabatic expansion (BC); the gas then returns to its original state by an isothermal compression (CD) and an adiabatic compression (DA). Thermal energy is transferred only during the two isothermal stages; by definition, none is transferred during the adiabatic stages.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b4-03-the-carnot-cycle-04.png" alt="Carnot cycle on a pressure-volume diagram: isothermal expansion AB, adiabatic expansion BC, isothermal compression CD, adiabatic compression DA" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — Carnot cycle on \(P\)–\(V\) axes. \(Q_h\) enters during A→B; \(Q_c\) leaves during C→D.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b4-03-the-carnot-cycle-05.png" alt="Carnot cycle on a temperature-volume diagram: two horizontal isothermal lines joined by adiabatic curves" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — The same cycle on \(T\)–\(V\) axes: two horizontal isotherms at \(T_h\) and \(T_c\), joined by adiabatic curves.</div></div>
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Efficiency of a Carnot heat engine</span>
+    $$\eta_{\text{Carnot}} = 1 - \frac{T_c}{T_h}$$
+  </div>
+  <p>This equation represents the <strong>most efficient cycle allowed by the laws of physics</strong> — very different from processes limited by friction or other dissipation, which also occur in real heat engines on top of this fundamental limit. An explanation of where the equation comes from is provided in the entropy work of this topic.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📉 Why efficiency has a ceiling – the waterfall analogy</h3>
+  <table class="lc-table">
+    <thead><tr><th>\(T_h\) / °C</th><th>\(T_c\) / °C</th><th>\(T_h\) / K</th><th>\(T_c\) / K</th><th>\(\eta_{\text{Carnot}}\)</th></tr></thead>
+    <tbody>
+      <tr><td>100</td><td>20</td><td>373</td><td>293</td><td>0.21 (21%)</td></tr>
+      <tr><td>500</td><td>100</td><td>773</td><td>373</td><td>0.52 (52%)</td></tr>
+      <tr><td>150</td><td>−150</td><td>423</td><td>123</td><td>0.71 (71%)</td></tr>
+    </tbody>
+  </table>
+  <p>These show that Carnot efficiency is limited by the maximum and minimum temperatures actually available. Extremely high temperatures are technologically difficult to sustain, and — more importantly — we live in a world with an average temperature of about 288 K, which sets a practical floor on \(T_c\).</p>
+  <div class="lc-img" style="max-width:100%">
+    <img src="../../assets/lesson-images/b4-03-the-carnot-cycle-06.png" alt="Waterfall with a waterwheel placed at half the drop height next to an energy-flow diagram between a 600 K hot reservoir and a 300 K cold reservoir">
+    <div class="lc-cap">Fig 6 — Both processes cap out at 50% efficiency. A waterwheel at height \(h/2\) can extract at most half the available gravitational potential energy; a Carnot engine between 600 K and 300 K can convert at most half of \(Q_h\) into work.</div>
+  </div>
+  <p>If thermal energy could be transferred between 600 K and 0 K, the theoretical efficiency would be 100% — but that is not possible. Constrained to an outlet temperature of about 300 K, the maximum possible efficiency here is only 50%.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🔃 Heat pumps</h3>
+  <p><strong>Heat pump</strong> — a device that transfers thermal energy from a colder place by doing work. It runs like a heat engine in reverse: a work input, \(W\), is used to move thermal energy \(Q_c\) out of a cold reservoir and deliver \(Q_h\) to a hot reservoir. Refrigerators and air-conditioners are heat pumps.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b4-03-the-carnot-cycle-07.png" alt="Schematic of a heat pump: work input W drives heat Qc out of a cold reservoir and heat Qh into a hot reservoir" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — A heat engine reversed: work \(W\) is used to move thermal energy from cold to hot.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>♻️ Reversibility, disorder and entropy</h3>
+  <p><strong>Irreversible process</strong> — a process which cannot be reversed, in which entropy always increases. <strong>Reversible process</strong> — a process that can be reversed so that the system and all of its surroundings return exactly to their original states, with no change in entropy; an impossibility in the macroscopic world. In practice, all macroscopic processes are irreversible.</p>
+  <p>A swinging pendulum's amplitude slowly decreases as energy dissipates to the surroundings — a video of it run backwards would never be mistaken for the real thing. A bouncing ball shows the same idea more starkly: each bounce transfers more of the ball's <em>ordered</em> kinetic energy (every particle sharing the same velocity) into <em>disordered</em> internal energy (particles vibrating randomly), until it comes to rest. <strong>Without outside interference, ordered energy is always irreversibly transferred to disordered energy.</strong></p>
+  <div class="lc-img" style="max-width:100%">
+    <img src="../../assets/lesson-images/b4-03-the-carnot-cycle-08.png" alt="A ball bouncing to successively lower heights, and the impossible reverse sequence of a ball bouncing to successively higher heights">
+    <div class="lc-cap">Fig 8 — A real bouncing ball loses height each bounce as ordered energy disorders. The reverse sequence, gaining height each bounce, is never observed.</div>
+  </div>
+  <p>Why is disorder more likely? Imagine distributing 20 candy bars among 10 children entirely at random: the fair, ordered outcome (two each) is far less likely than an uneven one, because there are vastly more ways to be uneven than to be even. Gas molecules behave the same way: <strong>there are far more disordered arrangements than ordered ones</strong>, so random molecular motion drives any isolated system toward the disordered arrangement — never spontaneously back the other way.</p>
+  <div class="lc-img" style="max-width:100%">
+    <img src="../../assets/lesson-images/b4-03-the-carnot-cycle-09.png" alt="Three panels A, B, C showing gas molecules initially confined to one half of a container gradually spreading to fill the whole container evenly">
+    <div class="lc-cap">Fig 9 — A occurred before B, and B before C: gas released into one half of a container spreads to fill it evenly. With as many as 10²⁰ real molecules, this spreading becomes a certainty, not just a probability.</div>
+  </div>
+  <div class="lc-info">🔗 This is why thermal energy always spreads spontaneously from hotter to colder, never the reverse — it is simply the statistically overwhelming outcome of random molecular motion.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Reading cycle diagrams</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>General cycle, \(P\)–\(V\)</td><td>Volume · Pressure</td><td>Closed loop of curves and/or straight segments</td><td>Enclosed area = net work per cycle; direction of travel shows whether the gas does work (clockwise) or has work done on it</td></tr>
+      <tr><td>Carnot cycle, \(P\)–\(V\)</td><td>Volume · Pressure</td><td>Closed loop of exactly 2 isotherms and 2 adiabats</td><td>Steeper adiabatic curves link the two isothermal curves; enclosed area is the maximum possible net work between \(T_h\) and \(T_c\)</td></tr>
+      <tr><td>Carnot cycle, \(T\)–\(V\)</td><td>Volume · Temperature</td><td>Two horizontal lines joined by curved adiabats</td><td>The two horizontal levels give \(T_h\) and \(T_c\) directly — feed straight into \(\eta_{\text{Carnot}} = 1 - T_c/T_h\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b4-03-the-carnot-cycle-10.png" alt="PV diagram of cycle ABCA with isobaric compression AB, isovolumetric heating BC and curved expansion CA" style="max-width:340px;width:100%"><div class="lc-cap">Fig 10 — Cycle ABCA. A(1.00 m³, 0.50×10⁵ Pa), B(0.20 m³, 0.50×10⁵ Pa), C(0.20 m³, 2.5×10⁵ Pa).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b4-03-the-carnot-cycle-11.png" alt="PV diagram of a four-stage cycle ABCD with expansion, isovolumetric pressure drop, compression, and isovolumetric pressure rise" style="max-width:340px;width:100%"><div class="lc-cap">Fig 11 — A four-stage cycle ABCD. A(5.8×10⁻⁴ m³, 1.2×10⁶ Pa), B(2.7×10⁻⁴ m³, 5.2×10⁶ Pa), C(2.7×10⁻⁴ m³, 8.0×10⁶ Pa), D(5.8×10⁻⁴ m³, 2.6×10⁶ Pa).</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – efficiency from two areas (B4.7)</h3>
+  <p>Determine the efficiency of the simple cycle shown in Fig 2 if the area shown in panel (a) was 130 J and the area in panel (b) was 89 J.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> efficiency = useful work done ÷ energy input, where useful work is the difference of the two areas.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> work done by gas in expansion = 130 J (energy input); work done on gas in compression = 89 J.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\eta = \dfrac{130-89}{130}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\eta = 0.32\) (32%).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – the ABCA cycle (B4.8)</h3>
+  <p>Fig 10 shows one simplified cycle, ABCA, of a gas in a particular heat engine, during which \(1.3 \times 10^5\) J of thermal energy flowed into the gas. <strong>(a)</strong> Calculate the work done during process AB. <strong>(b)</strong> Name processes AB and BC. <strong>(c)</strong> Estimate the net useful work done during the cycle. <strong>(d)</strong> Find the approximate efficiency.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(W = P\Delta V\) for the constant-pressure stage AB, then estimate the enclosed loop area with an equal-area rectangle.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> AB is at constant \(P = 0.50\times10^5\) Pa, \(V\): 1.0 → 0.20 m³. Loop spans \(\Delta V = 0.80\) m³ and \(\Delta P = 0.8\times10^5\) Pa.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> (a) \(W_{AB} = (0.50\times10^5)(1.0-0.20)\)<br>(c) net work \(\approx (1.0-0.20)\times(1.3-0.5)\times10^5\)<br>(d) \(\eta = \dfrac{W_{\text{net}}}{1.3\times10^5}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(W_{AB} = 4.0\times10^4\) J, done <em>on</em> the gas. (b) AB is isobaric compression; BC is isovolumetric temperature/pressure increase. (c) net work \(\approx 6.4\times10^4\) J. (d) \(\eta \approx 0.50\) (50%).</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: heat pumps for heating homes</h3>
+    <p>Heat pumps use the fact that an evaporating refrigerant removes thermal energy (latent heat) from its surroundings; that thermal energy is released when the gas is later compressed and condenses back to a liquid. An electrically driven compressor absorbs energy from the cold outdoor air and delivers it, at a higher temperature, indoors. Most heat pumps can be reversed to work as air-conditioners in hot weather.</p>
+    <div class="lc-img" style="max-width:100%">
+      <img src="../../assets/lesson-images/b4-03-the-carnot-cycle-12.png" alt="Schematic of a heat pump heating a house: outdoor coil absorbing thermal energy from air, a compressor, an indoor coil releasing thermal energy, and an expansion device returning liquid refrigerant to the outdoor coil">
+      <div class="lc-cap">Fig 12 — Refrigerant absorbs thermal energy from outside air at the outdoor coil, is compressed to raise its temperature and pressure, then releases thermal energy indoors and condenses back to a liquid.</div>
+    </div>
+    <div class="lc-success">✓ Examiner tip: air at 0°C still holds 92% of the internal energy it has at 25°C — that's why a heat pump can keep extracting useful thermal energy from cold outdoor air, though its efficiency does fall in very cold weather.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – why no real engine reaches η_Carnot</h3>
+    <p>\(\eta_{\text{Carnot}}\) assumes every stage is reversible — infinitely slow, always in near-equilibrium, with no friction and no uncontrolled heat loss. Real pistons have friction, real gases don't stay perfectly in equilibrium during rapid strokes, and some heat always leaks to the surroundings other than through the intended cold reservoir. Every one of these effects is an additional, irreversible source of entropy increase on top of the unavoidable \(Q_c\) the second law already demands.</p>
+    <p><strong>Challenge:</strong> a real engine operating between the same \(T_h\) and \(T_c\) as a Carnot engine will always have efficiency… higher, lower, or the same? <em>Lower — the Carnot value is the theoretical maximum for those two temperatures; any real irreversibility can only reduce the achievable efficiency further, never exceed the Carnot limit.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>η_Carnot already accounts for real friction losses</td><td>It is the theoretical maximum with <em>no</em> losses at all; friction and other dissipation only make a real engine's efficiency lower still</td></tr>
+      <tr><td>Any four-stage engine cycle between \(T_h\) and \(T_c\) reaches Carnot efficiency</td><td>Only the specific reversible sequence — isothermal, adiabatic, isothermal, adiabatic — reaches it; other cycles between the same temperatures are always less efficient</td></tr>
+      <tr><td>A heat pump moving heat from cold to hot violates the second law</td><td>It doesn't, because it isn't spontaneous — a work input is supplied. The second law forbids heat flowing cold→hot <em>on its own</em>, not with external work driving it</td></tr>
+      <tr><td>Reversible processes happen in real life if you're careful enough</td><td>A truly reversible process is a theoretical idealization; every real macroscopic process is irreversible and increases entropy, however slowly</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common exam slip: substituting Celsius temperatures directly into \(\eta_{\text{Carnot}} = 1 - T_c/T_h\). Both temperatures must be in kelvin — forgetting to add 273 gives a badly wrong efficiency.</div>
+</div>
+
+<div class="lc-kp">
+  <span>η = W/Qh</span>
+  <span>η_Carnot = 1 − Tc/Th</span>
+  <span>T always in kelvin</span>
+  <span>isothermal + adiabatic ×2 = Carnot cycle</span>
+  <span>area under P–V = work done</span>
+  <span>net work = enclosed loop area</span>
+  <span>heat pump = reversed heat engine</span>
+  <span>irreversible → entropy increases</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which sequence of four stages correctly describes the Carnot cycle?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> Isobaric, isovolumetric, isobaric, isovolumetric</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Two isothermal expansions, then two adiabatic compressions</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> Isothermal expansion, adiabatic expansion, isothermal compression, adiabatic compression</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Four isovolumetric stages</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A Carnot engine operates between a hot reservoir at 600 K and a cold reservoir at 400 K. Its theoretical efficiency is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','A')"><span class="lc-opt-l">A</span> 33%</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','A')"><span class="lc-opt-l">B</span> 67%</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','A')"><span class="lc-opt-l">C</span> 20%</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','A')"><span class="lc-opt-l">D</span> 40%</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. The Kelvin form of the second law of thermodynamics tells us that</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> mechanical energy can never be converted to thermal energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> momentum is not conserved in a heat engine</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> a cyclical process can never convert thermal energy into work with 100% efficiency</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> all heat engines have the same efficiency</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A heat pump moving thermal energy from a cold outdoor coil to a warm room does not violate the second law of thermodynamics because</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> no thermal energy actually moves from cold to hot</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> an external work input drives the transfer — it isn't spontaneous</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> the second law only applies to gases, not refrigerants</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> entropy decreases everywhere during the process</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A reversible process is best described as one in which</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> the object returns to its starting position</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> the system and all its surroundings can be restored exactly, with no change in entropy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> kinetic energy is conserved but momentum is not</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> friction has been reduced to a small value</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. Gas molecules released into one half of a sealed container spread to fill it evenly and (essentially) never spontaneously return to one half. The best explanation is that</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','A')"><span class="lc-opt-l">A</span> there are vastly more disordered arrangements of the molecules than ordered ones</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','A')"><span class="lc-opt-l">B</span> the molecules lose momentum as they spread out</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','A')"><span class="lc-opt-l">C</span> gravity pulls the molecules apart</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','A')"><span class="lc-opt-l">D</span> the container's walls repel clustered molecules</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> is the substance used in thermodynamic processes to do useful work. The Carnot cycle consists of two <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:120px"> stages, during which thermal energy is transferred, and two <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:120px"> stages, during which none is transferred. Carnot efficiency is given by \(\eta = 1 - T_c/T_h\), with both temperatures in <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px">. A <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:130px"> works like a heat engine reversed, using a work input to move thermal energy from cold to hot. A process that cannot be reversed without increasing <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px"> is called <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:120px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Discuss</div>
+  <div class="lc-exam-q"><strong>Q17.</strong> <strong>(a)</strong> With an outlet temperature of 350 K, calculate the inlet temperature needed to achieve a maximum theoretical efficiency of 45% with a Carnot cycle. <strong>(b)</strong> In practice, why will a higher temperature be needed? <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(0.45 = 1 - 350/T_h\)<br>✓ \(T_h = 350/0.55 = 636\ \text{K}\)<br>✓ (b) 636 K is the temperature needed for the theoretical <em>maximum</em>; a real engine has additional irreversible losses (friction, imperfect insulation), so a real engine reaching 45% must run between an even wider temperature gap than the ideal calculation suggests.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Suggest</div>
+  <div class="lc-exam-q"><strong>Q18.</strong> Suggest reasons why electrical power stations need cooling towers, such as those seen in Fig 1. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ No heat engine can convert 100% of the input thermal energy to work, so \(Q_c\) must be rejected somewhere.<br>✓ Cooling towers provide a large surface area and evaporative cooling to reject this waste heat efficiently to the atmosphere.<br>✓ Without this, the working fluid could not condense and cool back to its starting state, and the cycle could not repeat continuously.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q"><strong>Q19.</strong> Sketch a temperature–pressure diagram for the Carnot cycle. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Two isothermal stages appear as vertical lines (constant \(T\)) at \(T_h\) and \(T_c\), since pressure changes at constant temperature.<br>✓ These are joined by two curved adiabatic stages sloping between \(T_h\) and \(T_c\), completing a closed loop — the mirror image in shape of the \(T\)–\(V\) version shown in Fig 5.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q20.</strong> Determine the thermodynamic efficiency of a Carnot cycle in which thermal energy is flowing out of the hot reservoir at a rate of \(1.26\times10^5\) W and into the cold reservoir at a rate of \(0.79\times10^5\) W. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\eta = \dfrac{Q_h-Q_c}{Q_h}\)<br>✓ \(\eta = \dfrac{1.26\times10^5 - 0.79\times10^5}{1.26\times10^5}\)<br>✓ \(\eta = 0.37\) (37%).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate</div>
+  <div class="lc-exam-q"><strong>Q21.</strong> Estimate the efficiency of the process shown in Fig 3. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\eta = W/Q_h = (Q_h-Q_c)/Q_h\) — read the relative sizes of the \(Q_h\), \(Q_c\) and \(W\) arrows off the schematic and substitute.<br>✓ Note: the source diagram for Fig 3 is a generic labelled schematic with no printed numeric values, so no single numeric answer can be given here — this question demonstrates the method rather than a specific result.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Identify / Calculate / Estimate</div>
+  <div class="lc-exam-q"><strong>Q22.</strong> Fig 11 shows the four-stage cycle of a heat engine, with points A(\(5.8\times10^{-4}\) m³, \(1.2\times10^6\) Pa), B(\(2.7\times10^{-4}\) m³, \(5.2\times10^6\) Pa), C(\(2.7\times10^{-4}\) m³, \(8.0\times10^6\) Pa), D(\(5.8\times10^{-4}\) m³, \(2.6\times10^6\) Pa). <strong>(a)</strong> Which stage is the compression of the gas? <strong>(b)</strong> The temperature at A is 320 K. Calculate the amount of gas in moles. <strong>(c)</strong> Calculate the temperature at point B. <strong>(d)</strong> Estimate the area ABCD. What does it represent? <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) A→B: volume decreases from \(5.8\times10^{-4}\) to \(2.7\times10^{-4}\) m³ while pressure rises — this is the compression stage.<br>✓ (b) \(n = \dfrac{PV}{RT} = \dfrac{(1.2\times10^6)(5.8\times10^{-4})}{8.31\times320} \approx 0.26\ \text{mol}\)<br>✓ (c) Using the same \(n\): \(T_B = \dfrac{P_BV_B}{nR} = \dfrac{(5.2\times10^6)(2.7\times10^{-4})}{0.26\times8.31} \approx 650\ \text{K}\)<br>✓ (d) Estimating with a rectangle of width \(\Delta V \approx 3.1\times10^{-4}\ \text{m}^3\) and height \(\Delta P \approx 6.8\times10^6\ \text{Pa}\) gives area \(\approx 2.1\times10^3\) J.<br>✓ This area represents the net useful work done by the gas during one complete cycle.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch / Estimate</div>
+  <div class="lc-exam-q"><strong>Q23.</strong> Using graph paper, sketch the following four consecutive processes in a heat engine, starting at a volume of 20 cm³ and a pressure of \(6.0\times10^6\) Pa: <strong>(a)</strong> an isobaric expansion increasing the volume by a factor of five; <strong>(b)</strong> an adiabatic expansion doubling the volume, to a pressure of \(1.5\times10^6\) Pa; <strong>(c)</strong> an isovolumetric reduction in pressure to \(0.5\times10^6\) Pa; <strong>(d)</strong> an adiabatic return to the original state. <strong>(e)</strong> Mark where work is done on the gas. <strong>(f)</strong> Estimate the net work done by the gas during the cycle. <span class="lc-exam-marks">[8 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) A horizontal line from (20 cm³, \(6.0\times10^6\) Pa) to (100 cm³, \(6.0\times10^6\) Pa).<br>✓ (b) A steep curve down from (100 cm³, \(6.0\times10^6\) Pa) to (200 cm³, \(1.5\times10^6\) Pa).<br>✓ (c) A vertical line down from (200 cm³, \(1.5\times10^6\) Pa) to (200 cm³, \(0.5\times10^6\) Pa).<br>✓ (d) A curve back from (200 cm³, \(0.5\times10^6\) Pa) to the starting point (20 cm³, \(6.0\times10^6\) Pa).<br>✓ (e) Work is done <em>on</em> the gas wherever volume decreases: stage (c) is isovolumetric (no work), so only stage (d), the adiabatic compression, has work done on the gas.<br>✓ (f) Estimate the enclosed loop area by eye with an equal-area rectangle — of the order of a few hundred joules; the exact value depends on your sketch, and this is the net work done <em>by</em> the gas over the whole cycle.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Carnot: isothermal expansion, adiabatic expansion, isothermal compression, adiabatic compression — heat is exchanged only on the two isothermal stages.' },
+    mcq2: { A: 'η = 1 − Tc/Th = 1 − 400/600 = 0.33 (33%).' },
+    mcq3: { C: 'The Kelvin second law: a cyclical process can never convert thermal energy into work with 100% efficiency — some must always be rejected to a cold reservoir.' },
+    mcq4: { B: 'A heat pump requires an external work input to drive the transfer, so it is not a spontaneous cold-to-hot flow — the second law is not violated.' },
+    mcq5: { B: 'A reversible process restores the system and surroundings exactly with no change in entropy — an idealization never fully reached in the real world.' },
+    mcq6: { A: 'There are vastly more disordered microstates than ordered ones, so random molecular motion overwhelmingly favours spreading out.' }
+  },
+  fitb: { lf1:'working substance', lf2:'isothermal', lf3:'adiabatic', lf4:'kelvin', lf5:'heat pump', lf6:'entropy', lf7:'irreversible' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
