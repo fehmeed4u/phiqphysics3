@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Entropy and the Second Law — B.4 Thermodynamics — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -86,6 +88,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -162,28 +167,258 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Entropy and the Second Law</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B4" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 5 · B.4 Thermodynamics</div>
+<div class="lc-title">Entropy and the Second Law</div>
+<div class="lc-sub">Entropy measures disorder — and it never decreases for an isolated system. This lesson connects that one statistical idea to why heat flows the way it does, why fridges need power, and why perpetual motion is impossible.</div>
+
+<div class="lc-card">
+  <h3>🧊 Hook – the fridge that never really wins</h3>
+  <p>Open a fridge and its contents are colder and more ordered than the kitchen around it — the food's entropy has gone down. That looks like it breaks the second law of thermodynamics. It doesn't: the fridge pumps thermal energy out through the coils at the back, and the kitchen warms up by more than the fridge cooled down. <strong>The entropy of the fridge contents fell, but the entropy of the fridge + kitchen system rose.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b4-04-entropy-and-the-second-law-01.png" alt="Open domestic refrigerator full of food and drinks" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — A refrigerator transfers thermal energy from the food and reduces entropy inside it, but where does that energy go?</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think — then read on)</strong> — if the fridge lowers entropy inside it, how can the second law still be true? <em>Because the system that matters is the whole isolated system, not just the part you're looking at. The kitchen's entropy rises by more than the fridge contents' entropy falls, so the total still increases.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📖 Entropy and the second law</h3>
+  <p><strong>Entropy, S,</strong> is a thermodynamic quantity that relates to the degree of disorder of the particles in a system. Molecular disorder and entropy are relevant everywhere — to every process, in every system, at any time in the Universe. That universality is summarised by the <strong>second law of thermodynamics</strong>:</p>
+  <div class="lc-info">📖 <strong>Second law of thermodynamics</strong> — in every process, the total entropy of any isolated system, or the Universe as a whole, always increases.</div>
+  <p>This is sometimes stated as "entropy can never decrease" — but that is only true of the <em>total</em> entropy of an isolated system. It is entirely possible to reduce the local entropy of part of a system, provided another part gains even more. The growth of a plant, animal or human reduces the entropy of the molecules built into the growing body, but there is an even greater increase in the entropy of all the surrounding molecules involved in the chemical and biological processes. Water freezing and the refrigerator above are further examples.</p>
+  <p>The statistical behaviour of enormous numbers of uncontrollable particles leads to an inescapable conclusion: differences in macroscopic properties — energy, temperature, pressure — must even out over time, represented by continuously increasing entropy. Eventually all energy would be spread out, all temperature differences eliminated, and entropy would reach a final, maximum, steady value. This is often called the <strong>"heat death"</strong> of the Universe.</p>
+  <div class="lc-info">🔗 <strong>Linking question</strong> — why is there an upper limit on the efficiency of any energy source or engine? <em>(Links to understandings in Topic A.3.)</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🌡️ Alternative statements of the second law</h3>
+  <p>Consider two objects at different temperatures placed in thermal contact in an isolated system, with no external influences.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b4-04-entropy-and-the-second-law-02.png" alt="Two circles, A hotter and B colder, with arrows showing thermal energy flow both ways but net flow from A to B" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Thermal energy can flow either way between A and B, but the net flow is always from hotter to colder.</div>
+  </div>
+  <p>Thermal energy can flow from A to B <em>and</em> from B to A — but the <strong>net</strong> flow is from A to B, because the increase in entropy of B is greater than the decrease in entropy of A, for the same energy transfer. This gives the version of the second law first stated by Rudolf Clausius:</p>
+  <div class="lc-info">📖 <strong>Clausius statement</strong> — thermal energy cannot spontaneously transfer from a region of lower temperature to a region of higher temperature.</div>
+  <p>Heat pumps can move thermal energy from colder to hotter, but only by doing external work — never spontaneously. Insulation can reduce the rate of energy transfer, but can never stop it completely. A third version, the <strong>Kelvin statement</strong>, is expressed in terms of a thermodynamic cycle:</p>
+  <div class="lc-info">📖 <strong>Kelvin statement</strong> — when extracting energy from a heat reservoir, it is impossible to convert it all into work.</div>
+  <p>A few everyday comparisons of disorder/entropy: a gas in a larger volume has greater entropy than the same gas at the same temperature in a smaller volume; a gas at higher temperature has greater entropy than the same gas at lower temperature; and a liquid has greater entropy than a solid of the same material at the same temperature.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🎲 Counting microstates — why disorder wins</h3>
+  <p>To express entropy numerically, we count the number of ways a system's particles can be arranged — its <strong>multiplicity, Ω</strong>. Consider throwing two six-sided dice and adding the totals: there are 36 possible combinations, from 2 to 12.</p>
+  <table class="lc-table">
+    <thead><tr><th>Diagram type</th><th>What's shown</th><th>Shape / pattern</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Dice-sum frequency</td><td>Totals 2–12 (x) against number of combinations giving that total (y)</td><td>Symmetric peak at 7, tapering to 1 at each end</td><td>The peak total (7) is most probable because it has the greatest number of combinations — six ways: 1+6, 2+5, 3+4, 4+3, 5+2, 6+1</td></tr>
+      <tr><td>Particle microstate diagram</td><td>3 particles A, B, C split between left/right halves of a container</td><td>2 "ordered" arrangements (all particles on one side) vs 6 "disordered" arrangements (mixed)</td><td>All 8 microstates are equally likely individually, but disordered arrangements outnumber ordered ones 6 to 2 — so disorder is the more probable overall state</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b4-04-entropy-and-the-second-law-03.png" alt="Triangular array of dice-pair combinations arranged by total sum from 2 to 12, peaking at 7" style="max-width:340px;width:100%"><div class="lc-cap">Fig 3 — 36 combinations of two dice. A total of 7 can be made 6 ways; totals of 2 and 12 only 1 way each.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b4-04-entropy-and-the-second-law-04.png" alt="Eight boxes showing all possible left/right distributions of three particles A, B and C" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — The 8 (2³) microstates of 3 particles. Only 2 are "ordered" (all particles on one side).</div></div>
+  </div>
+  <p>Put simply: a total of 7 is most likely because it can be produced in the greatest number of ways. The same idea applies to gas particles distributed between two halves of a container: with 10 particles there are already more than 1000 (2¹⁰) possible microstates, and real gases contain 10¹⁹ or more particles — so the probability of finding them all on one side is vanishingly small. <strong>The greater the number of possible microstates of a system, the greater its disorder and the greater its entropy.</strong></p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Entropy of a system of microscopic particles · SI unit J K⁻¹</span>
+    $$S = k_{\text{B}}\ln \Omega$$
+  </div>
+  <p>where \(k_{\text{B}}\) is the Boltzmann constant and \(\Omega\) is the number of possible microstates (its multiplicity). \(\Omega\) is a large number, so \(\ln\Omega\) is far more manageable.</p>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – entropy from microstates (B4.10)</h3>
+  <p>What is the entropy of a system which has \(1\times10^{22}\) microstates?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use the microscopic equation, since we are given the number of microstates directly.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\Omega = 1\times10^{22}\), \(k_{\text{B}} = 1.38\times10^{-23}\ \text{J K}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(S = k_{\text{B}}\ln\Omega\)<br>\(\ln(1\times10^{22}) = 50.7\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(S = (1.38\times10^{-23})\times 50.7\)<br>\(= 7.0\times10^{-22}\ \text{J K}^{-1}\).</div></div>
+  <p>In practice, such direct microstate calculations are usually unrealistic — but changes of entropy in macroscopic situations, using \(\Delta S = \Delta Q/T\), are much easier.</p>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – entropy change of a cooling cup of coffee (B4.11)</h3>
+  <p>Calculate the entropy change when 5000 J of thermal energy flows out of a hot cup of coffee at 70 °C into the surrounding room at 25 °C. Assume the temperatures of the coffee and the room are unchanged.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(\Delta S = \Delta Q/T\) for the coffee (losing energy) and the room (gaining it), with \(T\) in kelvin.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\Delta Q = 5000\ \text{J}\), \(T_{\text{coffee}} = 273+70 = 343\ \text{K}\), \(T_{\text{room}} = 273+25 = 298\ \text{K}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> coffee: \(\Delta S = \dfrac{-5000}{343}\)<br>room: \(\Delta S = \dfrac{+5000}{298}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\Delta S_{\text{coffee}} = -14.6\ \text{J K}^{-1}\), \(\Delta S_{\text{room}} = +16.8\ \text{J K}^{-1}\).<br>Overall: \(16.8 - 14.6 = +2.2\ \text{J K}^{-1}\).</div></div>
+  <div class="lc-info">💡 The overall entropy increased because the thermal energy flowed from a higher temperature to a lower one. If the coffee and room were at the same temperature there would be no flow and no change of entropy; and if thermal energy could somehow flow spontaneously from the cooler room into the hotter coffee, entropy would decrease — which never happens.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: why fridges and heat pumps need power</h3>
+    <p>Every fridge, freezer and heat pump does the same job: it moves thermal energy from a colder place to a hotter one. The Clausius statement says this can never happen spontaneously, so the device must do external work to force it — which is exactly why these appliances need an electricity supply, and why running one always releases more thermal energy into the room than it removes from its interior.</p>
+    <div class="lc-success">✓ Examiner tip: never write "entropy decreased so the second law was broken." Always identify the full isolated system (device + surroundings) before deciding whether entropy increased.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – Boltzmann's equation and the heat death of the Universe</h3>
+    <p>The equation \(S = k_{\text{B}}\ln\Omega\) was devised by the Austrian physicist Ludwig Boltzmann, who considered it so important that it was carved on his memorial in Vienna (using \(W\) instead of \(\Omega\)).</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/b4-04-entropy-and-the-second-law-05.png" alt="Ludwig Boltzmann's memorial in Vienna with the equation S = k log W carved into the stone" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 5 — Boltzmann's memorial, Vienna: \(S = k\log W\).</div>
+    </div>
+    <p><strong>Challenge:</strong> if entropy keeps increasing without limit, what is the ultimate fate of the Universe? <em>Answer: eventually all macroscopic differences in energy, temperature and pressure would even out, entropy would reach a final, maximum, steady value, and no further useful work could be extracted anywhere — the "heat death" of the Universe.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>"Entropy never decreases anywhere"</td><td>Local entropy of part of a system can decrease, provided the rest of an isolated system gains even more. Only the <em>total</em> entropy of an isolated system never decreases</td></tr>
+      <tr><td>\(\Delta S = \Delta Q/T\) can be used for any temperature change</td><td>This form assumes \(T\) stays (approximately) constant while \(\Delta Q\) is transferred — exactly as assumed for the coffee and the room above</td></tr>
+      <tr><td>The Clausius statement means heat can never flow cold → hot</td><td>It means that transfer cannot happen <em>spontaneously</em>. A heat pump can force it, but only by doing external work</td></tr>
+      <tr><td>More microstates means more energy</td><td>\(\Omega\) measures the number of possible arrangements, i.e. disorder — not the amount of energy in the system</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: judging entropy change from only one part of a system (the fridge, the coffee) instead of the whole isolated system (fridge + kitchen, coffee + room) that the second law actually applies to.</div>
+</div>
+
+<div class="lc-kp">
+  <span>S = kB ln Ω</span>
+  <span>ΔS = ΔQ/T</span>
+  <span>2nd law: total entropy always increases</span>
+  <span>local ΔS can be negative</span>
+  <span>Clausius: no spontaneous cold→hot</span>
+  <span>Kelvin: can't convert all Qh into W</span>
+  <span>Ω = number of microstates</span>
+  <span>heat death = max, uniform entropy</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. When two six-sided dice are thrown and their scores added, why is a total of 7 the most likely result?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 7 is the average of 2 and 12</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Dice are biased towards the middle numbers</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> It can be produced by the greatest number of combinations (6 out of 36)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Totals of 7 have the lowest entropy</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. A fixed mass of gas expands at constant temperature to fill a larger volume. What happens to its entropy?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> It decreases, since the gas is more spread out</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> It increases, since more microstates are available</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> It stays the same, since temperature is unchanged</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> It becomes undefined</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. Which of these correctly states the Clausius form of the second law of thermodynamics?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> Energy can never flow from a hot object to a cold one</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> Entropy is conserved in every isolated system</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> All the energy extracted from a reservoir can be converted into work</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> Thermal energy cannot spontaneously transfer from a region of lower temperature to one of higher temperature</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. 5000 J of thermal energy flows from a body at 400 K into surroundings at 300 K, both temperatures assumed constant. What is the total entropy change of the body + surroundings?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 0 J K⁻¹</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> −4.2 J K⁻¹</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> +4.2 J K⁻¹</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> +16.7 J K⁻¹</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. The number of microstates of a system doubles. According to \(S = k_{\text{B}}\ln\Omega\), its entropy</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> doubles</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> increases by \(k_{\text{B}}\ln 2\), a small fixed amount</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> stays exactly the same</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> quadruples</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Entropy, S, is a measure of the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> of a system. The second law of thermodynamics states that the total entropy of an isolated system can never <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px">. Thermal energy cannot spontaneously flow from a region of lower temperature to one of <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:120px"> temperature (Clausius statement). The number of possible arrangements of a system's particles is called its <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:130px">, symbol Ω. Change of entropy can be calculated using ΔS = ΔQ / <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:70px">. If all temperature differences eventually even out, the Universe is said to reach its <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:130px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> Calculate the entropy of a system which has \(5.0\times10^{24}\) microstates. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(S = k_{\text{B}}\ln\Omega\)<br>✓ \(S = (1.38\times10^{-23})\times\ln(5.0\times10^{24}) = (1.38\times10^{-23})\times 56.9 = 7.9\times10^{-22}\ \text{J K}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> Calculate the entropy change when 50 g of ice melts at 0 °C. (Specific latent heat of fusion of ice = 334 kJ kg⁻¹.) <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\Delta Q = mL = 0.050 \times 334\,000 = 16\,700\ \text{J}\)<br>✓ \(T = 273\ \text{K}\)<br>✓ \(\Delta S = \Delta Q/T = 16\,700/273 = +61\ \text{J K}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> Explain, in terms of entropy, why a refrigerator does not violate the second law of thermodynamics, even though the entropy of its contents decreases. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The entropy of the food/contents does decrease as thermal energy is removed and they become colder.<br>✓ The second law applies to the total entropy of an isolated system, not to one part of it in isolation.<br>✓ The thermal energy expelled at the back of the fridge raises the entropy of the (warmer) kitchen by more than the contents' entropy fell, so the total entropy of contents + kitchen increases.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Outline</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> Outline, using the Kelvin statement of the second law, why no heat engine can ever have an efficiency of 100%. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The Kelvin statement says it is impossible to extract energy from a heat reservoir and convert all of it into work.<br>✓ Some of the thermal energy taken in must always be rejected to a cold reservoir rather than converted to work.<br>✓ Efficiency = W/Qh, so if some Qh cannot become W, efficiency must always be below 100%.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> A system consists of 4 identical particles, each of which may be on the left or right side of a container. Determine (a) the total number of possible microstates, and (b) the number of those microstates in which all 4 particles are on the same side. Hence state which type of arrangement — "all on one side" or "mixed" — is more probable. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Each particle has 2 possible locations, so total microstates \(= 2^4 = 16\).<br>✓ (b) "All on one side" can happen in only 2 ways (all left, or all right).<br>✓ The remaining 14 microstates are mixed arrangements.<br>✓ Mixed (disordered) arrangements are far more probable, since they vastly outnumber the 2 ordered ones.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'A total of 7 can be made 6 different ways (1+6, 2+5, 3+4, 4+3, 5+2, 6+1) out of 36 combinations — the greatest multiplicity of any total.' },
+    mcq2: { B: 'A larger volume gives the particles more possible positions, so Ω increases and entropy increases, even at constant temperature.' },
+    mcq3: { D: 'The Clausius statement: thermal energy cannot spontaneously transfer from lower to higher temperature. A heat pump can only do it by doing external work.' },
+    mcq4: { C: 'ΔS(hot) = -5000/400 = -12.5 J/K; ΔS(cold) = +5000/300 = +16.7 J/K; total = +4.2 J/K. Net flow hot→cold always increases total entropy.' },
+    mcq5: { B: 'S = kB ln Ω is logarithmic, so doubling Ω adds kB ln2 to S — it does not double S.' }
+  },
+  fitb: { lf1:'disorder', lf2:'decrease', lf3:'higher', lf4:'multiplicity', lf5:'T', lf6:'heat death' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
