@@ -304,23 +304,31 @@ window.PHYQ_TOPICS = [
   "folder": "B.5-Circuits",
   "lessons": [
    {
-    "f": "01-current-voltage-and-resistance.html",
-    "t": "Current, Voltage and Resistance"
+    "f": "01-charge-conservation-current-and-voltage.html",
+    "t": "Charge, Conservation of Charge, Current and Voltage"
    },
    {
-    "f": "02-ohm-s-law-and-i-v-characteristics.html",
+    "f": "02-resistance-and-resistivity.html",
+    "t": "Resistance and Resistivity"
+   },
+   {
+    "f": "03-ohms-law-and-i-v-characteristics.html",
     "t": "Ohm's Law and I-V Characteristics"
    },
    {
-    "f": "03-series-and-parallel-circuits.html",
+    "f": "04-series-and-parallel-circuits.html",
     "t": "Series and Parallel Circuits"
    },
    {
-    "f": "04-emf-and-internal-resistance.html",
+    "f": "05-emf-and-internal-resistance.html",
     "t": "EMF and Internal Resistance"
    },
    {
-    "f": "05-electrical-power-and-energy.html",
+    "f": "06-variable-resistors-and-potential-dividers.html",
+    "t": "Variable Resistors and Potential Divider Circuits"
+   },
+   {
+    "f": "07-electrical-power-and-energy.html",
     "t": "Electrical Power and Energy"
    }
   ]
