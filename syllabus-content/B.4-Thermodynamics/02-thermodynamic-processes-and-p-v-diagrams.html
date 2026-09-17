@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thermodynamic Processes and p-V Diagrams — B.4 Thermodynamics — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -86,6 +87,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -162,28 +166,311 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Thermodynamic Processes and p-V Diagrams</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B4" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 5 · B.4 Thermodynamics</div>
+<div class="lc-title">Four Thermodynamic Processes</div>
+<div class="lc-sub">The first law, \(Q = \Delta U + W\), covers every possible change of state a gas can undergo. Fixing one of its four quantities at zero — \(\Delta U\), \(W\), \(Q\) or \(\Delta P\) — gives four named, extreme processes that between them describe almost every real gas change.</div>
+
+<div class="lc-card">
+  <h3>🚲 Hook – why a bicycle pump gets hot</h3>
+  <p>Pump up a bicycle tyre quickly and the barrel of the pump gets noticeably warm — even though you haven't heated it with anything. You've compressed the air inside faster than heat can escape through the pump's metal walls, so essentially no thermal energy crosses the boundary. <strong>All the work you do on the trapped air goes straight into its internal energy, and its temperature rises.</strong> This is an adiabatic process — one of four "extreme" ways a gas can change state.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b4-02-thermodynamic-processes-01.png" alt="Four pressure-volume diagrams in a 2x2 grid showing isothermal, isovolumetric, adiabatic and isobaric processes, each with dotted isothermal reference curves">
+    <div class="lc-cap">Fig B4.10 — the four thermodynamic processes. In every panel the dotted curves are isothermals; the solid line is the actual process.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — if no thermal energy enters or leaves the pump's air, where does the energy that raises its temperature come from? <em>From the work you do pushing the piston in — with \(Q = 0\), the first law gives \(\Delta U = -W\), so the work done on the gas is converted directly into internal energy.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🔀 Four extremes of the first law</h3>
+  <p>The first law, \(Q = \Delta U + W\), relates three quantities of energy transfer. Among all the changes of state a gas might undergo, it is convenient to consider four extreme cases, each obtained by keeping one variable fixed:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">The four extremes</span>
+    $$\Delta U = 0 \quad (\text{isothermal})$$
+    $$W = 0 \quad (\text{isovolumetric})$$
+    $$Q = 0 \quad (\text{adiabatic})$$
+    $$\Delta P = 0 \quad (\text{isobaric})$$
+  </div>
+  <p>(The prefix <em>iso-</em> means equal.) Figure B4.10 shows all four on pressure–volume (\(P\)–\(V\)) diagrams, in which the dotted lines are always isothermals — curves of constant temperature.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🌡️ Isothermal (ΔU = 0) and isovolumetric (W = 0)</h3>
+  <p>In an <strong>isothermal</strong> change the gas's temperature is constant, so its internal energy cannot change: \(\Delta U = 0\). The first law then reduces to:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Isothermal</span>
+    $$Q = W$$
+  </div>
+  <p>In an isothermal expansion (B → A on Fig B4.10a), all the work done by the gas on the surroundings is supplied by thermal energy transferred into the gas. In an isothermal compression (A → B), the work done on the gas is all transferred away as thermal energy. For a real process to approximate this ideal, the change must be <strong>as slow as possible</strong>, giving heat time to flow in or out and keep the temperature constant. Isothermal changes obey Boyle's law: \(PV = \text{constant}\).</p>
+  <p><strong>Isovolumetric:</strong> occurring at constant volume. Since the gas can't change volume, it can do no work and none is done on it: \(W = 0\). The first law reduces to:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Isovolumetric</span>
+    $$Q = \Delta U$$
+  </div>
+  <p>If thermal energy is transferred into the gas, it simply gains internal energy and its temperature rises. If thermal energy is transferred away, its internal energy and temperature fall.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🧊 Adiabatic (Q = 0) and isobaric (ΔP = 0)</h3>
+  <p><strong>Adiabatic:</strong> occurring without thermal energy being transferred into or out of a closed system, so \(Q = 0\). The first law reduces to:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Adiabatic</span>
+    $$\Delta U = -W \ \text{(compression)}$$
+    $$-\Delta U = W \ \text{(expansion)}$$
+  </div>
+  <p>In an adiabatic expansion (B → A), all the work done by the gas is drawn from its own internal energy — \(\Delta U\) is negative and the temperature falls. In an adiabatic compression (A → B), all the work done on the gas is transferred to its internal energy, and it gets hotter. Microscopically: gas molecules hitting an <em>inward</em>-moving piston gain kinetic energy (compression heats the gas); molecules hitting an <em>outward</em>-moving piston lose kinetic energy (expansion cools it). For a real process to approximate the adiabatic ideal, the change must be <strong>as rapid as possible</strong> in a well-insulated container.</p>
+  <p>Adiabatic lines on a \(PV\) diagram must be steeper than isothermal lines, because in equal expansions the temperature falls during an adiabatic change but stays constant during an isothermal one. This can be quantified: an isothermal change obeys \(PV = \text{constant}\) (that is, \(PV^1 = \text{constant}\)), but an adiabatic change of an ideal monatomic gas obeys:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Adiabatic · ideal monatomic gas</span>
+    $$PV^{5/3} = \text{constant}$$
+  </div>
+  <p>Similar volume changes are therefore associated with bigger pressure changes during adiabatic processes, because there are also accompanying temperature changes. (For gases other than ideal monatomic gases, \(V\) is raised to a different power — not covered in this course.)</p>
+  <p><strong>Isobaric:</strong> any expansion or compression at constant pressure, \(\Delta P = 0\). The first law keeps its full form:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Isobaric</span>
+    $$Q = \Delta U + W \quad (W = P\Delta V)$$
+  </div>
+  <p>Most isobaric changes happen when a gas is allowed to expand or contract freely as its temperature changes, keeping its pressure equal to the surrounding pressure.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Reading the four processes off a PV diagram</h3>
+  <table class="lc-table">
+    <thead><tr><th>Process</th><th>Line shape</th><th>What's fixed</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Isothermal</td><td>Curve following a dotted isothermal</td><td>Temperature (\(\Delta U=0\))</td><td>\(PV\) stays constant along the curve</td></tr>
+      <tr><td>Isovolumetric</td><td>Vertical straight line</td><td>Volume (\(W=0\))</td><td>No area beneath the line — zero work done</td></tr>
+      <tr><td>Adiabatic</td><td>Curve steeper than the isothermals</td><td>Heat transfer (\(Q=0\))</td><td>Steeper fall in \(P\) for the same \(\Delta V\) than an isothermal</td></tr>
+      <tr><td>Isobaric</td><td>Horizontal straight line</td><td>Pressure (\(\Delta P=0\))</td><td>Area beneath = rectangle = \(P\Delta V\)</td></tr>
+    </tbody>
+  </table>
+  <p>Real experimental graphs are read the same way. Figure B4.11 shows a student's isovolumetric experiment used to estimate absolute zero, and Figure B4.12 shows a Boyle's law (isothermal) experiment with an anomalous reading.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b4-02-thermodynamic-processes-02.png" alt="Scatter graph of pressure against temperature for a gas at constant volume, with a line of best fit extrapolated to intercept the temperature axis near minus 273 degrees Celsius"><div class="lc-cap">Fig B4.11 — isovolumetric experiment. The best-fit line, extrapolated (dashed), intercepts the temperature axis near −273 °C: absolute zero.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b4-02-thermodynamic-processes-03.png" alt="Volume against pressure graph for a Boyle's law experiment with a smooth inverse curve and one anomalous data point lying above the curve"><div class="lc-cap">Fig B4.12 — Boyle's law experiment with one anomalous reading, lying above the smooth \(V \propto 1/P\) curve.</div></div>
+  </div>
+  <div class="lc-info">📝 <strong>Interpreting graphs in a report:</strong> discuss the spread of measurements, the quality of the graph, any relationship or trend, the significance of intercepts, gradients and areas, and any turning points. An anomalous reading should never be rejected without checking — it's usually a simple measurement or recording error. Draw a rough graph <em>during</em> the experiment, so an anomaly can still be re-measured before it's too late.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example B4.5 – an isobaric expansion</h3>
+  <p>A gas of volume 0.080 m³ and pressure \(1.4\times10^{5}\) Pa expands to a volume of 0.11 m³ at constant pressure when \(7.4\times10^{3}\) J of thermal energy are supplied. Name the process, and find the work done and the change in internal energy.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> pressure is constant throughout, so this is an isobaric process.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(P = 1.4\times10^{5}\) Pa, \(\Delta V = 0.11 - 0.080 = 0.030\) m³, \(Q = +7.4\times10^{3}\) J.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(W = P\Delta V\)<br>\(W = (1.4\times10^{5})(0.11-0.080)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(W = +4.2\times10^{3}\) J. Then \(Q=\Delta U+W \Rightarrow (+7.4\times10^{3}) = \Delta U + (+4.2\times10^{3})\), so \(\Delta U = +3.2\times10^{3}\) J — internal energy increases.</div></div>
+  <div class="lc-img" style="max-width:340px;margin-left:auto;margin-right:auto">
+    <img src="../../assets/lesson-images/b4-02-thermodynamic-processes-04.png" alt="Horizontal isobaric line on a pressure-volume diagram with the rectangular area beneath it shaded as work done" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig — the isobaric expansion of Worked example B4.5. The shaded rectangle is the work done, \(P\Delta V\).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example B4.6 – an adiabatic compression</h3>
+  <p>The volume of an ideal monatomic gas is reduced by a factor of 8.0 in an adiabatic compression. Determine the factor by which its pressure changes.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> adiabatic monatomic ideal gas — use \(PV^{5/3} = \text{constant}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(V_1/V_2 = 8.0\) (volume reduced by this factor).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(P_1V_1^{5/3} = P_2V_2^{5/3}\)<br>\(\dfrac{P_2}{P_1} = \left(\dfrac{V_1}{V_2}\right)^{5/3} = 8.0^{5/3}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(P_2/P_1 = 32\). The pressure increases by a factor of 32 — much more than the factor of 8.0 an isothermal compression would give, because the temperature also rises here.</div></div>
+  <div class="lc-img" style="max-width:340px;margin-left:auto;margin-right:auto">
+    <img src="../../assets/lesson-images/b4-02-thermodynamic-processes-05.png" alt="Pressure-volume diagram comparing a steep adiabatic compression curve with a shallower dashed isothermal curve for the same volume change" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig — the adiabatic curve (solid) rises more steeply than the isothermal (dashed) for the same volume change, in Worked example B4.6.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: writing up your investigation</h3>
+    <p>Every investigation report should summarize what a chart, diagram or graph shows: the quantity and spread of measurements, the quality and reliability of the graph, any relationship between the variables, and the meaning of intercepts, gradients, areas under the graph, and any turning points. Figure B4.11 uses an intercept to estimate absolute zero; Figure B4.12 uses departure from a smooth curve to flag an anomaly.</p>
+    <div class="lc-success">✓ Examiner tip: if an anomalous reading wasn't checked at the time, still report it and label it as an outlier — then explain, using your judgement, whether it should affect your conclusions.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – linking PV^(5/3) to temperature</h3>
+    <p>Combining \(PV^{5/3} = \text{constant}\) with the ideal gas law \(PV = nRT\) (so \(P = nRT/V\)) gives another useful adiabatic relation: substituting for \(P\) shows \(TV^{2/3} = \text{constant}\) along an adiabatic change.</p>
+    <p><strong>Challenge:</strong> a monatomic ideal gas expands adiabatically from \(3.13\times10^{-3}\) m³ to \(3.97\times10^{-3}\) m³, reaching a final temperature of 398 K. What was its starting temperature? <em>(Answer: using \(T_1V_1^{2/3}=T_2V_2^{2/3}\), \(T_1 = 398\times(3.97/3.13)^{2/3} \approx 466\) K — hotter, since the gas cools as it expands.)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Isobaric means no work is done</td><td>Isobaric means constant <em>pressure</em>, not constant volume — the gas can still expand or contract, and \(W=P\Delta V\) is not zero</td></tr>
+      <tr><td>Adiabatic means the temperature stays constant</td><td>That's isothermal (\(\Delta U=0\)). Adiabatic means \(Q=0\); the temperature <em>does</em> change, because all the work is converted to or from internal energy</td></tr>
+      <tr><td>Isothermal and adiabatic lines look the same on a PV diagram</td><td>Adiabatic lines are always steeper, because temperature also changes along them, giving a bigger pressure change for the same volume change</td></tr>
+      <tr><td>An anomalous reading should always be deleted</td><td>Check it first — most anomalies are simple measurement errors, but a confirmed one should be kept and investigated further</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: mixing up which variable each process holds fixed. Read the prefix literally — <em>iso</em>thermal fixes temperature, <em>iso</em>volumetric fixes volume, <em>iso</em>baric fixes pressure; adiabatic is the odd one out, fixing \(Q=0\) rather than a state variable.</div>
+</div>
+
+<div class="lc-kp">
+  <span>ΔU=0 isothermal: Q=W</span>
+  <span>W=0 isovolumetric: Q=ΔU</span>
+  <span>Q=0 adiabatic: ΔU=−W</span>
+  <span>ΔP=0 isobaric: Q=ΔU+W</span>
+  <span>PV=constant (isothermal)</span>
+  <span>PV^(5/3)=constant (adiabatic, monatomic)</span>
+  <span>adiabatic lines steeper than isothermals</span>
+  <span>check anomalies before rejecting them</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which thermodynamic process has \(Q = 0\)?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> Isothermal</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Isovolumetric</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> Adiabatic</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Isobaric</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. An adiabatic change of an ideal monatomic gas obeys</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> \(PV = \text{constant}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> \(PV^{5/3} = \text{constant}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> \(P/V = \text{constant}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> \(P + V = \text{constant}\)</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Why must an adiabatic line on a PV diagram be steeper than an isothermal line through the same point?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> Because the temperature also changes along the adiabatic line, adding an extra pressure change</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> Because adiabatic changes always involve compression</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> Because no work is done in an adiabatic change</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> Because pressure cannot change in an isothermal process</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. In an isobaric expansion, the sign of the work done by the gas, \(W\), is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','A')"><span class="lc-opt-l">A</span> Positive</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','A')"><span class="lc-opt-l">B</span> Negative</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','A')"><span class="lc-opt-l">C</span> Zero</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','A')"><span class="lc-opt-l">D</span> Undefined</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A bicycle pump gets hot during a fast compression stroke because</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> Thermal energy flows in from your hand</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> Gas molecules gain kinetic energy from the inward-moving piston, with no time for heat to escape</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> The process is isothermal</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> The gas loses internal energy as it is compressed</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A process at constant temperature is called <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px">, and obeys \(Q = W\). A process at constant volume is called <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px">, and obeys \(Q = \Delta U\). A process with no thermal energy transfer is called <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px">, and obeys \(Q = 0\). A process at constant pressure is called <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">, and obeys \(W = P\Delta V\). An adiabatic change of an ideal monatomic gas obeys \(PV^{<input class="lc-fitb-input" id="lf5" placeholder="?" style="width:50px">} = \text{constant}\). On a PV diagram, adiabatic lines are always <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:100px"> than isothermal lines through the same point.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Compare / Explain</div>
+  <div class="lc-exam-q"><strong>Q14.</strong> Figure B4.13 represents four successive changes to the state of a gas of constant mass: B→C, C→D, D→A, A→B. <strong>(a)</strong> Name the processes shown by (i) BC and (ii) DA. <strong>(b)</strong> If CD is an adiabatic process, compare the temperatures at points C and D. <strong>(c)</strong> If AB is an isothermal process, compare the temperatures at points A and B. <span class="lc-exam-marks">[5 marks]</span></div>
+  <div class="lc-img" style="max-width:340px;margin-top:0.75rem">
+    <img src="../../assets/lesson-images/b4-02-thermodynamic-processes-06.png" alt="Pressure-volume cycle diagram with four states A, B, C, D joined by isobaric, adiabatic, isovolumetric and compression curves" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig B4.13 — four successive changes to the state of a gas.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a)(i) BC is a horizontal line at constant pressure — an isobaric expansion.<br>✓ (a)(ii) DA is a vertical line at constant volume — an isovolumetric change.<br>✓ (b) CD is adiabatic and the gas expands (volume increases from C to D), so \(-\Delta U = W\): the gas does work using its own internal energy, so its temperature falls — \(T_D < T_C\).<br>✓ (c) AB is isothermal, so by definition the temperature is constant along it — \(T_A = T_B\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Copy and complete</div>
+  <div class="lc-exam-q"><strong>Q15.</strong> Copy and complete Table B4.1 by putting 0, +, − or ± in each box, for each process listed. <span class="lc-exam-marks">[8 marks]</span></div>
+  <table class="lc-table" style="margin-top:0.75rem;font-size:0.78rem">
+    <thead><tr><th>Process</th><th>Q</th><th>ΔU</th><th>W</th><th>ΔP</th><th>ΔV</th><th>ΔT</th></tr></thead>
+    <tbody>
+      <tr><td>isothermal expansion</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><td>isothermal compression</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><td>adiabatic expansion</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><td>adiabatic compression</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><td>isobaric expansion</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><td>isobaric compression</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><td>isovolumetric pressure increase</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+      <tr><td>isovolumetric pressure decrease</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+    </tbody>
+  </table>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Completed table:
+  <table class="lc-table" style="margin-top:0.5rem;font-size:0.78rem">
+    <thead><tr><th>Process</th><th>Q</th><th>ΔU</th><th>W</th><th>ΔP</th><th>ΔV</th><th>ΔT</th></tr></thead>
+    <tbody>
+      <tr><td>isothermal expansion</td><td>+</td><td>0</td><td>+</td><td>−</td><td>+</td><td>0</td></tr>
+      <tr><td>isothermal compression</td><td>−</td><td>0</td><td>−</td><td>+</td><td>−</td><td>0</td></tr>
+      <tr><td>adiabatic expansion</td><td>0</td><td>−</td><td>+</td><td>−</td><td>+</td><td>−</td></tr>
+      <tr><td>adiabatic compression</td><td>0</td><td>+</td><td>−</td><td>+</td><td>−</td><td>+</td></tr>
+      <tr><td>isobaric expansion</td><td>+</td><td>+</td><td>+</td><td>0</td><td>+</td><td>+</td></tr>
+      <tr><td>isobaric compression</td><td>−</td><td>−</td><td>−</td><td>0</td><td>−</td><td>−</td></tr>
+      <tr><td>isovolumetric pressure increase</td><td>+</td><td>+</td><td>0</td><td>+</td><td>0</td><td>+</td></tr>
+      <tr><td>isovolumetric pressure decrease</td><td>−</td><td>−</td><td>0</td><td>−</td><td>0</td><td>−</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q16.</strong> An ideal monatomic gas expands adiabatically from a volume of \(3.13\times10^{-3}\) m³ to \(3.97\times10^{-3}\) m³. <strong>(a)</strong> If the original pressure was \(2.60\times10^{5}\) Pa, determine the final pressure. <strong>(b)</strong> If the final temperature of the gas was 398 K, what was the starting temperature? <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(P_1V_1^{5/3}=P_2V_2^{5/3} \Rightarrow P_2 = P_1(V_1/V_2)^{5/3} = (2.60\times10^{5})(3.13/3.97)^{5/3}\)<br>✓ \(P_2 \approx 1.75\times10^{5}\ \text{Pa}\).<br>✓ (b) Combining \(PV^{5/3}=\text{const}\) with \(PV=nRT\) gives \(TV^{2/3}=\text{const}\): \(T_1 = T_2(V_2/V_1)^{2/3} = 398\times(3.97/3.13)^{2/3}\)<br>✓ \(T_1 \approx 466\ \text{K}\) — hotter than the final state, consistent with cooling on adiabatic expansion.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Adiabatic means no thermal energy is transferred into or out of the system: Q = 0.' },
+    mcq2: { B: 'For an ideal monatomic gas undergoing an adiabatic change, PV^(5/3) = constant.' },
+    mcq3: { A: 'Temperature falls during adiabatic expansion but stays fixed during isothermal expansion, adding an extra pressure drop for the same ΔV.' },
+    mcq4: { A: 'The gas expands (ΔV positive) at constant pressure, so W = PΔV is positive — the gas does work on the surroundings.' },
+    mcq5: { B: 'Compression is too fast for heat to escape (Q ≈ 0); molecules colliding with the inward-moving piston gain kinetic energy, raising the temperature.' }
+  },
+  fitb: { lf1:'isothermal', lf2:'isovolumetric', lf3:'adiabatic', lf4:'isobaric', lf5:'5/3', lf6:'steeper' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
