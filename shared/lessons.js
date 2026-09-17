@@ -242,24 +242,28 @@ window.PHYQ_TOPICS = [
   "folder": "B.3-Gas-Laws",
   "lessons": [
    {
-    "f": "01-boyle-s-law.html",
-    "t": "Boyle's Law"
+    "f": "01-gas-pressure-and-amount-of-substance.html",
+    "t": "Gas Pressure and Amount of Substance"
    },
    {
-    "f": "02-charles-s-law-and-gay-lussac-s-law.html",
-    "t": "Charles's Law and Gay-Lussac's Law"
+    "f": "02-gas-laws.html",
+    "t": "Gas Laws"
    },
    {
-    "f": "03-the-ideal-gas-equation.html",
-    "t": "The Ideal Gas Equation"
+    "f": "03-ideal-gas-equation.html",
+    "t": "Ideal Gas Equation"
    },
    {
     "f": "04-kinetic-theory-of-gases.html",
     "t": "Kinetic Theory of Gases"
    },
    {
-    "f": "05-internal-energy.html",
-    "t": "Internal Energy"
+    "f": "05-derivation-of-the-kinetic-theory-equation.html",
+    "t": "Derivation of the Kinetic Theory Equation"
+   },
+   {
+    "f": "06-average-kinetic-energy-equation.html",
+    "t": "Average Kinetic Energy Equation"
    }
   ]
  },
