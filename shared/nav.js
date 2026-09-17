@@ -14,7 +14,7 @@
     { title: 'A.5 Galilean & Special Relativity', url: 'topics.html#A5', cat: 'Topic (HL)', tags: ['relativity','time dilation','length contraction','Einstein','Lorentz'] },
     { title: 'B.1 Thermal Energy Transfers', url: 'topics.html#B1', cat: 'Topic', tags: ['heat','conduction','convection','radiation','specific heat'] },
     { title: 'B.2 Greenhouse Effect', url: 'topics.html#B2', cat: 'Topic', tags: ['climate','infrared','greenhouse','albedo','Stefan-Boltzmann'] },
-    { title: 'B.3 Gas Laws', url: 'topics.html#B3', cat: 'Topic', tags: ['pressure','volume','temperature','Boyle','Charles','ideal gas'] },
+    { title: 'B.3 Gas Laws', url: 'topics.html#B3', cat: 'Topic', tags: ['pressure','volume','temperature','Boyle','Charles','ideal gas','kinetic theory','average kinetic energy'] },
     { title: 'B.4 Thermodynamics', url: 'topics.html#B4', cat: 'Topic (HL)', tags: ['entropy','Carnot','thermodynamics','heat engine','efficiency'] },
     { title: 'B.5 Current and Circuits', url: 'topics.html#B5', cat: 'Topic', tags: ['current','voltage','resistance','Ohm','Kirchhoff','EMF','circuits'] },
     { title: 'C.1 Simple Harmonic Motion', url: 'topics.html#C1', cat: 'Topic', tags: ['SHM','oscillation','pendulum','spring','restoring force'] },
