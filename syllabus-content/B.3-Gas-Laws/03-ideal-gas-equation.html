@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -171,28 +172,301 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Ideal Gas Equation</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B3" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 6 · B.3 Gas Laws</div>
+<div class="lc-title">Ideal Gas Equation</div>
+<div class="lc-sub">The three separate gas laws combine into one equation, PV/T = constant, and that in turn generalises to any amount of gas as PV = nRT. This lesson shows you how to use both forms, and how to read a state of a gas off a pressure–volume diagram.</div>
+
+<div class="lc-card">
+  <h3>🤿 Hook – trusting your life to PV/T = constant</h3>
+  <p>A scuba tank holds gas compressed to over 200 times atmospheric pressure. As a diver breathes it out, the surrounding pressure keeps falling as she rises toward the surface. <strong>The gas laws are the reason her exhaled air doesn't stay the same size as it rises — it must expand, or her lungs would be damaged.</strong> Every dive computer, every gas gauge, and every safety rule about "never hold your breath while ascending" comes down to PV/T = constant.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-03-ideal-gas-equation-01.png" alt="Two scuba divers underwater with a stream of air bubbles rising from one diver" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — As exhaled bubbles rise, the surrounding water pressure falls. What happens to their volume?</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — a bubble leaves the diver's regulator at depth, where the pressure is high, and rises toward the surface, where the pressure is roughly atmospheric. Assuming its temperature doesn't change much, what happens to its volume? <em>It expands. Since PV/T = constant and T is roughly fixed, P falling as the bubble rises means V must increase — which is exactly why divers are trained to breathe out continuously while ascending, rather than holding a lungful of air that would expand inside them.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🔬 Nature of science – empirical laws, then a theory</h3>
+  <p>The three separate gas laws (constant pressure, constant volume, constant temperature) are <strong>empirical</strong> — based only on direct observation and experiment. On their own they let us make accurate predictions without explaining <em>why</em> gases behave that way.</p>
+  <div class="lc-info">📖 In science, a <strong>theory</strong> is an explanation that has been extensively tested by further experimentation and is widely accepted — not a casual guess, which is how the word is often used in everyday language. The kinetic theory of gases, met in the next lesson, is a theory used to explain these empirical results. More generally, <strong>empiricism</strong> is the view that all knowledge originates from experience.</div>
+  <p>For a fixed amount of gas, the three empirical laws combine into one relationship, PV ∝ T:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Combined gas law · fixed amount of gas</span>
+    $$\frac{PV}{T} = \text{constant}$$
+    $$\frac{P_1V_1}{T_1} = \frac{P_2V_2}{T_2}$$
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🧪 From a fixed amount of gas to any amount</h3>
+  <p>So far every law has assumed a <strong>fixed</strong> amount of gas. To extend the discussion, investigations show that the pressure of a fixed volume of gas at constant temperature is proportional to the amount of gas — exactly what molecular reasoning predicts: <strong>if we doubled the number of molecules in a fixed volume, the frequency of collisions with the walls would double</strong>, if they still had the same average speed.</p>
+  <p>This leads to \(PV \propto nT\), or the <strong>ideal gas law</strong> (also called the <strong>equation of state</strong> for an ideal gas):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Ideal gas law</span>
+    $$PV = nRT$$
+  </div>
+  <p><strong>R</strong>, the <strong>universal (molar) gas constant</strong>, has the value \(8.31\ \text{J K}^{-1}\text{mol}^{-1}\). It is the macroscopic equivalent of the <strong>Boltzmann constant</strong>, \(k\), met in the microscopic interpretation of temperature in Topic B.1.</p>
+  <p>This equation is a summary of empirical results, and it predicts the behaviour of most real gases accurately under most conditions. A gas which obeys it perfectly is called an <strong>ideal gas</strong>. A <strong>piston</strong> — a solid cylinder fitting tightly inside a hollow cylinder, trapping a fluid — is the standard way of letting a fixed amount of gas change volume under a controlled pressure.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-03-ideal-gas-equation-02.png" alt="Horizontal cylinder containing oxygen gas with a movable piston fitting tightly inside" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Oxygen trapped in a cylinder by a movable piston. No gas can pass the piston, so its position fixes the volume.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – combined gas law (B3.7)</h3>
+  <p>Gas in a container at a temperature of 289 K was heated in an oven to 423 K. If the volume expanded from 0.27 m³ to 0.35 m³, and the initial pressure was \(1.1\times10^{5}\)Pa, determine the final pressure.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> all three variables change, so use the combined gas law for a fixed amount of gas.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(P_1=1.1\times10^{5}\)Pa, \(V_1=0.27\)m³, \(T_1=289\)K, \(V_2=0.35\)m³, \(T_2=423\)K.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong>
+    $$\frac{P_1V_1}{T_1} = \frac{P_2V_2}{T_2}$$
+    $$\frac{(1.1\times10^{5})\times0.27}{289} = \frac{P_2\times0.35}{423}$$
+  </div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(P_2 = 1.2\times10^{5}\ \text{Pa}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – the ideal gas equation with a piston (B3.8)</h3>
+  <p>Oxygen, O₂, is in the cylinder of Fig 2. No gas can move past the piston. The gas is at 298 K, its volume is 27 cm³ and its pressure equals atmospheric pressure, \(1.0\times10^{5}\)Pa. <strong>(a)</strong> Calculate the amount of gas. <strong>(b)</strong> What is the mass of oxygen? <strong>(c)</strong> The piston is suddenly pulled out, increasing the volume to 32 cm³; the pressure falls to \(8.2\times10^{4}\)Pa. Determine the new temperature.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> parts (a)–(b) use \(PV=nRT\) with SI units (m³, Pa, K); part (c) can reuse \(PV=nRT\) or the combined gas law \(PV/T=\text{constant}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data (a):</strong> \(P=1.0\times10^{5}\)Pa, \(V=27\times10^{-6}\)m³, \(T=298\)K, \(R=8.31\)J K⁻¹mol⁻¹.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong>
+    $$(1.0\times10^{5})\times(27\times10^{-6}) = n\times8.31\times298$$
+  </div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer (a):</strong> \(n = 0.0011\ \text{mol}\).<br><strong>(b)</strong> The molar mass of O₂ is 32 g mol⁻¹, so mass \(= 0.0011 \times 32 = 0.035\ \text{g}\).<br><strong>(c)</strong> \((8.2\times10^{4})\times(32\times10^{-6}) = 0.0011\times8.31\times T\), giving \(T = 287\ \text{K}\) — an 11 K fall as the gas expanded.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>📊 Inquiry process – processing real data</h3>
+  <p>A student carried out an experiment with a fixed amount of gas, \(n = 6.1\times10^{-4}\)mol, at a constant temperature of 21°C, and obtained the pressure–volume readings below. One reading is an outlier and should be excluded from the line of best fit.</p>
+  <table class="lc-table">
+    <thead><tr><th>P / 10⁶ Pa</th><th>V / cm³</th></tr></thead>
+    <tbody>
+      <tr><td>1.0</td><td>15.0</td></tr>
+      <tr><td>1.2</td><td>12.6</td></tr>
+      <tr><td>1.5</td><td>9.8</td></tr>
+      <tr><td>1.8</td><td>8.5</td></tr>
+      <tr><td>2.0</td><td>6.6</td></tr>
+      <tr><td>2.3</td><td>6.4</td></tr>
+      <tr><td>2.5</td><td>5.9</td></tr>
+      <tr><td>2.7</td><td>5.6</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-info">📐 <strong>Task:</strong> plot P against 1/V — since \(PV=nRT\) at constant T means \(P = (nRT)\times(1/V)\), a straight line through the origin is expected. Identify the outlier, then use the gradient (\(=nRT\)) to find a value for R.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Pressure–volume diagrams</h3>
+  <p>A known state of a gas — a value each of P, V and T — can be marked as a single point on a <strong>pressure–volume (PV) diagram</strong>. Since a 2-axis graph can only show two of the three variables directly, different temperatures are shown as separate curved <strong>isothermal lines</strong>, from \(T_1\) (lowest) to \(T_8\) (highest) in Fig 3.</p>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>PV diagram, path A</td><td>V · P</td><td>Curve following one isotherm through S</td><td>Constant temperature — an isothermal change</td></tr>
+      <tr><td>PV diagram, path B</td><td>V · P</td><td>Horizontal line through S</td><td>Constant pressure — only V and T change</td></tr>
+      <tr><td>PV diagram, path C</td><td>V · P</td><td>Vertical line through S</td><td>Constant volume — only P and T change</td></tr>
+      <tr><td>P vs 1/V (fixed T)</td><td>1/V · P</td><td>Straight line through the origin</td><td>Gradient = nRT; used to find R experimentally</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-03-ideal-gas-equation-03.png" alt="Pressure-volume diagram with isotherms T1 to T8, point S, point X, and lines A, B and C" style="max-width:340px;width:100%"><div class="lc-cap">Fig 3 — Line A (through S) is isothermal; line B is at constant pressure; line C is at constant volume. Point X involves a change in all three variables.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-03-ideal-gas-equation-04.png" alt="Graph of pressure against 1 over volume for the inquiry data, a straight line through the origin with one outlier circled" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — P against 1/V for the inquiry-task data. The circled point is the outlier; the gradient of the rest gives nRT.</div></div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: the scuba tank, quantitatively</h3>
+    <p>A typical scuba cylinder holds gas at over 200 times atmospheric pressure inside a fixed volume. \(PV=nRT\) is exactly how a dive shop calculates how much air (in moles, or in litres at atmospheric pressure) is really available to breathe from a small metal cylinder — the volume of the tank itself barely changes.</p>
+    <div class="lc-success">✓ Examiner tip: "amount of gas" in these questions always means moles (n), found from \(PV=nRT\) — don't confuse it with volume or mass unless the question specifically asks for those, and convert them using the molar mass only when asked.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – where PV = nRT comes from</h3>
+    <p>The ideal gas law above is presented as a summary of empirical results — it works, but doesn't yet explain <em>why</em>. The next lesson derives it from a molecular model: pressure arises from the change in momentum of particles colliding with a surface, giving \(P = \tfrac13\rho v^2\), which combines with the kinetic theory of gases to predict \(PV=nRT\) from first principles.</p>
+    <p><strong>Challenge:</strong> if \(P=\tfrac13\rho v^2\), and density \(\rho\) is mass per unit volume, what must happen to a gas's average particle speed for its pressure to double at constant density? <em>Answer: \(v^2\) must double, so the average speed increases by a factor of \(\sqrt2\).</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>PV = nRT only applies to "ideal" gases, so it's not much use for real gases</td><td>It's a summary of empirical results and predicts real-gas behaviour accurately under most everyday conditions; only an ideal gas obeys it perfectly</td></tr>
+      <tr><td>R and the Boltzmann constant k are unrelated</td><td>R is the macroscopic equivalent of k — both describe the same molecular behaviour, at different scales</td></tr>
+      <tr><td>A scientific "theory" is just an unproven guess</td><td>In science, a theory is an explanation extensively tested by experiment and widely accepted — the everyday loose usage is different</td></tr>
+      <tr><td>Any two points on a PV diagram can be joined by a straight line and that's a valid physical path</td><td>A real path must follow the physics: constant T traces the isotherm's curve, constant P is horizontal, constant V is vertical</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: mixing units in \(PV=nRT\) — P must be in Pa, V in m³, not cm³ or dm³. Convert volumes to m³ (÷10⁶ from cm³) before substituting.</div>
+</div>
+
+<div class="lc-kp">
+  <span>PV/T = constant</span>
+  <span>PV = nRT</span>
+  <span>R = 8.31 J K⁻¹mol⁻¹</span>
+  <span>R ↔ Boltzmann constant k</span>
+  <span>ideal gas: obeys PV=nRT perfectly</span>
+  <span>isotherm = constant-T curve</span>
+  <span>empirical ≠ theory</span>
+  <span>n in moles, always</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. The universal gas constant R has units of</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> Pa m³ mol⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> J K⁻¹ mol⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> J K⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> Pa K⁻¹</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. On Fig 3, what can you say for certain about isotherm T5 compared with T2?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> T5 has a higher pressure at every volume</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> T5 and T2 must eventually cross</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> T5 represents a higher temperature, since at the same volume it has a higher pressure</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> Nothing can be concluded without knowing n</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A gas obeys PV = nRT under all conditions it is ever tested at. This gas is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> an ideal gas</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> impossible — no gas can behave this way</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> only obeying the pressure law</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> only obeying Charles' law</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. In Fig 3, line B (the horizontal line through S) represents a change at constant</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> volume</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> pressure</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> temperature</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> amount of gas only, not pressure</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. 0.0020 mol of a gas is at 300 K in a volume of \(5.0\times10^{-5}\)m³. Its pressure is closest to</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','D')"><span class="lc-opt-l">A</span> \(1.0\times10^{3}\)Pa</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','D')"><span class="lc-opt-l">B</span> \(1.0\times10^{4}\)Pa</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','D')"><span class="lc-opt-l">C</span> \(1.0\times10^{5}\)Pa</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','D')"><span class="lc-opt-l">D</span> \(1.0\times10^{6}\)Pa</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The three separate gas laws combine into <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:150px"> = constant for a fixed amount of gas. Extended to any amount of gas, this becomes PV = <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:70px">RT, where n is measured in <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:80px">. The constant R is called the universal, or <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:80px">, gas constant, and has the value <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px"> J K⁻¹mol⁻¹. A gas that obeys PV = nRT perfectly is called an <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:90px"> gas. On a PV diagram, a curve of constant temperature is called an <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:100px">. A scientific <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:90px"> is an explanation extensively tested by experiment, unlike the everyday use of the word as a guess.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q"><strong>Q12.</strong> The volume of a scuba diving tank (Fig 1) is \(11\times10^{-3}\)m³. The air inside is compressed to a pressure of 210 × atmospheric pressure. <strong>(a)</strong> What is that air pressure in pascals? <strong>(b)</strong> What volume of air at atmospheric pressure was pumped into the tank? <strong>(c)</strong> The water temperature decreases with depth below the surface. Would you expect that to significantly affect the pressure in the tank? <strong>(d)</strong> As she breathes out, the diver releases air bubbles into the water. Explain why the bubbles get bigger as they rise towards the surface. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(210 \times 1.0\times10^{5} = 2.1\times10^{7}\ \text{Pa}\).<br>✓ (b) At constant T, \(P_1V_1 = P_2V_2\): \((2.1\times10^{7})(11\times10^{-3}) = (1.0\times10^{5})V_2\), so \(V_2 \approx 2.3\ \text{m}^3\) of atmospheric-pressure air.<br>✓ (c) The tank's temperature is far less variable and important than its pressure or volume here — a modest change in water temperature has only a small effect on the (already huge) pressure compared with the effect of depth on the surrounding water pressure itself.<br>✓ (d) As a bubble rises, the surrounding water pressure falls (less depth of water above it).<br>✓ Temperature changes little over the ascent, so by PV/T = constant, falling P means V must increase.<br>✓ The bubble therefore expands as it nears the surface.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain / Calculate</div>
+  <div class="lc-exam-q"><strong>Q13.</strong> The volume of a gas in a cylinder such as in Fig 2 was 38 cm³ when the temperature was 20°C. <strong>(a)</strong> The apparatus was heated. Explain why the piston moved to the right as thermal energy flowed into the gas through the cylinder. <strong>(b)</strong> What was the temperature (°C) of the gas when the volume had increased to 50 cm³? <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Heating increases the average kinetic energy (and speed) of the gas molecules, so they collide with the piston more frequently and with greater force, increasing the pressure on it; since the piston is free to move, it is pushed outward (to the right) until the gas has expanded enough to restore the original (atmospheric) pressure.<br>✓ (b) At constant pressure, \(V_1/T_1 = V_2/T_2\): \(38/293 = 50/T_2\).<br>✓ \(T_2 = 386\ \text{K} = 113°\text{C}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate</div>
+  <div class="lc-exam-q"><strong>Q14.</strong> Helium gas is widely used to fill balloons (Fig 5). The density of the helium in a balloon is \(2.0\times10^{-4}\)g cm⁻³. Taking a typical party balloon volume of 2.0 dm³, estimate its <strong>(a)</strong> volume in m³ <strong>(b)</strong> mass <strong>(c)</strong> amount in moles <strong>(d)</strong> number of atoms. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(2.0\ \text{dm}^3 = 2.0\times10^{-3}\ \text{m}^3 = 2000\ \text{cm}^3\) (a size must be assumed — the source question gives only a density, so an estimate of balloon size is required).<br>✓ (b) mass \(= \rho V = 2.0\times10^{-4} \times 2000 = 0.40\ \text{g}\).<br>✓ (c) helium's molar mass is 4 g mol⁻¹, so \(n = 0.40/4 = 0.10\ \text{mol}\).<br>✓ (d) number of atoms \(= nN_A = 0.10 \times 6.02\times10^{23} = 6.0\times10^{22}\) atoms.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q15.</strong> A container of gas has a volume of 120 cm³. At a temperature of 300 K the gas has a pressure of \(1.5\times10^{6}\)Pa. Determine the amount of gas in the container. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(V = 120\times10^{-6}\ \text{m}^3\).<br>✓ \(n = \dfrac{PV}{RT} = \dfrac{(1.5\times10^{6})(120\times10^{-6})}{8.31\times300}\).<br>✓ \(n = 0.072\ \text{mol}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q16.</strong> How can you be sure that isotherm T5 on Fig 3 represents a higher temperature than T2? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ At the same volume, T5 has a higher pressure than T2.<br>✓ Since \(PV=nRT\) at fixed n and V, pressure is proportional to temperature — so the curve with the higher pressure at that volume must be the higher-temperature isotherm.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss</div>
+  <div class="lc-exam-q"><strong>Q17.</strong> Consider Fig 3. What changes must be made to a fixed amount of gas at point S on the diagram to move it to point X? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ X is not on the same isotherm as S, and lies off the constant-pressure and constant-volume lines through S, so all three quantities must change simultaneously.<br>✓ From S to X the gas must be compressed to a smaller volume and heated to a higher temperature, with the pressure rising to a value consistent with PV = nRT throughout.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe</div>
+  <div class="lc-exam-q"><strong>Q18.</strong> Describe how you would represent the following changes to a fixed mass of gas on a PV diagram: <strong>(a)</strong> a gas expanding at constant pressure, as its temperature increases <strong>(b)</strong> a compression at constant temperature <strong>(c)</strong> a gas cooled so that its volume and pressure both decrease. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) A horizontal line moving to the right (increasing V at constant P) — like line B in Fig 3, moving away from S.<br>✓ (b) A curve following a single isotherm, moving to smaller V and larger P — like line A, moving toward higher P along the same isotherm.<br>✓ (c) A diagonal path moving down and to the left, crossing from a higher isotherm to a lower one as both P and V fall together.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'R appears in PV = nRT, so its units are Pa m3 / (mol K) = J K-1 mol-1 (since Pa m3 = J).' },
+    mcq2: { C: 'At the same volume, T5 has a higher pressure than T2. Since P is proportional to T at fixed n and V, that higher pressure means a higher temperature.' },
+    mcq3: { A: 'A gas that obeys PV = nRT perfectly under all conditions is, by definition, an ideal gas.' },
+    mcq4: { B: 'Line B is horizontal on a P-V diagram, so P does not change along it - it represents a constant-pressure change.' },
+    mcq5: { D: 'PV = nRT gives P = nRT/V = (0.0020 x 8.31 x 300) / (5.0e-5) = 1.0 x 10^6 Pa.' }
+  },
+  fitb: { lf1:'PV/T', lf2:'n', lf3:'moles', lf4:'molar', lf5:'8.31', lf6:'ideal', lf7:'isotherm', lf8:'theory' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
