@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -171,28 +170,314 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Average Kinetic Energy Equation</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B3" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>6</span> Lesson 6 of 6 · B.3 Gas Laws</div>
+<div class="lc-title">Average Kinetic Energy Equation</div>
+<div class="lc-sub">Temperature is nothing more than a measure of the average random kinetic energy of molecules. This lesson connects that microscopic idea, through the Boltzmann constant, to the internal energy of a gas — and shows exactly where the ideal gas model starts to fail.</div>
+
+<div class="lc-card">
+  <h3>🎲 Hook – why a die roll and a gas molecule are both "random"</h3>
+  <p>Roll a six-sided die and you cannot predict the outcome, although you know there is a one-in-six chance of any particular number. A gas molecule's motion is random in the same sense: its direction and speed are unpredictable, and some speeds are simply more likely than others — at room temperature, a molecular speed of 500 m s⁻¹ is far more likely than 50 m s⁻¹. Individual molecules behave independently, with disordered energies.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-06-average-kinetic-energy-equation-01.png" alt="Three six-sided dice, illustrating random outcomes" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Rolling a die is random in the everyday sense: unpredictable per roll, but statistically well-behaved over many rolls. Gas molecules are random in exactly this way.</div>
+  </div>
+  <p><strong>The random behaviour of a very large number of individual molecules on the microscopic scale leads to complete predictability in our everyday macroscopic world.</strong> The same idea appears in radioactive decay (Topic E.1): one atom's decay time is unknowable, but the activity of a whole sample is predictable — just as insurance and betting companies profit from the statistics of probability without knowing what any one individual will do.</p>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — if we can never know the energy of one individual gas molecule, how can physicists calculate the pressure of a gas cylinder to three significant figures? <em>Because pressure and temperature are statistical averages taken over an enormous number of molecules. Individual unpredictability washes out at the macroscopic scale — the same reason a casino can rely on its long-run odds without knowing the outcome of any single spin.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🔬 Internal energy of an ideal gas</h3>
+  <p>The <strong>internal energy</strong> of an ideal (monatomic) gas, symbol <strong>U</strong>, is the total random translational kinetic energy of its particles. Ideal monatomic gas particles have no potential energy, and no vibrational or rotational kinetic energy — translational motion is all there is.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Internal energy from particle kinetic energy</span>
+    $$U = N \times \tfrac{1}{2}m\overline{v^2}$$
+  </div>
+  <p>Comparing the ideal gas equation \(PV=nRT\) with the kinetic theory result \(PV=\tfrac13Nm\overline{v^2}\) gives \(nRT=\tfrac13Nm\overline{v^2}\). Since \(\tfrac13Nm\overline{v^2}=\tfrac23\left(\tfrac12Nm\overline{v^2}\right)=\tfrac23U\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Internal energy of an ideal monatomic gas · macroscopic form</span>
+    $$U = \tfrac{3}{2}nRT$$
+  </div>
+  <p>Most real gases are made of molecules, not single atoms. They still approximate the macroscopic behaviour of an ideal gas well, but their internal energy is more complicated because their molecules also have <strong>vibrational</strong> and <strong>rotational</strong> kinetic energy. The forces between particles in solids and liquids make calculating internal energy far more complicated still.</p>
+</div>
+
+<div class="lc-card">
+  <h3>⚛️ From R to k<sub>B</sub>: the Boltzmann constant</h3>
+  <p>Dividing \(U=\tfrac32nRT\) by the number of particles, \(N\), gives the average random translational kinetic energy of a single particle, \(\overline{E_{\text{k}}}=U/N\):</p>
+  <div class="lc-formula">
+    $$\overline{E_{\text{k}}} = \tfrac{3}{2}\frac{nRT}{N}$$
+  </div>
+  <p>Since \(N/n\) is the Avogadro constant, \(N_{\text{A}}\):</p>
+  <div class="lc-formula">
+    $$\overline{E_{\text{k}}} = \tfrac{3}{2}\frac{RT}{N_{\text{A}}}$$
+  </div>
+  <p>\(R/N_{\text{A}}\) — the molar gas constant divided by the number of particles in a mole — is called the <strong>Boltzmann constant</strong>, \(k_{\text{B}}\) (unit J K⁻¹):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Boltzmann constant</span>
+    $$k_{\text{B}} = \frac{R}{N_{\text{A}}}$$
+    $$k_{\text{B}} = \frac{8.31}{6.02\times10^{23}} = 1.38\times10^{-23}\ \text{J K}^{-1}$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Average random translational kinetic energy of a particle</span>
+    $$\overline{E_{\text{k}}} = \tfrac{3}{2}k_{\text{B}}T = \tfrac{1}{2}m\overline{v^2}$$
+  </div>
+  <p>This equation is not restricted to ideal gases. Whenever particles collide or interact, translational kinetic energy is exchanged, so particles in good thermal contact eventually share the same average translational kinetic energy. In other words:</p>
+  <div class="lc-success">✓ <strong>At the same temperature, all gases contain molecules with the same average random translational kinetic energy.</strong></div>
+  <p>Using \(k_{\text{B}}=R/N_{\text{A}}\), the internal energy and the ideal gas equation can also be written with the microscopic quantities \(N\) and \(k_{\text{B}}\) instead of \(n\) and \(R\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Internal energy · microscopic form</span>
+    $$U = \tfrac{3}{2}Nk_{\text{B}}T$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Ideal gas equation · microscopic form</span>
+    $$PV = Nk_{\text{B}}T$$
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📊 The Maxwell–Boltzmann distribution</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Speed distribution, same gas, two temperatures</td><td>Speed · Number of molecules in a speed range</td><td>Two skewed peaks with equal area; hotter curve is lower, broader, and shifted to higher speed</td><td>Peak position = most probable speed; broadening shows higher T spreads speeds over a wider range, not just raising them</td></tr>
+      <tr><td>Speed distribution, different gases, same T</td><td>Speed · Number of molecules in a speed range</td><td>Several skewed peaks; heaviest gas peaks furthest left, lightest furthest right</td><td>At fixed T all gases share the same average kinetic energy, so lighter molecules (e.g. H₂) reach higher speeds than heavier ones (e.g. O₂)</td></tr>
+    </tbody>
+  </table>
+  <p>There are no molecules with zero speed and few with very high speed. Molecular speeds and directions change constantly because of intermolecular collisions.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-06-average-kinetic-energy-equation-02.png" alt="Maxwell-Boltzmann distribution curves for a colder and a hotter sample of the same gas" style="max-width:340px;width:100%"><div class="lc-cap">Fig 2 — Colder: higher, narrower peak at lower speed. Hotter: lower, broader peak shifted to higher speed. The area under both curves is the same.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-06-average-kinetic-energy-equation-03.png" alt="Distribution of molecular speeds for oxygen, nitrogen, water vapour and hydrogen at the same temperature" style="max-width:340px;width:100%"><div class="lc-cap">Fig 3 — Same temperature, four gases. Heavier molecules (O₂) peak at lower speed; lighter molecules (H₂) peak at higher speed.</div></div>
+  </div>
+  <div class="lc-info">📐 <strong>Reasoned argument</strong> — for a given gas sample, why must the area under each of the curves in Fig 2 be the same? <em>The area represents the total number of molecules in the sample. That number cannot change, so as the curve broadens and lowers with rising temperature, the area beneath it must stay constant.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – internal energy of one mole of gas</h3>
+  <p>Calculate the total internal energy of one mole of a monatomic ideal gas at 300 K.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a monatomic ideal gas, quantity given as an amount in moles, so use the macroscopic form \(U=\tfrac32nRT\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(n=1.0\ \text{mol}\), \(R=8.31\ \text{J K}^{-1}\text{mol}^{-1}\), \(T=300\ \text{K}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(U = \tfrac32nRT\)<br>\(=1.5\times1.0\times8.31\times300\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(U = 3.7\times10^{3}\ \text{J}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – internal energy and pressure of a sealed gas</h3>
+  <p><strong>(a)</strong> A sample of an ideal monatomic gas in a closed container at 18°C has a total internal energy of 380 J. Determine how many particles (atoms) it contains. <strong>(b)</strong> If the container has a volume of 435 cm³, calculate the pressure of the gas.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the quantity is given as a number of particles, so use the microscopic forms \(U=\tfrac32Nk_{\text{B}}T\) for (a), then \(PV=Nk_{\text{B}}T\) for (b).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(U=380\ \text{J}\), \(T=291\ \text{K}\), \(k_{\text{B}}=1.38\times10^{-23}\ \text{J K}^{-1}\), \(V=4.35\times10^{-4}\ \text{m}^3\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong> \(U=1.5Nk_{\text{B}}T\)<br>\(380 = 1.5N(1.38\times10^{-23})(291)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(N = 6.3\times10^{22}\) atoms.<br><strong>(b)</strong> \(PV=Nk_{\text{B}}T\)<br>\(P(4.35\times10^{-4}) = (6.3\times10^{22})(1.38\times10^{-23})(291)\)<br>\(P = 5.8\times10^{5}\ \text{Pa}\)</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-06-average-kinetic-energy-equation-04.png" alt="Sealed rigid gas container labelled with temperature, volume and internal energy" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — The given values for worked example 2: T = 18°C (291 K), V = 435 cm³, U = 380 J. N and P are the unknowns being solved for.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: why cylinders carry a temperature warning</h3>
+    <p>A sealed gas cylinder has fixed \(N\) and \(V\). Raising its temperature raises the average kinetic energy of every molecule inside, \(\overline{E_{\text{k}}}=\tfrac32k_{\text{B}}T\), which increases both the frequency and the force of molecular collisions with the walls — and therefore the pressure, exactly as \(PV=Nk_{\text{B}}T\) predicts. This is why aerosol cans and gas cylinders carry warnings against being left near heat sources.</p>
+    <div class="lc-success">✓ Examiner tip: don't just write "the molecules move faster, so the pressure increases" — quote \(\overline{E_{\text{k}}}=\tfrac32k_{\text{B}}T\) and \(PV=Nk_{\text{B}}T\) explicitly to show the mechanism.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – when the ideal gas model breaks down</h3>
+    <p>Real gases obey \(PV=nRT\) under most circumstances, but not when the model's assumptions fail: at high densities and pressures the particles are closer together than assumed; the forces between particles may no longer be negligible; at low temperatures those forces have a greater effect, because the particles are moving more slowly; and most real gases eventually turn into liquids or solids if cooled enough.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/b3-06-average-kinetic-energy-equation-05.png" alt="Liquid nitrogen being poured from a dewar flask, producing cold vapour" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 5 — Liquid nitrogen boils at 77 K. Near this temperature, nitrogen gas is a poor fit to the ideal gas model.</div>
+    </div>
+    <p><strong>Challenge:</strong> why does the ideal gas equation become increasingly inaccurate for nitrogen gas as it is cooled toward 77 K, even while it is still a gas? <em>As T falls the molecules move more slowly, so the constant intermolecular attractive forces between them have proportionally more effect on their motion — the "forces are negligible" assumption breaks down, and close to the boiling point the gas starts to condense, violating the ideal-gas assumptions further.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🤔 TOK – models always have limitations</h3>
+  <p><em>How do our interactions with the material world shape our knowledge?</em></p>
+  <p>We cannot directly perceive molecules, so we rely on a model — both visual and mathematical — to understand a gas. Can modelling a system too small to see ever be "good enough" to count as true knowledge, when we can never observe its events directly? One purpose of a model is to simplify reality, to make it easier to understand — so does it matter if the model is not a "true" representation, provided it is useful?</p>
+  <p>A model of the Solar System, an orrery, represents planets we <em>can</em> directly observe and record. Is that therefore knowledge of a higher order than a model of an ideal gas, whose particles we can never see?</p>
+  <div class="lc-info">🔗 <strong>Linking questions</strong> — how can gas particles of high kinetic energy be used to perform work? How does a consideration of the kinetic energy of molecules relate to the development of the gas laws? <em>(These link to understandings in Topic B.4 HL.)</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>\(U=1.5PV\) looks like it doesn't depend on temperature</td><td>Temperature is hidden inside the product \(PV\), since \(PV=Nk_{\text{B}}T=nRT\); \(U\) still depends on \(T\), just not explicitly in this rearranged form</td></tr>
+      <tr><td>"Random" means gas molecules behave totally unpredictably, even in bulk</td><td>Individual molecules are unpredictable, but with huge numbers of them the statistical average (pressure, temperature) becomes completely predictable</td></tr>
+      <tr><td>All molecules in a gas sample move at the same speed</td><td>There is a wide Maxwell–Boltzmann distribution of speeds; the "average" is a statistical mean over a huge range of individual speeds</td></tr>
+      <tr><td>At the same temperature, heavier and lighter molecules move at the same speed</td><td>At the same \(T\) all gases share the same average kinetic energy, not the same speed — lighter molecules move faster since \(\overline{E_{\text{k}}}=\tfrac12m\overline{v^2}\)</td></tr>
+      <tr><td>Confusing \(N\) (number of particles) with \(n\) (number of moles)</td><td>\(N\) is the particle count, \(n\) is the amount in moles; \(N=nN_{\text{A}}\), and \(k_{\text{B}}=R/N_{\text{A}}\) links the two forms of each equation</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: pairing the wrong constant with the wrong quantity — check whether you have moles with \(R\) (\(U=\tfrac32nRT\)) or particle number with \(k_{\text{B}}\) (\(U=\tfrac32Nk_{\text{B}}T\)) before substituting.</div>
+</div>
+
+<div class="lc-kp">
+  <span>U = 3/2 Nk_BT</span>
+  <span>U = 3/2 nRT</span>
+  <span>k_B = R/N_A = 1.38×10⁻²³ J K⁻¹</span>
+  <span>Ē_k = 3/2 k_BT = 1/2 mv̄²</span>
+  <span>same T → same Ē_k for every gas</span>
+  <span>monatomic gas: translational KE only</span>
+  <span>PV = Nk_BT = nRT</span>
+  <span>Maxwell–Boltzmann: same area, shifts with T</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. What does the internal energy of an ideal monatomic gas consist of?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> Potential and kinetic energy of every molecule</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Vibrational kinetic energy only</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> The sum of the random translational kinetic energies of all molecules</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> The rotational kinetic energy of all molecules</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Two different gases are at the same temperature. What is necessarily true of their molecules?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> They have the same average speed</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> They have the same average momentum</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> They have the same average random translational kinetic energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> They have the same total internal energy</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. The Boltzmann constant, \(k_{\text{B}}\), is equal to</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> \(R \times N_{\text{A}}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> \(R / N_{\text{A}}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> \(N_{\text{A}} / R\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> \(1/(R \times N_{\text{A}})\)</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. The temperature (in kelvin) of a fixed amount of gas in a sealed rigid container is doubled. What happens to its internal energy \(U\)?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Unchanged</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Doubles</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> Quadruples</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Halves</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. As the temperature of a fixed sample of gas increases, its Maxwell–Boltzmann speed distribution curve</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> Shifts right and gets taller</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> Shifts right, and gets lower and broader</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> Shifts left and gets taller</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> Stays in the same place but gets narrower</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The internal energy of an ideal monatomic gas is the sum of the random <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px"> kinetic energies of its molecules, given the symbol <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:60px">. It can be written as \(U=\tfrac32N\)<input class="lc-fitb-input" id="lf3" placeholder="?" style="width:70px">\(T\), where the Boltzmann constant equals \(R\) divided by the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:120px"> constant. At a given temperature, all ideal gases share the same average <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:120px"> kinetic energy, but not the same average <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:90px">, since less massive molecules move faster. As a real gas is cooled towards its boiling point, intermolecular forces become significant and the ideal gas equation becomes <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:90px"> accurate.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q24.</strong> <strong>(a)</strong> Calculate the average random translational kinetic energy of oxygen (O₂) molecules at 300 K. <strong>(b)</strong> Oxygen molecules each have a mass of \(5.31\times10^{-26}\ \text{kg}\). Determine their average speed at 300 K. <strong>(c)</strong> Explain why an average carbon dioxide (CO₂) molecule travels slower than oxygen molecules (O₂) at the same temperature. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\overline{E_{\text{k}}}=\tfrac32k_{\text{B}}T=1.5\times1.38\times10^{-23}\times300\)<br>\(=6.21\times10^{-21}\ \text{J}\).<br>✓ (b) \(\overline{v^2}=2\overline{E_{\text{k}}}/m = (2\times6.21\times10^{-21})/(5.31\times10^{-26})\)<br>✓ \(=2.34\times10^{5}\ \text{m}^2\text{s}^{-2}\), so \(v\approx484\ \text{m s}^{-1}\).<br>✓ (c) At the same temperature both gases have the same average kinetic energy. Since \(\overline{E_{\text{k}}}=\tfrac12m\overline{v^2}\), the more massive CO₂ molecule (44 vs 32 g mol⁻¹) must have a lower average speed.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q"><strong>Q25.</strong> <strong>(a)</strong> Determine how much energy is needed to raise the temperature of two moles of a monatomic gas from 20°C to 50°C. <strong>(b)</strong> Why will more energy be needed to raise two moles of a molecular gas through the same temperature rise? <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\Delta U=\tfrac32nR\Delta T=1.5\times2\times8.31\times30\)<br>✓ \(=748\ \text{J}\).<br>✓ (b) A molecular gas also has rotational (and, at higher temperatures, vibrational) kinetic energy modes that must absorb energy as \(T\) rises.<br>✓ More total energy is therefore needed for the same temperature rise, since translational KE is only part of the molecule's energy.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q26.</strong> At what temperature will \(1.0\times10^{23}\) atoms of an ideal gas have a total internal energy of 1000 J? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(U=\tfrac32Nk_{\text{B}}T \Rightarrow T=\dfrac{2U}{3Nk_{\text{B}}}\)<br>✓ \(T=\dfrac{2\times1000}{3\times1.0\times10^{23}\times1.38\times10^{-23}}\)<br>✓ \(T = 483\ \text{K}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate / State / Explain</div>
+  <div class="lc-exam-q"><strong>Q27.</strong> Some nitrogen gas was cooled from a temperature of 300 K to 100 K. <strong>(a)</strong> Estimate by what percentage its pressure was reduced. <strong>(b)</strong> State two assumptions you had to make in order to answer part (a). <strong>(c)</strong> Explain why the actual final pressure was less than that predicted by theory. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) At constant volume, \(P\propto T\), so the percentage reduction \(=\dfrac{300-100}{300}\times100\%\approx67\%\).<br>✓ (b) Assumed: the volume of the container stayed constant, and the amount of gas (\(n\) or \(N\)) stayed constant (no leaks).<br>✓ (c) At 100 K, nitrogen (boiling point 77 K) is close to condensing: intermolecular forces are no longer negligible and the gas begins to deviate from ideal behaviour.<br>✓ Both effects reduce the volume available to freely-moving molecules and reduce the collision rate/force below the ideal-gas prediction, so the measured pressure is lower than theory predicts.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q28.</strong> What is the pressure of an ideal gas which has a temperature of 47°C and contains \(4.2\times10^{25}\) particles in a volume of 0.037 m³? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(P=\dfrac{Nk_{\text{B}}T}{V}=\dfrac{(4.2\times10^{25})(1.38\times10^{-23})(320)}{0.037}\)<br>✓ numerator \(=1.85\times10^{5}\ \text{kg m}^2\text{s}^{-2}\)<br>✓ \(P = 5.0\times10^{6}\ \text{Pa}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain / Discuss / Calculate</div>
+  <div class="lc-exam-q"><strong>Q29.</strong> <strong>(a)</strong> Explain why the internal energy of an ideal gas can be determined from \(1.5\times\text{pressure}\times\text{volume}\). <strong>(b)</strong> Discuss why temperature does not appear in this equation. <strong>(c)</strong> What volume (cm³) of an ideal gas has an internal energy of 10 J and exerts a pressure of twice normal atmospheric pressure? <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Since \(PV=Nk_{\text{B}}T=nRT\) and \(U=\tfrac32Nk_{\text{B}}T=\tfrac32nRT\), substituting \(nRT=PV\) gives \(U=1.5PV\).<br>✓ (b) Temperature has not disappeared — it is hidden inside the product \(PV\), which equals \(Nk_{\text{B}}T\); the relation holds for any \(P\), \(V\), \(T\) combination that gives the same \(PV\).<br>✓ (c) \(V=\dfrac{U}{1.5P}=\dfrac{10}{1.5\times(2\times101325)}\)<br>✓ \(=3.29\times10^{-5}\ \text{m}^3\)<br>✓ \(\approx33\ \text{cm}^3\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q"><strong>Q30.</strong> The molar heat capacity of a gas is a similar concept to specific heat capacity — the thermal energy needed to raise the temperature of one mole of gas by one kelvin. <strong>(a)</strong> Calculate the molar heat capacity of argon (assume constant volume). <strong>(b)</strong> Explain why the molar heat capacity of a molecular gas, oxygen for example, will be greater. <strong>(c)</strong> Why will the molar heat capacity of argon be greater than your answer to (a) if it is allowed to expand? <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) For one mole, \(U=\tfrac32RT\), so molar heat capacity \(=\tfrac32R=1.5\times8.31\)<br>\(=12.5\ \text{J K}^{-1}\text{mol}^{-1}\). Argon is monatomic, so this is its full molar heat capacity.<br>✓ (b) Oxygen molecules can also store energy in rotational (and, at higher \(T\), vibrational) kinetic energy, not translational KE alone, so more energy is needed to raise the temperature by the same amount.<br>✓ (c) If allowed to expand at constant pressure, extra energy is needed to do the work of expansion (\(P\Delta V\)) in addition to raising the internal energy, so \(C_P=C_V+R\) is greater than the constant-volume value from (a).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Monatomic gas particles have no PE, and no vibrational/rotational KE — internal energy is purely the sum of random translational kinetic energies.' },
+    mcq2: { C: 'Same temperature guarantees the same average random translational KE (Ek = 1.5kBT). Speed and momentum depend on mass too, so they differ between gases.' },
+    mcq3: { B: 'kB = R/NA — the molar gas constant divided by the number of particles per mole.' },
+    mcq4: { B: 'U = 1.5NkBT with N fixed: U is directly proportional to T (in kelvin), so doubling T doubles U.' },
+    mcq5: { B: 'Higher T shifts the peak to higher speed; the curve also flattens and broadens so the area (total molecule count) stays constant.' }
+  },
+  fitb: { lf1:'translational', lf2:'U', lf3:'kB', lf4:'Avogadro', lf5:'kinetic', lf6:'speed', lf7:'less' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
