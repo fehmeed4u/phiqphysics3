@@ -171,28 +171,361 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Derivation of the Kinetic Theory Equation</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B3" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>5</span> Lesson 5 of 6 · B.3 Gas Laws</div>
+<div class="lc-title">Derivation of the Kinetic Theory Equation</div>
+<div class="lc-sub">A single molecule bouncing off a wall, multiplied by an enormous number of molecules and averaged over every direction, is enough to derive \(PV = \tfrac13 Nm\overline{v^2}\) from nothing but Newton's laws.</div>
+
+<div class="lc-card">
+  <h3>🧊 Hook – pressure is just a lot of tiny collisions</h3>
+  <p>Every time a gas molecule bounces off the wall of its container, it gives the wall a tiny push. One push is far too small to notice. But a normal container holds something like 10²³ molecules, each one colliding with the walls billions of times a second. Add up all those pushes and you get something very noticeable: <strong>gas pressure is nothing more than the combined effect of countless individual molecular collisions.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-05-derivation-of-the-kinetic-theory-equation-01.png" alt="A molecule colliding elastically with a wall, velocity reversing from +vx to -vx" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — A molecule of mass \(m\) hits a wall and rebounds elastically. Its momentum changes by \(2mv_x\) — and that momentum has to go somewhere.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — we can never predict the velocity of one particular molecule, yet we can predict the pressure of the whole gas precisely. How is that possible? <em>Pressure depends on the average behaviour of an enormous number of molecules, not on any individual one. Random motion is unpredictable molecule by molecule, but statistically predictable in bulk — this is why the kinetic theory equation works with mean square speed, \(\overline{v^2}\), rather than the speed of any one molecule.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📋 The model and its assumptions</h3>
+  <p>The kinetic theory of gases is a <strong>model</strong>: a mathematical simplification, not a direct observation of molecules. It lets us connect microscopic mechanics to macroscopic quantities like pressure, volume and temperature. The derivation that follows rests on eight assumptions.</p>
+  <ol style="font-size:14pt;color:var(--text-2);line-height:1.85;padding-left:1.4rem;margin-bottom:0">
+    <li>A gas consists of a very large number of identical molecules.</li>
+    <li>The molecules are in continuous, random motion.</li>
+    <li>The molecules collide elastically with each other and with the walls of the container.</li>
+    <li>The time of a collision is negligible compared with the time between collisions.</li>
+    <li>The forces between molecules are negligible except during collisions.</li>
+    <li>The volume of the molecules is negligible compared with the volume of the container.</li>
+    <li>Between collisions, the molecules move in straight lines with constant velocity.</li>
+    <li>The motion is <strong>isotropic</strong>: on average, molecular velocities are equally likely in all directions.</li>
+  </ol>
+</div>
+
+<div class="lc-card">
+  <h3>💥 Step 1–6: one molecule, one wall, one pressure</h3>
+  <p>Take an ideal gas of \(N\) identical molecules, each of mass \(m\), inside a cubical container of side \(L\). Then \(V = L^3\) and each face has area \(A = L^2\). Follow one molecule with velocity components \(v_x, v_y, v_z\) as it strikes the face perpendicular to the \(x\)-axis.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Set up the container.</strong> \(V = L^3\), \(A = L^2\). Only the \(x\)-component of velocity matters for a collision with this face; \(v_y\) and \(v_z\) are unchanged by it.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>One collision.</strong> The collision is elastic, so \(v_x \to -v_x\). Change in the molecule's momentum: \(\Delta p_{\text{molecule}} = -2mv_x\). By conservation of momentum, momentum transferred to the wall: \(\Delta p_{\text{wall}} = +2mv_x\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Time between collisions.</strong> After rebounding, the molecule crosses the cube, hits the opposite face, and returns — a round trip of \(2L\). So \(\Delta t = \dfrac{2L}{v_x}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Average force from this molecule.</strong> Force is rate of change of momentum: \(F_{\text{one}} = \dfrac{\Delta p_{\text{wall}}}{\Delta t} = \dfrac{2mv_x}{2L/v_x} = \dfrac{mv_x^2}{L}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">5</div><div class="lc-step-body"><strong>Add up all \(N\) molecules.</strong> Different molecules have different \(v_x\), so sum their contributions. Using the definition \(\overline{v_x^2} = \tfrac1N\sum v_{x,i}^2\): \(F_{\text{total}} = \dfrac{Nm\overline{v_x^2}}{L}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">6</div><div class="lc-step-body"><strong>Turn force into pressure.</strong> \(P = F_{\text{total}}/A\), and \(A = L^2\), so \(P = \dfrac{Nm\overline{v_x^2}}{L^3} = \dfrac{Nm\overline{v_x^2}}{V}\), giving:</div></div>
+  <div class="lc-formula">
+    $$PV = Nm\overline{v_x^2}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-05-derivation-of-the-kinetic-theory-equation-02.png" alt="Cubical container of side L with many molecules and one molecule's velocity resolved into vx, vy, vz near a shaded face of area L squared" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — The cube used for the derivation. Only the shaded face is under consideration; the result at the end applies to any face, and — despite starting from a cube — to a container of any shape.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🎯 Step 7–8: escaping the x-direction with isotropy</h3>
+  <p>The equation above still singles out the \(x\)-direction, which was only ever a convenient choice of face. Assumption 8 — <strong>isotropy</strong> — removes that asymmetry: on average, no direction is preferred, so \(\overline{v_x^2} = \overline{v_y^2} = \overline{v_z^2}\).</p>
+  <p>Since \(v^2 = v_x^2 + v_y^2 + v_z^2\), taking averages gives \(\overline{v^2} = \overline{v_x^2} + \overline{v_y^2} + \overline{v_z^2} = 3\overline{v_x^2}\), so:</p>
+  <div class="lc-formula">
+    $$\overline{v_x^2} = \tfrac{1}{3}\overline{v^2}$$
+  </div>
+  <p>Substituting into \(PV = Nm\overline{v_x^2}\) gives the kinetic theory equation:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">The kinetic theory equation</span>
+    $$PV = \tfrac{1}{3}Nm\overline{v^2}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b3-05-derivation-of-the-kinetic-theory-equation-03.png" alt="Three dimensional axes with a velocity vector v resolved into perpendicular components vx, vy, vz, noted as equal on average for isotropic motion" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Resolving \(v\) into \(v_x, v_y, v_z\). For random, isotropic motion, the three squared components average out equally — that single step is what turns a one-direction result into a formula for the whole gas.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🌡️ From pressure to temperature and internal energy</h3>
+  <p>The average random translational kinetic energy of one molecule is \(\overline{E_{\text{k}}} = \tfrac12 m\overline{v^2}\). Rewriting the kinetic theory equation:</p>
+  <div class="lc-formula">
+    $$PV = \tfrac{2}{3}N\overline{E_{\text{k}}}$$
+  </div>
+  <p>For an ideal monatomic gas, the internal energy is entirely this random translational kinetic energy, \(U = N\overline{E_{\text{k}}}\), so \(U = \tfrac32 PV\). Equating the kinetic theory equation with the microscopic ideal gas equation \(PV = Nk_{\text{B}}T\) and cancelling \(N\):</p>
+  <div class="lc-formula">
+    $$k_{\text{B}}T = \tfrac{1}{3}m\overline{v^2}$$
+  </div>
+  <p>Multiplying by \(\tfrac32\) gives one of the most important results in this topic — the average kinetic energy of a molecule depends on nothing except its absolute temperature:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Average translational kinetic energy</span>
+    $$\overline{E_{\text{k}}} = \tfrac{3}{2}k_{\text{B}}T$$
+  </div>
+  <p>and therefore, using \(U = N\overline{E_{\text{k}}}\), \(N = nN_{\text{A}}\) and \(k_{\text{B}} = R/N_{\text{A}}\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Internal energy of an ideal monatomic gas</span>
+    $$U = \tfrac{3}{2}Nk_{\text{B}}T = \tfrac{3}{2}nRT$$
+  </div>
+  <p>The root-mean-square speed, \(v_{\text{rms}} = \sqrt{\overline{v^2}}\), follows from \(\tfrac12 m\overline{v^2} = \tfrac32 k_{\text{B}}T\):</p>
+  <div class="lc-formula">
+    $$v_{\text{rms}} = \sqrt{\dfrac{3k_{\text{B}}T}{m}} = \sqrt{\dfrac{3RT}{M}}$$
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Real gas vs ideal gas</td><td>\(V\) · \(P\)</td><td>Two falling curves, near-identical at large \(V\), diverging as \(V\) shrinks</td><td>The ideal-gas model matches real gases only at low pressure and high volume — deviations grow as molecules get crowded</td></tr>
+      <tr><td>\(P\) against \(\overline{v^2}\)</td><td>\(\overline{v^2}\) · \(P\)</td><td>Straight line through the origin</td><td>Gradient \(= Nm/3V\) — at fixed \(N\), \(m\), \(V\), pressure is directly proportional to the mean square speed</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-05-derivation-of-the-kinetic-theory-equation-04.png" alt="Pressure against volume graph comparing an ideal gas curve with a real gas curve that dips below it at low volume"><div class="lc-cap">Fig 4 — Real gases follow \(PV = nRT\) closely at low pressure, but fall below the ideal curve as they are compressed.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b3-05-derivation-of-the-kinetic-theory-equation-05.png" alt="Pressure against mean square speed graph showing a straight line through the origin"><div class="lc-cap">Fig 5 — A direct consequence of \(PV = \tfrac13 Nm\overline{v^2}\): at constant \(N, m, V\), \(P\) is proportional to \(\overline{v^2}\).</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example B3.D1 – using the kinetic theory equation</h3>
+  <p>A sealed container of volume \(2.0 \times 10^{-3}\ \text{m}^3\) contains \(5.0 \times 10^{22}\) helium atoms, each of mass \(6.65 \times 10^{-27}\) kg. The mean square speed of the atoms is \(1.2 \times 10^{6}\ \text{m}^2\text{s}^{-2}\). Calculate the pressure of the helium gas.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use the kinetic theory equation, rearranged for pressure: \(P = \dfrac{Nm\overline{v^2}}{3V}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(N = 5.0\times10^{22}\), \(m = 6.65\times10^{-27}\ \text{kg}\), \(\overline{v^2} = 1.2\times10^{6}\ \text{m}^2\text{s}^{-2}\), \(V = 2.0\times10^{-3}\ \text{m}^3\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> numerator \(= (5.0\times10^{22})(6.65\times10^{-27})(1.2\times10^{6})\)<br>\(= 399\). Denominator \(= 3 \times 2.0\times10^{-3} = 6.0\times10^{-3}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(P = \dfrac{399}{6.0\times10^{-3}} = 6.65\times10^{4}\ \text{Pa} \approx 6.7\times10^{4}\ \text{Pa}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example B3.D2 – root-mean-square speed</h3>
+  <p>Oxygen molecules at 300 K each have a mass of \(5.31\times10^{-26}\) kg. Calculate their root-mean-square speed.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> find \(\overline{E_{\text{k}}}\) from \(\overline{E_{\text{k}}} = \tfrac32 k_{\text{B}}T\), then use \(\overline{E_{\text{k}}} = \tfrac12 mv_{\text{rms}}^2\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\overline{E_{\text{k}}} = 1.5 \times (1.38\times10^{-23}) \times 300 = 6.21\times10^{-21}\ \text{J}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(v_{\text{rms}} = \sqrt{\dfrac{2\overline{E_{\text{k}}}}{m}} = \sqrt{\dfrac{2(6.21\times10^{-21})}{5.31\times10^{-26}}}\)<br>\(= \sqrt{2.34\times10^{5}}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(v_{\text{rms}} \approx 4.8\times10^{2}\ \text{m s}^{-1}\).</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: why the model has limits</h3>
+    <p>Every assumption in this derivation is an idealisation. Real molecules do have volume, and they do attract each other between collisions — both effects are ignored to keep the maths tractable. At low pressure and high temperature, molecules are far apart and moving fast, so both approximations are excellent and the real gas tracks \(PV = nRT\) closely, as in Fig 4. Compress the gas or cool it towards a phase change, and the same approximations start to fail.</p>
+    <div class="lc-success">✓ Examiner tip: if a question asks why a real gas deviates from ideal behaviour, name the specific assumption that breaks down — "molecular volume becomes significant" or "intermolecular forces are no longer negligible" — rather than just "it's not a perfect gas".</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – how fast, really?</h3>
+    <p>The molar-mass form \(v_{\text{rms}} = \sqrt{3RT/M}\) lets you compare gases directly: at the same temperature, every gas has the same average kinetic energy per molecule, but lighter molecules move faster to achieve it, since \(\overline{E_{\text{k}}} = \tfrac12 mv_{\text{rms}}^2\) is fixed by \(T\) alone.</p>
+    <p><strong>Challenge:</strong> by what factor does \(v_{\text{rms}}\) change if the absolute temperature of a fixed gas is quadrupled? <em>Answer: \(v_{\text{rms}} \propto \sqrt{T}\), so quadrupling \(T\) doubles \(v_{\text{rms}}\).</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>The pressure formula should use the average speed, \(\overline{v}\)</td><td>Average velocity is zero for random motion (components cancel), but \(\overline{v^2}\) is never zero — it is the quantity that survives averaging, and the one that enters momentum transfer and kinetic energy</td></tr>
+      <tr><td>\(\overline{v^2}\) is the same as \((\overline{v})^2\)</td><td>They are different quantities. \(\overline{v^2}\) is the mean of the squares; \((\overline{v})^2\) is the square of the mean — squaring first and averaging first give different numbers for any spread of speeds</td></tr>
+      <tr><td>The result \(PV=\tfrac13Nm\overline{v^2}\) only works for a cube</td><td>The cube is chosen purely because its geometry is easy to set up. The same result holds for a container of any shape — pressure cannot depend on the shape of its container</td></tr>
+      <tr><td>\(U = \tfrac32Nk_{\text{B}}T\) applies to any ideal gas</td><td>It applies only to a <em>monatomic</em> gas, where all the internal energy is translational kinetic energy. Diatomic and polyatomic molecules also store energy in rotation and vibration</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: dropping the factor of \(\tfrac13\) that comes from isotropy, and writing \(PV = Nm\overline{v^2}\) as if it were the final answer instead of an intermediate result for one direction only.</div>
+</div>
+
+<div class="lc-kp">
+  <span>PV = ⅓Nmv̄²</span>
+  <span>Δp_wall = 2mvₓ</span>
+  <span>Δt = 2L/vₓ</span>
+  <span>v̄ₓ² = ⅓v̄²</span>
+  <span>PV = ⅔NĒₖ</span>
+  <span>Ēₖ = 3/2 k_BT</span>
+  <span>U = 3/2Nk_BT = 3/2nRT</span>
+  <span>v_rms = √(3RT/M)</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. In the derivation, what happens to a molecule's x-component of velocity when it collides elastically with a wall perpendicular to the x-axis?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> It becomes zero</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> It reverses sign; its magnitude is unchanged</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> It doubles in magnitude</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> It becomes equal to \(v_y\)</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Which of these is NOT generally equal to \(\overline{v^2}\)?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> \(\overline{v_x^2}+\overline{v_y^2}+\overline{v_z^2}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> \(3\overline{v_x^2}\) for isotropic motion</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> \((\overline{v})^2\), the square of the mean speed</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> \(2\overline{E_{\text{k}}}/m\)</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Why is the time between successive collisions with the same wall \(2L/v_x\) rather than \(L/v_x\)?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> The molecule must cross the cube and come back before hitting the same face again</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> Two molecules collide with the wall each time</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> The wall itself is moving</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> \(L\) must be converted from cm to m</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Which assumption is essential for concluding that a wall collision transfers momentum \(2mv_x\) with no loss of kinetic energy?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Molecules have negligible volume</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Collisions with the walls are elastic</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> Intermolecular forces are negligible except during collisions</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Molecules travel in straight lines between collisions</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A gas is compressed so that \(N\), \(m\) and \(\overline{v^2}\) stay the same but \(V\) halves. What happens to \(P\)?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> It halves</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> It doubles</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> It stays the same</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> It quadruples</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. (HL) If the absolute temperature of a fixed gas is quadrupled, \(v_{\text{rms}} = \sqrt{3RT/M}\) is multiplied by</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','B')"><span class="lc-opt-l">A</span> 4</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','B')"><span class="lc-opt-l">B</span> 2</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','B')"><span class="lc-opt-l">C</span> 16</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','B')"><span class="lc-opt-l">D</span> \(\sqrt{2}\)</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A gas modelled by kinetic theory consists of a very large number of identical molecules in continuous, random <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px">. Collisions with the walls are assumed to be perfectly <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px">, so no kinetic energy is lost. The momentum transferred to the wall in one collision is <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px"> (specifically \(+2mv_x\)). Because molecular motion has no preferred direction, it is described as <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">, which lets the mean square speed be split equally between the three directions, giving \(PV = \tfrac13Nm\overline{v^2}\). Combining this with the ideal gas equation shows the average kinetic energy of a molecule is directly proportional to the absolute <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:120px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> State the assumptions of the kinetic theory of gases that are used in the derivation of \(PV = \tfrac13Nm\overline{v^2}\). <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ A gas consists of a very large number of identical molecules, in continuous random motion.<br>✓ Molecules collide elastically with each other and the walls; collision time is negligible compared with time between collisions.<br>✓ Intermolecular forces are negligible except during collisions; molecular volume is negligible compared with the container's volume.<br>✓ Between collisions molecules travel in straight lines at constant velocity, and the motion is isotropic.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> Explain why the pressure exerted by a gas on a wall is proportional to the mean square speed \(\overline{v^2}\) and not to the average speed \(\overline{v}\). <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Molecular velocities are random and isotropic, so the average velocity (a vector) is zero — the positive and negative components cancel.<br>✓ \(\overline{v^2}\) does not cancel, because every squared term is positive, whatever the direction of motion.<br>✓ Momentum transfer and kinetic energy both depend on \(v^2\), not \(v\), so it is \(\overline{v^2}\) that appears in the derivation.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> A molecule of mass \(m\) moves with velocity component \(v_x\) perpendicular to a wall. Show that the average force it exerts on the wall is \(F = mv_x^2/L\), where \(L\) is the length of the cubical container. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Elastic collision reverses \(v_x\), so momentum transferred to the wall per collision is \(2mv_x\).<br>✓ Time between collisions with the same wall is \(\Delta t = 2L/v_x\) (round trip across the container).<br>✓ \(F = \dfrac{\Delta p}{\Delta t} = \dfrac{2mv_x}{2L/v_x} = \dfrac{mv_x^2}{L}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Derive</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> Starting from the expression for the total force on one face of a cubical container, derive \(PV = \tfrac13Nm\overline{v^2}\). <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(F_{\text{total}} = \dfrac{Nm\overline{v_x^2}}{L}\), and \(P = F_{\text{total}}/A\) with \(A = L^2\), so \(PV = Nm\overline{v_x^2}\).<br>✓ By isotropy, \(\overline{v_x^2} = \overline{v_y^2} = \overline{v_z^2}\), and \(\overline{v^2} = \overline{v_x^2}+\overline{v_y^2}+\overline{v_z^2} = 3\overline{v_x^2}\).<br>✓ So \(\overline{v_x^2} = \tfrac13\overline{v^2}\).<br>✓ Substituting: \(PV = Nm\left(\tfrac13\overline{v^2}\right) = \tfrac13Nm\overline{v^2}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> Use the kinetic theory equation and the ideal gas equation \(PV = Nk_{\text{B}}T\) to show that \(\overline{E_{\text{k}}} = \tfrac32 k_{\text{B}}T\). <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Equate: \(Nk_{\text{B}}T = \tfrac13Nm\overline{v^2}\), cancel \(N\): \(k_{\text{B}}T = \tfrac13m\overline{v^2}\).<br>✓ Multiply both sides by \(\tfrac32\): \(\tfrac32k_{\text{B}}T = \tfrac12m\overline{v^2}\).<br>✓ Since \(\overline{E_{\text{k}}} = \tfrac12m\overline{v^2}\), this gives \(\overline{E_{\text{k}}} = \tfrac32k_{\text{B}}T\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> Show that the internal energy of an ideal monatomic gas can be written as \(U = \tfrac32PV\). <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(U = N\overline{E_{\text{k}}}\) for a monatomic gas, and \(PV = \tfrac13Nm\overline{v^2} = \tfrac23N\overline{E_{\text{k}}}\).<br>✓ So \(PV = \tfrac23U\), which rearranges to \(U = \tfrac32PV\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q7.</strong> A sample of neon gas has a volume of 0.025 m³ and a pressure of \(1.5\times10^{5}\) Pa. Calculate its internal energy. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(U = \tfrac32PV = 1.5 \times (1.5\times10^{5} \times 0.025)\)<br>✓ \(U = 1.5 \times 3750 = 5625\ \text{J} \approx 5.6\times10^{3}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q8.</strong> Nitrogen molecules at 350 K have a molar mass of 28.0 g mol⁻¹. Calculate <strong>(a)</strong> the average random translational kinetic energy of one molecule, <strong>(b)</strong> the root-mean-square speed of the molecules. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\overline{E_{\text{k}}} = \tfrac32k_{\text{B}}T = 1.5 \times (1.38\times10^{-23}) \times 350\)<br>✓ \(\approx 7.25\times10^{-21}\ \text{J}\).<br>✓ (b) \(v_{\text{rms}} = \sqrt{3RT/M} = \sqrt{(3 \times 8.31 \times 350)/0.0280}\)<br>✓ \(= \sqrt{3.12\times10^{5}} \approx 5.6\times10^{2}\ \text{m s}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q9.</strong> Explain why the root-mean-square speed of carbon dioxide molecules is lower than that of oxygen molecules at the same temperature. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ At the same temperature, both gases have the same average kinetic energy per molecule, \(\overline{E_{\text{k}}} = \tfrac32k_{\text{B}}T\), independent of molecular mass.<br>✓ Since \(\overline{E_{\text{k}}} = \tfrac12m\overline{v^2}\), the more massive CO₂ molecule (44 g mol⁻¹ vs 32 g mol⁻¹ for O₂) must have a smaller \(\overline{v^2}\), so a lower \(v_{\text{rms}}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Confirm</div>
+  <div class="lc-exam-q"><strong>Q10.</strong> A container holds \(3.0\times10^{23}\) molecules of an ideal gas at 400 K in a volume of 0.015 m³. Each molecule has a mass of \(4.0\times10^{-26}\) kg. <strong>(a)</strong> Calculate the mean square speed of the molecules. <strong>(b)</strong> Calculate the pressure using the kinetic theory equation. <strong>(c)</strong> Confirm your answer using the ideal gas equation. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\overline{v^2} = 3k_{\text{B}}T/m = (3 \times 1.38\times10^{-23} \times 400)/(4.0\times10^{-26})\)<br>✓ \(= 4.14\times10^{5}\ \text{m}^2\text{s}^{-2}\).<br>✓ (b) \(P = \dfrac{Nm\overline{v^2}}{3V} = \dfrac{(3.0\times10^{23})(4.0\times10^{-26})(4.14\times10^{5})}{3 \times 0.015}\)<br>✓ \(\approx 1.1\times10^{5}\ \text{Pa}\).<br>✓ (c) \(P = Nk_{\text{B}}T/V = (3.0\times10^{23} \times 1.38\times10^{-23} \times 400)/0.015\)<br>✓ \(\approx 1.1\times10^{5}\ \text{Pa}\) — matches (b).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Elastic collision reverses the perpendicular component: vx -> -vx, magnitude unchanged; vy and vz are untouched.' },
+    mcq2: { C: 'v-bar-squared is the mean of the squares; (v-bar)-squared is the square of the mean. These are only equal if every molecule has the same speed.' },
+    mcq3: { A: 'The molecule must travel to the opposite face and back (distance 2L) before it can strike the same face again, so Δt = 2L/vx.' },
+    mcq4: { B: 'Elastic collisions conserve kinetic energy, which is what lets us say the molecule rebounds with the same speed and just reversed direction.' },
+    mcq5: { B: 'PV = (1/3)Nmv-bar-squared: halving V with N, m, v-bar-squared fixed means P must double to keep PV constant.' },
+    mcq6: { B: 'v_rms is proportional to the square root of T, so quadrupling T multiplies v_rms by root 4 = 2.' }
+  },
+  fitb: { lf1:'motion', lf2:'elastic', lf3:'positive', lf4:'isotropic', lf5:'temperature' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
