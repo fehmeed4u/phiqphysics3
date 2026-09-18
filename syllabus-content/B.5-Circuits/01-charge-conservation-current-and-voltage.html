@@ -175,28 +175,378 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Charge, Conservation of Charge, Current and Voltage</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B5" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 7 · B.5 Current and Circuits</div>
+<div class="lc-title">Charge, Conservation of Charge, Current and Voltage</div>
+<div class="lc-sub">Every circuit you will ever analyse rests on two conserved quantities: charge and energy. This lesson builds current and potential difference directly from those two conservation laws, so the equations aren't rules to memorise — they're bookkeeping.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the most dangerous experiment in physics history</h3>
+  <p>In 1752, Benjamin Franklin flew a kite into a thunderstorm to show that lightning is an electrical discharge. He wasn't being reckless for its own sake — nobody yet knew what "electricity" really was, and the only way to find out was to go and get some. <strong>He survived, but several people who repeated the experiment did not.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b5-01-charge-conservation-current-and-voltage-01.png" alt="Benjamin Franklin flying a kite in a lightning storm" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Franklin's kite experiment. The kite string, made damp by the storm, conducted charge from the cloud down to a key tied near the ground.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think — then read on)</strong> — a spark jumps from the key to Franklin's knuckle. What is actually moving? <em>Charged particles — electrons — flowing from one place to another. That flow, however brief, is an electric current. The lightning bolt itself is nothing more or less than a very large, very fast current.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ Electric charge</h3>
+  <p>Electric charge is a fundamental property of some subatomic particles, responsible for the forces between them. There are two kinds of electric force — attractive and repulsive — so we need two kinds of charge to explain them: <strong>positive charge</strong> and <strong>negative charge</strong>. Calling them "positive" and "negative" carries no deeper meaning beyond labelling two different types of the same thing; they are often described as <strong>opposite charges</strong>.</p>
+  <div class="lc-success">✓ Charges of opposite sign attract each other.</div>
+  <div class="lc-warn">⚠️ Charges of the same sign repel each other.</div>
+  <p>Charge is measured in <strong>coulombs, C</strong>. One coulomb is a relatively large amount of charge, so microcoulombs (\(1\ \mu\text{C} = 10^{-6}\ \text{C}\)) and nanocoulombs (\(1\ \text{nC} = 10^{-9}\ \text{C}\)) are common in practice.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b5-01-charge-conservation-current-and-voltage-02.png" alt="Simple model of an atom showing protons and neutrons in the nucleus and electrons orbiting around it" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — A simple atom model (not to scale). Protons and neutrons sit in the small central nucleus; electrons occupy the space around it.</div>
+  </div>
+  <p>All protons carry a positive charge of \(+1.60\times10^{-19}\ \text{C}\) and all electrons carry a negative charge of \(-1.60\times10^{-19}\ \text{C}\). Neutrons carry no charge at all — they are <strong>neutral</strong>.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Elementary charge, e</span>
+    $$e = 1.60\times10^{-19}\ \text{C}$$
+  </div>
+  <p>Since 2019, the elementary charge has been <em>defined</em> to be exactly \(1.602176634\times10^{-19}\) C — it is no longer just a measured value.</p>
+  <div class="lc-info">🤔 <strong>TOK — should all scientific knowledge be pursued regardless of risk?</strong> Franklin's kite experiment expanded scientific knowledge but endangered lives; some who repeated it were killed. A notorious 1903 demonstration used electricity to kill a "rogue" circus elephant, Topsy, raising separate questions about the ethics of experimenting on animals. Opinions on where the line should be drawn vary widely and are not settled by physics itself.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔢 Charge is quantized — and conserved</h3>
+  <p>A <strong>continuous variable</strong> can, in principle, take any value; a <strong>discrete variable</strong> can only take certain values — like a carton of eggs, which can hold 6 eggs or 10, but never 6.5. A quantity restricted to certain discrete values is described as <strong>quantized</strong>.</p>
+  <p>Any quantity of charge consists of a whole number of charged particles, each \(\pm1.60\times10^{-19}\) C — intermediate values such as \(4.00\times10^{-19}\) C are impossible (ignoring sub-nuclear quarks, which are outside this course). We say <strong>charge is quantized</strong>. Charge is generally given the symbol \(q\) (occasionally \(Q\), though \(Q\) is also used for thermal energy, so it can be ambiguous).</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Number of electrons in 1 C</span>
+    $$\frac{1}{1.60\times10^{-19}} = 6.24\times10^{18}\ \text{electrons}$$
+  </div>
+  <div class="lc-info">📖 <strong>Law of conservation of charge</strong> — the total charge in an isolated system remains constant. This is one of the few conservation rules in physics that is always true, without exception.</div>
+  <p>If one or more negatively charged electrons are removed from a neutral atom, conservation of charge tells us the remaining atom must carry an equal positive charge. The charged atom is then called an <strong>ion</strong>, and the process is <strong>ionization</strong>.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🔋 Electric current</h3>
+  <p>Whenever charge flows from place to place, we call it an <strong>electric current</strong>. Electrons, protons and ions are all charged particles, but a moving charge in a current is generally called a <strong>charge carrier</strong> — and to flow, a charge carrier must be relatively "free" to move.</p>
+  <p>Some electrons in metal atoms have enough energy that they are no longer attracted to a particular metal ion — these <strong>delocalized electrons</strong> (or free electrons) are why electric current flows through metals far more readily than through most other materials.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b5-01-charge-conservation-current-and-voltage-03.png" alt="Free electrons drifting through a lattice of positive metal ions towards the positive terminal of a battery, with point P marked on the wire">
+    <div class="lc-cap">Fig 3 — Free electrons drift through a metal wire towards the positive battery terminal, superimposed on their much faster random thermal motion. Point P marks where we count the flow of charge.</div>
+  </div>
+  <p>With no current flowing, free electrons move around randomly at high speed, rather like molecules in a gas. When they form a current, a much slower <strong>drift</strong> velocity in the direction of the current is added on top of that random motion — far too slow and chaotic to be shown accurately in a single diagram.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Electric current · SI unit ampere, A</span>
+    $$I = \frac{\Delta q}{\Delta t}$$
+  </div>
+  <p>Current, \(I\), is the amount of charge passing a point (such as P above) per unit time. The SI unit is the <strong>ampere</strong> (amp), A — milliamps (mA) and microamps (μA) are also common. It is one of the seven base SI units, defined as the current in which 1 C of charge (\(6.24\times10^{18}\) electrons) passes a point in one second. (Before 2019 it was defined instead via the magnetic force between two long parallel current-carrying wires — not needed here.)</p>
+  <p>A current that only flows in one direction is a <strong>direct current (dc)</strong>; one that continuously reverses is an <strong>alternating current (ac)</strong>.</p>
+  <div class="lc-success">✓ Top tip: dc is generally more useful for electronics, but ac is used to transmit electrical energy around the world, because it is far more easily transformed to the high voltages that reduce energy losses in the wires.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔌 Circuits, conventional current, and ideal meters</h3>
+  <p>For current to flow continuously, components and wires must form a complete, closed loop — an <strong>electrical circuit</strong> — and it must include a battery or other power source. A single electric cell is often loosely called a "battery," though strictly a <strong>battery</strong> is a combination of two or more <strong>cells</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b5-01-charge-conservation-current-and-voltage-04.png" alt="A simple series circuit with a cell, switch, resistor and ammeter, with arrows showing conventional current flowing from the positive terminal around the loop to the negative terminal" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — A simple circuit, drawn conventionally: cell, resistor, switch and ammeter in one loop.</div>
+  </div>
+  <p>The positive terminal of a battery attracts free electrons from the circuit and the negative terminal repels them, so electrons actually drift around a circuit like Fig 4 from the negative terminal, through the components, to the positive terminal. But for historical reasons — chosen long before electrons were even discovered — we use the opposite convention:</p>
+  <div class="lc-warn">⚠️ <strong>Conventional current is always shown flowing from positive to negative around a circuit</strong> — opposite to the actual direction of electron flow.</div>
+  <div class="lc-success">✓ Top tip: it helps to think of current as flowing everywhere in the circuit at the same time, rather than starting or finishing at the battery. (In reality, an electric field sets electrons in motion around the whole circuit at a speed close to the speed of light.)</div>
+  <p><strong>Ammeters</strong> measure current, and must be connected in series so that all the current to be measured flows through them. An <strong>ideal ammeter</strong> has zero resistance, so it doesn't reduce the current it's measuring — an electronic current sensor instead detects the magnetic field around the current.</p>
+  <div class="lc-info">🌍 <strong>Nature of science — shared symbols across cultures.</strong> Standard circuit symbols and unit abbreviations let scientists and engineers from different countries communicate without translation errors. In 1983, an aircraft flying over Canada ran out of fuel mid-flight because of confusion between two different units used for fuel volume — a reminder of how costly mismatched units and symbols can be.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔺 Potential difference (voltage)</h3>
+  <p>"Voltage" is the everyday word; the correct term is <strong>potential difference</strong> (p.d.), symbol \(V\) — the same letter used for its unit, the volt.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Potential difference · SI unit volt, V</span>
+    $$V = \frac{W}{q}$$
+  </div>
+  <div class="lc-formula">
+    $$1\ \text{V} = 1\ \text{J}\ \text{C}^{-1}$$
+  </div>
+  <p>The p.d. across two points is the work done per unit charge moving between them. A 12 V battery, for instance, transfers 12 joules of energy to every coulomb of charge that flows through it.</p>
+  <p><strong>Voltmeters</strong> are connected in parallel across whatever they're checking. An <strong>ideal voltmeter</strong> has infinite resistance, so no current flows through it and it doesn't affect the p.d. it's measuring.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b5-01-charge-conservation-current-and-voltage-06.png" alt="Three components in series with a battery, with voltmeters V1, V2, V3 connected across each component and V12 connected across the first two together, and Vs across the whole circuit">
+    <div class="lc-cap">Fig 5 — Voltmeters are always connected in parallel. If \(V_{\text{s}}=12\) V and \(V_1=3\) V, \(V_2=4\) V, then \(V_3\) must be \(12-3-4=5\) V, and \(V_{12}\) (across components 1 and 2 together) reads \(3+4=7\) V.</div>
+  </div>
+  <div class="lc-success">✓ In any series loop, the p.d.s across the individual components add up to the supply p.d. — because the energy transferred into the circuit must equal the energy used by the components in it (assuming no energy is lost in the wires).</div>
+</div>
+
+<div class="lc-card">
+  <h3>📊 Graph mastery</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Charge–time (steady current)</td><td>Time · Charge, \(q\)</td><td>Straight line through the origin</td><td>Gradient = current, \(I\) (since \(I=\Delta q/\Delta t\))</td></tr>
+      <tr><td>Charge–time (changing current)</td><td>Time · Charge, \(q\)</td><td>Curve, gradient increasing or decreasing</td><td>Instantaneous current = gradient of the tangent at that point</td></tr>
+      <tr><td>Current–time (steady current)</td><td>Time · Current, \(I\)</td><td>Horizontal line</td><td>Area under the line = charge that flowed, \(\Delta q = I\Delta t\)</td></tr>
+      <tr><td>Current–time (varying current)</td><td>Time · Current, \(I\)</td><td>Curve of any shape</td><td>Area under the curve = total charge, \(\Delta q\), found by counting squares or an equal-area rectangle</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b5-01-charge-conservation-current-and-voltage-08.png" alt="Graph of charge against time, a straight line through the origin"><div class="lc-cap">Fig 6 — A steady current: \(q\) against \(t\) is a straight line through the origin, and its gradient is \(I\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b5-01-charge-conservation-current-and-voltage-09.png" alt="Graph of current against time, a varying curve, with the area underneath shaded"><div class="lc-cap">Fig 7 — A varying current: the shaded area under an \(I\)–\(t\) graph equals the total charge that has flowed.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example — potentials around a series circuit</h3>
+  <p>A 12 V battery drives current around a series circuit through three components, P, Q and R. Taking the negative terminal of the battery as 0 V, the potential at point A (just after the battery) is 12 V; it then falls to 9 V at point B, and to 4 V at point C, before returning to 0 V. Find the p.d. across each of P, Q and R.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a charge moves from higher to lower electrical potential energy as it passes through each component — the same idea as a mass falling from higher to lower gravitational potential energy. The p.d. across a component is the drop in potential across it.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> potential at A = 12 V, at B = 9 V, at C = 4 V, at the negative terminal = 0 V. P lies between A and B, Q between B and C, R between C and the negative terminal.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> p.d. across a component = (potential before it) − (potential after it).<br>\(V_{\text{P}} = 12 - 9\)<br>\(V_{\text{Q}} = 9 - 4\)<br>\(V_{\text{R}} = 4 - 0\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(V_{\text{P}}=3\ \text{V}\), \(V_{\text{Q}}=5\ \text{V}\), \(V_{\text{R}}=4\ \text{V}\).<br>Check: \(3+5+4=12\ \text{V}\) — exactly the battery's p.d., as it must be.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b5-01-charge-conservation-current-and-voltage-07.png" alt="A series circuit with a 12 volt battery, showing potentials of 12 V, 9 V, 4 V and 0 V at successive points around the loop, with components P, Q and R between them">
+    <div class="lc-cap">Fig 8 — Potential falls in steps around the loop as charge passes through each component; the p.d. across a component is the size of the step.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example — charge and electrons through a lamp (B5.1)</h3>
+  <p>The current through an LED desk lamp is 50 mA. (a) Calculate the charge that flows through the lamp in 1.0 minute. (b) How many electrons flow through the lamp every minute?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a steady current, so \(I=\Delta q/\Delta t\) rearranges directly for \(\Delta q\); then divide by \(e\) for the number of electrons.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(I = 50\times10^{-3}\ \text{A}\), \(\Delta t = 60\ \text{s}\), \(e=1.60\times10^{-19}\ \text{C}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\Delta q = I\Delta t = 50\times10^{-3}\times60\)<br>then \(n = \dfrac{\Delta q}{1.60\times10^{-19}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(\Delta q = 3.0\ \text{C}\). (b) \(n = \dfrac{3.0}{1.60\times10^{-19}} = 1.9\times10^{19}\) electrons.</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: mains voltage and safety</h3>
+    <p>Electricity is supplied to homes at around 110 V or 230 V depending on the country. In the lab, low voltages keep experiments safe: batteries typically supply 9 V or less, most commonly 1.5 V, while adjustable low-voltage (LT) supplies connected to the mains give around 12–15 V and must be checked regularly — including their earthing.</p>
+    <div class="lc-success">✓ Examiner tip: batteries also carry an environmental cost, since large numbers eventually need safe disposal — a genuine trade-off against the safety benefit of low-voltage supplies.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension — instantaneous vs average current</h3>
+    <p>\(I=\Delta q/\Delta t\) gives the <strong>average</strong> current over an interval. When current varies, the <strong>instantaneous</strong> current at one instant is the gradient of the \(q\)–\(t\) graph at that point, \(I = \dfrac{\text{d}q}{\text{d}t}\) — exactly the calculus idea behind reading a curved graph's gradient at a single point rather than between two points.</p>
+    <p><strong>Challenge:</strong> a current rises steadily from 0 to 2.0 A over 4.0 s. What charge flows? <em>(Answer: the \(I\)-\(t\) graph is a triangle of base 4.0 s and height 2.0 A, so \(\Delta q = \tfrac12\times4.0\times2.0 = 4.0\ \text{C}\) — the average current, 1.0 A, times the time also gives 4.0 C.)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔬 Tools, observer effect and a linking question</h3>
+  <div class="lc-info">🌍 <strong>Nature of science — the observer effect.</strong> Any measurement can slightly disturb the thing being measured. A car-tyre pressure gauge lets a little air escape into itself, very slightly lowering the tyre pressure; many thermometers must absorb or emit thermal energy to reach equilibrium with what they're measuring; even a patient's blood pressure can rise simply because it's being measured. This is exactly why we care about <em>ideal</em> ammeters and voltmeters — they're the electrical version of a measuring instrument that disturbs nothing.</div>
+  <div class="lc-info">🔗 <strong>Linking question</strong> — in what ways can an electrical circuit be described as a system, in the same sense as the Earth's atmosphere or a heat engine? <em>(Links to Topics B.2 and B.4: all three involve a flow — of charge, of energy, or of a working substance — through a defined system, driven by a difference: p.d., temperature difference, or pressure difference.)</em></div>
+  <p>Looking ahead: once current and p.d. are established, the next lesson asks what happens when a component resists that flow of charge — <strong>electrical resistance</strong>, \(R=V/I\), and Ohm's law.</p>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Current gets "used up" as it goes around a circuit</td><td>Charge is conserved: in a simple series loop, the current is the same at every point. Components use up <em>energy</em>, not charge</td></tr>
+      <tr><td>Conventional current is the direction electrons actually move</td><td>Conventional current runs from + to − by convention; the actual charge carriers in a metal, electrons, drift the opposite way, from − to +</td></tr>
+      <tr><td>A charge of, say, \(4.0\times10^{-19}\) C is possible</td><td>Charge is quantized: only whole-number multiples of \(e=1.60\times10^{-19}\) C occur (ignoring quarks)</td></tr>
+      <tr><td>An ammeter can be connected in parallel, like a voltmeter</td><td>Ammeters go in series (near-zero resistance, so as not to reduce the current); voltmeters go in parallel (near-infinite resistance, so as not to draw current)</td></tr>
+      <tr><td>"Voltage" is something that flows through a circuit</td><td>Current flows; potential difference doesn't flow — it's an energy difference <em>between two points</em>, measured across a component</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: connecting an ammeter in parallel or a voltmeter in series "to make the wiring simpler." Because an ideal ammeter has ~0 Ω and an ideal voltmeter has ~∞ Ω, either mistake can short-circuit the supply or stop the current completely.</div>
+</div>
+
+<div class="lc-kp">
+  <span>I = Δq/Δt</span>
+  <span>V = W/q</span>
+  <span>1 V = 1 J C⁻¹</span>
+  <span>1 C = 6.24×10¹⁸ e⁻</span>
+  <span>charge is quantized: n × e</span>
+  <span>charge is conserved (isolated system)</span>
+  <span>ammeter: series, ≈0 Ω</span>
+  <span>voltmeter: parallel, ≈∞ Ω</span>
+  <span>conventional current: + → −</span>
+  <span>series p.d.s sum to supply V</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which statement about electric charge is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> Charge can take any value, however small</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> Charge only occurs in whole-number multiples of \(e\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> Only positive charge is quantized</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> Neutrons carry a small positive charge</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A steady current of 0.40 A flows for 25 s. The charge that has flowed is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> 0.016 C</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> 6.25 C</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> 10 C</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> 25 C</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. An ideal voltmeter is connected across a resistor. What is true of its resistance and the current through it?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> Zero resistance, large current</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> Zero resistance, no current</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> Infinite resistance, large current</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> Infinite resistance, (effectively) no current</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Conventional current in a circuit flows</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> from − to + inside the battery only</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> in the same direction as electron drift</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> from the + terminal, around the circuit, to the − terminal</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> randomly, with no fixed direction</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A 6.0 V battery drives a charge of 2.0 C around a circuit. The energy transferred by the battery is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> 3.0 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> 12 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> 0.33 J</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> 8.0 J</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. Three components P, Q, R are in series with a 9.0 V battery. If \(V_{\text{P}}=2.0\) V and \(V_{\text{Q}}=3.5\) V, then \(V_{\text{R}}\) is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','C')"><span class="lc-opt-l">A</span> 9.0 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','C')"><span class="lc-opt-l">B</span> 5.5 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','C')"><span class="lc-opt-l">C</span> 3.5 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','C')"><span class="lc-opt-l">D</span> 1.5 V</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Electric current is defined as the rate of flow of <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px">, \(I=\Delta q/\Delta t\), measured in <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px">. Charge can only exist in whole-number multiples of the elementary charge, so we say charge is <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:120px">. The total charge in an isolated system is always <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px">. Conventional current flows from the <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:100px"> terminal of a battery, around the circuit, to the negative terminal. An ideal ammeter has <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:90px"> resistance, and it is connected in <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:100px">. An ideal voltmeter has infinite resistance and is connected in <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:100px">. Potential difference is defined as work done per unit <input class="lc-fitb-input" id="lf9" placeholder="?" style="width:100px">, \(V=W/q\).
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> A carbon-12 atom contains six protons, six neutrons and six electrons. (a) Calculate the total positive charge in the atom. (b) State the total negative charge in the atom. (c) Explain what it means to describe the atom as neutral. (d) If the atom is ionized by the removal of one electron, state the charge on the ion. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(6\times1.60\times10^{-19} = 9.6\times10^{-19}\) C.<br>✓ (b) \(-9.6\times10^{-19}\) C — the same magnitude, negative.<br>✓ (c) Neutral means zero net charge: the total positive and total negative charge are equal in magnitude, so they cancel.<br>✓ (d) Removing one electron leaves the atom with one unbalanced proton: charge \(=+1.60\times10^{-19}\) C.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> \(2.5\times10^{20}\) electrons flow through a television in one minute. (a) Calculate the total charge which flows in that time. (b) Determine the electric current. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(q = 2.5\times10^{20}\times1.60\times10^{-19} = 40\ \text{C}\).<br>✓ \(I = \dfrac{40}{60}\)<br>✓ (b) \(I = 0.67\ \text{A}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Suggest</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> The charge flowing through a point on an overhead power-line pylon every hour is \(3.0\times10^{6}\) C. (a) Calculate the current. (b) Attractive pylon designs exist but cost more to build than standard designs. Suggest one reason people might be unwilling to pay for them. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(I = \dfrac{3.0\times10^{6}}{3600}\)<br>✓ \(I \approx 8.3\times10^{2}\ \text{A}\) (830 A).<br>✓ (b) The extra cost would very likely be passed on to consumers through higher electricity prices, and many people prioritise lower bills over the visual appearance of infrastructure.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> Explain what is meant by a free or delocalized electron. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ An electron in a metal that has enough energy to no longer be bound to (attracted to) any one particular metal ion.<br>✓ Because these electrons are free to move through the lattice, they act as the mobile charge carriers that let metals conduct electric current well.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> At a junction, a current of 6 A enters at one branch and 5 A enters at a second branch. Three A leaves along one branch, and 1 A and 2 A leave along two further branches, with point P on the one remaining branch. Determine the current at P, stating its direction. <span class="lc-exam-marks">[3 marks]</span></div>
+  <div class="lc-img" style="margin-top:0.75rem">
+    <img src="../../assets/lesson-images/b5-01-charge-conservation-current-and-voltage-05.png" alt="A current-junction network with 6 A and 5 A entering, 3 A, 1 A and 2 A leaving along labelled branches, and point P on the remaining branch" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 9 — Currents into and out of a junction. Conservation of charge means the total current in must equal the total current out.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Conservation of charge at a junction: total current in = total current out.<br>✓ Current in \(= 6+5 = 11\) A; current out along the three known branches \(=3+1+2=6\) A.<br>✓ The remaining 5 A must leave through P, so \(I_{\text{P}} = 5\ \text{A}\), flowing out of the junction.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Outline</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> Outline what would happen in a simple series circuit (cell, resistor, switch, ammeter) if the ammeter were replaced by a voltmeter. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ An ideal voltmeter has (near) infinite resistance, so almost no current can flow around the loop.<br>✓ The resistor would effectively switch off, and the voltmeter would read close to the full supply p.d. across itself.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q7.</strong> Explain why replacing the voltmeter connected across the battery terminals (measuring the supply p.d.) with an ammeter would be a bad idea. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ An ideal ammeter has (near) zero resistance, so connecting it directly across the battery terminals creates a short circuit.<br>✓ This would drive a very large current through the battery and ammeter, risking damage to both.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q8.</strong> In a series circuit with three components, the battery p.d. is 12 V. A voltmeter across the first component reads 2 V, and a voltmeter across the first two components together reads 5 V. State the p.d.s across the remaining components. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ P.d. across the second component \(= 5-2 = 3\ \text{V}\).<br>✓ P.d. across the third component \(= 12-5 = 7\ \text{V}\).<br><em>(Note: only these two readings are mathematically determined from the three given voltmeter values — the source text's phrasing suggesting three unknown readings appears to be a slip.)</em></div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q9.</strong> 400 C of electric charge flow through a lamp in one hour in a country where the mains supply is 230 V. (a) Calculate the current in the lamp. (b) Calculate the energy supplied from the mains to the lamp in this time. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(I = \dfrac{400}{3600} = 0.11\ \text{A}\).<br>✓ (b) \(W = qV = 400\times230\)<br>✓ \(W = 9.2\times10^{4}\ \text{J}\).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Charge only exists in whole-number multiples of the elementary charge e (aside from quarks, outside this course) — that is what "quantized" means.' },
+    mcq2: { C: 'q = It = 0.40 x 25 = 10 C.' },
+    mcq3: { D: 'An ideal voltmeter has infinite resistance, so (essentially) no current flows through it — it measures the p.d. without disturbing the circuit.' },
+    mcq4: { C: 'Conventional current is defined to flow from the positive terminal, around the external circuit, to the negative terminal — opposite to the actual electron drift.' },
+    mcq5: { B: 'W = qV = 2.0 x 6.0 = 12 J.' },
+    mcq6: { C: 'Series p.d.s sum to the supply: 9.0 = 2.0 + 3.5 + VR, so VR = 3.5 V.' }
+  },
+  fitb: { lf1:'charge', lf2:'amperes', lf3:'quantized', lf4:'constant', lf5:'positive', lf6:'zero', lf7:'series', lf8:'parallel', lf9:'charge' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
