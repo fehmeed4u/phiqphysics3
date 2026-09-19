@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Transverse and Longitudinal Waves — C.2 Wave Model — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -79,6 +81,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -151,20 +156,282 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <div style="padding:1.5rem 1.75rem 1.75rem">
-          <iframe id="lesson-frame" title="Transverse and Longitudinal Waves" src="embeds/02-transverse-and-longitudinal-waves.embed.html" scrolling="no"
-            style="width:100%;border:0;display:block;min-height:640px"></iframe>
-        </div>
-      </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
 
-      <script>
-        window.addEventListener('message', function(ev){
-          if (ev.data && ev.data.__lessonEmbed) {
-            var f = document.getElementById('lesson-frame');
-            if (f) f.style.height = (ev.data.h + 4) + 'px';
-          }
-        });
-      </script>
+<div class="lc-badge"><span>2</span> Lesson 2 of 4 · C.2 Wave Model</div>
+<div class="lc-title">Transverse and Longitudinal Waves</div>
+<div class="lc-sub">Waves fall into two families based on how particles move relative to the direction of energy transfer. This lesson builds the transverse/longitudinal distinction, the shift method for reading particle velocity off a snapshot, where compressions and rarefactions actually sit on a displacement–distance graph, and how mechanical waves differ from electromagnetic ones.</div>
+
+<div class="lc-card">
+  <h3>🪢 Hook – flick a rope, watch what actually moves</h3>
+  <p>Pin one end of a rope down and flick the other end up and down once. A hump races away from your hand down the rope's length. But does any piece of rope travel with it? Mark a piece of tape on the rope and watch it — it only moves up and down, then comes back to rest. The <em>hump</em> travels; the rope itself does not.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/c2-02-transverse-and-longitudinal-waves-01.png" alt="Transverse wave on a rope showing crests, troughs, and particles moving perpendicular to the direction of travel" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — A transverse wave on a rope: particles move up and down while the disturbance travels along the rope.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — as the hump in the rope travels to the right, does the taped point on the rope also drift to the right over time? <em>No — averaged over a full cycle, the taped point returns to exactly where it started. It only oscillates vertically; only the wave pattern (and the energy it carries) travels horizontally.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>↕️ Transverse waves</h3>
+  <p>A wave is <strong>transverse</strong> if the displacement of the particles of the medium is <strong>at right angles</strong> (perpendicular) to the direction of energy transfer.</p>
+  <p>On a rope, each segment oscillates up and down while the wave pattern propagates horizontally. The highest points are <strong>crests</strong>; the lowest are <strong>troughs</strong>. Each particle performs simple harmonic motion with the same frequency as the wave, slightly out of phase with its neighbour.</p>
+  <p><strong>Examples:</strong> waves on strings and ropes, water surface waves, all electromagnetic waves, seismic S-waves.</p>
+  <div class="lc-warn">⚠️ <strong>Exam tip — velocity at crests vs equilibrium.</strong> At a crest or trough, a particle is momentarily at rest but has maximum acceleration (directed toward equilibrium). At the equilibrium position, it has maximum speed but zero acceleration — straight out of the SHM you met in C.1.</div>
+</div>
+
+<div class="lc-card">
+  <h3>↔️ Longitudinal waves</h3>
+  <p>A wave is <strong>longitudinal</strong> if the displacement of the particles is <strong>parallel</strong> to the direction of energy transfer. Longitudinal waves consist of alternating <strong>compressions</strong> and <strong>rarefactions</strong>.</p>
+  <p>Push and pull one end of a slinky spring along its length: coils crowd together (compression), then spread apart (rarefaction), and these regions travel along the spring.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/c2-02-transverse-and-longitudinal-waves-02.png" alt="Longitudinal wave on a slinky spring showing compressions where coils bunch together and rarefactions where coils spread apart" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — A longitudinal wave on a slinky: compressions (coils bunched) and rarefactions (coils spread apart).</div>
+  </div>
+  <table class="lc-table">
+    <tbody>
+      <tr><td>Compression</td><td>A region where particles are closer together than at equilibrium — higher density and pressure.</td></tr>
+      <tr><td>Rarefaction</td><td>A region where particles are further apart than at equilibrium — lower density and pressure.</td></tr>
+    </tbody>
+  </table>
+  <p>We can still draw a displacement–distance graph for a longitudinal wave — the displacement axis just represents motion <em>along</em> the direction of travel, not sideways: positive means displaced in the direction of travel, negative means displaced against it.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/c2-02-transverse-and-longitudinal-waves-03.png" alt="Displacement-distance graph for a longitudinal wave with compressions and rarefactions marked at the zero-crossing points" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — A longitudinal wave as a displacement–distance graph. Compressions and rarefactions sit at the zero-crossings, not the peaks.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔊 Sound waves</h3>
+  <p><strong>Sound</strong> is a longitudinal mechanical wave, produced when a vibrating surface — a loudspeaker cone, vocal cords, a tuning fork — creates alternating compressions and rarefactions in the surrounding air.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/c2-02-transverse-and-longitudinal-waves-04.png" alt="Sound wave spreading from a loudspeaker cone, shown as bands of compressed and rarefied air" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — A loudspeaker creates compressions and rarefactions of air pressure — a longitudinal sound wave.</div>
+  </div>
+  <ul>
+    <li><strong>Medium required:</strong> sound cannot travel through a vacuum.</li>
+    <li><strong>Typical speed in air:</strong> ~340 m s⁻¹ at room temperature, rising slightly with temperature.</li>
+    <li><strong>Speed in different media:</strong> generally fastest in solids, slowest in gases — particles are closer together and inter-particle forces stronger in solids.</li>
+    <li><strong>Audible range:</strong> roughly 20 Hz – 20 kHz.</li>
+    <li><strong>Pitch</strong> is set by frequency (higher \(f\) → higher pitch); <strong>loudness</strong> is set by amplitude (greater \(A\) → louder).</li>
+  </ul>
+  <p>To give a sense of scale: at the threshold of hearing (1000 Hz), the pressure variation at the eardrum exceeds atmospheric pressure by just 20 μPa (atmospheric pressure is ~10⁵ Pa) — a molecular displacement of about \(10^{-11}\) m, roughly a tenth of a hydrogen atom's diameter.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📡 Mechanical vs electromagnetic waves</h3>
+  <table class="lc-table">
+    <thead><tr><th>Property</th><th>Mechanical waves</th><th>Electromagnetic waves</th></tr></thead>
+    <tbody>
+      <tr><td>Requires medium?</td><td>Yes — solid, liquid, or gas</td><td>No — can travel through vacuum</td></tr>
+      <tr><td>What oscillates?</td><td>Particles of the medium</td><td>Electric and magnetic fields</td></tr>
+      <tr><td>Type</td><td>Transverse or longitudinal</td><td>Always transverse</td></tr>
+      <tr><td>Speed in vacuum</td><td>Cannot exist in vacuum</td><td>\(c = 3.00\times10^{8}\ \text{m s}^{-1}\)</td></tr>
+      <tr><td>Speed depends on…</td><td>Medium properties (density, stiffness)</td><td>Same for all EM waves in vacuum; varies slightly in materials</td></tr>
+      <tr><td>Examples</td><td>Sound, water waves, seismic waves</td><td>Light, radio, X-rays, microwaves, gamma rays</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery – reading wave-snapshot and displacement graphs</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Transverse snapshot (shift method)</td><td>distance / displacement</td><td>Sinusoidal curve, shifted slightly along travel direction</td><td>Each particle moves vertically toward its position on the shifted curve</td></tr>
+      <tr><td>Longitudinal displacement–distance</td><td>distance / displacement</td><td>Sinusoidal curve</td><td>Compressions/rarefactions sit at zero-crossings, not peaks</td></tr>
+    </tbody>
+  </table>
+  <p>This is a key exam skill for transverse waves: given the wave direction and a snapshot, you can find which way any particle moves next. (1) Draw the wave profile (solid) at the current instant. (2) Draw a copy shifted slightly in the direction of travel (dashed). (3) Each particle moves vertically from its position on the solid curve toward its position on the dashed curve.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/c2-02-transverse-and-longitudinal-waves-05.png" alt="Wave snapshot with a solid profile and a slightly shifted dashed profile showing the direction the wave is travelling" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — Shift the wave slightly in its travel direction to see where each particle moves next.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/c2-02-transverse-and-longitudinal-waves-06.png" alt="Particles marked on a transverse wave with arrows showing the vertical direction each will move next" style="max-width:340px;width:100%"><div class="lc-cap">Fig 6 — Each particle moves vertically toward the shifted (dashed) profile.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – locating a compression on a graph</h3>
+  <p>A longitudinal wave travels to the right. A displacement–distance graph shows that at point P (\(x = 20\ \text{cm}\)), the displacement is zero and the curve is transitioning from positive to negative. Is P a compression or a rarefaction?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> at a zero-crossing, look at which way the neighbouring particles have moved — toward P (crowding, compression) or away from P (spreading, rarefaction).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> P is at \(x=20\ \text{cm}\), displacement \(=0\), gradient negative (positive → negative), wave moving right.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Reasoning:</strong> a negative gradient at zero means the particle just to the left of P has positive displacement (moved right, toward P) and the particle just to the right has negative displacement (moved left, toward P).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> particles on both sides of P have moved toward P — higher density there — so <strong>P is a compression</strong>.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/c2-02-transverse-and-longitudinal-waves-07.png" alt="Displacement-distance graph for a longitudinal wave with point P marked at a zero-crossing with negative gradient, identified as a compression" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — Point P sits at a zero-crossing with negative gradient — a compression.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: seismic waves reveal Earth's structure</h3>
+    <p>Transverse mechanical waves need a restoring force perpendicular to their direction of travel, which requires the medium to sustain <strong>shear stress</strong>. Gases and liquids have no fixed molecular structure and cannot resist shear — their molecules simply slide past each other — so only longitudinal (compression) waves can propagate through them.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/lesson-images2/c2-02-transverse-and-longitudinal-waves-08.png" alt="Cross-section of the Earth showing transverse S-waves blocked by the liquid outer core while longitudinal P-waves pass through it" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 8 — S-waves (transverse) are blocked by the liquid outer core; P-waves (longitudinal) pass straight through.</div>
+    </div>
+    <div class="lc-success">✓ Examiner tip: this is why seismic S-waves cannot pass through Earth's liquid outer core while P-waves can — direct evidence that the outer core is liquid.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – are water waves really transverse?</h3>
+    <p>We call water surface waves "transverse," but this is a simplification. In deep water, individual water particles actually move in <strong>circles</strong> (ellipses in shallow water), combining vertical and horizontal motion. The surface appears to move up and down, but the underlying particle motion is more complex — a good example of how a model simplifies reality.</p>
+    <p><strong>Challenge:</strong> if transverse waves need shear stress, why can water — a liquid — support surface waves at all? <em>Answer: it isn't shear stress doing the restoring here — gravity (and surface tension, for very short wavelengths) pulls the raised surface back down, which is why this is a surface effect and not a true bulk-shear transverse wave through the liquid.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Compressions and rarefactions sit at the peaks and troughs of the displacement graph</td><td>They sit at the <strong>zero-crossings</strong> — a compression at zero displacement with negative gradient (for a rightward wave), a rarefaction with positive gradient. At the peaks, displacement is maximum but density is approximately normal</td></tr>
+      <tr><td>Sound is an electromagnetic wave, since it "travels through the air like light does"</td><td>Sound is a <strong>mechanical</strong> longitudinal wave and needs a medium; light is electromagnetic and needs none</td></tr>
+      <tr><td>All electromagnetic waves can be transverse or longitudinal, like mechanical waves</td><td>Electromagnetic waves are <strong>always transverse</strong> — the oscillating electric and magnetic fields are perpendicular to the direction of travel</td></tr>
+      <tr><td>A louder sound has a higher frequency</td><td>Loudness is set by <strong>amplitude</strong>; frequency sets <strong>pitch</strong> — the two are independent</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: marking compressions/rarefactions at the peaks of a longitudinal wave's displacement graph instead of the zero-crossings. Always check the gradient at zero, not the height of the curve.</div>
+</div>
+
+<div class="lc-kp">
+  <span>transverse: displacement ⊥ travel</span>
+  <span>longitudinal: displacement ∥ travel</span>
+  <span>crest/trough: v = 0, a = max</span>
+  <span>compression: zero disp., negative gradient (rightward wave)</span>
+  <span>sound: longitudinal, needs medium, ~340 m s⁻¹ in air</span>
+  <span>EM waves: always transverse, c = 3.00×10⁸ m s⁻¹</span>
+  <span>transverse waves need shear stress → gases/liquids can't carry them</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. In a certain wave, particles oscillate parallel to the direction the wave travels. This wave is:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> transverse</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> longitudinal</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> electromagnetic</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> a standing wave</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. On a displacement–distance graph for a longitudinal wave moving to the right, a compression is found where:</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> displacement is at its maximum positive value</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> displacement is at its maximum negative value</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> displacement is zero and the gradient is negative</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> displacement is zero and the gradient is positive</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. Which of the following can travel through a vacuum?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','D')"><span class="lc-opt-l">A</span> sound waves</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','D')"><span class="lc-opt-l">B</span> seismic S-waves</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','D')"><span class="lc-opt-l">C</span> water surface waves</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','D')"><span class="lc-opt-l">D</span> light (an electromagnetic wave)</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. Which pairing correctly matches a sound wave's properties to what determines them?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> loudness = frequency, pitch = amplitude</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> loudness = amplitude, pitch = frequency</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> both are determined by amplitude</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> both are determined by frequency</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A wave is <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> if particle displacement is at right angles to the direction of energy transfer, and <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> if it is parallel. On a displacement–distance graph for a longitudinal wave moving right, a <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:130px"> occurs at a zero-crossing with negative gradient. Electromagnetic waves are always <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> State the key difference between a transverse wave and a longitudinal wave, in terms of particle displacement relative to the direction of energy transfer. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Transverse: particle displacement is perpendicular (at right angles) to the direction of energy transfer.<br>✓ Longitudinal: particle displacement is parallel to the direction of energy transfer.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Apply</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> A transverse wave propagates to the right along a string. Three marked points on the string are shown. Indicate the direction each will move in the next instant. <span class="lc-exam-marks">[3 marks]</span></div>
+  <div class="lc-img" style="margin-top:0.6rem">
+    <img src="../../assets/lesson-images/lesson-images2/c2-02-transverse-and-longitudinal-waves-09.png" alt="Transverse wave on a string with three marked points labelled to determine their next direction of motion" style="max-width:340px;width:100%">
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Shift the wave slightly to the right and move each point vertically toward the shifted profile.<br>✓ A point just behind a crest moves up; a point just ahead of a crest moves down.<br>✓ A point at a crest is momentarily stationary.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Graph</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> A displacement–distance graph for a longitudinal wave travelling to the right is given. Positive displacement means motion to the right. (a) State the wavelength. (b) Mark on the graph one position where a compression occurs and one where a rarefaction occurs. (c) At \(x = 1.0\ \text{m}\) and \(x = 3.0\ \text{m}\), draw arrows showing the direction of particle velocity. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The wavelength is the distance between repeating features, read directly off the graph.<br>✓ (b) Compression = zero displacement with negative gradient; rarefaction = zero displacement with positive gradient.<br>✓ (c) Velocity arrows point toward where each particle moves next (use the small-shift method).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State / Explain</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> State and explain two differences between an electromagnetic wave and a sound wave. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ EM waves need no medium and can travel through vacuum; sound requires a medium.<br>✓ EM waves are transverse (oscillating E and B fields); sound is longitudinal (compressions and rarefactions).<br>✓ EM waves travel at \(c=3.0\times10^8\ \text{m s}^{-1}\) in vacuum, far faster than sound (~340 m s⁻¹ in air).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> Explain why seismic S-waves (transverse) cannot travel through Earth's liquid outer core, but P-waves (longitudinal) can. What does this tell us about the state of the outer core? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Transverse waves need a medium that can sustain shear stress; liquids cannot resist shear, so S-waves are not transmitted through the liquid outer core.<br>✓ Longitudinal P-waves rely on compression, which liquids can transmit, so they pass through.<br>✓ The absence of S-waves through the core is evidence that the outer core is liquid.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Deduce</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> A displacement–position graph for a longitudinal wave shows four particles P, Q, R and S. The wave travels to the right. P is at maximum negative displacement. Q is at a zero-crossing with negative gradient. R is at maximum positive displacement. S is at a zero-crossing with positive gradient. (a) State the amplitude of the wave. (b) State which particle is at the centre of a compression, and explain. (c) A quarter period later, state the displacement of particle P. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The amplitude is the maximum displacement magnitude shown on the graph.<br>✓ (b) Q — at a zero-crossing with negative gradient, neighbouring particles move toward Q, crowding together into a compression.<br>✓ (c) A quarter period later P returns to zero displacement, moving from the extreme toward equilibrium.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Displacement parallel to the direction of travel defines a longitudinal wave.' },
+    mcq2: { C: 'A compression sits at a zero-crossing with negative gradient (for a wave moving right) — neighbouring particles have moved toward that point.' },
+    mcq3: { D: 'Only electromagnetic waves need no medium — sound, seismic and water waves are all mechanical.' },
+    mcq4: { B: 'Loudness is set by amplitude; pitch is set by frequency.' }
+  },
+  fitb: { lf1:'transverse', lf2:'longitudinal', lf3:'compression', lf4:'transverse' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
+      </div>
 
       <!-- Prev / Next navigation -->
       <div class="lesson-nav">
