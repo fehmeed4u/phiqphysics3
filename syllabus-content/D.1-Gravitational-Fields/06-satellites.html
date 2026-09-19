@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -162,11 +163,383 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-      <div class="content-placeholder">
-        <div class="placeholder-icon">🛰️</div>
-        <h3 style="font-size:1.15rem;margin-bottom:0.4rem;color:var(--text)">Satellites</h3>
-        <p style="color:var(--text-muted);max-width:420px">Lesson content coming soon.</p>
-      </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>6</span> Lesson 6 of 6 · D.1 Gravitational Fields</div>
+<div class="lc-title">Satellites: speeds and energies</div>
+<div class="lc-sub">Two speeds decide everything about a satellite's fate: the orbital speed that keeps it circling, and the escape speed that lets it leave forever. Between them sits the energy budget that tells you what it costs to raise, lower, or lose an orbit.</div>
+
+<div class="lc-card">
+  <h3>🚀 Hook – throwing something so hard it never comes back</h3>
+  <p>Throw a ball straight up and it always falls back down. Throw it faster, and it still falls back down — just from higher up. But there is one speed at which the ball stops falling back at all: it keeps moving away from Earth forever, slowing down but never quite stopping. <strong>That single critical speed is the escape speed, and every planet and moon has its own value.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-06-satellites-01.png" alt="Rocket launched from Earth's surface following an escape trajectory that curves away and never returns" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Below escape speed, a projectile's path curves back to Earth. At exactly the escape speed, it keeps receding forever, arriving at infinity with zero speed.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — does escape speed depend on the mass of the object being launched? <em>No. Both the kinetic energy needed and the kinetic energy available scale with mass \(m\) in exactly the same way, so \(m\) cancels out of the equation — a pebble and a spacecraft need the same escape speed from the same point.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🌌 Escape speed – enough kinetic energy to reach infinity</h3>
+  <p>For the sake of simplicity, this whole lesson assumes the planet is not rotating. In general, the kinetic energy given to a launched object is transferred to gravitational potential energy, and some is dissipated by air resistance. Assuming no air resistance, the <strong>escape speed</strong> \(v_{\text{esc}}\) of a mass \(m\) is the minimum speed needed to reach an infinite distance from a planet of mass \(M\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Kinetic energy needed = change in gravitational potential energy to infinity</span>
+    $$\tfrac{1}{2}mv_{\text{esc}}^{2} = 0-\left(-\frac{GMm}{r}\right)$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Escape speed</span>
+    $$v_{\text{esc}}=\sqrt{\frac{2GM}{r}}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-06-satellites-02.png" alt="Energy diagram showing kinetic energy at radius r converting to zero potential energy at infinity" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — All of the initial kinetic energy is used to raise the gravitational potential energy from \(-GMm/r\) up to zero at infinity.</div>
+  </div>
+  <div class="lc-info">📖 <strong>Escape speed</strong> — the minimum theoretical speed an object must be given to move to an infinite distance away from a planet (or moon, or star). This speed is the same regardless of the direction of travel, and assumes no other significant gravitational field (such as a moon) is nearby.</div>
+  <p>The equation assumes the mass starts with <em>zero</em> kinetic energy. A satellite already in a steady orbit has some kinetic energy to begin with, so it needs less <em>extra</em> energy to escape — see Changing orbits below.</p>
+  <div class="lc-info">🔗 <strong>Linking question</strong> — how is the amount of fuel required to launch rockets into space determined by considering energy?</div>
+</div>
+
+<div class="lc-card">
+  <h3>🛰️ Orbital speed – from Kepler's third law</h3>
+  <p>A satellite needs the correct <strong>orbital speed</strong> to maintain a circular orbit. From Kepler's third law:</p>
+  <div class="lc-formula">
+    $$\frac{r^{3}}{T^{2}}=\frac{GM}{4\pi^{2}}$$
+  </div>
+  <p>Replacing \(T\) with \(2\pi r/v\) gives \(\dfrac{r^{3}v^{2}}{4\pi^{2}r^{2}}=\dfrac{GM}{4\pi^{2}}\), which simplifies to:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Orbital speed</span>
+    $$v_{\text{orbital}}=\sqrt{\frac{GM}{r}}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-06-satellites-03.png" alt="Satellite in a circular orbit of radius r around a planet, with the gravitational force arrow supplying the centripetal force" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Gravitational attraction provides exactly the centripetal force needed for a circular orbit at radius \(r\); that condition fixes \(v_{\text{orbital}}\).</div>
+  </div>
+  <div class="lc-info">📖 <strong>Orbital speed</strong> — for a satellite in a circular orbit, its speed must have the correct value for the chosen radius: \(v_{\text{orbital}}=\sqrt{GM/r}\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ Energy of an orbiting satellite</h3>
+  <p>Gravitational potential energy of a satellite of mass \(m\) at distance \(r\) from a planet of mass \(M\):</p>
+  <div class="lc-formula">
+    $$E_{\text{p}}=-G\frac{Mm}{r}$$
+  </div>
+  <p>Total energy of an orbiting satellite is \(E_{\text{T}}=E_{\text{k}}+E_{\text{p}}=\tfrac12mv_{\text{orbital}}^{2}+\left(-\dfrac{GMm}{r}\right)\). Since \(v_{\text{orbital}}^{2}=GM/r\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Kinetic energy in a circular orbit</span>
+    $$E_{\text{k}}=\frac{1}{2}\frac{GMm}{r}$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Total energy in a circular orbit</span>
+    $$E_{\text{T}}=-\frac{1}{2}\frac{GMm}{r}$$
+  </div>
+  <div class="lc-formula">
+    $$E_{\text{T}}=\tfrac{1}{2}E_{\text{p}}=-E_{\text{k}}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-06-satellites-04.png" alt="Diagram of an orbiting satellite with three labelled energy arrows for kinetic, potential and total energy showing their fixed ratio" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — A satellite in a circular orbit always has negative \(E_{\text{p}}\) and negative \(E_{\text{T}}\): it does not have enough energy to escape the field.</div>
+  </div>
+  <p><strong>Putting a satellite into orbit</strong> needs energy to: increase the satellite's gravitational PE; increase the PE of the launch vehicle and fuel; give the satellite its orbital KE; overcome friction; and allow for thermal dissipation. The gravitational and kinetic energy the satellite ends up with is only a small percentage of the total energy transferred — <strong>launching a satellite is not an efficient process.</strong></p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery – energy and speed against orbital radius</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Kinetic energy vs distance</td><td>Distance \(r\) · \(E_{\text{k}}\) / J</td><td>Always positive; falls and flattens toward zero as \(r\) increases</td><td>\(E_{\text{k}}=\tfrac12GMm/r\) — never reaches zero, never negative</td></tr>
+      <tr><td>Potential and total energy vs distance</td><td>Distance \(r\) · Energy / J</td><td>Both negative; both curve upward toward (never reaching) zero as \(r\) increases</td><td>\(E_{\text{T}}\) sits exactly midway between the \(E_{\text{p}}\) and \(E_{\text{k}}\) curves at every \(r\), since \(E_{\text{T}}=\tfrac12E_{\text{p}}=-E_{\text{k}}\)</td></tr>
+      <tr><td>Orbital speed vs radius</td><td>Radius \(r\) · \(v_{\text{orbital}}\) / m s⁻¹</td><td>Decreasing curve, \(v\propto 1/\sqrt{r}\)</td><td>Higher orbits need lower orbital speed, never zero</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/d1-06-satellites-05.png" alt="Graph of kinetic, total and potential energy against distance from the planet, all three curves converging toward zero at large distance" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — Kinetic energy (positive), total energy and potential energy (both negative) plotted against distance; total energy always lies midway between the other two.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/d1-06-satellites-06.png" alt="Graph of orbital speed decreasing with increasing orbital radius, following an inverse square root curve" style="max-width:340px;width:100%"><div class="lc-cap">Fig 6 — Orbital speed falls off as \(1/\sqrt{r}\): satellites in low orbits move fastest.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example D1.14 – escape speed from Earth's surface</h3>
+  <p><strong>(a)</strong> Calculate the escape speed from the Earth's surface. <strong>(b)</strong> Outline why all masses have the same escape speed.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(v_{\text{esc}}=\sqrt{2GM/r}\) with \(r\) = the Earth's radius, launching from the surface.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(G=6.67\times10^{-11}\ \text{N m}^2\text{kg}^{-2}\), \(M_{\text{Earth}}=6.0\times10^{24}\ \text{kg}\), \(r=6.4\times10^{6}\ \text{m}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong><br>\(v_{\text{esc}}=\sqrt{\dfrac{2GM}{r}}\)<br>\(=\sqrt{\dfrac{2\times(6.67\times10^{-11})\times(6.0\times10^{24})}{6.4\times10^{6}}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(v_{\text{esc}}=1.1\times10^{4}\ \text{m s}^{-1}\) (about 11 km s⁻¹).<br><strong>(b)</strong> Doubling the mass needs double the gravitational PE gained, so it needs double the kinetic energy — which it has with double the mass at the same speed, since \(E_{\text{k}}\propto m\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-06-satellites-07.png" alt="Geometry for the Earth escape speed worked example showing the radius of the Earth labelled 6.4 times 10 to the 6 metres" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — Escape speed measured from the Earth's surface, radius \(r=6.4\times10^{6}\) m.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example D1.15 – orbital speed above the Moon</h3>
+  <p>What speed is required for a satellite to maintain a circular orbit 100 km above the Moon's surface? (Mass of Moon \(=7.35\times10^{22}\) kg, radius of Moon = 1737 km)</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(v_{\text{orbital}}=\sqrt{GM/r}\), where \(r\) is measured from the Moon's centre, not its surface.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(M_{\text{Moon}}=7.35\times10^{22}\) kg, \(r=1737+100=1837\ \text{km}=1.837\times10^{6}\ \text{m}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(v_{\text{orbital}}=\sqrt{\dfrac{GM}{r}}\)<br>\(=\sqrt{\dfrac{(6.67\times10^{-11})\times(7.35\times10^{22})}{1.837\times10^{6}}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(v_{\text{orbital}}=1.63\times10^{3}\ \text{m s}^{-1}\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-06-satellites-08.png" alt="Satellite orbiting 100 kilometres above the Moon's surface with the orbital radius measured from the Moon's centre" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 8 — Orbit 100 km above the Moon's surface; \(r\) is measured from the Moon's centre, giving \(r=1.837\times10^{6}\) m.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example D1.16 – the Moon's orbital period</h3>
+  <p>The average distance between the centre of the Moon and the centre of the Earth is \(3.84\times10^{8}\) m. The Earth has a mass of \(6.0\times10^{24}\) kg. Determine a value for the time for each orbit of the Moon around the Earth (assuming a circular path).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use Kepler's third law, \(r^{3}/T^{2}=GM/4\pi^{2}\), with \(M\) the Earth's mass.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(r=3.84\times10^{8}\) m, \(M_{\text{Earth}}=6.0\times10^{24}\) kg.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(\dfrac{r^{3}}{T^{2}}=\dfrac{GM}{4\pi^{2}}\)<br>\(\dfrac{(3.84\times10^{8})^{3}}{T^{2}}=\dfrac{(6.67\times10^{-11})(6.0\times10^{24})}{4\pi^{2}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(T=2.4\times10^{6}\ \text{s}\) (about 27 days).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-06-satellites-09.png" alt="Moon orbiting Earth in a circular path with orbital radius labelled 3.84 times 10 to the 8 metres" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 9 — The Moon's orbit around the Earth, \(r=3.84\times10^{8}\) m centre-to-centre.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example D1.17 – energies of a satellite orbiting Mars</h3>
+  <p>A 500 kg satellite is orbiting at a height of 300 km above the surface of Mars. Mass of Mars \(=6.4\times10^{23}\) kg. Radius of Mars \(=3.4\times10^{6}\) m. Determine the satellite's <strong>(a)</strong> gravitational potential energy <strong>(b)</strong> kinetic energy <strong>(c)</strong> total energy.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> \(r=3.4\times10^{6}+3.0\times10^{5}=3.7\times10^{6}\) m; use \(E_{\text{p}}=-GMm/r\), \(E_{\text{k}}=\tfrac12GMm/r\), \(E_{\text{T}}=-\tfrac12GMm/r\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(M_{\text{Mars}}=6.4\times10^{23}\) kg, \(m=500\) kg, \(r=3.7\times10^{6}\) m.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong><br>\(E_{\text{p}}=-\dfrac{GMm}{r}\)<br>\(=-\dfrac{(6.67\times10^{-11})(6.4\times10^{23})(500)}{3.7\times10^{6}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> <strong>(a)</strong> \(E_{\text{p}}=-6.3\times10^{9}\ \text{J}\). <strong>(b)</strong> \(E_{\text{k}}=+3.1\times10^{9}\ \text{J}\). <strong>(c)</strong> \(E_{\text{T}}=-3.1\times10^{9}\ \text{J}\), consistent with \(E_{\text{T}}=\tfrac12E_{\text{p}}=-E_{\text{k}}\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-06-satellites-10.png" alt="500 kilogram satellite orbiting 300 kilometres above Mars surface with three labelled energy arrows for potential, kinetic and total energy" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 10 — 500 kg satellite, 300 km above Mars, \(r=3.7\times10^{6}\) m from Mars's centre.</div>
+  </div>
+  <div class="lc-info">📊 <strong>Changing orbits</strong> — moving this satellite to an orbit 200 km higher gives \(E_{\text{p}}=-5.93\times10^{9}\ \text{J}\) (up ≈\(0.35\times10^{9}\) J), \(E_{\text{k}}=+2.96\times10^{9}\ \text{J}\) (down ≈\(0.17\times10^{9}\) J), \(E_{\text{T}}=-2.96\times10^{9}\ \text{J}\) (up ≈\(0.17\times10^{9}\) J). Less kinetic energy (slower orbital speed needed) but a bigger gain in potential energy — overall, energy must be <em>supplied</em> to raise an orbit.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: atmospheric drag and orbital decay</h3>
+    <p>Satellites in low orbits may experience very slight viscous drag from the outer atmosphere. This dissipates kinetic energy as thermal energy — but the satellite does not simply slow down. As it loses height, it drops into a lower orbit where the required orbital speed is <em>greater</em>. The loss of potential energy outweighs the loss to friction, so overall <strong>the satellite's speed increases</strong> even as it loses total energy, and increasing drag at lower altitude dissipates even more thermal energy. Left uncontrolled, it spirals towards Earth, burns up and disintegrates.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/lesson-images2/d1-06-satellites-11.png" alt="Satellite spiralling inward through several progressively lower and tighter orbits due to atmospheric drag" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 11 — Drag removes total energy at each pass, but the satellite ends up lower, faster, and hotter — not slower.</div>
+    </div>
+    <div class="lc-success">✓ Examiner tip: never write that drag "just slows the satellite down". State that drag removes total energy, the orbit radius decreases, and \(v_{\text{orbital}}=\sqrt{GM/r}\) is then <em>larger</em> at the new, smaller \(r\).</div>
+    <div class="lc-info">🔗 <strong>Linking question</strong> — how can air resistance be used to alter the motion of a satellite orbiting Earth? (Links to Topic A.2.)</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – the energy cost of escaping an existing orbit</h3>
+    <p>A satellite already circling at radius \(r\) has orbital kinetic energy \(E_{\text{k}}=\tfrac12GMm/r\). To escape, its total energy must rise from \(-\tfrac12GMm/r\) to zero, so:</p>
+    <div class="lc-formula">
+      $$\Delta E_{\text{k, extra}}=\frac{GMm}{r}-\frac{1}{2}\frac{GMm}{r}=\frac{1}{2}\frac{GMm}{r}$$
+    </div>
+    <p>This extra kinetic energy needed is exactly equal to the satellite's <em>existing</em> orbital kinetic energy — it must effectively double its kinetic energy to break free.</p>
+    <p><strong>Challenge:</strong> show that \(v_{\text{esc}}=\sqrt{2}\,v_{\text{orbital}}\) at the same radius \(r\). <em>Answer: \(v_{\text{esc}}=\sqrt{2GM/r}=\sqrt{2}\sqrt{GM/r}=\sqrt{2}\,v_{\text{orbital}}\) — a satellite must speed up by a factor of \(\sqrt{2}\) (about 41%) to escape from its own orbit.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Escape speed depends on the direction you launch in</td><td>With no air resistance, \(v_{\text{esc}}\) is exactly the same in every direction — only the distance \(r\) to the centre matters</td></tr>
+      <tr><td>A satellite already in orbit needs the full \(v_{\text{esc}}\) to escape</td><td>It already has orbital kinetic energy; the <em>extra</em> kinetic energy needed equals \(\tfrac12GMm/r\), i.e. exactly its existing orbital \(E_{\text{k}}\)</td></tr>
+      <tr><td>Air resistance always slows a satellite down</td><td>Drag removes total energy, but as the satellite drops to a lower orbit its required orbital speed increases — it ends up moving faster, not slower</td></tr>
+      <tr><td>Escape speed and orbital speed are the same thing</td><td>\(v_{\text{esc}}=\sqrt{2}\,v_{\text{orbital}}\) at the same \(r\) — escape speed is always the larger of the two</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: using the satellite's own mass \(m\) in place of the planet's mass \(M\) inside \(v_{\text{orbital}}=\sqrt{GM/r}\) or Kepler's third law — \(M\) is always the mass of the body being orbited, and the satellite's mass \(m\) cancels out of both speed equations entirely.</div>
+</div>
+
+<div class="lc-kp">
+  <span>v_esc = √(2GM/r)</span>
+  <span>v_orbital = √(GM/r)</span>
+  <span>v_esc = √2 · v_orbital</span>
+  <span>Ep = −GMm/r</span>
+  <span>Ek = ½GMm/r</span>
+  <span>ET = −½GMm/r</span>
+  <span>ET = ½Ep = −Ek</span>
+  <span>drag → lower, faster orbit</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which expression gives the escape speed from a planet of mass \(M\) at distance \(r\) from its centre?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','D')"><span class="lc-opt-l">A</span> \(\sqrt{GM/r}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','D')"><span class="lc-opt-l">B</span> \(GM/r^2\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','D')"><span class="lc-opt-l">C</span> \(GMm/r\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','D')"><span class="lc-opt-l">D</span> \(\sqrt{2GM/r}\)</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A satellite is already in a circular orbit of radius \(r\). The extra kinetic energy it needs to escape the planet's gravity is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> \(GMm/r\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> equal to its existing orbital kinetic energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> zero — it already has enough energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> twice its existing orbital kinetic energy</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A satellite in a low orbit experiences a small amount of atmospheric drag. As a result, its</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> height increases and speed decreases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> height and speed both decrease</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> height decreases but speed increases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> height and speed both stay constant</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. For a satellite in a circular orbit, which relationship between total energy \(E_{\text{T}}\), kinetic energy \(E_{\text{k}}\) and potential energy \(E_{\text{p}}\) is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> \(E_{\text{T}}=E_{\text{k}}+2E_{\text{p}}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> \(E_{\text{T}}=\tfrac12E_{\text{p}}=-E_{\text{k}}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> \(E_{\text{T}}=E_{\text{p}}=E_{\text{k}}\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> \(E_{\text{T}}\) is always positive</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A satellite is moved from a low circular orbit to a higher one. Compared with the low orbit, in the high orbit it has</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','A')"><span class="lc-opt-l">A</span> less kinetic energy and more potential energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','A')"><span class="lc-opt-l">B</span> more kinetic energy and more potential energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','A')"><span class="lc-opt-l">C</span> less kinetic energy and less potential energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','A')"><span class="lc-opt-l">D</span> the same kinetic energy but more potential energy</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Escape speed is given by \(v_{\text{esc}}=\sqrt{2GM/r}\) and is independent of the object's <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px">. Orbital speed is given by \(v_{\text{orbital}}=\sqrt{GM/r}\), derived from Kepler's <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> law. A satellite's gravitational potential energy in orbit is always <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px">, while its kinetic energy is always positive. For a circular orbit, total energy equals <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px"> its potential energy. Atmospheric drag causes an orbiting satellite to spiral to a <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:100px"> altitude while its speed <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:100px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q42.</strong> (a) Explain what you think 'burn up' means for a satellite re-entering the atmosphere. (b) Research an occasion when a satellite actually crashed on the Earth's surface and find out what happened. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) As drag increases at lower altitude, kinetic energy is dissipated as thermal energy so rapidly that the satellite's material heats up, melts and vaporises — it disintegrates rather than reaching the ground intact.<br>✓ (b) Research task — no single fixed answer; look for a documented uncontrolled re-entry (e.g. a defunct satellite or rocket stage) and summarise the debris outcome.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q43.</strong> A typical air molecule travels at 450 m s⁻¹ at room temperature. Explain why the Earth's atmosphere does not spread out into space away from the planet. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ 450 m s⁻¹ is far below Earth's escape speed of about \(1.1\times10^{4}\ \text{m s}^{-1}\).<br>✓ Since air molecules cannot reach escape speed, gravity keeps pulling them back and the atmosphere stays bound to the planet.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q44.</strong> A satellite of mass 820 kg is orbiting at a height of 320 km above the Earth's surface. Calculate (a) its gravitational potential energy (b) its kinetic energy (c) its total energy (Earth's radius \(=6.4\times10^{6}\) m, Earth's mass \(=6.0\times10^{24}\) kg) (d) the speed it would need to escape from the Earth. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(r=6.4\times10^{6}+3.2\times10^{5}=6.72\times10^{6}\) m.<br>✓ (a) \(E_{\text{p}}=-GMm/r=-(6.67\times10^{-11})(6.0\times10^{24})(820)/(6.72\times10^{6})=-4.9\times10^{10}\) J.<br>✓ (b) \(E_{\text{k}}=\tfrac12GMm/r=+2.4\times10^{10}\) J.<br>✓ (c) \(E_{\text{T}}=-\tfrac12GMm/r=-2.4\times10^{10}\) J.<br>✓ (d) \(v_{\text{esc}}=\sqrt{2GM/r}=\sqrt{2\times(6.67\times10^{-11})(6.0\times10^{24})/(6.72\times10^{6})}\)<br>✓ \(v_{\text{esc}}\approx1.1\times10^{4}\ \text{m s}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q45.</strong> (a) A 300 kg satellite is in orbit around the Moon at an altitude of 60 km. Calculate how much extra energy it needs to escape from the Moon (Mass of Moon \(=7.3\times10^{22}\) kg, radius of Moon \(=1.7\times10^{6}\) m). (b) State any assumptions you made in answering (a). <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(r=1.7\times10^{6}+6.0\times10^{4}=1.76\times10^{6}\) m.<br>✓ Extra energy needed \(=\tfrac12GMm/r=\tfrac12(6.67\times10^{-11})(7.3\times10^{22})(300)/(1.76\times10^{6})\)<br>✓ \(\approx4.2\times10^{8}\) J (equal to its existing orbital kinetic energy).<br>✓ (b) Assumed a circular orbit, no other significant gravitational field (e.g. Earth's) nearby, and no losses to any atmosphere (the Moon effectively has none).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Outline</div>
+  <div class="lc-exam-q"><strong>Q46.</strong> (a) Determine a value for the escape velocity from the surface of the planet Mars (Mass of Mars \(=6.4\times10^{23}\) kg, radius of Mars \(=3.4\times10^{6}\) m). (b) Outline why this escape speed is less than the escape speed from Earth. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(v_{\text{esc}}=\sqrt{2GM/r}=\sqrt{2(6.67\times10^{-11})(6.4\times10^{23})/(3.4\times10^{6})}\approx5.0\times10^{3}\ \text{m s}^{-1}\).<br>✓ (b) Mars has a much smaller mass than Earth, and \(v_{\text{esc}}\propto\sqrt{M/r}\) — the smaller \(M\) more than outweighs Mars's smaller radius, giving a lower escape speed.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Calculate</div>
+  <div class="lc-exam-q"><strong>Q47.</strong> A satellite in a geosynchronised orbit has a time period of 24 hours. (a) Determine the radius of this orbit. (b) Calculate the orbital speed of the satellite. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(T=24\times3600=8.64\times10^{4}\) s. From \(r^{3}/T^{2}=GM/4\pi^{2}\) with \(M_{\text{Earth}}=6.0\times10^{24}\) kg:<br>✓ \(r^{3}=(6.67\times10^{-11})(6.0\times10^{24})(8.64\times10^{4})^{2}/4\pi^{2}\), giving \(r\approx4.2\times10^{7}\) m.<br>✓ (b) \(v_{\text{orbital}}=2\pi r/T\approx3.1\times10^{3}\ \text{m s}^{-1}\) (equivalently \(\sqrt{GM/r}\)).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q48.</strong> What happens to the total energy of a satellite in a circular orbit if it encounters some air resistance, moves to a lower orbit, but gains speed? Explain your answer. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The total energy decreases (becomes more negative) — \(E_{\text{T}}=-\tfrac12GMm/r\) becomes more negative as \(r\) decreases.<br>✓ Drag dissipates energy as heat, removing energy from the orbit overall.<br>✓ Despite this loss, kinetic energy increases at the smaller \(r\) because potential energy falls by even more, so the satellite speeds up even as its total energy drops.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Suggest</div>
+  <div class="lc-exam-q"><strong>Q49.</strong> (a) Suggest what effect the spin of the Earth will have on the escape speed. (b) Suggest why satellite launch sites are often close to the equator. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) A rocket launched in the direction of Earth's rotation already has some speed from the spin, so the additional speed needed from the rocket engines is reduced.<br>✓ (b) Points on the equator move fastest due to Earth's rotation (largest radius from the spin axis), so a launch eastward from the equator gives the largest 'free' boost to orbital or escape speed, saving fuel.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw</div>
+  <div class="lc-exam-q"><strong>Q50.</strong> Draw a Sankey diagram to represent the energy flows as a satellite is launched from the surface of the Earth and then enters an orbit. Assume that the whole process is very inefficient. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ A single wide input arrow (chemical/fuel energy) split into several much narrower output arrows.<br>✓ The two narrowest arrows are the satellite's final gravitational PE and orbital KE — together only a small percentage of the input.<br>✓ The widest output arrows are wasted thermal energy (friction, exhaust heat) and the PE/KE given to the discarded launch vehicle and unused fuel.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Calculate</div>
+  <div class="lc-exam-q"><strong>Q51.</strong> Titania is a moon of the planet Uranus. It orbits at an average distance of \(4\times10^{8}\) m from the centre of Uranus. The planet has a mass of \(8.7\times10^{25}\) kg. (a) Determine the time period (Earth days) of Titania's orbit. (b) Calculate its average orbital speed. (c) Calculate the strength of the gravitational field of Uranus at the height of Titania. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(T^{2}=4\pi^{2}r^{3}/GM=4\pi^{2}(4\times10^{8})^{3}/[(6.67\times10^{-11})(8.7\times10^{25})]\)<br>✓ \(T\approx7.5\times10^{5}\ \text{s}\approx8.7\) days.<br>✓ (b) \(v_{\text{orbital}}=\sqrt{GM/r}=\sqrt{(6.67\times10^{-11})(8.7\times10^{25})/(4\times10^{8})}\approx3.8\times10^{3}\ \text{m s}^{-1}\).<br>✓ (c) \(g=GM/r^{2}=(6.67\times10^{-11})(8.7\times10^{25})/(4\times10^{8})^{2}\approx3.6\times10^{-2}\ \text{N kg}^{-1}\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔎 ATL D1B – research skills</h3>
+  <p>Use the internet to find the latest progress on space launch systems that intend to propel spinning rockets upwards from the Earth's surface by giving them a large amount of kinetic energy at ground level. After the rocket has significantly slowed down and reached an altitude of about 60 km, the engines are ignited for the rest of the trip into orbit.</p>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { D: 'Escape speed comes from equating kinetic energy to the full gravitational PE change to infinity: v_esc = sqrt(2GM/r).' },
+    mcq2: { B: 'A satellite already has orbital KE = (1/2)GMm/r. Reaching zero total energy needs a further (1/2)GMm/r - exactly its existing orbital KE.' },
+    mcq3: { C: 'Drag removes total energy, but the satellite drops to a lower orbit where v_orbital = sqrt(GM/r) is larger - height falls, speed rises.' },
+    mcq4: { B: 'For any circular orbit, E_T = (1/2)E_p = -E_k always holds.' },
+    mcq5: { A: 'Raising the orbit needs a slower orbital speed (less Ek) but more gravitational PE (less negative Ep) - so Ek falls and Ep rises.' }
+  },
+  fitb: { lf1:'mass', lf2:'third', lf3:'negative', lf4:'half', lf5:'lower', lf6:'increases' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
