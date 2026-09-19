@@ -508,6 +508,10 @@ window.PHYQ_TOPICS = [
    {
     "f": "05-kepler-s-laws.html",
     "t": "Kepler's Laws"
+   },
+   {
+    "f": "06-satellites.html",
+    "t": "Satellites"
    }
   ]
  },
