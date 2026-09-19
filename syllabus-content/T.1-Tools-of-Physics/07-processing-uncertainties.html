@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Processing Uncertainties — T.1 Tools of Physics — φQ Physics</title>
+<link rel="stylesheet" href="../../shared/theme.css">
+<link rel="stylesheet" href="../../shared/lesson-content.css">
+<style>
+.lesson-hero{background:linear-gradient(135deg,var(--surface) 0%,var(--bg) 100%);border-bottom:1px solid var(--border);padding:2.5rem 0 2rem}
+.breadcrumb{display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;flex-wrap:wrap}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;transition:var(--t)}
+.breadcrumb a:hover{color:var(--accent);opacity:1}
+.breadcrumb-sep{color:var(--text-dim)}
+.lesson-layout{display:grid;grid-template-columns:240px 1fr;gap:2rem;align-items:start;margin-top:2.5rem}
+@media(max-width:768px){.lesson-layout{grid-template-columns:1fr}}
+.lesson-sidebar{position:sticky;top:calc(var(--nav-h) + 1.5rem);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem}
+.sidebar-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:0.75rem}
+.sidebar-link{display:flex;align-items:center;gap:0.6rem;padding:0.5rem 0.6rem;border-radius:8px;font-size:0.85rem;color:var(--text-muted);text-decoration:none;transition:var(--t);margin-bottom:0.15rem}
+.sidebar-link:hover{background:var(--accent-dim);color:var(--accent);opacity:1}
+.sidebar-link.active{background:var(--accent-dim);color:var(--accent);font-weight:600}
+.sidebar-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;background:var(--surface2);color:var(--text-dim)}
+.sidebar-link.active .sidebar-num{background:var(--accent);color:#fff}
+.lesson-content{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);min-height:500px}
+.lesson-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.lesson-nav-btn{display:flex;align-items:center;gap:0.75rem;padding:0.9rem 1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);text-decoration:none;transition:var(--t);max-width:280px;min-width:160px}
+.lesson-nav-btn:hover{border-color:var(--border-2);box-shadow:var(--glow-sm);opacity:1}
+.nav-btn-dir{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted)}
+.nav-btn-label{font-size:0.88rem;font-weight:600;color:var(--text)}
+</style>
+<script src="../../shared/lesson-quiz.js"></script>
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<script src="../../shared/nav.js"></script>
+
+<div class="lesson-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html">Topics</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../topics.html#T1">T.1 Tools of Physics</a>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--text)">Processing Uncertainties</span>
+    </nav>
+    <div style="display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
+          <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#F87171;background:#F8717118;padding:0.2rem 0.6rem;border-radius:6px">T.1</span>
+          <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 7 of 9</span>
+        </div>
+        <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Processing Uncertainties</h1>
+        <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">Tools of Physics</strong> · Unit T — IB Physics 2023</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top:0;padding-bottom:3rem">
+  <div class="lesson-layout">
+    <aside class="lesson-sidebar">
+      <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);text-decoration:none;margin-bottom:1rem;transition:var(--t)" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">← Back to T.1 overview</a>
+      <div class="sidebar-title">T.1 Concepts</div>
+      <a href="01-applying-general-mathematics-in-physics.html" class="sidebar-link"><span class="sidebar-num">01</span><span>Applying General Mathematics in Physics</span></a>
+      <a href="02-scalar-and-vector-quantities.html" class="sidebar-link"><span class="sidebar-num">02</span><span>Scalar &amp; Vector Quantities</span></a>
+      <a href="03-combining-and-resolving-vectors.html" class="sidebar-link"><span class="sidebar-num">03</span><span>Combining &amp; Resolving Vectors</span></a>
+      <a href="04-scale-diagrams.html" class="sidebar-link"><span class="sidebar-num">04</span><span>Scale Diagrams</span></a>
+      <a href="05-fundamental-and-derived-units-in-physics.html" class="sidebar-link"><span class="sidebar-num">05</span><span>Fundamental &amp; Derived Units in Physics</span></a>
+      <a href="06-using-dimensional-analysis.html" class="sidebar-link"><span class="sidebar-num">06</span><span>Using Dimensional Analysis</span></a>
+      <a href="07-processing-uncertainties.html" class="sidebar-link active"><span class="sidebar-num">07</span><span>Processing Uncertainties</span></a>
+      <a href="08-graphing-in-physics.html" class="sidebar-link"><span class="sidebar-num">08</span><span>Graphing in Physics</span></a>
+      <a href="09-determining-uncertainties-from-graphs.html" class="sidebar-link"><span class="sidebar-num">09</span><span>Determining Uncertainties from Graphs</span></a>
+    </aside>
+
+    <main>
+      <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>7</span> Lesson 7 of 9 · T.1 Tools of Physics</div>
+<div class="lc-title">Processing Uncertainties</div>
+<div class="lc-sub">Every reading you take carries a range of possible true values. This lesson shows how to state that range, carry it through a calculation, and round the final answer so it matches.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the meter that never quite agrees with itself</h3>
+  <p>Read a moving-coil ammeter twice and the needle rarely settles on exactly the same mark. Read a digital multimeter twice and the last digit sometimes flickers between two values. Neither meter is broken — <strong>every measurement has an uncertainty</strong>, a range around the reading within which the true value is expected to lie.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/t1-07-processing-uncertainties-01.png" alt="Analogue milliammeter dial with the needle resting between the 1 and 2 mA marks, at 1.6 mA">
+    <div class="lc-cap">Fig 1 — The needle sits at 1.6 mA, but it could reasonably be read as anywhere within half a scale division either side of that mark.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — two students measure the same wire with the same metre rule. One writes "L = 12 cm". The other writes "L = 12.0 ± 0.1 cm". Which one has actually reported a measurement? <em>Only the second. A number with no uncertainty tells you nothing about how far the true value could lie from 12 cm — it could really be 11 cm or 13 cm. Quoting ± 0.1 cm tells you the true length is expected to lie between 11.9 and 12.1 cm.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📖 What is uncertainty?</h3>
+  <p><strong>Uncertainty</strong> is a quantitative indication of the quality of a result. It is a range of values around a measurement within which the true value is expected to lie, and is an estimate. It is <em>not</em> the same thing as an error: an <strong>error</strong> arises from the equipment or the technique used and is the actual difference between the reading taken and the true value, whereas the uncertainty is the range you assign around a reading to allow for that possibility. Uncertainties in measurements are recorded as a range (±) to an appropriate level of precision.</p>
+  <table class="lc-table">
+    <thead><tr><th>Uncertainty…</th><th>…is taken as</th></tr></thead>
+    <tbody>
+      <tr><td>in a reading</td><td>± half the smallest scale division</td></tr>
+      <tr><td>in a measurement</td><td>at least ± 1 smallest division</td></tr>
+      <tr><td>in repeated data</td><td>half the range, i.e. ± ½ (largest − smallest value)</td></tr>
+      <tr><td>in a digital reading</td><td>± the last significant digit (unless otherwise quoted)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="lc-card">
+  <h3>🔢 Absolute, fractional and percentage uncertainty</h3>
+  <p>Uncertainty is expressed in one of three forms. Take \(L = 5.0 \pm 0.1\) cm as the running example:</p>
+  <div class="lc-formula"><span class="lc-formula-label">Absolute uncertainty — the actual amount by which the measurement is uncertain</span>$$\Delta L = \pm 0.1\ \text{cm}$$</div>
+  <div class="lc-formula"><span class="lc-formula-label">Fractional uncertainty — the uncertainty expressed as a fraction of the measurement</span>$$\frac{\Delta L}{L} = \frac{0.1}{5.0} = \pm 0.02$$</div>
+  <div class="lc-formula"><span class="lc-formula-label">Percentage uncertainty — the uncertainty expressed as a percentage</span>$$\frac{\Delta L}{L}\times100 = \pm2\%$$</div>
+  <p>In general:</p>
+  <div class="lc-formula">$$\%\ \text{uncertainty} = \frac{\text{uncertainty}}{\text{measured value}}\times100\%$$</div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – reading an analogue meter</h3>
+  <p>An analogue milliammeter is read as 1.6 mA. The smallest scale division is 0.2 mA. State the absolute, fractional and percentage uncertainty in this reading.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the uncertainty in a reading is ± half the smallest scale division.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> smallest division \(= 0.2\) mA, so absolute uncertainty \(= 0.2/2 = 0.1\) mA. Reading \(= 1.6 \pm 0.1\) mA.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> fractional uncertainty \(= \dfrac{0.1}{1.6} = \dfrac{1}{16}\).<br>percentage uncertainty \(= \dfrac{0.1}{1.6}\times100 = 6.2\%\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> Reading \(= 1.6\ \text{mA} \pm \tfrac{1}{16}\), or equivalently \(1.6\ \text{mA} \pm 6\%\) (rounded from 6.2%).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>⚖️ Propagating uncertainties in processed data</h3>
+  <p>Uncertainty propagates through a calculation differently depending on the operation involved.</p>
+  <table class="lc-table">
+    <thead><tr><th>Operation</th><th>Example</th><th>Propagation rule</th></tr></thead>
+    <tbody>
+      <tr><td>Addition &amp; subtraction</td><td>\(y = a \pm b\)</td><td>\(\Delta y = \Delta a + \Delta b\) — the sum of the absolute uncertainties</td></tr>
+      <tr><td>Multiplication &amp; division</td><td>\(y = ab\) or \(y = a/b\)</td><td>\(\dfrac{\Delta y}{y} = \dfrac{\Delta a}{a} + \dfrac{\Delta b}{b}\) — the sum of the fractional uncertainties</td></tr>
+      <tr><td>Power</td><td>\(y = a^{n}\)</td><td>\(\dfrac{\Delta y}{y} = n\left(\dfrac{\Delta a}{a}\right)\) — \(n\) times the fractional uncertainty</td></tr>
+    </tbody>
+  </table>
+  <p>In short: adding or subtracting measurements → add the absolute uncertainties. Multiplying or dividing measurements → add the percentage (or fractional) uncertainties. Measurements raised to a power → multiply the percentage uncertainty by the power.</p>
+  <div class="lc-info">🔗 The uncertainty in a constant, such as \(\pi\), is taken to be zero. Uncertainties in trigonometric and logarithmic functions are not tested in the IB exam.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📊 Seeing uncertainty in a set of readings</h3>
+  <p>A single number ± its uncertainty is hard to picture — plotting the readings makes the spread visible.</p>
+  <table class="lc-table">
+    <thead><tr><th>Display</th><th>What's plotted</th><th>Shows</th><th>How to read it</th></tr></thead>
+    <tbody>
+      <tr><td>Dot / scatter plot of trials</td><td>Each individual reading, on a number line</td><td>How far the readings spread either side of the mean</td><td>Half the range (largest − smallest) gives the uncertainty</td></tr>
+      <tr><td>Bar chart with error bars</td><td>The mean of each trial, with bar height = ± absolute uncertainty</td><td>The size of the reading uncertainty relative to the value</td><td>A visually shorter error bar for the same absolute uncertainty means a smaller % uncertainty</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/t1-07-processing-uncertainties-02.png" alt="Number line with five length readings scattered around a mean value, with a bracket showing the range"><div class="lc-cap">Fig 2 — Five repeated length readings on a number line. The bracket marks the range; half of it is the uncertainty in the mean.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/t1-07-processing-uncertainties-03.png" alt="Bar chart of four current readings, each bar topped with a vertical error bar"><div class="lc-cap">Fig 3 — Four current readings as a bar chart. Each error bar shows the ± 0.1 mA reading uncertainty.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – percentage uncertainty in a mean value</h3>
+  <p>A student obtains the following results in an experiment to determine the angular frequency \(\omega\) of a rotating disc. Calculate the percentage uncertainty in the mean value of \(\omega\).</p>
+  <table class="lc-table">
+    <thead><tr><th>Reading</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
+    <tbody><tr><td>\(\omega\) / rad s⁻¹</td><td>0.154</td><td>0.153</td><td>0.159</td><td>0.147</td><td>0.152</td></tr></tbody>
+  </table>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> uncertainty in repeated data is ± half the range; then \(\%\ \text{unc} = (\text{uncertainty}/\text{value})\times100\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> mean \(\omega = \dfrac{0.154+0.153+0.159+0.147+0.152}{5} = 0.153\ \text{rad s}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> uncertainty in \(\omega = \tfrac12\times(0.159-0.147) = \pm0.006\ \text{rad s}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\%\ \text{unc} = \dfrac{0.006}{0.153}\times100 = 3.92\% \approx 4\%\) (1 s.f.). So \(\omega = 0.153\ \text{rad s}^{-1} \pm 4\%\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/t1-07-processing-uncertainties-04.png" alt="Number line showing the five angular frequency readings, with the mean marked and a bracket showing the range between 0.147 and 0.159">
+    <div class="lc-cap">Fig 4 — The five \(\omega\) readings. The range runs from 0.147 to 0.159 rad s⁻¹, so half of it — 0.006 rad s⁻¹ — is the uncertainty in the mean.</div>
+  </div>
+  <div class="lc-info">🔍 The percentage uncertainty here can safely be rounded to 1 s.f. Working backwards, the absolute uncertainty implied by 4% is \(0.153\times0.04 = 0.00612\ \text{rad s}^{-1}\), which itself rounds to 0.006 rad s⁻¹ to 1 s.f. — exactly the value calculated directly, so no information is lost by the rounding.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔬 Uncertainties and significant figures</h3>
+  <p>Measurements and processed uncertainties must be expressed to an appropriate number of significant figures, because the number of significant figures indicates how precise a measurement is.</p>
+  <p><strong>In an uncertainty:</strong> absolute, fractional and percentage uncertainties should usually be quoted to one significant figure. For example, for \(7.4 \pm 0.2\), the percentage uncertainty is \(\pm2.703\%\), so this is quoted as \(\pm3\%\) (1 s.f.). The main exception is when the first digit is 1 — then the uncertainty can be quoted to two significant figures. For example, for \(36.4652 \pm 5\%\), the absolute uncertainty is \(\pm1.82326\), so this is quoted as \(\pm1.8\) (2 s.f.).</p>
+  <p><strong>In a quantity:</strong> the number of significant figures must match the precision of the absolute uncertainty — the quantity and its uncertainty are quoted to the same number of decimal places, and a final calculated value is rounded so its least significant digit aligns with the uncertainty's place value. For example, \(36.4652 \pm 5\%\) is finally quoted as \(36.5 \pm 1.8\).</p>
+  <p><strong>In raw data:</strong> the number of significant figures should be consistent with the resolution of the measuring instrument.</p>
+  <table class="lc-table">
+    <thead><tr><th>Instrument</th><th>Resolution</th><th>Example reading</th></tr></thead>
+    <tbody>
+      <tr><td>Metre rule</td><td>± 1 mm</td><td>15 ± 1 mm</td></tr>
+      <tr><td>Vernier callipers</td><td>± 0.1 mm</td><td>15.4 ± 0.1 mm</td></tr>
+      <tr><td>Micrometer screw gauge</td><td>± 0.01 mm</td><td>15.42 ± 0.01 mm</td></tr>
+    </tbody>
+  </table>
+  <p><strong>In processed data:</strong> calculated values should have no more significant figures than the least precise measurement. For example, for the raw data 5.11, 5.14, 5.12, 5.10, the mean value is 5.1175, which should be quoted to 3 significant figures, i.e. 5.12.</p>
+  <div class="lc-success">✓ Examiner tip: absolute uncertainties (\(\Delta\)) carry the same units as the quantity; fractional and percentage uncertainties have no units. The uncertainty in a constant such as \(\pi\) is always taken to be zero.</div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: why manufacturers publish a tolerance, not a number</h3>
+    <p>A resistor labelled "10 Ω ± 5%" tells you far more than "10 Ω" alone: it tells you the actual resistance of any resistor from that batch lies between 9.5 Ω and 10.5 Ω. Engineers, and IB examiners, routinely need to decide whether two measured values are genuinely different or whether they simply overlap once their uncertainty ranges are taken into account.</p>
+    <div class="lc-success">✓ Examiner tip: when a question asks you to compare two results, check whether their uncertainty ranges overlap. If they do, you cannot claim the results are different — say so explicitly.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – propagating uncertainty through a multi-step formula</h3>
+    <p>Real formulas often combine several operations at once — for example \(g = 4\pi^2 L / T^2\) for a simple pendulum. Since \(\pi\) is a constant, its uncertainty is zero, so \(4\pi^2\) is treated as an exact number; only \(L\) and \(T\) contribute uncertainty, and \(T\) enters as \(T^2\), so its percentage uncertainty is doubled by the power rule before the division rule combines it with \(L\)'s.</p>
+    <p><strong>Challenge:</strong> if \(L = 1.000 \pm 0.005\) m (0.5%) and \(T = 2.01 \pm 0.02\) s (1.0%), find the percentage uncertainty in \(g\). <em>\(\%\ \text{unc}(g) = \%\ \text{unc}(L) + 2\times\%\ \text{unc}(T) = 0.5\% + 2(1.0\%) = 2.5\%\).</em></p>
+  </div>
+</div>
+
+<div class="lc-kp">
+  <span>uncertainty = estimated range</span>
+  <span>reading unc. = ½ smallest division</span>
+  <span>%unc = Δx/x × 100</span>
+  <span>add/sub → sum absolute unc.</span>
+  <span>×, ÷ → sum fractional/% unc.</span>
+  <span>power n → multiply %unc by n</span>
+  <span>quote to 1 s.f. (2 s.f. if leading digit is 1)</span>
+  <span>Δ(constant) = 0</span>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Uncertainty and error mean the same thing</td><td>Error is the actual difference between a reading and the true value, caused by equipment or technique; uncertainty is the estimated range assigned around a reading to allow for that</td></tr>
+      <tr><td>A longer decimal answer from a calculator is more accurate</td><td>The significant figures in the final answer must match the precision of the absolute uncertainty — extra calculator digits carry no real information</td></tr>
+      <tr><td>Uncertainties should be quoted to as many significant figures as convenient</td><td>Quote uncertainties to 1 s.f., unless the leading digit is 1, in which case 2 s.f. is allowed</td></tr>
+      <tr><td>Percentage uncertainties can be added directly for a sum or difference</td><td>Percentage/fractional uncertainties are only added for multiplication and division; for addition and subtraction, add the absolute uncertainties</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common exam slip: forgetting the power \(n\) when propagating through \(y = a^n\). The rule is \(\Delta y/y = n\times(\Delta a/a)\) — the fractional uncertainty must be multiplied by the power, not just copied across.</div>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. A length is measured as \(L = 8.0 \pm 0.2\) cm. What is the percentage uncertainty in \(L\)?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> 0.4%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> 2.5%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> 4%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> 40%</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. A derived quantity is found from the product \(R_1 R_2\). \(R_1\) has a percentage uncertainty of 3% and \(R_2\) has 4%. What is the percentage uncertainty in the product?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','D')"><span class="lc-opt-l">A</span> 1%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','D')"><span class="lc-opt-l">B</span> 3%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','D')"><span class="lc-opt-l">C</span> 4%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','D')"><span class="lc-opt-l">D</span> 7%</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. A quantity \(y = a^{3}\), where \(a\) has a percentage uncertainty of 2%. What is the percentage uncertainty in \(y\)?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> 2%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> 3%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> 6%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> 8%</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. Two lengths are added: \(x = 5.0 \pm 0.1\) cm and \(y = 3.0 \pm 0.2\) cm. What is the absolute uncertainty in \(x + y\)?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 0.1 cm</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> 0.2 cm</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> 0.3 cm</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> 0.02 cm</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. A calculation gives a percentage uncertainty of 2.703%. How should it be quoted?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> 2.7%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> 3%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> 2.703%</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> 2.70%</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq6">
+  <div class="lc-mcq-q">6. A vernier calliper has a resolution of ± 0.1 mm. A reading of 15.4 mm should be quoted as</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','B')"><span class="lc-opt-l">A</span> 15 ± 1 mm</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','B')"><span class="lc-opt-l">B</span> 15.4 ± 0.1 mm</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','B')"><span class="lc-opt-l">C</span> 15.40 ± 0.01 mm</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','B')"><span class="lc-opt-l">D</span> 15.400 mm</div>
+  </div>
+  <div class="lc-fb" id="mcq6-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Uncertainty is a quantitative indication of the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> of a result, and is not the same thing as an <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px">. The uncertainty in a single reading is normally taken as ± half the smallest <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> on the scale. For repeated data, the uncertainty is taken as half the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px"> of the values. When quantities are added or subtracted, add the <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px"> uncertainties; when they are multiplied or divided, add the <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px"> (or percentage) uncertainties. For a quantity raised to a power \(n\), the percentage uncertainty is multiplied by <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:60px">. Uncertainties are normally quoted to <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:90px"> significant figure.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> A student measures the diameter of a wire as \(d = 0.42 \pm 0.02\) mm. Calculate the percentage uncertainty in \(d\). <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\%\ \text{unc} = (0.02/0.42)\times100 = 4.76\%\).<br>✓ Quoted to 1 s.f.: \(\approx5\%\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> The current through a resistor is \(I = 2.0\) A with a percentage uncertainty of 3%, and the potential difference across it is \(V = 12.0\) V with a percentage uncertainty of 2%. Calculate the percentage uncertainty in the resistance \(R = V/I\). <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Division → add the percentage uncertainties.<br>✓ \(\%\ \text{unc}(R) = 3\% + 2\% = 5\%\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> The radius of a circle is measured as \(r = 4.20 \pm 0.05\) cm. Determine the percentage uncertainty in the area \(A = \pi r^2\). <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\%\ \text{unc}(r) = (0.05/4.20)\times100 = 1.19\%\).<br>✓ Power rule, \(n=2\): \(\%\ \text{unc}(A) = 2\times1.19\% = 2.38\% \approx 2\%\) (1 s.f.).<br>✓ \(\pi\) is a constant, so it contributes zero uncertainty.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> A calculation gives a result of 42.183 with a percentage uncertainty of 6.19%. State the result and its uncertainty to an appropriate number of significant figures. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Percentage uncertainty rounds to 6% (1 s.f.); absolute uncertainty \(= 42.183\times0.06 = 2.53 \approx 3\) (1 s.f., leading digit is not 1).<br>✓ Result \(= 42 \pm 3\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> Explain why a measurement made with a micrometer screw gauge is normally quoted to more decimal places than the same measurement made with a metre rule. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The number of significant figures in raw data should match the resolution of the measuring instrument.<br>✓ A micrometer has a much finer resolution (± 0.01 mm) than a metre rule (± 1 mm), so its readings are quoted to more decimal places.</div>
+</div>
+
+<div class="lc-score-row"><div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div></div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: '%unc = (0.2/8.0) x 100 = 2.5%.' },
+    mcq2: { D: 'Multiplication -> add the percentage uncertainties: 3% + 4% = 7%.' },
+    mcq3: { C: 'Power rule: %unc(y) = n x %unc(a) = 3 x 2% = 6%.' },
+    mcq4: { C: 'Addition -> add the absolute uncertainties: 0.1 + 0.2 = 0.3 cm.' },
+    mcq5: { B: 'Uncertainties are quoted to 1 s.f. unless the leading digit is 1: 2.703% rounds to 3%.' },
+    mcq6: { B: 'Raw data should match the instrument resolution: 15.4 +/- 0.1 mm for a +/-0.1 mm vernier calliper.' }
+  },
+  fitb: { lf1:'quality', lf2:'error', lf3:'division', lf4:'range', lf5:'absolute', lf6:'fractional', lf7:'n', lf8:'one' }
+});
+</script>
+</div>
+<!-- LESSON-END -->
+      </div>
+
+      <div class="lesson-nav">
+        <a href="06-using-dimensional-analysis.html" class="lesson-nav-btn">
+          <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
+          <div><div class="nav-btn-dir">Previous</div><div class="nav-btn-label">Using Dimensional Analysis</div></div>
+        </a>
+        <a href="08-graphing-in-physics.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+          <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
+          <div><div class="nav-btn-dir">Next</div><div class="nav-btn-label">Graphing in Physics</div></div>
+        </a>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>
