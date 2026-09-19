@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -175,29 +176,301 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Series and Parallel Circuits</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B5" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
-      <!-- LESSON-END -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 7 · B.5 Current and Circuits</div>
+<div class="lc-title">Series and Parallel Circuits</div>
+<div class="lc-sub">Two rules for how current and voltage share themselves out — one for components strung one after another, one for components wired side by side. Almost every circuit you'll meet is built from these two patterns.</div>
+
+<div class="lc-card">
+  <h3>🎄 Hook – the string of lights that all go dark together</h3>
+  <p>Old-style decorative light strings are wired in series: if one bulb blows, the current path is broken and every bulb on the string goes dark. Modern strings are wired in parallel: each bulb sits on its own branch across the same two wires, so one failed bulb only kills itself — the rest stay lit. <strong>The wiring pattern, not the bulbs, decides what happens when one component fails.</strong></p>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-04-series-and-parallel-circuits-01.png" alt="Two light strings compared: a series string with all bulbs dark after one fails, and a parallel string with one bulb dark and the rest still lit" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — One failed bulb in series takes out the whole string; in parallel, the other branches don't even notice.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — why does removing one bulb from a parallel string not stop current flowing to the others? <em>Each bulb is connected directly across the same two supply wires, on its own separate path. Removing one branch doesn't break the paths belonging to the others — current can still complete a full loop through every remaining bulb.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>➡️ Series circuits: one path for the current</h3>
+  <p><strong>Series connection:</strong> two or more components connected so that there is only one path for the current, which is the same through all of them. Because charge is conserved, the charge per second (current) flowing into each component must equal the current flowing out of it and into the next — there's nowhere else for it to go.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Current in series</span>
+    $$I = I_1 = I_2 = \ldots$$
+  </div>
+  <p>Each component uses up some of the available potential difference driving the current round the circuit, so the separate p.d.s must add up to the p.d. across the whole combination:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Potential difference in series</span>
+    $$V = V_1 + V_2 + \ldots$$
+  </div>
+  <p>Substituting \(V=IR\) for each resistor into \(V=V_1+V_2+\ldots\) gives \(IR_{\text{s}} = IR_1 + IR_2 + IR_3\). The current \(I\) is the same throughout, so it cancels, leaving the resistance of a single resistor \(R_{\text{s}}\) that would behave exactly like the whole combination:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Total resistance in series</span>
+    $$R_{\text{s}} = R_1 + R_2 + \ldots$$
+  </div>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-04-series-and-parallel-circuits-02.png" alt="Three resistors R1, R2, R3 connected in series with a voltage source, ammeter and voltmeters across each resistor" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Resistors in series (Fig B5.27). Current is the same everywhere on the loop; each voltmeter reads a share of the total p.d.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⑂ Parallel circuits: many paths, same p.d.</h3>
+  <p><strong>Parallel connection:</strong> two or more components connected between the same two points, so they all have the same potential difference across them.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Potential difference in parallel</span>
+    $$V = V_1 = V_2 = \ldots$$
+  </div>
+  <p>Conservation of charge means the current splits at the junction and recombines afterwards, so the total current supplied equals the sum of the branch currents:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Current in parallel</span>
+    $$I = I_1 + I_2 + \ldots$$
+  </div>
+  <p>Applying \(I=V/R\) to every branch, \(V/R_{\text{p}} = V/R_1 + V/R_2 + V/R_3\). Every term shares the same \(V\), so it cancels, leaving the equation for the single resistor \(R_{\text{p}}\) equivalent to the whole combination:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Total resistance in parallel</span>
+    $$\frac{1}{R_{\text{p}}} = \frac{1}{R_1} + \frac{1}{R_2} + \ldots$$
+  </div>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-04-series-and-parallel-circuits-03.png" alt="Three resistors R1, R2, R3 connected in parallel between the same two nodes, with the total current splitting into three branch currents" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Resistors in parallel (Fig B5.28). All three share the same p.d.; the supply current is the sum of the branch currents.</div>
+  </div>
+  <p>All the sockets and appliances in a house are wired in parallel: each one gets the full supply voltage regardless of what else is switched on, and each can be switched independently without affecting the others.</p>
+</div>
+
+<div class="lc-card">
+  <h3>⚖️ Kirchhoff's laws — the two rules made formal</h3>
+  <p><strong>Kirchhoff's first law (current/junction law):</strong> at any junction, the total current entering equals the total current leaving. This is just conservation of charge applied at a point — it's what forces \(I=I_1+I_2+\ldots\) in a parallel combination.</p>
+  <p><strong>Kirchhoff's second law (voltage/loop law):</strong> around any closed loop, the sum of the potential differences is zero. This is conservation of energy — it's what forces \(V=V_1+V_2+\ldots\) in a series combination.</p>
+  <div class="lc-info">🔗 <strong>Nature of Science</strong> — conservation of charge and conservation of energy aren't special rules for circuits; they're two of the most fundamental principles in all of science, also used to explain ion movement across cell membranes and energy transfers in natural systems generally.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔬 Tool 3: how many significant figures does "5000 Ω" have?</h3>
+  <p>Without more context, you can't tell. If 5000 and 8000 are exact mathematical values, every figure is significant. If they're measurements, the number of significant figures depends on the uncertainty in the measurement — which isn't visible from the digits alone. <strong>Scientific notation removes the ambiguity</strong>: \(5.00\times10^3\ \Omega\) is unmistakably three significant figures, while \(5\times10^3\ \Omega\) is one.</p>
+  <p>For the numerical data in this course, the rule is simple: unless told otherwise, assume every digit given is significant.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery — resistance versus number of resistors</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Total resistance vs number in series</td><td>n (identical resistors, each R) · Rs</td><td>Straight line through the origin</td><td>Gradient = R; each extra resistor adds a fixed R to the total</td></tr>
+      <tr><td>Total resistance vs number in parallel</td><td>n (identical resistors, each R) · Rp</td><td>Falls steeply from R at n=1, curving down towards zero</td><td>Rp = R/n; adding branches always makes the combination easier to conduct through, never harder</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b5-04-series-and-parallel-circuits-05.png" alt="Graph of total resistance against number of identical resistors in series, a straight line through the origin"><div class="lc-cap">Fig 5 — Adding identical resistors in series: Rs grows in equal steps of R.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b5-04-series-and-parallel-circuits-06.png" alt="Graph of total resistance against number of identical resistors in parallel, a curve decreasing from R towards zero"><div class="lc-cap">Fig 6 — Adding identical resistors in parallel: Rp always falls, and stays below the smallest single resistor.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – 5000 Ω and 8000 Ω resistors</h3>
+  <p>A 5000 Ω resistor and an 8000 Ω resistor are connected first in series, then in parallel, with a 4.5 V battery. Find, for each arrangement: the combined resistance; the current through each resistor; the p.d. across the 5000 Ω resistor.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> series first — same current through both, resistances add. Then parallel — same p.d. across both, reciprocals add.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(R_1=5000\ \Omega\), \(R_2=8000\ \Omega\), \(V=4.5\) V.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation — series:</strong><br>\(R_{\text{s}} = 5000+8000 = 13000\ \Omega\)<br>\(I = V/R_{\text{s}} = 4.5/13000\)<br><strong>Equation — parallel:</strong><br>\(1/R_{\text{p}} = 1/5000+1/8000 = 13/40000\)<br>\(R_{\text{p}} = 40000/13\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer — series:</strong> \(R_{\text{s}}=13\,000\ \Omega\); \(I=3.5\times10^{-4}\) A through both resistors; \(V(5000\ \Omega)=IR=1.7\) V.<br><strong>Answer — parallel:</strong> \(R_{\text{p}}=3100\ \Omega\); both resistors have the full 4.5 V across them; \(I(5000\ \Omega)=4.5/5000=9.0\times10^{-4}\) A; \(I(8000\ \Omega)=4.5/8000=5.6\times10^{-4}\) A.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – five lamps (B5.5)</h3>
+  <p>Lamps A and B are in series in the main circuit. Between them the circuit splits into two parallel branches: lamps C and D in series with each other, and lamp E alone. All five lamps are identical. <strong>(a)</strong> Compare the brightness of all five lamps. <strong>(b)</strong> If each lamp has a constant resistance of 2.0 Ω, find the total resistance of the circuit.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> A and B carry the full circuit current (series). That current splits between the C–D branch and the E branch (parallel), so A and B must be brighter than C, D and E.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data (b):</strong> each lamp \(R=2.0\ \Omega\). C and D are in series with each other: \(R_{\text{CD}} = 2.0+2.0 = 4.0\ \Omega\). This is in parallel with E.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (b):</strong><br>\(1/R_{\text{CD‖E}} = 1/4.0 + 1/2.0\)<br>\(R_{\text{CD‖E}} = 4/3 = 1.3\ \Omega\)<br>Total: \(R_{\text{total}} = R_{\text{A}}+R_{\text{B}}+R_{\text{CD‖E}}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer (a):</strong> A and B are equally bright (same current, in series). C and D are equally bright as each other, but dimmer than A and B. E is brighter than C or D, because more current flows through the single lamp E than through either of the two lamps sharing the C–D branch.<br><strong>Answer (b):</strong> \(R_{\text{total}} = 2.0+2.0+1.3 = 5.3\ \Omega\).</div></div>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-04-series-and-parallel-circuits-04.png" alt="Circuit with five lamps: A and B in series in the main path, with C and D in series forming one parallel branch and E alone forming the other" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — Five-lamp circuit (Fig B5.29). A and B share the full current; it then splits between the C–D branch and lamp E.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🏠 Real-world: why your house is wired in parallel</h3>
+    <p>If household appliances were wired in series, switching off one lamp would cut the current to every other appliance in the house, and every device would have to share the mains voltage between them. Parallel wiring gives every socket the full supply voltage and lets each device be switched on or off without touching any of the others.</p>
+    <div class="lc-success">✓ Examiner tip: if asked why household circuits use parallel wiring, name <em>both</em> reasons — full supply voltage to each device, and independent switching — a one-reason answer usually drops a mark.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – solving combination circuits</h3>
+    <p>Most real circuits are neither purely series nor purely parallel — they're built from both. The strategy is always the same: find a parallel (or series) section that reduces to a single equivalent resistor, replace it with that one resistor, and repeat until the whole network is one simple series chain.</p>
+    <p><strong>Challenge:</strong> in the five-lamp circuit above, why can't you just add all five resistances together to get the total? <em>Answer: R = R1+R2+… only applies to resistors genuinely in series — C, D and E are not all in series with each other, since C+D and E form two separate parallel paths. You must collapse that parallel section to one equivalent resistor first, then add it to A and B in series.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Voltage is the same through every component, whatever the circuit</td><td>Current is the same in series; voltage is the same in parallel. Mixing these up is the single most common circuits error</td></tr>
+      <tr><td>Adding resistors in parallel always increases the total resistance</td><td>Extra parallel branches give current more ways to flow, so total resistance always <em>decreases</em> and stays below the smallest branch resistance</td></tr>
+      <tr><td>An ammeter and voltmeter can go anywhere in a circuit</td><td>An ammeter must be in series (same current as the component); a voltmeter must be in parallel (same p.d. as the component). Swapping them changes the readings completely</td></tr>
+      <tr><td>Rp = R1+R2 for parallel resistors, same formula as series</td><td>Parallel uses reciprocals: 1/Rp = 1/R1+1/R2+…, and Rp must come out smaller than the smallest individual resistor</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common exam slip: writing \(1/R_{\text{p}} = 1/R_1+1/R_2\) and then forgetting to take the reciprocal again at the end — the sum gives \(1/R_{\text{p}}\), not \(R_{\text{p}}\) itself.</div>
+</div>
+
+<div class="lc-kp">
+  <span>series: I same, V adds</span>
+  <span>parallel: V same, I adds</span>
+  <span>Rs = R1+R2+…</span>
+  <span>1/Rp = 1/R1+1/R2+…</span>
+  <span>Kirchhoff 1: charge conservation</span>
+  <span>Kirchhoff 2: energy conservation</span>
+  <span>ammeter in series</span>
+  <span>voltmeter in parallel</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Three identical resistors, each of resistance R, are connected in parallel. The combined resistance is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 3R</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> R</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> R/3</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> 9R</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. In a series circuit containing two resistors, which quantity must be the same through both of them?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> Potential difference</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> Current</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> Power</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> Resistance</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Kirchhoff's second law (the voltage/loop law) is a direct consequence of conservation of</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> Charge</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> Energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> Mass</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> Momentum</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. All the sockets and appliances in a house are wired in parallel mainly because</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> It uses less wire overall</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Each device gets the full supply voltage and can be switched independently</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> It makes the total resistance of the house larger</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> It makes the current the same through every appliance</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    In a series circuit, the current is the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px"> through every component, while in a parallel circuit it is the potential difference that is the same across every <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px">. The total resistance of resistors in series is found by <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> the individual resistances. For resistors in parallel, the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:120px"> of the total resistance equals the sum of the reciprocals of the individual resistances. Kirchhoff's first law follows from conservation of <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:100px">, and Kirchhoff's second law follows from conservation of <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:100px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw</div>
+  <div class="lc-exam-q"><strong>Q23.</strong> Draw a circuit diagram to represent the following arrangement: two lamps, A and B, are connected to a 12 V battery with a switch such that it can control lamp A only (lamp B is always on). An ammeter is connected so that it can measure the total current in both lamps and a voltmeter measures the p.d. across the battery. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Lamps A and B each on their own branch, both connected across the battery (parallel with each other), so B stays lit regardless of A.<br>✓ Switch S placed in series with lamp A only, inside A's branch — opening S turns off A without affecting B.<br>✓ Ammeter placed in the main line, in series with the battery before the branches split, so it reads the total current in both lamps; voltmeter connected directly across the battery terminals, in parallel with the whole circuit.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q24.</strong> Calculate the four possible total resistances that can be made by combining three 10 Ω resistors. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ All three in series: \(10+10+10 = 30\ \Omega\).<br>✓ All three in parallel: \(1/R = 3/10\), so \(R = 3.3\ \Omega\).<br>✓ Two in parallel, that combination in series with the third: \((10\times10)/20 + 10 = 5+10 = 15\ \Omega\).<br>✓ Two in series, that combination in parallel with the third: two in series \(=20\ \Omega\); \((10\times20)/30 = 6.7\ \Omega\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Predict / Explain</div>
+  <div class="lc-exam-q"><strong>Q25.</strong> Figure B5.30 shows a simple circuit (12 V battery, a 20 Ω resistor and a 10 Ω resistor in series) in which the ammeter and voltmeter have been connected in the wrong positions — the ammeter in parallel with the 10 Ω resistor, and the voltmeter in series with it. <strong>(a)</strong> Predict the readings you would expect on the meters. Explain your answer. <strong>(b)</strong> When the meters are swapped into their correct positions, what readings would you expect? <span class="lc-exam-marks">[4 marks]</span></div>
+  <div class="lc-img" style="margin-top:0.75rem;max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-04-series-and-parallel-circuits-07.png" alt="12 V circuit with a 20 ohm and 10 ohm resistor in series, with an ammeter wrongly connected in parallel with the 10 ohm resistor and a voltmeter wrongly connected in series with it" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — Fig B5.30: ammeter and voltmeter connected in the wrong positions.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) An (almost ideal) ammeter has near-zero resistance, so placing it in parallel with the 10 Ω resistor short-circuits that resistor. Virtually all the current takes the ammeter's zero-resistance path, so the ammeter reads close to \(12/20 = 0.6\) A — the current for the 20 Ω resistor alone.<br>✓ The voltmeter, in series with the (now short-circuited) 10 Ω resistor, has a very high resistance, so almost no current flows down that branch — it reads close to 0 V.<br>✓ (b) Correctly positioned (ammeter in series, voltmeter in parallel with the 10 Ω resistor): total \(R = 30\ \Omega\), so \(I = 12/30 = 0.4\) A (ammeter reading) and \(V = IR = 0.4\times10 = 4.0\) V (voltmeter reading).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q26.</strong> <strong>(a)</strong> Calculate the current that flows through a 12.0 Ω resistor connected to a p.d. of 9.10 V. <strong>(b)</strong> An ideal ammeter would display this current accurately, but what value will an ammeter of resistance 0.31 Ω record? <strong>(c)</strong> Determine the percentage error when using the ammeter in this way. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(I = V/R = 9.10/12.0 = 0.758\) A.<br>✓ (b) The ammeter's own resistance adds to the circuit: \(I = 9.10/(12.0+0.31) = 9.10/12.31 = 0.739\) A.<br>✓ (c) Percentage error \(= \dfrac{0.739-0.758}{0.758}\times100 = -2.5\%\) — the ammeter reads about 2.5% low.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q27.</strong> Figure B5.31 shows a 12 V circuit with resistors A–F. The total current from the battery is 6.0 A, flowing through resistor F. It splits: 1.0 A flows through resistor C, which then splits into branches through A and B (with 0.5 A through B); a middle branch through resistor D carries current I2; a bottom branch through resistor E carries 3.0 A; the currents recombine to give I3. <strong>(a)</strong> Determine the currents I1, I2 and I3. <strong>(b)</strong> If C = 5.0 Ω and E = 2.0 Ω, determine values for the four unknown resistances A, B, D and F. <span class="lc-exam-marks">[6 marks]</span></div>
+  <div class="lc-img" style="margin-top:0.75rem;max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-04-series-and-parallel-circuits-08.png" alt="Circuit diagram with resistors A to F: 6.0 A through resistor F splitting into a branch through C then A and B, a middle branch through D, and a bottom branch through E carrying 3.0 A, recombining afterwards" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 8 — Fig B5.31: three parallel branches (C→A/B, D, E) between resistor F and the recombination point.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The three branches (C→A/B, D, E) are in parallel, so their currents sum to the total 6.0 A: \(1.0+I_2+3.0 = 6.0\), giving \(I_2 = 2.0\) A. Since A and B split the 1.0 A equally (B = 0.5 A), \(I_1 = 0.5\) A. All branch currents recombine before F, so \(I_3 = 6.0\) A.<br>✓ (b) All three parallel branches share the same p.d., equal to the p.d. across E: \(V = I_{\text{E}}R_{\text{E}} = 3.0\times2.0 = 6.0\) V.<br>✓ Branch C+A‖B: \(V_{\text{C}} = 1.0\times5.0 = 5.0\) V, leaving \(6.0-5.0=1.0\) V across A‖B, so \(R_{\text{A}} = R_{\text{B}} = 1.0/0.5 = 2.0\ \Omega\).<br>✓ Branch D: \(R_{\text{D}} = 6.0/2.0 = 3.0\ \Omega\).<br>✓ F carries the full 6.0 A and drops the remaining \(12-6.0=6.0\) V, so \(R_{\text{F}} = 6.0/6.0 = 1.0\ \Omega\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q28.</strong> Figure B5.32 shows a 1.5 V battery connected in series with a 1000 Ω resistor and a 2000 Ω resistor. A voltmeter is connected across the 2000 Ω resistor. <strong>(a)</strong> Calculate the current in the circuit before the voltmeter is connected. <strong>(b)</strong> What is the voltage across the 2000 Ω resistor before the voltmeter is connected? <strong>(c)</strong> Determine the voltages that will be measured if voltmeters with the following resistances are connected in turn across the 2000 Ω resistor: (i) 5000 Ω, (ii) 50 000 Ω. <span class="lc-exam-marks">[5 marks]</span></div>
+  <div class="lc-img" style="margin-top:0.75rem;max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-04-series-and-parallel-circuits-09.png" alt="1.5 volt battery in series with a 1000 ohm resistor and a 2000 ohm resistor, with a voltmeter connected across the 2000 ohm resistor" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 9 — Fig B5.32: a real voltmeter's own resistance loads the circuit it's measuring.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(I = V/(R_1+R_2) = 1.5/3000 = 5.0\times10^{-4}\) A.<br>✓ (b) \(V_2 = IR_2 = 5.0\times10^{-4}\times2000 = 1.0\) V.<br>✓ (c)(i) 2000 Ω ‖ 5000 Ω \(= 1429\ \Omega\); total \(R = 2429\ \Omega\); \(I = 1.5/2429\); \(V = I\times1429 = 0.88\) V.<br>✓ (c)(ii) 2000 Ω ‖ 50 000 Ω \(= 1923\ \Omega\); total \(R = 2923\ \Omega\); \(I = 1.5/2923\); \(V = I\times1923 = 0.99\) V — closer to the ideal 1.0 V, because a higher-resistance voltmeter draws less current away from the branch it's measuring.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Adding identical resistors in parallel always shares the current more ways, so combined resistance falls: for n identical resistors R, Rp = R/n.' },
+    mcq2: { B: 'Series components form one path, so charge conservation forces the same current through each of them.' },
+    mcq3: { B: 'Kirchhoff\'s second law (V = V1+V2+... around a loop) comes from conservation of energy; the first law comes from conservation of charge.' },
+    mcq4: { B: 'Parallel wiring means every device sits directly across the same two supply wires, so each gets the full mains voltage and switching one off leaves the others untouched.' }
+  },
+  fitb: { lf1:'same', lf2:'branch', lf3:'adding', lf4:'reciprocal', lf5:'charge', lf6:'energy' }
+});
+</script>
+</div>
+<!-- LESSON-END -->
       </div>
 
       <!-- Prev / Next navigation -->
