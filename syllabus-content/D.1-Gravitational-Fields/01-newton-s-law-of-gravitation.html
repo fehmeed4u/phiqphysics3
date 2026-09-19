@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Newton's Law of Gravitation — D.1 Gravitational Fields — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -93,6 +95,9 @@
     #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
     #lesson-body pre { max-width: 100%; overflow-x: auto; }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -153,6 +158,7 @@
 
     <main>
       <div class="lesson-content" id="lesson-body">
+<!-- LESSON-START -->
       <div style="padding:1.5rem 1.75rem">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -322,7 +328,7 @@
   <h3>🍎 Hook – the apple and the Moon</h3>
   <p>In 1666, Isaac Newton watched an apple fall from a tree in his garden. He asked a revolutionary question: <strong>if gravity reaches to the top of the tallest tree, could it reach all the way to the Moon?</strong> He realised the Moon is constantly "falling" towards Earth — but because it also moves sideways, it keeps missing and stays in orbit. The same force that makes an apple drop with an acceleration of \(g \approx 9.81\ \text{m s}^{-2}\) also provides the centripetal acceleration that keeps the Moon in its circular path.</p>
   <div class="lc-img">
-    <img src="https://i.postimg.cc/fTpSF39Q/image.png" alt="Newton's apple tree and the Moon orbiting Earth">
+    <img src="../../assets/lesson-images/lesson-images2/d1-01-newtons-law-of-gravitation-01.png" alt="Newton's apple tree and the Moon orbiting Earth">
     <div class="lc-cap">Fig 1 — Newton's insight: the force pulling an apple to the ground is the same force that keeps the Moon in orbit around Earth.</div>
   </div>
   <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — The Moon is about 60 Earth radii away from us. If gravity follows an inverse‑square law, by what factor is the gravitational acceleration at the Moon's distance weaker than at Earth's surface? <em>Answer: \(1/60^2 = 1/3600\), so \(a_{\text{Moon}} \approx g/3600 \approx 2.7 \times 10^{-3}\ \text{m s}^{-2}\).</em></div>
@@ -344,7 +350,7 @@
   <p>where \(G = 6.67 \times 10^{-11}\ \text{N m}^2\text{ kg}^{-2}\) is the <strong>universal gravitational constant</strong>. The small value of \(G\) means gravitational forces are tiny unless at least one mass is enormous (like a planet).</p>
 
   <div class="lc-img">
-    <img src="https://i.postimg.cc/J0g09gtk/image.png" alt="Two point masses with equal and opposite gravitational force vectors">
+    <img src="../../assets/lesson-images/lesson-images2/d1-01-newtons-law-of-gravitation-02.png" alt="Two point masses with equal and opposite gravitational force vectors">
     <div class="lc-cap">Fig 2 — Gravitational forces between two point masses: equal magnitude, opposite direction (Newton's third law). The force on \(m_1\) is exactly the same size as the force on \(m_2\), even if the masses are different.</div>
   </div>
 </div>
@@ -356,7 +362,7 @@
   2. The <strong>separation is much larger</strong> than the objects' own dimensions.</p>
   <p>For a book on Earth's surface, the distance \(r\) is measured from the book to the <strong>centre</strong> of the Earth, not the surface. The Earth's radius is \(R_{\text{E}} \approx 6.4 \times 10^6\ \text{m}\).</p>
   <div class="lc-img">
-    <img src="https://i.postimg.cc/zfjBJ3Vh/image.png" alt="Planet with cutaway showing mass concentrated at centre">
+    <img src="../../assets/lesson-images/lesson-images2/d1-01-newtons-law-of-gravitation-03.png" alt="Planet with cutaway showing mass concentrated at centre">
     <div class="lc-cap">Fig 3 — For a uniform sphere, all mass can be treated as if it is concentrated at the centre. The distance \(r\) is measured between centres.</div>
   </div>
   <div class="lc-formula">
@@ -411,11 +417,11 @@
   </table>
   <div class="lc-img-row">
     <div class="lc-img">
-      <img src="https://i.postimg.cc/QNWF78z4/image.png" alt="F vs r graph showing hyperbolic decay">
+      <img src="../../assets/lesson-images/lesson-images2/d1-01-newtons-law-of-gravitation-04.png" alt="F vs r graph showing hyperbolic decay">
       <div class="lc-cap">Fig 4 — Gravitational force vs distance: as \(r\) increases, \(F\) decays following \(1/r^2\). The force approaches zero but never reaches it at any finite distance.</div>
     </div>
     <div class="lc-img">
-      <img src="https://i.postimg.cc/V60kXgKy/image.png" alt="F vs 1/r² graph showing straight line through origin">
+      <img src="../../assets/lesson-images/lesson-images2/d1-01-newtons-law-of-gravitation-05.png" alt="F vs 1/r² graph showing straight line through origin">
       <div class="lc-cap">Fig 5 — Linearised graph: plotting \(F\) against \(1/r^2\) yields a straight line through the origin, confirming the inverse‑square relationship.</div>
     </div>
   </div>
@@ -429,7 +435,7 @@
   <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(F = G\,\dfrac{m_{\text{book}}\,M_{\text{E}}}{R_{\text{E}}^2}\). Substitute: \(F = \dfrac{(6.67 \times 10^{-11}) \times 1.0 \times (6.0 \times 10^{24})}{(6.4 \times 10^6)^2}\). Denominator: \((6.4 \times 10^6)^2 = 4.096 \times 10^{13}\). Numerator: \(6.67 \times 10^{-11} \times 6.0 \times 10^{24} = 4.002 \times 10^{14}\). Division: \(4.002 \times 10^{14} / 4.096 \times 10^{13} = 9.77\).</div></div>
   <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(F \approx 9.8\ \text{N}\). This is exactly the weight of a 1.0 kg mass — confirming that \(W = mg\) is a special case of Newton's universal law.</div></div>
   <div class="lc-img">
-    <img src="https://i.postimg.cc/zGdzM6M1/image.png" alt="Diagram of Earth with 1.0 kg book on surface showing radius">
+    <img src="../../assets/lesson-images/lesson-images2/d1-01-newtons-law-of-gravitation-06.png" alt="Diagram of Earth with 1.0 kg book on surface showing radius">
     <div class="lc-cap">Fig 6 — Geometry for the worked example: the distance \(r\) is measured from the book to the centre of the Earth.</div>
   </div>
 </div>
@@ -440,7 +446,7 @@
     <h3>🔧 Real-world: "weighing the Earth" – the Cavendish experiment</h3>
     <p>In 1798, Henry Cavendish used a torsion balance with small and large lead spheres to measure \(G\) directly for the first time. Once \(G\) was known, Earth's mass could be calculated from \(g = GM/R^2\). This was called <strong>"weighing the Earth"</strong> — one of the most precise experiments of its era.</p>
     <div class="lc-img">
-      <img src="https://i.postimg.cc/Xqvx2Zy4/image001.gif" alt="Cavendish torsion balance apparatus">
+      <img src="../../assets/lesson-images/lesson-images2/d1-01-newtons-law-of-gravitation-07.png" alt="Cavendish torsion balance apparatus">
       <div class="lc-cap">Fig 7 — Cavendish's torsion balance: small lead masses on a suspended rod are attracted to larger stationary masses, twisting a fine wire. The tiny twist angle reveals \(G\).</div>
     </div>
     <div class="lc-success">✓ Examiner tip: when a question asks about "weighing the Earth", it means determining \(G\) (or \(M_{\text{E}}\)) from a direct force measurement between known masses.</div>
@@ -830,6 +836,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
       </div>
+      <!-- LESSON-END -->
       </div>
 
       <div class="lesson-nav">
