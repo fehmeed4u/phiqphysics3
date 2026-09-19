@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orbital Mechanics — D.1 Gravitational Fields — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -93,6 +95,9 @@
     #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
     #lesson-body pre { max-width: 100%; overflow-x: auto; }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -114,7 +119,7 @@
         <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
           <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#F5A623;background:#F5A62318;padding:0.2rem 0.6rem;border-radius:6px">D.1</span>
           <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
-          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 4 of 5</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 4 of 6</span>
         </div>
         <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Orbital Mechanics</h1>
         <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">D.1 Gravitational Fields</strong> · Unit D — IB Physics 2023</p>
@@ -149,19 +154,265 @@
           <span class="sidebar-num">05</span>
           <span>Kepler's Laws</span>
         </a>
+      <a href="06-satellites.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
+          <span>Satellites</span>
+        </a>
     </aside>
 
     <main>
       <div class="lesson-content" id="lesson-body">
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Orbital Mechanics</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">Lesson content coming soon.</p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=D1" class="btn btn-ghost btn-sm">Practice questions →</a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">Formula sheet</a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 6 · D.1 Gravitational Fields</div>
+<div class="lc-title">Orbital Mechanics</div>
+<div class="lc-sub">A satellite is not held up by anything — it is falling, continuously, and simply moving fast enough sideways that it keeps missing the ground. This lesson turns that idea into the one equation that tells you how fast, and how long each orbit takes.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – Newton's cannon on a mountain</h3>
+  <p>Newton imagined a cannon on a very tall mountain, firing cannonballs horizontally, faster and faster. A slow ball falls in a parabola and lands close by (path A). A faster ball travels further before landing (still path A, just further along). Fire it fast enough and the ball never lands at all — the ground curves away beneath it exactly as fast as the ball falls (path C). <strong>An orbiting satellite is a cannonball that is still falling — it just never hits anything.</strong> Fire it faster still and it escapes the Earth altogether (path B).</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-04-orbital-mechanics-01.png" alt="Cannonball fired from a mountain top following three paths: A falling back to Earth, B escaping, C orbiting at constant altitude" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Path A: falls back to Earth. Path B: escapes. Path C: exactly the right speed to orbit at constant altitude.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — the only force acting on the cannonball in path C is gravity, pulling it straight down towards the Earth's centre. Why doesn't that force ever change its altitude? <em>Gravity acts continuously perpendicular to the ball's instantaneous velocity. A force perpendicular to velocity changes direction, not speed — that is exactly the condition for circular motion. The ball's path curves at the same rate the Earth's surface curves away beneath it, so its distance from the centre never changes.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🛰️ Gravity as the centripetal force</h3>
+  <p>A <strong>satellite</strong> is an object that orbits a much larger mass. Satellites can be natural (the Moon, the planets themselves) or artificial (communications, weather, GPS). Its <strong>altitude</strong> is its height above the planet's surface. This course only considers perfectly circular orbits of constant radius \(r\).</p>
+  <p>For a satellite of mass \(m\) orbiting a planet of mass \(M\), gravity is the only force acting, and it is directed towards the centre — exactly the requirement for circular motion. Gravity <em>is</em> the centripetal force:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Centripetal acceleration and force</span>
+    $$g = \frac{v^2}{r}$$
+    $$mg = \frac{mv^2}{r}$$
+  </div>
+  <p>Cancelling \(m\) gives the condition every circular orbit must satisfy, whatever the satellite's mass:</p>
+  <div class="lc-formula">
+    $$\frac{v^2}{r} = g$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-04-orbital-mechanics-02.png" alt="Satellite of mass m in circular orbit of radius r around planet of mass M, with gravitational force F pointing inward and tangential instantaneous velocity v" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — A satellite of mass m orbiting a planet of mass M. The force F is gravity, always directed towards the centre; v is the instantaneous velocity, always tangential.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔢 How fast must a satellite go?</h3>
+  <p>An actual satellite needs an altitude of at least 200 km to avoid air resistance; at that height the necessary orbital speed is about 8 km s⁻¹. This was first achieved in 1957 by the Soviet Union's <strong>Sputnik 1</strong> — its lowest orbital height was 215 km and it completed one orbit every 96 minutes.</p>
+  <p>Using \(v^2 = gr\), we can find the theoretical speed for a satellite skimming just above the Earth's surface (Earth's radius \(= 6.4\times10^6\) m):</p>
+  <div class="lc-formula">
+    $$v^2 = gr = 9.8 \times (6.4\times10^6)$$
+    $$v = 7.9\times10^3\ \text{m s}^{-1}$$
+  </div>
+  <p>At a more realistic height of 200 km, \(g = 9.23\) N kg⁻¹ (from \(g = GM/r^2\)), reducing the necessary speed to 7.7 km s⁻¹ (7700 m s⁻¹). <strong>The speed does not depend on the satellite's mass</strong> — all satellites at the same height move at the same speed. And since gravity always acts perpendicular to the velocity, it does no work: with no air resistance, a satellite in circular orbit continues indefinitely with no engine needed.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Time period of an orbit</span>
+    $$v = \frac{2\pi r}{T}$$
+  </div>
+  <p>If a satellite's speed exceeds the circular-orbit speed for its radius, but stays below escape speed, it moves in an ellipse instead — but every calculation in this course assumes circular orbits.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Speed and period against orbital radius</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Orbital speed vs radius</td><td>r · v</td><td>Falling curve, steepest at small r, flattening out — \(v \propto 1/\sqrt{r}\)</td><td>Bigger orbits need less speed to balance a weaker g</td></tr>
+      <tr><td>Time period vs radius</td><td>r · T</td><td>Rising curve, increasingly steep — \(T \propto r^{3/2}\)</td><td>Bigger orbits take disproportionately longer, since both the circumference grows and the speed falls</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/d1-04-orbital-mechanics-03.png" alt="Graph of orbital speed against orbital radius, a smooth falling curve" style="max-width:340px;width:100%"><div class="lc-cap">Fig 3 — Orbital speed falls as radius increases: \(v=\sqrt{gr}\), and g itself falls with r.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/d1-04-orbital-mechanics-04.png" alt="Graph of orbital time period against orbital radius, a smooth rising curve" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — Time period rises steeply with radius: doubling r more than doubles T.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example D1.8</h3>
+  <p>Determine the orbital speed and time period of a satellite that orbits the Earth at a distance which is as far above the surface as the centre of the Earth is below (radius of Earth \(= 6.4\times10^6\) m).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the orbital radius is \(2R_{\text{E}}\) (altitude = one Earth radius above the surface). At twice the distance from the centre, \(g\) is reduced by a factor of \(2^2=4\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(g = \dfrac{9.8}{2^2} = 2.45\ \text{N kg}^{-1}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(g = v^2/r\)<br>\(2.45 = \dfrac{v^2}{2\times(6.4\times10^6)}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(v = 5.6\times10^3\ \text{m s}^{-1}\)<br>\(T = \dfrac{2\pi r}{v} = \dfrac{2\pi\times(6.4\times10^6)}{5.6\times10^3}\)<br>\(= 7.2\times10^3\ \text{s (two hours)}\)</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-04-orbital-mechanics-05.png" alt="Earth with a satellite orbiting at a radius equal to twice the Earth's radius, with the Earth's radius labelled" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 5 — The satellite orbits at r = 2R<sub>E</sub>: one Earth radius of altitude above the surface.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: choosing where to put a satellite</h3>
+    <p>Artificial satellites can be placed at any height above the Earth, provided they have the right velocity and are high enough to avoid air resistance. Lower orbits suit monitoring the Earth's surface; higher orbits have longer periods. The orientation of the orbit relative to the Earth's axis, and whether it is circular or elliptical, both matter for what the satellite is used for.</p>
+    <div class="lc-success">✓ Examiner tip: "the satellite is weightless" is never an acceptable explanation for orbital motion. Gravity has not disappeared — it is fully present and is exactly what is providing the centripetal force.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – beyond circular orbits</h3>
+    <p>If a satellite's speed exceeds the circular-orbit value for its radius but stays below escape speed, its path becomes an ellipse rather than a circle — the satellite's distance from the planet, and its speed, both vary around the orbit.</p>
+    <p><strong>Challenge:</strong> two satellites orbit at the same radius \(r\), but one is faster than the circular-orbit speed \(v=\sqrt{gr}\). Which one moves further from the planet during its orbit? <em>Answer: the faster one. It has more kinetic energy than a circular orbit at that radius requires, so it swings outward into an ellipse before gravity pulls it back — the circular orbit is the single unique speed at which the satellite neither swings outward nor spirals inward.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🌐 Polar and geostationary orbits</h3>
+  <p>Many satellites fly <strong>polar orbits</strong>, passing over both poles at heights up to about 2000 km. The orbital plane stays fixed while the Earth rotates beneath it, so the satellite passes over a different strip of the planet on every orbit — making many orbits every day.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-04-orbital-mechanics-06.png" alt="Earth with a polar satellite orbit passing over both poles, axis of rotation marked" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — A polar-orbiting satellite: the orbital plane stays fixed as the Earth turns beneath it.</div>
+  </div>
+  <p>A <strong>geostationary</strong> satellite appears to stay above the same point on Earth's surface. That needs two conditions together: its period must equal the Earth's rotation period (23 h 56 min), which requires an orbital radius of exactly \(4.2\times10^7\) m — <em>and</em> the orbit must lie in the equatorial plane. Any satellite at that radius has the right period and is <strong>geosynchronous</strong>, but only an equatorial one is <strong>geostationary</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-04-orbital-mechanics-07.png" alt="Two geosynchronous orbits at the same radius: (a) in the equatorial plane, geostationary, and (b) tilted relative to the equator, geosynchronous only" style="max-width:490px;width:100%">
+    <div class="lc-cap">Fig 7 — Both orbits are geosynchronous (same radius, same period). Only orbit (a), in the equatorial plane, is geostationary.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>A satellite in orbit feels no gravity — that's why it doesn't fall</td><td>Gravity is the only force acting on it, and it is exactly what keeps it in orbit; the satellite is falling continuously, it just never reaches the ground</td></tr>
+      <tr><td>A heavier satellite needs a higher speed to orbit at the same height</td><td>Orbital speed comes from \(v^2/r=g\) — mass cancels out. Every satellite at a given height moves at the same speed</td></tr>
+      <tr><td>Geosynchronous and geostationary mean the same thing</td><td>Geosynchronous only requires matching the Earth's rotation period; geostationary additionally requires an equatorial orbital plane</td></tr>
+      <tr><td>A faster satellite at the same radius settles into a smaller, faster orbit</td><td>Too much speed for that radius sends it into a wider elliptical path, not a smaller circular one</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: using the given altitude as \(r\) in \(v^2/r=g\) or \(T=2\pi r/v\). \(r\) is the distance from the <em>planet's centre</em> — always add the planet's radius to the altitude first.</div>
+</div>
+
+<div class="lc-kp">
+  <span>v²/r = g</span>
+  <span>mg = mv²/r</span>
+  <span>v = 2πr/T</span>
+  <span>speed independent of satellite mass</span>
+  <span>gravity ⊥ velocity → no work done</span>
+  <span>r = altitude + planet's radius</span>
+  <span>geostationary = geosynchronous + equatorial</span>
+  <span>Sputnik 1: 1957, 215 km, 96 min</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. A satellite in a stable circular orbit, with no air resistance, needs no engine to keep moving. Why not?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> Gravity is too weak at orbital height to affect it</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> There is no gravity acting on it</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> Gravity acts perpendicular to its velocity, so it does no work</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Its kinetic energy is continuously converted to potential energy</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. The orbital speed needed for a circular orbit at a given radius depends on</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> the satellite's mass and the radius</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> the planet's mass and the radius, not the satellite's mass</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> the satellite's mass only</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> neither mass, only the radius</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. What is required for a satellite orbit to be geostationary?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> Period equal to Earth's rotation period only</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> An equatorial orbital plane only</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> Both: period equal to Earth's rotation period, and an equatorial plane</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> A polar orbit at 2000 km altitude</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. A satellite moves from an orbit of radius r to an orbit of radius 2r. Its orbital speed</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> doubles</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> halves</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> decreases by a factor of √2</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> stays the same</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    In a circular orbit, gravity provides the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px"> force, acting always <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px"> to the satellite's velocity, so no <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:100px"> is done on it and its speed stays constant. All satellites at a given height move at the same speed because it does not depend on the satellite's <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px">. A satellite whose period matches the Earth's rotation is called <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:150px">; if its orbit also lies in the <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:120px"> plane, it is geostationary.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q22.</strong> <strong>a</strong> Calculate values for the gravitational field strengths at heights above the Earth's surface of 1000 km, 10 000 km and 40 000 km. <strong>b</strong> Calculate the necessary speeds for circular orbits at these heights. <strong>c</strong> Use a compass to draw a scale diagram of the Earth with these orbits around it. <strong>d</strong> Determine the times for complete orbits (time periods), T, at these heights and mark them on your diagram. (Radius of Earth \(=6.37\times10^6\) m, mass of Earth \(=5.97\times10^{24}\) kg.) <span class="lc-exam-marks">[8 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(r = R_{\text{E}} + \text{altitude}\): 1000 km → \(r=7.37\times10^6\) m, \(g=GM/r^2=7.33\ \text{N kg}^{-1}\).<br>✓ 10 000 km → \(r=1.637\times10^7\) m, \(g=1.49\ \text{N kg}^{-1}\).<br>✓ 40 000 km → \(r=4.637\times10^7\) m, \(g=0.19\ \text{N kg}^{-1}\).<br>✓ (b) \(v=\sqrt{gr}\): 7.35 km s⁻¹, 4.93 km s⁻¹, 2.93 km s⁻¹ respectively.<br>✓ (c) Three concentric circles around the Earth, radii in the ratio 7.37 : 16.37 : 46.37 (scaled to the drawn Earth radius).<br>✓ (d) \(T=2\pi r/v\): 6.30×10³ s (1.75 h), 2.09×10⁴ s (5.79 h), 9.94×10⁴ s (27.6 h) — consistent with Kepler's third law, since the 40 000 km orbit is above the geostationary radius.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Complete the table</div>
+  <div class="lc-exam-q"><strong>Q23.</strong> Two satellites of equal mass orbit the same planet (Fig D1.20). Satellite B is twice as far from the planet's centre as satellite A. Copy the table and complete it to show the properties of the orbit of satellite B, in terms of satellite A's values. <span class="lc-exam-marks">[6 marks]</span></div>
+  <table class="lc-table" style="margin:0.75rem 0">
+    <thead><tr><th></th><th>Satellite A</th><th>Satellite B</th></tr></thead>
+    <tbody>
+      <tr><td>Distance from planet's centre</td><td>r</td><td>2r</td></tr>
+      <tr><td>Gravitational field strength</td><td>g</td><td>?</td></tr>
+      <tr><td>Gravitational force</td><td>F</td><td>?</td></tr>
+      <tr><td>Circumference of orbit</td><td>c</td><td>?</td></tr>
+      <tr><td>Speed</td><td>v</td><td>?</td></tr>
+      <tr><td>Time period</td><td>T</td><td>?</td></tr>
+    </tbody>
+  </table>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Gravitational field strength: \(g/4\) (since \(g\propto 1/r^2\)).<br>✓ Gravitational force: \(F/4\) (since \(F\propto 1/r^2\) for the same masses).<br>✓ Circumference: \(2c\) (circumference \(\propto r\)).<br>✓ Speed: \(v/\sqrt{2}\) (since \(v=\sqrt{gr}\propto 1/\sqrt{r}\)).<br>✓ Time period: \(2\sqrt{2}\,T \approx 2.83T\) (since \(T\propto r^{3/2}\), Kepler's third law).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q24.</strong> The Earth is an average distance of \(1.5\times10^{11}\) m from the Sun. Assuming that the orbit is circular, <strong>a</strong> calculate the average orbital speed of the Earth around the Sun <strong>b</strong> determine the centripetal acceleration of the Earth towards the Sun <strong>c</strong> use your answers to calculate a value for the mass of the Sun. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(T=1\ \text{year}=3.156\times10^7\) s. \(v=2\pi r/T = 2\pi(1.5\times10^{11})/(3.156\times10^7)\)<br>✓ \(v = 2.99\times10^4\ \text{m s}^{-1}\) (29.9 km s⁻¹).<br>✓ (b) \(a=v^2/r=(2.99\times10^4)^2/(1.5\times10^{11})=5.95\times10^{-3}\ \text{m s}^{-2}\).<br>✓ (c) \(a=GM/r^2 \Rightarrow M = ar^2/G = (5.95\times10^{-3})(1.5\times10^{11})^2/(6.67\times10^{-11})\)<br>✓ \(M \approx 2.0\times10^{30}\ \text{kg}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q25.</strong> The gravitational field strength on the surface of Mars is 3.72 N kg⁻¹. The radius of Mars is \(3.4\times10^6\) m. <strong>a</strong> What is the gravitational field strength at a distance of \(3.4\times10^6\) m above the surface? <strong>b</strong> Calculate the orbital speed necessary for a satellite orbiting Mars at this height. <strong>c</strong> What would be the time period of this satellite? <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Height \(=R_{\text{Mars}}\), so \(r=2R_{\text{Mars}}\): \(g=3.72/2^2=0.93\ \text{N kg}^{-1}\).<br>✓ (b) \(v=\sqrt{gr}=\sqrt{0.93\times(6.8\times10^6)}=2.5\times10^3\ \text{m s}^{-1}\).<br>✓ (c) \(T=2\pi r/v = 2\pi(6.8\times10^6)/(2.5\times10^3) = 1.70\times10^4\ \text{s}\) (about 4.7 hours).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Gravity is always perpendicular to the orbital velocity, so it changes direction but never speed. No work done means no engine is needed to keep the speed constant.' },
+    mcq2: { B: 'v²/r = g, and g = GM/r² depends on the planet\'s mass M and the radius r — the satellite\'s own mass cancelled out of mg = mv²/r.' },
+    mcq3: { C: 'Matching Earth\'s rotation period alone only makes an orbit geosynchronous. Geostationary needs that period AND an equatorial plane, so the satellite stays above one fixed point.' },
+    mcq4: { C: 'v = √(gr) and g falls as 1/r², so v falls as 1/√r. Doubling r divides v by √2.' }
+  },
+  fitb: { lf1:'centripetal', lf2:'perpendicular', lf3:'work', lf4:'mass', lf5:'geosynchronous', lf6:'equatorial' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <div class="lesson-nav">
