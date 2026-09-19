@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gravitational Potential — D.1 Gravitational Fields — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -93,6 +95,9 @@
     #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
     #lesson-body pre { max-width: 100%; overflow-x: auto; }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -114,7 +119,7 @@
         <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
           <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#F5A623;background:#F5A62318;padding:0.2rem 0.6rem;border-radius:6px">D.1</span>
           <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
-          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 3 of 5</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 3 of 6</span>
         </div>
         <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Gravitational Potential</h1>
         <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">D.1 Gravitational Fields</strong> · Unit D — IB Physics 2023</p>
@@ -149,19 +154,401 @@
           <span class="sidebar-num">05</span>
           <span>Kepler's Laws</span>
         </a>
+      <a href="06-satellites.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
+          <span>Satellites</span>
+        </a>
     </aside>
 
     <main>
       <div class="lesson-content" id="lesson-body">
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Gravitational Potential</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">Lesson content coming soon.</p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=D1" class="btn btn-ghost btn-sm">Practice questions →</a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">Formula sheet</a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+        <div class="lc-wrap">
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 6 · D.1 Gravitational Fields</div>
+<div class="lc-title">Gravitational Potential</div>
+<div class="lc-sub">Gravitational potential energy belongs to a particular mass in a particular place. Gravitational potential belongs to the place itself — energy per kilogram, ready for any mass you put there.</div>
+
+<div class="lc-card">
+  <h3>🛰️ Hook – three satellites, one number</h3>
+  <p>Three satellites orbit the Earth at the same height, but with different masses: 5000 kg, 2000 kg and 3700 kg. Because they have different masses, they have different gravitational potential energies: -2.90×10¹¹ J, -1.16×10¹¹ J and -2.15×10¹¹ J. Divide each by its own mass and something remarkable happens — <strong>every satellite gives the same answer, -5.8×10⁷ J kg⁻¹.</strong> That number does not belong to any one satellite. It belongs to the orbit.</p>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/d1-03-gravitational-potential-01.png" alt="Three satellites of different mass in the same orbit around Earth, each with a different gravitational potential energy but the same potential" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Three satellites, same orbit, different \(E_{\text{p}}\), same \(V_{\text{g}} = -5.8\times10^{7}\ \text{J kg}^{-1}\).</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — explain how it is possible for a body to have negative potential energy. <em>Gravitational PE is defined to be zero at infinity. Gravity is attractive, so as a mass is brought from infinity to any finite distance, the gravitational force does positive work on it — energy is released, not supplied. Since it started at zero, its PE at every finite distance must be less than zero, i.e. negative.</em></div>
+  <div class="lc-info">🔗 <strong>Top tip</strong> — the same idea shows up for electrons in atoms and nucleons in nuclei: an attractive force binds them into a confined system, so their energy is also given a negative value, zero being reserved for a free particle at infinite separation.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🧮 From potential energy to potential</h3>
+  <p>For a small mass \(m\) in the field of a much larger mass \(M\), gravitational potential energy is \(E_{\text{p}} = -GMm/r\). Dividing by \(m\) removes the mass of the object being placed in the field, leaving a property of the location alone:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Gravitational potential energy</span>
+    $$E_{\text{p}} = -G\frac{Mm}{r}$$
+    <span class="lc-formula-label">Gravitational potential</span>
+    $$V_{\text{g}} = \frac{E_{\text{p}}}{m} = -G\frac{M}{r}$$
+  </div>
+  <p><strong>Gravitational potential</strong> at a point is the work done per unit mass (1 kg) in bringing a small test mass from infinity to that point. It is a <strong>scalar</strong> quantity — it has no direction. Like potential energy, its zero is at infinity, so every value of \(V_{\text{g}}\) is negative (or zero). The SI unit is J kg⁻¹.</p>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/d1-03-gravitational-potential-02.png" alt="Graph of gravitational potential energy against distance from Earth's centre, used to estimate the change between 4R and 5R" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — \(E_{\text{p}}\) against \(r\) for 1 kg near Earth. The curve is what you get before dividing by the mass placed in the field.</div>
+  </div>
+  <div class="lc-warn">🛍️ <strong>Common mistake</strong> — a shop sells many sizes of rice at many prices; the useful figure isn't the price of each packet, but the price per kilogram. Potential energy is the "price of the packet" (depends on the mass you chose); potential is the "price per kg" — the more generally useful number, and the one that lets you compare satellites of different mass in the same orbit.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🎯 Equipotential surfaces</h3>
+  <p>An <strong>equipotential surface</strong> (or line) connects places that have the same potential. Around a spherical mass \(M\) they are concentric circles (spheres, in 3-D), drawn at equal numerical intervals of potential — which means they must get further apart with distance, since increasing separation of equipotentials indicates a <em>weakening</em> field. Every equipotential line forms a closed loop. A mass moved anywhere along one equipotential, by any path, requires zero net energy input.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/d1-03-gravitational-potential-03.png" alt="Concentric circular equipotential lines around a spherical mass, spaced further apart with distance, arrow labelled increasing potential" style="max-width:340px;width:100%"><div class="lc-cap">Fig 3 — Equipotentials around a spherical mass. Wider spacing = weaker field. The innermost line is most negative.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/d1-03-gravitational-potential-04.png" alt="Contour map of Stowe, Vermont, showing lines of equal altitude" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — A contour map. Lines join points of equal altitude — the same idea as an equipotential line, applied to height instead of \(V_{\text{g}}\).</div></div>
+  </div>
+  <p><strong>Contour lines</strong> on a map join places of equal height above sea level, which in a uniform field are effectively equipotential lines. Where contours crowd together the ground is steepest, and anything free to move — water in a river — moves perpendicular to them, exactly as a mass moves perpendicular to gravitational equipotentials.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Field lines meet equipotentials at right angles</h3>
+  <p>Equipotential lines and gravitational field lines describe the same field two ways. <strong>Field lines are always perpendicular to equipotential lines, and point from higher potential to lower potential.</strong> This holds for a radial field around a point mass and equally for the uniform field near a flat surface.</p>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/d1-03-gravitational-potential-05.png" alt="Two panels: a radial field with circular equipotentials perpendicular to inward field lines, and a uniform field with horizontal equipotentials perpendicular to vertical field lines" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 5 — (a) radial field: field lines point inward, equipotentials are circles. (b) uniform field: field lines point straight down, equipotentials are horizontal.</div>
+  </div>
+  <p>Because gravitational potential is a <strong>scalar</strong> (unlike field strength, a vector), the potential from two or more masses at any point is found by simple addition — no components needed.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🌍🌙 Adding potentials: the Earth–Moon system</h3>
+  <p>The scalar nature of potential is most useful with two large masses. Along the line joining the Earth and the Moon, each body contributes its own \(-GM/r\) potential; adding them point by point gives a combined curve that dips towards each body and rises to a local maximum (least negative value) at a point <strong>P</strong> between them.</p>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/d1-03-gravitational-potential-06.png" alt="Graph of combined gravitational potential along a line between Earth and Moon, showing individual contributions and a combined blue curve with point P" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — Potentials in the Earth–Moon system. The blue curve is the simple sum of the two individual \(-GM/r\) curves.</div>
+  </div>
+  <div class="lc-info">🔎 <strong>Significance of point P</strong> — P is where the combined potential has a turning point (a local maximum, i.e. least negative). Because \(g = -\Delta V_{\text{g}}/\Delta r\), a turning point in \(V_{\text{g}}\) means the gradient is momentarily zero there: P is the point where the Earth's and the Moon's pulls exactly cancel, the neutral point of the combined field.</div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ Potential difference and the work equation</h3>
+  <p><strong>Gravitational potential difference</strong>, \(\Delta V_{\text{g}}\), is the work done per unit mass moving between two points in a field:</p>
+  <div class="lc-formula">
+    $$\Delta V_{\text{g}} = \frac{W}{m}$$
+    $$W = m\Delta V_{\text{g}}$$
+  </div>
+  <p>Moving to a greater (less negative) potential — away from a planet — needs work done <em>on</em> the mass, so \(W\) is positive. Moving to a lower (more negative) potential — falling towards a planet — the mass does the work itself, so \(W\) is negative, and gravitational PE converts to kinetic energy. This mirrors electric potential difference from Topic B.5, \(V = W/q\), which will return in Topic D.2.</p>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/d1-03-gravitational-potential-07.png" alt="Satellite of mass m moving between two dashed equipotential lines above a planet, arrows for work done on and by the satellite, red arrow labelled increasing potential decreasing negative value" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — Moving to a higher orbit needs work done on the satellite; moving to a lower orbit, the satellite does the work. The result does not depend on the path taken.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🖥️ Tool 2: Technology — spreadsheets</h3>
+  <p>Set up a spreadsheet to calculate the combined potential at points along a straight line joining the Earth and the Sun, then plot it — the same style of graph as Fig 6, but for the Earth–Sun pair. Use it to check where the Sun's and Earth's pulls on a small mass would exactly cancel.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Potential–distance graphs</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>\(V_{\text{g}}\) against \(r\), single mass</td><td>\(r\) / m · \(V_{\text{g}}\) / J kg⁻¹</td><td>Steeply negative curve near \(R\), flattening and rising towards zero as \(r\to\infty\); never positive</td><td>Gradient at any point = \(-g\); tangent slope shrinks with distance as the field weakens</td></tr>
+      <tr><td>Combined \(V_{\text{g}}\), two masses (e.g. Earth–Moon)</td><td>Distance along the line · combined \(V_{\text{g}}\)</td><td>Two "dips", one per mass, joined by a local maximum (least negative) between them</td><td>The local maximum marks point P, where the two fields exactly cancel</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/d1-03-gravitational-potential-08.png" alt="Graph of potential against distance from centre of a planet, red curve, green tangent line showing delta V over delta r near R" style="max-width:340px;width:100%"><div class="lc-cap">Fig 8 — \(V_{\text{g}}\) around a planet. The gradient of the tangent (green) at any \(r\) gives the field strength there.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/d1-03-gravitational-potential-09.png" alt="Diagram or graph of the Earth-Moon system marking the neutral point P" style="max-width:340px;width:100%"><div class="lc-cap">Fig 9 — Point P in the Earth–Moon system, seen alongside the combined-potential graph of Fig 6.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – potential energy on Earth's surface (D1.10)</h3>
+  <p>Confirm that the gravitational potential energy of 1.0 kg on the Earth's surface is -6.3×10⁷ J. Mass of Earth = 6.0×10²⁴ kg, radius of Earth = 6.4×10⁶ m.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(E_{\text{p}} = -GMm/r\) with \(r\) = Earth's radius, since the mass sits on the surface.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(G = 6.67\times10^{-11}\), \(M = 6.0\times10^{24}\ \text{kg}\), \(m = 1.0\ \text{kg}\), \(r = 6.4\times10^{6}\ \text{m}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> $$E_{\text{p}} = -G\frac{Mm}{r}$$ $$= -\frac{(6.67\times10^{-11})(6.0\times10^{24})(1.0)}{6.4\times10^{6}}$$</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(E_{\text{p}} = -6.3\times10^{7}\ \text{J}\), as given.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – reading Fig 1's orbit (D1.11)</h3>
+  <p>Using Fig 1: (a) a 4250 kg satellite is placed in the same orbit — calculate its gravitational potential energy. (b) Determine the height of the orbit above Earth's surface. (Mass of Earth = 6.0×10²⁴ kg, radius of Earth = 6.4×10⁶ m.)</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> (a) gravitational potential energy = potential × mass. (b) rearrange \(V_{\text{g}} = -GM/r\) for \(r\), then subtract Earth's radius.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(V_{\text{g}} = -5.8\times10^{7}\ \text{J kg}^{-1}\), \(m = 4250\ \text{kg}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> $$E_{\text{p}} = V_{\text{g}}m = -(5.8\times10^{7})(4250)$$ $$-5.8\times10^{7} = -\frac{(6.67\times10^{-11})(6.0\times10^{24})}{r}$$</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(E_{\text{p}} = -2.5\times10^{11}\ \text{J}\). (b) \(r = 6.9\times10^{6}\ \text{m}\), so height \(= (6.9\times10^{6}) - (6.4\times10^{6}) = 5\times10^{5}\ \text{m}\) (500 km).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 3 – changing orbit (D1.12)</h3>
+  <p>A satellite of mass 850 kg is in an orbit 7.9×10⁶ m from Earth's centre. (a) Calculate the gravitational potential in this orbit. (b) It is moved to an orbit where \(V_{\text{g}} = -5.40\times10^{7}\ \text{J kg}^{-1}\); state whether this is a higher or lower orbit. (c) Calculate the work done in this change of orbit.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> (a) \(V_{\text{g}} = -GM/r\). (b) compare magnitudes: more negative = lower orbit. (c) \(W = m\Delta V_{\text{g}}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(m = 850\ \text{kg}\), \(r = 7.9\times10^{6}\ \text{m}\), new \(V_{\text{g}} = -5.40\times10^{7}\ \text{J kg}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> $$V = -G\frac{M}{r} = -\frac{(6.67\times10^{-11})(6.0\times10^{24})}{7.9\times10^{6}}$$ $$V = -5.1\times10^{7}\ \text{J kg}^{-1}$$</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) \(V = -5.1\times10^{7}\ \text{J kg}^{-1}\) (calculator shows \(-5.0658\times10^{7}\)). (b) the new potential is more negative, so it is a <strong>lower</strong> orbit. (c) $$W = m\Delta V_{\text{g}} = (850)[(-5.40\times10^{7})-(-5.07\times10^{7})]$$ $$W = -2.8\times10^{9}\ \text{J}$$ — the satellite loses this much gravitational PE moving to the lower orbit, and the answer does not depend on the path taken.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 4 – field strength from a graph (D1.13)</h3>
+  <p>Using Fig 8, determine the magnitude of the gravitational field strength at the marked point on the curve.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> \(g\) is the magnitude of the gradient of the tangent to the \(V_{\text{g}}\)-\(r\) graph at that point.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> tangent rises \(\Delta V = 3.8\times10^{8}\ \text{J kg}^{-1}\) over \(\Delta r = 4.2\times10^{7}\ \text{m}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> $$g = \left|\frac{\Delta V}{\Delta r}\right| = \frac{3.8\times10^{8}}{4.2\times10^{7}}$$</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(g = 9.0\ \text{N kg}^{-1}\).</div></div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🛰️ Real-world: budgeting a satellite's orbit change</h3>
+    <p>Every orbit raise or lower a satellite performs costs (or releases) a known amount of energy per kilogram, \(\Delta V_{\text{g}}\) — engineers use exactly the calculation in Worked example 3 to budget the fuel needed for a manoeuvre, since the work done does not depend on the path flown between the two orbits.</p>
+    <div class="lc-success">✓ Examiner tip: never write "the potential increases" when you mean the potential energy increases (or vice versa) — state clearly which one you mean and whether you are dividing by, or already including, the mass.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – equipotentials around two masses</h3>
+    <p>Around two equal masses, individual near-circular equipotentials merge, further out, into a single closed curve enclosing both — because potential is scalar, the combined value at any point is just the sum of each mass's own \(-GM/r\).</p>
+    <div class="lc-img" style="max-width:340px;width:100%">
+      <img src="../../assets/lesson-images/d1-03-gravitational-potential-10.png" alt="Peanut-shaped equipotential lines around two equal masses, near-circular close to each mass, merging into one closed curve further out" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 10 — Equipotentials around two equal masses, M and M.</div>
+    </div>
+    <p><strong>Challenge:</strong> sketch the field lines for Fig 10. <em>Field lines are drawn perpendicular to every equipotential, pointing from higher to lower potential — so from outside inward toward each mass, converging radially close to each M, with a saddle point on the line joining them where the two inward pulls momentarily cancel (the two-mass equivalent of point P in Fig 6).</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Potential and potential energy are the same thing</td><td>Potential is energy <em>per unit mass</em> (\(V_{\text{g}} = E_{\text{p}}/m\)) — a property of the location, not of any one object placed there</td></tr>
+      <tr><td>Moving to a "higher" potential means it becomes positive</td><td>Potential stays negative everywhere except infinity (where it is zero); "higher" means less negative, closer to zero</td></tr>
+      <tr><td>Field lines run parallel to equipotential lines</td><td>They are always perpendicular to equipotentials, pointing from higher to lower potential</td></tr>
+      <tr><td>Potential is a vector, like field strength</td><td>Potential is a scalar — combine two sources by simple addition, never by components</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: mixing up the sign of work done. Moving away from a planet (to a less negative potential) needs positive work done <em>on</em> the mass; falling towards it (more negative potential) means the mass does positive work, releasing kinetic energy.</div>
+</div>
+
+<div class="lc-kp">
+  <span>Vg = -GM/r</span>
+  <span>Vg = Ep/m</span>
+  <span>ΔVg = W/m</span>
+  <span>g = -ΔVg/Δr</span>
+  <span>potential is scalar</span>
+  <span>zero at infinity</span>
+  <span>equipotentials ⟂ field lines</span>
+  <span>same orbit → same Vg</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Gravitational potential at a point is best described as</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> the force needed to hold a 1 kg mass there</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> the kinetic energy of a 1 kg mass falling from infinity</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> the work done per unit mass bringing a test mass from infinity to that point</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> the gravitational field strength at that point</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Two satellites of different mass are in the same circular orbit around Earth. Which quantity must be the same for both?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> Gravitational potential energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> Gravitational potential</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> Kinetic energy</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> Momentum</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A mass moves from a point of potential -6.0×10⁷ J kg⁻¹ to a point of potential -4.0×10⁷ J kg⁻¹. It has moved to</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> a higher potential, and work was done on it</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> a lower potential, and it did work itself</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> a higher potential, and it did work itself</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> the same potential, so no work was done</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Equipotential lines around a spherical planet are drawn at equal intervals of potential. Moving outward, the lines</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> get closer together, since the field gets stronger</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> get further apart, since the field gets weaker</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> stay evenly spaced, since potential is scalar</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> become positive beyond a certain distance</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. The gradient of a gravitational potential–distance graph at a point gives</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','D')"><span class="lc-opt-l">A</span> the potential energy at that point</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','D')"><span class="lc-opt-l">B</span> the mass creating the field</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','D')"><span class="lc-opt-l">C</span> the work done bringing a mass from infinity</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','D')"><span class="lc-opt-l">D</span> minus the gravitational field strength at that point</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Gravitational potential is defined as the work done per unit <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px"> bringing a test mass from <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> to that point. It is a <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> quantity, so potentials from several masses are combined by simple <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">. Every value of gravitational potential is <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px">, except at infinity where it is zero. Field lines are always <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:130px"> to equipotential lines, and point from <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:150px"> potential.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q27.</strong> A satellite of mass 200 kg was raised from the Earth's surface to a height of 320 km. <strong>(a)</strong> Determine the change in its gravitational potential energy. <strong>(b)</strong> What value would the (incorrect) use of \(\Delta E_{\text{p}} = mg\Delta h\) produce? Mass of Earth = 6.0×10²⁴ kg, radius of Earth = 6.4×10⁶ m. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(E_{\text{p1}} = -GMm/R = -1.25\times10^{10}\ \text{J}\) at \(r=6.4\times10^{6}\) m.<br>✓ \(E_{\text{p2}} = -GMm/(R+h) = -1.19\times10^{10}\ \text{J}\) at \(r=6.72\times10^{6}\) m.<br>✓ \(\Delta E_{\text{p}} = E_{\text{p2}}-E_{\text{p1}} = +6.0\times10^{8}\ \text{J}\).<br>✓ (b) \(\Delta E_{\text{p}} = mg\Delta h = 200\times9.8\times(3.2\times10^{5}) = 6.3\times10^{8}\ \text{J}\) — close because \(h \ll R\), but strictly incorrect since \(g\) is not constant over 320 km.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Discuss</div>
+  <div class="lc-exam-q"><strong>Q28.</strong> <strong>(a)</strong> Determine a value for the gravitational potential energy associated with the Earth–Moon system (only). Mass of Moon = 7.3×10²² kg, separation of centres 3.8×10⁸ m. <strong>(b)</strong> Discuss whether it is acceptable to ignore the effect of the Sun in this calculation. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(E_{\text{p}} = -G(M_{\text{Earth}}M_{\text{Moon}})/r = -7.7\times10^{28}\ \text{J}\).<br>✓ (b) The Sun's gravitational pull on the Earth and Moon is far larger in absolute terms than their mutual pull.<br>✓ But the question asks only for the PE of the Earth–Moon pair — the Sun is a separate pairwise interaction with each body and does not enter this particular calculation.<br>✓ Because Earth and Moon are at almost the same distance from the Sun, its effect on their <em>relative</em> motion (which is what matters for their mutual orbit) nearly cancels, so ignoring it here is reasonable.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate / Compare</div>
+  <div class="lc-exam-q"><strong>Q29.</strong> <strong>(a)</strong> Use Fig 2 to estimate the change in gravitational potential energy when 1 kg moves from a distance 4R to 5R from the centre of the Earth. <strong>(b)</strong> Compare your answer to a value from \(E_{\text{p}} = -GMm/r\). <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Reading the curve: \(E_{\text{p}}(4R) \approx -1.56\times10^{7}\ \text{J}\), \(E_{\text{p}}(5R) \approx -1.25\times10^{7}\ \text{J}\), so \(\Delta E_{\text{p}} \approx +3.1\times10^{6}\ \text{J}\).<br>✓ (b) Using \(E_{\text{p}} = -GMm/r\) with \(GM = 3.99\times10^{14}\): \(E_{\text{p}}(4R) = -1.56\times10^{7}\ \text{J}\), \(E_{\text{p}}(5R) = -1.25\times10^{7}\ \text{J}\).<br>✓ The two methods agree, since the graph is simply a plot of the same equation.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q30.</strong> Calculate the gravitational potential energy of a 200 kg satellite orbiting at a height of 150 km above the surface of Mars. Mass of Mars = 6.0×10²³ kg, radius of Mars = 3.4×10⁶ m. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(r = (3.4\times10^{6}) + (1.5\times10^{5}) = 3.55\times10^{6}\ \text{m}\).<br>✓ \(E_{\text{p}} = -GMm/r = -(6.67\times10^{-11})(6.0\times10^{23})(200)/(3.55\times10^{6})\).<br>✓ \(E_{\text{p}} = -2.3\times10^{9}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q31.</strong> Determine the gravitational potential on the Earth's surface. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(V_{\text{g}} = -GM/R = -(6.67\times10^{-11})(6.0\times10^{24})/(6.4\times10^{6})\).<br>✓ \(V_{\text{g}} = -6.3\times10^{7}\ \text{J kg}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q32.</strong> If the gravitational potential on the surface of a planet is -4.8 MJ kg⁻¹, determine the gravitational potential energy of an 86 kg mass on the planet. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(E_{\text{p}} = V_{\text{g}}m = (-4.8\times10^{6})(86)\).<br>✓ \(E_{\text{p}} = -4.1\times10^{8}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / State</div>
+  <div class="lc-exam-q"><strong>Q33.</strong> <strong>(a)</strong> Calculate the gravitational potential at a height of 1000 km above the surface of Mars (mass = 6.4×10²³ kg, radius = 3.4×10⁶ m). <strong>(b)</strong> Determine the change in gravitational potential energy for a mass of 1200 kg moving from the surface of Mars to a height of 1000 km. <strong>(c)</strong> State whether the change in gravitational potential energy is positive or negative. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(r = (3.4\times10^{6})+(1.0\times10^{6}) = 4.4\times10^{6}\ \text{m}\); \(V_{\text{g}} = -GM/r = -9.7\times10^{6}\ \text{J kg}^{-1}\).<br>✓ (b) \(V_{\text{g,surface}} = -GM/(3.4\times10^{6}) = -1.26\times10^{7}\ \text{J kg}^{-1}\); \(\Delta V_{\text{g}} = (-9.7\times10^{6})-(-1.26\times10^{7}) = +2.9\times10^{6}\ \text{J kg}^{-1}\).<br>✓ \(\Delta E_{\text{p}} = m\Delta V_{\text{g}} = (1200)(2.9\times10^{6}) = 3.4\times10^{9}\ \text{J}\).<br>✓ (c) Positive — moving away from the planet always raises potential energy.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q34.</strong> The gravitational potential at a distance of 1.4×10⁷ m from a planet is -1.9×10⁷ J kg⁻¹. Calculate the gravitational potential at a distance of 3.7×10⁸ m. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Since \(V_{\text{g}} \propto 1/r\), \(GM = -V_{\text{g}}r = (1.9\times10^{7})(1.4\times10^{7}) = 2.66\times10^{14}\).<br>✓ \(V_{\text{g,new}} = -GM/r_{\text{new}} = -(2.66\times10^{14})/(3.7\times10^{8})\).<br>✓ \(V_{\text{g,new}} = -7.2\times10^{5}\ \text{J kg}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate (own diagram)</div>
+  <div class="lc-exam-q"><strong>Q35.</strong> Calculate suitable values of the gravitational potential around the Earth that will enable you to draw a scale diagram showing at least three equipotential lines. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Using \(V_{\text{g}} = -GM/r\) with \(GM = 3.99\times10^{14}\): at \(r=R=6.4\times10^{6}\ \text{m}\), \(V_{\text{g}} = -6.3\times10^{7}\ \text{J kg}^{-1}\).<br>✓ At \(r=2R\), \(V_{\text{g}} = -3.1\times10^{7}\ \text{J kg}^{-1}\); at \(r=3R\), \(V_{\text{g}} = -2.1\times10^{7}\ \text{J kg}^{-1}\).<br>✓ Draw three concentric circles at these radii, each an equipotential line at the calculated value, getting further apart with distance.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q37.</strong> Explain why contour lines on a geographic map can be considered to be equipotential lines. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Near the Earth's surface the gravitational field is uniform, so \(E_{\text{p}} = mgh\), and gravitational potential per unit mass is \(gh\).<br>✓ Points of equal altitude therefore have equal gravitational potential.<br>✓ A contour line joins points of equal altitude, so it also joins points of equal potential — the definition of an equipotential line.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q38.</strong> Calculate the gravitational potential difference when moving up from a 100 m contour line to a 200 m contour line. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Near Earth's surface, \(\Delta V_{\text{g}} = g\Delta h\) with \(g = 9.8\ \text{N kg}^{-1}\) and \(\Delta h = 100\ \text{m}\).<br>✓ \(\Delta V_{\text{g}} = 9.8\times100 = 980\ \text{J kg}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw a sketch</div>
+  <div class="lc-exam-q"><strong>Q39.</strong> Fig 10 shows equipotential lines around two equal masses. Draw a sketch to represent the gravitational field lines around the same masses. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Field lines are drawn perpendicular to every equipotential, pointing from higher to lower (more negative) potential.<br>✓ Close to each mass the lines are radial, converging inward, matching the near-circular equipotentials there.<br>✓ Between the two masses a saddle point occurs on the line joining them, where the two inward pulls momentarily cancel — the field-line equivalent of point P in the Earth–Moon system.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q40.</strong> Equipotential lines are marked around a planet, with lines A to G at potentials -4×10⁷ (A) down to -16×10⁷ J kg⁻¹ (G), in steps of -2×10⁷. Points 1–5 sit on different lines: 1 and 5 near the planet, 2 further out, 3 and 4 on outer lines. Determine the gravitational potential differences for: <strong>(a)</strong> 1 to 5, <strong>(b)</strong> 5 to 1, <strong>(c)</strong> 3 to 4, <strong>(d)</strong> 2 to 5. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Reading the marked lines (point 1 on G, 2 on E, 3 on B, 4 on A, 5 on F):<br>✓ (a) \(1\to5\): \(V_5-V_1 = (-14\times10^{7})-(-16\times10^{7}) = +2\times10^{7}\ \text{J kg}^{-1}\).<br>✓ (b) \(5\to1\): the reverse, \(-2\times10^{7}\ \text{J kg}^{-1}\).<br>✓ (c) \(3\to4\): \(V_4-V_3 = (-4\times10^{7})-(-6\times10^{7}) = +2\times10^{7}\ \text{J kg}^{-1}\).<br>✓ (d) \(2\to5\): \(V_5-V_2 = (-14\times10^{7})-(-12\times10^{7}) = -2\times10^{7}\ \text{J kg}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw / Determine</div>
+  <div class="lc-exam-q"><strong>Q41.</strong> <strong>(a)</strong> Draw a graph of the potential around the Earth from its surface to a radius of 2.6×10⁷ m. <strong>(b)</strong> Use your graph to determine a value of the gravitational field strength at a radius of 1.7×10⁷ m. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Using \(V_{\text{g}}=-GM/r\) with \(GM=3.99\times10^{14}\): \(r=6.4\times10^6\to V=-6.3\times10^7\); \(r=1.3\times10^7\to V=-3.07\times10^7\); \(r=2.0\times10^7\to V=-2.0\times10^7\); \(r=2.6\times10^7\to V=-1.5\times10^7\ \text{J kg}^{-1}\). Plot and join smoothly.<br>✓ (b) Draw a tangent at \(r=1.7\times10^7\); using nearby points \(1.3\times10^7\) and \(2.0\times10^7\), \(\Delta V \approx 1.1\times10^7\) over \(\Delta r = 7\times10^6\).<br>✓ \(g = |\Delta V/\Delta r| \approx 1.5\ \text{N kg}^{-1}\), close to the calculated value \(GM/r^2 = 1.4\ \text{N kg}^{-1}\).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Vg is defined as the work done per unit mass bringing a test mass from infinity to that point.' },
+    mcq2: { B: 'Different masses in the same orbit have different Ep, but the same Vg -- potential belongs to the orbit, not the object.' },
+    mcq3: { A: 'Moving from -6.0e7 to -4.0e7 J/kg is a rise to a less negative (higher) potential, which needs positive work done on the mass.' },
+    mcq4: { B: 'Equally-spaced potential intervals get further apart with distance because the field weakens -- wider spacing means a weaker field.' },
+    mcq5: { D: 'g = -dVg/dr: the gradient of a Vg-r graph gives minus the field strength at that point.' }
+  },
+  fitb: { lf1:'mass', lf2:'infinity', lf3:'scalar', lf4:'addition', lf5:'negative', lf6:'perpendicular', lf7:'higher to lower' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <div class="lesson-nav">
