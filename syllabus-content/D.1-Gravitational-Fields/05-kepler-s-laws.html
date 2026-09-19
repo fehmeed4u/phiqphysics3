@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kepler's Laws — D.1 Gravitational Fields — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -93,6 +95,9 @@
     #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
     #lesson-body pre { max-width: 100%; overflow-x: auto; }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -114,7 +119,7 @@
         <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
           <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#F5A623;background:#F5A62318;padding:0.2rem 0.6rem;border-radius:6px">D.1</span>
           <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
-          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 5 of 5</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 5 of 6</span>
         </div>
         <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Kepler's Laws</h1>
         <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">D.1 Gravitational Fields</strong> · Unit D — IB Physics 2023</p>
@@ -149,478 +154,288 @@
           <span class="sidebar-num">05</span>
           <span>Kepler's Laws</span>
         </a>
+      <a href="06-satellites.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
+          <span>Satellites</span>
+        </a>
     </aside>
 
     <main>
       <div class="lesson-content" id="lesson-body">
-      <div style="padding:1.5rem 1.75rem">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<style>
-/* All colours use CSS variables from the site theme */
-.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
-.lc-badge span { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700; }
-.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);line-height:1.2;margin-bottom:4px; }
-.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
-.lc-card { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
-.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);font-family:var(--font-sans); }
-.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
-.lc-card p:last-child { margin-bottom:0; }
-.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
-.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left; }
-.lc-table td { padding:8px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2);font-size:0.84rem; }
-.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
-.lc-table tr:last-child td { border-bottom:none; }
-.lc-formula { background:var(--surface3);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.4rem;margin:0.85rem 0;text-align:center; }
-.lc-formula .katex { font-size:1.35rem;color:var(--accent); }
-.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.35rem; }
-.lc-img { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
-.lc-img img { max-width:100%;border-radius:8px; }
-.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
-.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
-@media(max-width:600px){ .lc-img-row{grid-template-columns:1fr;} }
-.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
-.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);background:var(--accent-dim);border:1px solid var(--border-2);border-radius:100px;padding:3px 10px;color:var(--accent); }
-.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
-.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:0.86rem;color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
-.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:0.86rem;color:var(--text-2);margin:0.6rem 0; }
-.lc-success { background:var(--green-dim);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:0.65rem 1rem;font-size:0.86rem;color:var(--text-2);margin:0.6rem 0; }
-.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
-@media(max-width:600px){ .lc-two-col{grid-template-columns:1fr;} }
-.lc-step { display:flex;gap:0.85rem;padding:0.85rem 0;border-bottom:1px solid var(--border); }
-.lc-step:last-child { border-bottom:none; }
-.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700; }
-.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
-.lc-step-body strong { color:var(--text); }
-.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);margin-bottom:0.65rem; }
-.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
-.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:0.87rem;color:var(--text-2);background:var(--surface); }
-.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
-.lc-opt.wrong { background:var(--red-dim);border-color:var(--red);color:var(--red); }
-.lc-opt.disabled { cursor:default;pointer-events:none; }
-.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
-.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;border-radius:var(--radius);display:none; }
-.lc-fb.show { display:block; }
-.lc-fb.correct { background:var(--green-dim);color:var(--green); }
-.lc-fb.wrong { background:var(--red-dim);color:var(--red); }
-.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
-.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);background:transparent;font-size:0.9rem;color:var(--text);padding:0 4px;min-width:80px;text-align:center; }
-.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
-.lc-fitb-input.wrong { border-bottom-color:var(--red);color:var(--red); }
-.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted); }
-.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
-.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
-.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
-.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface3);color:var(--text);font-size:0.86rem;padding:0.65rem 0.85rem;resize:vertical; }
-.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);border-radius:100px;background:var(--surface);cursor:pointer;font-size:0.78rem;color:var(--text-muted); }
-.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;background:var(--surface);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
-.lc-model.show { display:block; }
-.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;padding:0.4rem 0.9rem;border-radius:100px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
-.lc-score strong { color:var(--accent); }
-.lc-slider-lab { background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;margin-bottom:1rem; }
-.lc-slider-lab h4 { font-size:0.95rem;font-weight:600;margin:0 0 0.5rem 0;color:var(--accent); }
-.lc-slider-lab canvas { width:100%;height:auto;background:var(--surface);border-radius:8px;margin-top:0.5rem;border:1px solid var(--border); }
-.lc-slider-lab input[type=range] { width:100%;margin:0.5rem 0;accent-color:var(--accent); }
-.lc-slider-lab .lc-slider-value { font-family:var(--font-mono);font-size:0.85rem;text-align:center;color:var(--text-2); }
-</style>
+<!-- LESSON-START -->
+<div class="lc-wrap">
 
-<!-- A. HEADER -->
-<div class="lc-badge"><span>1</span> LESSON 4.1</div>
-<div class="lc-title">Projectile Motion</div>
-<div class="lc-sub">Topic Code: PHY101 | Level: A-Level</div>
+<div class="lc-badge"><span>5</span> Lesson 5 of 6 · D.1 Gravitational Fields</div>
+<div class="lc-title">Kepler's Laws of Planetary Motion</div>
+<div class="lc-sub">Tycho Brahe spent decades measuring the sky by eye, before the telescope existed. Johannes Kepler spent years fighting Brahe's data on Mars, trying to force it into a circle — and failed. The shape that finally fit was an ellipse, and from it came three laws that describe every orbit in the Solar System, seventy years before Newton explained why they work.</div>
 
-<!-- B. HOOK & DIAGNOSTIC -->
-<div class="lc-section">HOOK &amp; DIAGNOSTIC</div>
 <div class="lc-card">
+  <h3>🔭 Hook – the astronomer who couldn't make Mars fit</h3>
+  <p>For nearly 2000 years, the accepted explanation for why things fall was Aristotle's: objects simply return to their "natural" place. Testing any real theory of gravity needs objects moving over huge distances, unaffected by air resistance — the planets and the Moon. The Danish nobleman <strong>Tycho Brahe</strong> supplied exactly that: astonishingly precise naked-eye measurements of planetary positions, made before the telescope existed (late 16th century) — but data alone, with no explanation.</p>
   <div class="lc-img">
-    <img src="https://via.placeholder.com/400x200?text=Projectile+Animation" alt="Projectile trajectory animation">
-    <div class="lc-cap">Figure 1: A ball launched at an angle follows a parabolic path.</div>
+    <img src="../../assets/lesson-images/lesson-images2/d1-05-kepler-s-laws-01.png" alt="Portrait of Johannes Kepler standing beside a table with an armillary sphere" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Johannes Kepler, 1610: analysed Tycho Brahe's naked-eye observations of Mars.</div>
   </div>
-  <div class="lc-info">
-    <strong>Think about it:</strong> If you throw a ball at 30° above horizontal, what shape is its path? Why does it not continue in a straight line?
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — Kepler tried for years to fit Brahe's Mars data to a circular orbit and it never quite worked, the errors were small but persistent. What does that tell you about circular orbits as a model of the Solar System? <em>They're a good first approximation but not exact — planetary orbits are actually ellipses, just ones with a shape (eccentricity) close enough to a circle that the difference is easy to miss with clumsy data. Brahe's measurements were accurate enough that Kepler couldn't ignore the small discrepancy.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 The ellipse: an orbit's true shape</h3>
+  <p>An <strong>ellipse</strong> is a closed curve with a simple defining property: for every point on it, the sum of the distances to two fixed points is always the same. Those two fixed points, \(\mathrm{F}_1\) and \(\mathrm{F}_2\), are each called a <strong>focus</strong> of the ellipse (plural: <strong>foci</strong>).</p>
+  <p>If \(\mathrm{F}_1\) and \(\mathrm{F}_2\) move together to the same point at the centre, the ellipse becomes a circle — a circle is just a special case of an ellipse with zero eccentricity.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-05-kepler-s-laws-02.png" alt="Ellipse with major and minor axis, two foci F1 and F2 marked on the major axis, and a distance R marked from the edge to F1" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — An ellipse: major axis, minor axis, and foci F₁, F₂. If F₁ and F₂ coincided at the centre, this would be a circle.</div>
   </div>
 </div>
 
-<!-- C. CORE KNOWLEDGE -->
-<div class="lc-section">CORE KNOWLEDGE</div>
 <div class="lc-card">
-  <h3>Independence of Horizontal and Vertical Motion</h3>
-  <p>Projectile motion can be analysed by considering the horizontal and vertical components separately. The horizontal motion has constant velocity (no acceleration, ignoring air resistance), while the vertical motion has constant acceleration due to gravity.</p>
+  <h3>1️⃣ Kepler's First Law – the shape of the orbit</h3>
+  <p>Kepler showed that planets move in elliptical paths, not circles:</p>
+  <div class="lc-info">The planets orbit in elliptical paths, with the Sun at one of the two foci.</div>
+  <p>Note the Sun sits at a <em>focus</em>, not at the centre of the ellipse. In practice, most Solar System orbits are nearly circular — Fig 3 exaggerates the eccentricity so the geometry is visible.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-05-kepler-s-laws-03.png" alt="Planet moving on an exaggerated elliptical path with the Sun at the left focus and a second empty focus marked on the right" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Elliptical path of a planet: the Sun sits at one focus, the other focus is empty.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>2️⃣ Kepler's Second Law – equal areas in equal times</h3>
+  <p>This law captures something Brahe's data also showed: planets speed up as they get closer to the Sun.</p>
+  <div class="lc-info">A line joining a planet and the Sun sweeps out equal areas in equal times.</div>
+  <p>Because the planet is closer to the Sun on one side of the ellipse, an equal-area sweep there needs a shorter arc travelled in the same time near the Sun, and a longer arc travelled far from it — so the planet moves <strong>faster</strong> at closest approach and <strong>slower</strong> at its most distant point.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-05-kepler-s-laws-04.png" alt="Elliptical orbit with the Sun at one focus and three equal shaded sector areas swept by the planet-Sun line, with faster motion near the Sun and slower motion far from it" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — Equal areas in equal times: the shaded sectors are equal in area, so the planet moves faster when its sector is near the Sun.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>3️⃣ Kepler's Third Law – period and radius</h3>
+  <p>The third law relates a planet's orbital time period \(T\) to \(R\), half the length of the major axis. Since most orbits are close to circular, \(R\) can usually be treated as the average orbital radius:</p>
   <div class="lc-formula">
-    <span class="lc-formula-label">Key Equations</span>
-    $$v_{x} = u \cos\theta$$<br>
-    $$v_{y} = u \sin\theta - g t$$<br>
-    $$x = u \cos\theta \cdot t$$<br>
-    $$y = u \sin\theta \cdot t - \frac{1}{2} g t^{2}$$
+    <span class="lc-formula-label">Kepler's third law</span>
+    $$T^2 \propto R^3$$
+    $$\frac{R^3}{T^2} = \text{constant}$$
   </div>
+  <p>The constant is the same for every body orbiting the <em>same</em> central mass — every planet orbiting the Sun gives the same value of \(R^3/T^2\), but a satellite orbiting the Earth gives a different constant.</p>
+  <p>The Earth's average distance from the Sun, \(1.50\times10^{11}\) m, is defined as one <strong>astronomical unit (AU)</strong> — a convenient yardstick for Solar System distances.</p>
+  <div class="lc-info">🔗 <strong>Linking question</strong> — how is uniform circular motion (Topic A.4) like real orbits, and how is it different? <em>Both involve a centripetal force directed towards a fixed centre. Uniform circular motion has constant speed and radius by definition; a real elliptical orbit only matches that description in the special case of a circular orbit — otherwise speed and radius both vary continuously, governed by Kepler's second law.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Reading Kepler's third law from a graph</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>T² vs R³</td><td>R³ · T²</td><td>Straight line through the origin</td><td>Gradient = the constant R³/T² — same value for every planet orbiting that star</td></tr>
+      <tr><td>log T vs log R</td><td>log R · log T</td><td>Straight line, gradient \(\tfrac{3}{2}\)</td><td>A gradient of 1.5 confirms the power law T² ∝ R³ across a wide range of R without needing huge axis scales</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/d1-05-kepler-s-laws-05.png" alt="Graph of T squared against R cubed, a straight line through the origin" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — T² vs R³: a straight line through the origin, gradient = 1/(constant).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/d1-05-kepler-s-laws-06.png" alt="Graph of log T against log R, a straight line with gradient three over two" style="max-width:340px;width:100%"><div class="lc-cap">Fig 6 — log T vs log R: straight line, gradient 3/2, confirming the power law.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked Example D1.1</h3>
+  <p>The average distance between the Sun and Venus is \(1.08\times10^{11}\) m. Calculate the time period of Venus's orbit.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> \(R^3/T^2\) is the same constant for every planet orbiting the Sun, so Earth's known values (\(T=365.25\) days, \(R=1.496\times10^{11}\) m) can be used as the reference.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(R_{\text{Venus}} = 1.08\times10^{11}\) m, \(T_{\text{Earth}}=365.25\) days, \(R_{\text{Earth}}=1.496\times10^{11}\) m</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(\dfrac{T^2}{R^3} = \text{constant}\)<br>\(\dfrac{365.25^2}{(1.496\times10^{11})^3} = \dfrac{T_{\text{V}}^2}{(1.08\times10^{11})^3}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(T_{\text{V}} = 224\) Earth days</div></div>
   <div class="lc-img">
-    <img src="https://via.placeholder.com/400x200?text=Trajectory+Graph" alt="Graph of projectile trajectory">
-    <div class="lc-cap">Figure 2: Parabolic trajectory showing velocity components.</div>
+    <img src="../../assets/lesson-images/lesson-images2/d1-05-kepler-s-laws-07.png" alt="Sun at the centre with the orbits of Earth and Venus drawn as circles, Venus orbit smaller than Earth's, with average radii labelled" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — Venus orbits closer to the Sun than the Earth, so its period is shorter.</div>
   </div>
 </div>
 
-<div class="lc-card">
-  <h3>Time of Flight &amp; Range</h3>
-  <p>The total time the projectile stays in the air, \(T = \frac{2u\sin\theta}{g}\). The horizontal range, \(R = \frac{u^{2}\sin 2\theta}{g}\). Maximum height, \(H = \frac{u^{2}\sin^{2}\theta}{2g}\).</p>
-</div>
-
-<!-- D. INTERACTIVE SLIDER LABS -->
-<div class="lc-section">INTERACTIVE LAB</div>
-<div class="lc-slider-lab">
-  <h4>Projectile Motion Simulator</h4>
-  <p style="font-size:0.9rem;color:var(--text-2);">Adjust the launch angle and initial speed to see the path change.</p>
-  <div>
-    <label style="font-size:0.82rem;color:var(--text-muted);">Launch Angle (\(\theta\)): <span id="angle-val">45°</span></label>
-    <input type="range" id="angle-slider" min="0" max="90" value="45" step="1">
-  </div>
-  <div>
-    <label style="font-size:0.82rem;color:var(--text-muted);">Initial Speed (\(u\)): <span id="speed-val">20 m/s</span></label>
-    <input type="range" id="speed-slider" min="5" max="50" value="20" step="1">
-  </div>
-  <canvas id="canvas-lab" width="600" height="400"></canvas>
-  <div class="lc-slider-value">Horizontal Range: <span id="range-display">—</span> m</div>
-</div>
-
-<!-- E. GRAPH MASTERY TABLE -->
-<div class="lc-section">GRAPH MASTERY</div>
-<table class="lc-table">
-  <thead>
-    <tr><th>Graph Type</th><th>Shape &amp; Explanation</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>\(x\) vs \(t\)</td><td>Straight line (constant horizontal velocity).</td></tr>
-    <tr><td>\(y\) vs \(t\)</td><td>Parabola (uniform acceleration).</td></tr>
-    <tr><td>\(v_x\) vs \(t\)</td><td>Horizontal line (constant).</td></tr>
-    <tr><td>\(v_y\) vs \(t\)</td><td>Straight line with negative slope (linear deceleration then acceleration).</td></tr>
-    <tr><td>\(v\) vs \(t\) (speed)</td><td>V-shaped (minimum at apex).</td></tr>
-  </tbody>
-</table>
-
-<!-- F. WORKED EXAMPLE -->
-<div class="lc-section">WORKED EXAMPLE</div>
-<div class="lc-card">
-  <h3>Projectile launched at 60°</h3>
-  <div class="lc-step">
-    <div class="lc-step-num">1</div>
-    <div class="lc-step-body"><strong>Identify</strong> – A ball is thrown with initial velocity \(u = 25\,\text{m/s}\) at an angle \(\theta = 60^\circ\) from ground level. Find the range \(R\).</div>
-  </div>
-  <div class="lc-step">
-    <div class="lc-step-num">2</div>
-    <div class="lc-step-body"><strong>Data</strong> – \(u = 25\), \(\theta = 60^\circ\), \(g = 9.81\,\text{m/s}^2\).</div>
-  </div>
-  <div class="lc-step">
-    <div class="lc-step-num">3</div>
-    <div class="lc-step-body"><strong>Equation</strong> – Use \(R = \frac{u^{2}\sin 2\theta}{g}\).</div>
-  </div>
-  <div class="lc-step">
-    <div class="lc-step-num">4</div>
-    <div class="lc-step-body"><strong>Answer</strong> – \(R = \frac{25^{2}\sin 120^\circ}{9.81} = \frac{625 \times 0.8660}{9.81} \approx 55.2\,\text{m}\).</div>
-  </div>
-</div>
-
-<!-- G. REAL-WORLD + HL EXTENSION -->
-<div class="lc-section">REAL-WORLD &amp; HL EXTENSION</div>
 <div class="lc-two-col">
   <div class="lc-card">
-    <h3>Real‑World: Sports</h3>
+    <h3>🌍 Nature of Science – standing on the shoulders of giants</h3>
+    <p>Newton's law of gravitation explained Kepler's laws seventy years after Kepler published them — and Newton himself credited his predecessors: "If I have seen further, it is by standing on the shoulders of giants." <strong>Copernicus</strong> published a heliocentric model in 1530, challenging 2000 years of geocentric belief dating back to Ptolemy and Aristotle (though Aristarchus of Ancient Greece proposed a heliocentric model even earlier). <strong>Bruno</strong> went further, arguing the Sun was just an ordinary star in an infinite universe — he was burned at the stake in 1600. <strong>Galileo</strong> used the newly invented telescope to observe Jupiter's moons and was tried by the Church for supporting Copernicus, spending his final years under house arrest.</p>
     <div class="lc-img">
-      <img src="https://via.placeholder.com/400x200?text=Real+World+Example" alt="Basketball free throw">
-      <div class="lc-cap">Figure 3: Basketball free‑throw trajectory.</div>
+      <img src="../../assets/lesson-images/lesson-images2/d1-05-kepler-s-laws-09.png" alt="Timeline from 1450 to 1750 showing the lifespans of Copernicus, Brahe, Bruno, Kepler, Galileo and Newton" style="max-width:490px;width:100%">
+      <div class="lc-cap">Fig 9 — Timeline of early astronomers: Copernicus (1473–1543), Brahe (1546–1601), Bruno (1548–1600), Kepler (1571–1630), Galileo (1564–1642), Newton (1643–1727).</div>
     </div>
-    <p>In basketball, players adjust launch angle and speed to maximise chance of scoring. Optimal angle is near 45° for maximum range, but height of release changes the best angle.</p>
+    <div class="lc-success">✓ Examiner tip: about 700 years before Newton, during the Islamic Golden Age, astronomers such as Abd al-Rahman al-Sufi catalogued stars and constellations with great accuracy, building on Ptolemy's earlier work — a reminder that science accumulates across cultures and centuries, not in isolated leaps.</div>
   </div>
   <div class="lc-card">
-    <h3>HL Extension: Air Resistance</h3>
-    <p>With drag, the path is no longer a perfect parabola. Range decreases and the descent becomes steeper. The equations become differential and require numerical methods.</p>
+    <h3>🚀 HL extension – deriving the third law</h3>
+    <p>Kepler's third law is empirical, but Newton's law of gravitation derives it directly. For a circular orbit, gravity provides the centripetal force (Lesson 4):</p>
+    <div class="lc-formula">$$\frac{GM}{r^2} = \frac{4\pi^2 r}{T^2}$$</div>
+    <p>Rearranging gives \(T^2 = \left(\dfrac{4\pi^2}{GM}\right)r^3\) — exactly Kepler's third law, with the "constant" identified as \(4\pi^2/GM\).</p>
+    <p><strong>Challenge:</strong> using Earth's orbital data (\(T=1\) year \(=3.156\times10^7\) s, \(R=1.496\times10^{11}\) m), estimate the mass of the Sun. <em>Answer: \(M=\dfrac{4\pi^2 R^3}{GT^2}=\dfrac{4\pi^2(1.496\times10^{11})^3}{(6.67\times10^{-11})(3.156\times10^7)^2}\approx2.0\times10^{30}\) kg.</em></p>
   </div>
 </div>
 
-<!-- H. MISCONCEPTIONS -->
-<div class="lc-section">COMMON MISCONCEPTIONS</div>
-<table class="lc-table">
-  <thead>
-    <tr><th>Misconception</th><th>Correction</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Horizontal motion stops at the top.</td><td>Horizontal velocity remains constant (if no air resistance).</td></tr>
-    <tr><td>Vertical velocity is zero at launch.</td><td>Only at the apex; at launch it is \(u\sin\theta\).</td></tr>
-    <tr><td>Heavier objects fall faster.</td><td>Without air resistance, all objects fall at the same rate (g independent of mass).</td></tr>
-  </tbody>
-</table>
-<div class="lc-warn">
-  <strong>Warning:</strong> Many students forget that the vertical acceleration is constant \((-g)\) throughout the flight. The sign matters.
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Kepler's third law says T is proportional to R³</td><td>It's T² that is proportional to R³ — squaring the period, not the period itself</td></tr>
+      <tr><td>The Sun sits at the centre of a planet's elliptical orbit</td><td>The Sun sits at one focus, which is offset from the centre (unless the orbit happens to be circular)</td></tr>
+      <tr><td>A planet moves at constant speed around its orbit</td><td>Kepler's second law says the opposite: speed varies continuously, fastest when nearest the Sun</td></tr>
+      <tr><td>R³/T² has the same value for any two orbiting bodies you compare</td><td>It's only the same constant for bodies orbiting the <em>same</em> central mass — planets around the Sun give one constant, satellites around the Earth give a different one</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: comparing a satellite's R³/T² directly against a planet's, or mixing units (days with seconds, km with m) across the two sides of the ratio. Keep the central body and the units consistent on both sides.</div>
 </div>
 
-<!-- I. KEY POINTS PILLS -->
-<div class="lc-section">KEY POINTS</div>
 <div class="lc-kp">
-  <span>Parabolic path</span>
-  <span>Independence of axes</span>
-  <span>\(a_x = 0\)</span>
-  <span>\(a_y = -g\)</span>
-  <span>\(R = u^2\sin2\theta/g\)</span>
-  <span>Time of flight formula</span>
-  <span>Maximum height</span>
-  <span>Apex velocity = \(u\cos\theta\)</span>
+  <span>T² ∝ R³</span>
+  <span>R³/T² = constant (same central body)</span>
+  <span>Ellipse: sum of distances to 2 foci is constant</span>
+  <span>Sun at one focus, not the centre</span>
+  <span>Equal areas in equal times → faster near Sun</span>
+  <span>1 AU = 1.50×10¹¹ m</span>
+  <span>Kepler: empirical; Newton explained it 70 yrs later</span>
+  <span>Foci coincide → ellipse becomes a circle</span>
 </div>
 
-<!-- J. MCQ PRACTICE -->
-<div class="lc-section">PRACTICE: MULTIPLE CHOICE</div>
-<div id="mcq-container">
-  <div id="mcq1" class="lc-card"></div>
-  <div id="mcq2" class="lc-card"></div>
-  <div id="mcq3" class="lc-card"></div>
-  <div id="mcq4" class="lc-card"></div>
-</div>
+<div class="lc-section">Practice check — multiple choice</div>
 
-<!-- K. FILL IN THE BLANKS -->
-<div class="lc-section">FILL IN THE BLANKS</div>
-<div id="fitb-container" class="lc-card">
-  <div class="lc-fitb" id="fitb1">For projectile motion, the horizontal component of velocity is ______.</div>
-  <div class="lc-fitb" id="fitb2">The vertical acceleration is always ______ m/s² downward.</div>
-  <div class="lc-fitb" id="fitb3">At the highest point, the vertical velocity is ______.</div>
-  <button class="lc-check-btn" onclick="checkFITB()">Check Answers</button>
-</div>
-
-<!-- L. EXAM-STYLE QUESTIONS -->
-<div class="lc-section">EXAM‑STYLE QUESTIONS</div>
-<div id="exam-container">
-  <div class="lc-exam" id="exam1">
-    <div class="lc-exam-tag">EXAM QUESTION 1</div>
-    <div class="lc-exam-q">A projectile is launched from ground at 30° with speed 20 m/s. Determine the maximum height reached. Use \(g = 10\,\text{m/s}^2\).</div>
-    <textarea class="lc-exam-input" placeholder="Your working..."></textarea>
-    <button class="lc-reveal-btn" onclick="toggleModel('exam1')">Show Model Answer</button>
-    <div class="lc-model" id="exam1-model">\(H = \frac{u^2\sin^2\theta}{2g} = \frac{400 \times 0.25}{20} = 5\,\text{m}\).</div>
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. According to Kepler's first law, the shape of a planet's orbit is</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> a perfect circle centred on the Sun</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> a parabola with the Sun at its vertex</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> an ellipse with the Sun at one focus</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> an ellipse with the Sun at the centre</div>
   </div>
-  <div class="lc-exam" id="exam2">
-    <div class="lc-exam-tag">EXAM QUESTION 2</div>
-    <div class="lc-exam-q">Explain why the horizontal range is maximum for a launch angle of 45° (in the absence of air resistance).</div>
-    <textarea class="lc-exam-input" placeholder="Your explanation..."></textarea>
-    <button class="lc-reveal-btn" onclick="toggleModel('exam2')">Show Model Answer</button>
-    <div class="lc-model" id="exam2-model">\(R = \frac{u^2\sin 2\theta}{g}\). \(\sin 2\theta\) is maximum (=1) when \(2\theta = 90^\circ\), i.e. \(\theta = 45^\circ\).</div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. By Kepler's second law, a planet moves fastest when it is</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> farthest from the Sun</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> closest to the Sun</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> at either end of the minor axis</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> its speed never changes</div>
   </div>
-  <div class="lc-exam" id="exam3">
-    <div class="lc-exam-tag">EXAM QUESTION 3</div>
-    <div class="lc-exam-q">A cannon fires a shell at 40° with speed 100 m/s. Find the time of flight and the horizontal range. (\(g=9.81\))</div>
-    <textarea class="lc-exam-input" placeholder="Your working..."></textarea>
-    <button class="lc-reveal-btn" onclick="toggleModel('exam3')">Show Model Answer</button>
-    <div class="lc-model" id="exam3-model">\(T = \frac{2u\sin\theta}{g} = \frac{2\times 100 \times 0.643}{9.81} \approx 13.1\,\text{s}\). \(R = u\cos\theta \cdot T = 100 \times 0.766 \times 13.1 \approx 1003\,\text{m}\).</div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. Kepler's third law can be written as</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> T ∝ R</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> T² ∝ R³</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> T³ ∝ R²</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> T ∝ R³</div>
   </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. Mars and Jupiter both orbit the Sun. Calculating R³/T² for each planet should give</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> a different value for each planet</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> the same value for both planets</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> a value proportional to each planet's own mass</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> zero</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. Kepler's three laws were empirical. Who first explained the underlying physics behind them, and roughly how long after Kepler?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> Tycho Brahe, immediately</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> Galileo, about 30 years later</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> Isaac Newton, about 70 years later</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> Copernicus, about 100 years earlier</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    An ellipse is a closed curve for which the sum of distances to two fixed points, called the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:100px">, is always the same. Kepler's First Law places the Sun at one <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px"> of each planet's orbit, not at its centre. Kepler's Second Law states that a line from the Sun to a planet sweeps out equal <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:100px"> in equal times, so the planet moves <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px"> when it is closer to the Sun. Kepler's Third Law can be written \(T^2 \propto R^{\text{<input class="lc-fitb-input" id="lf5" placeholder="?" style="width:40px">}}\). One <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:180px"> is defined as the Earth's average distance from the Sun.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
 </div>
 
-<!-- M. SCORE DISPLAY -->
-<div class="lc-score" id="lc-score-display">
-  Score: <strong id="score-value">0</strong> / <span id="total-value">0</span>
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> The average distance between Mars and the Sun is 228 million km. Calculate the time period of Mars's orbit. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(R_{\text{Mars}} = 2.28\times10^{11}\) m \(= 1.524\) AU (using \(R_{\text{Earth}}=1.496\times10^{11}\) m).<br>✓ For orbits around the Sun, \(T\) in years \(= R^{3/2}\) when \(R\) is in AU: \(T = 1.524^{1.5}\).<br>✓ \(T \approx 1.88\) years \(\approx 687\) days.</div>
 </div>
 
-<!-- N. JAVASCRIPT -->
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine · Research</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> A planet in the Solar System has an orbital period of approximately 84 years. <strong>a</strong> Determine its distance from the Sun. <strong>b</strong> Express your answer to part a in astronomical units, AU. <strong>c</strong> Identify which planet this is. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a, b) With \(T\) in years and \(R\) in AU, \(R = T^{2/3} = 84^{2/3} \approx 19.2\) AU.<br>✓ In metres: \(R \approx 19.2 \times 1.50\times10^{11} \approx 2.88\times10^{12}\) m.<br>✓ (c) This is Uranus (period ≈ 84.0 years, mean distance ≈ 19.2 AU).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Research · Calculate</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> <strong>a</strong> Research how long the Moon takes to orbit the Earth. <strong>b</strong> The centre of the Moon is an average distance of 384 000 km from the centre of the Earth. Calculate a value of \(T^2/R^3\) from this data. <strong>c</strong> Use Kepler's third law to determine the orbital radius of an Earth satellite that takes exactly one day to complete its orbit. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The Moon's orbital period is about 27.3 days.<br>✓ (b) \(T=27.3\) days \(=2.36\times10^6\) s, \(R=3.84\times10^8\) m.<br>✓ \(T^2/R^3 = (2.36\times10^6)^2/(3.84\times10^8)^3 \approx 9.8\times10^{-14}\ \text{s}^2\text{m}^{-3}\) — this is the constant for anything orbiting the Earth.<br>✓ (c) For \(T=1\) day \(=8.64\times10^4\) s: \(R^3 = T^2/(9.8\times10^{-14}) \Rightarrow R\approx4.2\times10^7\) m — the geostationary radius.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> The Earth's orbit around the Sun is not perfectly circular. <strong>a</strong> State the Earth's maximum and minimum separation from the Sun, and when each occurs. <strong>b</strong> Discuss what effect this has on the climate at any particular location, if any. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Maximum separation (aphelion) ≈ 1.52×10¹¹ m, around early July. Minimum separation (perihelion) ≈ 1.47×10¹¹ m, around early January.<br>✓ The difference is only about 3–4% of the average distance.<br>✓ (b) This small variation is not the cause of the seasons — axial tilt is. Proof: the Northern Hemisphere has winter in January, despite the Earth being closest to the Sun then.<br>✓ The eccentricity has only a minor effect on overall global temperature, slightly moderating Southern Hemisphere summers and winters relative to the Northern Hemisphere's.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State · Explain</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> Fig 8 shows the orbits of a planet and a comet around the Sun. <strong>a</strong> State how you know which orbit belongs to which body. <strong>b</strong> At what positions will the comet be travelling <strong>i</strong> fastest <strong>ii</strong> slowest? <span class="lc-exam-marks">[4 marks]</span></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-05-kepler-s-laws-08.png" alt="Two orbits around the Sun: a small, nearly circular planet orbit and a much larger, highly elongated comet orbit that intersects it" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 8 — The orbits of a planet and a comet around the Sun.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) The small, nearly circular orbit is the planet's — real planetary orbits have low eccentricity. The large, highly elongated ellipse is the comet's — comets typically have very eccentric orbits.<br>✓ (b) i. Fastest at perihelion, the point of closest approach to the Sun.<br>✓ ii. Slowest at aphelion, the point farthest from the Sun (Kepler's second law: equal areas in equal times).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> Determine the value of \(T^2/R^3\) in SI units for the planets of the Solar System, and comment on your results. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Earth: \(T=3.156\times10^7\) s, \(R=1.496\times10^{11}\) m → \(T^2/R^3 \approx 2.97\times10^{-19}\ \text{s}^2\text{m}^{-3}\).<br>✓ Mars: \(T=5.94\times10^7\) s, \(R=2.28\times10^{11}\) m → \(T^2/R^3 \approx 2.98\times10^{-19}\ \text{s}^2\text{m}^{-3}\).<br>✓ Jupiter: \(T=3.74\times10^8\) s, \(R=7.79\times10^{11}\) m → \(T^2/R^3 \approx 2.97\times10^{-19}\ \text{s}^2\text{m}^{-3}\).<br>✓ All three give the same value (within rounding) — confirming Kepler's third law. This constant equals \(4\pi^2/GM_{\text{Sun}}\), so it is fixed by the Sun's mass alone.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
 <script>
-// ===================== QUIZ IIFE =====================
-(function() {
-  // Helper: create multiple choice question
-  window.lcMCQ = function(containerId, question, options, correctIndex) {
-    const c = document.getElementById(containerId);
-    if (!c) return;
-    const qDiv = document.createElement('div');
-    qDiv.className = 'lc-mcq-q';
-    qDiv.textContent = question;
-    c.appendChild(qDiv);
-    const optsDiv = document.createElement('div');
-    optsDiv.className = 'lc-opts';
-    const letters = ['A', 'B', 'C', 'D'];
-    options.forEach((txt, i) => {
-      const opt = document.createElement('div');
-      opt.className = 'lc-opt';
-      opt.dataset.index = i;
-      opt.innerHTML = `<span class="lc-opt-l">${letters[i]}</span><span>${txt}</span>`;
-      opt.addEventListener('click', function() {
-        if (this.classList.contains('disabled')) return;
-        const parent = this.closest('.lc-opts');
-        const allOpts = parent.querySelectorAll('.lc-opt');
-        allOpts.forEach(o => o.classList.add('disabled'));
-        const fb = parent.parentElement.querySelector('.lc-fb');
-        if (parseInt(this.dataset.index) === correctIndex) {
-          this.classList.add('correct');
-          if (fb) { fb.textContent = '✓ Correct!'; fb.className = 'lc-fb correct show'; }
-          updateScore(1, 1);
-        } else {
-          this.classList.add('wrong');
-          allOpts[correctIndex].classList.add('correct');
-          if (fb) { fb.textContent = `✗ Incorrect. The correct answer was ${letters[correctIndex]}.`; fb.className = 'lc-fb wrong show'; }
-          updateScore(0, 1);
-        }
-      });
-      optsDiv.appendChild(opt);
-    });
-    c.appendChild(optsDiv);
-    const fb = document.createElement('div');
-    fb.className = 'lc-fb';
-    c.appendChild(fb);
-  };
-
-  // Fill in the blanks: expose function
-  window.lcFITB = function(containerId, blanks) {
-    // Not used directly; we use manual setup below
-  };
-
-  // Toggle model answer
-  window.toggleModel = function(examId) {
-    const model = document.getElementById(examId + '-model');
-    if (model) model.classList.toggle('show');
-  };
-
-  // Score tracking
-  let correctCount = 0;
-  let totalAttempted = 0;
-  function updateScore(correct, attempted) {
-    correctCount += correct;
-    totalAttempted += attempted;
-    document.getElementById('score-value').textContent = correctCount;
-    document.getElementById('total-value').textContent = totalAttempted;
-  }
-
-  // Initialise MCQ questions
-  lcMCQ('mcq1', 'What is the shape of the trajectory of a projectile (ignoring air resistance)?', ['Straight line', 'Parabola', 'Circle', 'Hyperbola'], 1);
-  lcMCQ('mcq2', 'At the highest point of its flight, the projectile\'s velocity is:', ['Zero', 'Horizontal', 'Vertical', 'Maximum'], 1);
-  lcMCQ('mcq3', 'The horizontal range of a projectile depends on:', ['\(u\) only', '\(\theta\) only', '\(u\) and \(\theta\)', 'Mass of projectile'], 2);
-  lcMCQ('mcq4', 'If the launch angle is increased from 30° to 60° (same speed), the range will:', ['Increase', 'Decrease', 'Stay the same', 'First increase then decrease'], 2);
-
-  // Fill in the blanks (simple)
-  window.checkFITB = function() {
-    const answers = ['constant', '9.81', 'zero'];
-    const fitbInputs = document.querySelectorAll('.lc-fitb-input');
-    fitbInputs.forEach((input, idx) => {
-      if (input.value.trim().toLowerCase() === answers[idx].toLowerCase()) {
-        input.classList.add('correct');
-        input.classList.remove('wrong');
-        updateScore(1, 1);
-      } else {
-        input.classList.add('wrong');
-        input.classList.remove('correct');
-        updateScore(0, 1);
-      }
-    });
-  };
-
-  // Create input fields for FITB
-  const fitbContainers = document.querySelectorAll('.lc-fitb');
-  fitbContainers.forEach((el, idx) => {
-    const text = el.innerHTML;
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.className = 'lc-fitb-input';
-    input.placeholder = '______';
-    el.innerHTML = text.replace('______', input.outerHTML);
-  });
-})();
-// ===================== CANVAS DRAWING =====================
-(function() {
-  const canvas = document.getElementById('canvas-lab');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const angleSlider = document.getElementById('angle-slider');
-  const speedSlider = document.getElementById('speed-slider');
-  const angleVal = document.getElementById('angle-val');
-  const speedVal = document.getElementById('speed-val');
-  const rangeDisplay = document.getElementById('range-display');
-
-  function getThemeColor(colorName, fallback) {
-    // Try to read CSS variable, return fallback if not found
-    const val = getComputedStyle(document.documentElement).getPropertyValue(colorName).trim();
-    return val || fallback;
-  }
-
-  function drawProjectile(angleDeg, speed) {
-    const w = canvas.width;
-    const h = canvas.height;
-    ctx.clearRect(0, 0, w, h);
-    // Colors
-    const bg = getThemeColor('--surface', '#f0f0f0');
-    const axis = getThemeColor('--text-muted', '#888');
-    const trajColor = getThemeColor('--accent', '#1e90ff');
-    const pointColor = getThemeColor('--accent-dim', '#87ceeb');
-    // background
-    ctx.fillStyle = bg;
-    ctx.fillRect(0, 0, w, h);
-    // axes
-    ctx.strokeStyle = axis;
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(50, 30);
-    ctx.lineTo(50, h - 30);
-    ctx.lineTo(w - 30, h - 30);
-    ctx.stroke();
-    // labels
-    ctx.fillStyle = axis;
-    ctx.font = '12px sans-serif';
-    ctx.fillText('x', w - 20, h - 20);
-    ctx.fillText('y', 10, 20);
-    // physics
-    const g = 9.81 * 3; // scale factor for visual
-    const theta = angleDeg * Math.PI / 180;
-    const u = speed * 1.2; // scale
-    const dt = 0.05;
-    let t = 0;
-    let x0 = 50;
-    let y0 = h - 30;
-    let x = 0;
-    let y = 0;
-    ctx.strokeStyle = trajColor;
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    let maxX = 0;
-    let maxY = 0;
-    while (true) {
-      const vx = u * Math.cos(theta);
-      const vy = u * Math.sin(theta) - g * t;
-      const newX = vx * t;
-      const newY = u * Math.sin(theta) * t - 0.5 * g * t * t;
-      if (newY < 0) break;
-      x = x0 + newX;
-      y = y0 - newY;
-      if (t === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-      maxX = newX;
-      maxY = Math.max(maxY, newY);
-      t += dt;
-    }
-    ctx.stroke();
-    // draw point at start
-    ctx.fillStyle = pointColor;
-    ctx.beginPath();
-    ctx.arc(x0, y0, 4, 0, 2*Math.PI);
-    ctx.fill();
-    // compute actual range for display
-    const T = 2 * speed * Math.sin(theta) / 9.81;
-    const range = speed * speed * Math.sin(2*theta) / 9.81;
-    rangeDisplay.textContent = range.toFixed(1);
-  }
-
-  angleSlider.addEventListener('input', function() {
-    angleVal.textContent = this.value + '°';
-    drawProjectile(parseFloat(this.value), parseFloat(speedSlider.value));
-  });
-  speedSlider.addEventListener('input', function() {
-    speedVal.textContent = this.value + ' m/s';
-    drawProjectile(parseFloat(angleSlider.value), parseFloat(this.value));
-  });
-  // initial draw
-  drawProjectile(45, 20);
-})();
-// ===================== KaTeX AUTO-RENDER =====================
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof renderMathInElement === 'function') {
-    renderMathInElement(document.body, {
-      delimiters: [
-        {left: "$$", right: "$$", display: true},
-        {left: "\\(", right: "\\)", display: false}
-      ]
-    });
-  }
+lcInit({
+  feedback: {
+    mcq1: { C: 'Kepler\'s first law places the Sun at one focus of the ellipse, not the centre — the orbit itself is an ellipse, not a circle or parabola.' },
+    mcq2: { B: 'Kepler\'s second law: equal areas in equal times means the planet must move fastest where it is closest to the Sun, to sweep the same area in the same time.' },
+    mcq3: { B: 'It is the square of the period that is proportional to the cube of the radius: T² ∝ R³, not T ∝ R³ or T ∝ R.' },
+    mcq4: { B: 'R³/T² is a constant for any body orbiting the same central mass — the Sun, here — regardless of the orbiting planet\'s own mass or size.' },
+    mcq5: { C: 'Kepler\'s laws were purely empirical, based on Brahe\'s data. Newton\'s law of gravitation, about 70 years later, explained why they hold.' }
+  },
+  fitb: { lf1:'foci', lf2:'focus', lf3:'areas', lf4:'faster', lf5:'3', lf6:'astronomical unit' }
 });
 </script>
-      </div>
+</div>
+<!-- LESSON-END -->
       </div>
 
       <div class="lesson-nav">
@@ -631,11 +446,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="nav-btn-label">Orbital Mechanics</div>
           </div>
         </a>
-        <a href="../D.2-Electric-Magnetic-Fields/index.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
+        <a href="06-satellites.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
           <span style="font-size:1.2rem;color:var(--text-muted)">→</span>
           <div>
             <div class="nav-btn-dir">Next</div>
-            <div class="nav-btn-label">Electric and Magnetic Fields</div>
+            <div class="nav-btn-label">Satellites</div>
           </div>
         </a>
       </div>
