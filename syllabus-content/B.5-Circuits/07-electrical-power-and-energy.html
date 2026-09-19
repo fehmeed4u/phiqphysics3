@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -175,28 +176,271 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Electrical Power and Energy</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B5" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>7</span> Lesson 7 of 7 · B.5 Current and Circuits</div>
+<div class="lc-title">Electrical Power and Energy</div>
+<div class="lc-sub">Every resistor turns electrical energy into internal energy at a rate given by \(P=IV\). This lesson builds the three equivalent power formulas, uses them to check appliance labels and mains-voltage mismatches, and gets you comfortable converting between joules, watts and kilowatt-hours for real electricity bills.</div>
+
+<div class="lc-card">
+  <h3>🔌 Hook – what does the label on an appliance actually promise?</h3>
+  <p>Every plug-in appliance carries a nameplate like "230 V, 1100 W". The voltage tells you what supply it expects; the wattage tells you the rate of energy transfer it is designed for at that voltage — not at any other voltage.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-07-electrical-power-and-energy-01.png" alt="Close-up of an appliance nameplate showing voltage and wattage rating" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — A nameplate rating: the voltage and power it is designed to run at.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — if a current of 3 A flows through a resistor with 6 V across it, how many joules are transferred to internal energy every second? <em>Every second, 3 C of charge passes through, and each coulomb transfers 6 J — so the rate of transfer is \(3\times6=18\) joules every second, i.e. 18 W.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ The three forms of the power equation</h3>
+  <p>Electrical <strong>power</strong>, \(P\), dissipated by a resistor is the rate at which electrical energy is transferred to internal energy.</p>
+  <div class="lc-formula"><span class="lc-formula-label">Definition</span>$$P = IV$$</div>
+  <p>This comes directly from the definitions of current and p.d.: current is charge flow per time, and p.d. is energy transferred per unit charge, so their product is energy transferred per time — power.</p>
+  <div class="lc-formula"><span class="lc-formula-label">From \(\dfrac{W}{\Delta t}=\dfrac{\Delta q}{\Delta t}\times\dfrac{W}{\Delta q}\)</span>$$\text{power} = \text{current} \times \text{p.d.}$$</div>
+  <p>Because \(V=IR\), this can be rewritten in two other useful ways:</p>
+  <div class="lc-formula">$$P = I^2R$$$$P = \frac{V^2}{R}$$</div>
+  <p>All three give the same answer for the same resistor — pick whichever one uses the quantities you already know.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-07-electrical-power-and-energy-02.png" alt="Simple circuit diagram: battery connected to a single resistor, with current I and voltage V labelled, and an arrow showing energy leaving the resistor as heat" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — A resistor carrying current \(I\) with p.d. \(V\) across it transfers energy to internal (thermal) energy at rate \(P=IV\).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔥 The heating effect, efficiency, and the kilowatt-hour</h3>
+  <p>Whenever any current passes through any resistance, energy is transferred to internal energy and then to thermal energy. This is one of the most widespread applications of electricity, including heating water and heating air.</p>
+  <p>To get the total energy transferred in a given time, use energy = power × time:</p>
+  <div class="lc-formula"><span class="lc-formula-label">Electrical energy</span>$$E = VIt$$</div>
+  <p>Not all input energy does useful work — <strong>efficiency</strong>, \(\eta\), compares what you wanted out to what you put in (as in Topic A.3):</p>
+  <div class="lc-formula">$$\eta = \frac{E_{\text{output}}}{E_{\text{input}}} = \frac{P_{\text{output}}}{P_{\text{input}}}$$</div>
+  <p>Electricity bills are charged in <strong>kilowatt-hours</strong>, not joules. \(1\,\text{kWh}\) is the energy transferred by a 1 kW device in one hour — \(1000\,\text{J s}^{-1}\) for \(3600\,\text{s}\):</p>
+  <div class="lc-formula"><span class="lc-formula-label">Unit conversion</span>$$1\,\text{kWh} = 3.6\times10^{6}\,\text{J} = 3.6\,\text{MJ}$$</div>
+  <div class="lc-info">🔗 <strong>Linking question</strong> — how can the heating of an electrical resistor be explained using other areas of physics? This links to understandings in Topic B.1 (thermal energy transfer at the particle level).</div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-07-electrical-power-and-energy-03.png" alt="A row of household appliances that rely on the heating effect of a current: a kettle, an iron and a heater, each with a power label" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — The heating effect of a current is behind most everyday household heating appliances.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery – reading power and energy graphs</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Power vs current² (fixed \(R\))</td><td>\(I^2\)/A² · \(P\)/W</td><td>Straight line through the origin</td><td>Gradient \(=R\), since \(P=I^2R\)</td></tr>
+      <tr><td>Power vs voltage² (fixed \(R\))</td><td>\(V^2\)/V² · \(P\)/W</td><td>Straight line through the origin</td><td>Gradient \(=1/R\), since \(P=V^2/R\)</td></tr>
+      <tr><td>Energy vs time (fixed \(P\))</td><td>\(t\)/s · \(E\)/J</td><td>Straight line through the origin</td><td>Gradient \(=P\), since \(E=Pt\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/b5-07-electrical-power-and-energy-04.png" alt="Graph of power against current squared, a straight line through the origin, gradient equal to resistance" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — \(P\) vs \(I^2\) for a fixed resistor: a straight line through the origin, gradient \(=R\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/b5-07-electrical-power-and-energy-05.png" alt="Graph of energy transferred against time, a straight line through the origin, gradient equal to power" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — \(E\) vs \(t\) for a device running at constant power: gradient \(=P\).</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example B5.10 – an electric iron</h3>
+  <p>An electric iron is labelled 230 V, 1100 W. <strong>(a)</strong> Explain exactly what the label means. <strong>(b)</strong> Calculate the resistance of the heating coil. <strong>(c)</strong> What would happen if the iron was used in a country where the mains voltage was 110 V?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the label gives the design voltage and the power at that voltage; use \(P=V^2/R\) to find resistance, then re-use \(R\) with the new voltage.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(V=230\ \text{V}\), \(P=1100\ \text{W}\); second scenario \(V=110\ \text{V}\), same \(R\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(1100 = 230^2/R\)<br>\(P_{110} = 110^2/R\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) at 230 V the iron transfers energy at 1100 J every second. (b) \(R=230^2/1100=48.1\ \Omega\). (c) at 110 V: \(P=110^2/48.1=251\ \text{W}\) — about 0.25× the rated power, so the iron would not get hot enough to work properly. The reverse mistake (a 110 V iron on 230 V mains) would transfer energy at about 4× its rated power and overheat, permanently damaging it.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-07-electrical-power-and-energy-06.png" alt="Circuit diagram of an iron's heating coil connected to a mains supply labelled 230 V, with the coil labelled R" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — The iron's heating coil as a single resistor across the mains supply.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example B5.11 – the cost of running an air conditioner</h3>
+  <p>In a city where electrical energy costs \$0.14 per kWh, predict how much it will cost to operate an air conditioner with an average power of 1500 W for four hours a day for a week.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> find total energy in kWh, then multiply by the price per kWh.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(P=1.5\ \text{kW}\), 4 h/day, 7 days, \$0.14 per kWh.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>cost \(= 1.5\times4\times7\times0.14\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> total energy \(=1.5\times4\times7=42\ \text{kWh}\); cost \(=42\times0.14=\$5.90\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-07-electrical-power-and-energy-07.png" alt="Diagram of an air conditioner unit labelled 1500 W with a clock showing 4 hours per day and a calendar showing 7 days" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — The quantities needed for a running-cost calculation: power, hours per day, and days.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: reading an electricity bill</h3>
+    <p>A meter records total energy used in kWh over a billing period. Multiplying by the price per kWh gives the cost — exactly the calculation in Worked example B5.11. Appliances left on standby, or with a high power rating run for long periods (heaters, kettles, air conditioners), dominate a household bill far more than low-power electronics.</p>
+    <div class="lc-success">✓ Examiner tip: always convert to kWh before multiplying by a price quoted "per kWh" — mixing joules and kWh in the same calculation is the single most common lost mark in cost questions.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 Extension – why power lines use high voltage</h3>
+    <p>Power lost to heating in a transmission cable is \(P_{\text{loss}}=I^2R\) — it depends on the <em>square</em> of the current, not on the power being delivered. To deliver the same power at a much higher voltage, a much smaller current is needed, so \(I^2R\) losses fall sharply. This is why grid transmission lines run at very high voltage and low current, then step down near consumers.</p>
+    <p><strong>Challenge:</strong> a cable of resistance 20 Ω carries a current of 100 A. At what rate is thermal energy produced in it? <em>Answer: \(P=I^2R=100^2\times20=2.0\times10^{5}\ \text{W}\) — 200 kW is being wasted as heat, which is why real grids use far higher voltages (and correspondingly lower currents) than this to deliver the same power.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>A higher-voltage appliance is automatically "more powerful"</td><td>Power depends on both voltage and current (or resistance) — \(P=IV\). A 110 V appliance and a 230 V appliance can have the same power rating if their resistances differ</td></tr>
+      <tr><td>Running an appliance on a lower-than-rated voltage is just "a bit weaker" but otherwise fine</td><td>Because \(P=V^2/R\), power falls with the <em>square</em> of the voltage ratio — a 230 V/110 V mismatch roughly quarters or quadruples the power, not just reduces it slightly</td></tr>
+      <tr><td>kW and kWh are the same kind of quantity</td><td>kW is a rate of energy transfer (power); kWh is a total amount of energy transferred over an hour at that rate. \(1\,\text{kWh}=3.6\times10^6\,\text{J}\)</td></tr>
+      <tr><td>All electrical input energy is transferred usefully</td><td>Only where \(\eta=100\%\), which real devices never achieve — efficiency \(=P_{\text{output}}/P_{\text{input}}\) is always less than 1</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting to convert power to kWh (or time to hours) before multiplying by a price given "per kWh" — check every unit in a cost calculation before multiplying.</div>
+</div>
+
+<div class="lc-kp">
+  <span>P = IV = I²R = V²/R</span>
+  <span>E = VIt = Pt</span>
+  <span>η = P_out/P_in</span>
+  <span>1 kWh = 3.6×10⁶ J</span>
+  <span>P ∝ V² at fixed R</span>
+  <span>cost = energy (kWh) × price/kWh</span>
+  <span>transmission: high V, low I, less I²R loss</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. A resistor carries a current of 2.0 A with a p.d. of 5.0 V across it. What is the power dissipated?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 2.5 W</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> 7.0 W</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> 10 W</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> 25 W</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. A resistor is connected to half its rated voltage. Assuming its resistance is constant, its power dissipation becomes</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> half</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> a quarter</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> unchanged</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> double</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. How many joules are in 1 kWh?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> 1000 J</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> 3600 J</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> 3.6×10⁶ J</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> 3.6×10³ J</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. A motor is 20% efficient. If its useful output power is 60 W, what is its input power?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 12 W</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> 80 W</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> 300 W</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> 600 W</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Electrical power dissipated by a resistor can be written as \(P=IV\), \(P=I^2R\), or \(P=\) <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:90px">. The total electrical energy transferred equals power multiplied by <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px">. One kilowatt-hour equals <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> joules. Efficiency is defined as output power divided by <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:130px"> power.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q38.</strong> A 12 V p.d. is applied across a 240 Ω resistor. <strong>(a)</strong> Calculate (i) the current, (ii) the power, (iii) the total energy transferred in 2 minutes. <strong>(b)</strong> What value resistor would have twice the power with the same voltage? <strong>(c)</strong> What p.d. will double the power with the original resistor? <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a)(i) \(I=V/R=12/240=0.050\ \text{A}\).<br>✓ (ii) \(P=IV=0.050\times12=0.60\ \text{W}\).<br>✓ (iii) \(E=Pt=0.60\times120=72\ \text{J}\).<br>✓ (b) At the same \(V\), \(P=V^2/R\); doubling \(P\) needs half the resistance: \(R=120\ \Omega\).<br>✓ (c) At the same \(R\), \(P\propto V^2\); doubling \(P\) needs \(V\) scaled by \(\sqrt2\): \(V=12\sqrt2\approx17.0\ \text{V}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Show</div>
+  <div class="lc-exam-q"><strong>Q39.</strong> A 2.00 kW household water heater has a resistance of 24.3 Ω. <strong>(a)</strong> Calculate the current that flows through it. <strong>(b)</strong> What is the mains voltage? <strong>(c)</strong> Show that the overall efficiency of the heater is approximately 85% if \(1.0\times10^5\ \text{J}\) are transferred to the water every minute. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(P=I^2R \Rightarrow I=\sqrt{P/R}=\sqrt{2000/24.3}=9.07\ \text{A}\).<br>✓ (b) \(V=IR=9.07\times24.3\approx220\ \text{V}\).<br>✓ (c) Input energy in 1 minute \(=2000\times60=1.2\times10^5\ \text{J}\).<br>✓ \(\eta=E_{\text{out}}/E_{\text{in}}=1.0\times10^5/1.2\times10^5\approx83\%\) — approximately 85% within rounding of the quoted heater power.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / Comment</div>
+  <div class="lc-exam-q"><strong>Q40.</strong> <strong>(a)</strong> Determine the rate of production of thermal energy if a current of 100 A flowed through an overhead cable of length 20 km and resistance 0.001 Ω per metre. <strong>(b)</strong> Comment on your answer. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Total resistance \(=20\,000\ \text{m}\times0.001\ \Omega\,\text{m}^{-1}=20\ \Omega\).<br>✓ \(P=I^2R=100^2\times20=2.0\times10^{5}\ \text{W}\) (200 kW).<br>✓ (b) This is a large, wasteful power loss — it is why real transmission lines are run at very high voltage and correspondingly low current, since loss scales with \(I^2\) not with the power delivered.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Draw</div>
+  <div class="lc-exam-q"><strong>Q41.</strong> <strong>(a)</strong> Calculate the power of a heater that will raise the temperature of a metal block of mass 2.3 kg from 23 °C to 47 °C in 4 minutes (specific heat capacity = 670 J kg⁻¹ °C⁻¹). <strong>(b)</strong> Draw a circuit diagram to show how the heater should be connected to a 12 V supply and suitable electrical meters so that the power can be checked. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(E=mc\Delta T=2.3\times670\times24=3.70\times10^{4}\ \text{J}\).<br>✓ \(t=4\ \text{min}=240\ \text{s}\); \(P=E/t=37\,032/240\approx1.5\times10^{2}\ \text{W}\) (about 154 W).<br>✓ (b) 12 V supply in series with the heater and an ammeter; a voltmeter connected in parallel across the heater only.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / State</div>
+  <div class="lc-exam-q"><strong>Q42.</strong> <strong>(a)</strong> An electric motor is used to raise a 50 kg mass to a height of 2.5 m in 24 s. The voltage supplied to the motor was 230 V but it was only 8.0% efficient. Determine the current in the motor. <strong>(b)</strong> State two reasons why this process has a low efficiency. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Useful output energy \(=mgh=50\times9.8\times2.5=1225\ \text{J}\); output power \(=1225/24=51.0\ \text{W}\).<br>✓ \(P_{\text{input}}=P_{\text{output}}/\eta=51.0/0.080=638\ \text{W}\).<br>✓ \(I=P_{\text{input}}/V=638/230\approx2.8\ \text{A}\).<br>✓ (b) Resistive (\(I^2R\)) heating in the motor's coils; friction in bearings and moving parts; energy lost as sound/vibration — any two.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q43.</strong> <strong>(a)</strong> Calculate the value of resistance that would be needed to make a 1.25 kW water heater in a country where the mains voltage is 110 V. <strong>(b)</strong> What current flows through the heater during normal use? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(R=V^2/P=110^2/1250=9.68\ \Omega\).<br>✓ (b) \(I=P/V=1250/110=11.4\ \text{A}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Predict</div>
+  <div class="lc-exam-q"><strong>Q44.</strong> If a kWh of electrical energy costs 6.2 rupees, predict how long a 150 W television can be on for a total cost of 100 rupees. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Energy affordable \(=100/6.2=16.1\ \text{kWh}\).<br>✓ Time \(=E/P=16.1\ \text{kWh}/0.150\ \text{kW}\).<br>✓ \(\approx108\ \text{hours}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Predict / Estimate / Suggest</div>
+  <div class="lc-exam-q"><strong>Q45.</strong> In 2022, the best mobile phone batteries were rated at 3.7 V, 5000 mAh. <strong>(a)</strong> Calculate how much energy (J) they store. <strong>(b)</strong> If such a battery is used with an average current of 100 mA, predict how many hours before the battery would be completely discharged. <strong>(c)</strong> Estimate how long completely recharging the battery will take at an average rate of 5 W. <strong>(d)</strong> Suggest why phone manufacturers do not install batteries which store more energy. <span class="lc-exam-marks">[7 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Charge \(=5000\ \text{mAh}=5.0\ \text{Ah}=5.0\times3600=1.8\times10^{4}\ \text{C}\).<br>✓ Energy \(=VQ=3.7\times1.8\times10^{4}=6.66\times10^{4}\ \text{J}\).<br>✓ (b) \(t=Q/I=5.0\ \text{Ah}/0.100\ \text{A}=50\ \text{hours}\).<br>✓ (c) \(t=E/P=6.66\times10^{4}/5=1.33\times10^{4}\ \text{s}\approx3.7\ \text{hours}\).<br>✓ (d) Larger batteries increase phone size, weight and cost, take longer to recharge, and raise safety/overheating risk — any relevant point.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'P=IV=2.0×5.0=10 W.' },
+    mcq2: { B: 'P=V²/R, so halving V quarters P (since P depends on V squared).' },
+    mcq3: { C: '1 kWh = 1000 J/s × 3600 s = 3.6×10⁶ J.' },
+    mcq4: { C: 'η=Pout/Pin, so Pin=Pout/η=60/0.20=300 W.' }
+  },
+  fitb: { lf1:'V²/R', lf2:'time', lf3:'3.6×10⁶', lf4:'input' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
