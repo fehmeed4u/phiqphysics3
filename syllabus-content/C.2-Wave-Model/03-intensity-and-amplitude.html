@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intensity and Amplitude — C.2 Wave Model — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -61,13 +63,6 @@
       border-radius: var(--radius-lg);
       min-height: 500px;
     }
-    .content-placeholder {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: 4rem 2rem; text-align: center;
-      min-height: 400px;
-    }
-    .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; }
     .lesson-nav {
       display: flex; justify-content: space-between;
       gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
@@ -86,6 +81,9 @@
     }
     .nav-btn-label { font-size: 0.88rem; font-weight: 600; color: var(--text); }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -158,20 +156,235 @@
     <!-- Main content area -->
     <main>
       <div class="lesson-content" id="lesson-body">
-        <div style="padding:1.5rem 1.75rem 1.75rem">
-          <iframe id="lesson-frame" title="Intensity and Amplitude" src="embeds/03-intensity-and-amplitude.embed.html" scrolling="no"
-            style="width:100%;border:0;display:block;min-height:640px"></iframe>
-        </div>
-      </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
 
-      <script>
-        window.addEventListener('message', function(ev){
-          if (ev.data && ev.data.__lessonEmbed) {
-            var f = document.getElementById('lesson-frame');
-            if (f) f.style.height = (ev.data.h + 4) + 'px';
-          }
-        });
-      </script>
+<div class="lc-badge"><span>3</span> Lesson 3 of 4 · C.2 Wave Model</div>
+<div class="lc-title">Intensity and Amplitude</div>
+<div class="lc-sub">Why does turning the volume up a little sound so much louder? This lesson builds the intensity–amplitude relationship from energy concepts, the square law \(I \propto A^2\), how intensity falls off with distance from a point source, and the graph and calculation skills IB exams expect around both.</div>
+
+<div class="lc-card">
+  <h3>🌊 Hook – from ripple to tsunami</h3>
+  <p>A tiny ripple on a pond carries almost no energy; a tsunami can flatten a coastline. A whisper is barely audible; a rock concert can shake your chest. The difference isn't just how high the wave is — its <strong>amplitude</strong> — it's how much energy the wave delivers per second, through every square metre it passes: its <strong>intensity</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/c2-03-intensity-and-amplitude-01.png" alt="A small pond ripple next to a towering tsunami wave, illustrating the everyday range of wave amplitudes" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — From a tiny ripple to a towering wave: a small increase in amplitude means a far larger increase in energy carried.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — if a wave's amplitude is tripled, does the energy it carries also triple? <em>No — because intensity depends on the square of amplitude, tripling amplitude multiplies the energy delivered by 3² = 9, not 3.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📏 Amplitude — a quick recap</h3>
+  <p><strong>Amplitude (\(A\))</strong> is the maximum displacement of a particle from its equilibrium position. For a sound wave this can be measured as a pressure variation; for an electromagnetic wave it's the maximum electric field strength.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/c2-03-intensity-and-amplitude-02.png" alt="A sinusoidal displacement-distance graph with the amplitude A labelled as the distance from the equilibrium line to a crest" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — A sinusoidal wave: amplitude \(A\) is the distance from the equilibrium (rest) line to a crest or a trough.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ What is intensity?</h3>
+  <p><strong>Intensity (\(I\))</strong> is the <strong>power transmitted per unit area</strong>, measured in watts per square metre (\(\text{W m}^{-2}\)).</p>
+  <div class="lc-formula">$$I = \dfrac{P}{A}$$</div>
+  <p>Picture a light bulb radiating energy equally in all directions. The same total power spreads over an ever-larger spherical surface the further you get from it — which is why a distant star looks faint: not because it emits little power, but because that power is spread thinly by the time it reaches Earth.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/c2-03-intensity-and-amplitude-03.png" alt="A point source radiating spherical wavefronts, with the sphere of radius r and surface area 4 pi r squared labelled" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — For a point source, power \(P\) spreads over a sphere of area \(4\pi r^2\), so intensity falls off as the wave travels outward.</div>
+  </div>
+  <div class="lc-formula"><span class="lc-formula-label">Point source, distance r</span>$$I = \dfrac{P}{4\pi r^2}$$</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔢 Energy in a wave and the \(I \propto A^2\) law</h3>
+  <p>The energy carried by a wave is proportional to the square of its amplitude. For a sinusoidal mechanical wave, intensity can be derived as:</p>
+  <div class="lc-formula">$$I = 2\pi^2 \rho v f^2 A^2$$</div>
+  <p>where \(\rho\) is the density of the medium, \(v\) the wave speed and \(f\) the frequency. For a fixed medium and frequency, everything except \(A^2\) is constant, so:</p>
+  <div class="lc-formula">$$I \propto A^2$$</div>
+  <div class="lc-info">💡 <strong>Examiner insight</strong> — you'll rarely need the full constant. Most IB questions expect the proportionality form, which works for any wave type (sound, water, light) when only amplitude changes: $$\dfrac{I_1}{I_2} = \left(\dfrac{A_1}{A_2}\right)^2$$</div>
+  <div class="lc-warn">⚠️ <strong>Common mistake</strong> — "if intensity doubles, amplitude doubles." No: because of the square root, \(\sqrt{2} \approx 1.41\). Doubling \(I\) only multiplies amplitude by about 1.4.</div>
+  <div class="lc-success">✓ <strong>Exam tip</strong> — always write \(I_1/I_2 = (A_1/A_2)^2\) before substituting numbers. It shows the examiner you understand the proportionality, not just a memorised shortcut.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery – reading intensity–amplitude graphs</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Intensity vs amplitude</td><td>amplitude / intensity</td><td>Parabola through the origin</td><td>Curve gets steeper — confirms \(I \propto A^2\), not a linear relationship</td></tr>
+      <tr><td>Intensity vs amplitude²</td><td>amplitude² / intensity</td><td>Straight line through the origin</td><td>Gradient equals the constant \(2\pi^2 \rho v f^2\)</td></tr>
+      <tr><td>log(Intensity) vs log(amplitude)</td><td>log A / log I</td><td>Straight line</td><td>Gradient exactly 2, confirming the square-law exponent</td></tr>
+      <tr><td>Intensity vs distance (point source)</td><td>distance / intensity</td><td>Steep inverse-square decay</td><td>Halving distance quadruples intensity; \(I \propto 1/r^2\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/c2-03-intensity-and-amplitude-04.png" alt="Graph of intensity against amplitude showing a parabola curving upward from the origin" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — \(I\) vs \(A\): a parabola through the origin, because \(I \propto A^2\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/c2-03-intensity-and-amplitude-05.png" alt="Log-log graph of intensity against amplitude showing a straight line with gradient 2" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — log \(I\) vs log \(A\): a straight line of gradient exactly 2, confirming the square relationship.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – comparing two waves</h3>
+  <p>Wave P has amplitude \(X_0\); Wave Q has amplitude \(2X_0\). They travel in the same medium with identical frequency. Find the ratio of their intensities, \(I_Q / I_P\).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> only amplitude differs between the two waves — medium and frequency are identical, so the constant \(2\pi^2 \rho v f^2\) cancels.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(A_Q = 2X_0\), \(A_P = X_0\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(I \propto A^2 \Rightarrow \dfrac{I_Q}{I_P} = \left(\dfrac{A_Q}{A_P}\right)^2\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(\dfrac{I_Q}{I_P} = \left(\dfrac{2X_0}{X_0}\right)^2 = 4\). Wave Q has four times the intensity of Wave P — doubling amplitude quadruples intensity.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/c2-03-intensity-and-amplitude-06.png" alt="Two displacement-time graphs stacked, Wave P with amplitude X naught and Wave Q with amplitude twice X naught" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — Wave P (top) and Wave Q (bottom): same frequency and medium, but Q's amplitude is double P's.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: why starlight looks so faint</h3>
+    <p>A star can radiate immense total power, yet appear as a faint point of light. The power spreads over the surface of an ever-expanding sphere as it travels outward, so the intensity reaching any one small area — like a telescope mirror — falls as \(1/r^2\). By the time starlight crosses light-years of space, only a minuscule fraction of the original intensity remains.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/lesson-images2/c2-03-intensity-and-amplitude-07.png" alt="Graph of intensity falling steeply with distance from a point source, following an inverse-square curve" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 7 — Intensity vs distance from a point source: the rapid fall-off follows \(1/r^2\).</div>
+    </div>
+    <div class="lc-success">✓ Examiner tip: this is why the same "brightness" formula applies equally to a light bulb, a loudspeaker, and a star — any source radiating power equally in all directions obeys the same inverse-square law.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – linking A and r</h3>
+    <p>Because \(I \propto 1/r^2\) and separately \(I \propto A^2\), it follows that <strong>amplitude falls as \(1/r\)</strong> for a spherical wave from a point source: $$A \propto \dfrac{1}{r}$$</p>
+    <p><strong>Challenge:</strong> derive this from energy conservation alone. <em>Answer: the power passing through any spherical shell around the source must be the same, so \(4\pi r_1^2 I_1 = 4\pi r_2^2 I_2 \Rightarrow I \propto 1/r^2\). Combined with \(I \propto A^2\), this gives \(A \propto 1/r\).</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>If intensity doubles, amplitude doubles too</td><td>Amplitude is proportional to \(\sqrt{I}\), not \(I\) — doubling intensity multiplies amplitude by \(\sqrt{2} \approx 1.41\)</td></tr>
+      <tr><td>A graph of intensity against amplitude is a straight line</td><td>Since \(I \propto A^2\), the \(I\)–\(A\) graph is a <strong>parabola</strong>. Only plotting \(I\) against \(A^2\) (or log \(I\) against log \(A\)) gives a straight line</td></tr>
+      <tr><td>If intensity drops to \(1/9\), amplitude also drops to \(1/9\)</td><td>Amplitude drops to \(\sqrt{1/9} = 1/3\), since \(A \propto \sqrt{I}\)</td></tr>
+      <tr><td>Intensity and power are the same quantity</td><td>Power is the total energy transfer rate; intensity is power <strong>per unit area</strong> (\(\text{W m}^{-2}\)) — the same power spread over a larger area gives a smaller intensity</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: assuming a linear relationship between intensity and amplitude. Always check whether the question changes amplitude (use the square-law ratio) or distance from a point source (use the inverse-square law) — the two often get mixed up.</div>
+</div>
+
+<div class="lc-kp">
+  <span>I = P / A</span>
+  <span>I ∝ A²</span>
+  <span>I₁/I₂ = (A₁/A₂)²</span>
+  <span>point source: I = P / (4πr²)</span>
+  <span>I ∝ 1/r² → A ∝ 1/r</span>
+  <span>double A → quadruple I</span>
+  <span>units: W m⁻²</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. Which graph best represents the relationship between intensity \(I\) and amplitude \(A\) for a wave?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> Straight line through the origin</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> Parabola curving upward from the origin</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> Rectangular hyperbola (decreasing)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> Horizontal straight line</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. The amplitude of a sound wave is doubled while frequency and medium stay unchanged. By what factor does its intensity change?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> 2</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> √2</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> 4</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> 8</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. For a point source emitting spherical waves, how does intensity \(I\) vary with distance \(r\) from the source?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> \(I \propto 1/r\)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> \(I \propto 1/r^2\)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> \(I \propto r\)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> \(I\) is constant</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. A wave's intensity is reduced to \(1/9\) of its original value. What happens to its amplitude?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Reduces to 1/9</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Reduces to 1/3</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> Reduces to 1/81</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Stays constant</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The intensity of a wave is proportional to the square of its <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px">. Mathematically, \(I \propto\) <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:100px">. The SI unit of intensity is the <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:110px"> (W m⁻²). For a point source, intensity varies with distance as \(I \propto\) <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> A wave has an amplitude of 0.5 mm and an intensity of 2.0 W m⁻². Calculate its intensity when the amplitude is increased to 1.5 mm, assuming the frequency and medium remain the same. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(I_1/I_2 = (A_1/A_2)^2\)<br>✓ \(I_2 = I_1 \times (A_2/A_1)^2 = 2.0 \times (1.5/0.5)^2 = 2.0 \times 9 = \) <strong>18 W m⁻²</strong> (2 s.f.)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> Explain why a graph of intensity against amplitude is not a straight line. Use the relationship \(I \propto A^2\) in your answer. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Because \(I \propto A^2\), the relationship is quadratic, so a graph of \(I\) vs \(A\) is a <strong>parabola</strong>, not a straight line.<br>✓ To get a straight line, plot \(I\) against \(A^2\) (or log \(I\) vs log \(A\)).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Apply</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> A point source emits sound with a power of 50 W. Calculate the intensity at a distance of 2.0 m from the source. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(I = P / (4\pi r^2)\)<br>✓ \(I = 50 / (4\pi \times 2.0^2) = 50 / (16\pi) \approx\) <strong>1.0 W m⁻²</strong> (2 s.f.)</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Deduce</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> Two identical loudspeakers, A and B, emit sound of the same frequency. A listener standing 2.0 m from speaker A measures intensity \(I_0\). Deduce the distance from speaker B at which the intensity would be \(I_0/4\), assuming both speakers radiate equally in all directions. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(I \propto 1/r^2\) for a point source.<br>✓ Intensity falling to \(1/4\) means \(r\) must double: \((r_2/r_1)^2 = I_1/I_2 = 4 \Rightarrow r_2 = 2r_1\).<br>✓ \(r_2 = 2 \times 2.0 = \) <strong>4.0 m</strong>.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'I ∝ A² gives a parabolic curve through the origin (see Fig 4).' },
+    mcq2: { C: 'Doubling amplitude multiplies intensity by 2² = 4, because I ∝ A².' },
+    mcq3: { B: 'For a point source, power is spread over a sphere of area 4πr², so I ∝ 1/r².' },
+    mcq4: { B: 'Amplitude is proportional to √I, so √(1/9) = 1/3.' }
+  },
+  fitb: { lf1:'amplitude', lf2:'a²', lf3:'w m⁻²', lf4:'1/r²' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
+      </div>
 
       <!-- Prev / Next navigation -->
       <div class="lesson-nav">
