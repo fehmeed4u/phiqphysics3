@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -175,28 +176,443 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Resistance and Resistivity</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B5" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>2</span> Lesson 2 of 7 · B.5 Current and Circuits</div>
+<div class="lc-title">Resistance and Resistivity</div>
+<div class="lc-sub">Every component in a circuit resists the flow of charge to some degree. This lesson defines resistance and resistivity quantitatively, explains their physical origin in terms of electrons colliding with vibrating ions, and shows how shape, material and temperature all change the numbers you measure.</div>
+
+<div class="lc-card">
+  <h3>🔥 Hook – why does a lightbulb filament glow?</h3>
+  <p>Pass a current through a thin coil of tungsten wire and it doesn't just carry the current quietly — it gets so hot that it glows white. For over a hundred years, this was how the world lit its homes: the <strong>incandescent lamp</strong>, a filament made deliberately resistive so that electrical energy is converted into heat and light.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-02-resistance-and-resistivity-01.png" alt="A glowing incandescent lamp filament inside a glass bulb" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — An incandescent filament lamp. The thin tungsten wire glows because of its electrical resistance.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think — then read on)</strong> — why does a thin metal filament get hot when current flows, while the thick copper wires connecting it to the socket barely warm up at all? <em>Both carry the same current, but the filament has far higher resistance (thinner, higher-resistivity metal). Since collisions between free electrons and vibrating metal ions are what causes resistance, a more resistive wire converts far more electrical energy into heat for the same current.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ Defining resistance</h3>
+  <p>When the same potential difference is connected across different components, the currents produced vary. Components that produce relatively large currents are <strong>good electrical conductors</strong>, with low resistance; components that produce small or negligible currents are <strong>good electrical insulators</strong>, with high resistance. Substances such as silicon and germanium fall in between and are called <strong>semiconductors</strong> — the basis of the electronics industry.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Electrical resistance · SI unit ohm, Ω</span>
+    $$R = \frac{V}{I}$$
+    $$1\ \Omega = 1\ \text{V}\ \text{A}^{-1}$$
+  </div>
+  <p>Good electrical conductors (metals) are usually also good thermal conductors, because free electrons are important in both processes. When free electrons drift through a conductor, they collide with the vibrating metal ions of the lattice — this is the physical origin of electrical resistance. Particle vibrations decrease at lower temperatures, so cooling a metal reduces its resistance; heating a metal increases it.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-02-resistance-and-resistivity-02.png" alt="Circuit diagram for determining the resistance of a component, with an ammeter in series and a voltmeter connected in parallel across the component" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Determining resistance experimentally: an ammeter in series measures I, a voltmeter in parallel measures V across the component, and R=V/I.</div>
+  </div>
+  <div class="lc-info">📐 <strong>SI units — fundamental and derived.</strong> There are seven fundamental SI units (Table B5.1 below shows six of them); all other units are combinations of these, called <strong>derived units</strong>. The ohm is derived: \(\text{V}=\text{J}\,\text{C}^{-1}=\text{N}\,\text{m}\times\text{C}^{-1}\), which reduces to \(\text{kg}\,\text{m}^2\,\text{s}^{-3}\,\text{A}^{-1}\); dividing by A again gives \(\Omega = \text{kg}\,\text{m}^2\,\text{s}^{-3}\,\text{A}^{-2}\).</div>
+  <table class="lc-table">
+    <thead><tr><th>Quantity</th><th>SI unit</th><th>Symbol</th></tr></thead>
+    <tbody>
+      <tr><td>length</td><td>metre</td><td>m</td></tr>
+      <tr><td>mass</td><td>kilogram</td><td>kg</td></tr>
+      <tr><td>time</td><td>second</td><td>s</td></tr>
+      <tr><td>electric current</td><td>ampere</td><td>A</td></tr>
+      <tr><td>temperature</td><td>kelvin</td><td>K</td></tr>
+      <tr><td>amount of substance</td><td>mole</td><td>mol</td></tr>
+    </tbody>
+  </table>
+  <table class="lc-table" style="margin-top:0.6rem">
+    <thead><tr><th>Derived unit</th><th>Quantity</th><th>Fundamental units</th></tr></thead>
+    <tbody>
+      <tr><td>newton (N)</td><td>force</td><td>kg m s⁻²</td></tr>
+      <tr><td>pascal (Pa)</td><td>pressure</td><td>kg m⁻¹ s⁻²</td></tr>
+      <tr><td>hertz (Hz)</td><td>frequency</td><td>s⁻¹</td></tr>
+      <tr><td>joule (J)</td><td>energy</td><td>kg m² s⁻²</td></tr>
+      <tr><td>watt (W)</td><td>power</td><td>kg m² s⁻³</td></tr>
+      <tr><td>coulomb (C)</td><td>charge</td><td>A s</td></tr>
+      <tr><td>volt (V)</td><td>p.d.</td><td>kg m² s⁻³ A⁻¹</td></tr>
+      <tr><td>ohm (Ω)</td><td>resistance</td><td>kg m² s⁻³ A⁻²</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-success">✓ You are expected to write and recognize units in superscript format, e.g. m s⁻¹ and m s⁻², not m/s or m/s².</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Ohm's law and I–V characteristics</h3>
+  <p>The resistive behaviour of a component is best shown on a current–p.d. graph, called an <strong>I–V characteristic</strong>. The simplest possible relationship is that current and p.d. are directly proportional — this is <strong>Ohm's law</strong>, and a component that obeys it is described as <strong>ohmic</strong>. Metal wires at constant temperature are ohmic.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Ohm's law (constant temperature)</span>
+    $$I \propto V$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-02-resistance-and-resistivity-03.png" alt="I-V graph for an ohmic resistor: a straight red line through the origin" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Ohm's law: current is proportional to p.d., so R=V/I is constant.</div>
+  </div>
+  <p>A <strong>filament lamp</strong> is the most common non-ohmic component. As the current increases, more collisions occur between free electrons and vibrating metal ions, more energy is transferred to the ions, their vibrations increase, and the temperature — and resistance — rises.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-02-resistance-and-resistivity-04.png" alt="I-V graph for a filament lamp: a curve that bends over, with decreasing gradient as p.d. increases" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — A metal wire that gets hot (e.g. a filament lamp): the curve flattens as p.d. increases, showing R=V/I increasing.</div>
+  </div>
+  <div class="lc-warn">⚠️ Common mistake: resistance cannot be found from the gradient of a p.d.–current graph unless the component is ohmic — for a curve, you must read off a (V,I) pair and calculate R=V/I directly.</div>
+</div>
+
+<div class="lc-card">
+  <h3>💡 Non-ohmic devices: diodes and LEDs</h3>
+  <p>A <strong>diode</strong> only allows current to flow easily in one direction. Connected in <strong>forward</strong> bias (above a minimum threshold p.d.), it has very little resistance; connected in <strong>reverse</strong> bias, it has a large resistance, though a small "leakage" current is still possible.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-02-resistance-and-resistivity-05.png" alt="I-V characteristic for a diode: almost flat leakage current for negative p.d., then a steeply rising forward current above a threshold positive p.d., alongside the diode circuit symbol" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 5 — A diode's I–V characteristic: negligible leakage current in reverse, then a steep rise in forward current once the threshold p.d. is exceeded.</div>
+  </div>
+  <p><strong>Light-emitting diodes (LEDs)</strong> are semiconducting diodes that emit light when forward current passes through them. Individual LEDs are low-voltage components, so several are connected in series to light a whole room. LEDs have replaced most <strong>incandescent</strong> lamps (inefficient — they must get very hot to emit light) and <strong>fluorescent lamps</strong> (which pass electricity through mercury vapour) because they are far more efficient.</p>
+  <div class="lc-info">🌍 <strong>Nature of science — peer review or competition?</strong> Georg Ohm published his law in Germany in 1827: \(I \propto (A/L)V\). Two years earlier in England, Peter Barlow had incorrectly proposed \(I \propto \sqrt{A/L}\), with no reference to voltage at all — and in the early stages, Barlow's incorrect theory was more widely believed. Two hundred years ago, a scientist's reputation and influence could matter as much as the value of the work itself; modern peer review, with fast global communication, subjects new results to much closer scrutiny.</div>
+  <div class="lc-info">🔗 <strong>Linking question</strong> — how does a particle model allow electrical resistance to be explained, and what are the parallels between models of thermal and electrical conductivity? <em>(Links to Topic B.1: in both cases, energy or charge carriers are scattered by vibrating particles, and greater vibration — higher temperature — means more scattering and more resistance.)</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📏 Resistivity — how shape and material set resistance</h3>
+  <p>Experiments on metal wires reveal three results: (1) resistance is proportional to length, \(l\); (2) resistance is inversely proportional to cross-sectional area, \(A\); (3) resistance depends on the metal the wire is made from. Combining the first two:</p>
+  <div class="lc-formula">
+    $$R \propto \frac{l}{A}$$
+    $$R = \text{constant} \times \frac{l}{A}$$
+  </div>
+  <p>The constant depends on the material and is called <strong>resistivity</strong>, symbol \(\rho\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Resistivity · SI unit Ω m</span>
+    $$\rho = \frac{RA}{L}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-02-resistance-and-resistivity-08.png" alt="A uniform wire of length L and cross-sectional area A, labelled, used to define resistivity" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — Resistivity is the resistance of a 1 m cube of material: it depends only on the substance, not its shape.</div>
+  </div>
+  <p>We cannot speak of "the resistance of aluminium" without specifying its shape — but resistivity is a property of the material alone, equivalent to the resistance of a 1 m length with a 1 m² cross-section (a 1 m cube).</p>
+  <table class="lc-table">
+    <thead><tr><th>Material</th><th>Resistivity / Ω m (at 20°C)</th></tr></thead>
+    <tbody>
+      <tr><td>silver</td><td>1.6 × 10⁻⁸</td></tr>
+      <tr><td>copper</td><td>1.7 × 10⁻⁸</td></tr>
+      <tr><td>aluminium</td><td>2.8 × 10⁻⁸</td></tr>
+      <tr><td>iron</td><td>1.0 × 10⁻⁷</td></tr>
+      <tr><td>nichrome (heaters)</td><td>1.1 × 10⁻⁶</td></tr>
+      <tr><td>carbon (graphite)</td><td>3.5 × 10⁻⁵</td></tr>
+      <tr><td>germanium</td><td>4.6 × 10⁻¹</td></tr>
+      <tr><td>sea water</td><td>≈ 2 × 10⁻¹</td></tr>
+      <tr><td>silicon</td><td>6.4 × 10²</td></tr>
+      <tr><td>glass</td><td>≈ 10¹²</td></tr>
+      <tr><td>quartz</td><td>≈ 10¹⁷</td></tr>
+      <tr><td>Teflon (PTFE)</td><td>≈ 10²³</td></tr>
+    </tbody>
+  </table>
+  <p>The resistivity of metals <strong>increases</strong> with temperature — more ion vibration means more scattering, and the number of free electrons barely changes. In semiconductors and insulators, however, the number of charge carriers can increase sharply with temperature, so resistivity can <strong>decrease</strong> considerably as they get hotter. Glass, normally an insulator, can become a good conductor at 500°C.</p>
+  <div class="lc-warn">⚠️ Common mistake: the SI unit of resistivity is Ω m (ohm-metres), not Ω m⁻¹ ("ohms per metre") — many students get this backwards.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📊 Graph mastery</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>I–V, ohmic component</td><td>p.d., \(V\) · Current, \(I\)</td><td>Straight line through the origin</td><td>Gradient = \(1/R\); \(R\) is constant</td></tr>
+      <tr><td>I–V, non-ohmic (filament lamp)</td><td>p.d., \(V\) · Current, \(I\)</td><td>Curve, gradient decreasing</td><td>\(R=V/I\) increases as current (and temperature) increases</td></tr>
+      <tr><td>Resistance–length (constant \(A\))</td><td>Length, \(l\) · Resistance, \(R\)</td><td>Straight line through the origin</td><td>Gradient = \(\rho/A\)</td></tr>
+      <tr><td>Resistance–area (constant \(l\))</td><td>Area, \(A\) · Resistance, \(R\)</td><td>Curve, decreasing (a \(1/A\) shape)</td><td>Plotting \(R\) against \(1/A\) instead gives a straight line through the origin, gradient \(\rho l\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/b5-02-resistance-and-resistivity-06.png" alt="Graph of resistance against length for a metal wire, a straight line through the origin, cross-sectional area constant"><div class="lc-cap">Fig 7 — R against l (constant A): a straight line through the origin.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/b5-02-resistance-and-resistivity-07.png" alt="Graph of resistance against cross-sectional area for a metal wire, a decreasing curve, length constant"><div class="lc-cap">Fig 8 — R against A (constant l): a decreasing curve, since R∝1/A.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example — resistance from V and I (B5.2)</h3>
+  <p>The current through an electrical component was 0.78 A when a p.d. of 4.4 V was applied across it. Calculate its resistance.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a single pair of V and I values, so R=V/I applies directly.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(V=4.4\ \text{V}\), \(I=0.78\ \text{A}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(R=\dfrac{V}{I}=\dfrac{4.4}{0.78}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(R=5.6\ \Omega\). This value should not be assumed constant — it can change if other factors (like temperature) change.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example — resistance of a nichrome wire (B5.3)</h3>
+  <p>Determine the resistance of a nichrome wire at 20°C, if it has a length of 1.96 m and a radius of 0.21 mm. Explain why the answer would be different at 100°C.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> use \(\rho=RA/L\) rearranged for \(R\), with \(A=\pi r^2\) and \(\rho\) for nichrome from Table B5.3.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(L=1.96\ \text{m}\), \(r=0.21\times10^{-3}\ \text{m}\), \(\rho=1.1\times10^{-6}\ \Omega\,\text{m}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(1.1\times10^{-6}=\dfrac{R\times\pi(0.21\times10^{-3})^2}{1.96}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(R=16\ \Omega\). At 100°C, increased vibrations of the metal ions would cause the resistance of the wire to increase above this value.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-02-resistance-and-resistivity-09.png" alt="A nichrome wire of length 1.96 metres and radius 0.21 millimetres, labelled for the worked example" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 9 — The nichrome wire from the worked example: L=1.96 m, r=0.21 mm.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: resistors and lighting</h3>
+    <p>A component manufactured specifically for its resistive properties is a <strong>resistor</strong>. Beyond fixed resistors, circuits also use <strong>variable resistors</strong> and <strong>potentiometers</strong> (three-terminal variable resistors used as potential dividers), <strong>light-dependent resistors (LDRs)</strong> (resistance depends on light intensity), and <strong>thermistors</strong> (resistance decreases as temperature rises). A high-voltage power cable's core is made from many thin strands of aluminium twisted together rather than one thick wire, because the strands stay flexible and resist cracking under mechanical stress, while the total cross-sectional area — and so the resistance — stays the same.</p>
+    <div class="lc-success">✓ Examiner tip: if a question gives you a resistivity and asks for resistance (or vice versa), always check your area is in m² and your length in m before substituting into ρ=RA/L.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension — resistivity vs. temperature, quantitatively</h3>
+    <p>For a metal near room temperature, resistivity increases roughly linearly with temperature: \(\rho \approx \rho_0(1+\alpha\Delta T)\), where \(\alpha\) is the material's temperature coefficient of resistance. This is why a filament lamp's I–V graph curves over — as \(T\) rises, \(\rho\) (and so \(R\)) rises too, at every point along the curve, not just at the end.</p>
+    <p><strong>Challenge:</strong> a metal wire has resistivity \(1.0\times10^{-7}\ \Omega\,\text{m}\) at 20°C, with \(\alpha=5.0\times10^{-3}\ \text{K}^{-1}\). Estimate its resistivity at 120°C. <em>(Answer: \(\Delta T=100\ \text{K}\), so \(\rho\approx1.0\times10^{-7}(1+5.0\times10^{-3}\times100)=1.0\times10^{-7}\times1.5=1.5\times10^{-7}\ \Omega\,\text{m}\) — a 50% increase.)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔭 Looking ahead — combining components</h3>
+  <p>Real circuits rarely contain just one component. When resistors are connected in <strong>series</strong> or in <strong>parallel</strong>, the current, p.d. and resistance obey simple combination rules:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Series</span>
+    $$I=I_1=I_2=\ldots$$
+    $$V=V_1+V_2+\ldots$$
+    $$R_{\text{s}}=R_1+R_2+\ldots$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Parallel</span>
+    $$I=I_1+I_2+\ldots$$
+    $$V=V_1=V_2=\ldots$$
+    $$\frac{1}{R_{\text{p}}}=\frac{1}{R_1}+\frac{1}{R_2}+\ldots$$
+  </div>
+  <p>These rules — and how to apply them — are the subject of the next lesson, <strong>Series and Parallel Circuits</strong>.</p>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Resistance is a fixed property of a component that never changes</td><td>R=V/I is only constant for ohmic components at constant temperature; filament lamps, diodes and thermistors are all non-ohmic</td></tr>
+      <tr><td>Resistance and resistivity mean the same thing</td><td>Resistivity, ρ, is a property of the material alone; resistance also depends on the component's length and cross-sectional area (R=ρl/A)</td></tr>
+      <tr><td>Resistance = gradient of any V–I (or I–V) graph</td><td>Gradient only gives resistance directly for an ohmic (straight-line-through-origin) component; for a curve, calculate R=V/I at the point of interest</td></tr>
+      <tr><td>Higher temperature always means higher resistance</td><td>True for metals, but semiconductors and insulators can become <em>less</em> resistive as temperature rises, because more charge carriers become available</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: writing the unit of resistivity as Ω m⁻¹ ("ohms per metre"). It is Ω m (ohm-metres) — check by rearranging ρ=RA/L and cancelling units: Ω × m² / m = Ω m.</div>
+</div>
+
+<div class="lc-kp">
+  <span>R = V/I</span>
+  <span>1 Ω = 1 V A⁻¹</span>
+  <span>ρ = RA/L, unit Ω m</span>
+  <span>Ohm's law: I ∝ V (const. T)</span>
+  <span>ohmic: straight I-V line; non-ohmic: curve</span>
+  <span>R ∝ l, R ∝ 1/A</span>
+  <span>metals: R↑ with temperature</span>
+  <span>semiconductors/insulators: R can ↓ with temperature</span>
+  <span>diode: low R forward, high R reverse</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. The correct SI unit of resistivity is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> Ω</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Ω m⁻¹</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> Ω m</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Ω m²</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A component obeys Ohm's law if</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> its resistance increases as current increases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> current is proportional to p.d. at constant temperature</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> p.d. is proportional to the square of the current</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> its resistance is always zero</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. The resistivity of a metal wire depends on</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> its length only</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> its cross-sectional area only</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> the material and its temperature</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> the current flowing through it</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. As a filament lamp heats up, its resistance</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> stays constant</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> increases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> decreases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> becomes negative</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A diode connected in forward bias, above its threshold p.d., has</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> very high resistance</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> very low resistance</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> zero current, always</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> exactly the same resistance as in reverse bias</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. For a wire of fixed length and material, plotting resistance R against 1/A (A = cross-sectional area) gives</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','B')"><span class="lc-opt-l">A</span> a decreasing curve</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','B')"><span class="lc-opt-l">B</span> a straight line through the origin</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','B')"><span class="lc-opt-l">C</span> a horizontal straight line</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','B')"><span class="lc-opt-l">D</span> no consistent relationship</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Electrical resistance is defined as p.d. divided by <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:90px">, given the symbol R and measured in the SI unit <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px">. Resistivity, ρ, of a wire of length L and cross-sectional area A is given by ρ = RA/<input class="lc-fitb-input" id="lf3" placeholder="?" style="width:50px">, with SI unit <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">. A component that obeys Ohm's law has current <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:120px"> to potential difference at constant <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px">. In metals, resistance <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:100px"> as temperature rises, because the <input class="lc-fitb-input" id="lf8" placeholder="?" style="width:110px"> of the metal ions increases. In many semiconductors and insulators, resistance can instead <input class="lc-fitb-input" id="lf9" placeholder="?" style="width:100px"> as temperature rises, because more charge carriers become available.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> What voltage is needed to make a current of 56 mA pass through a 675 Ω ohmic resistor? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(V = IR = 0.056\times675\)<br>✓ \(V \approx 38\ \text{V}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> (a) Calculate the operating resistance of a 230 V domestic water heater if the current through it is 8.4 A. (b) Explain why you would expect the resistance to be less when it is first turned on. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(R = \dfrac{230}{8.4} \approx 27\ \Omega\).<br>✓ (b) The heating element is cold when first switched on; lower temperature means less ion vibration and fewer electron-ion collisions, so resistance is lower until the element warms up.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> What current flows through a 3.7 kΩ resistor when there is a p.d. of 4.5 V across it? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(I = \dfrac{V}{R} = \dfrac{4.5}{3700}\)<br>✓ \(I \approx 1.2\times10^{-3}\ \text{A}\) (1.2 mA).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> Calculate the p.d. across a 68.0 Ω resistor if 120 C of charge flows through it in 60 s. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(I = \dfrac{q}{t} = \dfrac{120}{60} = 2.0\ \text{A}\)<br>✓ \(V = IR = 2.0\times68.0 = 136\ \text{V}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> Explain what it means if a component is described as non-ohmic. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Its current is not proportional to the p.d. across it (it does not obey Ohm's law).<br>✓ Equivalently, its resistance R=V/I is not constant, but changes as the current or p.d. changes.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> State one reason why the resistance of a component may (a) increase as it gets hotter, (b) decrease as it gets hotter. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) In a metal, higher temperature increases the vibration of the lattice ions, causing more frequent collisions with free electrons.<br>✓ (b) In a semiconductor or insulator, higher temperature releases more charge carriers, increasing their number per unit volume enough to outweigh the increased vibration.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q"><strong>Q7.</strong> Sketch an I–V characteristic for a component whose resistance decreases as the current through it gets larger. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ A curve starting flat near the origin, then curving increasingly steeply upward as V increases (the opposite shape to a filament lamp).<br>✓ Because R=V/I, a curve that bends this way has a smaller V/I ratio at large I than at small I, i.e. decreasing resistance.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q8.</strong> If the wire used to produce the results in Fig 7 (R against l) had a resistivity of \(4.9\times10^{-7}\ \Omega\,\text{m}\), calculate the cross-sectional area of the wire. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Gradient of R–l graph = ρ/A; reading Fig 7, gradient ≈ \(\dfrac{9.8}{0.70} \approx 14\ \Omega\,\text{m}^{-1}\).<br>✓ \(A = \dfrac{\rho}{\text{gradient}} = \dfrac{4.9\times10^{-7}}{14}\)<br>✓ \(A \approx 3.5\times10^{-8}\ \text{m}^2\) (exact value depends on the graph reading).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show / Determine</div>
+  <div class="lc-exam-q"><strong>Q9.</strong> (a) Use values taken from Fig 8 (R against A) to show that the resistance was inversely proportional to the area. (b) If the wire had a length of 0.56 m, determine its resistivity. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Reading two points, e.g. A=0.4 mm² → R≈1.0 Ω and A=2.0 mm² → R≈0.2 Ω.<br>✓ R×A ≈ 0.40 Ω mm² at both points — a constant product confirms R∝1/A.<br>✓ (b) Converting: R×A ≈ 0.40×10⁻⁶ Ω m². \(\rho = \dfrac{RA}{L} = \dfrac{0.40\times10^{-6}}{0.56}\)<br>✓ \(\rho \approx 7.1\times10^{-7}\ \Omega\,\text{m}\) (readings vary with the graph).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q10.</strong> Calculate the length of aluminium wire which will have the same resistance as a 1.0 m length of copper wire of the same thickness. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Same A, so equal R means \(\rho_{\text{Cu}}L_{\text{Cu}} = \rho_{\text{Al}}L_{\text{Al}}\).<br>✓ \(L_{\text{Al}} = \dfrac{1.7\times10^{-8}}{2.8\times10^{-8}}\times1.0 \approx 0.61\ \text{m}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Predict / Suggest</div>
+  <div class="lc-exam-q"><strong>Q11.</strong> The central cable of a high-voltage power cable is made from aluminium and has an effective cross-sectional area of 3.4 cm². (a) Predict what length of this cable will have a resistance of 1.0 Ω. (b) Suggest a reason why the cable is made of thinner strands of aluminium, rather than a single, thicker wire. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(A = 3.4\times10^{-4}\ \text{m}^2\). \(L = \dfrac{RA}{\rho} = \dfrac{1.0\times3.4\times10^{-4}}{2.8\times10^{-8}}\)<br>✓ \(L \approx 1.2\times10^{4}\ \text{m}\) (about 12 km).<br>✓ (b) Many thin strands twisted together stay flexible and resist cracking as the cable bends and flexes (e.g. in wind, or being wound onto a drum), while a single thick wire of the same total area would be stiff and prone to fatigue fracture.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate</div>
+  <div class="lc-exam-q"><strong>Q12.</strong> A glass rod of length 10 cm and diameter 0.50 cm was heated until its resistance became 10 Ω. Estimate the resistivity of the glass at this high temperature. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(A = \pi r^2 = \pi(2.5\times10^{-3})^2 \approx 1.96\times10^{-5}\ \text{m}^2\).<br>✓ \(\rho = \dfrac{RA}{L} = \dfrac{10\times1.96\times10^{-5}}{0.10}\)<br>✓ \(\rho \approx 2.0\times10^{-3}\ \Omega\,\text{m}\) — far below glass's room-temperature value of ≈10¹² Ω m, showing how dramatically heating lowers an insulator's resistivity.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q"><strong>Q13.</strong> (a) Calculate the ratio of highest to lowest resistivity in Table B5.3. (b) Explain the difference. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Highest = Teflon (≈10²³ Ω m); lowest = silver (1.6×10⁻⁸ Ω m).<br>✓ Ratio \(\approx \dfrac{10^{23}}{1.6\times10^{-8}} \approx 6\times10^{30}\).<br>✓ Metals like silver have huge numbers of free electrons available to carry charge; excellent insulators like Teflon have almost none, so it takes an enormous range of resistivity — over 30 orders of magnitude — to describe both.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'From ρ=RA/L, unit is (Ω × m²)/m = Ω m.' },
+    mcq2: { B: 'Ohm\'s law: current proportional to p.d., provided temperature stays constant.' },
+    mcq3: { C: 'Resistivity is a property of the material (and its temperature), independent of the wire\'s shape.' },
+    mcq4: { B: 'More ion vibration at higher temperature causes more electron-ion collisions, increasing resistance.' },
+    mcq5: { B: 'Above the threshold p.d., a forward-biased diode conducts easily, i.e. has very low resistance.' },
+    mcq6: { B: 'Since R=ρl/A, R is proportional to 1/A, so plotting R against 1/A gives a straight line through the origin.' }
+  },
+  fitb: { lf1:'current', lf2:'ohm', lf3:'L', lf4:'Ω m', lf5:'proportional', lf6:'temperature', lf7:'increases', lf8:'vibration', lf9:'decrease' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
