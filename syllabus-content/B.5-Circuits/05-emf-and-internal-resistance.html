@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -175,28 +176,315 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">EMF and Internal Resistance</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B5" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>5</span> Lesson 5 of 7 · B.5 Current and Circuits</div>
+<div class="lc-title">EMF and Internal Resistance</div>
+<div class="lc-sub">Every real source of electrical energy — battery, solar cell, dynamo — has resistance of its own. This lesson shows why the voltage you measure across a battery is never quite the emf once current flows, and how to work with the difference.</div>
+
+<div class="lc-card">
+  <h3>🔆 Hook – the street light that never plugs in</h3>
+  <p>A solar-powered street light has no mains cable at all. During the day its panels convert sunlight directly into electrical energy; that energy is stored, then released at night to power the lamps. <strong>Whether the source is a solar panel, a chemical battery, or a bicycle dynamo, the same quantity — emf — describes how much energy it delivers per unit charge.</strong></p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b5-05-emf-and-internal-resistance-01.png" alt="Solar-powered street light with panels at the top of a pole and lamps below" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Solar cells collect energy during the day to power the lamps at night: a stand-alone solar lighting system.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question</strong> — why can a solar cell, a dynamo, and a car battery all be described using the same quantity, emf? <em>Because emf is defined purely by energy transferred per coulomb of charge — it says nothing about the mechanism (chemical, photovoltaic, kinetic) that produced that energy. Any source of electrical energy has an emf.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>🔋 Sources of electrical energy</h3>
+  <p>To run electrical or electronic devices, we need a source of electrical energy. The main options:</p>
+  <ul style="margin:0 0 0.9rem 1.1rem;font-size:0.92rem;line-height:1.65">
+    <li>Most homes are supplied with a pd from <strong>mains electricity</strong> generated at power stations.</li>
+    <li>A home-based electrical <strong>generator</strong> converts kinetic energy into electrical energy, often from burning a fuel.</li>
+    <li><strong>Batteries</strong> (chemical or electric cells) use chemical reactions to provide a pd. Single-use or rechargeable.</li>
+    <li><strong>Solar cells</strong> (photovoltaic cells) use radiant energy from the Sun to produce a pd.</li>
+    <li><strong>Wind generators</strong> use the kinetic energy of moving air to produce a pd.</li>
+    <li>A <strong>dynamo</strong> — a generator that produces direct current — on a bicycle transfers kinetic energy to electrical energy for the lamp.</li>
+  </ul>
+  <p>Each source has advantages and disadvantages, assessed by: convenience of use, power available, pd available, whether it contributes to pollution/global warming, whether it is renewable, whether the supply is continuous, ac or dc, mobile or fixed, its internal resistance (see below), and cost.</p>
+  <div class="lc-info">🔗 <strong>Linking question</strong> — what are the advantages of cells as a source of electrical energy? <em>Links to understandings in Topic A.3.</em></div>
+  <div class="lc-warn">🤔 <strong>ATL B5B — thinking skills.</strong> Your family buys a remote house with no mains supply. A new cable would cost a lot. What information would you need to decide how to power the home? Would a renewable source always be the best choice?</div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ Defining emf</h3>
+  <p>The <strong>electromotive force (emf)</strong> of a battery, or any other source of electrical energy, is the total energy transferred in the source per unit charge passing through it.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Electromotive force · SI unit volt, V (J C⁻¹)</span>
+    $$\varepsilon = \frac{\text{energy transferred}}{\text{charge}}$$
+  </div>
+  <p>Emf is given the symbol \(\varepsilon\). The name can confuse — <strong>emf is not actually a force</strong>, which is why it is almost always just called "emf". A battery with an emf of 12 V transfers a total of 12 J to every coulomb of charge that flows through it. But some of that energy is transferred within the source itself — that's the subject of the rest of this lesson.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🧲 Internal resistance and lost volts</h3>
+  <p>Cells, batteries and other sources of electrical energy are not perfect conductors. The materials they are made from have resistance — the <strong>internal resistance</strong> of the source, symbol \(r\), typically less than 1 Ω.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b5-05-emf-and-internal-resistance-02.png" alt="Circuit diagram of a battery with emf and internal resistance in series, connected to an external resistor and switch, with a voltmeter across the terminals" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — A cell in a simple circuit. The emf ε and internal resistance r are drawn separately to aid understanding, but in practice they are combined — there is no accessible point between them.</div>
+  </div>
+  <p>The voltmeter across the terminals is assumed ideal. <strong>Switch open, no current (\(I=0\)):</strong> there is no pd across the internal resistance (\(V_r = Ir = 0\)), so the voltmeter shows the true emf. <strong>Switch closed, current \(I\) flows:</strong> a pd \(V_r = Ir\) appears across the internal resistance, so the voltmeter reading falls.</p>
+  <div class="lc-info">📖 <strong>Lost volts</strong> — the voltage drop below the emf that occurs when a source delivers current to a circuit; lost volts (\(Ir\)) increase with larger currents. <strong>Terminal potential difference, V</strong> — the pd across the battery terminals when it is supplying current (less than the emf).</div>
+  <p>Worked numerical example: a battery has emf 9.0 V and internal resistance 0.4 Ω. Switch open — voltmeter reads 9.0 V. A current of 2.5 A flows: \(V_r = 2.5 \times 0.4 = 1.0\ \text{V}\), so the voltmeter reading falls from 9.0 V to \((9.0-1.0) = 8.0\) V.</p>
+  <p>Total energy transferred per coulomb = energy transferred to the circuit per coulomb + energy transferred inside the cell per coulomb. In symbols:</p>
+  <div class="lc-formula">
+    $$\varepsilon = V + Ir$$
+  </div>
+  <p>The same current flows through both resistances, so using \(V=IR\):</p>
+  <div class="lc-formula">
+    $$\varepsilon = IR + Ir$$
+    $$\varepsilon = I(R+r)$$
+  </div>
+  <p>An ideal voltmeter across a battery only shows the emf if no current is flowing. At all other times the reading is less, by an amount depending on the current at that moment.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Terminal pd vs current</td><td>I / A · V / V</td><td>Straight line, sloping down</td><td>y-intercept = ε; gradient = −r</td></tr>
+      <tr><td>Terminal pd vs external resistance</td><td>R / Ω · V / V</td><td>Curve rising steeply then levelling off</td><td>Approaches ε asymptotically as R → ∞ (r becomes negligible)</td></tr>
+      <tr><td>Current vs external resistance</td><td>R / Ω · I / A</td><td>Decreasing curve</td><td>\(I = \varepsilon/(R+r)\); intercept at \(R=0\) gives short-circuit current \(\varepsilon/r\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b5-05-emf-and-internal-resistance-03.png" alt="Graph of terminal potential difference against current, a straight line sloping downward with intercept epsilon and gradient minus r" style="max-width:340px;width:100%"><div class="lc-cap">Fig 3 — V against I is a straight line: the y-intercept gives ε and the (negative) gradient gives r.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b5-05-emf-and-internal-resistance-04.png" alt="Graph of terminal potential difference against external resistance, a curve rising and levelling off toward epsilon" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — V against R rises steeply at first, then levels off close to ε as R gets much larger than r.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔬 Investigating emf and internal resistance</h3>
+  <p>A student set up a circuit to investigate the emf and internal resistance of an AA battery: the battery (with its internal resistance) in series with an ammeter and a variable resistor, and a voltmeter connected across the battery terminals.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b5-05-emf-and-internal-resistance-05.png" alt="Circuit diagram for investigating internal resistance of an AA battery, with a variable resistor, ammeter and voltmeter" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 5 — Investigating internal resistance: the AA battery (dashed box) in series with an ammeter and variable resistor R; a voltmeter reads the terminal pd.</div>
+  </div>
+  <p>Varying the resistance gave these readings:</p>
+  <table class="lc-table">
+    <thead><tr><th>I / A</th><th>V / V</th></tr></thead>
+    <tbody>
+      <tr><td>1.0</td><td>1.0</td></tr>
+      <tr><td>0.6</td><td>1.2</td></tr>
+      <tr><td>0.4</td><td>1.3</td></tr>
+      <tr><td>0.2</td><td>1.4</td></tr>
+    </tbody>
+  </table>
+  <p>The student concluded the battery had an emf of 1.5 V and internal resistance 0.5 Ω. <em>She reasoned this by comparing pairs of readings: each 0.2 A drop in current corresponds to a 0.1 V rise in terminal pd, so the gradient magnitude — and hence r — is \(0.1/0.2 = 0.5\ \Omega\); extrapolating the straight-line trend to \(I=0\) gives \(V = \varepsilon \approx 1.5\) V.</em></p>
+  <p>Her teacher agreed the conclusions were acceptable, but said the investigation was not accurate enough, and suggested improvements — including plotting an appropriate graph (V against I) to extract ε and r more precisely from the intercept and gradient of a best-fit line, rather than from just two readings.</p>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – finding current and terminal pd</h3>
+  <p>A battery with an emf of 1.5 V and internal resistance 0.82 Ω is connected in a circuit with a 5.6 Ω fixed resistor. <strong>a</strong> Calculate the current in the circuit. <strong>b</strong> If an ideal voltmeter is connected across the terminals of the battery when the current is flowing, what reading will it show?</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a single loop, so use \(\varepsilon = I(R+r)\), then \(V=IR\) for the terminal reading.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(\varepsilon = 1.5\) V, \(R = 5.6\ \Omega\), \(r = 0.82\ \Omega\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong><br>\(I = \dfrac{\varepsilon}{R+r} = \dfrac{1.5}{5.6+0.80}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(I = 0.23\) A.<br><strong>(b)</strong> \(V = IR = 0.23 \times 5.6 = 1.3\) V.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/b5-05-emf-and-internal-resistance-06.png" alt="Circuit diagram for the worked example showing a 1.5 volt battery, internal resistance, and a 5.6 ohm resistor" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — Geometry for the worked example: emf 1.5 V, internal resistance r, and external resistor R = 5.6 Ω in series.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: choosing a battery</h3>
+    <p>The emf and internal resistance of a source are its defining features, along with physical size and mass, which affect how much energy it can store. 1.5 V is the most common single-cell emf.</p>
+    <table class="lc-table">
+      <thead><tr><th>Battery</th><th>emf / V</th><th>r / Ω</th><th>Capacity / mAh</th><th>Capacity / kJ</th></tr></thead>
+      <tbody>
+        <tr><td>Mobile phone</td><td>3.7</td><td>0.1</td><td>1400</td><td>≈20</td></tr>
+        <tr><td>AA or AAA</td><td>1.5</td><td>0.2</td><td>1000</td><td>≈5</td></tr>
+        <tr><td>Button/coin</td><td>3.0</td><td>10</td><td>100</td><td>≈1</td></tr>
+        <tr><td>Car battery</td><td>12</td><td>0.015</td><td>50 000</td><td>≈2000</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.88rem">A 1400 mAh battery can supply 1.4 A for one hour: \(\text{Energy} = VIt = 3.7 \times 1.4 \times 3600 = 1.9\times10^{4}\) J (≈20 kJ). An e-bike battery — about 3 kg, 50 Ah (9 MJ), emf 50 V, internal resistance 0.1 Ω — is enough for roughly 30 km on mostly level ground.</p>
+    <div class="lc-img">
+      <img src="../../assets/lesson-images/b5-05-emf-and-internal-resistance-07.png" alt="Electric bicycle for hire with a battery unit mounted on its frame" style="max-width:340px;width:100%">
+      <div class="lc-cap">Fig 7 — An e-bike battery supplies energy to assist pedalling — a practical application of battery emf and capacity.</div>
+    </div>
+    <div class="lc-success">✓ Examiner tip: when comparing sources, weigh emf, internal resistance, and capacity together — a high emf with a high internal resistance can deliver less usable current than a lower-emf source with very low r (e.g. a car battery).</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – combining cells</h3>
+    <p>Cells of the same emf connected in <strong>series</strong> give a greater overall emf, but also a greater total internal resistance. Connected in <strong>parallel</strong>, the overall emf stays the same, but the total internal resistance is reduced.</p>
+    <div class="lc-formula">
+      <span class="lc-formula-label">n identical cells, each ε₀, r₀</span>
+      $$\varepsilon_{\text{series}} = n\varepsilon_0,\ r_{\text{series}} = nr_0$$
+      $$\varepsilon_{\text{parallel}} = \varepsilon_0,\ r_{\text{parallel}} = \frac{r_0}{n}$$
+    </div>
+    <p><strong>Challenge:</strong> three identical cells, each emf 2.0 V and \(r=0.15\ \Omega\), are connected in parallel and then supply a 2.0 Ω external resistor. Find the current.</p>
+    <p><em>Answer: parallel combination gives \(\varepsilon=2.0\) V, \(r=0.15/3=0.05\ \Omega\). \(I=\varepsilon/(R+r)=2.0/2.05=0.98\) A.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>A voltmeter across a battery always reads its emf</td><td>Only true when no current flows. With current, the voltmeter reads the terminal pd, \(V=\varepsilon - Ir\)</td></tr>
+      <tr><td>Internal resistance can always be ignored</td><td>Only when \(r \ll R\). In high-current or low-resistance circuits it has a significant effect — check before assuming "negligible internal resistance"</td></tr>
+      <tr><td>Cells in series and in parallel behave the same way</td><td>Series: emf and total internal resistance both add. Parallel: emf stays the same, total internal resistance falls</td></tr>
+      <tr><td>A short circuit just means "a strong current"</td><td>It is an unwanted low-resistance path; the very small effective R can drive a dangerously large current unless a fuse or breaker limits it</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: using the quoted emf as the terminal pd in a calculation where current is clearly flowing. Always check first whether the circuit is open (\(I=0\), voltmeter = emf) or closed (\(I\neq0\), voltmeter = terminal pd = ε − Ir).</div>
+</div>
+
+<div class="lc-kp">
+  <span>ε = V + Ir</span>
+  <span>ε = I(R + r)</span>
+  <span>lost volts = Ir</span>
+  <span>terminal pd falls under load</span>
+  <span>r typically &lt; 1 Ω</span>
+  <span>I = 0 → V = ε</span>
+  <span>series cells: ε, r both add</span>
+  <span>parallel cells: ε same, r falls</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. The electromotive force of a battery is best described as</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> the force pushing charge around the circuit</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> the pd across the external resistor only</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> the total energy transferred in the source per unit charge passing through it</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> the current supplied when the circuit is short-circuited</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A battery has emf 6.0 V and internal resistance 0.5 Ω. When it supplies a current of 1.2 A, the terminal pd is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 6.6 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 5.4 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 6.0 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 0.6 V</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. "Negligible internal resistance" is a reasonable assumption when</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> the current is very large</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> the internal resistance is much smaller than the rest of the circuit's resistance</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> the battery is old</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> the circuit has no switch</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Three identical cells, each with internal resistance r, are connected in parallel. The combined internal resistance is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> 3r</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> r</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> r/3</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> 9r</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A connecting wire is accidentally placed across a battery's terminals (a short circuit). The main danger is that</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','A')"><span class="lc-opt-l">A</span> the near-zero external resistance lets a very large current flow, limited mainly by r</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','A')"><span class="lc-opt-l">B</span> the emf drops to zero</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','A')"><span class="lc-opt-l">C</span> the internal resistance becomes infinite</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','A')"><span class="lc-opt-l">D</span> no current can flow at all</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Emf is the total energy transferred per unit <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> passing through the source, measured in <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px">. The resistance of the materials inside a battery is called its <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:140px"> resistance. When current flows, the pd across it is called the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px"> volts. The pd across the battery terminals when supplying current is the <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:110px"> pd. An ideal voltmeter reads the true emf only when the current is <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:80px">. An unwanted low-resistance path across a source is called a <input class="lc-fitb-input" id="lf7" placeholder="?" style="width:110px"> circuit.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q29.</strong> Three cells, each of emf 1.5 V and internal resistance 0.20 Ω, were connected together. Determine their combined emf and internal resistance if they were connected: <strong>a</strong> in series <strong>b</strong> in parallel. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Series: emfs add, \(\varepsilon = 3 \times 1.5 = 4.5\) V.<br>✓ Internal resistances add, \(r = 3 \times 0.20 = 0.60\ \Omega\).<br>✓ (b) Parallel: combined emf stays \(1.5\) V (same as one cell).<br>✓ Combined \(r = 0.20/3 = 0.067\ \Omega\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q30.</strong> A very high-resistance voltmeter shows a voltage of 12.5 V when connected across the terminals of a battery not supplying a current. When the battery is connected to a lamp, a current of 2.5 A flows and the voltmeter reading falls to 11.8 V. <strong>a</strong> State the emf of the battery. <strong>b</strong> Calculate the internal resistance. <strong>c</strong> Calculate the resistance of the lamp. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) With no current the voltmeter reads the true emf: \(\varepsilon = 12.5\) V.<br>✓ (b) \(\varepsilon = V + Ir \Rightarrow 12.5 = 11.8 + 2.5r\)<br>✓ \(r = 0.7/2.5 = 0.28\ \Omega\).<br>✓ (c) \(R = V/I = 11.8/2.5 = 4.72\ \Omega\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Predict</div>
+  <div class="lc-exam-q"><strong>Q31.</strong> When a battery of emf 4.5 V and internal resistance 1.1 Ω was connected to a resistor, the current was 0.68 A. <strong>a</strong> What was the value of the resistor? <strong>b</strong> If the resistor was replaced with another of twice the value, predict the new current. <strong>c</strong> State an assumption made in answering b. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(\varepsilon = I(R+r) \Rightarrow 4.5 = 0.68(R+1.1)\)<br>✓ \(R = 5.5\ \Omega\).<br>✓ (b) New \(R = 11.0\ \Omega\): \(I = \varepsilon/(R+r) = 4.5/12.1 = 0.37\) A.<br>✓ (c) Assumed the internal resistance \(r\) stays constant (unaffected by the current drawn).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Suggest</div>
+  <div class="lc-exam-q"><strong>Q32.</strong> If a connecting wire is connected by mistake across a battery or power supply, it is an example of a short circuit. <strong>a</strong> Calculate the current that flows through a battery of emf 12.0 V and internal resistance 0.25 Ω if it is accidentally "shorted". <strong>b</strong> Suggest what will happen to the battery. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) With external resistance ≈ 0, \(I = \varepsilon/r = 12.0/0.25 = 48\) A.<br>✓ (b) Such a large current will generate a lot of heat inside the battery very quickly.<br>✓ The battery may overheat, be permanently damaged, or (depending on the chemistry) vent or catch fire, unless protected by a fuse or breaker.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Outline</div>
+  <div class="lc-exam-q"><strong>Q33.</strong> A 1.50 V cell with an internal resistance of 0.100 Ω is connected to a resistance of 500 Ω. Outline why it would be reasonable to assume that the cell has "negligible internal resistance". Include a calculation. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(I = \varepsilon/(R+r) = 1.50/500.1 = 3.0\times10^{-3}\) A.<br>✓ Lost volts \(= Ir = 3.0\times10^{-3}\times0.100 \approx 3\times10^{-4}\) V.<br>✓ This is about 0.02% of the emf — utterly insignificant compared with \(R \gg r\), so \(r\) can safely be ignored.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Emf is defined as total energy transferred in the source per unit charge — it is not a force, and it is not the same as terminal pd once current flows.' },
+    mcq2: { B: 'V = ε − Ir = 6.0 − (1.2 × 0.5) = 6.0 − 0.6 = 5.4 V.' },
+    mcq3: { B: 'Internal resistance is negligible only when it is much smaller than the rest of the circuit resistance, so lost volts are tiny compared with the emf.' },
+    mcq4: { C: 'Parallel cells: combined r = r/n, here r/3 — the same logic as resistors in parallel.' },
+    mcq5: { A: 'A short circuit removes almost all external resistance, so the current is limited almost entirely by the (small) internal resistance, giving I ≈ ε/r — very large.' }
+  },
+  fitb: { lf1:'charge', lf2:'volts', lf3:'internal', lf4:'lost', lf5:'terminal', lf6:'zero', lf7:'short' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
