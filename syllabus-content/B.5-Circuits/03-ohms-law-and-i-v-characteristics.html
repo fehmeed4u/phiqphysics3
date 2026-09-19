@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -175,28 +176,265 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Ohm's Law and I-V Characteristics</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B5" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 7 · B.5 Current and Circuits</div>
+<div class="lc-title">Ohm's Law and I-V Characteristics</div>
+<div class="lc-sub">A single graph tells you everything about how a component behaves — whether its resistance is fixed, and if not, exactly how it changes.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the lamp that won't obey a simple rule</h3>
+  <p>Connect a filament lamp to a variable power supply and slowly turn up the voltage. Double the voltage, and the current does <em>not</em> double — it goes up by less. Do the same with a resistor and the current doubles exactly. <strong>The lamp and the resistor are following completely different rules, and only one of them is Ohm's law.</strong></p>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-03-ohms-law-and-i-v-characteristics-01.png" alt="Glowing incandescent filament lamp connected to a variable power supply" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — As the p.d. across a filament lamp rises, its filament heats up and glows brighter — and its resistance changes as it does so.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — why does doubling the voltage across a filament lamp not double the current? <em>The filament heats up as current flows, and its resistance increases with temperature. A higher resistance at the higher voltage means the current rises by less than a simple proportional (V = IR with constant R) relationship would predict.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ The complete statement of Ohm's law</h3>
+  <p>The complete and precise statement of <strong>Ohm's law</strong> is:</p>
+  <div class="lc-info">📖 The current through a conductor is directly proportional to the potential difference across it, <strong>provided that its temperature remains constant</strong>.</div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Ohm's law</span>
+    $$V = IR$$
+  </div>
+  <p>Where \(V\) is the <strong>potential difference</strong> in volts (V), \(I\) is the <strong>current</strong> in amperes (A), and \(R\) is the <strong>resistance</strong> in ohms (\(\Omega\)).</p>
+  <p>The condition <strong>constant temperature</strong> is the single most frequently forgotten element in exam answers. Ohm's law is not a universal rule for every component — it only applies when the physical conditions, especially temperature, do not change.</p>
+</div>
+
+<div class="lc-card">
+  <h3>📊 Measuring an I-V characteristic</h3>
+  <p>The best way to check whether a component obeys Ohm's law is to plot its <strong>I-V characteristic</strong> — a graph of current (\(y\)-axis) against potential difference (\(x\)-axis) — using an ammeter in series with the component and a voltmeter connected in parallel across it.</p>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-03-ohms-law-and-i-v-characteristics-02.png" alt="Circuit diagram with a component, series ammeter and parallel voltmeter, connected to a variable power supply" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Standard I-V circuit: the ammeter reads the current through the component, the voltmeter reads the p.d. across it, at a range of supply settings.</div>
+  </div>
+  <p>The shape of the resulting graph is a "lie detector" for ohmic behaviour:</p>
+  <div class="lc-success">✓ <strong>Ohmic conductor</strong> — strictly obeys Ohm's law. Graph: a <strong>straight line through the origin</strong>. The ratio \(V/I\) is constant, so resistance is constant, independent of voltage or current. Examples: a fixed resistor, metal wires at constant temperature.</div>
+  <div class="lc-warn">⚠️ <strong>Non-ohmic conductor</strong> — does not obey Ohm's law; its resistance changes with the p.d. or current. Graph: <strong>any shape that is not a straight line through the origin</strong>. Examples: filament lamps, diodes, thermistors.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery – reading every I-V shape</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Ohmic conductor</td><td>p.d. / V · Current / A</td><td>Straight line through the origin</td><td>Constant \(V/I\), so constant resistance. \(R = 1/\text{gradient}\) with \(I\) on the \(y\)-axis</td></tr>
+      <tr><td>Filament lamp</td><td>p.d. / V · Current / A</td><td>'S'-shaped curve: steep near the origin, flattens as \(V\) rises</td><td>Slope decreasing → resistance increasing as the filament heats up</td></tr>
+      <tr><td>Semiconductor diode</td><td>p.d. / V · Current / A</td><td>Almost flat at zero for negative \(V\) (reverse bias); rises sharply past a threshold (~0.6 V) for positive \(V\) (forward bias)</td><td>Extremely high resistance in reverse bias; very low resistance once forward-biased past the threshold</td></tr>
+      <tr><td>Thermistor (NTC)</td><td>p.d. / V · Current / A</td><td>Shallow curve near the origin, steepens as \(V\) increases</td><td>Slope increasing → resistance decreasing as the thermistor heats up</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/b5-03-ohms-law-and-i-v-characteristics-03.png" alt="I-V graph for an ohmic conductor: a straight red line through the origin"><div class="lc-cap">Fig 3 — Ohmic conductor: straight line through the origin, constant resistance.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/b5-03-ohms-law-and-i-v-characteristics-04.png" alt="I-V graph for a filament lamp: an S-shaped curve that flattens as p.d. increases"><div class="lc-cap">Fig 4 — Filament lamp: current rises fastest near the origin, then the curve flattens as resistance increases.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔍 Diode and thermistor in detail</h3>
+  <p>A <strong>diode</strong> is designed to allow current to flow in only one direction. In <strong>forward bias</strong> it has very low resistance once the applied voltage exceeds a small <strong>threshold voltage</strong> (typically around 0.6 V for silicon diodes). In <strong>reverse bias</strong> it has extremely high resistance, allowing almost no current to flow (only a negligible leakage current).</p>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-03-ohms-law-and-i-v-characteristics-05.png" alt="I-V graph for a semiconductor diode: flat near zero for negative p.d., then rising sharply past about 0.6 V" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 5 — Diode: negligible current in reverse bias, then a sharp rise in forward bias past the ~0.6 V threshold.</div>
+  </div>
+  <p>A <strong>thermistor (NTC – negative temperature coefficient)</strong> behaves oppositely to a metal filament: as current flows through it, its temperature rises, but its resistance <em>decreases</em> as temperature increases. This lets even more current flow, so the graph's slope increases as \(V\) rises.</p>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-03-ohms-law-and-i-v-characteristics-06.png" alt="I-V graph for an NTC thermistor: a shallow curve that becomes steeper as p.d. increases" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — NTC thermistor: the curve gets steeper (not flatter) as p.d. rises, showing resistance falling as the device warms up.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – resistance from two points on a filament lamp's I-V graph</h3>
+  <p>A filament lamp's I-V graph gives the following two data points: at \(V_1 = 1.0\) V, \(I_1 = 0.50\) A; at \(V_2 = 4.0\) V, \(I_2 = 1.0\) A. Show that the lamp's resistance increases between these two points, and state whether the lamp is ohmic.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> resistance at any point on a non-ohmic graph must be found from \(R = V/I\) at that point — never from the graph's gradient.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> point 1: \(V_1 = 1.0\) V, \(I_1 = 0.50\) A. Point 2: \(V_2 = 4.0\) V, \(I_2 = 1.0\) A.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(R_1 = V_1/I_1 = 1.0/0.50\)<br>\(R_2 = V_2/I_2 = 4.0/1.0\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(R_1 = 2.0\ \Omega\), \(R_2 = 4.0\ \Omega\). Resistance doubles between the two points, so the lamp is <strong>not ohmic</strong> — its resistance is not constant. A true ohmic conductor would give the same \(R\) at every point.</div></div>
+  <div class="lc-img" style="max-width:340px;width:100%">
+    <img src="../../assets/lesson-images/b5-03-ohms-law-and-i-v-characteristics-07.png" alt="Filament lamp I-V curve with two points marked: V=1.0V I=0.50A, and V=4.0V I=1.0A" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — The two marked points sit on the same curve, but the line from the origin to each point has a different slope — proof the resistance is not constant.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: diodes as one-way valves</h3>
+    <p>Because a diode's resistance is enormous in reverse bias and tiny in forward bias, diodes act like an electrical one-way valve. This is exactly why they're used in rectifier circuits, which convert alternating current into direct current, and in LEDs, which only light up when connected the correct way round.</p>
+    <div class="lc-success">✓ Examiner tip: never calculate resistance from the gradient of a non-ohmic I-V graph — that gradient changes at every point and is not \(R\). Always read off a \((V, I)\) pair and use \(R = V/I\) directly.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – NTC vs PTC thermistors</h3>
+    <p>The thermistor discussed above is an <strong>NTC (negative temperature coefficient)</strong> device: resistance falls as temperature rises. A <strong>PTC (positive temperature coefficient)</strong> thermistor does the opposite — its resistance rises with temperature, the same direction as a metal filament.</p>
+    <p><strong>Challenge:</strong> sketch, in words, how a PTC thermistor's I-V graph would differ in shape from the NTC graph in Fig 6. <em>(Answer: a PTC thermistor's resistance increases as it heats up, so its I-V curve would flatten as \(V\) increases — the slope decreasing rather than increasing, similar in shape to the filament lamp curve in Fig 4, not the NTC curve in Fig 6.)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Ohm's law applies to any conductor carrying current</td><td>It only applies to <em>ohmic</em> conductors, and only while temperature stays constant</td></tr>
+      <tr><td>Resistance is always the gradient of the I-V graph</td><td>Only true for an ohmic conductor (straight line through origin, \(I\) on \(y\)-axis: \(R = 1/\text{gradient}\)). For a non-ohmic graph, always use \(R = V/I\) at the point of interest</td></tr>
+      <tr><td>A diode obeys Ohm's law in forward bias because current flows freely</td><td>It is still non-ohmic — its resistance is very different in forward and reverse bias, and changes with \(V\) even within forward bias</td></tr>
+      <tr><td>A thermistor's resistance increases with current, like a filament lamp</td><td>An NTC thermistor's resistance <em>decreases</em> as it heats up — the opposite trend to a metal filament</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: stating Ohm's law without "provided temperature remains constant". This condition is worth marks in almost every exam question that asks for the law itself.</div>
+</div>
+
+<div class="lc-kp">
+  <span>V = IR</span>
+  <span>R = V/I always</span>
+  <span>ohmic: straight line, origin</span>
+  <span>non-ohmic: any other shape</span>
+  <span>filament: R increases as T increases</span>
+  <span>diode: threshold ~0.6 V forward</span>
+  <span>NTC thermistor: R decreases as T increases</span>
+  <span>constant temperature is the key condition</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Which condition must hold for Ohm's law to apply to a conductor?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> The current must be small</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> The conductor must be a semiconductor</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> Its temperature must remain constant</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> The p.d. must be less than 1 V</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. An I-V graph is a straight line through the origin. This component is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> a diode</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> ohmic</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> a thermistor</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> non-ohmic</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. A filament lamp's I-V graph flattens as p.d. increases because</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> the filament heats up and its resistance increases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> the filament cools down and its resistance decreases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> the voltmeter becomes less accurate at high voltage</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> the current stops increasing entirely</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. For a diode in reverse bias, the current is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> equal to the forward-bias current</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> almost zero (only a small leakage current)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> proportional to the p.d., as in Ohm's law</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> negative and increasing linearly</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. As an NTC thermistor heats up, its resistance</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> increases, like a filament lamp</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> decreases</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> stays exactly constant</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> becomes negative</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Ohm's law states that current is directly proportional to potential difference, provided <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:130px"> remains constant. An <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:110px"> conductor gives a straight line through the origin on its I-V graph. Resistance should always be calculated as <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px"> divided by current, never from the gradient of a non-ohmic graph. A filament lamp's resistance <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px"> as its temperature rises. A silicon diode needs roughly <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:90px"> volts of forward bias before it conducts strongly. An NTC thermistor's resistance <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px"> as its temperature rises.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> State Ohm's law, including the condition under which it holds. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The current through a conductor is directly proportional to the potential difference across it.<br>✓ Provided that its temperature remains constant.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> A component has a p.d. of 6.0 V across it when a current of 0.40 A flows through it. Calculate its resistance at this point. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(R = V/I = 6.0/0.40\)<br>✓ \(R = 15\ \Omega\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> A student measures the resistance of a filament lamp at two different currents and finds two different values. Explain whether this means the student made an experimental error. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ No, this is expected — a filament lamp is non-ohmic, so its resistance is not constant.<br>✓ As current increases, the filament heats up, ion vibrations increase, collisions with electrons increase, and resistance increases.<br>✓ Resistance should be found from \(R = V/I\) at each point separately, not assumed to be a single fixed value.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch and explain</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> Sketch, in words, the I-V characteristic of a semiconductor diode, and explain the physical reason for its shape in reverse bias. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Almost flat at zero current for negative (reverse bias) p.d., then rising very sharply for positive (forward bias) p.d. past a threshold of about 0.6 V.<br>✓ In reverse bias the diode has an extremely high resistance, so only a negligible leakage current flows.<br>✓ In forward bias, past the threshold, the diode's resistance becomes very low, so current rises steeply.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> A thermistor has a p.d. of 2.0 V across it when the current is 0.020 A, and a p.d. of 5.0 V across it when the current is 0.080 A. Determine the resistance at each point, and state whether the thermistor is NTC or PTC. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(R_1 = 2.0/0.020 = 100\ \Omega\).<br>✓ \(R_2 = 5.0/0.080 = 62.5\ \Omega\).<br>✓ Resistance has decreased as the p.d. (and current, and temperature) increased.<br>✓ This is NTC (negative temperature coefficient) behaviour.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Ohm\'s law only holds while the conductor\'s temperature stays constant — the single most-forgotten exam condition.' },
+    mcq2: { B: 'A straight line through the origin means V/I is constant, so the conductor is ohmic.' },
+    mcq3: { A: 'As current flows, the filament heats up; the metal ions vibrate more, collide with electrons more often, and resistance rises, flattening the curve.' },
+    mcq4: { B: 'In reverse bias a diode has extremely high resistance, so only a negligible leakage current flows.' },
+    mcq5: { B: 'An NTC (negative temperature coefficient) thermistor\'s resistance decreases as it heats up, letting more current flow.' }
+  },
+  fitb: { lf1:'temperature', lf2:'ohmic', lf3:'voltage', lf4:'increases', lf5:'0.6', lf6:'decreases' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
