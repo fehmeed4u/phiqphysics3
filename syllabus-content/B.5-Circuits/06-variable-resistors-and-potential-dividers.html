@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -175,28 +176,264 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <!-- ═══════════════════════════════════════════════
-             LESSON CONTENT GOES HERE
-             Replace this placeholder with your lesson HTML
-             ═══════════════════════════════════════════════ -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Variable Resistors and Potential Divider Circuits</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">
-            Lesson content will appear here. Paste your HTML inside
-            <code style="font-family:var(--font-mono);font-size:0.85rem;
-              background:var(--surface2);padding:0.15rem 0.4rem;border-radius:4px">#lesson-body</code>
-            to populate this page.
-          </p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=B5" class="btn btn-ghost btn-sm">
-              Practice questions →
-            </a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">
-              Formula sheet
-            </a>
-          </div>
-        </div>
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>6</span> Lesson 6 of 7 · B.5 Current and Circuits</div>
+<div class="lc-title">Variable Resistors and Potential Divider Circuits</div>
+<div class="lc-sub">A rheostat only ever limits current and p.d. — it can never take a component's p.d. all the way to zero. A potentiometer can. This lesson shows why, then builds up to potential dividers using LDRs and thermistors as sensors.</div>
+
+<div class="lc-card">
+  <h3>🎛️ Hook – two variable resistors that do very different jobs</h3>
+  <p>Resistors can have variable resistance. Variable resistors come in a wide variety of shapes and sizes. In Fig 1, <strong>a</strong> is small and has a high resistance; <strong>b</strong> is much larger because it is designed to carry bigger currents, although it has a lower resistance — it is often called a <strong>rheostat</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-06-variable-resistors-and-potential-dividers-01.png" alt="Two different variable resistors: a small rotary potentiometer and a larger cylindrical rheostat" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Two different variable resistors. (a) is small with a high resistance; (b) is a rheostat — larger, lower resistance, carries bigger currents.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — a rheostat is in series with a lamp across a battery. As you increase the rheostat's resistance, what happens to the current, and to the p.d. across the rheostat and across the lamp? <em>The overall circuit resistance rises, so the current falls. The p.d. across the rheostat rises while the p.d. across the lamp falls — but only ever down to a minimum set by the ratio of the two resistances, never to zero.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>📏 The rheostat: a two-terminal limit</h3>
+  <p>Many variable resistances have three terminals — one at each end of the resistance track, and a third, movable sliding contact between them. When only two of the three terminals are used (one end plus the slider), the device behaves as a simple series resistor of adjustable size: a <strong>rheostat</strong>.</p>
+  <div class="lc-formula"><span class="lc-formula-label">Series circuit</span>$$I = \frac{V}{R_{\text{total}}}$$</div>
+  <p><strong>Worked example B5.7.</strong> A battery supplies a constant 12 V (negligible internal resistance). A fixed component has resistance 24 Ω; a rheostat varies from 0 to 48 Ω, in series with the component. Find the current and the p.d. across each part at three rheostat settings.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> series circuit, so use \(I = V/R_{\text{total}}\), then \(V = IR\) for each part.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(V = 12\ \text{V}\), \(R_{\text{comp}} = 24\ \Omega\), \(R_{\text{v}} = 0, 24, 48\ \Omega\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(I = 12/(24+0)\)<br>\(I = 12/(24+24)\)<br>\(I = 12/(24+48)\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(R_{\text{v}}=0\): \(I=0.50\ \text{A}\), \(V_{\text{v}}=0\ \text{V}\), \(V_{\text{comp}}=12\ \text{V}\).<br>\(R_{\text{v}}=24\,\Omega\): \(I=0.25\ \text{A}\), \(V_{\text{v}}=6.0\ \text{V}\), \(V_{\text{comp}}=6.0\ \text{V}\).<br>\(R_{\text{v}}=48\,\Omega\): \(I=0.17\ \text{A}\), \(V_{\text{v}}=8.0\ \text{V}\), \(V_{\text{comp}}=4.0\ \text{V}\).</div></div>
+  <div class="lc-warn">⚠️ It is not possible to reduce the component's p.d. below 4.0 V in this arrangement, however far the rheostat is turned up. Using the same variable resistor connected as a <strong>potentiometer</strong> instead, the p.d. across the component can be varied all the way from 0 to 12 V — see below.</div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-06-variable-resistors-and-potential-dividers-02.png" alt="Circuit diagram: 12V battery in series with a rheostat and a fixed 24 ohm component" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — The circuit for Worked example B5.7: battery, rheostat and fixed component in series.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔀 The potentiometer: the full range</h3>
+  <p>A <strong>potentiometer</strong> is the name given to a three-terminal variable resistor when its sliding contact is used to produce a varying p.d., rather than just a varying series resistance.</p>
+  <p>Connected as in Fig 3, the potentiometer provides a p.d., \(V_{\text{out}}\), that varies continuously from zero to the full p.d. of the battery, \(V_{\text{in}}\). Maximum voltage is obtained with the sliding contact at the top (as drawn); the voltage is zero with the contact at the bottom, when both connections to the other circuit come from the same point.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-06-variable-resistors-and-potential-dividers-03.png" alt="Potentiometer circuit diagram with battery Vin, resistor split into R1 top and R2 bottom by a sliding contact, Vout taken across R2" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — A variable resistor used as a potentiometer. The sliding contact splits the track into \(R_1\) (top) and \(R_2\) (bottom); \(V_{\text{out}}\) is taken across \(R_2\).</div>
+  </div>
+  <p>A potentiometer provides the best way of varying the p.d. across a component in order to investigate its \(I\)–\(V\) characteristics (Fig 4). <strong>When a potentiometer feeds another circuit, \(V_{\text{out}}\) cannot be assumed correct without considering the resistance of that circuit</strong> — generally the circuit's resistance should be much higher than the potentiometer's, unlike in the worked example below.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-06-variable-resistors-and-potential-dividers-04.png" alt="Circuit for investigating I-V characteristics: battery across a potentiometer, sliding contact feeding an ammeter and the component under test, with a voltmeter across the component" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — A circuit for investigating \(I\)–\(V\) characteristics: the potentiometer's slider feeds the component through an ammeter, with a voltmeter across the component.</div>
+  </div>
+  <p><strong>Worked example B5.8.</strong> Same values as before: 12 V supply, component 24 Ω, potentiometer 0 to 48 Ω. Find the p.d. across the component with the slider at the top, at the bottom, and at the mid-point.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> at the mid-point the bottom half of the potentiometer (24 Ω) is in parallel with the 24 Ω component — this is the loading case the general rule above warns about.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(V_{\text{in}} = 12\ \text{V}\), each half of the potentiometer \(= 24\ \Omega\), component \(= 24\ \Omega\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (mid-point):</strong> bottom half ∥ component \(= 12\ \Omega\), in series with the top half (24 Ω), total \(= 36\ \Omega\).<br>\(V_{\text{bottom}} = (12/36)\times 12\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> top: connected across the full supply, <strong>12 V</strong>. Bottom: not connected across the supply, <strong>0 V</strong>. Mid-point: top half gets \((24/36)\times12=8.0\) V, so the bottom half — and the component — get <strong>4.0 V</strong>.</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>🌡️ Sensors: LDRs and thermistors</h3>
+  <p>Fig 5 shows an <strong>LDR</strong> (light-dependent resistor) and a <strong>thermistor</strong>, both semi-conducting components used as electrical sensors in circuits controlling lighting and heating.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-06-variable-resistors-and-potential-dividers-05.png" alt="An LDR (light-dependent resistor) and a thermistor" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 5 — LDR (left) and thermistor (right), for sensing light intensity and temperature.</div>
+  </div>
+  <div class="lc-info">📖 <strong>Potential-dividing circuit</strong> — two resistors in series with a constant p.d. across them. When one resistance changes, the p.d. across each resistor changes, and this can be used to control another part of the circuit.</div>
+  <div class="lc-formula"><span class="lc-formula-label">General potential-divider ratio</span>$$V_{\text{out}} = V_{\text{s}} \times \frac{R_{\text{out}}}{R_{\text{total}}}$$</div>
+  <p>More light energy releases more charge carriers in an LDR, so its resistance falls sharply as light intensity rises — from about \(10^{6}\,\Omega\) in the dark to about \(10^{2}\,\Omega\) in bright sunlight (10,000× less; note the resistance scale is logarithmic). Thermal energy releases more charge carriers in a thermistor, so its resistance falls as it gets hotter (this type is called <strong>NTC</strong> — a second type, <strong>PTC</strong>, has resistance that rises with temperature instead).</p>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Graph mastery – resistance against the sensed quantity</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>LDR resistance vs light intensity</td><td>Light intensity · Resistance/Ω (log scale)</td><td>Steadily falling curve, dark→sunlight</td><td>\(\sim\!10^{6}\,\Omega\) in the dark down to \(\sim\!10^{2}\,\Omega\) in sunlight</td></tr>
+      <tr><td>Thermistor (NTC) resistance vs temperature</td><td>Temperature/°C · Resistance/Ω (linear scale)</td><td>Falling curve, steeper at low T</td><td>About 33,000 Ω at 0 °C falling to about 5,000 Ω at 60 °C</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/b5-06-variable-resistors-and-potential-dividers-06.png" alt="Graph of LDR resistance against light intensity on a logarithmic scale, marked dark, daylight and sunlight" style="max-width:340px;width:100%"><div class="lc-cap">Fig 6 — LDR resistance vs light intensity. Resistance axis is logarithmic, 10² to 10⁶ Ω.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/b5-06-variable-resistors-and-potential-dividers-07.png" alt="Graph of thermistor resistance against temperature on a linear scale from 0 to 60 degrees Celsius" style="max-width:340px;width:100%"><div class="lc-cap">Fig 7 — Thermistor (NTC) resistance vs temperature. Linear scale, 0–60 °C.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example B5.9 – an LDR light-switch</h3>
+  <p>Consider the circuit of Fig 8: a 6.0 V supply across a variable resistor (\(R_{\text{v}}\)) in series with an LDR, \(V_{\text{out}}\) taken across the LDR. The light comes on if \(V_{\text{out}} &gt; 5.0\) V. With \(R_{\text{v}} = 50\,\text{k}\Omega\), find \(V_{\text{out}}\) in bright sunlight and in a dark room. Take LDR resistances from Fig 6.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> assuming the same current in both resistors, \(V_{\text{LDR}} = V_{\text{s}} \times (R_{\text{LDR}}/R_{\text{total}})\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(V_{\text{s}} = 6.0\ \text{V}\), \(R_{\text{v}} = 50\ \text{k}\Omega\); sunlight \(R_{\text{LDR}} \approx 100\,\Omega\); dark \(R_{\text{LDR}} \approx 1.0\times10^{6}\,\Omega\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>sunlight: \(V_{\text{LDR}} = 6.0\times\dfrac{100}{100+50000}\)<br>dark: \(V_{\text{LDR}} = 6.0\times\dfrac{1.0\times10^{6}}{1.0\times10^{6}+50000}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> sunlight: \(V_{\text{LDR}} = 0.12\ \text{V}\) — too low, light stays off. Dark: \(V_{\text{LDR}} = 5.7\ \text{V}\) — above 5.0 V, light switches on. The switching threshold can be tuned by choosing \(R_{\text{v}}\); in practice the input resistance of the lighting circuit also has to be considered.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/b5-06-variable-resistors-and-potential-dividers-08.png" alt="An LDR in a potential-dividing circuit with a 6V battery, variable resistor labelled 0 to 50 kilohms, and Vout taken across the LDR" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 8 — An LDR in a potential-dividing circuit; \(V_{\text{out}}\) is the input to a light-control circuit.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: from rough comparison to a calibrated sensor</h3>
+    <p>An LDR in a potential-dividing circuit can compare light intensities at different times or places, but only roughly. If more accuracy is needed, the output must be calibrated against a reliable reference meter, which usually displays intensity in lux (not needed in this course). The same applies to a thermistor calibrated against a thermometer to make a working <strong>thermostat</strong>.</p>
+    <div class="lc-success">✓ Examiner tip: when a question gives you a threshold voltage for switching (as in B5.9), always compare your calculated \(V_{\text{out}}\) to that threshold and state explicitly whether the device turns on or off — a bare number earns no mark for the conclusion.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 Extension – swapping the sensor's position</h3>
+    <p>In Fig 8 the LDR is the <em>bottom</em> resistor, so \(V_{\text{out}}\) rises as it gets darker (its resistance rises). Swap the LDR and the fixed resistor's positions, and \(V_{\text{out}}\) instead rises as it gets <em>brighter</em> — useful for a circuit that must switch on in daylight rather than darkness. The same trick works for a thermistor: put it on top to make \(V_{\text{out}}\) fall as temperature rises (a heating thermostat), or on the bottom to make \(V_{\text{out}}\) rise as temperature rises (a cooling/fridge thermostat).</p>
+    <p><strong>Challenge:</strong> a refrigerator thermostat needs \(V_{\text{out}}\) to rise as the inside gets <em>warmer</em>, triggering the compressor. Where should the (NTC) thermistor go — top or bottom of the divider? <em>Answer: on top. As temperature rises, thermistor resistance falls, so a smaller fraction of the divider's p.d. drops across it and a larger fraction drops across the fixed bottom resistor — so \(V_{\text{out}}\), taken across that bottom resistor, rises.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>A rheostat in series can reduce a component's p.d. to zero</td><td>It can only reduce it to a minimum set by the ratio of the two resistances (4.0 V in Worked example B5.7) — never to zero. Only a potentiometer connection gives the full 0→\(V_{\text{in}}\) range</td></tr>
+      <tr><td>A potentiometer's \(V_{\text{out}}\) can always be read off directly from the ratio of its two halves</td><td>Only if the circuit it feeds has much higher resistance than the potentiometer. If it doesn't (as in Worked example B5.8), the fed circuit's resistance is in parallel with part of the potentiometer and changes the ratio</td></tr>
+      <tr><td>LDR resistance increases with light intensity</td><td>It decreases — more light releases more charge carriers, lowering resistance</td></tr>
+      <tr><td>Thermistor resistance always decreases with temperature</td><td>True only for the common NTC type. A PTC thermistor's resistance rises with temperature</td></tr>
+      <tr><td>The resistance axis on an LDR graph behaves like a normal linear scale</td><td>It is logarithmic — equal divisions represent ×10 changes in resistance, not equal additions</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: assuming the current is the same through every resistor in a potential-divider sketch even when another component is connected in parallel with one of them (as in B5.8's mid-point case) — check for a parallel branch before applying \(V_{\text{out}} = V_{\text{s}} \times R/R_{\text{total}}\) directly.</div>
+</div>
+
+<div class="lc-kp">
+  <span>I = V/R</span>
+  <span>rheostat: 2-terminal, limited range</span>
+  <span>potentiometer: 3-terminal, 0→Vin</span>
+  <span>V_out = Vs × R_out/R_total</span>
+  <span>watch for parallel loading</span>
+  <span>LDR: light↑ → R↓ (log scale)</span>
+  <span>NTC thermistor: T↑ → R↓</span>
+  <span>PTC thermistor: T↑ → R↑</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card"><div id="mcq1">
+  <div class="lc-mcq-q">1. In Worked example B5.7 (12 V supply, 24 Ω component, rheostat 0–48 Ω), what is the lowest p.d. that can ever be achieved across the component?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 0 V</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> 6.0 V</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> 4.0 V</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> 12 V</div>
+  </div>
+  <div class="lc-fb" id="mcq1-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq2">
+  <div class="lc-mcq-q">2. In the potentiometer of Fig 3, where must the sliding contact be for \(V_{\text{out}} = 0\)?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> At the top</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> At the bottom</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> At the mid-point</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> Position makes no difference</div>
+  </div>
+  <div class="lc-fb" id="mcq2-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq3">
+  <div class="lc-mcq-q">3. As light intensity increases from darkness to bright sunlight, an LDR's resistance</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> stays the same</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> increases slightly</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> falls by roughly 10,000 times</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> falls to exactly zero</div>
+  </div>
+  <div class="lc-fb" id="mcq3-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq4">
+  <div class="lc-mcq-q">4. An NTC thermistor is heated from 0 °C to 60 °C. Its resistance</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> increases</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> decreases</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> stays constant</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> becomes zero</div>
+  </div>
+  <div class="lc-fb" id="mcq4-fb"></div>
+</div></div>
+
+<div class="lc-card"><div id="mcq5">
+  <div class="lc-mcq-q">5. Two resistors \(R_1\) (top) and \(R_2\) (bottom) form a potential divider across supply \(V_{\text{s}}\), with \(V_{\text{out}}\) taken across \(R_2\). Which expression gives \(V_{\text{out}}\)?</div>
+  <div class="lc-opts">
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','A')"><span class="lc-opt-l">A</span> \(V_{\text{s}} \times R_2/(R_1+R_2)\)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','A')"><span class="lc-opt-l">B</span> \(V_{\text{s}} \times R_1/(R_1+R_2)\)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','A')"><span class="lc-opt-l">C</span> \(V_{\text{s}} \times (R_1+R_2)/R_2\)</div>
+    <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','A')"><span class="lc-opt-l">D</span> \(V_{\text{s}} - R_2\)</div>
+  </div>
+  <div class="lc-fb" id="mcq5-fb"></div>
+</div></div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A large, high-current variable resistor connected as a simple series resistor is called a <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px">. A three-terminal variable resistor whose sliding contact produces a varying p.d. is called a <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:140px">. Two resistors in series across a constant p.d., used so a change in one resistance changes the p.d. across both, form a <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:170px"> circuit. As light intensity rises, an LDR's resistance <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:100px">. As temperature rises, an NTC thermistor's resistance <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:100px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Discuss / Suggest</div>
+  <div class="lc-exam-q"><strong>Q34.</strong> A 12.0 V battery is connected across two 100 Ω resistors, X and Y, in series (Fig 9). Point A is to the left of X; point B is between X and Y. <strong>(a)</strong> Calculate the p.d. between A and B. A student wants to connect a lamp rated 2.5 A, 6.0 V. <strong>(b)</strong> Calculate the working resistance of the lamp, and discuss whether it will work normally connected between A and B, in parallel with X. <strong>(c)</strong> A second student thinks the lamp will work if X is removed (lamp still connected between A and B). Calculate the new voltage across the lamp, and state whether it will work normally. <strong>(d)</strong> Suggest how the lamp could be made to work normally using the same 12 V battery. <span class="lc-exam-marks">[8 marks]</span></div>
+  <div class="lc-img" style="margin-top:0.75rem">
+    <img src="../../assets/lesson-images/lesson-images2/b5-06-variable-resistors-and-potential-dividers-09.png" alt="Circuit diagram: 12V battery across two 100 ohm resistors X and Y in series, with points A and B marked" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 9 — Circuit for Q34.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) X and Y are equal (100 Ω each) in series, so the 12.0 V splits equally: \(V_{\text{AB}} = 6.0\ \text{V}\).<br>✓ (b) \(R_{\text{lamp}} = V/I = 6.0/2.5 = 2.4\ \Omega\).<br>✓ Lamp ∥ X: \((100\times2.4)/102.4 = 2.34\ \Omega\), in series with Y (100 Ω) — total 102.34 Ω.<br>✓ \(V_{\text{lamp}} = 12.0\times2.34/102.34 \approx 0.27\ \text{V}\) — far below the 6.0 V needed, so the lamp will glow very dimly, not normally.<br>✓ (c) With X removed, lamp (2.4 Ω) is in series with Y (100 Ω): \(I = 12.0/102.4 = 0.117\ \text{A}\), \(V_{\text{lamp}} = 0.117\times2.4 \approx 0.28\ \text{V}\) — still far short of 6.0 V, so it still will not work normally.<br>✓ (d) The lamp needs a resistor placed so most of the 12.0 V is dropped elsewhere at the lamp's rated current — e.g. a series "dropper" resistor of \((12.0-6.0)/2.5 = 2.4\ \Omega\), or a properly sized potential divider designed around the lamp's 2.4 Ω working resistance.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / State / Estimate</div>
+  <div class="lc-exam-q"><strong>Q35.</strong> In Fig 10, the variable resistor can be changed continuously from 1 kΩ to 10 kΩ, in series with a fixed R = 5 kΩ, across a 6.0 V supply. <strong>(a)</strong> Calculate the maximum and minimum \(V_{\text{out}}\) across R. <strong>(b)</strong> State (without calculation) how your answer to (a) changes if \(V_{\text{out}}\) is also connected across another 5 kΩ. <strong>(c)</strong> Estimate the percentage change in the thermistor's resistance (Fig 7) between 0 °C and 60 °C. <span class="lc-exam-marks">[6 marks]</span></div>
+  <div class="lc-img" style="margin-top:0.75rem">
+    <img src="../../assets/lesson-images/lesson-images2/b5-06-variable-resistors-and-potential-dividers-10.png" alt="Circuit diagram: 6V battery across a variable resistor from 1 to 10 kilohms in series with a fixed 5 kilohm resistor R, Vout across R" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 10 — Circuit for Q35.</div>
+  </div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Max \(V_{\text{out}}\) when the variable resistor is smallest (1 kΩ): \(V_{\text{out}} = 6.0\times5/(1+5) = 5.0\ \text{V}\).<br>✓ Min \(V_{\text{out}}\) when the variable resistor is largest (10 kΩ): \(V_{\text{out}} = 6.0\times5/(10+5) = 2.0\ \text{V}\).<br>✓ (b) Adding a parallel 5 kΩ load lowers the effective output resistance, so both the maximum and minimum \(V_{\text{out}}\) decrease.<br>✓ (c) From Fig 7: about 33,000 Ω at 0 °C falling to about 5,000 Ω at 60 °C.<br>✓ Percentage change \(\approx (33000-5000)/33000\times100 \approx 85\%\) decrease.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw / Outline</div>
+  <div class="lc-exam-q"><strong>Q36.</strong> <strong>(a)</strong> Draw a potential-dividing circuit that could be used to control the temperature of a refrigerator. <strong>(b)</strong> List household electrical devices that have thermostats inside them. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) A supply across an NTC thermistor (top) in series with a fixed resistor (bottom); \(V_{\text{out}}\) taken across the fixed resistor feeds a switching circuit that turns the compressor on once \(V_{\text{out}}\) rises past a set threshold (as the thermistor's resistance falls with rising temperature).<br>✓ Placing the thermistor on top (rather than the bottom) is the key design choice — it makes \(V_{\text{out}}\) rise, not fall, as the fridge warms up.<br>✓ (b) Fridges, freezers, ovens, kettles, irons, immersion/water heaters, air conditioners.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe</div>
+  <div class="lc-exam-q"><strong>Q37.</strong> Describe a laboratory experiment that could be used to obtain results similar to those in Fig 7 (thermistor resistance vs temperature). Include a fully annotated diagram. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Apparatus: thermistor and a thermometer both immersed in a beaker of water on a stirred heater/hot plate, thermistor connected to a multimeter (ohmmeter) via leads kept out of the water.<br>✓ Method: heat gradually, stir continuously for a uniform temperature, and at each interval (e.g. every 5 °C) pause, let the reading settle, and record temperature and resistance.<br>✓ Take readings over a wide range (e.g. 0 °C, using an ice bath, up to 60 °C or beyond) and repeat for reliability.<br>✓ Diagram should show: beaker of water, thermometer bulb near the thermistor bead, thermistor leads to the ohmmeter, stirrer, and heat source — all labelled.<br>✓ Plot resistance (y) against temperature (x) to obtain a curve like Fig 7.<br>✓ Safety: use an electrically insulated thermistor probe or keep leads/meter away from the water.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'A rheostat only ever limits the p.d.; the minimum here is set by the resistor ratio: I=0.167A x 24 ohm = 4.0V. It cannot reach 0V.' },
+    mcq2: { B: 'At the bottom, both connections to the rest of the circuit come from the same point, so Vout = 0.' },
+    mcq3: { C: 'The LDR graph is logarithmic, running from about 10^6 ohm in the dark to about 10^2 ohm in bright sunlight - a drop of about 10,000 times.' },
+    mcq4: { B: 'NTC = negative temperature coefficient: resistance falls as temperature rises, because more charge carriers are released.' },
+    mcq5: { A: 'Vout is taken across R2, so it gets the fraction of the supply set by R2/(R1+R2).' }
+  },
+  fitb: { lf1:'rheostat', lf2:'potentiometer', lf3:'potential-dividing', lf4:'decreases', lf5:'decreases' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
