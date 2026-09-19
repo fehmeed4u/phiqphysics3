@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gravitational Field Strength — D.1 Gravitational Fields — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -93,6 +95,9 @@
     #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
     #lesson-body pre { max-width: 100%; overflow-x: auto; }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -114,7 +119,7 @@
         <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;flex-wrap:wrap">
           <span style="font-family:var(--font-mono);font-size:0.78rem;font-weight:700;color:#F5A623;background:#F5A62318;padding:0.2rem 0.6rem;border-radius:6px">D.1</span>
           <span class="tag tag-blue" style="font-size:0.7rem">SL/HL</span>
-          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 2 of 5</span>
+          <span style="font-size:0.8rem;color:var(--text-muted)">Concept 2 of 6</span>
         </div>
         <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:0.3rem">Gravitational Field Strength</h1>
         <p style="max-width:520px;font-size:0.95rem">Part of <strong style="color:var(--text)">D.1 Gravitational Fields</strong> · Unit D — IB Physics 2023</p>
@@ -149,568 +154,328 @@
           <span class="sidebar-num">05</span>
           <span>Kepler's Laws</span>
         </a>
+      <a href="06-satellites.html" class="sidebar-link">
+          <span class="sidebar-num">06</span>
+          <span>Satellites</span>
+        </a>
     </aside>
 
     <main>
       <div class="lesson-content" id="lesson-body">
-      <div style="padding:1.5rem 1.75rem">
-I will now generate the complete HTML lesson snippet for **D1.02 Gravitational Field Strength (IB Physics SL+HL)** using your images and the required structure.
+<!-- LESSON-START -->
+<div class="lc-wrap">
 
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-
-<style>
-/* All colours use CSS variables from the site theme — no hardcoded hex */
-.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
-  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
-.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
-  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
-  font-size:11px;font-weight:700; }
-.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
-  line-height:1.2;margin-bottom:4px; }
-.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
-
-.lc-card { background:var(--surface2);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
-.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
-  font-family:var(--font-sans); }
-.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
-.lc-card p:last-child { margin-bottom:0; }
-
-.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
-.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
-  border-bottom:1px solid var(--border);text-align:left; }
-.lc-table td { padding:8px;border-bottom:1px solid var(--border);
-  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
-.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
-.lc-table tr:last-child td { border-bottom:none; }
-
-.lc-formula { background:var(--surface3);border:1px solid var(--border);
-  border-left:3px solid var(--accent);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:1rem 1.4rem;margin:0.85rem 0;
-  text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-.lc-formula .katex { font-size:1.35rem;color:var(--accent); }
-.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;
-  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
-  margin-bottom:0.35rem;font-family:var(--font-sans); }
-
-.lc-img { background:var(--surface2);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
-.lc-img img { max-width:100%;border-radius:8px; }
-.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
-
-.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
-.lc-img-row .lc-img { margin-bottom:0; }
-@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
-
-.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
-.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
-  background:var(--accent-dim);border:1px solid var(--border-2);
-  border-radius:100px;padding:3px 10px;color:var(--accent); }
-
-.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.1em;color:var(--text-muted);
-  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
-.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
-
-.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:0.65rem 1rem;font-size:0.86rem;
-  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
-.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:0.65rem 1rem;font-size:0.86rem;
-  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
-.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:0.65rem 1rem;font-size:0.86rem;
-  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
-
-.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
-@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
-
-.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
-  padding:0.85rem 0;border-bottom:1px solid var(--border); }
-.lc-step:last-child { border-bottom:none; }
-.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
-  background:var(--accent);color:#fff;display:flex;align-items:center;
-  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
-.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
-.lc-step-body strong { color:var(--text); }
-
-.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
-  margin-bottom:0.65rem;line-height:1.55; }
-.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
-.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
-  border:1.5px solid var(--border);border-radius:var(--radius);
-  cursor:pointer;font-size:0.87rem;color:var(--text-2);
-  transition:all 0.15s;background:var(--surface); }
-.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
-.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
-.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
-.lc-opt.disabled { cursor:default;pointer-events:none; }
-.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
-.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
-  border-radius:var(--radius);display:none; }
-.lc-fb.show { display:block; }
-.lc-fb.correct { background:var(--green-dim);color:var(--green); }
-.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
-
-.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
-.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
-  background:transparent;font-size:0.9rem;color:var(--text);
-  padding:0 4px;min-width:80px;text-align:center;
-  outline:none;font-family:var(--font-sans); }
-.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
-.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
-.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
-  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
-  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
-  font-family:var(--font-sans);transition:all 0.15s; }
-.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
-
-.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
-  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
-.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
-.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
-.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
-.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
-  border-radius:var(--radius);background:var(--surface3);color:var(--text);
-  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
-  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
-.lc-exam-input:focus { border-color:var(--accent); }
-.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
-  border-radius:100px;background:var(--surface);cursor:pointer;
-  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
-  transition:all 0.15s; }
-.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
-.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
-  background:var(--surface);border-left:3px solid var(--green);
-  border-radius:0 var(--radius) var(--radius) 0;
-  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
-.lc-model.show { display:block; }
-
-.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
-  padding:0.4rem 0.9rem;border-radius:100px;
-  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
-.lc-score strong { color:var(--accent); }
-
-/* ── Interactive slider lab ── */
-.lc-slider-lab { background:var(--surface2);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1rem;margin-bottom:1rem; }
-.lc-slider-lab h4 { font-size:0.95rem;font-weight:600;margin:0 0 0.5rem 0;color:var(--accent); }
-.lc-slider-lab canvas { width:100%;height:auto;background:var(--surface);
-  border-radius:8px;margin-top:0.5rem;border:1px solid var(--border); }
-.lc-slider-lab input[type=range] { width:100%;margin:0.5rem 0;accent-color:var(--accent); }
-.lc-slider-lab .lc-slider-value { font-family:var(--font-mono);font-size:0.85rem;
-  text-align:center;color:var(--text-2); }
-</style>
-
-<!-- HEADER -->
-<div class="lc-badge"><span>2</span> Lesson 2 of 8 · D1.02 Gravitational Field Strength</div>
+<div class="lc-badge"><span>2</span> Lesson 2 of 6 · D.1 Gravitational Fields</div>
 <div class="lc-title">Gravitational Field Strength</div>
-<div class="lc-sub">Why does a 1 kg rock weigh 9.8 N on Earth but only 1.6 N on the Moon? Learn how to predict gravity anywhere in the universe.</div>
+<div class="lc-sub">Every planet, moon and star sets up a gravitational field around itself. This lesson defines the field strength g, derives how it falls off with distance, and shows how to combine the fields of two masses.</div>
 
-<!-- SECTION A: HOOK & DIAGNOSTIC -->
 <div class="lc-card">
-  <h3>🎯 Hook – Moon vs Earth gravity</h3>
-  <p>Watch an astronaut on the Moon: they can jump six times higher than on Earth with the same effort. The <strong>gravitational field strength</strong> <i>g</i> on the Moon is only about 1.6 N/kg, compared to 9.8 N/kg on Earth. This means every kilogram of mass experiences a much smaller pull.</p>
+  <h3>🎯 Hook – the same rock, six different worlds</h3>
+  <p>Drop a 1 kg rock near the Earth's surface and it falls with an acceleration of 9.8 m s⁻². Drop the same rock on the Moon and it falls at only 1.6 m s⁻². The rock hasn't changed — the <strong>gravitational field</strong> around it has. A gravitational field is a region around a mass in which another mass experiences a gravitational force. In practice we only bother naming the field when the source mass is astronomically large: a moon, a planet, a star.</p>
   <div class="lc-img">
-    <img src="https://i.postimg.cc/wvPMyZHR/image.png" alt="Astronaut jumping on Moon vs struggling on Earth">
-    <div class="lc-cap">Fig 1 — Same astronaut, different worlds: field strength determines weight.</div>
+    <img src="../../assets/lesson-images/lesson-images2/d1-02-gravitational-field-strength-01.png" alt="Radial gravitational field lines pointing inward toward the Earth, closer together near the surface" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Radial field lines around the Earth. Arrows show the direction of the force on a mass; lines closer together near the surface show the field is stronger there.</div>
   </div>
-  <div class="lc-info">💡 <strong>Diagnostic question (think – then click)</strong> — If you travel to a planet with twice Earth's mass and the same radius, your weight would be: <em>twice as much (because g = GM/R²)</em>.</div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — the rock falls slower on the Moon. Is that because the rock is "lighter" there? <em>No — its mass is unchanged. It is the Moon's gravitational field strength that is smaller than the Earth's, so the same mass experiences a smaller force and a smaller acceleration.</em></div>
 </div>
 
-<!-- SECTION B: CORE KNOWLEDGE (two cards) -->
 <div class="lc-card">
-  <h3>📐 Definition of gravitational field strength</h3>
-  <p><strong>Gravitational field strength</strong> <i>g</i> at a point is the force per unit mass experienced by a small point mass placed at that point. It is a vector quantity – direction is towards the mass creating the field.</p>
+  <h3>📐 Field lines and patterns</h3>
+  <p>We represent a gravitational field on paper with <strong>field lines</strong>: a pattern of lines showing the direction of the force on a mass placed at any point. The field is strongest where the lines are closest together. Field lines never cross — that would mean the force acted in two different directions at the same place.</p>
+  <p>Close to the Earth the field lines spread out radially, converging toward the centre. But in a small region — the room you are sitting in — the field lines are, to a very good approximation, parallel and evenly spaced: a <strong>uniform field</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-02-gravitational-field-strength-02.png" alt="Evenly spaced parallel arrows pointing straight down above a flat brown surface, representing a uniform field" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — A uniform gravitational field: parallel, evenly spaced lines, as in a small region near the Earth's surface where variations in the field are negligible.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Defining gravitational field strength</h3>
+  <p>What force would a given point experience per unit mass placed there? Answering this in general, rather than for one particular mass, lets us calculate the force on any mass placed at that point. <strong>Gravitational field strength, g,</strong> is the force per unit mass experienced by a small test mass placed at that point:</p>
   <div class="lc-formula">
     <span class="lc-formula-label">Definition</span>
     $$g = \frac{F}{m}$$
   </div>
-  <p>Units: N kg⁻¹ (equivalent to m s⁻²). The test mass must be small so it does not disturb the original field.</p>
+  <p>A <strong>test mass</strong> is an object of insignificant mass used in the definition and measurement of gravitational fields — "small" because a large mass could have a significant field of its own, disturbing the one being measured. g is a vector, given SI unit N kg⁻¹, and its direction is shown by the field-line arrows. Since Newton's second law gives a=F/m, g in N kg⁻¹ is numerically equal to the acceleration due to gravity in m s⁻².</p>
   <div class="lc-img">
-    <img src="https://i.postimg.cc/W3R16KtB/image.png" alt="Test mass m near large mass M with force arrow">
-    <div class="lc-cap">Fig 2 — A small test mass m feels force F = mg; g depends only on M and r.</div>
+    <img src="../../assets/lesson-images/lesson-images2/d1-02-gravitational-field-strength-03.png" alt="A small test mass hanging on a calibrated force-meter, held vertically above the ground" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Finding g on an unknown planet: hang a 1.0 kg test mass on a force-meter. The reading, in newtons, is g in N kg⁻¹, and the field points along the string, toward the planet's centre.</div>
   </div>
+  <p>The same value can be found from free fall: if a dropped mass covers 1.18 m from rest in 0.49 s, then \(1.18 = 0 + \tfrac12 a (0.49)^2\), giving \(a = 9.8\ \text{m s}^{-2}\) — numerically g = 9.8 N kg⁻¹.</p>
 </div>
 
 <div class="lc-card">
-  <h3>📐 Field from a large mass – inverse‑square law</h3>
-  <p>Combine Newton's law of gravitation \(F = \frac{GMm}{r^2}\) with \(g = F/m\) to get the field due to a point mass or spherical mass M at distance r from its centre:</p>
+  <h3>📐 Field around a planet — the inverse-square law</h3>
+  <p>Combine \(g = F/m\) with Newton's law of gravitation, \(F = GMm/r^2\) (taking m = m₁, the small test mass, and M = m₂, the large mass):</p>
   <div class="lc-formula">
-    <span class="lc-formula-label">Gravitational field strength from a mass M</span>
+    $$g = \frac{F}{m} = \frac{GMm/r^2}{m}$$
+  </div>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Field strength at distance r from a mass M</span>
     $$g = \frac{GM}{r^2}$$
   </div>
-  <p>Notice that the small mass m cancels – so all objects fall with the same acceleration in a given field. The field follows an <strong>inverse‑square law</strong>: doubling r reduces g to one‑quarter.</p>
+  <p>The test mass m cancels out — every object, whatever its mass, experiences the same g at a given point, and so falls with the same acceleration. Like gravitational force, g obeys an <strong>inverse-square law</strong>: double r and g falls to a quarter; treble r and g falls to a ninth.</p>
+  <div class="lc-info">⚠️ <strong>Common mistake</strong> — r in g = GM/r² is the distance from the centre of the planet or moon. It is <em>not</em> the radius, unless you are finding g at the surface itself, where r = R.</div>
+  <p>Below the surface, g = GM/r² no longer applies, because the planet can't be treated as a point mass any more — mass to the side also pulls on the test mass. At the very centre, surrounding mass pulls equally in all directions, so g = 0. Moving from the centre out to the surface, g increases.</p>
   <div class="lc-img">
-    <img src="https://i.postimg.cc/Qxg1BQYx/image.png" alt="Radial gravitational field lines around a planet">
-    <div class="lc-cap">Fig 3 — Radial field lines point toward the centre. Lines closer together = stronger field.</div>
+    <img src="../../assets/lesson-images/lesson-images2/d1-02-gravitational-field-strength-04.png" alt="A planet with a test mass at distance r from its centre, field arrows pointing inward toward the centre" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — For r ≥ R, g = GM/r². Inside the planet (r &lt; R) this equation breaks down; g rises from zero at the centre to its surface value.</div>
+  </div>
+  <p>It's tempting to assume bigger planets always have stronger surface fields. Using M = ρ × volume = ρ(4/3)πR³ in g = GM/R² gives \(g = \tfrac{4}{3}G\rho\pi R\) — so g at the surface is proportional to R <em>only if the average density ρ is the same</em>. Earth is the densest planet in the Solar System (5510 kg m⁻³); the gaseous outer planets have much lower densities, Saturn least of all (687 kg m⁻³).</p>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Combining gravitational field strengths</h3>
+  <p>A mass can sit inside two or more significant fields at once — we are in the fields of both the Earth and the Moon, though the Moon's contribution at Earth's surface is normally negligible next to the Earth's own. Fields are vectors, so the total field at a point is the <strong>vector sum</strong> of the individual fields. When the point lies on the line joining the masses, that sum is just addition or subtraction of magnitudes, with sign showing direction.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-02-gravitational-field-strength-05.png" alt="Earth on the left and the Moon on the right with a point P on the line between them where the two gravitational pulls cancel" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 5 — At point P between Earth and Moon, the two fields are equal and opposite: a spacecraft there feels no resultant gravitational force. Closer to Earth, the resultant field points toward Earth; closer to the Moon, it points toward the Moon.</div>
   </div>
 </div>
 
-<!-- SECTION C: INTERACTIVE SLIDER LABS -->
-<div class="lc-slider-lab">
-  <h4>🔬 Interactive lab 1 – Planet builder</h4>
-  <p style="font-size:0.86rem;color:var(--text-2);margin-bottom:0.25rem">Drag the sliders to change the planet's mass and radius. Watch how g (N/kg) changes in real time.</p>
-  <canvas id="planetCanvas" width="600" height="220" style="width:100%; height:auto; max-width:600px"></canvas>
-  <div style="margin-top:10px">
-    <label>Mass M (×10²⁴ kg): <input type="range" id="massSlider" min="0.5" max="10" value="5.97" step="0.01"></label>
-    <span id="massVal">5.97</span> ×10²⁴ kg &nbsp;|&nbsp;
-    <label>Radius R (×10⁶ m): <input type="range" id="radiusSlider" min="2" max="10" value="6.37" step="0.01"></label>
-    <span id="radiusVal">6.37</span> ×10⁶ m
-  </div>
-  <div class="lc-slider-value">g = <span id="gValue">9.81</span> N/kg</div>
-  <div class="lc-info" style="margin-top:0.5rem">💡 <strong>What to notice:</strong> Doubling M doubles g. Doubling R makes g drop to 1/4 of its previous value – verify with g = GM/R².</div>
-</div>
-
-<div class="lc-slider-lab">
-  <h4>🔬 Interactive lab 2 – The inverse‑square journey</h4>
-  <p style="font-size:0.86rem;color:var(--text-2);margin-bottom:0.25rem">Move the satellite from the surface up to 5 Earth radii. The graph shows g vs distance from centre.</p>
-  <canvas id="orbitCanvas" width="600" height="220" style="width:100%; height:auto; max-width:600px"></canvas>
-  <input type="range" id="heightSlider" min="1" max="5" value="1" step="0.02">
-  <div class="lc-slider-value">r / R_🜨 = <span id="rRatio">1.00</span> &nbsp;|&nbsp; g = <span id="gOrbit">9.81</span> N/kg</div>
-  <div class="lc-info" style="margin-top:0.5rem">💡 <strong>What to notice:</strong> When r = 2R, g = 9.81/4 = 2.45 N/kg. The graph is a smooth inverse‑square curve.</div>
-</div>
-
-<!-- SECTION D: GRAPH MASTERY TABLE -->
 <div class="lc-card">
   <h3>📈 Graphs every examiner uses</h3>
   <table class="lc-table">
     <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
     <tbody>
-      <tr><td>Inverse‑square law</td><td>r (m), g (N/kg)</td><td>Steep drop, asymptotic to zero</td><td>g ∝ 1/r²; halving r → quadruples g</td></tr>
-      <tr><td>Linearised plot</td><td>1/r² (m⁻²), g (N/kg)</td><td>Straight line through origin</td><td>Gradient = G·M → find mass M</td></tr>
-      <tr><td>Inside a planet</td><td>r (centre to surface), g</td><td>Linear increase from 0 to surface g</td><td>Field zero at centre; only mass below matters</td></tr>
-      <tr><td>log‑log plot</td><td>log(r), log(g)</td><td>Straight line slope -2</td><td>Confirms power law g ∝ r⁻²</td></tr>
+      <tr><td>Inverse-square</td><td>r (m), g (N kg⁻¹)</td><td>Steep drop, asymptotic toward zero</td><td>g ∝ 1/r²: at 2R, g/4; at 3R, g/9; at 4R, g/16</td></tr>
+      <tr><td>Linearised</td><td>1/r² (m⁻²), g (N kg⁻¹)</td><td>Straight line through the origin</td><td>Gradient = GM → find the source mass M</td></tr>
+      <tr><td>Inside a planet</td><td>r, from centre to surface R, g</td><td>Rises linearly from 0 at r=0 to g at r=R</td><td>Field is zero at the centre; equation g=GM/r² only valid for r ≥ R</td></tr>
     </tbody>
   </table>
   <div class="lc-img-row">
-    <div class="lc-img"><img src="https://i.postimg.cc/05Vq9FxL/image.png" alt="Inverse square graph g vs r"><div class="lc-cap">Fig 4 — g decreases rapidly with distance.</div></div>
-    <div class="lc-img"><img src="https://i.postimg.cc/s2Ytq0w8/image.png" alt="Linearised graph g vs 1/r²"><div class="lc-cap">Fig 5 — Straight line proves inverse‑square relation.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/d1-02-gravitational-field-strength-06.png" alt="g against r inverse-square curve, starting at g at R and dropping to g/4 at 2R, g/9 at 3R, g/16 at 4R"><div class="lc-cap">Fig 6 — g vs r for r ≥ R: dashed lines mark g/4 at 2R, g/9 at 3R, g/16 at 4R.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/lesson-images2/d1-02-gravitational-field-strength-07.png" alt="g against 1 over r squared, a straight line through the origin"><div class="lc-cap">Fig 7 — Plotting g against 1/r² straightens the curve: gradient = GM.</div></div>
   </div>
 </div>
 
-<!-- SECTION E: WORKED EXAMPLE -->
 <div class="lc-card">
-  <h3>✍️ Worked example – Mars surface gravity & height</h3>
-  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> Use g = GM/r². For surface r = R; for height h, r = R + h.</div></div>
-  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> M = 6.39×10²³ kg, R = 3.39×10⁶ m, G = 6.67×10⁻¹¹ N m² kg⁻².</div></div>
-  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (surface):</strong> g_s = GM/R² = (6.67e-11 × 6.39e23) / (3.39e6)² = 4.26e13 / 1.15e13 = 3.70 N/kg.<br>
-  <strong>For g = 1.0 N/kg:</strong> r = √(GM/g) = √(4.26e13 / 1.0) = 6.53×10⁶ m. Then h = r − R = 3.14×10⁶ m.</div></div>
-  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> Surface g = 3.70 N/kg. Height for g = 1.0 N/kg is 3.14×10⁶ m (≈3140 km above surface).</div></div>
+  <h3>✍️ Worked example 1 – surface field strength (D1.5)</h3>
+  <p>Determine the gravitational field strength on the surface of a planet with mass 4.87×10²⁴ kg and radius 6.05×10⁶ m.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> at the surface, r = R, so use g = GM/R².</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> M = 4.87×10²⁴ kg, R = 6.05×10⁶ m, G = 6.67×10⁻¹¹ N m² kg⁻².</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(g = \dfrac{GM}{R^2} = \dfrac{(6.67\times10^{-11})(4.87\times10^{24})}{(6.05\times10^{6})^2}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> g = 8.87 N kg⁻¹. (This planet is Venus.)</div></div>
   <div class="lc-img">
-    <img src="https://i.postimg.cc/9fhkdYCb/image.png" alt="Mars with radius R and height h above surface">
-    <div class="lc-cap">Fig 6 — Distance from centre r = R + h. Field strength drops as 1/r².</div>
+    <img src="../../assets/lesson-images/lesson-images2/d1-02-gravitational-field-strength-08.png" alt="Venus with mass M and radius R labelled, field arrow pointing to the centre" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 8 — Venus: r = R at the surface, so g = GM/R² applies directly.</div>
   </div>
 </div>
 
-<!-- SECTION F: REAL-WORLD + HL EXTENSION (two-column) -->
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – predicting g from density (D1.6)</h3>
+  <p>Predict a value for the gravitational field strength on the "surface" of Saturn (radius 5.8×10⁷ m, average density 687 kg m⁻³).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> radius is given, not mass — use \(g = \tfrac{4}{3}G\rho\pi r\) (derived from g=GM/R² with M=ρ×volume).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> ρ = 687 kg m⁻³, r = 5.8×10⁷ m, G = 6.67×10⁻¹¹ N m² kg⁻².</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(g = \tfrac{4}{3}(6.67\times10^{-11})(687)\pi(5.8\times10^{7})\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> g ≈ 11 N kg⁻¹ (accepted value 10.4 N kg⁻¹). Saturn's huge radius is offset by its very low density.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-02-gravitational-field-strength-09.png" alt="Saturn with its rings, labelled with a large radius but low average density" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 9 — Saturn is nearly ten times Earth's radius but only about an eighth as dense, so its surface g is close to Earth's.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 3 – combining two fields (D1.7)</h3>
+  <p>P is midway between the centres of planets A and B. At P, the field due to A is 4.0 N kg⁻¹ and due to B is 3.0 N kg⁻¹. Q is the same distance from A as P, but on the far side of A from B. <strong>(a)</strong> Find the resultant field at P. <strong>(b)</strong> Find the resultant field at Q.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> P and Q both lie on the line through A and B, so add the fields as signed magnitudes. Take the field toward B as positive.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> g_A(P) = 4.0 N kg⁻¹ (toward A), g_B(P) = 3.0 N kg⁻¹ (toward B).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation (a):</strong> \((-4.0)+(+3.0)=-1.0\ \text{N kg}^{-1}\).<br><strong>(b)</strong> g_A(Q) has the same magnitude as g_A(P) (same distance from A) but points the opposite way; g_B(Q) = g_B(P)/9, since Q is three times as far from B, but still points the same way as g_A(Q): \((+4.0)+(3.0/9)\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> (a) 1.0 N kg⁻¹ toward A. (b) 4.3 N kg⁻¹ toward A and B.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/lesson-images2/d1-02-gravitational-field-strength-10.png" alt="Planet B lower left, planet A in the middle, point P between them, and point Q beyond A, all on one line" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 10 — Not to scale. P and Q are the same distance from A; Q is three times as far from B as P is.</div>
+  </div>
+</div>
+
 <div class="lc-two-col">
   <div class="lc-card">
-    <h3>🌍 Real‑world: GRACE satellites & gravity mapping</h3>
-    <p>NASA's GRACE mission measures tiny variations in Earth's g caused by changing water aquifers, ice sheets, and ocean currents. By mapping g, scientists monitor groundwater depletion and sea‑level rise.</p>
-    <div class="lc-success">✓ Examiner tip: In data‑analysis questions, a linearised plot (g vs 1/r²) gives a straight line; use its gradient = G·M to find the planet's mass.</div>
+    <h3>🌍 Real-world: satellites and orbital height</h3>
+    <p>Many satellites orbit at around 300 km above the Earth's surface. At that height (r = 6.67×10⁶ m from the centre), g works out to about 8.95 N kg⁻¹ — still 91% of the surface value. That's why astronauts on the International Space Station aren't "escaping gravity": they're in near-continuous free fall, orbiting rather than falling straight down.</p>
+    <div class="lc-success">✓ Examiner tip: for orbital-height questions, always convert the height above the surface to a distance <em>from the centre</em> (r = R + h) before substituting into g = GM/r².</div>
   </div>
   <div class="lc-card">
-    <h3>🚀 HL Extension – Field inside a uniform sphere</h3>
-    <p>For r < R, only the mass inside radius r contributes: \(g(r) = \frac{G M_{\text{inside}}}{r^2} = \frac{G \rho \frac{4}{3}\pi r^3}{r^2} = \frac{4}{3}\pi G \rho r\). Thus g increases linearly from 0 at centre to surface value.</p>
-    <p><strong>Challenge:</strong> Earth's average density ρ = 5510 kg/m³. Predict g at half the radius. (Answer: g ≈ 4.9 N/kg, half the surface value.)</p>
+    <h3>🚀 HL extension – the field beneath the surface</h3>
+    <p>g = GM/r² only holds for r ≥ R, because it treats the planet as a point mass. Below the surface, mass to the side of the test point also pulls on it. At the very centre, mass pulls equally in every direction, so g = 0 exactly. Moving outward from the centre, g rises, reaching the surface value g = GM/R² exactly at r = R.</p>
+    <p><strong>Challenge:</strong> sketch g against r from r = 0 to r = 2R. (Answer: a straight line rising from (0, 0) to (R, g); then an inverse-square curve falling from (R, g) toward (2R, g/4).)</p>
   </div>
 </div>
 
-<!-- SECTION G: MISCONCEPTIONS / TRAP CORNER -->
+<div class="lc-card">
+  <h3>🤔 TOK – can a field explain gravity?</h3>
+  <p><em>What kinds of explanations do natural scientists offer?</em></p>
+  <p>Gravitational, electric and magnetic forces can act instantaneously across space, even through a vacuum, and — for gravity — across enormous distances. The concept of a field describes the intermediate space and lets us calculate forces there, but it doesn't explain <em>why</em> the forces exist in the first place. Scientists can't simply say "that's just the way it is" — they look for a deeper, more fundamental account. Finding one, for gravity, is beyond the requirements of this course.</p>
+</div>
+
 <div class="lc-card">
   <h3>⚠️ Trap corner – common mistakes</h3>
   <table class="lc-table">
     <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
     <tbody>
-      <tr><td>g is constant everywhere</td><td>g varies with altitude, latitude, and local geology (g = GM/r²)</td></tr>
-      <tr><td>Heavier objects have bigger g</td><td>g is a property of the field, not the object – all masses feel the same g at a point</td></tr>
-      <tr><td>Doubling distance halves g</td><td>Inverse‑square: doubling distance quarters g</td></tr>
-      <tr><td>g = GM/r² works inside a planet</td><td>Only for r ≥ R. Inside, only mass below contributes → g ∝ r</td></tr>
+      <tr><td>r in g = GM/r² is the planet's radius</td><td>r is the distance from the centre — equal to the radius only when finding g exactly at the surface</td></tr>
+      <tr><td>A more massive test mass experiences a bigger g</td><td>g is a property of the field, not the test mass; every mass at a given point feels the same g</td></tr>
+      <tr><td>Bigger planets always have stronger surface gravity</td><td>Surface g ∝ R only if average density is the same — Saturn is huge but not dense, so its g is close to Earth's</td></tr>
+      <tr><td>g = GM/r² works below the surface</td><td>Only valid for r ≥ R; below the surface g falls to zero at the centre, since it can't be treated as a point mass</td></tr>
     </tbody>
   </table>
-  <div class="lc-warn">⚠️ Most common slip: forgetting to convert km to m in r. Always use metres (e.g., 7000 km = 7.0×10⁶ m) otherwise g will be off by a factor 10⁶.</div>
+  <div class="lc-warn">⚠️ Most common slip: mixing units — km left un-converted to m in r. 300 km must become 3.00×10⁵ m before it goes anywhere near g = GM/r², or the answer is out by a factor of 10⁶.</div>
 </div>
 
-<!-- SECTION H: KEY POINTS PILLS -->
 <div class="lc-kp">
   <span>g = F/m</span>
   <span>g = GM/r²</span>
-  <span>Units: N/kg = m/s²</span>
-  <span>Inverse‑square</span>
-  <span>g ∝ 1/r²</span>
-  <span>Surface: g = GM/R²</span>
+  <span>Units: N kg⁻¹ = m s⁻²</span>
+  <span>g ∝ 1/r² (r ≥ R)</span>
+  <span>g ∝ R (equal density only)</span>
+  <span>g = 0 at centre</span>
+  <span>Fields add as vectors</span>
+  <span>Common r ≠ common R</span>
 </div>
 
-<!-- SECTION I: MCQ PRACTICE (4 questions) -->
 <div class="lc-section">Practice check — multiple choice</div>
 
-<div class="lc-card"><div id="mcq1"><div class="lc-mcq-q">1. A planet has radius R and mass M. At a distance of 2R from the planet's centre, the gravitational field strength is g. What is g at the surface?</div>
-<div class="lc-opts"><div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','D')"><span class="lc-opt-l">A</span> g/4</div><div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','D')"><span class="lc-opt-l">B</span> g/2</div><div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','D')"><span class="lc-opt-l">C</span> 2g</div><div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','D')"><span class="lc-opt-l">D</span> 4g</div></div><div class="lc-fb" id="mcq1-fb"></div></div></div>
+<div class="lc-card"><div id="mcq1"><div class="lc-mcq-q">1. Gravitational field strength at a point is defined as:</div>
+<div class="lc-opts">
+<div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> the force on any mass placed there</div>
+<div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> the force per unit mass on a small test mass placed there</div>
+<div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> the mass per unit force needed to hold a test mass there</div>
+<div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> the acceleration of the mass creating the field</div>
+</div><div class="lc-fb" id="mcq1-fb"></div></div></div>
 
-<div class="lc-card"><div id="mcq2"><div class="lc-mcq-q">2. The gravitational field strength on the surface of the Moon is about 1.6 N/kg. What is the weight of a 50 kg astronaut on the Moon?</div>
-<div class="lc-opts"><div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 50 N</div><div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 80 N</div><div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 500 N</div><div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 0.032 N</div></div><div class="lc-fb" id="mcq2-fb"></div></div></div>
+<div class="lc-card"><div id="mcq2"><div class="lc-mcq-q">2. The gravitational field strength at distance r from a planet's centre is 6.0 N kg⁻¹. What is it at 3r?</div>
+<div class="lc-opts">
+<div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> 2.0 N kg⁻¹</div>
+<div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> 0.67 N kg⁻¹</div>
+<div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> 18 N kg⁻¹</div>
+<div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> 54 N kg⁻¹</div>
+</div><div class="lc-fb" id="mcq2-fb"></div></div></div>
 
-<div class="lc-card"><div id="mcq3"><div class="lc-mcq-q">3. A satellite orbits at a height 3R above Earth's surface (R = Earth radius). What is the gravitational field strength compared to its value at the surface?</div>
-<div class="lc-opts"><div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','A')"><span class="lc-opt-l">A</span> 1/16</div><div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','A')"><span class="lc-opt-l">B</span> 1/9</div><div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','A')"><span class="lc-opt-l">C</span> 1/4</div><div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','A')"><span class="lc-opt-l">D</span> 1/3</div></div><div class="lc-fb" id="mcq3-fb"></div></div></div>
+<div class="lc-card"><div id="mcq3"><div class="lc-mcq-q">3. Which statement about gravitational field strength is NOT true?</div>
+<div class="lc-opts">
+<div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> g is a vector quantity</div>
+<div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> in g = F/m, m is the mass creating the field</div>
+<div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> g has SI unit N kg⁻¹, equivalent to m s⁻²</div>
+<div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> gravitational field lines never cross</div>
+</div><div class="lc-fb" id="mcq3-fb"></div></div></div>
 
-<div class="lc-card"><div id="mcq4"><div class="lc-mcq-q">4. Which graph shows the correct variation of g with distance r from the centre of a uniform planet (r ≥ R)?</div>
-<div class="lc-opts"><div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Constant horizontal line</div><div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Decreasing curve, g ∝ 1/r²</div><div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> Straight line decreasing</div><div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Increasing curve</div></div><div class="lc-fb" id="mcq4-fb"></div></div></div>
+<div class="lc-card"><div id="mcq4"><div class="lc-mcq-q">4. Planet X has twice the radius of planet Y but the same average density. Compared to Y's surface field, X's surface field strength is:</div>
+<div class="lc-opts">
+<div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> the same</div>
+<div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> twice as strong</div>
+<div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> four times as strong</div>
+<div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> half as strong</div>
+</div><div class="lc-fb" id="mcq4-fb"></div></div></div>
 
-<!-- SECTION J: FILL IN THE BLANKS -->
+<div class="lc-card"><div id="mcq5"><div class="lc-mcq-q">5. At the exact centre of a uniform planet, the gravitational field strength is:</div>
+<div class="lc-opts">
+<div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> maximum</div>
+<div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> equal to the surface value</div>
+<div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> zero</div>
+<div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> infinite</div>
+</div><div class="lc-fb" id="mcq5-fb"></div></div></div>
+
 <div class="lc-section">Practice check — fill in the blanks</div>
 <div class="lc-card">
   <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
   <div class="lc-fitb">
-    The gravitational field strength at a point is defined as the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:70px"> per unit <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:60px">. 
-    Its SI units are <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:80px"> which are equivalent to m/s².
+    Gravitational field strength is defined as the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:70px"> per unit <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:70px"> experienced by a small test mass. Its SI unit is <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px">, which is numerically equal to the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px"> due to gravity.
   </div>
   <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
   <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
 </div>
 
-<!-- SECTION K: EXAM-STYLE QUESTIONS (3 questions) -->
 <div class="lc-section">Exam‑style questions</div>
 
 <div class="lc-exam">
-  <div class="lc-exam-tag">Exam question · Define</div>
-  <div class="lc-exam-q">(a) Define gravitational field strength. [2 marks]</div>
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q"><strong>Q13.</strong> Make a sketch of the gravitational field in the room where you are sitting. <span class="lc-exam-marks">[2 marks]</span></div>
   <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
   <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
-  <div class="lc-model">✓ Force per unit mass ✓ experienced by a small point test mass placed at that point.</div>
+  <div class="lc-model">✓ A set of parallel, evenly spaced arrows, all pointing straight down (toward the Earth's centre). ✓ Approximately uniform, since the room is far too small for the Earth's curvature or the 1/r² variation to be noticeable.</div>
 </div>
 
 <div class="lc-exam">
   <div class="lc-exam-tag">Exam question · Calculate</div>
-  <div class="lc-exam-q">The Moon has mass 7.35×10²² kg and radius 1.74×10⁶ m. (a) Calculate the gravitational field strength on the Moon's surface. (b) Determine the weight of a 70 kg astronaut on the Moon. [4 marks]</div>
+  <div class="lc-exam-q"><strong>Q14.</strong> The weight of a 12 kg mass on the surface of Mercury would be 44 N. Calculate the gravitational field strength on the surface of the planet. <span class="lc-exam-marks">[2 marks]</span></div>
   <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
   <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
-  <div class="lc-model">(a) g = GM/R² = (6.67×10⁻¹¹ × 7.35×10²²) / (1.74×10⁶)² = 4.90×10¹² / 3.03×10¹² = 1.62 N/kg ✓<br>(b) W = mg = 70 × 1.62 = 113 N ✓</div>
+  <div class="lc-model">✓ g = F/m = 44/12 ✓ g = 3.7 N kg⁻¹.</div>
 </div>
 
 <div class="lc-exam">
-  <div class="lc-exam-tag">Exam question · Graph analysis</div>
-  <div class="lc-exam-q">A student plots a graph of g (N/kg) against 1/r² (m⁻²) for a planet and obtains a straight line with gradient 5.0×10¹². Calculate the mass of the planet. [3 marks]</div>
+  <div class="lc-exam-tag">Exam question · Determine / Calculate</div>
+  <div class="lc-exam-q"><strong>Q15.</strong> (a) Determine the gravitational field strength at a height of 300 km above the Earth's surface (radius of Earth 6.37×10⁶ m, mass of Earth 5.97×10²⁴ kg). Many satellites orbit at about this height. (b) Calculate this value as a percentage of the accepted surface value of g. <span class="lc-exam-marks">[4 marks]</span></div>
   <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
   <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
-  <div class="lc-model">✓ Gradient = G·M ✓ M = gradient / G = (5.0×10¹²) / (6.67×10⁻¹¹) ✓ M = 7.5×10²² kg</div>
+  <div class="lc-model">✓ (a) r = R + h = 6.37×10⁶ + 3.00×10⁵ = 6.67×10⁶ m ✓ g = GM/r² = (6.67×10⁻¹¹)(5.97×10²⁴)/(6.67×10⁶)² = 8.95 N kg⁻¹ ✓ (b) 8.95/9.8 × 100 = 91.3%.</div>
 </div>
 
-<!-- SCORE DISPLAY -->
-<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q16.</strong> The gravitational field strength of a planet is 5.8 N kg⁻¹ at a distance of 2.1×10⁴ km from its centre. Determine the field strength at a distance 1.4×10⁴ km further away. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ New distance r₂ = 2.1×10⁴ + 1.4×10⁴ = 3.5×10⁴ km ✓ g ∝ 1/r², so g₂ = g₁(r₁/r₂)² = 5.8 × (2.1/3.5)² ✓ g₂ = 2.1 N kg⁻¹.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw</div>
+  <div class="lc-exam-q"><strong>Q17.</strong> Draw a sketch graph to show how the gravitational field strength varies from the centre of the Earth to a distance of 12.8×10⁶ m (radius of Earth 6.4×10⁶ m). <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ From r = 0 to r = R (6.4×10⁶ m): straight line rising from g = 0 at the centre to the surface value g. ✓ From r = R to r = 2R (12.8×10⁶ m, the given upper limit): inverse-square curve falling from g at R to g/4 at 2R. ✓ Curve is continuous at r = R, with no sudden jump.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / State</div>
+  <div class="lc-exam-q"><strong>Q18.</strong> (a) Calculate the gravitational field strength on the surface of the Moon (mass 7.35×10²² kg, radius 1740 km). (b) Calculate the gravitational field strength at a point on the Earth's surface due to the Moon (distance between the Moon's centre and the Earth's surface is 3.8×10⁸ m). (c) State one effect that the Moon's gravitational field has on the Earth. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) g = GM/R² = (6.67×10⁻¹¹)(7.35×10²²)/(1.74×10⁶)² = 1.62 N kg⁻¹ ✓ (b) g = GM/r² = (6.67×10⁻¹¹)(7.35×10²²)/(3.8×10⁸)² = 3.4×10⁻⁵ N kg⁻¹ ✓ (c) the Moon's gravity causes the ocean tides on Earth.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate</div>
+  <div class="lc-exam-q"><strong>Q19.</strong> Titan, a moon of Saturn, has an average density of 1900 kg m⁻³. The gravitational field strength on its surface is approximately 14% of that on Earth. Estimate Titan's radius using g = (4/3)Gρπr. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ g = 0.14 × 9.8 = 1.37 N kg⁻¹ ✓ rearranging: r = g / [(4/3)Gρπ] ✓ r = 1.37 / [(4/3)(6.67×10⁻¹¹)(1900)π] ✓ r ≈ 2.6×10⁶ m.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q20.</strong> Consider Fig 10 again, but with different data. Planet A has a gravitational field of 15 N kg⁻¹ at Q, but the combined field at the same point is 16 N kg⁻¹. Calculate the combined field at point P. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ g_B(Q) = 16 − 15 = 1.0 N kg⁻¹ ✓ Q is three times as far from B as P is, so g_B(P) = 9 × g_B(Q) = 9.0 N kg⁻¹ ✓ g_A(P) has the same magnitude as g_A(Q): 15 N kg⁻¹ (opposite direction at P) ✓ combined field at P = 15 − 9 = 6.0 N kg⁻¹ toward A.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw</div>
+  <div class="lc-exam-q"><strong>Q21.</strong> The gravitational fields of the Sun and the Moon cause the tides on the world's oceans. The highest tides occur when the resultant field is greatest. Draw a sketch to show the relative positions of the Earth, Sun and Moon when the resultant field on the Earth's surface is (a) greatest (b) weakest. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) Greatest: Sun, Earth and Moon roughly in a straight line (new moon or full moon), so the Sun's and Moon's fields reinforce — spring tides. ✓ (b) Weakest: Sun–Earth and Earth–Moon lines at right angles (first or third quarter), so the fields partly cancel — neap tides.</div>
+</div>
+
+<div class="lc-score-row">
   <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
 </div>
 
 <script>
-// ── PART 1: QUIZ & SCORING IIFE ──
-(function(){
-  let lcScore = 0;
-  const lcAnswered = {};
-
-  const lcFeedback = {
-    mcq1: { D: 'At surface r = R, at 2R field is g_surface/4, so surface field = 4g.' },
-    mcq2: { B: 'Weight = m × g = 50 × 1.6 = 80 N.' },
-    mcq3: { A: 'r = R + 3R = 4R from centre. g ∝ 1/r² → factor 1/16.' },
-    mcq4: { B: 'For r ≥ R, g = GM/r², a decreasing inverse‑square curve.' }
-  };
-
-  window.lcMCQ = function(id, el, chosen, correct) {
-    if (lcAnswered[id]) return;
-    lcAnswered[id] = true;
-    const block = document.getElementById(id);
-    block.querySelectorAll('.lc-opt').forEach(o => o.classList.add('disabled'));
-    const fb = document.getElementById(id+'-fb');
-    if (chosen === correct) {
-      el.classList.add('correct');
-      fb.textContent = '✓ ' + lcFeedback[id][correct];
-      fb.className = 'lc-fb show correct';
-      lcScore += 2;
-    } else {
-      el.classList.add('wrong');
-      block.querySelectorAll('.lc-opt').forEach(o => {
-        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
-      });
-      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
-      fb.className = 'lc-fb show wrong';
-    }
-    document.getElementById('lc-score-display').textContent = lcScore;
-  };
-
-  window.lcFITB = function() {
-    const ans = { lf1:'force', lf2:'mass', lf3:'N/kg' };
-    let correct = 0, total = Object.keys(ans).length;
-    Object.keys(ans).forEach(id => {
-      const el = document.getElementById(id);
-      const val = el.value.trim().toLowerCase();
-      const ok = val === ans[id] || (id==='lf3' && val === 'n/kg');
-      el.classList.toggle('correct', ok);
-      el.classList.toggle('wrong', !ok);
-      if (ok) correct++;
-    });
-    const res = document.getElementById('lc-fitb-result');
-    res.style.display = 'block';
-    if (correct === total) {
-      res.style.color = 'var(--green)';
-      res.textContent = '✓ All correct! (+2 pts)';
-      lcScore += 2;
-      document.getElementById('lc-score-display').textContent = lcScore;
-    } else {
-      res.style.color = 'var(--red)';
-      res.textContent = correct + '/' + total + ' correct. Answers: force · mass · N/kg';
-    }
-  };
-
-  window.lcToggleModel = function(btn) {
-    const ma = btn.nextElementSibling;
-    ma.classList.toggle('show');
-    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
-  };
-})();
-
-// ── PART 2: CANVAS DRAWING (theme-aware) ──
-function getThemeColor(varName) {
-  return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
-}
-
-// Lab 1: Planet builder
-const planetCanvas = document.getElementById('planetCanvas');
-const ctxPlanet = planetCanvas.getContext('2d');
-planetCanvas.width = 600; planetCanvas.height = 220;
-
-function drawPlanet(M, R) {
-  const w = planetCanvas.width, h = planetCanvas.height;
-  ctxPlanet.fillStyle = getThemeColor('--surface3') || '#e8e6e2';
-  ctxPlanet.fillRect(0, 0, w, h);
-  // Draw axes
-  ctxPlanet.beginPath();
-  ctxPlanet.strokeStyle = getThemeColor('--border-2') || '#aaa';
-  ctxPlanet.lineWidth = 1;
-  ctxPlanet.moveTo(40, h-30);
-  ctxPlanet.lineTo(w-20, h-30);
-  ctxPlanet.moveTo(40, 20);
-  ctxPlanet.lineTo(40, h-30);
-  ctxPlanet.stroke();
-  ctxPlanet.fillStyle = getThemeColor('--text-muted') || '#666';
-  ctxPlanet.font = "10px sans-serif";
-  ctxPlanet.fillText("r (×10⁶ m)", w-50, h-15);
-  ctxPlanet.fillText("g (N/kg)", 10, 30);
-  // Compute g values
-  const Gval = 6.67e-11;
-  let max_g = (Gval * M * 1e24) / ( (R*1e6)**2 );
-  // Plot from r = R to 2R (in m)
-  const r0 = R * 1e6;
-  const xScale = (w-80) / (r0);  // from r0 to 2r0 -> x range
-  for (let x=0; x<=w-80; x++) {
-    let r = r0 + (x/(w-80)) * r0;
-    let g = (Gval * M * 1e24) / (r*r);
-    let px = 40 + x;
-    let py = h-30 - (g/max_g)*(h-50);
-    if (x===0) ctxPlanet.beginPath(), ctxPlanet.moveTo(px, py);
-    else ctxPlanet.lineTo(px, py);
-  }
-  ctxPlanet.strokeStyle = getThemeColor('--accent') || '#0077be';
-  ctxPlanet.lineWidth = 2;
-  ctxPlanet.stroke();
-  ctxPlanet.fillStyle = getThemeColor('--accent') || '#0077be';
-  ctxPlanet.fillText("g = GM/r²", w-100, 50);
-}
-
-function updatePlanet() {
-  let M = parseFloat(document.getElementById('massSlider').value);
-  let R = parseFloat(document.getElementById('radiusSlider').value);
-  document.getElementById('massVal').innerText = M;
-  document.getElementById('radiusVal').innerText = R;
-  const g = (6.67e-11 * M * 1e24) / ( (R*1e6)**2 );
-  document.getElementById('gValue').innerText = g.toFixed(2);
-  drawPlanet(M, R);
-}
-document.getElementById('massSlider').addEventListener('input', updatePlanet);
-document.getElementById('radiusSlider').addEventListener('input', updatePlanet);
-updatePlanet();
-
-// Lab 2: Inverse‑square journey
-const orbitCanvas = document.getElementById('orbitCanvas');
-const ctxOrbit = orbitCanvas.getContext('2d');
-orbitCanvas.width = 600; orbitCanvas.height = 220;
-
-function drawOrbit(ratio) {
-  const w = orbitCanvas.width, h = orbitCanvas.height;
-  ctxOrbit.fillStyle = getThemeColor('--surface3') || '#e8e6e2';
-  ctxOrbit.fillRect(0, 0, w, h);
-  // axes
-  ctxOrbit.beginPath();
-  ctxOrbit.strokeStyle = getThemeColor('--border-2') || '#aaa';
-  ctxOrbit.moveTo(40, h-30);
-  ctxOrbit.lineTo(w-20, h-30);
-  ctxOrbit.moveTo(40, 20);
-  ctxOrbit.lineTo(40, h-30);
-  ctxOrbit.stroke();
-  ctxOrbit.fillStyle = getThemeColor('--text-muted') || '#666';
-  ctxOrbit.fillText("r / R_🜨", w-50, h-15);
-  ctxOrbit.fillText("g (N/kg)", 10, 30);
-  // g values for Earth: g_surface = 9.81
-  const maxX = 5;
-  for (let i=0; i<=w-80; i++) {
-    let rRatio = (i/(w-80)) * maxX;
-    if (rRatio < 1) rRatio = 1;
-    let g = 9.81 / (rRatio*rRatio);
-    let px = 40 + i;
-    let py = h-30 - (g/9.81)*(h-50);
-    if (i===0) ctxOrbit.beginPath(), ctxOrbit.moveTo(px, py);
-    else ctxOrbit.lineTo(px, py);
-  }
-  ctxOrbit.strokeStyle = getThemeColor('--green') || '#2c7a4d';
-  ctxOrbit.lineWidth = 2.5;
-  ctxOrbit.stroke();
-  // mark current point
-  let gCurr = 9.81 / (ratio*ratio);
-  let pxCurr = 40 + (ratio/maxX)*(w-80);
-  let pyCurr = h-30 - (gCurr/9.81)*(h-50);
-  ctxOrbit.beginPath();
-  ctxOrbit.fillStyle = getThemeColor('--gold') || '#d4af37';
-  ctxOrbit.arc(pxCurr, pyCurr, 5, 0, 2*Math.PI);
-  ctxOrbit.fill();
-  ctxOrbit.fillStyle = getThemeColor('--text') || '#000';
-  ctxOrbit.fillText("You are here", pxCurr+5, pyCurr-5);
-}
-
-function updateOrbit() {
-  let ratio = parseFloat(document.getElementById('heightSlider').value);
-  document.getElementById('rRatio').innerText = ratio.toFixed(2);
-  let g = 9.81 / (ratio*ratio);
-  document.getElementById('gOrbit').innerText = g.toFixed(2);
-  drawOrbit(ratio);
-}
-document.getElementById('heightSlider').addEventListener('input', updateOrbit);
-updateOrbit();
-
-window.drawPlanet = drawPlanet;
-window.drawOrbit = drawOrbit;
-
-// KaTeX auto-render
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof renderMathInElement !== 'undefined') {
-    renderMathInElement(document.body, {
-      delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '\\(', right: '\\)', display: false }
-      ],
-      throwOnError: false
-    });
-  }
+lcInit({
+  feedback: {
+    mcq1: { B: 'g = F/m where m is a small test mass at that point, not the source mass.' },
+    mcq2: { B: 'g falls off as 1/r\u00b2. At 3r, g becomes 6.0/9 = 0.67 N kg\u207b\u00b9.' },
+    mcq3: { B: 'In g = F/m, m is the small test mass experiencing the field, not the mass creating it.' },
+    mcq4: { B: 'g = (4/3)G\u03c1\u03c0R, so for equal density g \u221d R. Doubling R doubles g.' },
+    mcq5: { C: 'At the centre, surrounding mass pulls equally in all directions, so the resultant field is zero.' }
+  },
+  fitb: { lf1:'force', lf2:'mass', lf3:'N kg\u207b\u00b9', lf4:'acceleration' }
 });
 </script>
-
-      </div>
+</div>
+<!-- LESSON-END -->
       </div>
 
       <div class="lesson-nav">
