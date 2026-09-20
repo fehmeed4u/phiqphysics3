@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Magnetic Fields and Flux Density — D.2 Electric and Magnetic Fields — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -93,6 +95,9 @@
     #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
     #lesson-body pre { max-width: 100%; overflow-x: auto; }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -153,15 +158,384 @@
 
     <main>
       <div class="lesson-content" id="lesson-body">
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Magnetic Fields and Flux Density</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">Lesson content coming soon.</p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=D2" class="btn btn-ghost btn-sm">Practice questions →</a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">Formula sheet</a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>4</span> Lesson 4 of 5 · D.2 Electric and Magnetic Fields</div>
+<div class="lc-title">Magnetic Fields and Flux Density</div>
+<div class="lc-sub">Every moving charge has a magnetic field wrapped around it, perpendicular to any electric field it also carries. This lesson builds up from permanent bar magnets to the fields around currents, coils and electromagnets, then defines magnetic field strength through the force it exerts on a current.</div>
+
+<div class="lc-card">
+  <h3>🧲 Hook – filings that draw the invisible</h3>
+  <p>Sprinkle iron filings around a bar magnet and each tiny filing becomes magnetized by <strong>induction</strong>, lining itself up with the local field direction. The result is a map of curved lines looping from one end of the magnet to the other — densest near the poles, spreading out further away.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-01.png" alt="Iron filings sprinkled around a bar magnet forming curved field-line patterns that are densest near the two poles" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Iron filings reveal the dipole field around a bar magnet (Fig D2.30).</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — if you cut the bar magnet exactly in half, would you get one filing pattern with an isolated N pole and one with an isolated S pole? <em>No — magnetic poles always occur in pairs. Each half becomes a smaller, weaker complete magnet, still with its own N and S end.</em></div>
+</div>
+
+<div class="lc-section">Core knowledge</div>
+
+<div class="lc-card">
+  <h3>🪨 Permanent magnets, poles and ferromagnetism</h3>
+  <p>The motion of electrons within atoms creates tiny magnetic fields, but in most elements these cancel out. Iron is a notable exception: it can be magnetized, along with iron alloys, nickel, cobalt and some rare-earth metals. These are called <strong>ferromagnetic materials</strong>. A ferromagnetic material that loses its magnetism quickly is described as magnetically <strong>'soft'</strong> (pure iron is the key example); one that retains magnetism for a long time is magnetically <strong>'hard'</strong> (e.g. steel).</p>
+  <p>The simplest permanent magnets are straight bars. Magnetism is effectively concentrated at the ends, called <strong>magnetic poles</strong>. There is only one type of mass, but two types of charge that can be isolated from each other. Magnetism is different: there are two types of magnetic pole — north (N) and south (S) — but they always occur in pairs. This N/S–pole arrangement is called a <strong>magnetic dipole</strong>. Confusingly, the pole names have no direct link to geography.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-02.png" alt="Straight bar magnet with its south pole labelled S at the left end and north pole labelled N at the right end" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — A bar magnet is a simple magnetic dipole: one N pole, one S pole.</div>
+  </div>
+  <p>If a bar magnet is cut in half, the poles cannot be separated — the result is two smaller, weaker magnets, each still with a N pole at one end and a S pole at the other.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-03.png" alt="A bar magnet before and after being cut in half, showing the single original magnet on the left and two smaller complete magnets, each with its own N and S pole, on the right" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Cutting a bar magnet in half never isolates a single pole (Fig D2.31).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>➰ Magnetic field lines</h3>
+  <p>As with gravitational and electric fields, magnetic field lines are given a direction. <strong>Magnetic field lines always form closed loops.</strong> Outside a magnet, the direction of the field lines is from a N pole to a S pole; when field lines are drawn inside a magnet, their direction is from S to N.</p>
+  <p>Magnetic field lines can never cross, and the field is strongest where the lines are closest together — clearly strongest close to the poles.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-04.png" alt="Bar magnet with south pole labelled S on the left in blue and north pole labelled N on the right in red, with green field lines forming closed loops that run from N around to S outside the magnet and from S to N inside" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 4 — Field lines in and around a bar magnet (Fig D2.32): closest, and strongest, near the poles.</div>
+  </div>
+  <p>Magnets are often made into <strong>U-shapes</strong>, which strengthens the field near the poles. A strong <strong>uniform</strong> field, often needed for experiments, can be achieved with two parallel permanent magnets facing each other with opposite poles.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-05.png" alt="U-shaped magnet with north pole labelled N and south pole labelled S at its two lower ends, green field lines nearly straight and closely spaced in the gap between the poles" style="max-width:100%"><div class="lc-cap">Fig 5 — U-shaped magnet: a strong, fairly uniform field in the gap (Fig D2.33).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-06.png" alt="Two rectangular permanent magnets facing each other with a gap between them, left magnet's N pole and right magnet's S pole facing the gap, evenly spaced parallel green field lines crossing the gap from left to right" style="max-width:100%"><div class="lc-cap">Fig 6 — Parallel magnets create a strong, uniform field in the gap (Fig D2.34).</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🧭 Forces between magnets and induced magnetism</h3>
+  <p><strong>Similar magnetic poles repel each other, opposite poles attract.</strong> If two bar magnets are brought close and at least one is free to move, the forces between them cause it to align — this is how many compasses work.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-07.png" alt="A fixed vertical bar magnet with N at the top and S at the bottom, and a second bar magnet free to rotate, tilted diagonally with force arrows F pulling its poles toward the opposite poles of the fixed magnet, forming a couple" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — A free magnet rotates into alignment with a fixed one (Fig D2.35, see Topic A.4 for couples).</div>
+  </div>
+  <p>When ferromagnetic materials sit in a magnetic field, they tend to become magnetized to some extent — this is called <strong>induced magnetism</strong>, and it may reduce or disappear once the material leaves the field. This is why a permanent magnet can attract unmagnetized nails: each nail becomes magnetized and can then induce magnetism in other nearby nails. In the same way, every iron filing in Fig 1 is magnetically induced and lines up with the magnet's field.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-08.png" alt="A U-shaped magnet with its poles pointing downward and a cluster of iron nails hanging in chains from the poles, attracted to each other and to the magnet" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 8 — Induced magnetism: each nail is magnetized and can attract others (Fig D2.36).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🌍 The Earth's magnetic field &amp; detecting fields</h3>
+  <p>The Earth behaves as a very large, weak bar magnet, with a magnetic <strong>south</strong> pole near the geographic North Pole. A compass needle is a small permanent magnet, free to rotate, which aligns with the Earth's field so that its own N pole points towards the Earth's magnetic S pole, close to geographic North. The magnetic north pole of any magnet is named for this behaviour: it is the end that points towards geographic North when freely suspended.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-09.png" alt="Globe of the Earth with a bar magnet tilted inside it, the pole near the geographic North Pole labelled S and the pole near the geographic South Pole labelled N, green field lines looping from N around the globe to S" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 9 — The Earth's magnetic field (Fig D2.37): a magnetic S pole sits near geographic North.</div>
+  </div>
+  <p>Small <strong>plotting compasses</strong> are widely used in the laboratory to detect magnetic fields around magnets, pointing along the field lines from magnetic north to magnetic south. They also feel the Earth's field, but this is weak compared with the field close to a bar magnet. Iron filings are also widely used to show a field's shape, and tiny <strong>magnetometers</strong> — now common in mobile phones — measure magnetic fields directly.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-10.png" alt="A row of small plotting compasses arranged along a curved path above a horizontal bar magnet with N on the left and S on the right, each compass needle aligning with the local field direction to trace out a continuous field line" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 10 — Plotting compasses trace out a magnetic field line (Fig D2.38).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔌 Magnetic fields around currents</h3>
+  <p>Magnetic fields are produced by currents, so the simplest case to start with is a steady current in a long straight wire. The field lines around it are <strong>circular</strong>, concentric with the wire. Their increasing separation with distance shows that the field strength decreases as you move away from the current. This can be demonstrated with iron filings or compasses, though the field is weak unless a large current is used.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-11.png" alt="Long straight vertical wire carrying a current I upward, surrounded by concentric circular green magnetic field lines on a horizontal plane, with the spacing between circles increasing with distance from the wire" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 11 — Field around a steady current in a long straight wire (Fig D2.39): weaker further out.</div>
+  </div>
+  <p>The direction of the field is predicted using the <strong>right-hand grip rule</strong>: point the thumb in the direction of the conventional current, and the curled fingers show the field's direction.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-12.png" alt="A right hand gripping a vertical straight wire with the thumb pointing upward along the direction of conventional current I, fingers curling around the wire, and a green circular arrow around the wire showing the predicted field direction" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 12 — The right-hand grip rule (Fig D2.40).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🌀 Coils, solenoids and electromagnets</h3>
+  <p>A stronger field needs a greater current — but an easier way is to wind insulated wire into a coil or <strong>solenoid</strong>: a coil wrapped so that the turns do not overlap and it is significantly longer than it is wide. Each extra turn adds to the field strength at the same current. A circular coil produces a field pattern similar to a dipole; inside a solenoid the field is straight, parallel and closely spaced (strong and uniform), while outside it loops around from one end to the other, just like a bar magnet.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-13.png" alt="Circular coil of wire with many turns carrying a steady current, green magnetic field lines passing through the centre of the coil and looping around it in a dipole-like pattern" style="max-width:100%"><div class="lc-cap">Fig 13 — Field around a current-carrying circular coil (Fig D2.41).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-14.png" alt="Long helical solenoid with current entering one end and leaving the other, straight closely spaced green field lines inside the coil and looping field lines outside from one labelled end N to the other labelled S" style="max-width:100%"><div class="lc-cap">Fig 14 — Field due to a current in a solenoid (Fig D2.42): strong and uniform inside.</div></div>
+  </div>
+  <p>The <strong>polarity</strong> of the field — which end is N and which is S — depends on the direction of the current, and can be predicted with the right-hand grip rule (or: viewed from an end, that end is a S pole if the current there is clockwise). Strong <strong>electromagnets</strong> are made by winding a coil or solenoid on <strong>soft iron</strong>: field strength is controlled by the current's magnitude, and the soft iron core greatly increases the field's strength. Importantly, the electromagnet loses its magnetism as soon as the current is turned off — a steel core would instead retain much of its magnetism after the current is disconnected. Electromagnets have a very wide range of uses.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-15.png" alt="Solenoid wound on a grey cylindrical soft iron core with copper-coloured coil, left end labelled S and right end labelled N, wires connecting the coil to a DC source with current entering one end and leaving the other" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 15 — A simple electromagnet: a coil wound on a soft iron core (Fig D2.43).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📏 Defining magnetic field strength, B</h3>
+  <p>Gravitational field strength is \(g = F/m\) and electric field strength is \(E = F/q\), but magnetic field strength is less easily defined. Instead, it is described through the magnetic force experienced by a current flowing across the field — the simplest example being electrons in a current in a straight wire perpendicular to a magnetic field.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-16.png" alt="Vertical straight wire carrying a current I upward through a region of blue crosses representing a magnetic field directed into the page, with a horizontal force F acting on the wire to the left and the length L of wire in the field marked with a vertical dimension line" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 16 — Force on a current in a magnetic field; crosses show the field pointing into the page (Fig D2.44).</div>
+  </div>
+  <p>The magnitude of the magnetic force, \(F\), is proportional to the current, \(I\), and the length of conductor in the field, \(L\), and to the magnetic field strength, \(B\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Force on a current in a magnetic field</span>
+    $$F = BIL$$
+    $$B = \frac{F}{IL}$$
+  </div>
+  <p>The SI unit of \(B\) is newtons per amp metre, \(\text{N A}^{-1}\text{m}^{-1}\), known as the <strong>tesla</strong>, T. 1 T corresponds to a very strong field, so milliteslas (mT) and microteslas (μT) are in common use.</p>
+</div>
+
+<div class="lc-card">
+  <h3>➗ Magnetic field strength around a straight current</h3>
+  <p>The field is created by the moving charges in the current and spreads around the wire. The magnetic <strong>permeability</strong> of a medium, or of free space, represents its ability to transfer a magnetic field and force — analogous to electric permittivity. Air's magnetic properties are almost identical to those of free space, whose permeability is given the symbol \(\mu_0\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Permeability of free space</span>
+    $$\mu_0 = 4\pi\times10^{-7}\ \text{T m A}^{-1}$$
+  </div>
+  <p>The field strength around a straight current depends on the current \(I\), the perpendicular distance from the wire \(r\), and the permeability of the surrounding air (≈ \(\mu_0\)):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Field strength at distance r from a long straight current</span>
+    $$B = \frac{\mu_0 I}{2\pi r}$$
+  </div>
+</div>
+
+<div class="lc-section">Graph mastery</div>
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>\(B\) vs \(r\) (straight wire, fixed \(I\))</td><td>X: distance \(r\)<br>Y: field \(B\)</td><td>Inverse curve, falling steeply then flattening, never reaching zero</td><td>\(B \propto 1/r\); field weakens with distance but never vanishes</td></tr>
+      <tr><td>\(B\) vs \(I\) (straight wire, fixed \(r\))</td><td>X: current \(I\)<br>Y: field \(B\)</td><td>Straight line through the origin</td><td>\(B \propto I\); gradient equals \(\mu_0/(2\pi r)\)</td></tr>
+      <tr><td>\(F\) vs \(L\) (fixed \(B\), \(I\))</td><td>X: length in field \(L\)<br>Y: force \(F\)</td><td>Straight line through the origin</td><td>\(F \propto L\); gradient equals \(BI\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-17.png" alt="Graph of magnetic field strength B against perpendicular distance r from a long straight wire, an inverse curve starting high and falling steeply before flattening out toward the horizontal axis without reaching zero" style="max-width:100%"><div class="lc-cap">Fig 17 — \(B\) vs \(r\): falls as \(1/r\), never reaching zero.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-18.png" alt="Graph of magnetic field strength B against current I for a long straight wire at fixed distance, a straight line through the origin rising to the right" style="max-width:100%"><div class="lc-cap">Fig 18 — \(B\) vs \(I\): straight line through the origin, \(B \propto I\).</div></div>
+  </div>
+</div>
+
+<div class="lc-section">Worked examples</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example D2.7 – field strength from a known force</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the force on a current-carrying conductor perpendicular to a field is \(F = BIL\), so \(B = F/(IL)\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(F = 5.0\times10^{-4}\ \text{N}\) on each 1.0 m of wire, \(I = 2.0\ \text{A}\), field and current perpendicular.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(B = \dfrac{F}{IL} = \dfrac{5.0\times10^{-4}}{1.0\times2.0}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(B = 2.5\times10^{-4}\ \text{T}\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-16.png" alt="Vertical straight wire carrying a current I through a field represented by crosses into the page, with a horizontal force F acting on the wire and the length L of wire in the field marked" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 16 (repeated) — the geometry behind \(F = BIL\).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example D2.8 – distance for a given field strength</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the field around a long straight current is \(B = \mu_0I/(2\pi r)\); rearrange for \(r\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(I = 5.0\ \text{A}\), \(B = 100\ \mu\text{T} = 100\times10^{-6}\ \text{T}\), \(\mu_0 = 4\pi\times10^{-7}\ \text{T m A}^{-1}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(100\times10^{-6} = \dfrac{(4\pi\times10^{-7})\times5.0}{2\pi r}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(r = 0.01\ \text{m}\) (1 cm). For comparison, the Earth's magnetic field averages about \(50\ \mu\text{T}\) — comparable to the field within 1–2 cm of this current.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2/d2-04-magnetic-fields-and-flux-density-11.png" alt="Long straight vertical wire carrying a current, surrounded by concentric circular magnetic field lines, illustrating the distance r used in B equals mu-nought I over two pi r" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 11 (repeated) — \(r\) is the perpendicular distance from the wire to the field point.</div>
+  </div>
+</div>
+
+<div class="lc-section">Applications &amp; extensions</div>
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>⚙️ Real-world: electromagnets at work</h3>
+    <p>Electromagnets are used because their field can be switched on and off, and its strength adjusted, just by controlling the current. Familiar uses include electric motors and generators, MRI scanners (which need extremely strong, controllable fields), and relays or circuit breakers, where a small control current switches a much larger circuit on or off.</p>
+    <div class="lc-success">✓ <strong>Examiner tip:</strong> when asked why an electromagnet (rather than a permanent magnet) is used, always mention that the field can be switched off completely and its strength varied by changing the current — a permanent magnet cannot do either.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🔬 HL extension: why μ₀ describes "free space"</h3>
+    <p>The permeability of free space, \(\mu_0\), plays the same fundamental role for magnetic fields that the permittivity of free space, \(\varepsilon_0\), plays for electric fields — both describe how easily a vacuum transmits a field and force. Because air's magnetic behaviour is almost identical to a vacuum's, \(\mu_0\) can be used directly for currents in air with negligible error.</p>
+    <p><strong>Challenge:</strong> a long straight wire carries a current of 3.0 A. Find the magnetic field strength 5.0 cm from the wire. <em>(Answer: \(B = \mu_0I/2\pi r = (4\pi\times10^{-7})(3.0)/(2\pi\times0.050) = 1.2\times10^{-5}\ \text{T}\), i.e. 12 μT.)</em></p>
+  </div>
+</div>
+
+<div class="lc-section">Trap corner</div>
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Cutting a magnet in half isolates a single N or S pole</td><td>Magnetic poles always occur in pairs — cutting a magnet just gives two smaller complete dipole magnets</td></tr>
+      <tr><td>The magnetic N pole points toward Earth's geographic North because a magnetic N pole is there</td><td>Geographic North is actually near a magnetic <strong>south</strong> pole — the compass N pole is attracted to it</td></tr>
+      <tr><td>Magnetic field lines can cross, like intersecting paths</td><td>Field lines never cross; the field is strongest wherever the lines are drawn closest together</td></tr>
+      <tr><td>A steel-cored electromagnet is just as useful as a soft-iron-cored one</td><td>Steel keeps much of its magnetism once the current stops — useless for a device that must switch off cleanly (a relay, a scrapyard magnet)</td></tr>
+      <tr><td>The right-hand grip rule direction depends on which way the wire is drawn on the page</td><td>It always depends on the true direction of conventional current — thumb along the current, fingers curl the way the field points</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: assuming a cut or broken magnet produces an isolated pole — no experiment has ever produced a magnetic monopole; every piece keeps both a N and a S end.</div>
+</div>
+
+<div class="lc-kp">
+  <span>F = BIL</span>
+  <span>B = F/(IL)</span>
+  <span>1 T = 1 N A⁻¹ m⁻¹</span>
+  <span>B = μ₀I/2πr</span>
+  <span>μ₀ = 4π×10⁻⁷ T m A⁻¹</span>
+  <span>field lines: closed loops, N→S outside</span>
+  <span>poles always paired</span>
+  <span>right-hand grip rule</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A bar magnet is cut exactly in half. What do the two pieces become?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> Two isolated single poles, one N and one S</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> Two smaller complete magnets, each with its own N and S pole</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> Two non-magnetic pieces of iron</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> One piece with both poles, the other non-magnetic</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. Outside a bar magnet, magnetic field lines run from</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> South pole to north pole</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> North pole to south pole</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> Both poles outward, never joining up</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> They have no defined direction</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Using the right-hand grip rule, if the thumb points along the conventional current in a straight wire, the curled fingers show the direction of</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','C')"><span class="lc-opt-l">A</span> The electric field</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','C')"><span class="lc-opt-l">B</span> The force on the wire</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','C')"><span class="lc-opt-l">C</span> The magnetic field around the wire</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','C')"><span class="lc-opt-l">D</span> The induced current</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. The field around a long straight wire is \(B = \mu_0I/(2\pi r)\). If the current is unchanged and the distance \(r\) from the wire is doubled, \(B\)</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> Doubles</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> Halves</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> Quarters</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> Stays the same</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A 0.50 m length of wire carries a current of 4.0 A perpendicular to a field of strength 0.20 T. The force on the wire is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','B')"><span class="lc-opt-l">A</span> 0.10 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','B')"><span class="lc-opt-l">B</span> 0.40 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','B')"><span class="lc-opt-l">C</span> 0.80 N</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','B')"><span class="lc-opt-l">D</span> 2.0 N</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. An electromagnet's coil is wound on a soft iron core, rather than a steel core, because soft iron</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','C')"><span class="lc-opt-l">A</span> Conducts electricity better than steel</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','C')"><span class="lc-opt-l">B</span> Is cheaper than steel</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','C')"><span class="lc-opt-l">C</span> Loses its magnetism almost immediately when the current is switched off</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','C')"><span class="lc-opt-l">D</span> Produces a stronger field than any current alone</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Magnetic field lines always form closed <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:90px">. Similar poles <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> each other, while opposite poles <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px">. The direction of the field around a current-carrying wire is predicted using the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:130px"> grip rule. The SI unit of magnetic field strength is the <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:90px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q"><strong>Q31.</strong> <strong>a)</strong> Sketch the magnetic field pattern around two bar magnets, as seen in Figure D2.45. <strong>b)</strong> Sketch the magnetic field pattern around the two bar magnets if the polarity of one of the magnets was reversed. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) With like poles facing each other, field lines curve away from both magnets without meeting between them, and there is a null point on the line joining the magnets where the two fields cancel.<br>✓ b) With one polarity reversed, unlike poles now face each other: field lines run continuously from the N pole of one magnet across the gap into the S pole of the other, densest and straightest in the gap.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe / Sketch</div>
+  <div class="lc-exam-q"><strong>Q34.</strong> Consider Figure D2.43. <strong>a)</strong> Describe how the polarity of the electromagnet can be determined. <strong>b)</strong> Sketch the magnetic field that this electromagnet would produce. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) Apply the right-hand grip rule to the direction of current flow in the coil; alternatively, viewed from one end, that end is a S pole if the current there flows clockwise.<br>✓ b) Field lines emerge from the N end, loop around the outside of the solenoid, and re-enter at the S end; inside the core, the field lines run straight from S to N.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q35.</strong> State three applications of electromagnets. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Electric motors and generators.<br>✓ MRI scanners, which need very strong, precisely controllable fields.<br>✓ Relays and circuit breakers, where a small control current switches a larger circuit on or off.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State</div>
+  <div class="lc-exam-q"><strong>Q36.</strong> The electromagnet seen in Figure D2.43 has been wound on a 'soft' iron core. What difference would it make if the core was made of steel? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ A soft iron core loses its magnetism almost immediately once the current is switched off; a steel core would retain much of its magnetism afterwards, behaving as a permanent magnet.<br>✓ This would make the device unsuitable wherever the magnetism must be switched off completely, such as a relay or a scrapyard lifting magnet.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw</div>
+  <div class="lc-exam-q"><strong>Q37.</strong> Draw a graph to represent how the magnetic field strength due to a 2.0 A current in a long straight wire varies with perpendicular distance up to 10 cm from the wire. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Using \(B=\mu_0I/2\pi r\) with \(I=2.0\ \text{A}\): at \(r=1\ \text{cm}\), \(B\approx 4.0\times10^{-5}\ \text{T}\); at \(r=2\ \text{cm}\), \(B\approx 2.0\times10^{-5}\ \text{T}\); at \(r=5\ \text{cm}\), \(B\approx 8.0\times10^{-6}\ \text{T}\); at \(r=10\ \text{cm}\), \(B\approx 4.0\times10^{-6}\ \text{T}\).<br>✓ Plotted, these points give a smooth inverse curve, falling steeply at small \(r\) and flattening toward (but never reaching) zero at larger \(r\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show</div>
+  <div class="lc-exam-q"><strong>Q38.</strong> Show that the SI units of permeability are \(\text{T m A}^{-1}\). <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ From \(B=F/(IL)\): units of \(B\) are \(\text{N A}^{-1}\text{m}^{-1} = \text{T}\).<br>✓ Rearranging \(B=\mu_0I/(2\pi r)\) gives \(\mu_0 = 2\pi rB/I\), with units \(\text{m}\times\text{T}/\text{A} = \text{T m A}^{-1}\).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Magnetic poles always occur in pairs — cutting a magnet gives two smaller, weaker complete dipole magnets, never an isolated pole.' },
+    mcq2: { B: 'By convention, field lines outside a magnet run from the north pole to the south pole, forming closed loops that continue S to N inside.' },
+    mcq3: { C: 'Thumb along the current, curled fingers give the direction of the circular magnetic field around the wire — that is the right-hand grip rule.' },
+    mcq4: { B: 'B = μ0I/(2πr) is inversely proportional to r, so doubling r halves B.' },
+    mcq5: { B: 'F = BIL = 0.20 × 4.0 × 0.50 = 0.40 N.' },
+    mcq6: { C: 'Soft iron demagnetizes almost instantly when the current stops, letting the electromagnet switch off cleanly — steel would stay magnetized.' }
+  },
+  fitb: { lf1:'loops', lf2:'repel', lf3:'attract', lf4:'right-hand', lf5:'tesla' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <div class="lesson-nav">
