@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coulomb's Law — D.2 Electric and Magnetic Fields — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -93,6 +95,9 @@
     #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
     #lesson-body pre { max-width: 100%; overflow-x: auto; }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -153,23 +158,373 @@
 
     <main>
       <div class="lesson-content" id="lesson-body">
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Coulomb's Law</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">Lesson content coming soon.</p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=D2" class="btn btn-ghost btn-sm">Practice questions →</a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">Formula sheet</a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 5 · D.2 Electric and Magnetic Fields</div>
+<div class="lc-title">Coulomb's Law</div>
+<div class="lc-sub">Electric charge comes in two types, always adds up, and always comes in whole multiples of one tiny unit. The force between two charges follows an inverse-square law strikingly similar to gravity — but it can push as well as pull.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – hair that stands on end</h3>
+  <p>Brush dry hair with a plastic brush and individual hairs move apart, standing away from each other and from the brush. Electrons transfer from the hair to the brush: the brush becomes negatively charged, the hair positively charged. The two are then attracted to each other, while hairs with the <strong>same</strong> charge repel.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-01-coulombs-law-01.png" alt="Person brushing hair with a plastic brush, hairs separated, electrons transferring from hair to brush" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Brushing hair transfers electrons to the brush. The brush becomes negative, the hair positive, so they attract each other while similarly-charged hairs repel.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — no electrons are created or destroyed when the brush charges the hair. So where did the brush's negative charge come from? <em>It came from the hair. The hair lost exactly as many electrons as the brush gained — total charge is conserved.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ Electric charge</h3>
+  <p>Charge is measured in <strong>coulombs, C</strong> — a large unit, so microcoulombs and nanocoulombs are common:</p>
+  <div class="lc-formula">
+    $$1\,\mu\text{C} = 10^{-6}\,\text{C} \qquad 1\,\text{nC} = 10^{-9}\,\text{C}$$
+  </div>
+  <p>Every proton carries charge \(+1.60\times10^{-19}\,\text{C}\); every electron carries \(-1.60\times10^{-19}\,\text{C}\). Any quantity of charge is a whole number of these particles, each \(\pm1.6\times10^{-19}\,\text{C}\) — <strong>charge is quantized</strong>.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Elementary charge, e</span>
+    $$e = 1.6\times10^{-19}\,\text{C}$$
+  </div>
+  <div class="lc-info">🔗 <strong>Linking question</strong> — charge is quantized. Which other physical quantities are quantized? (This links to understandings in Topic E.2.)</div>
+  <p>Nuclear particles (protons, neutrons) are themselves built from quarks, whose charge is quantized in multiples of \(\pm e/3\) — but quarks cannot be observed as isolated particles, and are not required in this course.</p>
+  <p>Everyday objects have equal numbers of protons and electrons and are <strong>neutral</strong>. Electrons are the outermost, loosely-bound particles in atoms; protons sit fixed in the nucleus and cannot move. So it is always electrons that are added or removed to <strong>charge</strong> an object — protons never move.</p>
+</div>
+
+<div class="lc-card">
+  <h3>🔌 Charging by friction and by contact</h3>
+  <p>When friction occurs between two surfaces, electrons often transfer between them: one surface gains electrons (negative), the other loses them (positive). Insulating rods rubbed with cloths are the standard classroom example — insulators keep the charge where it lands, whereas free electrons in a metal would move around and neutralize it. Friction charging isn't limited to solids: it also occurs when liquids flow through pipes or air flows past fans.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-01-coulombs-law-02.png" alt="Van de Graaff generator with two large metal spheres on insulating columns producing a spark" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — A classroom Van de Graaff generator uses friction to build up very high voltages. The largest, at the Boston Museum of Science, has two 4.5 m spheres on 7.6 m insulating poles and can reach seven million volts.</div>
+  </div>
+  <p>If a charged object physically touches another, electrons can flow between them and the charge is shared — how much depends on size, shape and conductivity. If the rod is removed, the sphere keeps whatever charge it received.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-01-coulombs-law-03.png" alt="Charged plastic rod touching a metal sphere on an insulating stand, electrons flowing from rod to sphere" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — Charging by contact: electrons flow from the charged rod onto the sphere and remain there once the rod is removed.</div>
+  </div>
+  <div class="lc-info">🌍 <strong>Discharging and grounding</strong> — a charged object touched by a conductor connected to the ground quickly loses its charge (this is called <strong>discharging</strong>): electrons flow to or from it while the effect on the ground itself is insignificant. Deliberately connecting an object to earth to remove its charge is <strong>grounding (earthing)</strong>, keeping the object at 0 V. Charged objects also discharge through humid air. Domestic wiring is earthed with a thick copper wire to a buried metal plate or a metal water pipe.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🧲 Charging by electrostatic induction</h3>
+  <p>Bring a charged object close to a neutral one <em>without touching</em> and it can still exert a force on the free electrons inside. A positive rod attracts electrons towards it, leaving the near side of the neutral object negative and the far side positive (a negative rod does the reverse). This charge separation without contact is <strong>electrostatic induction</strong>.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/d2-01-coulombs-law-04.png" alt="Positively charged rod near a neutral sphere, inducing negative charge on the near side and positive charge on the far side" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — A nearby positive rod attracts electrons to the near side of the sphere, leaving the far side positive.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/d2-01-coulombs-law-05.png" alt="Charged comb attracting small pieces of paper without touching them, each paper piece showing induced charge separation" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — A charged comb attracts uncharged paper by induction: the paper's near side becomes oppositely charged, and attraction wins over no contact ever being made.</div></div>
+  </div>
+  <p>Induction is also the neatest way to charge an object for an experiment, because it doesn't rely on sharing charge:</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-01-coulombs-law-06.png" alt="Four-stage sequence showing a sphere charged by induction: charge separation, grounding, disconnecting ground, removing the rod" style="max-width:100%">
+    <div class="lc-cap">Fig 6 — Charging by induction: (1) the rod separates charge on the sphere, (2) grounding lets electrons flow onto the sphere, (3) the ground connection is removed while the rod is still close, trapping the charge, (4) removing the rod leaves the sphere with an induced charge — a negative rod produces a positively charged sphere.</div>
+  </div>
+  <div class="lc-warn">⚠️ <strong>Common mistake</strong> — do not confuse electrostatic induction (described here) with <em>electromagnetic</em> induction, a completely different effect covered in Topic D.4.</div>
+</div>
+
+<div class="lc-card">
+  <h3>✈️ Dangers of static electricity</h3>
+  <p>Large-scale electrostatic effects can be dangerous. Lightning is the obvious example. Vehicles and aircraft become charged simply by moving through air or along the ground, and a spark during refuelling could ignite the fuel-air mixture. The risk is prevented by grounding both the vehicle and the fuel supply.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-01-coulombs-law-07.png" alt="Aircraft being refuelled by a tanker truck, connected by a bonding cable and an aircraft grounding point" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — Aircraft refuelling: a bonding cable keeps the truck and aircraft at the same potential, and a grounding cable earths the aircraft, preventing a spark.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Coulomb's law</h3>
+  <p>The force between two point charges follows an <strong>inverse square law</strong>, mathematically similar to Newton's law of gravitation (Topic D.1):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Coulomb's law — separation r, charges q₁ and q₂</span>
+    $$F = k\frac{q_1q_2}{r^2}$$
+  </div>
+  <p>Charged bodies that are spherical behave as point charges located at their centres, so they also obey Coulomb's law. The law was first published by Charles Augustin de Coulomb in 1783.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-01-coulombs-law-08.png" alt="Graph of electric force against separation between two point charges, showing an inverse-square decreasing curve" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 8 — Halving the separation between two charges quarters the force needed to explain it; doubling the separation reduces the force to a quarter. Force falls off as \(1/r^2\).</div>
+  </div>
+  <p>Same-sign charges (both positive or both negative) give a positive \(F\) — a repulsive force. Opposite charges give a negative \(F\) — an attractive force.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Coulomb constant</span>
+    $$k = \frac{1}{4\pi\epsilon_0} = 8.99\times10^{9}\,\text{N m}^2\text{C}^{-2}$$
+  </div>
+  <p>Unlike the gravitational constant \(G\), \(k\) is not itself fundamental — it can be broken down further. \(\epsilon_0\) is the <strong>permittivity of free space</strong>, a fundamental constant representing the ability of a vacuum to transfer an electric force and field:</p>
+  <div class="lc-formula">
+    $$\epsilon_0 = 8.85\times10^{-12}\,\text{C}^2\text{N}^{-1}\text{m}^{-2}$$
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🧪 Permittivity and other media</h3>
+  <p>Every medium has its own permittivity, \(\epsilon\), always greater than \(\epsilon_0\) — although dry air is very close to free space. Replacing air with another medium therefore <em>reduces</em> the force between two given charges. The <strong>relative permittivity</strong> (sometimes called the dielectric constant) is the ratio:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Relative permittivity (no units)</span>
+    $$\epsilon_r = \frac{\epsilon}{\epsilon_0}$$
+  </div>
+  <p>For example, a rubber with \(\epsilon = 4.83\times10^{-11}\,\text{C}^2\text{N}^{-1}\text{m}^{-2}\) has \(\epsilon_r = 4.83\times10^{-11}/8.85\times10^{-12} = 5.46\).</p>
+  <table class="lc-table">
+    <thead><tr><th>Material</th><th>Relative permittivity, εᵣ</th></tr></thead>
+    <tbody>
+      <tr><td>Free space (vacuum)</td><td>1 (by definition)</td></tr>
+      <tr><td>Dry air</td><td>1.0005</td></tr>
+      <tr><td>Polythene</td><td>2</td></tr>
+      <tr><td>Paper</td><td>4</td></tr>
+      <tr><td>Concrete</td><td>4</td></tr>
+      <tr><td>Rubber</td><td>6</td></tr>
+      <tr><td>Water</td><td>80</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-01-coulombs-law-09.png" alt="Graph of electric force against 1 over r squared, a straight line through the origin, linearizing Coulomb's law" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 9 — Plotting force against \(1/r^2\) instead of \(r\) turns Coulomb's law into a straight line through the origin, with gradient \(kq_1q_2\) — the standard way to test the law experimentally.</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example D2.1</h3>
+  <p>A point charge of \(4.5\times10^{-8}\,\text{C}\) is situated in air 3.2 cm from another charge of \(-1.3\times10^{-7}\,\text{C}\). <strong>a)</strong> Determine the electrical force between them. <strong>b)</strong> If they were separated by polythene instead, calculate the approximate force.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> two point charges in air — use Coulomb's law directly, then adjust for the medium in part (b).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(q_1 = 4.5\times10^{-8}\ \text{C}\), \(q_2 = -1.3\times10^{-7}\ \text{C}\), \(r = 3.2\times10^{-2}\ \text{m}\), \(k = 8.99\times10^9\ \text{N m}^2\text{C}^{-2}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong>
+    $$F = k\frac{q_1q_2}{r^2}$$
+    $$F = \frac{(8.99\times10^9)(4.5\times10^{-8})(-1.3\times10^{-7})}{(3.2\times10^{-2})^2}$$</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(F = -5.1\times10^{-2}\ \text{N}\). The negative sign shows the force is attractive (opposite charges).<br><strong>b)</strong> Polythene has \(\epsilon_r \approx 2\), so the force is divided by about 2: \(F \approx -3\times10^{-2}\ \text{N}\).</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-01-coulombs-law-10.png" alt="Two point charges in air separated by 3.2 centimetres with unlabelled force arrows between them" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 10 — Geometry for Worked example D2.1: \(q_1 = 4.5\times10^{-8}\) C and \(q_2 = -1.3\times10^{-7}\) C, separated by \(r = 3.2\) cm.</div>
+  </div>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: measuring tiny forces</h3>
+    <p>Coulomb's law was first verified with a torsion balance — a horizontal rod suspended by a thin fibre, twisting as one charged sphere repelled or attracted another. The force between everyday charges is often far too small to feel, which is exactly why Coulomb needed such a sensitive instrument.</p>
+    <div class="lc-success">✓ Examiner tip: always substitute the sign of each charge into \(F = kq_1q_2/r^2\) and let the sign of the answer tell you attraction or repulsion — don't decide the sign by inspection first and then risk contradicting your own arithmetic.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL extension – vector form</h3>
+    <p>Coulomb's law as given is a magnitude. For a full vector treatment, the force on \(q_2\) due to \(q_1\) points along the line joining them, away from \(q_1\) if the charges have the same sign and towards \(q_1\) if they are opposite — exactly the pattern in Fig D2.11's inverse-square diagram, but now carrying a direction as well as a size.</p>
+    <p><strong>Challenge:</strong> three point charges lie on a straight line. Why is it not generally true that the net force on the middle charge is zero, even if the two outer charges are equal in magnitude? <em>(Answer: it depends on their signs and on the middle charge's exact position — equal magnitudes at unequal distances give unequal force magnitudes, and the two forces may add rather than cancel if the signs make both forces act in the same direction.)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Protons move to charge an object</td><td>Protons are fixed in the nucleus. Only electrons move — an object gains negative charge by <em>gaining</em> electrons, positive charge by <em>losing</em> them</td></tr>
+      <tr><td>Electrostatic induction needs contact</td><td>Induction is defined by the <em>absence</em> of contact — charge separation is caused by a nearby charge's field alone</td></tr>
+      <tr><td>Electrostatic induction and electromagnetic induction are the same thing</td><td>Electrostatic induction (this lesson) is charge separation with no current; electromagnetic induction (Topic D.4) is an EMF generated by a changing magnetic flux</td></tr>
+      <tr><td>A higher-permittivity medium increases the force between charges</td><td>Relative permittivity is always ≥ 1, so replacing air/vacuum with another medium <em>reduces</em> the force, since \(\epsilon_r\) divides it</td></tr>
+      <tr><td>The sign of F in Coulomb's law is just a bookkeeping detail</td><td>The sign tells you attraction (negative) or repulsion (positive) directly — get the charge signs right and the physics falls out automatically</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting that \(k\) already includes the effect of free space, so an extra factor of \(4\pi\) or \(\epsilon_0\) must never be added on top of the quoted value \(k = 8.99\times10^9\) N m² C⁻².</div>
+</div>
+
+<div class="lc-kp">
+  <span>F = kq₁q₂/r²</span>
+  <span>k = 1/4πε₀ = 8.99×10⁹ N m²C⁻²</span>
+  <span>ε₀ = 8.85×10⁻¹² C²N⁻¹m⁻²</span>
+  <span>εᵣ = ε/ε₀</span>
+  <span>e = 1.6×10⁻¹⁹ C</span>
+  <span>charge is quantized</span>
+  <span>friction, contact, induction</span>
+  <span>grounding → 0 V</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. The elementary charge, e, has a value of</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> \(1.6\times10^{-9}\) C</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> \(1.6\times10^{-19}\) C</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> \(8.99\times10^{9}\) C</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> \(8.85\times10^{-12}\) C</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. A charged comb attracts small pieces of paper without touching them. This is best explained by</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> charging by contact</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> charging by friction on the paper</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','C')"><span class="lc-opt-l">C</span> electrostatic induction</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','C')"><span class="lc-opt-l">D</span> grounding of the paper</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Two point charges are separated by distance r and exert a force F on each other. If the separation is halved, the new force is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> F/4</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> 4F</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> 2F</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> F/2</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Replacing the air between two fixed point charges with a block of paper (εᵣ = 4) will</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> roughly quadruple the force between them</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> roughly quarter the force between them</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> leave the force unchanged</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> reverse the direction of the force</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A conducting sphere is briefly touched by a wire connected to the ground. The sphere</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> gains a large positive charge</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> gains a large negative charge</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> loses its overall charge, ending at 0 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> is unaffected, because the ground is an insulator</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. In F = kq₁q₂/r², a negative value of F means</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','B')"><span class="lc-opt-l">A</span> the calculation has an error</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','B')"><span class="lc-opt-l">B</span> the force is attractive — the charges have opposite signs</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','B')"><span class="lc-opt-l">C</span> the charges are moving apart</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','B')"><span class="lc-opt-l">D</span> the medium has negative permittivity</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    The smallest possible unit of charge, called the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:110px"> charge, has a value of \(1.60\times10^{-19}\) C. An object with excess electrons is <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:130px"> charged. Charge separation caused without contact is called electrostatic <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:120px">. In Coulomb's law, \(F = kq_1q_2/r^2\), the constant \(k\) is called the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:120px"> constant. The ratio of a medium's permittivity to that of free space is called <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:150px"> permittivity. Deliberately connecting a charged object to the ground so it loses its charge is called <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:130px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> Describe the movement of electrons that causes a plastic rod to become positively charged when it is rubbed with a dry cloth. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Friction between the rod and the cloth transfers electrons between their surfaces.<br>✓ Electrons move from the rod to the cloth, leaving the rod with a deficit of electrons and therefore an overall positive charge.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Describe and explain</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> Describe and explain an electrostatic effect that you have seen in your home. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Any credible everyday example, e.g. a woollen jumper crackling and clothes clinging together after being removed from a tumble dryer.<br>✓ Explanation in terms of friction transferring electrons between surfaces, leaving them oppositely charged and so attracted to each other.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> Two conducting spheres have charges of \(-20.0\,\mu\text{C}\) and \(+6.0\,\mu\text{C}\). If the spheres are identical and come briefly into contact, determine the charge on each sphere when they are separated. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Total charge is conserved: \(-20.0 + 6.0 = -14.0\,\mu\text{C}\).<br>✓ Identical spheres share the charge equally, so each ends up with \(-7.0\,\mu\text{C}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain</div>
+  <div class="lc-exam-q"><strong>Q4.</strong> Given two conducting spheres on insulating stands (as in the earlier figures), explain how you could make one positively charged and the other negatively charged by using a negatively charged plastic rod. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Bring the two spheres together, touching, and hold the negatively charged rod close to one of them without touching.<br>✓ Electrons in the spheres are repelled by the rod towards the far sphere, so the far sphere becomes negatively charged and the near sphere positively charged (electrostatic induction).<br>✓ Separate the two spheres while the rod is still in place, then remove the rod — each sphere keeps its induced charge.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Explain / Outline / Suggest</div>
+  <div class="lc-exam-q"><strong>Q5.</strong> <strong>a)</strong> Explain how an electrostatic effect could be dangerous when refuelling an aircraft. <strong>b)</strong> Explain how grounding can prevent the problem arising. <strong>c)</strong> Suggest how sparks could occur at a petrol (gas) station. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) Friction with the air as the aircraft moves can charge it; a spark discharging that charge near the fuel vapour could ignite it.<br>✓ b) Bonding the aircraft and fuel tanker together, and grounding both, keeps them at the same potential and lets any charge dissipate safely, so no spark can jump between them.<br>✓ c) Similarly, static built up on a person, a container, or from fuel flowing through a pipe or nozzle could spark near petrol vapour if it is not grounded.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q"><strong>Q6.</strong> Use the value \(\epsilon_0 = 8.85\times10^{-12}\,\text{C}^2\text{N}^{-1}\text{m}^{-2}\) to show that the Coulomb constant has a value of \(8.99\times10^{9}\,\text{N m}^2\text{C}^{-2}\). <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(k = \dfrac{1}{4\pi\epsilon_0} = \dfrac{1}{4\pi \times 8.85\times10^{-12}}\)<br>✓ \(k = 8.99\times10^{9}\ \text{N m}^2\text{C}^{-2}\), as required.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q7.</strong> The force between two identical point charges was 5.0 N when they were separated by 7.6 cm. What were the magnitudes of the charges? <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(F = kq^2/r^2\), so \(q^2 = Fr^2/k = \dfrac{5.0\times(0.076)^2}{8.99\times10^9}\)<br>✓ \(q^2 = 3.21\times10^{-12}\)<br>✓ \(q = 1.8\times10^{-6}\ \text{C}\) (1.8 μC).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / State</div>
+  <div class="lc-exam-q"><strong>Q8.</strong> The surfaces of two insulated conducting spheres were separated by 14.0 cm. One sphere had a radius of 2.7 cm and a charge of \(3.6\times10^{-7}\) C. The other had a radius of 3.9 cm and a charge of \(-4.8\times10^{-7}\) C. <strong>a)</strong> Determine the force between the spheres in magnitude and direction. <strong>b)</strong> State any assumption you made in a). <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Centre-to-centre separation \(r = 14.0 + 2.7 + 3.9 = 20.6\ \text{cm} = 0.206\ \text{m}\).<br>✓ \(F = k\dfrac{q_1q_2}{r^2} = \dfrac{(8.99\times10^9)(3.6\times10^{-7})(-4.8\times10^{-7})}{(0.206)^2}\)<br>✓ \(F = -3.7\times10^{-2}\ \text{N}\), i.e. \(3.7\times10^{-2}\) N, attractive (opposite charges).<br>✓ b) Assumed each sphere behaves as a point charge located at its centre.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q9.</strong> Calculate the force between two point charges of 7.4 C and 2.2 C which are separated by 1.2 m in a nonconducting liquid of relative permittivity 3.1. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Force in vacuum: \(F_0 = k\dfrac{q_1q_2}{r^2} = \dfrac{(8.99\times10^9)(7.4)(2.2)}{(1.2)^2} = 1.02\times10^{11}\ \text{N}\).<br>✓ In the medium, divide by \(\epsilon_r\): \(F = F_0/\epsilon_r = 1.02\times10^{11}/3.1\).<br>✓ \(F \approx 3.3\times10^{10}\ \text{N}\) (repulsive, since both charges are positive).</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'The elementary charge is e = 1.6 x 10^-19 C, the smallest unit any isolated charge is built from.' },
+    mcq2: { C: 'No contact is made, so this is electrostatic induction: the comb\'s field separates charge in the paper, and the near side is attracted.' },
+    mcq3: { B: 'Coulomb\'s law is an inverse-square law: halving r means dividing r^2 by 4, so F is multiplied by 4.' },
+    mcq4: { B: 'Relative permittivity divides the force: F_medium = F_vacuum / epsilon_r, so epsilon_r = 4 roughly quarters the force.' },
+    mcq5: { C: 'Grounding lets electrons flow freely to or from the Earth until the sphere is neutral, at 0 V.' },
+    mcq6: { B: 'A negative F in F = kq1q2/r^2 arises only when q1 and q2 have opposite signs, meaning the force is attractive.' }
+  },
+  fitb: { lf1:'elementary', lf2:'negatively', lf3:'induction', lf4:'Coulomb', lf5:'relative', lf6:'grounding' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <div class="lesson-nav">
-        <a href="../D.1-Gravitational-Fields/index.html" class="lesson-nav-btn">
+        <a href="../D.1-Gravitational-Fields/06-satellites.html" class="lesson-nav-btn">
           <span style="font-size:1.2rem;color:var(--text-muted)">←</span>
           <div>
             <div class="nav-btn-dir">Previous</div>
-            <div class="nav-btn-label">Gravitational Fields</div>
+            <div class="nav-btn-label">Satellites</div>
           </div>
         </a>
         <a href="02-electric-field-strength.html" class="lesson-nav-btn" style="margin-left:auto;text-align:right;flex-direction:row-reverse">
