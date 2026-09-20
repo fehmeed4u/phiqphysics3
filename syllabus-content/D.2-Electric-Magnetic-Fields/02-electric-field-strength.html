@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Electric Field Strength — D.2 Electric and Magnetic Fields — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -93,6 +95,9 @@
     #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
     #lesson-body pre { max-width: 100%; overflow-x: auto; }
   </style>
+  <script src="../../shared/lesson-quiz.js"></script>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -153,357 +158,191 @@
 
     <main>
       <div class="lesson-content" id="lesson-body">
-      <div style="padding:1.5rem 1.75rem">
-<script>
-MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    displayMath: [['$$','$$']],
-    processEscapes: true
-  },
-  svg: {
-    fontCache: 'global',
-    scale: 1.15
-  },
-  startup: {
-    pageReady: function () {
-      return MathJax.startup.defaultPageReady();
-    }
-  }
-};
-</script>
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<!-- LESSON-START -->
+<div class="lc-wrap">
 
-<style>
-.lc-badge { display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
-  letter-spacing:0.07em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
-.lc-badge span { display:inline-flex;align-items:center;justify-content:center;
-  width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;
-  font-size:11px;font-weight:700; }
-.lc-title { font-family:var(--font-serif);font-size:1.8rem;color:var(--text);
-  line-height:1.2;margin-bottom:4px; }
-.lc-sub { font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem; }
-.lc-card { background:var(--surface2);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1.25rem;margin-bottom:1rem; }
-.lc-card h3 { font-size:0.95rem;font-weight:600;margin-bottom:0.6rem;color:var(--text);
-  font-family:var(--font-sans); }
-.lc-card p { font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:0.5rem; }
-.lc-card p:last-child { margin-bottom:0; }
-.lc-table { width:100%;border-collapse:collapse;font-size:0.84rem; }
-.lc-table th { font-size:0.72rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.07em;color:var(--text-muted);padding:6px 8px;
-  border-bottom:1px solid var(--border);text-align:left; }
-.lc-table td { padding:8px;border-bottom:1px solid var(--border);
-  vertical-align:top;color:var(--text-2);font-size:0.84rem; }
-.lc-table td:first-child { font-weight:600;color:var(--accent);white-space:nowrap; }
-.lc-table tr:last-child td { border-bottom:none; }
-.lc-formula { background:var(--surface3);border:1px solid var(--border);
-  border-left:3px solid var(--accent);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:1rem 1.4rem;margin:0.85rem 0;
-  text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-.lc-formula .MathJax { font-size:1.35rem !important;color:var(--accent); }
-.lc-formula .lc-formula-label { display:block;font-size:0.72rem;font-weight:600;
-  text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);
-  margin-bottom:0.35rem;font-family:var(--font-sans); }
-.lc-img { background:var(--surface2);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1rem;margin-bottom:1rem;text-align:center; }
-.lc-img img { max-width:100%;border-radius:8px; }
-.lc-img .lc-cap { font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5; }
-.lc-img-row { display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem; }
-.lc-img-row .lc-img { margin-bottom:0; }
-@media(max-width:600px){ .lc-img-row { grid-template-columns:1fr; } }
-.lc-kp { display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem; }
-.lc-kp span { font-size:0.78rem;font-family:var(--font-mono);
-  background:var(--accent-dim);border:1px solid var(--border-2);
-  border-radius:100px;padding:3px 10px;color:var(--accent); }
-.lc-section { font-size:0.72rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.1em;color:var(--text-muted);
-  margin:1.75rem 0 0.75rem;display:flex;align-items:center;gap:8px; }
-.lc-section::after { content:'';flex:1;height:1px;background:var(--border); }
-.lc-info { background:var(--accent-dim);border-left:3px solid var(--accent);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:0.65rem 1rem;font-size:0.86rem;
-  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
-.lc-warn { background:var(--gold-dim);border-left:3px solid var(--gold);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:0.65rem 1rem;font-size:0.86rem;
-  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
-.lc-success { background:var(--green-dim);border-left:3px solid var(--green);
-  border-radius:0 var(--radius) var(--radius) 0;
-  padding:0.65rem 1rem;font-size:0.86rem;
-  color:var(--text-2);margin:0.6rem 0;line-height:1.65; }
-.lc-two-col { display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem; }
-@media(max-width:600px){ .lc-two-col { grid-template-columns:1fr; } }
-.lc-step { counter-increment:lc-steps;display:flex;gap:0.85rem;
-  padding:0.85rem 0;border-bottom:1px solid var(--border); }
-.lc-step:last-child { border-bottom:none; }
-.lc-step-num { flex-shrink:0;width:28px;height:28px;border-radius:50%;
-  background:var(--accent);color:#fff;display:flex;align-items:center;
-  justify-content:center;font-size:0.8rem;font-weight:700;margin-top:2px; }
-.lc-step-body { flex:1;font-size:0.88rem;color:var(--text-2);line-height:1.7; }
-.lc-step-body strong { color:var(--text); }
-.lc-mcq-q { font-size:0.9rem;font-weight:500;color:var(--text);
-  margin-bottom:0.65rem;line-height:1.55; }
-.lc-opts { display:flex;flex-direction:column;gap:0.4rem; }
-.lc-opt { display:flex;align-items:flex-start;gap:10px;padding:0.65rem 0.85rem;
-  border:1.5px solid var(--border);border-radius:var(--radius);
-  cursor:pointer;font-size:0.87rem;color:var(--text-2);
-  transition:all 0.15s;background:var(--surface); }
-.lc-opt:hover { background:var(--accent-dim);border-color:var(--border-2); }
-.lc-opt.correct { background:var(--green-dim);border-color:var(--green);color:var(--green); }
-.lc-opt.wrong   { background:var(--red-dim);border-color:var(--red);color:var(--red); }
-.lc-opt.disabled { cursor:default;pointer-events:none; }
-.lc-opt-l { font-weight:700;min-width:18px;flex-shrink:0; }
-.lc-fb { font-size:0.84rem;margin-top:0.5rem;padding:0.6rem 0.85rem;
-  border-radius:var(--radius);display:none; }
-.lc-fb.show { display:block; }
-.lc-fb.correct { background:var(--green-dim);color:var(--green); }
-.lc-fb.wrong   { background:var(--red-dim);color:var(--red); }
-.lc-fitb { font-size:0.9rem;line-height:2.6;color:var(--text-2); }
-.lc-fitb-input { border:none;border-bottom:2px solid var(--accent);
-  background:transparent;font-size:0.9rem;color:var(--text);
-  padding:0 4px;min-width:80px;text-align:center;
-  outline:none;font-family:var(--font-sans); }
-.lc-fitb-input.correct { border-bottom-color:var(--green);color:var(--green); }
-.lc-fitb-input.wrong   { border-bottom-color:var(--red);color:var(--red); }
-.lc-check-btn { display:inline-flex;align-items:center;gap:6px;margin-top:0.75rem;
-  padding:0.5rem 1.1rem;border:1.5px solid var(--border);border-radius:100px;
-  background:var(--surface);cursor:pointer;font-size:0.84rem;color:var(--text-muted);
-  font-family:var(--font-sans);transition:all 0.15s; }
-.lc-check-btn:hover { background:var(--accent-dim);border-color:var(--accent);color:var(--accent); }
-.lc-exam { background:var(--surface2);border:1.5px solid var(--accent);
-  border-radius:var(--radius);padding:1.25rem;margin-bottom:0.85rem; }
-.lc-exam-tag { font-size:0.72rem;font-weight:700;text-transform:uppercase;
-  letter-spacing:0.09em;color:var(--accent);margin-bottom:0.5rem; }
-.lc-exam-q { font-size:0.9rem;color:var(--text-2);line-height:1.65;margin-bottom:0.5rem; }
-.lc-exam-marks { font-size:0.78rem;color:var(--text-muted);font-style:italic; }
-.lc-exam-input { width:100%;min-height:70px;border:1px solid var(--border);
-  border-radius:var(--radius);background:var(--surface3);color:var(--text);
-  font-size:0.86rem;font-family:var(--font-sans);padding:0.65rem 0.85rem;
-  resize:vertical;outline:none;margin-top:0.5rem;transition:all 0.15s; }
-.lc-exam-input:focus { border-color:var(--accent); }
-.lc-reveal-btn { margin-top:0.5rem;padding:0.4rem 0.9rem;border:1px solid var(--border);
-  border-radius:100px;background:var(--surface);cursor:pointer;
-  font-size:0.78rem;color:var(--text-muted);font-family:var(--font-sans);
-  transition:all 0.15s; }
-.lc-reveal-btn:hover { background:var(--accent-dim);color:var(--accent);border-color:var(--accent); }
-.lc-model { margin-top:0.65rem;padding:0.75rem 1rem;
-  background:var(--surface);border-left:3px solid var(--green);
-  border-radius:0 var(--radius) var(--radius) 0;
-  font-size:0.86rem;color:var(--text-2);line-height:1.7;display:none; }
-.lc-model.show { display:block; }
-.lc-score { display:inline-flex;align-items:center;gap:6px;font-size:0.84rem;
-  padding:0.4rem 0.9rem;border-radius:100px;
-  background:var(--surface2);border:1px solid var(--border);color:var(--text-muted); }
-.lc-score strong { color:var(--accent); }
-</style>
+<div class="lc-badge"><span>2</span> Lesson 2 of 5 · D.2 Electric and Magnetic Fields</div>
+<div class="lc-title">Electric Field Strength</div>
+<div class="lc-sub">A charge doesn't just push or pull its neighbours — it fills the space around it with a field. This lesson defines that field's strength, gives you the two formulas that measure it, and shows how several fields combine into one.</div>
 
-<!-- ═══ SECTION A — HEADER ═══ -->
-<div class="lc-badge"><span>1</span> Lesson 1 of 1 · D.2 Electric and Magnetic Fields</div>
-<div class="lc-title">Electric Field and Strength</div>
-<div class="lc-sub">Invisible forces shape every bolt of lightning and every circuit — learn to map and measure the electric field that makes it all happen.</div>
-
-<!-- ═══ SECTION B — HOOK & DIAGNOSTIC ═══ -->
 <div class="lc-card">
-  <h3>⚡ Hook – The invisible map</h3>
-  <p>Sprinkle iron filings near a charged balloon and they shift into sweeping arcs — revealing invisible lines of influence that reach across empty space. Place a second balloon nearby and the pattern warps, stretches, and merges. You're looking at an <strong>electric field</strong> — the same field that steers electrons through wires, drives lightning to the ground, and holds every atom together. <strong>The field is everywhere; charges just make it visible.</strong></p>
+  <h3>🎯 Hook – a region, not a push</h3>
+  <p>A charge sitting alone in empty space isn't doing anything to anyone — until a second charge wanders nearby and feels a force. Physicists describe this by saying the first charge sets up a region of influence around itself, called an <strong>electric field</strong>, whether or not a second charge is there to feel it. We map it using field lines: by convention, drawn so they always point in the direction of the force on a small positive test charge.</p>
   <div class="lc-img">
-    <img src="https://i.ibb.co/FbN7Lpr5/image.png" alt="Two positive charges with overlapping radial electric field lines curving away from each other">
-    <div class="lc-cap">Fig 1 — Two like charges repel: their field lines curve away from each other in the overlap region.</div>
+    <img src="../../assets/lesson-images/d2-02-electric-field-strength-01.png" alt="Radial electric field lines pointing outward from a positive point charge and inward toward a negative point charge" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — Radial fields around isolated point charges (Fig D2.13). Lines point away from a positive charge and toward a negative one, thinning out with distance.</div>
   </div>
-  <div class="lc-info">💡 <strong>Think first</strong> — If you placed a tiny positive test charge exactly midway between two equal positive charges, would it feel a net force? <em>No — the two repulsive forces are equal in magnitude and opposite in direction, so they cancel. However, this is an unstable equilibrium; any slight displacement produces a net force away from the midpoint.</em></div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — in Fig 1, the field lines are packed close together near each charge and spread apart further away. What does that tell you about the field strength at each location? <em>Field strength is read directly from line density: closely spaced lines near the charge mean a strong field, and the widely spaced lines further out mean a weak field.</em></div>
 </div>
 
-<!-- ═══ SECTION C — CORE KNOWLEDGE ═══ -->
 <div class="lc-section">Core knowledge</div>
 
-<!-- Card 1: Electric field lines -->
 <div class="lc-card">
-  <h3>🧲 Electric field lines</h3>
-  <p>An <strong>electric field</strong> is a region of space in which a charged particle experiences an electric force. We visualise these fields with <strong>electric field lines</strong> — imaginary curves drawn so that at every point the line is tangent to the direction of force on a positive test charge.</p>
-  <p>By convention, field lines <strong>point away from positive charges</strong> and <strong>toward negative charges</strong>. They never cross each other. Where the lines are packed close together the field is <strong>strong</strong>; where they spread apart the field is <strong>weak</strong>.</p>
-  <p>Key patterns every IB student must recognise: a <strong>radial field</strong> around an isolated point charge (lines spread outward for positive, inward for negative), a <strong>dipole field</strong> between equal and opposite charges (lines leave + and curve into −), and a <strong>uniform field</strong> between parallel plates (equally spaced, straight, parallel lines from + plate to − plate). Field lines are always <strong>perpendicular to conducting surfaces</strong> — if they weren't, the component of force along the surface would push mobile electrons until equilibrium is restored.</p>
+  <h3>🧲 Field lines and conductors</h3>
+  <p>An <strong>electric field</strong> is a region in which a charge would experience an electric force. Field lines never cross, and the field is strongest wherever they are densest. Figure 1 showed the two simplest patterns; put two charges near each other and their fields combine into new shapes — like charges curve away from each other (they repel), opposite charges curve from the positive one into the negative one (they attract).</p>
   <div class="lc-img">
-    <img src="https://i.ibb.co/Kxd7rxs5/image.png" alt="Three field patterns: radial field around positive charge, radial field around negative charge, and dipole field between opposite charges">
-    <div class="lc-cap">Fig 2 — Three fundamental electric field patterns: positive point charge, negative point charge, and electric dipole.</div>
+    <img src="../../assets/lesson-images/d2-02-electric-field-strength-02.png" alt="Field pattern around two equal negative point charges curving apart, and field pattern around a positive and negative point charge with lines running from the positive to the negative" style="max-width:100%">
+    <div class="lc-cap">Fig 2 — Left: field around two similar (here, negative) point charges — lines curve away from each other, never crossing (Fig D2.14). Right: field around opposite point charges — lines leave + and terminate on − (Fig D2.15).</div>
   </div>
-  <div class="lc-info">ℹ️ On a charged conducting sphere, all excess charge sits on the outer surface. The field outside is identical to that of a point charge at the centre; the field inside is zero.</div>
+  <p>On a charged conducting sphere, the mobile electrons repel each other and spread evenly over the outer surface, so the field outside is identical to that of a point charge at the centre — and there is <strong>no field inside</strong> the sphere. <strong>Electric field lines must always be perpendicular to a conducting surface.</strong> If they weren't, there would be a component of force along the surface, and that would push the mobile charges along it until the tangential component vanished.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-02-electric-field-strength-03.png" alt="Charged conducting sphere with negative charges spread over its outer surface and field lines pointing radially inward, perpendicular to the surface, with no field lines inside the sphere" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — A charged conducting sphere (Fig D2.16): field lines meet the surface at right angles, and the interior is field-free.</div>
+  </div>
+  <p>On a <strong>flat</strong> conducting surface, the forces between neighbouring mobile charges are parallel to the surface, so charge spreads out evenly. On a <strong>curved</strong> surface, those same forces are no longer parallel to the surface and vary with the curvature — which concentrates charge wherever the curvature is sharpest, i.e. near points. This is why field lines pack tightly near a sharp conductor.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/d2-02-electric-field-strength-04.png" alt="Flat conducting surface with mobile charges and parallel force arrows leading to even charge spacing; curved conducting surface with mobile charges and non-parallel force arrows leading to uneven spacing" style="max-width:100%"><div class="lc-cap">Fig 4a — Flat vs curved surfaces (Fig D2.17): only on a curved surface do the inter-charge forces have a component that redistributes charge unevenly.</div></div>
+  </div>
 </div>
 
-<!-- Card 2: Electric field strength -->
 <div class="lc-card">
-  <h3>📐 Electric field strength</h3>
-  <p><strong>Electric field strength</strong> \(E\) is defined as the force per unit positive test charge at a point. It is a vector quantity whose direction is the direction of force on a positive test charge.</p>
+  <h3>📐 Defining electric field strength</h3>
+  <p><strong>Electric field strength</strong>, \(E\), is the electric force per unit charge that would be experienced by a small positive test charge placed at a point:</p>
   <div class="lc-formula">
-    <span class="lc-formula-label">Electric field strength</span>
-    $$E = \dfrac{F}{q}$$
+    <span class="lc-formula-label">Electric field strength · SI unit N C⁻¹</span>
+    $$E = \frac{F}{q}$$
   </div>
-  <p>The SI unit is N C⁻¹. For the special case of the <strong>uniform field between parallel metal plates</strong> separated by distance \(d\) with potential difference \(V\) across them, energy conservation gives \(W = Fd = Vq\), and rearranging yields:</p>
+  <div class="lc-info">✍️ <strong>Worked example D2.2.</strong> A force of \(3.4\times10^{-6}\) N acts on a point charge of \(6.7\) nC. \(E = F/q = (3.4\times10^{-6})/(6.7\times10^{-9}) = 5.1\times10^{2}\ \text{N C}^{-1}\). There isn't enough information here to know the field's <em>direction</em> — magnitude only.</div>
+  <p>For the special case of the <strong>uniform field between parallel metal plates</strong>, work done moving a charge \(q\) from one plate to the other equals both force × distance and potential difference × charge: \(W = Fd = Vq\). Rearranging with \(E = F/q\) gives:</p>
   <div class="lc-formula">
-    <span class="lc-formula-label">Uniform field between parallel plates</span>
-    $$E = \dfrac{V}{d}$$
+    <span class="lc-formula-label">Field between parallel plates</span>
+    $$E = \frac{V}{d}$$
   </div>
-  <p>This shows that V m⁻¹ is an equivalent unit for electric field strength. The field is constant in magnitude and direction everywhere between the plates (ignoring edge effects).</p>
-  <p>The <strong>electronvolt</strong> (eV) is a convenient energy unit at atomic scales. A charge \(e\) accelerated through 1 V gains exactly 1 eV of kinetic energy — so an electron accelerated through 3000 V gains 3000 eV, without further calculation needed.</p>
-  <div class="lc-formula">
-    <span class="lc-formula-label">Electronvolt</span>
-    $$1\;\text{eV} = 1.60 \times 10^{-19}\;\text{J}$$
-  </div>
+  <p>This shows \(\text{V m}^{-1}\) is equivalent to \(\text{N C}^{-1}\) as a unit for \(E\). The field is weaker and non-uniform beyond the edges of the plates; midway between the edges, the field strength is half its maximum value.</p>
   <div class="lc-img">
-    <img src="https://i.ibb.co/Sw3jpr27/image.png" alt="Uniform electric field between parallel plates connected to a battery, with field lines, plate separation d, and voltage V labelled">
-    <div class="lc-cap">Fig 3 — Uniform electric field between parallel plates: straight, equally spaced field lines from + to −.</div>
+    <img src="../../assets/lesson-images/d2-02-electric-field-strength-05.png" alt="Battery connected to two horizontal parallel metal plates with uniform vertical field lines between them and curved non-uniform field lines beyond the edges, plate separation labelled d" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 5 — A uniform field between parallel plates (Fig D2.19). The top plate (connected to the battery's + terminal) becomes positive, the bottom negative.</div>
   </div>
-  <div class="lc-success">✓ <strong>Examiner tip:</strong> When a question gives voltage and plate separation, jump straight to \(E = V/d\) — there's no need to know the charge. This saves time and avoids errors.</div>
+  <div class="lc-info">✍️ <strong>Worked example D2.3.</strong> Plates 0.50 cm apart: what p.d. creates a field of \(1.0\times10^{6}\ \text{V m}^{-1}\)? \(V = Ed = (1.0\times10^{6})(0.0050) = 5.0\times10^{3}\ \text{V}\).</div>
+  <p>At atomic scales, the <strong>electronvolt</strong> is a more convenient energy unit than the joule: one electronvolt is the energy gained by a charge of \(1.60\times10^{-19}\) C accelerated through a p.d. of 1.00 V.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">The electronvolt</span>
+    $$1\ \text{eV} = 1.60\times10^{-19}\ \text{J}$$
+  </div>
+  <p>An electron accelerated through 3000 V gains 3000 eV without further calculation. Likewise a proton accelerated by 5 kV gains 5 keV, and a doubly-charged ion accelerated by 2000 V gains 4 keV.</p>
+  <div class="lc-info">✍️ <strong>Numerical example.</strong> An electron (\(m = 9.110\times10^{-31}\) kg, \(q = -1.60\times10^{-19}\) C) is accelerated across 5.0 cm by a p.d. of 3000 V, starting from rest. Work done \(W = qV = 3000 \times (1.60\times10^{-19}) = 4.80\times10^{-16}\) J — also expressible directly as <strong>3000 eV</strong>. Setting this equal to \(\tfrac12mv^2\) gives \(v = 3.25\times10^{7}\ \text{m s}^{-1}\).</div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-02-electric-field-strength-09.png" alt="Electron accelerating from the negative plate toward the positive plate between two parallel plates, with plate separation labelled 5.0 cm and voltage labelled 3000 V, the final speed left unlabelled" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — Geometry for the numerical example: an electron accelerated through 3000 V across a 5.0 cm gap.</div>
+  </div>
 </div>
 
-<!-- Card 3: Point charge field & combining fields -->
 <div class="lc-card">
-  <h3>🔬 Point charge field &amp; combining fields</h3>
-  <p>Coulomb's law and the definition \(E = F/q\) combine to give the field strength at distance \(r\) from a point charge \(q\):</p>
+  <h3>🔬 Field around a point charge &amp; combining fields</h3>
+  <p>The strength of the field around a point charge decreases with the square of the distance:</p>
   <div class="lc-formula">
     <span class="lc-formula-label">Field due to a point charge</span>
-    $$E = \dfrac{kq}{r^{2}}$$
+    $$E = \frac{F}{q} = \frac{kq}{r^{2}}$$
   </div>
-  <p>This is an <strong>inverse-square law</strong>: double the distance and the field drops to one quarter. The field points radially outward for a positive source charge and radially inward for a negative one.</p>
-  <p>Because electric field strength is a <strong>vector</strong>, fields from separate charges are combined by <strong>vector addition</strong>. On the line joining two charges this reduces to adding or subtracting magnitudes (with careful attention to direction). At off-axis points, use the parallelogram rule or resolve into components:</p>
-  <div class="lc-formula">
-    <span class="lc-formula-label">Resultant of perpendicular fields</span>
-    $$E_{\text{R}} = \sqrt{E_{1}^{2} + E_{2}^{2}} \qquad \theta = \arctan\!\left(\dfrac{E_{2}}{E_{1}}\right)$$
-  </div>
+  <div class="lc-info">✍️ <strong>Worked example D2.4.</strong> Field at \(r = 1.0\) m from \(q = +2.9\times10^{-8}\) C: \(E = kq/r^2 = (8.99\times10^9)(2.9\times10^{-8})/1.0^2 = 260\ \text{N C}^{-1}\).</div>
+  <p>The field strength is negative if the source charge is negative (arrows point inward rather than outward).</p>
   <div class="lc-img">
-    <img src="https://i.ibb.co/dwtWnYsJ/image.png" alt="Vector addition of two electric fields at point P using the parallelogram rule, showing resultant field and angle theta">
-    <div class="lc-cap">Fig 4 — Combining electric fields: the parallelogram rule gives the resultant \(E_{\text{R}}\) at point P.</div>
+    <img src="../../assets/lesson-images/d2-02-electric-field-strength-06.png" alt="Graph of electric field strength E against distance r for a positive point charge, a red curve starting high and decreasing rapidly toward zero" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — \(E\) against \(r\) for a positive point charge (Fig D2.22): a rapid inverse-square decay.</div>
   </div>
-  <div class="lc-warn">⚠️ When combining fields between two charges, direction matters. Between two positive charges the individual fields point in <strong>opposite</strong> directions — subtract magnitudes. Between a positive and a negative charge the fields point the <strong>same</strong> way — add them.</div>
+  <p>Because \(E\) is a vector, electric fields from separate charges combine by <strong>vector addition</strong>. On the line joining two charges, this is straightforward: e.g. a field of \(420\ \text{N C}^{-1}\) to the left and \(550\ \text{N C}^{-1}\) to the right combine to give \(130\ \text{N C}^{-1}\) to the right. Off that line, use a scale drawing, a parallelogram, or trigonometry.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-02-electric-field-strength-07.png" alt="Point P with two electric field vectors E sub A pointing down-right and E sub B pointing up-left, dashed lines forming a parallelogram, and a red resultant field vector pointing to the right" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 8 — Determining a resultant field at point P (Fig D2.23) using the parallelogram rule.</div>
+  </div>
+  <div class="lc-info">🔗 <strong>Nature of science — electric vs gravitational force.</strong> The electric force between a proton and an electron is about \(10^{39}\times\) greater than the gravitational force between them, yet gravity dominates on the scale of planets and stars. Both follow an inverse-square law, but gravity is always attractive and grows with mass, while electric charges are usually approximately balanced in bulk matter — so large-scale electrostatic effects mostly cancel out, leaving gravity to dominate. <em>(Linking question — this connects to the relative strengths of the four fundamental forces in Topics D.1, D.2, E.1 and E.3.)</em></div>
 </div>
 
-<!-- ═══ SECTION D — GRAPH MASTERY TABLE ═══ -->
 <div class="lc-section">Graph mastery</div>
 <div class="lc-card">
   <h3>📈 Graphs every examiner uses</h3>
   <table class="lc-table">
     <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
     <tbody>
-      <tr>
-        <td>\(E\) vs \(r\)</td>
-        <td>X: distance \(r\) (m)<br>Y: field strength \(E\) (N C⁻¹)</td>
-        <td>Inverse-square curve, asymptotic to both axes</td>
-        <td>Field decreases rapidly with distance; at \(2r_0\) the field is \(\tfrac{1}{4}\) of its value at \(r_0\)</td>
-      </tr>
-      <tr>
-        <td>\(E\) vs \(1/r^2\)</td>
-        <td>X: \(1/r^2\) (m⁻²)<br>Y: field strength \(E\) (N C⁻¹)</td>
-        <td>Straight line through the origin</td>
-        <td>Gradient = \(kq\); use to determine source charge from data</td>
-      </tr>
-      <tr>
-        <td>\(E\) vs \(d\) (fixed \(V\))</td>
-        <td>X: plate separation \(d\) (m)<br>Y: field strength \(E\) (N C⁻¹)</td>
-        <td>Inverse (hyperbolic) curve</td>
-        <td>Halving the separation doubles the field; \(E = V/d\) at any point</td>
-      </tr>
+      <tr><td>\(E\) vs \(r\) (point charge)</td><td>X: distance \(r\)<br>Y: field strength \(E\)</td><td>Steep inverse-square curve, asymptotic to both axes</td><td>Doubling \(r\) divides \(E\) by 4; never crosses zero for a single charge</td></tr>
+      <tr><td>\(E\) vs \(1/r^2\)</td><td>X: \(1/r^2\)<br>Y: field strength \(E\)</td><td>Straight line through the origin</td><td>Gradient = \(kq\), so \(q = \text{gradient}/k\) — the standard way to linearise the point-charge law</td></tr>
+      <tr><td>\(E\) vs \(d\) (parallel plates, fixed \(V\))</td><td>X: separation \(d\)<br>Y: field strength \(E\)</td><td>Inverse (hyperbolic) curve</td><td>Halving \(d\) doubles \(E\); read any point directly off \(E = V/d\)</td></tr>
     </tbody>
   </table>
   <div class="lc-img-row">
-    <div class="lc-img">
-      <img src="https://i.ibb.co/PZHmWYwg/image.png" alt="Graph of electric field strength E versus distance r showing an inverse-square curve">
-      <div class="lc-cap">Fig 5 — \(E\) vs \(r\): inverse-square decay around a point charge.</div>
-    </div>
-    <div class="lc-img">
-      <img src="https://i.ibb.co/fYPcSspN/image.png" alt="Linearised graph of E versus 1 over r squared showing a straight line through the origin with gradient triangle">
-      <div class="lc-cap">Fig 6 — Linearised: \(E\) vs \(1/r^2\) gives gradient = \(kq\).</div>
-    </div>
+    <div class="lc-img"><img src="../../assets/lesson-images/d2-02-electric-field-strength-06.png" alt="Graph of electric field strength E versus distance r showing an inverse-square curve" style="max-width:100%"><div class="lc-cap">Fig 7 (repeated) — \(E\) vs \(r\): the raw inverse-square relationship.</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/d2-02-electric-field-strength-08.png" alt="Linearised graph of E versus 1 over r squared, a straight line through the origin with a gradient triangle" style="max-width:100%"><div class="lc-cap">Fig 9 — \(E\) vs \(1/r^2\): the same relationship, linearised for gradient analysis.</div></div>
   </div>
-  <div class="lc-info">📏 <strong>Linearising trick:</strong> Plot \(E\) against \(1/r^2\). The relationship \(E = kq/r^2\) becomes \(E = (kq) \cdot (1/r^2)\), a straight line through the origin. The source charge is \(q = \text{gradient} / k\).</div>
 </div>
 
-<!-- ═══ SECTION E — WORKED EXAMPLE ═══ -->
-<div class="lc-section">Worked example</div>
+<div class="lc-section">Worked examples</div>
+
 <div class="lc-card">
-  <h3>✍️ Worked example – Field and energy between parallel plates</h3>
-  <div class="lc-step">
-    <div class="lc-step-num">1</div>
-    <div class="lc-step-body"><strong>Identify:</strong> We need the electric field strength between parallel plates and the kinetic energy gained by an electron crossing them. This is a uniform-field problem using \(E = V/d\) and \(W = qV\).</div>
-  </div>
-  <div class="lc-step">
-    <div class="lc-step-num">2</div>
-    <div class="lc-step-body"><strong>Data:</strong> Plate separation \(d = 8.0\;\text{cm} = 0.080\;\text{m}\). Potential difference \(V = 15\;\text{kV} = 15\,000\;\text{V}\). Electron charge \(e = 1.60 \times 10^{-19}\;\text{C}\).</div>
-  </div>
-  <div class="lc-step">
-    <div class="lc-step-num">3</div>
-    <div class="lc-step-body"><strong>Equation:</strong> Electric field strength: \(E = \dfrac{V}{d} = \dfrac{15\,000}{0.080} = 1.875 \times 10^{5}\;\text{V m}^{-1}\). Energy gained in eV: an electron accelerated through 15 000 V gains <strong>15 000 eV = 15 keV</strong>. Energy in joules: \(W = qV = (1.60 \times 10^{-19})(15\,000) = 2.4 \times 10^{-15}\;\text{J}\).</div>
-  </div>
-  <div class="lc-step">
-    <div class="lc-step-num">4</div>
-    <div class="lc-step-body"><strong>Answer:</strong> The field strength is <strong>\(1.9 \times 10^{5}\;\text{V m}^{-1}\)</strong> (2 s.f.) and the electron gains <strong>15 keV</strong> (= \(2.4 \times 10^{-15}\;\text{J}\)) of kinetic energy. The electronvolt shortcut eliminates multiplication when the charge is \(e\).</div>
-  </div>
+  <h3>✍️ Worked example – field between parallel plates and the electronvolt</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> a uniform-field problem. Use \(E = V/d\) for the field, then \(W = qV\) for the energy gained by an electron crossing the gap.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(d = 8.0\ \text{cm} = 0.080\ \text{m}\), \(V = 15\ \text{kV} = 15\,000\ \text{V}\), \(e = 1.60\times10^{-19}\ \text{C}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(E = V/d = 15\,000/0.080 = 1.875\times10^{5}\ \text{V m}^{-1}\). In eV, the electron gains exactly <strong>15 000 eV</strong>. In joules: \(W = eV = (1.60\times10^{-19})(15\,000)\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(E = 1.9\times10^{5}\ \text{V m}^{-1}\) (2 s.f.); the electron gains 15 000 eV \(= 2.4\times10^{-15}\ \text{J}\).</div></div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – lightning, a huge uniform field (nature of science)</h3>
+  <p>A simplified model treats a storm cloud and the ground as giant charged "plates" with a uniform field between them (Fig D2.28: positive charge collects at the cloud top, negative at its base, with induced positive charge on the ground beneath).</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> apply \(E = V/d\) to find the field, then \(I = \Delta q/\Delta t\) and \(P = IV\) to find the power and total energy of the strike.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> p.d. \(V = 2.0\times10^{6}\) V; cloud-to-ground separation \(d = 0.5\) km \(= 500\) m; charge transferred \(\Delta q = 3000\) C in \(\Delta t = 0.2\) s.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(E = V/d = (2.0\times10^6)/500\). Current \(I = \Delta q/\Delta t = 3000/0.2\). Power \(P = IV\). Energy \(= P\Delta t\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(E = 4000\ \text{V m}^{-1}\); \(I = 15\,000\) A; \(P = (2.0\times10^6)(15\,000) = 3.0\times10^{10}\ \text{W}\); total energy transferred \(= (3.0\times10^{10})(0.2) = 6.0\times10^{9}\ \text{J}\).</div></div>
   <div class="lc-img">
-    <img src="https://i.ibb.co/6cnVwybJ/image.png" alt="Parallel plate setup showing an electron accelerating from negative to positive plate, with separation d = 8.0 cm and voltage V = 15 kV labelled">
-    <div class="lc-cap">Fig 7 — Worked example geometry: electron accelerated between parallel plates.</div>
+    <img src="../../assets/lesson-images/d2-02-electric-field-strength-10.png" alt="Storm cloud with positive charge at the top and negative charge at the base above the ground, induced positive charge on the ground surface, vertical electric field lines pointing upward from the ground to the cloud base" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 10 — Simplified model of the electric field beneath a storm cloud (Fig D2.28).</div>
   </div>
 </div>
 
-<!-- ═══ SECTION F — REAL-WORLD + HL EXTENSION ═══ -->
 <div class="lc-section">Applications &amp; extensions</div>
 <div class="lc-two-col">
   <div class="lc-card">
-    <h3>⚡ Real-world: Electrostatic precipitators</h3>
-    <p>Inside coal-fired power stations, flue gases pass between charged plates that create strong, uniform electric fields. Tiny soot and ash particles pick up charge and are driven to the collecting plates, removing up to 99% of particulate pollution before gases reach the chimney. The physics is exactly \(E = V/d\) scaled up to industrial voltages.</p>
-    <div class="lc-success">✓ <strong>Examiner tip:</strong> If asked to "explain" how a device works, state the field pattern first, then link force to charge using \(F = qE\) — this earns the "link" mark.</div>
+    <h3>✈️ Real-world: static dischargers on aircraft</h3>
+    <p>Small pointed rods trail from the wings and tail of an aircraft. Friction with the air charges the aircraft in flight, and because field lines pack tightly near sharp points (where curvature — and so charge — is concentrated), the local field at each rod's tip becomes strong enough to ionise the surrounding air. This lets charge bleed away gradually and safely as a faint glow (a corona discharge) instead of building up towards a damaging spark.</p>
+    <div class="lc-success">✓ <strong>Examiner tip:</strong> for "why are pointed conductors used to discharge static", always mention the concentrated field <em>and</em> that it ionises the air, giving a continuous, controlled discharge rather than a spark.</div>
   </div>
   <div class="lc-card">
-    <h3>🚀 HL Extension – Millikan's oil drop experiment</h3>
-    <p>By balancing gravitational force on a tiny charged oil drop against the upward electric force between horizontal parallel plates, Millikan showed that charge is <strong>quantised</strong> in multiples of \(e = 1.60 \times 10^{-19}\;\text{C}\). At equilibrium: \(qE = mg\), so \(q = mg/E\). Every measured charge was an integer multiple of \(e\).</p>
-    <p><strong>Challenge:</strong> An oil drop of mass \(9.79 \times 10^{-15}\;\text{kg}\) is suspended between plates separated by 5.0 mm with a p.d. of 306 V. How many excess electrons does the drop carry? (Answer: \(q = mgd/V = 1.57 \times 10^{-18}\;\text{C}\); \(n = q/e \approx 10\) electrons.)</p>
+    <h3>🚀 HL Extension – Millikan confirms charge is quantised</h3>
+    <p>Millikan and Fletcher balanced gravity against an electric force on tiny charged oil drops held between horizontal parallel plates: \(F = mg = Eq = Vq/d\). Every drop's measured charge turned out to be a whole-number multiple of \(1.60\times10^{-19}\) C — evidence that <strong>charge is quantised</strong>.</p>
+    <p><strong>Challenge:</strong> plates 2.1 cm apart hold stationary an oil drop of mass \(2.7\times10^{-14}\) kg carrying 5 excess electrons. What p.d. is needed? <em>(Answer: \(V = mgd/q = (2.7\times10^{-14})(9.8)(0.021)/[5\times(1.60\times10^{-19})] = 6.9\times10^{3}\ \text{V}\).)</em></p>
   </div>
 </div>
 
-<!-- ═══ SECTION G — MISCONCEPTIONS ═══ -->
+<div class="lc-card">
+  <h3>🔎 Millikan's method and the coin-bag analogy</h3>
+  <p>Six oil drops gave charges (in units of \(10^{-19}\) C) of \(-9.62, -11.20, -4.84, -17.58, -6.43, -8.00\). Statistically, all of these are highly likely to be multiples of \(-1.60\). An analogy: six sealed bags of identical coins had masses of 84 g, 63 g, 98 g, 35 g, 56 g and 42 g. Each is a whole-number multiple of 7 g (12, 9, 14, 5, 8 and 6 times respectively) — so 7 g is almost certainly the mass of one coin. Enough independent measurements reaching the same conclusion effectively become a certainty.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d2-02-electric-field-strength-11.png" alt="Millikan oil drop apparatus with an oil spray above two horizontal charged plates connected to a high voltage source, a microscope viewing the gap, plate separation labelled d, alongside a free body diagram of a stationary oil drop with an equal upward electric force and downward weight" style="max-width:100%">
+    <div class="lc-cap">Fig 11 — Millikan's oil-drop apparatus (Fig D2.25) and the balanced forces on a stationary drop (Fig D2.26): \(F = Eq = mg\).</div>
+  </div>
+</div>
+
 <div class="lc-section">Trap corner</div>
 <div class="lc-card">
   <h3>⚠️ Trap corner – common mistakes</h3>
   <table class="lc-table">
     <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
     <tbody>
-      <tr>
-        <td>"Field lines are the paths charges follow."</td>
-        <td>Field lines show the direction of force (and therefore acceleration), not the trajectory. A moving charge can cross field lines.</td>
-      </tr>
-      <tr>
-        <td>"\(E = V/d\) works for any electric field."</td>
-        <td>This formula applies only to the uniform field between parallel plates. For point charges, use \(E = kq/r^2\).</td>
-      </tr>
-      <tr>
-        <td>"Doubling the distance halves the field."</td>
-        <td>The field follows an inverse-square law: doubling \(r\) reduces \(E\) to one quarter, not one half.</td>
-      </tr>
-      <tr>
-        <td>"The electronvolt is a unit of voltage."</td>
-        <td>The electronvolt is a unit of <strong>energy</strong> (\(1\;\text{eV} = 1.60 \times 10^{-19}\;\text{J}\)). It applies to any particle, not just electrons.</td>
-      </tr>
+      <tr><td>Field lines are the paths that charges follow</td><td>Field lines show the direction of force (and so acceleration) at each point, not a trajectory — a moving charge can cross field lines</td></tr>
+      <tr><td>\(E = V/d\) works for any electric field</td><td>Only for the uniform field between parallel plates. For a point charge use \(E = kq/r^2\)</td></tr>
+      <tr><td>Doubling the distance from a point charge halves the field</td><td>The field is an inverse-square law: doubling \(r\) divides \(E\) by 4, not 2</td></tr>
+      <tr><td>Electric forces are insignificant compared with gravity</td><td>Between individual charged particles, the electric force vastly exceeds gravity (by a factor of about \(10^{39}\) for a proton and electron); it only appears negligible on the large scale because positive and negative charges are usually balanced</td></tr>
+      <tr><td>Pointed conductors are dangerous because they concentrate charge</td><td>That concentrated field is exploited deliberately — it lets charge bleed away safely via a gentle corona discharge, which is why static dischargers and lightning rods are pointed on purpose</td></tr>
     </tbody>
   </table>
-  <div class="lc-warn">⚠️ <strong>Most common slip:</strong> Forgetting to convert cm to m before substituting into \(E = V/d\) or \(E = kq/r^2\). This produces answers wrong by factors of 100 or 10 000 — an instant giveaway and zero marks for the numerical answer.</div>
+  <div class="lc-warn">⚠️ Most common slip: forgetting to convert cm or mm to metres before substituting into \(E = V/d\) or \(E = kq/r^2\) — this produces answers wrong by a factor of 100 or more.</div>
 </div>
 
-<!-- ═══ SECTION H — KEY POINTS PILLS ═══ -->
-<div class="lc-section">Key points</div>
 <div class="lc-kp">
-  <span>E = F / q</span>
-  <span>E = V / d (plates)</span>
-  <span>E = kq / r² (point)</span>
-  <span>1 eV = 1.60 × 10⁻¹⁹ J</span>
-  <span>Field lines: + → −</span>
-  <span>Inverse-square law</span>
+  <span>E = F/q</span>
+  <span>E = V/d (plates)</span>
+  <span>E = kq/r² (point charge)</span>
+  <span>1 eV = 1.60×10⁻¹⁹ J</span>
+  <span>field lines ⟂ conductors</span>
+  <span>inverse-square law</span>
+  <span>charge is quantised</span>
+  <span>combine fields as vectors</span>
 </div>
 
-<!-- ═══ SECTION I — MCQ PRACTICE ═══ -->
 <div class="lc-section">Practice check — multiple choice</div>
 
 <div class="lc-card">
   <div id="mcq1">
-    <div class="lc-mcq-q">1. The electric field strength between parallel plates is 5000 V m⁻¹. The plates are 2.0 cm apart. What is the potential difference across the plates?</div>
+    <div class="lc-mcq-q">1. The electric field strength between two parallel plates is 5000 V m⁻¹. The plates are 2.0 cm apart. What is the potential difference across them?</div>
     <div class="lc-opts">
       <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> 10 V</div>
       <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> 50 V</div>
@@ -516,7 +355,7 @@ MathJax = {
 
 <div class="lc-card">
   <div id="mcq2">
-    <div class="lc-mcq-q">2. The electric field strength at a distance \(r\) from a point charge is \(E\). At a distance \(3r\) the field strength is:</div>
+    <div class="lc-mcq-q">2. The field strength at distance \(r\) from a point charge is \(E\). At distance \(3r\), the field strength is</div>
     <div class="lc-opts">
       <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','C')"><span class="lc-opt-l">A</span> \(E/3\)</div>
       <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','C')"><span class="lc-opt-l">B</span> \(E/6\)</div>
@@ -529,12 +368,12 @@ MathJax = {
 
 <div class="lc-card">
   <div id="mcq3">
-    <div class="lc-mcq-q">3. A proton and an electron are placed in the same uniform electric field. Which statement is correct?</div>
+    <div class="lc-mcq-q">3. A proton and an electron sit in the same uniform electric field. Which statement is correct?</div>
     <div class="lc-opts">
-      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> They experience the same force in the same direction.</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> They experience the same magnitude of force but in opposite directions.</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> The electron experiences a larger force because it has smaller mass.</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> The proton experiences a larger force because it has larger charge.</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> Same force, same direction</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> Same magnitude of force, opposite directions</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> The electron feels more force because it has less mass</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> The proton feels more force because it has more charge</div>
     </div>
     <div class="lc-fb" id="mcq3-fb"></div>
   </div>
@@ -542,142 +381,242 @@ MathJax = {
 
 <div class="lc-card">
   <div id="mcq4">
-    <div class="lc-mcq-q">4. An electron is accelerated from rest through a potential difference of 500 V. What kinetic energy does it gain?</div>
+    <div class="lc-mcq-q">4. An electron accelerated from rest through 500 V gains a kinetic energy of</div>
     <div class="lc-opts">
       <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','B')"><span class="lc-opt-l">A</span> 500 J</div>
       <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','B')"><span class="lc-opt-l">B</span> 500 eV</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> \(8.0 \times 10^{-17}\) eV</div>
-      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> \(3.1 \times 10^{21}\) eV</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','B')"><span class="lc-opt-l">C</span> \(8.0\times10^{-17}\) eV</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','B')"><span class="lc-opt-l">D</span> \(3.1\times10^{21}\) eV</div>
     </div>
     <div class="lc-fb" id="mcq4-fb"></div>
   </div>
 </div>
 
-<!-- ═══ SECTION J — FILL IN THE BLANKS ═══ -->
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. Why do all of Millikan's measured drop charges come out as whole-number multiples of the same value?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','D')"><span class="lc-opt-l">A</span> Coincidence — with more drops the pattern would disappear</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','D')"><span class="lc-opt-l">B</span> The plates were charged in discrete steps</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','D')"><span class="lc-opt-l">C</span> Only the electric force was quantised, not the charge</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','D')"><span class="lc-opt-l">D</span> Electric charge itself only exists in multiples of one elementary unit</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. Why must electric field lines meet a conductor's surface at right angles?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','C')"><span class="lc-opt-l">A</span> Conductors are always spherical</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','C')"><span class="lc-opt-l">B</span> Field lines are always straight near any surface</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','C')"><span class="lc-opt-l">C</span> A tangential component would push mobile charges along the surface until it disappeared</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','C')"><span class="lc-opt-l">D</span> The field inside a conductor is never zero</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
 <div class="lc-section">Practice check — fill in the blanks</div>
 <div class="lc-card">
   <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
   <div class="lc-fitb">
-    The electric field strength is defined as the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:80px"> per unit <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> experienced by a small positive test charge. Between parallel plates the field is <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px"> and its strength equals <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:80px">. The field around a point charge obeys an <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:130px"> law.
+    Electric field strength is defined as the <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:80px"> per unit <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> experienced by a small positive test charge. Between parallel plates the field is <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px"> and equals <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:80px">. Around a point charge, the field obeys an <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:130px"> law. Millikan's experiment showed that electric charge is <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:110px">, existing only in whole-number multiples of \(e\).
   </div>
   <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
   <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
 </div>
 
-<!-- ═══ SECTION K — EXAM-STYLE QUESTIONS ═══ -->
 <div class="lc-section">Exam‑style questions</div>
 
 <div class="lc-exam">
-  <div class="lc-exam-tag">Exam question · Calculate</div>
-  <div class="lc-exam-q">Two parallel metal plates are separated by 4.0 cm and connected to a 6.0 kV power supply.<br>(a) Calculate the electric field strength between the plates. [2]<br>(b) Determine the force on a singly charged positive ion between the plates. [2]<br>(c) State the direction of the force on the ion. [1]</div>
-  <div class="lc-exam-marks">[5 marks]</div>
+  <div class="lc-exam-tag">Exam question · Predict</div>
+  <div class="lc-exam-q"><strong>Q10.</strong> The force between two point charges was \(2.7\times10^{-6}\) N when they were separated by 29 cm. Predict the force between the same two charges if the separation was increased to 40 cm. <span class="lc-exam-marks">[2 marks]</span></div>
   <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
   <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
-  <div class="lc-model">
-    <strong>(a)</strong> \(E = V/d\) ✓<br>
-    \(= 6000 / 0.040 = 1.5 \times 10^{5}\;\text{V m}^{-1}\) ✓<br><br>
-    <strong>(b)</strong> \(F = qE\) ✓<br>
-    \(= (1.60 \times 10^{-19})(1.5 \times 10^{5}) = 2.4 \times 10^{-14}\;\text{N}\) ✓<br><br>
-    <strong>(c)</strong> From the positive plate toward the negative plate / in the direction of the electric field. ✓
-  </div>
+  <div class="lc-model">✓ \(F \propto 1/r^2\), so \(F_2 = F_1(r_1/r_2)^2 = (2.7\times10^{-6})(29/40)^2\)<br>✓ \(F_2 = 1.4\times10^{-6}\ \text{N}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q11.</strong> Calculate the value of the force between a proton and an electron in a hydrogen atom (separation \(= 5.3\times10^{-11}\) m). <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(F = ke^2/r^2 = (8.99\times10^9)(1.60\times10^{-19})^2/(5.3\times10^{-11})^2\)<br>✓ \(F = 8.2\times10^{-8}\ \text{N}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Discuss</div>
+  <div class="lc-exam-q"><strong>Q12.</strong> By considering components of forces, discuss why field lines must always be perpendicular to conducting surfaces. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ If a field line met the surface at an angle, it would have a component of force along (tangential to) the surface.<br>✓ That tangential force would push mobile charges along the surface until they redistributed and the tangential component vanished — leaving only a perpendicular field at equilibrium.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Suggest</div>
+  <div class="lc-exam-q"><strong>Q13.</strong> Suggest why pointed conductors are a good way of discharging static electricity. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Charge concentrates where curvature is greatest, i.e. at a sharp point, giving a very high local field strength.<br>✓ That field is strong enough to ionise the surrounding air, allowing charge to leak away gradually and safely rather than building up to a spark.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw</div>
+  <div class="lc-exam-q"><strong>Q14.</strong> Consider the parallel-plate arrangement. Draw electric field lines to represent the electric field if the battery was reversed and the p.d. halved. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Field lines still straight, parallel and evenly spaced between the plates, but now pointing in the opposite direction (the previously negative plate is now positive).<br>✓ Spaced roughly twice as far apart as before, since \(E = V/d\) is halved.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Copy / Show</div>
+  <div class="lc-exam-q"><strong>Q15.</strong> An uncharged metal sphere sits between two charged metal plates (top plate positive, bottom negative). Copy the figure, show where charges are induced, and add lines to represent the electric field. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The sphere's upper (near the + plate) surface becomes negatively charged; its lower surface becomes positively charged, by electrostatic induction.<br>✓ Field lines run from the + plate to the induced negative charge, and resume from the induced positive charge down to the − plate.<br>✓ No field lines exist inside the (conducting) sphere.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q16.</strong> Calculate the value of electric field strength that would exert a force of \(6.3\times10^{-14}\) N on a proton. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(E = F/q = (6.3\times10^{-14})/(1.60\times10^{-19})\)<br>✓ \(E = 3.9\times10^{5}\ \text{N C}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Explain</div>
+  <div class="lc-exam-q"><strong>Q17.</strong> <strong>a)</strong> Calculate the electric field strength along a straight wire of length 38 cm if there is a p.d. of 0.0010 V between its ends. <strong>b)</strong> What force would this field exert on a free electron in the wire? <strong>c)</strong> Determine the acceleration of the electron. <strong>d)</strong> Explain why the electron is not accelerated to an extreme speed. <span class="lc-exam-marks">[6 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) \(E = V/d = 0.0010/0.38 = 2.6\times10^{-3}\ \text{N C}^{-1}\).<br>✓ b) \(F = eE = (1.60\times10^{-19})(2.6\times10^{-3}) = 4.2\times10^{-22}\ \text{N}\).<br>✓ c) \(a = F/m_e = (4.2\times10^{-22})/(9.11\times10^{-31}) = 4.6\times10^{8}\ \text{m s}^{-2}\).<br>✓ d) The electron continually collides with the lattice ions in the wire, losing kinetic energy at each collision and repeatedly restarting from a low speed, rather than accelerating freely — this limits it to a slow average drift velocity.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q18.</strong> <strong>a)</strong> Calculate the electric field strength between parallel metal plates separated by 8.0 cm when a p.d. of 15 kV is connected across them. <strong>b)</strong> How much energy is gained by an electron accelerated between the plates in <strong>i)</strong> eV <strong>ii)</strong> joules? <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) \(E = V/d = 15\,000/0.080 = 1.9\times10^{5}\ \text{V m}^{-1}\).<br>✓ b) i) 15 000 eV (15 keV).<br>✓ ii) \(W = eV = (1.60\times10^{-19})(15\,000) = 2.4\times10^{-15}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Predict</div>
+  <div class="lc-exam-q"><strong>Q19.</strong> If the electric field strength exceeds about 3 kV mm⁻¹, air can begin to conduct electricity. Predict the potential difference needed across 20 cm for this to happen. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(E_{\max} = 3\ \text{kV mm}^{-1} = 3\times10^{6}\ \text{V m}^{-1}\).<br>✓ \(V = Ed = (3\times10^{6})(0.20) = 6.0\times10^{5}\ \text{V}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q"><strong>Q20.</strong> Sketch a graph to represent the variation of electric field strength with distance around a negatively charged conducting sphere. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Same inverse-square shape as for a positive charge (steep fall, asymptotic to zero) but the field points inward at every point, so on a signed axis the curve lies below zero (negative \(E\)) instead of above it.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q21.</strong> Calculate the electric field strength 15 cm from a charge of \(-8.4\ \mu\text{C}\) when it is in <strong>a)</strong> air <strong>b)</strong> a material of relative permittivity 1.6. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) \(E = kq/r^2 = (8.99\times10^9)(8.4\times10^{-6})/(0.15)^2 = 3.4\times10^{6}\ \text{N C}^{-1}\) (directed toward the charge, since it is negative).<br>✓ b) \(E' = E/\epsilon_r = (3.4\times10^6)/1.6 = 2.1\times10^{6}\ \text{N C}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q22.</strong> The electric field strength 150 cm from a point charge is \(2.0\times10^{5}\ \text{N C}^{-1}\). Determine at what distance the field strength would be one million N C⁻¹. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(E \propto 1/r^2 \Rightarrow r_2 = r_1\sqrt{E_1/E_2} = 1.50\sqrt{(2.0\times10^5)/(1.0\times10^6)}\)<br>✓ \(r_2 = 0.67\ \text{m}\) (67 cm).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q23.</strong> A nucleus of a carbon atom has a charge of \(+6e\). Determine the distance from its centre where the electric field strength has a value of \(3.0\times10^{10}\ \text{N C}^{-1}\). <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(q = 6e = 9.6\times10^{-19}\ \text{C}\).<br>✓ \(r = \sqrt{kq/E} = \sqrt{(8.99\times10^9)(9.6\times10^{-19})/(3.0\times10^{10})}\)<br>✓ \(r = 5.4\times10^{-10}\ \text{m}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Determine</div>
+  <div class="lc-exam-q"><strong>Q24.</strong> <strong>a)</strong> Calculate the electric field strength midway between point charges of 26 nC and −10 nC when they are separated by a distance of 50 cm. <strong>b)</strong> Determine the field strength at a point which is 35 cm from the negative charge and 15 cm from the positive charge. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) At the midpoint, \(r = 0.25\) m from each. \(E_+ = kq_+/r^2 = 3740\ \text{N C}^{-1}\); \(E_- = kq_-/r^2 = 1440\ \text{N C}^{-1}\).<br>✓ Both fields point the same way (from + toward −), so \(E_{\text{total}} = 3740 + 1440 \approx 5.2\times10^{3}\ \text{N C}^{-1}\).<br>✓ b) \(E_+\) (at 0.15 m) \(= (8.99\times10^9)(26\times10^{-9})/(0.15)^2 = 1.04\times10^{4}\ \text{N C}^{-1}\).<br>✓ \(E_-\) (at 0.35 m) \(= (8.99\times10^9)(10\times10^{-9})/(0.35)^2 = 7.3\times10^{2}\ \text{N C}^{-1}\).<br>✓ Both point the same way (toward the negative charge), so total \(\approx 1.11\times10^{4}\ \text{N C}^{-1}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q25.</strong> A point charge \(Q\) is 8.3 cm from a charge of \(+56\ \mu\text{C}\). The electric field strength is zero at a point which is 4.7 cm from \(Q\) on a line joining the two charges. Determine the charge of \(Q\). <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The null point lies between the two charges (4.7 cm from \(Q\), so \(8.3 - 4.7 = 3.6\) cm from the \(+56\ \mu\text{C}\) charge); for the fields to cancel there, \(Q\) must have the same sign (positive).<br>✓ Equating field magnitudes: \(Q/(0.047)^2 = 56\ \mu\text{C}/(0.036)^2\).<br>✓ \(Q = 56\ \mu\text{C} \times (0.047/0.036)^2 \approx 95\ \mu\text{C}\) (positive).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Estimate</div>
+  <div class="lc-exam-q"><strong>Q26.</strong> The average electric field strength just above the surface of the Earth is about 150 N C⁻¹, directed downwards. Estimate the total resultant charge carried by the Earth. (The radius of Earth is \(6.4\times10^{6}\) m.) <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Treat the Earth as a point/sphere charge: \(Q = Er^2/k = (150)(6.4\times10^6)^2/(8.99\times10^9)\).<br>✓ \(Q \approx 6.8\times10^{5}\ \text{C}\).<br>✓ The field points downward (toward the Earth) on a positive test charge, so the Earth's net charge is negative.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q"><strong>Q27.</strong> Sketch the approximate shape of the electric field lines around two charged spheres of equal radius, \(R\), separated by \(4R\): one with a charge of \(+Q\), the other with a charge of \(-4Q\). <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Lines leave the \(+Q\) sphere on all sides, radially at first.<br>✓ Most lines curve across and terminate on the \(-4Q\) sphere, since it can absorb four times as many lines as \(+Q\) emits — so several extra lines converge on \(-4Q\) directly from "infinity" (from outside the pair), not from \(+Q\).<br>✓ No field lines cross; spacing is denser near each sphere's surface and near the more highly charged \(-4Q\) sphere overall.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q28.</strong> An oil droplet has a weight of \(7.68\times10^{-15}\) N. <strong>a)</strong> If it is stationary between two horizontal metal plates which are 1.0 cm apart with a voltage of 120 V across them, determine the charge on the oil droplet. <strong>b)</strong> How many excess electrons are on the droplet? <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) \(E = V/d = 120/0.010 = 1.2\times10^{4}\ \text{N C}^{-1}\); at equilibrium \(qE = mg\), so \(q = (7.68\times10^{-15})/(1.2\times10^{4})\).<br>✓ \(q = 6.4\times10^{-19}\ \text{C}\).<br>✓ b) \(n = q/e = (6.4\times10^{-19})/(1.60\times10^{-19}) = 4\) excess electrons.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show</div>
+  <div class="lc-exam-q"><strong>Q29.</strong> Show, with an approximate calculation, why it may be reasonable to ignore the buoyancy force in the previous calculation. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Buoyancy = weight of displaced air = \(\rho_{\text{air}}Vg\); actual weight = \(\rho_{\text{oil}}Vg\); their ratio is \(\rho_{\text{air}}/\rho_{\text{oil}} \approx 1.2/900 \approx 0.001\).<br>✓ Buoyancy is roughly a thousand times smaller than the drop's weight, so it can reasonably be ignored for this level of precision.</div>
 </div>
 
 <div class="lc-exam">
   <div class="lc-exam-tag">Exam question · Explain</div>
-  <div class="lc-exam-q">(a) Define electric field strength. [2]<br>(b) Explain why electric field lines must be perpendicular to the surface of a conductor at equilibrium. [2]</div>
-  <div class="lc-exam-marks">[4 marks]</div>
+  <div class="lc-exam-q"><strong>Q30.</strong> Explain why it is reasonable to assume that the masses of the coin bags described above (84 g, 63 g, 98 g, 35 g, 56 g and 42 g) lead to the conclusion that the mass of each coin is 7 g. <span class="lc-exam-marks">[2 marks]</span></div>
   <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
   <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
-  <div class="lc-model">
-    <strong>(a)</strong> Electric field strength is the force per unit charge ✓ experienced by a small positive test charge placed at that point. ✓<br><br>
-    <strong>(b)</strong> If the field had a component parallel/tangential to the surface ✓, free electrons in the conductor would experience a net force along the surface and would redistribute until the tangential component is eliminated / the field is perpendicular. ✓
-  </div>
+  <div class="lc-model">✓ Every listed mass divides exactly into a whole number of 7 g units (12, 9, 14, 5, 8 and 6 coins respectively), and no larger common value fits all six masses this well.<br>✓ With several independent bags all pointing to the same underlying unit, the conclusion becomes statistically very likely to be correct — the same reasoning used to establish that electric charge is quantised.</div>
 </div>
 
-<div class="lc-exam">
-  <div class="lc-exam-tag">Exam question · Calculate</div>
-  <div class="lc-exam-q">Point charges of +26 nC and −10 nC are separated by 50 cm.<br>(a) Calculate the electric field strength at the midpoint between them. [3]<br>(b) State the direction of the resultant field at that midpoint. [1]<br>(c) Explain why there is no point between the charges where the field strength is zero. [1]</div>
-  <div class="lc-exam-marks">[5 marks]</div>
-  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
-  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
-  <div class="lc-model">
-    <strong>(a)</strong> Midpoint is 0.25 m from each charge.<br>
-    \(E_1 = kq_1/r^2 = (8.99 \times 10^{9})(26 \times 10^{-9}) / 0.25^2 = 3740\;\text{N C}^{-1}\) ✓<br>
-    \(E_2 = kq_2/r^2 = (8.99 \times 10^{9})(10 \times 10^{-9}) / 0.25^2 = 1440\;\text{N C}^{-1}\) ✓<br>
-    Both fields point in the same direction (from + toward −), so \(E_{\text{total}} = 3740 + 1440 \approx 5200\;\text{N C}^{-1}\) ✓<br><br>
-    <strong>(b)</strong> Directed from the positive charge toward the negative charge. ✓<br><br>
-    <strong>(c)</strong> Between opposite charges, both individual fields point in the same direction (both toward the negative charge), so they always add rather than cancel. ✓
-  </div>
-</div>
-
-<!-- ═══ SECTION L — SCORE DISPLAY ═══ -->
-<div style="display:flex;justify-content:flex-end;margin-top:1.5rem">
+<div class="lc-score-row">
   <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
 </div>
 
-<!-- ═══ SECTION M — JAVASCRIPT ═══ -->
 <script>
-(function(){
-  let lcScore = 0;
-  const lcAnswered = {};
-  const lcFeedback = {
-    mcq1: { 'C': 'V = Ed = 5000 × 0.020 = 100 V. A common error is forgetting to convert cm to m, giving 10 V (A) or not converting at all giving 250 000 V (D).' },
-    mcq2: { 'C': 'E ∝ 1/r². Tripling the distance divides the field by 3² = 9, giving E/9.' },
-    mcq3: { 'B': 'Both have the same magnitude of charge (e), so F = qE is the same magnitude. But the proton is positive and the electron negative, so the forces are opposite. Mass affects acceleration, not force.' },
-    mcq4: { 'B': 'By definition, a charge of e accelerated through V volts gains V electronvolts. So the answer is 500 eV, which equals 8.0 × 10⁻¹⁷ J (not eV).' }
-  };
-  window.lcMCQ = function(id, el, chosen, correct) {
-    if (lcAnswered[id]) return;
-    lcAnswered[id] = true;
-    var block = document.getElementById(id);
-    block.querySelectorAll('.lc-opt').forEach(function(o){ o.classList.add('disabled'); });
-    var fb = document.getElementById(id+'-fb');
-    if (chosen === correct) {
-      el.classList.add('correct');
-      fb.textContent = '✓ ' + lcFeedback[id][correct];
-      fb.className = 'lc-fb show correct';
-      lcScore += 2;
-    } else {
-      el.classList.add('wrong');
-      block.querySelectorAll('.lc-opt').forEach(function(o){
-        if (o.querySelector('.lc-opt-l').textContent === correct) o.classList.add('correct');
-      });
-      fb.textContent = '✗ Incorrect. Correct: ' + correct + '. ' + lcFeedback[id][correct];
-      fb.className = 'lc-fb show wrong';
-    }
-    document.getElementById('lc-score-display').textContent = lcScore;
-  };
-  window.lcFITB = function() {
-    var ans = { lf1:'force', lf2:'charge', lf3:'uniform', lf4:'v/d', lf5:'inverse-square' };
-    var correct = 0, total = Object.keys(ans).length;
-    Object.keys(ans).forEach(function(id){
-      var el = document.getElementById(id);
-      var val = el.value.trim().toLowerCase();
-      var ok = val === ans[id] || val.includes(ans[id]);
-      el.classList.toggle('correct', ok);
-      el.classList.toggle('wrong', !ok);
-      if (ok) correct++;
-    });
-    var res = document.getElementById('lc-fitb-result');
-    res.style.display = 'block';
-    if (correct === total) {
-      res.style.color = 'var(--green)';
-      res.textContent = '✓ All correct! (+2 pts)';
-      if (!lcAnswered['fitb']) { lcScore += 2; lcAnswered['fitb'] = true; }
-      document.getElementById('lc-score-display').textContent = lcScore;
-    } else {
-      res.style.color = 'var(--red)';
-      res.textContent = correct + '/' + total + ' correct. Answers: force · charge · uniform · v/d · inverse-square';
-    }
-  };
-  window.lcToggleModel = function(btn) {
-    var ma = btn.nextElementSibling;
-    ma.classList.toggle('show');
-    btn.textContent = ma.classList.contains('show') ? 'Hide model answer' : 'Show model answer';
-  };
-})();
+lcInit({
+  feedback: {
+    mcq1: { C: 'V = Ed = 5000 × 0.020 = 100 V. Forgetting to convert cm to m gives 10 V or 250 000 V.' },
+    mcq2: { C: 'E is inverse-square in r. Tripling r divides E by 3² = 9.' },
+    mcq3: { B: 'Both charges have magnitude e, so F = qE gives the same magnitude of force — but proton and electron have opposite signs, so the forces point opposite ways.' },
+    mcq4: { B: 'A charge of e accelerated through V volts gains exactly V electronvolts: 500 eV, which equals 8.0 × 10⁻¹⁷ J.' },
+    mcq5: { D: 'Millikan\'s result is direct evidence that charge itself only exists in whole multiples of one elementary unit, e.' },
+    mcq6: { C: 'A tangential field component would push mobile charges along the surface; they redistribute until only a perpendicular field remains.' }
+  },
+  fitb: { lf1:'force', lf2:'charge', lf3:'uniform', lf4:'v/d', lf5:'inverse-square', lf6:'quantised' }
+});
 </script>
-      </div>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <div class="lesson-nav">
