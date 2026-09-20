@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Electric Potential — D.2 Electric and Magnetic Fields — φQ Physics</title>
   <link rel="stylesheet" href="../../shared/theme.css">
+  <link rel="stylesheet" href="../../shared/lesson-content.css">
   <style>
     .lesson-hero {
       background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
@@ -93,6 +95,9 @@
     #lesson-body table { max-width: 100%; display: block; overflow-x: auto; }
     #lesson-body pre { max-width: 100%; overflow-x: auto; }
   </style>
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],processEscapes:true},svg:{fontCache:'global',scale:1.15}};</script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script src="../../shared/lesson-quiz.js"></script>
 </head>
 <body>
 <script src="../../shared/nav.js"></script>
@@ -153,15 +158,414 @@
 
     <main>
       <div class="lesson-content" id="lesson-body">
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Electric Potential</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">Lesson content coming soon.</p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=D2" class="btn btn-ghost btn-sm">Practice questions →</a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">Formula sheet</a>
-          </div>
-        </div>
+<!-- LESSON-START -->
+<div class="lc-wrap">
+
+<div class="lc-badge"><span>3</span> Lesson 3 of 5 · D.2 Electric and Magnetic Fields</div>
+<div class="lc-title">Electric Potential</div>
+<div class="lc-sub">Charges store energy simply by being near each other. This lesson defines that stored energy, turns it into a scalar field called electric potential, and shows how potential, potential difference and field strength are three faces of the same idea.</div>
+
+<div class="lc-card">
+  <h3>⚡ Hook – the safest seat in a storm</h3>
+  <p>If lightning strikes a car, the person inside is safe — not mainly because of the tyres, but because the car's metal shell acts as a <strong>Faraday cage</strong>. The instant an external field is applied, free electrons in the metal redistribute themselves over the outer surface until the field inside is cancelled completely. The same principle is used deliberately to shield sensitive electronic equipment from outside electromagnetic fields.</p>
+  <div class="lc-img">
+    <img src="../../assets/d2/d2-03-electric-potential/d2-03-electric-potential-01.png" alt="Person standing safely inside a wire mesh Faraday cage while sparks discharge only on the outside surface of the cage" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — A Faraday cage (Fig D2.52): the field is excluded from the interior of any conducting enclosure.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think – then read on)</strong> — if the electric field strength inside a Faraday cage is always zero, what does that tell you about the electric potential everywhere inside it? <em>Since \(E = -\Delta V_{\mathrm{e}}/\Delta r\), a field of zero means the potential isn't changing anywhere inside — the whole interior sits at one constant potential, equal to the potential of the cage's surface.</em></div>
+</div>
+
+<div class="lc-section">Core knowledge</div>
+
+<div class="lc-card">
+  <h3>🔋 Electric potential energy</h3>
+  <p><strong>Electric potential energy</strong>, \(E_{\mathrm{p}}\), is the work done when bringing all the charges of a system to their present positions from infinity. Just as with gravitational potential energy, the zero of electric potential energy is chosen to be when the charges are separated by an infinite distance.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Electric potential energy of two point charges</span>
+    $$E_{\mathrm{p}} = k\frac{q_1q_2}{r}$$
+  </div>
+  <p>This equation works for two point charges separated by \(r\), and also for isolated spherical conductors, where \(r\) is then the distance between their centres. \(E_{\mathrm{p}}\) can also be found from the area under a force–separation graph.</p>
+  <div class="lc-img">
+    <img src="../../assets/d2/d2-03-electric-potential/d2-03-electric-potential-02.png" alt="Force versus separation graph for two point charges, with the shaded area under the curve from separation R to infinity labelled as the electric potential energy" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Area under a force–separation graph equals electric potential energy (Fig D2.46).</div>
+  </div>
+  <p>Gravitational potential energy is always negative, because gravitational forces are always attractive. Electric potential energy can be <strong>either sign</strong>: negative if the charges attract (energy must be supplied to pull them apart), or positive if the charges repel (energy is released as kinetic energy if they are free to move apart).</p>
+  <div class="lc-img">
+    <img src="../../assets/d2/d2-03-electric-potential/d2-03-electric-potential-03.png" alt="Graph of electric potential energy against separation for two oppositely charged point charges, a negative curve rising asymptotically toward zero as separation increases" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — \(E_{\mathrm{p}}\) against \(r\) for oppositely charged point charges (Fig D2.47): always negative, approaching zero as \(r \to \infty\).</div>
+  </div>
+  <div class="lc-info">✍️ <strong>Worked example D2.9.</strong> Two isolated spherical conductors: radii 2.5 cm and 1.5 cm, charges \(-4.7\times10^{-8}\) C and \(-6.3\times10^{-8}\) C, surfaces separated by 1.7 cm. Separation of centres \(r = 2.5+1.5+1.7 = 5.7\) cm.<br>\(E_{\mathrm{p}} = k\dfrac{q_1q_2}{r} = \dfrac{(8.99\times10^9)(-4.7\times10^{-8})(-6.3\times10^{-8})}{5.7\times10^{-2}} = +4.7\times10^{-4}\ \text{J}\).<br>Positive, because the charges repel and would gain kinetic energy if free to move.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📍 Electric potential</h3>
+  <p><strong>Electric potential</strong>, \(V_{\mathrm{e}}\), at a point is the work done per unit charge in bringing a small positive test charge from infinity to that point — electric potential energy per unit charge. It is a <strong>scalar</strong> quantity, with zero defined at infinity. Rewriting \(E_{\mathrm{p}} = k Qq/r\) for a small test charge \(q\) in the field of a larger charge \(Q\), then dividing by \(q\):</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Electric potential around a point charge Q</span>
+    $$V_{\mathrm{e}} = \frac{kQ}{r}$$
+  </div>
+  <p>The SI unit is \(\text{J C}^{-1}\), better known as the <strong>volt</strong> (V) — the same unit used for potential difference in Topic B.5.</p>
+  <p>The potential around a <strong>negative</strong> charge is negative: increasing \(r\) reduces its magnitude, which is an increase in potential. The potential around a <strong>positive</strong> charge is positive: increasing \(r\) reduces its magnitude, which is a decrease in potential.</p>
+  <div class="lc-info">✍️ <strong>Worked example D2.10.</strong> Potential due to \(Q = -1.00\times10^{-8}\) C at:<br>a. 1.00 m: \(V_{\mathrm{e}} = kQ/r = (8.99\times10^9)(-1.00\times10^{-8})/1.00 = -89.9\ \text{V}\).<br>b. 2.00 m: \(V_{\mathrm{e}} = (8.99\times10^9)(-1.00\times10^{-8})/2.00 = -45.0\ \text{V}\).<br>The potential increases by 45.0 V moving from 1.00 m to 2.00 m from the charge.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🌐 Equipotential surfaces &amp; combining potentials</h3>
+  <p>An <strong>equipotential surface</strong> (or line) connects points at the same electric potential. Equipotential lines are always perpendicular to field lines, and <strong>no work is done</strong> moving a charge between two points on the same equipotential.</p>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/d2/d2-03-electric-potential/d2-03-electric-potential-04.png" alt="Equipotential and field lines around an isolated negative point charge, field lines pointing inward and concentric equipotential circles spreading further apart with distance" style="max-width:100%"><div class="lc-cap">Fig 4 — Around \(-Q\) (Fig D2.48): a test charge at P moving outward needs work done on it, so \(E_{\mathrm{p}}\) and potential increase.</div></div>
+    <div class="lc-img"><img src="../../assets/d2/d2-03-electric-potential/d2-03-electric-potential-05.png" alt="Equipotential and field lines around an isolated positive point charge, field lines pointing outward and concentric equipotential circles spreading further apart with distance" style="max-width:100%"><div class="lc-cap">Fig 5 — Around \(+Q\) (Fig D2.49): a test charge at P moving outward is repelled, so \(E_{\mathrm{p}}\) and potential decrease.</div></div>
+  </div>
+  <p>Figure D2.50 shows the field and potential inside and outside a charged conducting sphere: <strong>E = 0</strong> everywhere inside a conductor, so the potential is constant throughout the interior, equal to the value at the surface. Outside, both fall away with distance — \(E\) as \(1/r^2\), \(V\) as \(1/r\).</p>
+  <div class="lc-img">
+    <img src="../../assets/d2/d2-03-electric-potential/d2-03-electric-potential-06.png" alt="Two stacked graphs for a positively charged conducting sphere of radius R: electric field is zero inside and falls with distance squared outside; electric potential is constant inside and falls with distance outside" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — Field and potential of a conducting sphere (Fig D2.50).</div>
+  </div>
+  <p>Because electric potential is a <strong>scalar</strong>, potentials from several charges simply add — no components or angles needed, unlike combining field strengths.</p>
+  <div class="lc-img">
+    <img src="../../assets/d2/d2-03-electric-potential/d2-03-electric-potential-07.png" alt="Potential contour map around three charged spheres, two negative spheres with equipotential lines from minus fifty to minus twenty volts, one positive sphere with equipotential lines from plus twenty to plus fifty volts, separated by a zero volt line" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — Potential mapping around three charged spheres (Fig D2.53): scalar potentials add throughout the map.</div>
+  </div>
+  <div class="lc-info">✍️ <strong>Worked example D2.11.</strong> Combined potential 34 cm from charge A (\(-1.9\times10^{-7}\) C) and 45 cm from charge B (\(+2.3\times10^{-7}\) C):<br>\(V_{\mathrm{e}} = \left(\dfrac{kQ}{r}\right)_{\mathrm{A}} + \left(\dfrac{kQ}{r}\right)_{\mathrm{B}} = \dfrac{(8.99\times10^9)(-1.9\times10^{-7})}{0.34} + \dfrac{(8.99\times10^9)(2.3\times10^{-7})}{0.45}\)<br>\(V_{\mathrm{e}} = -4.3\times10^{2}\ \text{V}\).</div>
+</div>
+
+<div class="lc-card">
+  <h3>🧭 Potential difference &amp; the potential gradient</h3>
+  <p><strong>Electric potential difference</strong>, \(\Delta V_{\mathrm{e}}\), is the work done per unit charge when a charge moves between two points in an electric field — the same p.d. used in circuits (Topic B.5), now applied more generally in two and three dimensions.</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Potential difference</span>
+    $$\Delta V_{\mathrm{e}} = \frac{W}{q}$$
+    $$W = q\Delta V_{\mathrm{e}}$$
+  </div>
+  <p>Work can also be written as force × distance, \(Eq\Delta r\). Combining this with \(W = q\Delta V_{\mathrm{e}}\) and rearranging gives the field as a <strong>potential gradient</strong>:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Electric field strength as a potential gradient</span>
+    $$E = -\frac{\Delta V_{\mathrm{e}}}{\Delta r}$$
+  </div>
+  <p>The minus sign shows that \(E\) points in the direction <strong>opposite</strong> to increasing potential. Electric fields exist wherever potential is changing; if potential is constant, the field strength is zero.</p>
+</div>
+
+<div class="lc-section">Graph mastery</div>
+<div class="lc-card">
+  <h3>📈 Graphs every examiner uses</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>\(E_{\mathrm{p}}\) vs \(r\) (opposite charges)</td><td>X: separation \(r\)<br>Y: potential energy \(E_{\mathrm{p}}\)</td><td>Negative curve, rising asymptotically toward zero</td><td>Always negative for attraction; magnitude falls as \(1/r\), never reaching zero</td></tr>
+      <tr><td>\(V_{\mathrm{e}}\) vs \(r\) (point charge)</td><td>X: distance \(r\)<br>Y: potential \(V_{\mathrm{e}}\)</td><td>Inverse curve, positive for \(+Q\), negative for \(-Q\)</td><td>Sign of the curve shows the sign of the source charge; magnitude falls as \(1/r\)</td></tr>
+      <tr><td>\(E\) and \(V\) vs \(r\) (conducting sphere)</td><td>X: distance \(r\) from centre<br>Y: field \(E\) or potential \(V\)</td><td>Flat inside (\(E=0\), \(V\) constant); both fall outside</td><td>\(E=0\) inside always; \(V\) is constant inside, equal to the surface value, then \(E\) falls as \(1/r^2\) and \(V\) as \(1/r\) outside</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/d2/d2-03-electric-potential/d2-03-electric-potential-03.png" alt="Graph of electric potential energy against separation for oppositely charged point charges" style="max-width:100%"><div class="lc-cap">Fig 3 (repeated) — \(E_{\mathrm{p}}\) vs \(r\): negative and asymptotic to zero.</div></div>
+    <div class="lc-img"><img src="../../assets/d2/d2-03-electric-potential/d2-03-electric-potential-06.png" alt="Field and potential graphs for a charged conducting sphere" style="max-width:100%"><div class="lc-cap">Fig 6 (repeated) — flat inside, falling outside for both \(E\) and \(V\).</div></div>
+  </div>
+</div>
+
+<div class="lc-section">Worked examples</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – reading charge and sign from equipotential lines</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the sign of a conductor's charge shows in the sign of its equipotential values; potential differences use \(\Delta V_{\mathrm{e}} = V_{\text{final}} - V_{\text{initial}}\), and work uses \(W = q\Delta V_{\mathrm{e}}\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> concentric equipotentials around a conducting sphere labelled 100 V, 80 V, 60 V, 40 V, 20 V outward. Point A is near 100 V, B near 60 V, C and D both near 20 V.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> all listed potentials are positive, so the sphere is positively charged. Potential difference C to A: \(\Delta V = (+60)-(+20)\). C to D: \(\Delta V = (+20)-(+20)\). Work moving \(q=+2.0\) C from B to C: \(W = q[(+20)-(+40)]\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> sphere is positively charged. C to A: \(+40\ \text{V}\). C to D: \(0\ \text{V}\) (same equipotential, no work needed to move between them). B to C: \(W = 2.0\times[(+20)-(+40)] = -40\ \text{J}\) — the negative sign shows \(E_{\mathrm{p}}\) falls, as a free positive charge is repelled from the positive sphere and gains kinetic energy.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/d2/d2-03-electric-potential/d2-03-electric-potential-08.png" alt="Concentric equipotential lines around a conducting sphere labelled one hundred, eighty, sixty, forty and twenty volts, with points A, B, C and D marked at different circles" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 8 — Equipotential lines around a conducting sphere (Fig D2.57).</div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example – field strength and charge from a potential–distance graph</h3>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the gradient of a potential–distance graph gives the field strength, \(E = -\Delta V/\Delta r\); once \(E\) (or a potential reading) is known at a given \(r\), \(V_{\mathrm{e}} = kQ/r\) gives the source charge.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> tangent to the \(V\)–\(r\) curve at \(r=4.0\) cm runs from \(V=-26\times10^{3}\) V up to \(V=0\) over a span \(\Delta r = 8.0\) cm; reading the curve itself at \(r=3.5\) cm gives \(V \approx -1.5\times10^{4}\) V.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong> \(E = \dfrac{\Delta V}{\Delta r} = \dfrac{0-(-26\times10^{3})}{8.0\times10^{-2}}\), then \(Q = \dfrac{V_{\mathrm{e}}\,r}{k}\) using the reading at \(r=3.5\) cm.</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> \(E = -3.3\times10^{5}\ \text{N C}^{-1}\) at \(r=4.0\) cm; \(Q = -5.8\times10^{-8}\ \text{C}\) — a single negative point charge is consistent with this variation in potential.</div></div>
+  <div class="lc-img">
+    <img src="../../assets/d2/d2-03-electric-potential/d2-03-electric-potential-09.png" alt="Graph of electric potential against distance from a negative point charge, a negative curve rising toward zero with a tangent line drawn at four centimetres" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 9 — Potential variation around a negative point charge (Fig D2.58), with the tangent at \(r=4.0\) cm used to find \(E\).</div>
+  </div>
+</div>
+
+<div class="lc-section">Applications &amp; extensions</div>
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🛡️ Real-world: shielding with Faraday cages</h3>
+    <p>Effective electromagnetic shielding is used widely to protect important equipment from external electromagnetic waves, or to stop equipment from emitting electromagnetic signals in the first place — from coaxial cables (an earthed outer copper mesh shields the central signal wire from interference) to entire equipment rooms.</p>
+    <div class="lc-success">✓ <strong>Examiner tip:</strong> when explaining why a Faraday cage protects its interior, always mention that free electrons redistribute over the outer surface until the internal field is <em>exactly</em> cancelled — don't just say the cage "blocks" the field.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🔬 Extension: mapping potential experimentally</h3>
+    <p>Potential and p.d. can be mapped using conducting paper: a special paper coated with carbon so it conducts, but with significant resistance. Two <strong>electrodes</strong> (conductors making electrical contact with a nonmetallic part of a circuit) are placed on the paper, a p.d. is connected across them, and one electrode is kept at 0 V. A movable probe connected through a voltmeter to the 0 V terminal reads the potential at any point, or the p.d. between any two points.</p>
+    <p><strong>Challenge:</strong> two point electrodes 8.0 cm apart are held at 0 V and 10 V. Assuming (as a simplification) that potential varies uniformly along the straight line joining them, predict the potential 3.0 cm from the 0 V electrode. <em>(Answer: \(V = (3.0/8.0)\times10 = 3.8\ \text{V}\) — real point electrodes actually give a non-uniform gradient, steepest near each electrode.)</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>🔎 Faraday cage in a lightning storm</h3>
+  <p>If a constant electric field is applied to a metal conductor surrounding a space, free electrons very quickly redistribute themselves on the outer surface, depending on the field's strength and direction and the conductor's shape — for a spherical conductor the charge distribution would be the same everywhere on the surface. The safest place to be in a lightning storm is therefore inside a conductor, such as a car or a building with a lightning conductor.</p>
+</div>
+
+<div class="lc-section">Trap corner</div>
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>Electric potential energy is always negative, like gravitational PE</td><td>\(E_{\mathrm{p}}\) can be positive (repulsion) or negative (attraction) — gravity is always negative only because gravitational forces are always attractive</td></tr>
+      <tr><td>Confusing \(E_{\mathrm{p}}\) (electric potential energy) with \(E\) (electric field strength)</td><td>Different quantities with different units: \(E_{\mathrm{p}}\) is measured in joules, \(E\) in \(\text{N C}^{-1}\). Don't drop the subscript p</td></tr>
+      <tr><td>Potentials from several charges must be combined with vectors, like field strengths</td><td>Electric potential is a scalar — potentials simply add, with their signs, no angles needed</td></tr>
+      <tr><td>Moving a charge along an equipotential surface takes energy</td><td>No work is done moving between two points on the same equipotential, since \(\Delta V_{\mathrm{e}} = 0\)</td></tr>
+      <tr><td>The potential around a negative charge "increasing" with distance means it becomes positive</td><td>It stays negative — "increasing" means its magnitude shrinks toward zero as \(r\) grows</td></tr>
+      <tr><td>Dropping the minus sign in \(E = -\Delta V_{\mathrm{e}}/\Delta r\)</td><td>The sign shows the field points opposite to the direction of increasing potential — drop it and the field direction comes out backwards</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: treating potential like a vector when combining contributions from several charges — reserve vector addition for electric field strength; potentials just add algebraically.</div>
+</div>
+
+<div class="lc-kp">
+  <span>Ep = kq₁q₂/r</span>
+  <span>Ve = kQ/r</span>
+  <span>zero at infinity</span>
+  <span>V is a scalar</span>
+  <span>equipotentials ⟂ field lines</span>
+  <span>ΔVe = W/q</span>
+  <span>E = −ΔVe/Δr</span>
+  <span>Faraday cage: E = 0 inside</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. Two point charges attract each other. As an external agent pulls them further apart, the electric potential energy of the system</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','C')"><span class="lc-opt-l">A</span> Stays constant</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','C')"><span class="lc-opt-l">B</span> Becomes more negative</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','C')"><span class="lc-opt-l">C</span> Increases (becomes less negative)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','C')"><span class="lc-opt-l">D</span> Reaches zero immediately</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. The electric potential 2.0 m from a point charge is 90 V. At 4.0 m, the potential is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','A')"><span class="lc-opt-l">A</span> 45 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','A')"><span class="lc-opt-l">B</span> 22.5 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','A')"><span class="lc-opt-l">C</span> 180 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','A')"><span class="lc-opt-l">D</span> 360 V</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. Which statement about equipotential lines is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> They cross field lines at any angle</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> No work is done moving a charge along one</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> They only exist around negative charges</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> They always form straight lines</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. Electric potential is best described as</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','C')"><span class="lc-opt-l">A</span> A vector quantity, like \(E\)</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','C')"><span class="lc-opt-l">B</span> Potential energy per unit mass</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','C')"><span class="lc-opt-l">C</span> Potential energy per unit charge</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','C')"><span class="lc-opt-l">D</span> Always positive</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. A test charge moves between two points on the same equipotential surface. The work done on it is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> Positive</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> Negative</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> Zero</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> Dependent on the path taken</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq6">
+    <div class="lc-mcq-q">6. Inside a hollow charged conductor in electrostatic equilibrium, the electric potential is</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'A','B')"><span class="lc-opt-l">A</span> Zero everywhere</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'B','B')"><span class="lc-opt-l">B</span> Equal to the surface value, and constant throughout</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'C','B')"><span class="lc-opt-l">C</span> Decreasing toward the centre</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq6',this,'D','B')"><span class="lc-opt-l">D</span> Increasing toward the centre</div>
+    </div>
+    <div class="lc-fb" id="mcq6-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    Electric potential energy is the work done bringing charges from <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:90px"> to their positions. Electric potential is potential energy per unit <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:90px"> and is a <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:90px"> quantity, not a vector. Equipotential lines are always <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:120px"> to field lines. Electric field strength equals minus the potential <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:100px">.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Draw / Determine</div>
+  <div class="lc-exam-q"><strong>Q39.</strong> There was a force of \(-4.7\times10^{-7}\) N between two point charges when they were separated by 40 cm. <strong>a)</strong> Draw a force–separation graph to show how the force varies over distances of 10 to 100 cm. <strong>b)</strong> Use your graph to determine the change in electrical potential energy in the system if the separation was increased from 40 cm to 90 cm. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) An inverse-square curve through \((0.40\ \text{m}, -4.7\times10^{-7}\ \text{N})\), extended smoothly from 0.10 m to 1.00 m (negative sign shows attraction).<br>✓ b) Since \(E_{\mathrm{p}} = Fr\): \(E_{\mathrm{p}}(0.40) = (-4.7\times10^{-7})(0.40) = -1.88\times10^{-7}\ \text{J}\).<br>✓ \(F(0.90) = F(0.40)(0.40/0.90)^2 = -9.3\times10^{-8}\ \text{N}\), so \(E_{\mathrm{p}}(0.90) = (-9.3\times10^{-8})(0.90) = -8.4\times10^{-8}\ \text{J}\).<br>✓ \(\Delta E_{\mathrm{p}} = -8.4\times10^{-8} - (-1.88\times10^{-7}) \approx +1.0\times10^{-7}\ \text{J}\) (energy supplied, since the charges attract).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q40.</strong> The surfaces of two identically charged spheres are separated by 12 cm. If the radius of each sphere is 2.8 cm and the electrical potential energy in the arrangement is \(3.6\times10^{-4}\) J, determine the charge on each sphere. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Separation of centres \(r = 2.8+2.8+12 = 17.6\ \text{cm} = 0.176\ \text{m}\).<br>✓ Since both charges are equal, \(E_{\mathrm{p}} = kq^2/r \Rightarrow q^2 = E_{\mathrm{p}}r/k = (3.6\times10^{-4})(0.176)/(8.99\times10^9)\).<br>✓ \(q = 8.4\times10^{-8}\ \text{C}\) on each sphere.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q41.</strong> Determine how much electrical potential energy is associated with the proton–electron arrangement in a hydrogen atom (separation \(= 5.3\times10^{-11}\) m). <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(E_{\mathrm{p}} = k\dfrac{q_1q_2}{r} = \dfrac{(8.99\times10^9)(1.60\times10^{-19})(-1.60\times10^{-19})}{5.3\times10^{-11}}\).<br>✓ \(E_{\mathrm{p}} = -4.3\times10^{-18}\ \text{J}\) (negative, since the charges attract).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q42.</strong> If \(4.95\times10^{-5}\) J of energy were transferred when a charge of \(5.1\ \mu\text{C}\) was moved from a certain point to earth (ground), determine the magnitude of the potential at the point. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(V = W/q = (4.95\times10^{-5})/(5.1\times10^{-6})\).<br>✓ \(V = 9.7\ \text{V}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q43.</strong> At what distance from an isolated point charge of \(4.6\times10^{-8}\) C would the electric potential have a value of \(-3000\) V? <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(r = kQ/|V| = (8.99\times10^9)(4.6\times10^{-8})/3000\).<br>✓ \(r = 0.14\ \text{m}\) (14 cm).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q"><strong>Q44.</strong> Sketch the equipotential and field lines around two point charges of different magnitudes if <strong>a)</strong> they have similar signs <strong>b)</strong> they have opposite signs. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) Field lines curve away from both charges without crossing; closed loop-shaped equipotentials surround each charge separately close in, merging into larger shared loops further out, with a saddle point (null point) between the charges nearer the smaller one.<br>✓ b) Field lines run from the positive to the negative charge; equipotentials form nested closed curves around each charge individually, pinching together and crossing the line joining the charges at the single point where the net field reverses.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Copy / Add</div>
+  <div class="lc-exam-q"><strong>Q45.</strong> Figure D2.54 shows the electric field lines around an isolated charged conductor mounted on a stand, denser near its sharper end. Make a copy of the figure and add lines of equipotential. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Equipotentials drawn perpendicular to every field line at each crossing.<br>✓ Closer together near the sharp end (where the field is strongest) and further apart near the blunt end, following the conductor's outline close in and becoming smoother, more rounded closed curves further away.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q"><strong>Q46.</strong> A coaxial cable has a central copper wire, an insulating layer, and an outer copper mesh kept at 0 V, which reduces interference to and from other electromagnetic waves. Sketch a cross-section of the cable and add electric field lines and equipotential lines. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Radial field lines pointing outward from the central wire to the outer mesh (or inward, depending on the sign of the signal).<br>✓ Concentric circular equipotential lines between the wire and the mesh, closer together near the central wire where the field is strongest.<br>✓ No field lines outside the mesh — it is earthed and shields the interior from, and the exterior from, outside electromagnetic fields.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Sketch</div>
+  <div class="lc-exam-q"><strong>Q47.</strong> Figure D2.56 represents the variation of potential between a −40 V circular conductor and a +40 V L-shaped conductor, with equipotential lines every 10 V between them. Sketch the electric field pattern of this arrangement. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ Field lines drawn perpendicular to every equipotential line, pointing from the +40 V conductor toward the −40 V conductor.<br>✓ Lines packed most closely wherever the equipotentials are closest together (strongest field), spreading out in the open space away from both conductors.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q48.</strong> A hollow conducting sphere has a radius of 6.3 cm. If it is charged with \(-4.3\) nC, determine values for the electric field strength and the electric potential at a distance of <strong>a)</strong> 20.0 cm from the centre of the sphere <strong>b)</strong> 3.0 cm from the centre of the sphere. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) Outside the sphere: \(E = kQ/r^2 = (8.99\times10^9)(4.3\times10^{-9})/(0.20)^2 = 9.7\times10^{2}\ \text{N C}^{-1}\) (pointing inward, since \(Q\) is negative); \(V = kQ/r = -1.9\times10^{2}\ \text{V}\).<br>✓ b) 3.0 cm is inside the (hollow) conducting sphere, so \(E = 0\).<br>✓ \(V\) is constant inside, equal to the surface value: \(V = kQ/R = (8.99\times10^9)(-4.3\times10^{-9})/0.063 = -6.1\times10^{2}\ \text{V}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Identify</div>
+  <div class="lc-exam-q"><strong>Q49.</strong> A point charge of \(-1.9\times10^{-7}\) C is placed 56 cm from another point charge of \(5.6\times10^{-8}\) C. Identify the location of one place where the electric potential is zero. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ The null point lies between the two charges, closer to the weaker one (\(5.6\times10^{-8}\) C). Let \(x\) be its distance from the \(-1.9\times10^{-7}\) C charge: \(\dfrac{1.9\times10^{-7}}{x} = \dfrac{5.6\times10^{-8}}{0.56-x}\).<br>✓ Solving: \(x \approx 0.43\ \text{m}\).<br>✓ The potential is zero at a point 43 cm from the \(-1.9\times10^{-7}\) C charge (13 cm from the \(5.6\times10^{-8}\) C charge), on the line joining them.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine</div>
+  <div class="lc-exam-q"><strong>Q50.</strong> Two points in an electric field have potentials of 12.7 V and 15.3 V. Determine how much energy will be transferred when an electron moves between these points: <strong>a)</strong> in eV <strong>b)</strong> in J. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(\Delta V = 15.3-12.7 = 2.6\ \text{V}\).<br>✓ a) An electron carries charge \(e\), so the energy transferred is exactly 2.6 eV.<br>✓ b) \(W = e\Delta V = (1.60\times10^{-19})(2.6) = 4.2\times10^{-19}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate</div>
+  <div class="lc-exam-q"><strong>Q51.</strong> Calculate how much energy is gained by a charge of 2.0 C when it passes through a battery that has a terminal p.d. of 12 V. <span class="lc-exam-marks">[2 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(W = q\Delta V = 2.0 \times 12\).<br>✓ \(W = 24\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Determine / State</div>
+  <div class="lc-exam-q"><strong>Q52.</strong> A charge of \(+4.5\) C is moved from point P (near the +40 V conductor) to point Q (near the −40 V conductor) in Figure D2.56. <strong>a)</strong> Determine how much energy is transferred. <strong>b)</strong> State whether work is done on the charge, or by the charge. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) \(\Delta V = V_{\mathrm{Q}} - V_{\mathrm{P}} = (-40)-(+40) = -80\ \text{V}\); \(W = q\Delta V = (4.5)(-80) = -360\ \text{J}\), so 360 J of energy is transferred.<br>✓ b) The negative sign shows electric potential energy falls by 360 J as the positive charge moves from high to low potential.<br>✓ Work is done <em>by</em> the field on the charge (converted into kinetic energy if the charge is free to move) — no external agent needs to supply energy for this move.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · State / Determine</div>
+  <div class="lc-exam-q"><strong>Q53.</strong> Figure D2.59 shows how the electrical potential varies with distance, \(r\), from a certain point, P. <strong>a)</strong> State where the electric field strength is a minimum. <strong>b)</strong> Determine the magnitude of the electric field strength: <strong>i)</strong> 12 cm from P <strong>ii)</strong> 32 cm from P. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ a) The field strength is a minimum wherever the \(V\)-\(r\) graph is flattest — i.e. where its tangent gradient has the smallest magnitude.<br>✓ b) Draw a tangent to the curve at each distance and use \(E = -\Delta V/\Delta r\) on that tangent (the field strength must be read from the actual graph's gradients, since exact values are only visible in the printed figure).<br>✓ A steeper tangent at one distance than the other means a larger \(|E|\) there.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { C: 'Pulling attracting charges apart requires energy input, so Ep moves from a large negative value toward zero — it increases, becoming less negative.' },
+    mcq2: { A: 'V is inverse in r (not inverse-square), so doubling r halves V: 90/2 = 45 V.' },
+    mcq3: { B: 'Equipotential surfaces connect points of equal potential, so no work is needed to move a charge along one.' },
+    mcq4: { C: 'Just as Ep is energy stored, Ve = Ep/q is energy stored per unit charge — a scalar, unlike the vector field strength E.' },
+    mcq5: { C: 'ΔV = 0 along an equipotential, and W = qΔV, so the work done is zero.' },
+    mcq6: { B: 'E = 0 inside any conductor, so the potential cannot change there — it stays constant, equal to the value at the surface.' }
+  },
+  fitb: { lf1:'infinity', lf2:'charge', lf3:'scalar', lf4:'perpendicular', lf5:'gradient' }
+});
+</script>
+</div>
+      <!-- LESSON-END -->
       </div>
 
       <div class="lesson-nav">
