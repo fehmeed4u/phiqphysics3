@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -163,15 +164,262 @@
     <main>
       <div class="lesson-content" id="lesson-body">
 <!-- LESSON-START -->
-        <div class="content-placeholder">
-          <div class="placeholder-icon">📝</div>
-          <h3 style="margin-bottom:0.5rem;color:var(--text)">Motion of Charged Particles in Uniform Electric Fields</h3>
-          <p style="max-width:380px;margin-bottom:1.5rem">Lesson content coming soon.</p>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center">
-            <a href="../../practice.html?topic=D3" class="btn btn-ghost btn-sm">Practice questions →</a>
-            <a href="../../resources.html#formulas" class="btn btn-secondary btn-sm">Formula sheet</a>
-          </div>
-        </div>
+        <div class="lc-wrap">
+
+<div class="lc-badge"><span>1</span> Lesson 1 of 6 · D.3 Motion in EM Fields</div>
+<div class="lc-title">Motion of Charged Particles in Uniform Electric Fields</div>
+<div class="lc-sub">A charged particle in a uniform field either speeds up in a straight line or curves like a thrown ball — which one depends only on whether it starts moving along the field or across it.</div>
+
+<div class="lc-card">
+  <h3>🎯 Hook – the field that only pushes one way</h3>
+  <p>A uniform electric field is easy to build: connect a p.d. across two parallel metal plates. <strong>Every particle placed between the plates, if it is charged, feels the same push</strong> — a force pointing straight along the field lines, from the positive plate toward the negative plate.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d3/d3-01-motion-in-uniform-electric-field-01.png" alt="High voltage supply connected across two parallel metal plates, positive plate on top marked with plus signs, field arrows pointing down between the plates" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 1 — A uniform electric field is produced by connecting a p.d. across parallel metal plates. The field lines point from the positive plate to the negative plate.</div>
+  </div>
+  <div class="lc-info">💡 <strong>Diagnostic question (think — then read on)</strong> — a proton and an electron are both released from rest at the centre of this field. Do they move the same way? <em>No. Both feel a force along the field line, but in opposite directions: the proton (positive) accelerates toward the negative plate, the electron (negative) accelerates toward the positive plate. Their accelerations also differ hugely in size, since \(a = F/m\) and the electron's mass is about 1836 times smaller.</em></div>
+</div>
+
+<div class="lc-card">
+  <h3>⚡ Force on a stationary charge in a uniform field</h3>
+  <p>We assume throughout that particles (electrons, protons, ions) are free to move <strong>in a vacuum</strong>, so their motion involves no collisions with air molecules.</p>
+  <p>From the kinetic theory of matter, particles are never truly "stationary". However, even a small p.d. accelerates charged particles to speeds far greater than their random thermal velocities. So assuming a particle starts from rest introduces no significant error in its final speed or kinetic energy.</p>
+  <p>A particle with charge \(q\) in an electric field experiences a force toward the oppositely charged plate:</p>
+  <div class="lc-formula">
+    <span class="lc-formula-label">Force on a charge in a field</span>
+    $$F = Eq$$
+  </div>
+  <p>Since \(E = V/d\) (Topic D.2):</p>
+  <div class="lc-formula">
+    $$F = \frac{Vq}{d}$$
+  </div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d3/d3-01-motion-in-uniform-electric-field-02.png" alt="Parallel plates with a negative charge near the top positive plate accelerating upward and a positive charge near the bottom negative plate accelerating downward, plate separation d labelled" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 2 — Opposite charges accelerate in opposite directions along the field lines: each moves toward the plate of opposite sign.</div>
+  </div>
+  <div class="lc-info">📖 <strong>"Stationary" mobile charges will accelerate along a field line in a uniform electric field.</strong></div>
+  <p>Once \(F\) is known, \(a = F/m\) (Newton's second law), and the equations of motion (Topic A.1) give the rest of the motion.</p>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 1 – accelerating along the field</h3>
+  <p>An electron is very close to the negatively charged plate in Fig 2. <strong>(a)</strong> Determine its speed when it reaches the positive plate if there is a p.d. of 2000 V across the plates, separated by 8.0 cm. <strong>(b)</strong> State any assumptions made.</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> the electron accelerates in a straight line from the negative plate to the positive plate. Use \(F = Vq/d\), then \(a = F/m\), then an equation of motion.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(V = 2000\) V, \(d = 0.080\) m, \(q = 1.60\times10^{-19}\) C, \(m = 9.110\times10^{-31}\) kg, \(u = 0\).</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(F = \dfrac{Vq}{d} = \dfrac{2000 \times 1.60\times10^{-19}}{0.080}\)<br>\(= 4.0\times10^{-15}\ \text{N}\)<br>\(a = \dfrac{F}{m} = \dfrac{4.0\times10^{-15}}{9.110\times10^{-31}}\)<br>\(= 4.4\times10^{15}\ \text{m s}^{-2}\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong> using \(v^2 = u^2 + 2as\):<br>\(v^2 = 0 + (2 \times 4.4\times10^{15} \times 0.080)\)<br>\(v = 2.7\times10^{7}\ \text{m s}^{-1}\)</div></div>
+  <div class="lc-info">📝 <strong>(b) Assumptions:</strong> the electron started with speed \(u = 0\); there were no gas molecules between the plates that would collide with the electron.</div>
+</div>
+
+<div class="lc-card">
+  <h3>📐 Charged particles crossing a uniform field</h3>
+  <p>A different situation arises when a charged particle moves horizontally into a field that acts vertically. This is analogous to a mass projected horizontally in a uniform gravitational field: both involve <strong>constant speed in one direction and acceleration in a perpendicular direction</strong>.</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d3/d3-01-motion-in-uniform-electric-field-04.png" alt="Side by side comparison of a mass following a downward parabolic path in a gravitational field and a negative, neutral and positive charge following different paths in an electric field" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 3 — The same analysis applies to both diagrams: constant horizontal speed, perpendicular acceleration. A negative charge curves toward the positive plate, a neutral particle travels straight, a positive charge curves toward the negative plate.</div>
+  </div>
+  <div class="lc-info">📖 <strong>Freely moving charged particles travelling across electric fields will move in parabolic paths.</strong></div>
+</div>
+
+<div class="lc-card">
+  <h3>📈 Reading the two motions on a graph</h3>
+  <table class="lc-table">
+    <thead><tr><th>Graph type</th><th>Axes (X, Y)</th><th>Shape</th><th>What to read</th></tr></thead>
+    <tbody>
+      <tr><td>Speed–time (charge moving along a field line)</td><td>Time / s · Speed \(v\) / m s⁻¹</td><td>Straight line through the origin, constant gradient</td><td>Gradient = acceleration \(a = F/m = Eq/m\), constant because \(F\) is constant</td></tr>
+      <tr><td>Trajectory (charge moving across a field)</td><td>Horizontal position \(x\) / m · Vertical deflection \(y\) / m</td><td>Parabola, curving toward the oppositely charged plate</td><td>Same shape as projectile motion, since \(y \propto x^2\) — the particle covers equal \(x\) in equal time but ever-larger \(y\)</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-img-row">
+    <div class="lc-img"><img src="../../assets/lesson-images/d3/d3-01-motion-in-uniform-electric-field-05.png" alt="Speed against time graph, a straight line rising from the origin" style="max-width:340px;width:100%"><div class="lc-cap">Fig 4 — Speed–time graph for a charge released from rest and accelerating along a field line: constant gradient \(a\).</div></div>
+    <div class="lc-img"><img src="../../assets/lesson-images/d3/d3-01-motion-in-uniform-electric-field-06.png" alt="Vertical deflection against horizontal position graph, a curve bending steadily downward like a parabola" style="max-width:340px;width:100%"><div class="lc-cap">Fig 5 — Trajectory of a charge crossing a field: \(y\) against \(x\) is a parabola, exactly like projectile motion under gravity.</div></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>✍️ Worked example 2 – crossing the field (D3.2)</h3>
+  <p>An electron travelling horizontally at a constant speed of \(5.5\times10^{7}\ \text{m s}^{-1}\) is directed into a uniform electric field of \(2.8\times10^{5}\ \text{N C}^{-1}\) acting vertically downwards. <strong>(a)</strong> Determine the force and acceleration of the electron in the field (magnitude and direction). <strong>(b)</strong> If the field extends for a horizontal distance of 10 cm, determine the time the electron spends in the field. <strong>(c)</strong> Determine the vertical displacement of the electron from its original path as it leaves the field. (Charge on electron \(-1.6\times10^{-19}\) C; mass of electron \(9.110\times10^{-31}\) kg.)</p>
+  <div class="lc-step"><div class="lc-step-num">1</div><div class="lc-step-body"><strong>Identify:</strong> horizontal speed is constant (no horizontal force); the field only produces a vertical acceleration. Since the charge is negative, the force is opposite to the field direction — upwards.</div></div>
+  <div class="lc-step"><div class="lc-step-num">2</div><div class="lc-step-body"><strong>Data:</strong> \(v_{\text{horiz}} = 5.5\times10^{7}\ \text{m s}^{-1}\), \(E = 2.8\times10^{5}\ \text{N C}^{-1}\), \(s_{\text{horiz}} = 0.10\) m, \(q = 1.60\times10^{-19}\) C, \(m = 9.110\times10^{-31}\) kg.</div></div>
+  <div class="lc-step"><div class="lc-step-num">3</div><div class="lc-step-body"><strong>Equation:</strong><br>\(F = Eq = (2.8\times10^{5})(1.60\times10^{-19})\)<br>\(a = F/m\)<br>\(v = s/t \Rightarrow t = s/v\)<br>\(s_y = ut + \tfrac12at^2\), with \(u = 0\)</div></div>
+  <div class="lc-step"><div class="lc-step-num">4</div><div class="lc-step-body"><strong>Answer:</strong><br>(a) \(F = 4.5\times10^{-14}\ \text{N}\) upwards; \(a = F/m = 4.9\times10^{16}\ \text{m s}^{-2}\) upwards.<br>(b) \(t = 0.10 / (5.5\times10^{7}) = 1.8\times10^{-9}\ \text{s}\).<br>(c) \(s_y = \tfrac12(4.9\times10^{16})(1.8\times10^{-9})^2\)<br>\(= 0.081\ \text{m}\ (8.1\ \text{cm})\)</div></div>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d3/d3-01-motion-in-uniform-electric-field-07.png" alt="Electron entering a uniform electric field horizontally at the left edge and curving upward toward the top plate as it crosses the field region" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 6 — Geometry for worked example 2. The electron enters horizontally and its parabolic path curves toward the positive plate as it crosses.</div>
+  </div>
+  <div class="lc-warn">⚠️ Tool 3 — Mathematics: all three answers here are correctly rounded to 2 significant figures (matching the data). Carrying the rounded values into a later step instead of the calculator's full display value would give 0.079 m rather than 0.081 m — round off only at the end of a multi-step calculation.</div>
+</div>
+
+<div class="lc-card">
+  <h3>🔬 Particle beams and the electron gun</h3>
+  <p><strong>Particle beams</strong> are streams of very fast-moving charged particles (electrons, protons or ions) moving together with the same velocity across a vacuum. Experiments with particle beams led to the discovery of the electron, and they remain central to nuclear physics research, for example at <strong>CERN</strong> (European organization for nuclear research).</p>
+  <p>Figure 7 shows an electron beam deflection tube, commonly used to demonstrate the production and properties of electron beams. A heating current heats the metal <strong>cathode</strong> (the electrode out of which conventional current flows, held at 0 V), increasing the kinetic energy of its free electrons until some escape the metal's surface — a process called <strong>thermionic emission</strong>. A large positive voltage on the <strong>anode</strong> (the electrode into which conventional current flows) then accelerates these electrons into a beam: an "electron gun".</p>
+  <div class="lc-img">
+    <img src="../../assets/lesson-images/d3/d3-01-motion-in-uniform-electric-field-08.png" alt="Electron gun with heated cathode and anode producing a beam that passes through X plates and Y plates before striking a fluorescent screen" style="max-width:340px;width:100%">
+    <div class="lc-cap">Fig 7 — Electron deflection tube. The beam travels through a vacuum, is deflected left/right by the X-plates and up/down by the Y-plates, and produces a spot of light on the fluorescent screen.</div>
+  </div>
+  <p>When the beam strikes the fluorescent screen, some kinetic energy converts to visible light: a spot. A p.d. across the X-plates deflects the spot left or right; a p.d. across the Y-plates deflects it up or down — the same physics as Worked example 2, applied twice, perpendicular to each other.</p>
+</div>
+
+<div class="lc-two-col">
+  <div class="lc-card">
+    <h3>🌍 Real-world: this is how a CRT screen worked</h3>
+    <p>Before flat screens, televisions and oscilloscopes used exactly this deflection tube. The X- and Y-plates steer the electron beam to any point on the fluorescent screen, redrawing the spot many times a second to build a picture or trace a waveform.</p>
+    <div class="lc-success">✓ Examiner tip: when a question gives a field acting in one direction and asks for the direction of force on a named charge, always state the sign of the charge and reason from it — "the electron is negative, so it accelerates opposite to the field, i.e. toward the positive plate" earns the mark; "it moves down" on its own usually does not.</div>
+  </div>
+  <div class="lc-card">
+    <h3>🚀 HL Extension – when classical mechanics starts to fail</h3>
+    <p>Worked example 1 gave an electron a final speed of \(2.7\times10^{7}\ \text{m s}^{-1}\) — about 9% of the speed of light. The equations of motion used here (\(F=ma\), \(v^2=u^2+2as\)) assume Newtonian mechanics, which is an excellent approximation at this speed but starts to break down as \(v\) approaches \(c\) (Topic A.5).</p>
+    <p><strong>Challenge:</strong> the electron in Worked example 2 also reaches a substantial speed. Estimate its speed on leaving the field, and comment on whether relativistic corrections would matter here. <em>Its horizontal speed alone is already \(5.5\times10^{7}\ \text{m s}^{-1}\) (~18% of \(c\)); adding the small vertical component barely changes the total speed. At around 18% of \(c\), relativistic corrections to mass and energy are still small (a percent or two) but no longer completely negligible for high-precision work.</em></p>
+  </div>
+</div>
+
+<div class="lc-card">
+  <h3>⚠️ Trap corner – common mistakes</h3>
+  <table class="lc-table">
+    <thead><tr><th>Misconception</th><th>Correct view</th></tr></thead>
+    <tbody>
+      <tr><td>A charge always accelerates in the same direction as the field</td><td>Only a <em>positive</em> charge does. A negative charge accelerates opposite to the field, toward the positive plate</td></tr>
+      <tr><td>Treating the particle's initial speed as exactly zero is "wrong" because particles are never truly stationary</td><td>It is a valid simplifying assumption: the p.d. accelerates the particle to speeds far above its random thermal velocity, so the error is negligible</td></tr>
+      <tr><td>A charge crossing a field travels in a straight line, just deflected sideways</td><td>It follows a curved, parabolic path — exactly like a ball thrown horizontally in a gravitational field</td></tr>
+      <tr><td>The horizontal speed changes as the particle crosses the field</td><td>There is no horizontal force, so horizontal speed stays constant; only the vertical component changes</td></tr>
+    </tbody>
+  </table>
+  <div class="lc-warn">⚠️ Most common slip: forgetting the sign of the charge when finding the direction of the force, and simply assuming "force follows the field lines" for every particle.</div>
+</div>
+
+<div class="lc-kp">
+  <span>F = Eq</span>
+  <span>E = V/d</span>
+  <span>F = Vq/d</span>
+  <span>a = F/m</span>
+  <span>along field: straight-line acceleration</span>
+  <span>across field: parabolic path</span>
+  <span>thermionic emission</span>
+  <span>cathode → anode → beam</span>
+</div>
+
+<div class="lc-section">Practice check — multiple choice</div>
+
+<div class="lc-card">
+  <div id="mcq1">
+    <div class="lc-mcq-q">1. A proton and an electron are both released from rest at the same point in a uniform electric field. Which statement is correct?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'A','B')"><span class="lc-opt-l">A</span> Both accelerate in the same direction with the same acceleration</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'B','B')"><span class="lc-opt-l">B</span> They accelerate in opposite directions, and the electron's acceleration is much greater</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'C','B')"><span class="lc-opt-l">C</span> They accelerate in opposite directions, and the proton's acceleration is much greater</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq1',this,'D','B')"><span class="lc-opt-l">D</span> Neither accelerates, since both start from rest</div>
+    </div>
+    <div class="lc-fb" id="mcq1-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq2">
+    <div class="lc-mcq-q">2. An electron enters a uniform field moving perpendicular to the field lines. Which pair correctly describes its motion inside the field?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'A','B')"><span class="lc-opt-l">A</span> Constant velocity throughout</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'B','B')"><span class="lc-opt-l">B</span> Constant speed in the original direction, acceleration perpendicular to it</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'C','B')"><span class="lc-opt-l">C</span> Acceleration in the original direction, constant speed perpendicular to it</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq2',this,'D','B')"><span class="lc-opt-l">D</span> Acceleration in both directions</div>
+    </div>
+    <div class="lc-fb" id="mcq2-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq3">
+    <div class="lc-mcq-q">3. In the electron deflection tube, thermionic emission occurs at the</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'A','B')"><span class="lc-opt-l">A</span> anode</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'B','B')"><span class="lc-opt-l">B</span> cathode</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'C','B')"><span class="lc-opt-l">C</span> X-plates</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq3',this,'D','B')"><span class="lc-opt-l">D</span> fluorescent screen</div>
+    </div>
+    <div class="lc-fb" id="mcq3-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq4">
+    <div class="lc-mcq-q">4. A charge is accelerated from rest through a p.d. of 2000 V across plates 8.0 cm apart. Which change would double its final speed?</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'A','A')"><span class="lc-opt-l">A</span> Increasing the p.d. to 8000 V, keeping the separation the same</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'B','A')"><span class="lc-opt-l">B</span> Doubling the p.d. to 4000 V</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'C','A')"><span class="lc-opt-l">C</span> Doubling the plate separation to 16 cm</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq4',this,'D','A')"><span class="lc-opt-l">D</span> Halving the plate separation to 4.0 cm</div>
+    </div>
+    <div class="lc-fb" id="mcq4-fb"></div>
+  </div>
+</div>
+
+<div class="lc-card">
+  <div id="mcq5">
+    <div class="lc-mcq-q">5. On a speed–time graph for a charge accelerating along a field line from rest, the gradient represents</div>
+    <div class="lc-opts">
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'A','C')"><span class="lc-opt-l">A</span> the electric field strength</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'B','C')"><span class="lc-opt-l">B</span> the p.d. across the plates</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'C','C')"><span class="lc-opt-l">C</span> the acceleration of the charge</div>
+      <div class="lc-opt" onclick="lcMCQ('mcq5',this,'D','C')"><span class="lc-opt-l">D</span> the displacement of the charge</div>
+    </div>
+    <div class="lc-fb" id="mcq5-fb"></div>
+  </div>
+</div>
+
+<div class="lc-section">Practice check — fill in the blanks</div>
+
+<div class="lc-card">
+  <p style="margin-bottom:0.6rem;font-weight:600;font-size:0.9rem">Complete the statements:</p>
+  <div class="lc-fitb">
+    A charge moving along a field line experiences a constant force and so has constant <input class="lc-fitb-input" id="lf1" placeholder="?" style="width:120px">. A charge moving across a field line follows a <input class="lc-fitb-input" id="lf2" placeholder="?" style="width:120px"> path, because it has constant speed in one direction and constant acceleration <input class="lc-fitb-input" id="lf3" placeholder="?" style="width:140px"> to it. The electrode from which electrons are emitted by thermionic emission is called the <input class="lc-fitb-input" id="lf4" placeholder="?" style="width:110px">, and the electrode that accelerates them is the <input class="lc-fitb-input" id="lf5" placeholder="?" style="width:100px">. In an electron deflection tube, the <input class="lc-fitb-input" id="lf6" placeholder="?" style="width:100px">-plates deflect the beam up or down.
+  </div>
+  <button class="lc-check-btn" onclick="lcFITB()">Check answers</button>
+  <div id="lc-fitb-result" style="font-size:0.84rem;margin-top:0.5rem;display:none"></div>
+</div>
+
+<div class="lc-section">Exam‑style questions</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / State</div>
+  <div class="lc-exam-q"><strong>Q1.</strong> <strong>(a)</strong> Calculate the force exerted on a singly charged positive ion in an electric field of 1200 N C⁻¹ acting vertically downwards. <strong>(b)</strong> Determine the mass of the ion if it started to accelerate at \(7.4\times10^{9}\ \text{m s}^{-2}\). <strong>(c)</strong> State the direction in which the ion will accelerate. <span class="lc-exam-marks">[4 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(F = Eq = 1200 \times 1.60\times10^{-19} = 1.9\times10^{-16}\ \text{N}\).<br>✓ \(m = F/a = (1.9\times10^{-16})/(7.4\times10^{9}) = 2.6\times10^{-26}\ \text{kg}\).<br>✓ The ion is positive, so it accelerates in the same direction as the field.<br>✓ i.e. vertically downwards.</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Calculate / Determine</div>
+  <div class="lc-exam-q"><strong>Q2.</strong> A proton is accelerated by a p.d. of \(3.7\times10^{4}\) V connected between two parallel metal plates which are 2.8 cm apart. <strong>(a)</strong> Calculate the strength of the electric field. <strong>(b)</strong> Assuming the field is uniform, determine the force the proton experiences. Determine the maximum energy the proton can gain in <strong>i</strong> eV <strong>ii</strong> J. <span class="lc-exam-marks">[5 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ (a) \(E = V/d = (3.7\times10^{4})/0.028 = 1.3\times10^{6}\ \text{N C}^{-1}\).<br>✓ (b) \(F = Eq = (1.3\times10^{6})(1.60\times10^{-19}) = 2.1\times10^{-13}\ \text{N}\).<br>✓ i. Accelerated through the full p.d., the proton gains \(3.7\times10^{4}\ \text{eV}\).<br>✓ ii. \(E_{\text{k}} = qV = (1.60\times10^{-19})(3.7\times10^{4}) = 5.9\times10^{-15}\ \text{J}\).</div>
+</div>
+
+<div class="lc-exam">
+  <div class="lc-exam-tag">Exam question · Show that</div>
+  <div class="lc-exam-q"><strong>Q3.</strong> Show that the final speed of an electron accelerated from rest over a distance of 5.0 cm in a vacuum by a uniform electric field of \(9.2\times10^{4}\ \text{N C}^{-1}\) is about forty million metres per second. <span class="lc-exam-marks">[3 marks]</span></div>
+  <textarea class="lc-exam-input" placeholder="Write your answer here…"></textarea>
+  <button class="lc-reveal-btn" onclick="lcToggleModel(this)">Show model answer</button>
+  <div class="lc-model">✓ \(F = Eq = (9.2\times10^{4})(1.60\times10^{-19}) = 1.5\times10^{-14}\ \text{N}\); \(a = F/m = 1.6\times10^{16}\ \text{m s}^{-2}\).<br>✓ \(v^2 = 0 + 2as = 2(1.6\times10^{16})(0.050) = 1.6\times10^{15}\).<br>✓ \(v = 4.0\times10^{7}\ \text{m s}^{-1}\) — about forty million m s⁻¹, as required.</div>
+</div>
+
+<div class="lc-score-row">
+  <div class="lc-score">Score: <strong id="lc-score-display">0</strong> pts</div>
+</div>
+
+<script>
+lcInit({
+  feedback: {
+    mcq1: { B: 'Both feel F = Eq, in opposite directions (opposite charge signs). a = F/m, and the electron\'s mass is about 1836x smaller, so its acceleration is far larger.' },
+    mcq2: { B: 'No force acts along the original direction, so that speed stays constant; the field produces a constant acceleration perpendicular to it, giving a parabolic path.' },
+    mcq3: { B: 'The cathode is heated and releases electrons by thermionic emission; the anode then accelerates them into a beam.' },
+    mcq4: { A: 'v \u221d \u221aV, so v doubles only when V is quadrupled (2000 V \u2192 8000 V). Doubling V only multiplies v by \u221a2, and changing d changes F = Vq/d, not v directly once V and d both change the field and the distance travelled.' },
+    mcq5: { C: 'Gradient of a speed-time graph is always acceleration, whatever produces it.' }
+  },
+  fitb: { lf1:'acceleration', lf2:'parabolic', lf3:'perpendicular', lf4:'cathode', lf5:'anode', lf6:'Y' }
+});
+</script>
+</div>
       <!-- LESSON-END -->
       </div>
 
