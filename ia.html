@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -31,6 +32,15 @@
 .trap-row{display:grid;grid-template-columns:36px 1fr 1fr;gap:1rem;border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.25rem;margin-bottom:.75rem;align-items:start}
 .lbl{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
 a{color:var(--accent)}a:hover{color:var(--accent2)}
+.ck-table{width:100%;border-collapse:collapse;font-size:.84rem;line-height:1.5}
+.ck-table th{text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);padding:.6rem .7rem;border-bottom:2px solid var(--border-2);vertical-align:bottom}
+.ck-table td{padding:.7rem;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-2)}
+.ck-table tr.ck-crit td{background:var(--surface2);font-weight:700;color:var(--text);padding:.55rem .7rem}
+.ck-table td.ck-comp{color:var(--text);font-weight:600;min-width:160px}
+.ck-table td.ck-box{width:38px;text-align:center}
+.ck-table input[type=checkbox]{width:18px;height:18px;cursor:pointer;accent-color:var(--green)}
+.ck-scroll{overflow-x:auto}
+@media print{nav,.no-print,.ia-hero{display:none!important}body{background:#fff!important;color:#000!important}.criteria-card{border:none!important;padding:0!important;background:#fff!important}.ck-table td,.ck-table th,.ck-table tr.ck-crit td,.ck-table td.ck-comp{color:#000!important;background:#fff!important;border-color:#999!important}.ck-table tr.ck-crit td{background:#eee!important}.ck-table{font-size:9.5pt}h3,.lbl,p{color:#000!important}}
 @media(max-width:720px){.trap-row{grid-template-columns:1fr}}
 </style>
 </head>
@@ -165,6 +175,75 @@ const ACTIONS = [
   { label:'Test your conclusion', task:"Does it contain a number with an uncertainty and a comparison to theory? If not, it's not scoring 5–6." },
   { label:'Delete "human error"', task:'Search your evaluation for "human error", "be more careful", "better equipment". Rewrite each one specifically.' },
 ];
+
+const CHECKLIST = {
+  rd:[
+    ['Research Question','Topic stated vaguely; IV/DV unclear, no system or theory.','IV (with range), DV and system specified; some controls.','Focused RQ: IV with range, DV, controls, system and the governing equation.'],
+    ['Methodological Considerations','Equipment and controls listed with no reasons given.','Range, intervals, repeats and controls described.','Every choice justified with physics, including its effect on uncertainty/validity.'],
+    ['Description of Methodology','Brief outline; could not be repeated by someone else.','Step-by-step procedure with values; gaps (no diagram or uncertainties).','Fully reproducible: apparatus with uncertainties, labelled diagram, exact measurement points.'],
+  ],
+  da:[
+    ['Communication of Data','Data narrated or unformatted; units missing.','Tables and graph present with minor issues (units, error bars).','Tables with units, uncertainties, consistent s.f.; graph with labelled axes and error bars.'],
+    ['Consideration of Uncertainties','Uncertainty mentioned in general terms only.','Instrument uncertainties listed and repeats averaged; no propagation.','All uncertainties quantified and propagated to the final value; choices justified.'],
+    ['Relevant & Accurate Processing','Single data point used or calculation incorrect.','Correct method (e.g. gradient) but no uncertainty in the result.','Complete processing: justified best-fit, max/min slopes, final value ± uncertainty.'],
+  ],
+  cn:[
+    ['Conclusion Relevant & Consistent','Qualitative statement, not supported by the data.','Answers the RQ from the graph trend; lacks values.','Answers the RQ with values and uncertainties, consistent with the analysis.'],
+    ['Comparison with Scientific Context','"Agrees with theory" with no specifics.','Names the relevant theory; comparison is loose.','Calculates the predicted/literature value, gives % difference, explains any deviation.'],
+  ],
+  ev:[
+    ['Weaknesses & Limitations','Generic weaknesses ("human error").','Specific weaknesses tied to the method; impact not stated.','Weaknesses quantified, classed random/systematic, effect on the result explained.'],
+    ['Realistic Improvements','Generic fixes ("better equipment", "be careful").','Specific fixes linked to identified weaknesses.','Each fix linked to a weakness, with its expected improvement quantified.'],
+  ],
+};
+
+function ChecklistPanel() {
+  const [checked, setChecked] = useState(() => { try { return JSON.parse(localStorage.getItem('phyq-ia-checklist') || '{}'); } catch { return {}; } });
+  useEffect(() => { localStorage.setItem('phyq-ia-checklist', JSON.stringify(checked)); }, [checked]);
+  const total = Object.values(CHECKLIST).reduce((a, r) => a + r.length, 0);
+  const done = Object.values(checked).filter(Boolean).length;
+  return (
+    <div className="criteria-card">
+      <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-end', gap:'1rem', flexWrap:'wrap', marginBottom:'1.25rem' }}>
+        <div>
+          <Label>IA checklist</Label>
+          <h3 style={{ fontSize:'1.25rem', marginBottom:'.4rem' }}>Is every component in your report?</h3>
+          <p style={{ fontSize:'.9rem', maxWidth:620 }}>Tick each component once it is in your draft, then check which band your writing matches.</p>
+        </div>
+        <div className="no-print" style={{ display:'flex', alignItems:'center', gap:'.6rem' }}>
+          <span style={{ fontFamily:'var(--font-mono)', fontSize:'.8rem', color: done === total ? 'var(--green)' : 'var(--text-muted)' }}>{done}/{total} present</span>
+          <button className="mini-btn" onClick={() => setChecked({})}>Reset</button>
+          <button className="mini-btn" onClick={() => window.print()}>Print</button>
+        </div>
+      </div>
+      <div className="ck-scroll">
+        <table className="ck-table">
+          <thead><tr>
+            <th>✓</th><th>Component</th>
+            {BAND_IDS.map(id => <th key={id} style={{ color:BANDS[id].color }}>{BANDS[id].label} · {BANDS[id].name}</th>)}
+          </tr></thead>
+          <tbody>
+            {CRITERIA.map(c => (
+              <React.Fragment key={c.id}>
+                <tr className="ck-crit"><td colSpan={5}><span style={{ color:c.color, fontFamily:'var(--font-mono)', marginRight:'.6rem' }}>{c.short}</span>{c.name} <span style={{ fontWeight:400, color:'var(--text-muted)' }}>/6</span></td></tr>
+                {CHECKLIST[c.id].map(([name, a, b, d]) => {
+                  const k = c.id + ':' + name;
+                  return (
+                    <tr key={k}>
+                      <td className="ck-box"><input type="checkbox" checked={!!checked[k]} onChange={e => setChecked(s => ({ ...s, [k]: e.target.checked }))} /></td>
+                      <td className="ck-comp">{name}</td>
+                      <td>{a}</td><td>{b}</td><td>{d}</td>
+                    </tr>
+                  );
+                })}
+              </React.Fragment>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
 
 /* ── shared bits ───────────────────────────────────────────── */
 function BandPill({ id }) {
@@ -456,7 +535,8 @@ function ActionPanel() {
 
 /* ── app ───────────────────────────────────────────────────── */
 function App() {
-  const [tab, setTab] = useState('overview');
+  const [tab, setTabRaw] = useState(() => location.hash.slice(1) || 'overview');
+  const setTab = t => { setTabRaw(t); history.replaceState(null, '', '#' + t); };
   const [scores, setScores] = useState(() => {
     try {
       const v = JSON.parse(localStorage.getItem('phyq-ia-scores-v2') || '[0,0,0,0]');
@@ -466,22 +546,23 @@ function App() {
   useEffect(() => { localStorage.setItem('phyq-ia-scores-v2', JSON.stringify(scores)); }, [scores]);
   const setScore = (idx, val) => { const n = [...scores]; n[idx] = val; setScores(n); };
 
-  const tabs = [{ id:'overview', label:'Overview & Score' }, ...CRITERIA.map(c => ({ id:c.id, label:c.name })),
+  const tabs = [{ id:'overview', label:'Overview & Score' }, { id:'checklist', label:'Checklist' }, ...CRITERIA.map(c => ({ id:c.id, label:c.name })),
                 { id:'language', label:'Band Language' }, { id:'traps', label:'Red Flags' }, { id:'action', label:'Action Plan' }];
 
   let body;
   if (tab === 'overview') body = <OverviewPanel scores={scores} goTo={setTab} />;
+  else if (tab === 'checklist') body = <ChecklistPanel />;
   else if (tab === 'language') body = <LanguagePanel />;
   else if (tab === 'traps') body = <TrapsPanel />;
   else if (tab === 'action') body = <ActionPanel />;
   else {
     const idx = CRITERIA.findIndex(c => c.id === tab);
-    body = <CriterionPanel c={CRITERIA[idx]} score={scores[idx]} setScore={v => setScore(idx, v)} />;
+    body = idx < 0 ? <OverviewPanel scores={scores} goTo={setTab} /> : <CriterionPanel c={CRITERIA[idx]} score={scores[idx]} setScore={v => setScore(idx, v)} />;
   }
 
   return (
     <div>
-      <div style={{ display:'flex', gap:'.4rem', flexWrap:'wrap', marginBottom:'2rem', paddingBottom:'1rem', borderBottom:'1px solid var(--border)' }}>
+      <div className="no-print" style={{ display:'flex', gap:'.4rem', flexWrap:'wrap', marginBottom:'2rem', paddingBottom:'1rem', borderBottom:'1px solid var(--border)' }}>
         {tabs.map(t => (
           <button key={t.id} className={`criteria-tab${tab === t.id ? ' active' : ''}`} onClick={() => setTab(t.id)}>{t.label}</button>
         ))}
