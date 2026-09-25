@@ -2,6 +2,7 @@
    All colours come from theme.css variables. No hex codes here.
    Lesson snippets must NOT re-declare any of this. */
 
+@media(max-width:768px){.lesson-sidebar{position:static!important;top:auto!important}}
 #lesson-body{overflow-x:hidden;max-width:100%}
 #lesson-body mjx-container{max-width:100%}
 #lesson-body mjx-container[jax="SVG"]>svg{max-width:100%;height:auto}
